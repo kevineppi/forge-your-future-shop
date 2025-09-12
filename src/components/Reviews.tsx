@@ -41,7 +41,7 @@ const Reviews = () => {
   const trustIndicators = [
     {
       icon: <Award className="w-6 h-6" />,
-      title: "5 Jahre Erfahrung",
+      title: "2 Jahre Erfahrung",
       description: "Bewährte Expertise in der additiven Fertigung"
     },
     {
