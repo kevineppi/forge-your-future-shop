@@ -16,11 +16,11 @@ const CostCalculator = () => {
   const [printDuration, setPrintDuration] = useState([0]);
 
   const materials = {
-    pla: { name: "PLA", price: 0.10, factor: 1.0 },
-    petg: { name: "PETG", price: 0.16, factor: 1.2 },
-    abs: { name: "ABS", price: 0.14, factor: 1.1 },
-    pa12: { name: "PA12 Nylon", price: 0.50, factor: 1.6 },
-    pa6: { name: "PA6 Nylon", price: 0.50, factor: 1.6 }
+    pla: { name: "PLA", price: 0.20, factor: 1.0 },
+    petg: { name: "PETG", price: 0.32, factor: 1.2 },
+    abs: { name: "ABS", price: 0.28, factor: 1.1 },
+    pa12: { name: "PA12 Nylon", price: 1.00, factor: 1.6 },
+    pa6: { name: "PA6 Nylon", price: 1.00, factor: 1.6 }
   };
 
   const complexityLevels = [
