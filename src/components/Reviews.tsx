@@ -99,8 +99,8 @@ const Reviews = () => {
                 <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <span className="text-lg font-semibold ml-2">4.9</span>
-            <span className="text-muted-foreground ml-2">aus 23 Bewertungen</span>
+            <span className="text-lg font-semibold ml-2">5.0</span>
+            <span className="text-muted-foreground ml-2">aus 20 Bewertungen</span>
           </div>
         </div>
 
