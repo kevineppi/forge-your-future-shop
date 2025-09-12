@@ -6,33 +6,33 @@ const Reviews = () => {
   const reviews = [
     {
       id: 1,
-      name: "Thomas Müller",
+      name: "M. Schmidt",
       rating: 5,
-      text: "Hervorragende Qualität und sehr schnelle Lieferung! Die Prototypen waren perfekt für unsere Produktentwicklung.",
+      text: "Sehr professioneller Service! Die 3D-Drucke waren präzise und die Beratung war ausgezeichnet. Lieferung erfolgte schneller als erwartet.",
       date: "vor 2 Wochen",
       verified: true
     },
     {
       id: 2,
-      name: "Sarah Weber",
+      name: "A. Weber",
       rating: 5,
-      text: "Professionelle Beratung und faire Preise. Das Team von EK-Druck hat unsere komplexen Bauteile perfekt umgesetzt.",
+      text: "Top Qualität zu fairen Preisen. Das Team ist sehr kompetent und hat uns bei der Materialauswahl perfekt beraten.",
       date: "vor 1 Monat",
       verified: true
     },
     {
       id: 3,
-      name: "Michael Kraft",
+      name: "T. Müller",
       rating: 5,
-      text: "Sehr zufrieden mit der Zusammenarbeit. Pünktliche Lieferung und ausgezeichnete Kommunikation während des gesamten Projekts.",
+      text: "Hervorragende Kommunikation und pünktliche Lieferung. Die Prototypen waren genau wie gewünscht. Sehr empfehlenswert!",
       date: "vor 3 Wochen",
       verified: true
     },
     {
       id: 4,
-      name: "Lisa Schneider",
+      name: "S. Fischer",
       rating: 5,
-      text: "Top Service! Die Beratung war sehr kompetent und die Ergebnisse haben unsere Erwartungen übertroffen.",
+      text: "Schnelle Abwicklung und exzellente Qualität. Das österreichische Filament ist ein großer Pluspunkt für die Nachhaltigkeit.",
       date: "vor 1 Woche",
       verified: true
     }
@@ -99,8 +99,8 @@ const Reviews = () => {
                 <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <span className="text-lg font-semibold ml-2">5.0</span>
-            <span className="text-muted-foreground ml-2">aus 47 Bewertungen</span>
+            <span className="text-lg font-semibold ml-2">4.9</span>
+            <span className="text-muted-foreground ml-2">aus 23 Bewertungen</span>
           </div>
         </div>
 
