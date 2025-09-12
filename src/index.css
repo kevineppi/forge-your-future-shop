@@ -7,46 +7,46 @@
 @layer base {
   :root {
     /* Base colors */
-    --background: 0 0% 98%;
-    --foreground: 215 25% 15%;
+    --background: 50 67% 97%;
+    --foreground: 0 1% 20%;
 
     /* Card and surface colors */
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card: 50 67% 97%;
+    --card-foreground: 0 1% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover: 50 67% 97%;
+    --popover-foreground: 0 1% 20%;
 
     /* Brand colors - EK-Druck green */
-    --primary: 120 30% 45%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 120 35% 55%;
+    --primary: 107 7% 40%;
+    --primary-foreground: 50 67% 97%;
+    --primary-glow: 107 10% 50%;
 
     /* Secondary - Dark grey accent */
-    --secondary: 220 15% 25%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 1% 41%;
+    --secondary-foreground: 50 67% 97%;
 
     /* Muted tones */
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 50 30% 92%;
+    --muted-foreground: 0 1% 45%;
 
     /* Accent - Light green for highlights */
-    --accent: 120 40% 60%;
-    --accent-foreground: 0 0% 15%;
+    --accent: 107 15% 50%;
+    --accent-foreground: 50 67% 97%;
 
     /* Destructive */
     --destructive: 0 85% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 50 67% 97%;
 
     /* Borders and inputs */
-    --border: 215 20% 88%;
-    --input: 215 20% 88%;
-    --ring: 220 90% 56%;
+    --border: 0 1% 85%;
+    --input: 0 1% 85%;
+    --ring: 107 7% 40%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(120 30% 45%), hsl(120 40% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(120 20% 92%) 50%, hsl(120 30% 85%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(120 10% 98%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(107 7% 40%), hsl(107 15% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(50 67% 97%) 0%, hsl(107 10% 90%) 50%, hsl(107 7% 80%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(50 67% 97%) 0%, hsl(50 30% 95%) 100%);
     
     /* Shadows */
     --shadow-primary: 0 10px 30px -10px hsl(220 90% 56% / 0.3);
