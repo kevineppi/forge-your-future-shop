@@ -60,7 +60,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email
     const emailResponse = await resend.emails.send({
-      from: "EK-Druck Kontaktformular <onboarding@resend.dev>", // You should change this to your verified domain
+      from: "EK-Druck Kontaktformular <noreply@ek-druck.at>",
       to: ["office@ek-druck.at"], // Updated to your preferred notification email
       subject: `Neue Kontaktanfrage von ${record.name}`,
       html: emailContent,
