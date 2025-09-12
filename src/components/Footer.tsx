@@ -17,70 +17,61 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-gradient mb-4">3D Forge</h3>
+            <h3 className="text-2xl font-bold text-gradient mb-4">ekdruck e.U.</h3>
             <p className="text-muted-foreground mb-6">
-              Transforming digital designs into physical reality with precision, 
-              speed, and innovation.
+              Hochwertiger 3D-Druck für maßgeschneiderte Prototypen, Kleinserien und 
+              individuelle Fertigungslösungen aus Oberösterreich. Nachhaltig und regional.
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon">
-                <Facebook className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Twitter className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
                 <Instagram className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Linkedin className="h-5 w-5" />
               </Button>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
+            <h4 className="font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Rapid Prototyping</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Custom Manufacturing</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Design Services</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Express Service</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Industrial Parts</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Maintenance & Repair</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Einzelanfertigungen</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Nachhaltige Inneneinrichtung</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Serienfertigung</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Express-Service</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Technischer Entwurf</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Beratung</a></li>
             </ul>
           </div>
 
           {/* Resources */}
           <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
+            <h4 className="font-semibold mb-4">Materialien</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Design Guidelines</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Material Guide</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">File Preparation</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">FAQ</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Case Studies</a></li>
+              <li><a href="#about" className="hover:text-primary transition-colors">Österreichisches Filament</a></li>
+              <li><a href="#about" className="hover:text-primary transition-colors">PLA & PLA+</a></li>
+              <li><a href="#about" className="hover:text-primary transition-colors">PETG</a></li>
+              <li><a href="#about" className="hover:text-primary transition-colors">ABS</a></li>
+              <li><a href="#about" className="hover:text-primary transition-colors">Flexible Materialien</a></li>
+              <li><a href="#about" className="hover:text-primary transition-colors">Alle Farben</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
+            <h4 className="font-semibold mb-4">Kontakt</h4>
             <div className="space-y-3 text-muted-foreground">
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-3 text-primary" />
-                <span className="text-sm">hello@3dforge.com</span>
+                <span className="text-sm">office@ek-druck.at</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-3 text-primary" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+43 650 123 4567</span>
               </div>
               <div className="flex items-start">
                 <MapPin className="h-4 w-4 mr-3 text-primary mt-0.5" />
                 <div className="text-sm">
-                  <div>123 Innovation Drive</div>
-                  <div>Tech City, TC 12345</div>
+                  <div>Oberösterreich</div>
+                  <div>Österreich</div>
                 </div>
               </div>
             </div>
@@ -91,17 +82,14 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 3D Forge. All rights reserved.
+            © 2024 ekdruck e.U. Alle Rechte vorbehalten.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Privacy Policy
+              Datenschutz
             </a>
             <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Cookie Policy
+              Impressum
             </a>
           </div>
         </div>
