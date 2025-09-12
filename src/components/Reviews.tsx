@@ -2,37 +2,37 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote, Shield, Award, Zap, CheckCircle } from "lucide-react";
 
 const Reviews = () => {
-  // Sample reviews based on typical 3D printing business feedback
+  // Echte Kundenbewertungen
   const reviews = [
     {
       id: 1,
-      name: "M. Schmidt",
+      name: "Hannah E.",
       rating: 5,
-      text: "Sehr professioneller Service! Die 3D-Drucke waren präzise und die Beratung war ausgezeichnet. Lieferung erfolgte schneller als erwartet.",
+      text: "Inhaber sehr zuvorkommend und freundlich, mein Auftrag wurde schnell bearbeitet, Top Qualität, kann ich nur weiterempfehlen..",
       date: "vor 2 Wochen",
       verified: true
     },
     {
       id: 2,
-      name: "A. Weber",
+      name: "Simone G.",
       rating: 5,
-      text: "Top Qualität zu fairen Preisen. Das Team ist sehr kompetent und hat uns bei der Materialauswahl perfekt beraten.",
+      text: "Anwortet schnell👌 Preis- Leistung extrem fair Empfehlenswert!",
       date: "vor 1 Monat",
       verified: true
     },
     {
       id: 3,
-      name: "T. Müller",
+      name: "Klaus F.",
       rating: 5,
-      text: "Hervorragende Kommunikation und pünktliche Lieferung. Die Prototypen waren genau wie gewünscht. Sehr empfehlenswert!",
+      text: "Sehr schnelle Abwicklung. Ein Teil wurde sogar 2x gedruckt, da beim ersten Druck ein Überhang nicht sauber war, was für meine Anwendung nicht relevant gewesen wäre. Das auf eigene Kosten der Firma. Kommunikation war ausgezeichnet.",
       date: "vor 3 Wochen",
       verified: true
     },
     {
       id: 4,
-      name: "S. Fischer",
+      name: "Silvio T.",
       rating: 5,
-      text: "Schnelle Abwicklung und exzellente Qualität. Das österreichische Filament ist ein großer Pluspunkt für die Nachhaltigkeit.",
+      text: "Sehr freundlich und unkompliziert. Ich bin begeistert von dem Stück. Exakter Clone vom Forschungsstück. Absolut professionell!! Kann ich nur weiterempfehlen! Sehr gerne wieder. Preis Leistung ist einfach Super. Sehr gerne wieder",
       date: "vor 1 Woche",
       verified: true
     }
