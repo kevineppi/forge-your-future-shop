@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+
 const Footer = () => {
-  return <footer className="bg-card border-t border-border">
+  return (
+    <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -60,9 +62,8 @@ const Footer = () => {
               <div className="flex items-start">
                 <MapPin className="h-4 w-4 mr-3 text-primary mt-0.5" />
                 <div className="text-sm">
-                  <div>Negrellistraße 15   
-4623 Gunskirchen  </div>
-                  
+                  <div>Negrellistraße 15</div>
+                  <div>4623 Gunskirchen</div>
                 </div>
               </div>
             </div>
@@ -85,6 +86,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
