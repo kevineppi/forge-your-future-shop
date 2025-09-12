@@ -253,7 +253,7 @@ const CostCalculator = () => {
                 {isCalculating ? (
                   <LoadingSkeleton type="pricing" />
                 ) : (
-                <div className="space-y-4">
+                  <div className="space-y-4">
                   <div className="flex justify-between items-center p-4 bg-muted/50 rounded-lg">
                     <span className="font-medium">Preis pro Stück:</span>
                     <span className="text-xl font-bold text-primary">
@@ -292,6 +292,7 @@ const CostCalculator = () => {
                     </Badge>
                   )}
                 </div>
+                )}
 
                 <div className="space-y-3 pt-4 border-t border-border/50">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -336,7 +337,6 @@ const CostCalculator = () => {
                   Dies ist eine automatische Schätzung. Für ein präzises Angebot senden Sie uns bitte Ihre 3D-Datei.
                   Komplexe Geometrien oder spezielle Anforderungen können den Preis beeinflussen.
                 </p>
-                )}
               </CardContent>
             </Card>
           </div>
