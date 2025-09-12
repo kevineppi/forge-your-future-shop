@@ -3,15 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock,
-  Send,
-  Upload
-} from "lucide-react";
-
+import { Mail, Phone, MapPin, Clock, Send, Upload } from "lucide-react";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -20,22 +12,18 @@ const Contact = () => {
     timeline: "",
     message: ""
   });
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log("Form submitted:", formData);
   };
-
-  return (
-    <section id="contact" className="py-24">
+  return <section id="contact" className="py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -58,7 +46,7 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-2">info@ek-druck.at</p>
+                <p className="text-muted-foreground mb-2 mx-[10px] py-[10px]">office@ek-druck.at</p>
                 <p className="text-muted-foreground">office@ek-druck.at</p>
               </CardContent>
             </Card>
@@ -71,24 +59,12 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-2">+43 (0) 664 123 4567</p>
+                <p className="text-muted-foreground mb-2">+43 676 5517197</p>
                 <p className="text-sm text-muted-foreground">Mo-Fr 8:00-17:00 Uhr</p>
               </CardContent>
             </Card>
 
-            <Card className="gradient-card border-0">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <MapPin className="mr-3 h-5 w-5 text-primary" />
-                  Besuchen Sie uns
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-2">Technologiepark 1</p>
-                <p className="text-muted-foreground mb-2">4061 Pasching, Oberösterreich</p>
-                <p className="text-sm text-muted-foreground">Nach Terminvereinbarung</p>
-              </CardContent>
-            </Card>
+            
 
             <Card className="gradient-card border-0">
               <CardHeader>
@@ -119,45 +95,25 @@ const Contact = () => {
             <Card className="gradient-card border-0">
               <CardHeader>
                 <CardTitle className="text-2xl">Ihr individuelles Angebot</CardTitle>
-                <p className="text-muted-foreground">
-                  Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden mit einem detaillierten Angebot.
-                </p>
+                <p className="text-muted-foreground">Füllen Sie das Formular aus und wir melden uns innerhalb von 12 Stunden mit einem detaillierten Angebot.</p>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium mb-2">Name *</label>
-                      <Input
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Ihr vollständiger Name"
-                        required
-                      />
+                      <Input name="name" value={formData.name} onChange={handleInputChange} placeholder="Ihr vollständiger Name" required />
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2">E-Mail *</label>
-                      <Input
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="ihre@email.at"
-                        required
-                      />
+                      <Input name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="ihre@email.at" required />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium mb-2">Projekt-Art</label>
-                      <select
-                        name="project"
-                        value={formData.project}
-                        onChange={handleInputChange}
-                        className="w-full p-3 border border-input rounded-md bg-background"
-                      >
+                      <select name="project" value={formData.project} onChange={handleInputChange} className="w-full p-3 border border-input rounded-md bg-background">
                         <option value="">Projekt-Art wählen</option>
                         <option value="einzelanfertigung">Einzelanfertigung</option>
                         <option value="serienfertigung">Serienfertigung</option>
@@ -168,12 +124,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2">Zeitrahmen</label>
-                      <select
-                        name="timeline"
-                        value={formData.timeline}
-                        onChange={handleInputChange}
-                        className="w-full p-3 border border-input rounded-md bg-background"
-                      >
+                      <select name="timeline" value={formData.timeline} onChange={handleInputChange} className="w-full p-3 border border-input rounded-md bg-background">
                         <option value="">Zeitrahmen wählen</option>
                         <option value="express">Express (24-48 Stunden)</option>
                         <option value="standard">Standard (3-5 Tage)</option>
@@ -185,13 +136,7 @@ const Contact = () => {
 
                   <div>
                     <label className="block text-sm font-medium mb-2">Projekt-Details</label>
-                    <Textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Erzählen Sie uns von Ihrem Projekt: Materialien, Stückzahl, besondere Anforderungen..."
-                      rows={4}
-                    />
+                    <Textarea name="message" value={formData.message} onChange={handleInputChange} placeholder="Erzählen Sie uns von Ihrem Projekt: Materialien, Stückzahl, besondere Anforderungen..." rows={4} />
                   </div>
 
                   <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
@@ -217,8 +162,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
