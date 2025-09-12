@@ -11,11 +11,13 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <img 
-              src="/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png" 
-              alt="ekdruck e.U. Logo" 
-              className="h-16 w-auto"
-            />
+            <a href="/" className="hover:opacity-80 transition-opacity duration-300">
+              <img 
+                src="/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png" 
+                alt="ekdruck e.U. - 3D-Druck Oberösterreich Logo" 
+                className="h-16 w-auto"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}

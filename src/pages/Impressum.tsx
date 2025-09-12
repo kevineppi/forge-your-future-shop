@@ -1,7 +1,15 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const Impressum = () => {
+  useEffect(() => {
+    document.title = "Impressum - ekdruck e.U. | 3D-Druck Oberösterreich";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Impressum der ekdruck e.U. aus Gunskirchen, Oberösterreich. Rechtliche Informationen zum 3D-Druck Service in Austria.');
+    }
+  }, []);
   return (
     <div className="min-h-screen">
       <Navigation />

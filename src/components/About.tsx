@@ -28,8 +28,8 @@ const About = () => {
             Über <span className="text-gradient">ekdruck e.U.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Regionalität und Nachhaltigkeit sind uns ein persönliches Anliegen. Als 3D-Druck Dienstleister 
-            in Österreich setzen wir auf österreichisches Filament und persönliche Beratung.
+            Ihr regionaler 3D-Druck Partner aus Gunskirchen, Oberösterreich. Nachhaltige Fertigung mit 
+            österreichischem Filament, persönliche Beratung und kurze Lieferwege nach Wels, Linz und ganz Austria.
           </p>
         </div>
 
@@ -38,8 +38,8 @@ const About = () => {
           <div>
             <h3 className="text-2xl font-bold mb-6">Unsere Mission</h3>
             <div className="space-y-4 text-muted-foreground">
-              <p>ekdruck e.U. steht für hochwertigen 3D-Druck mit einem besonderen Fokus auf Nachhaltigkeit und Regionalität. Wir bieten maßgeschneiderte Prototypen, Kleinserien und individuelle Fertigungslösungen direkt aus Oberösterreich.</p>
-              <p>Unser Ziel ist eine langfristige Partnerschaft mit unseren Kunden. Kundennähe ist uns wichtig - deshalb bieten wir jederzeit eine kostenlose und individuelle Beratung an.</p>
+              <p>ekdruck e.U. ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. Wir bieten maßgeschneiderte Prototypen, Kleinserien und individuelle Fertigungslösungen direkt aus Gunskirchen bei Wels - mit kurzen Lieferwegen nach Linz, Salzburg und ganz Austria.</p>
+              <p>Als regionaler 3D-Druck Spezialist legen wir Wert auf persönliche Beratung und langfristige Kundenpartnerschaften. Unser Standort in Oberösterreich ermöglicht schnelle Reaktionszeiten und direkten Kontakt zu unseren Kunden in ganz Austria.</p>
               <p>
                 Um ressourcenschonend zu produzieren, beziehen wir unser Filament ausschließlich aus 
                 Österreich, wo es aus Industrieabfällen hergestellt wird. So verbinden wir Qualität 

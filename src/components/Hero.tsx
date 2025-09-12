@@ -14,9 +14,9 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            <span className="text-primary font-semibold">Nachhaltiger</span> 3D-Druck mit <span className="text-primary font-semibold">österreichischem Filament</span>. 
-            <span className="text-primary font-semibold">Schnell</span>, <span className="text-primary font-semibold">preiswert</span> und <span className="text-primary font-semibold">zuverlässig</span> - 
-            von der Idee bis zum fertigen Produkt.
+            <span className="text-primary font-semibold">Nachhaltiger 3D-Druck</span> aus <span className="text-primary font-semibold">Gunskirchen, Oberösterreich</span> mit österreichischem Filament. 
+            <span className="text-primary font-semibold">Prototypen</span>, <span className="text-primary font-semibold">Einzelanfertigungen</span> und <span className="text-primary font-semibold">Serienfertigung</span> - 
+            regional, schnell und umweltfreundlich.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
