@@ -29,12 +29,12 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="hero" size="lg" className="group">
+            <Button variant="hero" size="lg" className="group" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
               Kostenloses Angebot
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             
-            <Button variant="glass" size="lg" className="group">
+            <Button variant="outline" size="lg" className="group text-white border-white hover:bg-white hover:text-foreground" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
               <Play className="mr-2 h-5 w-5" />
               Unsere Leistungen
             </Button>

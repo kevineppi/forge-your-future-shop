@@ -20,7 +20,7 @@ const Navigation = () => {
             <a href="#portfolio" className="text-foreground hover:text-primary transition-colors">Portfolio</a>
             <a href="#about" className="text-foreground hover:text-primary transition-colors">Über uns</a>
             <a href="#contact" className="text-foreground hover:text-primary transition-colors">Kontakt</a>
-            <Button variant="hero" size="sm">Angebot</Button>
+            <Button variant="hero" size="sm" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -42,7 +42,7 @@ const Navigation = () => {
             <a href="#portfolio" className="block text-foreground hover:text-primary transition-colors">Portfolio</a>
             <a href="#about" className="block text-foreground hover:text-primary transition-colors">Über uns</a>
             <a href="#contact" className="block text-foreground hover:text-primary transition-colors">Kontakt</a>
-            <Button variant="hero" size="sm" className="w-full">Angebot</Button>
+            <Button variant="hero" size="sm" className="w-full" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
           </div>
         )}
       </div>

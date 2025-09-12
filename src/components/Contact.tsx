@@ -59,7 +59,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-2">info@ek-druck.at</p>
-                <p className="text-muted-foreground">angebot@ek-druck.at</p>
+                <p className="text-muted-foreground">office@ek-druck.at</p>
               </CardContent>
             </Card>
 
@@ -71,8 +71,8 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-2">+43 (0) 7XXX XXX-XXX</p>
-                <p className="text-sm text-muted-foreground">Mo-Fr 9:00-18:00 Uhr</p>
+                <p className="text-muted-foreground mb-2">+43 (0) 664 123 4567</p>
+                <p className="text-sm text-muted-foreground">Mo-Fr 8:00-17:00 Uhr</p>
               </CardContent>
             </Card>
 
@@ -84,8 +84,8 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-2">Musterstraße 123</p>
-                <p className="text-muted-foreground mb-2">4020 Linz, Oberösterreich</p>
+                <p className="text-muted-foreground mb-2">Technologiepark 1</p>
+                <p className="text-muted-foreground mb-2">4061 Pasching, Oberösterreich</p>
                 <p className="text-sm text-muted-foreground">Nach Terminvereinbarung</p>
               </CardContent>
             </Card>
@@ -100,11 +100,11 @@ const Contact = () => {
               <CardContent className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Montag - Freitag</span>
-                  <span className="font-medium">9:00 - 18:00</span>
+                  <span className="font-medium">8:00 - 17:00</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Samstag</span>
-                  <span className="font-medium">10:00 - 16:00</span>
+                  <span className="font-medium">Nach Vereinbarung</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Sonntag</span>

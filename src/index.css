@@ -17,22 +17,22 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Brand colors - Deep tech blue */
-    --primary: 220 90% 56%;
+    /* Brand colors - EK-Druck green */
+    --primary: 120 30% 45%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 220 85% 65%;
+    --primary-glow: 120 35% 55%;
 
-    /* Secondary - Purple accent */
-    --secondary: 260 85% 65%;
+    /* Secondary - Dark grey accent */
+    --secondary: 220 15% 25%;
     --secondary-foreground: 0 0% 98%;
 
     /* Muted tones */
-    --muted: 215 20% 96%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Accent - Bright cyan for highlights */
-    --accent: 190 95% 60%;
-    --accent-foreground: 215 25% 15%;
+    /* Accent - Light green for highlights */
+    --accent: 120 40% 60%;
+    --accent-foreground: 0 0% 15%;
 
     /* Destructive */
     --destructive: 0 85% 60%;
@@ -44,9 +44,9 @@
     --ring: 220 90% 56%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 90% 56%), hsl(260 85% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 95% 15%) 0%, hsl(220 80% 25%) 50%, hsl(260 85% 35%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(215 20% 98%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(120 30% 45%), hsl(120 40% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(120 20% 92%) 50%, hsl(120 30% 85%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(120 10% 98%) 100%);
     
     /* Shadows */
     --shadow-primary: 0 10px 30px -10px hsl(220 90% 56% / 0.3);
@@ -87,12 +87,12 @@
     --popover: 220 20% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 220 90% 60%;
-    --primary-foreground: 220 25% 8%;
-    --primary-glow: 220 85% 70%;
+    --primary: 120 35% 50%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 120 40% 60%;
 
-    --secondary: 260 85% 70%;
-    --secondary-foreground: 220 25% 8%;
+    --secondary: 220 15% 30%;
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 220 15% 18%;
     --muted-foreground: 215 15% 65%;
