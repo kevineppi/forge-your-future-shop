@@ -20,11 +20,12 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
-            <a href="#services" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium">Leistungen</a>
-            <a href="#advantages" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium">Vorteile</a>
-            <a href="#about" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium">Über uns</a>
-            <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium">Kontakt</a>
-            <Button variant="hero" size="lg" className="ml-4" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot erhalten</Button>
+            <a href="#services" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Leistungen</a>
+            <a href="#advantages" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Vorteile</a>
+            <a href="#cost-calculator" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Preisrechner</a>
+            <a href="#about" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</a>
+            <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</a>
+            <Button variant="hero" size="lg" className="ml-4 hover:scale-105 transition-transform duration-300" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot erhalten</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -41,9 +42,10 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-4">
+          <div className="md:hidden pb-4 space-y-4 animate-fade-in">
             <a href="#services" className="block text-foreground hover:text-primary transition-colors">Leistungen</a>
             <a href="#advantages" className="block text-foreground hover:text-primary transition-colors">Vorteile</a>
+            <a href="#cost-calculator" className="block text-foreground hover:text-primary transition-colors">Preisrechner</a>
             <a href="#about" className="block text-foreground hover:text-primary transition-colors">Über uns</a>
             <a href="#contact" className="block text-foreground hover:text-primary transition-colors">Kontakt</a>
             <Button variant="hero" size="sm" className="w-full" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
