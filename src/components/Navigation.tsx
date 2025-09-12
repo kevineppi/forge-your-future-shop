@@ -11,16 +11,16 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-gradient">3D Forge</h1>
+            <h1 className="text-2xl font-bold text-gradient">EK-Druck</h1>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-foreground hover:text-primary transition-colors">Services</a>
+            <a href="#services" className="text-foreground hover:text-primary transition-colors">Leistungen</a>
             <a href="#portfolio" className="text-foreground hover:text-primary transition-colors">Portfolio</a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">About</a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
-            <Button variant="hero" size="sm">Get Quote</Button>
+            <a href="#about" className="text-foreground hover:text-primary transition-colors">Über uns</a>
+            <a href="#contact" className="text-foreground hover:text-primary transition-colors">Kontakt</a>
+            <Button variant="hero" size="sm">Angebot</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -38,11 +38,11 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden pb-4 space-y-4">
-            <a href="#services" className="block text-foreground hover:text-primary transition-colors">Services</a>
+            <a href="#services" className="block text-foreground hover:text-primary transition-colors">Leistungen</a>
             <a href="#portfolio" className="block text-foreground hover:text-primary transition-colors">Portfolio</a>
-            <a href="#about" className="block text-foreground hover:text-primary transition-colors">About</a>
-            <a href="#contact" className="block text-foreground hover:text-primary transition-colors">Contact</a>
-            <Button variant="hero" size="sm" className="w-full">Get Quote</Button>
+            <a href="#about" className="block text-foreground hover:text-primary transition-colors">Über uns</a>
+            <a href="#contact" className="block text-foreground hover:text-primary transition-colors">Kontakt</a>
+            <Button variant="hero" size="sm" className="w-full">Angebot</Button>
           </div>
         )}
       </div>

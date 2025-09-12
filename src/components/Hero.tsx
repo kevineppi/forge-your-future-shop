@@ -19,44 +19,44 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Bring Your Ideas to
-            <span className="block text-gradient">Life</span>
+            Individueller 3D-Druck aus
+            <span className="block text-gradient">Oberösterreich</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Professional 3D printing services for prototypes, custom parts, and innovative designs. 
-            From concept to creation, we make it possible.
+            Nachhaltiger 3D-Druck mit österreichischem Filament. Schnell, preiswert und zuverlässig - 
+            von der Idee bis zum fertigen Produkt.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="hero" size="lg" className="group">
-              Get Started Today
+              Kostenloses Angebot
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             
             <Button variant="glass" size="lg" className="group">
               <Play className="mr-2 h-5 w-5" />
-              Watch Process
+              Unsere Leistungen
             </Button>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">500+</div>
-              <div className="text-white/80">Projects Completed</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">100%</div>
+              <div className="text-white/80">Österreichisches Filament</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">48hr</div>
-              <div className="text-white/80">Avg Turnaround</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">24h</div>
+              <div className="text-white/80">Express-Service</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">15+</div>
-              <div className="text-white/80">Materials Available</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">Regional</div>
+              <div className="text-white/80">Nachhaltige Fertigung</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">99%</div>
-              <div className="text-white/80">Client Satisfaction</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">Kostenlos</div>
+              <div className="text-white/80">Persönliche Beratung</div>
             </div>
           </div>
         </div>

@@ -10,47 +10,47 @@ import {
 
 const About = () => {
   const capabilities = [
-    "FDM (Fused Deposition Modeling)",
-    "SLA (Stereolithography)",
-    "SLS (Selective Laser Sintering)",
-    "Multi-Material Printing",
-    "Large Format Printing (up to 400mm³)",
-    "High-Resolution Fine Detail"
+    "Einzelanfertigungen & Spezialanfertigungen",
+    "Nachhaltige Inneneinrichtung",
+    "Serienfertigung & Kleinserien",
+    "Technischer Entwurf & Beratung",
+    "Millimetergenaue Präzision",
+    "Express-Service verfügbar"
   ];
 
   const materials = [
-    "PLA & PLA+",
-    "PETG",
-    "ABS",
-    "TPU (Flexible)",
-    "Carbon Fiber Composites",
-    "Wood-filled Filaments",
-    "Metal-filled Filaments",
-    "Biocompatible Resins",
-    "Castable Resins",
-    "Engineering Plastics"
+    "100% Österreichisches Filament",
+    "Hergestellt aus Industrieabfällen",
+    "PLA & PLA+ nachhaltig",
+    "PETG regional",
+    "ABS aus Austria",
+    "Flexible Materialien",
+    "Alle Farben verfügbar",
+    "Verschiedene Größen",
+    "Umweltfreundlich",
+    "Ressourcenschonend"
   ];
 
   const values = [
     {
       icon: Target,
-      title: "Precision",
-      description: "Every print meets exact specifications with tolerances as tight as ±0.1mm"
+      title: "Nachhaltigkeit",
+      description: "100% österreichisches Filament aus Industrieabfällen für ressourcenschonende Produktion"
     },
     {
       icon: Zap,
-      title: "Speed",
-      description: "Fast turnaround times without compromising on quality or attention to detail"
+      title: "Regionalität",
+      description: "Kurze Wege, persönlicher Kontakt und schnelle Lieferzeiten aus Oberösterreich"
     },
     {
       icon: Users,
-      title: "Collaboration",
-      description: "Working closely with clients from initial concept through final delivery"
+      title: "Kundennähe",
+      description: "Langfristige Partnerschaften und kostenlose, individuelle Beratung für jeden Kunden"
     },
     {
       icon: Award,
-      title: "Excellence",
-      description: "Committed to delivering the highest quality results on every project"
+      title: "Qualität",
+      description: "Hohe Qualitätsansprüche und millimetergenaue Präzision bei jedem Projekt"
     }
   ];
 
@@ -59,40 +59,39 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="text-gradient">3D Forge</span>
+            Über <span className="text-gradient">EK-Druck</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            With over 5 years of experience in additive manufacturing, we're passionate about 
-            transforming digital designs into physical reality with precision and innovation.
+            Regionalität und Nachhaltigkeit sind uns ein persönliches Anliegen. Als 3D-Druck Dienstleister 
+            in Österreich setzen wir auf österreichisches Filament und persönliche Beratung.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
           {/* Company Story */}
           <div>
-            <h3 className="text-2xl font-bold mb-6">Our Story</h3>
+            <h3 className="text-2xl font-bold mb-6">Unsere Mission</h3>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                Founded in 2019, 3D Forge began as a vision to democratize manufacturing through 
-                accessible, high-quality 3D printing services. What started in a small workshop 
-                has grown into a full-service additive manufacturing facility.
+                EK-Druck steht für hochwertigen 3D-Druck mit einem besonderen Fokus auf Nachhaltigkeit 
+                und Regionalität. Wir bieten maßgeschneiderte Prototypen, Kleinserien und individuelle 
+                Fertigungslösungen direkt aus Oberösterreich.
               </p>
               <p>
-                Today, we serve clients ranging from individual inventors and small startups to 
-                Fortune 500 companies, helping them bring innovative products to market faster 
-                and more cost-effectively than traditional manufacturing methods.
+                Unser Ziel ist eine langfristige Partnerschaft mit unseren Kunden. Kundennähe ist uns 
+                wichtig - deshalb bieten wir jederzeit eine kostenlose und individuelle Beratung an.
               </p>
               <p>
-                Our state-of-the-art facility houses the latest in 3D printing technology, 
-                operated by skilled technicians who understand both the art and science of 
-                additive manufacturing.
+                Um ressourcenschonend zu produzieren, beziehen wir unser Filament ausschließlich aus 
+                Österreich, wo es aus Industrieabfällen hergestellt wird. So verbinden wir Qualität 
+                mit Nachhaltigkeit.
               </p>
             </div>
           </div>
 
           {/* Values */}
           <div>
-            <h3 className="text-2xl font-bold mb-6">Our Values</h3>
+            <h3 className="text-2xl font-bold mb-6">Unsere Werte</h3>
             <div className="space-y-6">
               {values.map((value, index) => (
                 <div key={index} className="flex items-start space-x-4">
@@ -115,7 +114,7 @@ const About = () => {
             <CardContent className="p-8">
               <h3 className="text-xl font-bold mb-6 flex items-center">
                 <CheckCircle className="mr-3 h-6 w-6 text-primary" />
-                Printing Capabilities
+                Unsere Leistungen
               </h3>
               <div className="grid grid-cols-1 gap-3">
                 {capabilities.map((capability, index) => (
@@ -132,7 +131,7 @@ const About = () => {
             <CardContent className="p-8">
               <h3 className="text-xl font-bold mb-6 flex items-center">
                 <CheckCircle className="mr-3 h-6 w-6 text-secondary" />
-                Available Materials
+                Nachhaltige Materialien
               </h3>
               <div className="flex flex-wrap gap-2">
                 {materials.map((material, index) => (

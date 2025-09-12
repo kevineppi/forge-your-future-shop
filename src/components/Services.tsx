@@ -14,39 +14,39 @@ const Services = () => {
   const services = [
     {
       icon: Cpu,
-      title: "Rapid Prototyping",
-      description: "Turn your concepts into physical prototypes in just 24-48 hours. Perfect for product development and testing.",
-      features: ["FDM & SLA printing", "Multiple material options", "Design optimization", "Quick turnaround"]
-    },
-    {
-      icon: Wrench,
-      title: "Custom Manufacturing",
-      description: "Small to medium batch production runs with consistent quality and precision engineering.",
-      features: ["Production-grade materials", "Quality assurance", "Scalable solutions", "Cost optimization"]
+      title: "Einzelanfertigungen",
+      description: "Millimetergenaue Spezialanfertigungen vom technischen Entwurf bis zum fertigen Produkt.",
+      features: ["Technischer Entwurf", "Millimetergenauigkeit", "Individuelle Lösungen", "Komplette Begleitung"]
     },
     {
       icon: Palette,
-      title: "Design Services",
-      description: "Professional 3D modeling and design optimization services to bring your vision to life.",
-      features: ["CAD modeling", "Design for manufacturing", "File preparation", "Technical consultation"]
+      title: "Nachhaltige Inneneinrichtung",
+      description: "Kompromisslos nachhaltige Einrichtung in allen Farben, Varianten, Größen und Formen.",
+      features: ["Stilvolle Designs", "Alle Farben verfügbar", "Verschiedene Größen", "Nachhaltige Materialien"]
     },
     {
-      icon: Zap,
-      title: "Express Service",
-      description: "Need it fast? Our express service delivers high-quality prints in 12-24 hours.",
-      features: ["Rush processing", "Priority queue", "24/7 production", "Same-day pickup"]
+      icon: Wrench,
+      title: "Serienfertigung",
+      description: "Maßgeschneiderte Prototypen, Kleinserien und individuelle Fertigungslösungen mit Präzision.",
+      features: ["Kleinserien", "Prototypenerstellung", "Präzisionsfertigung", "Zuverlässige Qualität"]
     },
     {
       icon: Shield,
-      title: "Industrial Parts",
-      description: "Durable, functional parts for industrial applications with engineering-grade materials.",
-      features: ["High-strength materials", "Precision tolerance", "Functional testing", "Certification support"]
+      title: "Österreichisches Filament",
+      description: "Nachhaltiger 3D-Druck mit Filament aus Österreich, hergestellt aus Industrieabfällen.",
+      features: ["100% österreichisch", "Aus Industrieabfällen", "Ressourcenschonend", "Hohe Qualität"]
     },
     {
       icon: Clock,
-      title: "Maintenance & Repair",
-      description: "Bring new life to broken parts or create replacement components that are no longer available.",
-      features: ["Reverse engineering", "Part recreation", "Material matching", "Durability testing"]
+      title: "Regionale Fertigung",
+      description: "Kurze Wege, persönlicher Kontakt und schnelle Lieferzeiten direkt aus Oberösterreich.",
+      features: ["Persönliche Beratung", "Kurze Lieferwege", "Lokale Fertigung", "Schnelle Abwicklung"]
+    },
+    {
+      icon: Zap,
+      title: "Kostenlose Beratung",
+      description: "Individuelle und kostenlose Beratung für Ihr 3D-Druck Projekt. Faire Preise garantiert.",
+      features: ["Kostenlose Beratung", "Individuelle Angebote", "Faire Preise", "Langfristige Partnerschaft"]
     }
   ];
 
@@ -55,11 +55,11 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="text-gradient">Services</span>
+            Unsere <span className="text-gradient">Leistungen</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            From rapid prototyping to full production runs, we offer comprehensive 3D printing solutions 
-            for every need and budget.
+            Von Einzelanfertigungen bis zur Serienfertigung - nachhaltige 3D-Druck Lösungen 
+            aus Oberösterreich für jeden Bedarf.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ const Services = () => {
                   ))}
                 </ul>
                 <Button variant="outline" className="w-full group/btn">
-                  Learn More
+                  Mehr erfahren
                   <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Button>
               </CardContent>
@@ -97,7 +97,7 @@ const Services = () => {
 
         <div className="text-center mt-16">
           <Button variant="hero" size="lg">
-            Get Custom Quote
+            Individuelles Angebot
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
