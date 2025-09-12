@@ -15,11 +15,11 @@ const Hero = () => {
         keywords={seoData.keywords}
         path="/"
       />
-      <section className="relative min-h-screen flex items-center justify-center bg-background">
+      <section className="relative min-h-screen flex items-center justify-center bg-background pt-20">
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
             Individueller <span className="text-primary font-extrabold">3D-Druck</span> aus
             <span className="block text-primary font-extrabold">Oberösterreich</span>
           </h1>
