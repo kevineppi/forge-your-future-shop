@@ -77,10 +77,7 @@ const Footer = () => {
             © 2024 ekdruck e.U. Alle Rechte vorbehalten.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Datenschutz
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+            <a href="/impressum" className="text-muted-foreground hover:text-primary text-sm transition-colors">
               Impressum
             </a>
           </div>
