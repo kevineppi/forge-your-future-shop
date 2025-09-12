@@ -8,14 +8,14 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center">
             <a href="/" className="hover:opacity-80 transition-opacity duration-300">
               <img 
                 src="/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png" 
                 alt="ekdruck e.U. - 3D-Druck Oberösterreich Logo" 
-                className="h-16 w-auto"
+                className="h-12 md:h-16 w-auto max-w-[180px] sm:max-w-none"
               />
             </a>
           </div>
