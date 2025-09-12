@@ -3,14 +3,10 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Advantages from "@/components/Advantages";
 import CostCalculator from "@/components/CostCalculator";
-import About from "@/components/About";
-import TestimonialsVideo from "@/components/TestimonialsVideo";
-import FAQ from "@/components/FAQ";
-import EnhancedContact from "@/components/EnhancedContact";
 import Reviews from "@/components/Reviews";
+import About from "@/components/About";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
-import StickyCallToAction from "@/components/StickyCallToAction";
 import StructuredData from "@/components/StructuredData";
 import { useEffect } from "react";
 
@@ -27,19 +23,15 @@ const Index = () => {
       <StructuredData type="faq" />
       <StructuredData type="breadcrumb" />
       <div className="min-h-screen">
-        <ScrollProgress />
-        <Navigation />
-        <Hero />
-        <Services />
-        <Advantages />
-        <CostCalculator />
-        <About />
-        <TestimonialsVideo />
-        <FAQ />
-        <EnhancedContact />
-        <Reviews />
-        <Footer />
-        <StickyCallToAction />
+      <Navigation />
+      <Hero />
+      <Services />
+      <Advantages />
+      <CostCalculator />
+      <Reviews />
+      <About />
+      <Contact />
+      <Footer />
       </div>
     </>
   );

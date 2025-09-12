@@ -45,19 +45,19 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2 animate-fade-in">100%</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">100%</div>
               <div className="text-muted-foreground"><span className="text-primary font-semibold">Österreichisches</span> Filament</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>24h</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">24h</div>
               <div className="text-muted-foreground"><span className="text-primary font-semibold">Express</span>-Service</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2 animate-fade-in" style={{ animationDelay: '0.4s' }}>Regional</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">Regional</div>
               <div className="text-muted-foreground"><span className="text-primary font-semibold">Nachhaltige</span> Fertigung</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2 animate-fade-in" style={{ animationDelay: '0.6s' }}>Kostenlos</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">Kostenlos</div>
               <div className="text-muted-foreground"><span className="text-primary font-semibold">Persönliche</span> Beratung</div>
             </div>
           </div>

@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calculator, Info, Sparkles } from "lucide-react";
-import LoadingSkeleton from "@/components/LoadingSkeleton";
 
 const CostCalculator = () => {
   const [material, setMaterial] = useState("pla");
@@ -15,7 +14,6 @@ const CostCalculator = () => {
   const [width, setWidth] = useState([50]);
   const [height, setHeight] = useState([50]);
   const [printDuration, setPrintDuration] = useState([0]);
-  const [isCalculating, setIsCalculating] = useState(false);
 
   const materials = {
     pla: { name: "PLA", price: 0.20, factor: 1.0 },
@@ -64,16 +62,6 @@ const CostCalculator = () => {
       maxDimension
     };
   };
-
-  // Simulate calculation delay for better UX
-  useEffect(() => {
-    setIsCalculating(true);
-    const timer = setTimeout(() => {
-      setIsCalculating(false);
-    }, 300);
-    
-    return () => clearTimeout(timer);
-  }, [material, complexity, quantity, length, width, height, printDuration]);
 
   const pricing = calculatePrice();
 
@@ -250,10 +238,7 @@ const CostCalculator = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                {isCalculating ? (
-                  <LoadingSkeleton type="pricing" />
-                ) : (
-                  <div className="space-y-4">
+                <div className="space-y-4">
                   <div className="flex justify-between items-center p-4 bg-muted/50 rounded-lg">
                     <span className="font-medium">Preis pro Stück:</span>
                     <span className="text-xl font-bold text-primary">
@@ -292,7 +277,6 @@ const CostCalculator = () => {
                     </Badge>
                   )}
                 </div>
-                )}
 
                 <div className="space-y-3 pt-4 border-t border-border/50">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
