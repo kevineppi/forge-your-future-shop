@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +14,49 @@ const CostCalculator = () => {
   const [width, setWidth] = useState([50]);
   const [height, setHeight] = useState([50]);
   const [printDuration, setPrintDuration] = useState([0]);
+
+  // Safe state setters to prevent invalid values
+  const setLengthSafe = useCallback((value: number[]) => {
+    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
+      setLength([Math.max(10, Math.min(300, value[0]))]);
+    }
+  }, []);
+
+  const setWidthSafe = useCallback((value: number[]) => {
+    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
+      setWidth([Math.max(10, Math.min(300, value[0]))]);
+    }
+  }, []);
+
+  const setHeightSafe = useCallback((value: number[]) => {
+    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
+      setHeight([Math.max(10, Math.min(300, value[0]))]);
+    }
+  }, []);
+
+  const setComplexitySafe = useCallback((value: number[]) => {
+    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
+      setComplexity([Math.max(0, Math.min(4, value[0]))]);
+    }
+  }, []);
+
+  const setQuantitySafe = useCallback((value: number[]) => {
+    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
+      setQuantity([Math.max(1, Math.min(100, value[0]))]);
+    }
+  }, []);
+
+  const setPrintDurationSafe = useCallback((value: number[]) => {
+    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
+      setPrintDuration([Math.max(0, Math.min(72, value[0]))]);
+    }
+  }, []);
+
+  const setMaterialSafe = useCallback((value: string) => {
+    if (value && materials.hasOwnProperty(value)) {
+      setMaterial(value);
+    }
+  }, []);
 
   const materials = {
     pla: { name: "PLA", price: 0.20, factor: 1.0 },
@@ -31,39 +74,53 @@ const CostCalculator = () => {
     "Extrem komplex (Multimaterial)"
   ];
 
-  const calculatePrice = () => {
-    const baseMaterial = materials[material as keyof typeof materials];
-    const actualVolume = (length[0] * width[0] * height[0]) / 1000000; // Convert mm³ to relative volume
-    const maxDimension = Math.max(length[0], width[0], height[0]); // Longest side for print time calculation
-    const complexityMultiplier = 1 + (complexity[0] * 0.3);
-    const quantityDiscount = quantity[0] > 10 ? 0.9 : quantity[0] > 5 ? 0.95 : 1.0;
-    
-    const basePrice = actualVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
-    
-    // Print duration cost calculation based on longest side
-    let printDurationCost = 0;
-    if (printDuration[0] > 0) {
-      let hourlyRate = 1.5; // Default rate for <= 250mm
-      if (maxDimension > 250 && maxDimension <= 350) {
-        hourlyRate = 4.0;
+  const calculatePrice = useCallback(() => {
+    try {
+      const baseMaterial = materials[material as keyof typeof materials];
+      if (!baseMaterial) return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, volume: 125000, maxDimension: 50 };
+      
+      const safeLength = Array.isArray(length) && length.length > 0 ? length[0] : 50;
+      const safeWidth = Array.isArray(width) && width.length > 0 ? width[0] : 50;
+      const safeHeight = Array.isArray(height) && height.length > 0 ? height[0] : 50;
+      const safeComplexity = Array.isArray(complexity) && complexity.length > 0 ? complexity[0] : 2;
+      const safeQuantity = Array.isArray(quantity) && quantity.length > 0 ? quantity[0] : 1;
+      const safePrintDuration = Array.isArray(printDuration) && printDuration.length > 0 ? printDuration[0] : 0;
+      
+      const actualVolume = (safeLength * safeWidth * safeHeight) / 1000000; // Convert mm³ to relative volume
+      const maxDimension = Math.max(safeLength, safeWidth, safeHeight); // Longest side for print time calculation
+      const complexityMultiplier = 1 + (safeComplexity * 0.3);
+      const quantityDiscount = safeQuantity > 10 ? 0.9 : safeQuantity > 5 ? 0.95 : 1.0;
+      
+      const basePrice = actualVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
+      
+      // Print duration cost calculation based on longest side
+      let printDurationCost = 0;
+      if (safePrintDuration > 0) {
+        let hourlyRate = 1.5; // Default rate for <= 250mm
+        if (maxDimension > 250 && maxDimension <= 350) {
+          hourlyRate = 4.0;
+        }
+        printDurationCost = safePrintDuration * hourlyRate;
       }
-      printDurationCost = printDuration[0] * hourlyRate;
+      
+      const totalBasePrice = basePrice + printDurationCost;
+      const totalPrice = totalBasePrice * safeQuantity * quantityDiscount;
+      
+      return {
+        perPiece: Math.max(5, totalBasePrice),
+        total: Math.max(5 * safeQuantity, totalPrice),
+        savings: safeQuantity > 5 ? (totalBasePrice * safeQuantity - totalPrice) : 0,
+        printDurationCost,
+        volume: actualVolume * 1000000, // Return volume in mm³ for display
+        maxDimension
+      };
+    } catch (error) {
+      console.error('Error calculating price:', error);
+      return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, volume: 125000, maxDimension: 50 };
     }
-    
-    const totalBasePrice = basePrice + printDurationCost;
-    const totalPrice = totalBasePrice * quantity[0] * quantityDiscount;
-    
-    return {
-      perPiece: Math.max(5, totalBasePrice),
-      total: Math.max(5 * quantity[0], totalPrice),
-      savings: quantity[0] > 5 ? (totalBasePrice * quantity[0] - totalPrice) : 0,
-      printDurationCost,
-      volume: actualVolume * 1000000, // Return volume in mm³ for display
-      maxDimension
-    };
-  };
+  }, [material, length, width, height, complexity, quantity, printDuration]);
 
-  const pricing = calculatePrice();
+  const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
   return (
     <section id="cost-calculator" className="py-24">
@@ -91,7 +148,7 @@ const CostCalculator = () => {
                 {/* Material Selection */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">Material</label>
-                  <Select value={material} onValueChange={setMaterial}>
+                  <Select value={material} onValueChange={setMaterialSafe}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
@@ -113,7 +170,7 @@ const CostCalculator = () => {
                     </label>
                     <Slider
                       value={length}
-                      onValueChange={setLength}
+                      onValueChange={setLengthSafe}
                       max={300}
                       min={10}
                       step={5}
@@ -127,7 +184,7 @@ const CostCalculator = () => {
                     </label>
                     <Slider
                       value={width}
-                      onValueChange={setWidth}
+                      onValueChange={setWidthSafe}
                       max={300}
                       min={10}
                       step={5}
@@ -141,7 +198,7 @@ const CostCalculator = () => {
                     </label>
                     <Slider
                       value={height}
-                      onValueChange={setHeight}
+                      onValueChange={setHeightSafe}
                       max={300}
                       min={10}
                       step={5}
@@ -168,7 +225,7 @@ const CostCalculator = () => {
                   </label>
                   <Slider
                     value={complexity}
-                    onValueChange={setComplexity}
+                    onValueChange={setComplexitySafe}
                     max={4}
                     min={0}
                     step={1}
@@ -187,7 +244,7 @@ const CostCalculator = () => {
                   </label>
                   <Slider
                     value={printDuration}
-                    onValueChange={setPrintDuration}
+                    onValueChange={setPrintDurationSafe}
                     max={72}
                     min={0}
                     step={1}
@@ -215,7 +272,7 @@ const CostCalculator = () => {
                   </label>
                   <Slider
                     value={quantity}
-                    onValueChange={setQuantity}
+                    onValueChange={setQuantitySafe}
                     max={100}
                     min={1}
                     step={1}
