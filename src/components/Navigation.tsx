@@ -27,7 +27,7 @@ const Navigation = () => {
             <a href="#cost-calculator" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Preisrechner</a>
             <a href="#about" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</a>
-            <Button variant="hero" size="lg" className="ml-4 hover:scale-105 transition-transform duration-300" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot erhalten</Button>
+            <Button variant="hero" size="lg" className="ml-4 hover:scale-105 transition-transform duration-300 text-sm md:text-base px-3 md:px-6" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot erhalten</Button>
           </div>
 
           {/* Mobile Menu Button */}
