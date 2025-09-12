@@ -70,9 +70,14 @@ const Contact = () => {
   const uploadFiles = async (files: File[]): Promise<string[]> => {
     const uploadedUrls: string[] = [];
     
-    for (const file of files) {
+    // Extract last name from form data
+    const lastName = formData.name.trim().split(' ').pop() || 'Unbekannt';
+    
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
       const fileExt = file.name.split('.').pop();
-      const fileName = `${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
+      const fileNumber = files.length > 1 ? `-${i + 1}` : '';
+      const fileName = `${lastName}${fileNumber}.${fileExt}`;
       const filePath = `contact-files/${Date.now()}-${fileName}`;
       
       setUploadProgress(prev => ({ ...prev, [file.name]: 0 }));
