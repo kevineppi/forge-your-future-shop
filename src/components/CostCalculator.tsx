@@ -41,7 +41,10 @@ const CostCalculator = () => {
     // Print duration cost calculation
     let printDurationCost = 0;
     if (printDuration[0] > 0) {
-      const hourlyRate = volumeInMm3 > 250 ? 4.0 : 1.5;
+      let hourlyRate = 1.5; // Default rate for <= 250mm³
+      if (volumeInMm3 > 250 && volumeInMm3 <= 350) {
+        hourlyRate = 4.0;
+      }
       printDurationCost = printDuration[0] * hourlyRate;
     }
     
@@ -155,7 +158,12 @@ const CostCalculator = () => {
                   </div>
                   {printDuration[0] > 0 && (
                     <div className="mt-2 text-sm text-muted-foreground">
-                      Kostensatz: {Math.pow(size[0], 3) > 250 ? "4,00€" : "1,50€"} pro Stunde
+                      Kostensatz: {(() => {
+                        const vol = Math.pow(size[0], 3);
+                        if (vol <= 250) return "1,50€";
+                        if (vol <= 350) return "4,00€";
+                        return "Über 350mm³ - Individuelle Berechnung";
+                      })()} pro Stunde
                     </div>
                   )}
                 </div>
