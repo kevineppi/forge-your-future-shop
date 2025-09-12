@@ -60,9 +60,9 @@ const Footer = () => {
               <div className="flex items-start">
                 <MapPin className="h-4 w-4 mr-3 text-primary mt-0.5" />
                 <div className="text-sm">
-                  <div>Negrellistraße 15
-4623 Gunskirchen
-Oberösterreidch</div>
+                  <div>Negrellistraße 15 
+4623 Gunskirchen 
+Oberösterreich</div>
                   
                 </div>
               </div>
