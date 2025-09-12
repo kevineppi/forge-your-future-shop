@@ -10,7 +10,9 @@ const CostCalculator = () => {
   const [material, setMaterial] = useState("pla");
   const [complexity, setComplexity] = useState([2]);
   const [quantity, setQuantity] = useState([1]);
-  const [size, setSize] = useState([50]);
+  const [length, setLength] = useState([50]);
+  const [width, setWidth] = useState([50]);
+  const [height, setHeight] = useState([50]);
   const [printDuration, setPrintDuration] = useState([0]);
 
   const materials = {
@@ -31,18 +33,18 @@ const CostCalculator = () => {
 
   const calculatePrice = () => {
     const baseMaterial = materials[material as keyof typeof materials];
-    const sizeVolume = Math.pow(size[0] / 100, 3); // Convert mm to relative volume
-    const volumeInMm3 = Math.pow(size[0], 3); // Volume in mm³ for print time calculation
+    const actualVolume = (length[0] * width[0] * height[0]) / 1000000; // Convert mm³ to relative volume
+    const maxDimension = Math.max(length[0], width[0], height[0]); // Longest side for print time calculation
     const complexityMultiplier = 1 + (complexity[0] * 0.3);
     const quantityDiscount = quantity[0] > 10 ? 0.9 : quantity[0] > 5 ? 0.95 : 1.0;
     
-    const basePrice = sizeVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
+    const basePrice = actualVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
     
-    // Print duration cost calculation
+    // Print duration cost calculation based on longest side
     let printDurationCost = 0;
     if (printDuration[0] > 0) {
       let hourlyRate = 1.5; // Default rate for <= 250mm
-      if (size[0] > 250 && size[0] <= 350) {
+      if (maxDimension > 250 && maxDimension <= 350) {
         hourlyRate = 4.0;
       }
       printDurationCost = printDuration[0] * hourlyRate;
@@ -55,7 +57,9 @@ const CostCalculator = () => {
       perPiece: Math.max(5, totalBasePrice),
       total: Math.max(5 * quantity[0], totalPrice),
       savings: quantity[0] > 5 ? (totalBasePrice * quantity[0] - totalPrice) : 0,
-      printDurationCost
+      printDurationCost,
+      volume: actualVolume * 1000000, // Return volume in mm³ for display
+      maxDimension
     };
   };
 
@@ -101,22 +105,59 @@ const CostCalculator = () => {
                   </Select>
                 </div>
 
-                {/* Size */}
-                <div>
-                  <label className="text-sm font-medium mb-2 block">
-                    Größe (längste Seite): {size[0]}mm
-                  </label>
-                  <Slider
-                    value={size}
-                    onValueChange={setSize}
-                    max={300}
-                    min={10}
-                    step={5}
-                    className="mt-2"
-                  />
-                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                    <span>10mm</span>
-                    <span>300mm</span>
+                {/* Dimensions */}
+                <div className="space-y-4">
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">
+                      Länge: {length[0]}mm
+                    </label>
+                    <Slider
+                      value={length}
+                      onValueChange={setLength}
+                      max={300}
+                      min={10}
+                      step={5}
+                      className="mt-2"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">
+                      Breite: {width[0]}mm
+                    </label>
+                    <Slider
+                      value={width}
+                      onValueChange={setWidth}
+                      max={300}
+                      min={10}
+                      step={5}
+                      className="mt-2"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">
+                      Höhe: {height[0]}mm
+                    </label>
+                    <Slider
+                      value={height}
+                      onValueChange={setHeight}
+                      max={300}
+                      min={10}
+                      step={5}
+                      className="mt-2"
+                    />
+                  </div>
+                  
+                  <div className="p-3 bg-muted/30 rounded-lg text-sm">
+                    <div className="flex justify-between">
+                      <span>Volumen:</span>
+                      <span className="font-medium">{(pricing.volume / 1000).toFixed(1)} cm³</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Längste Seite:</span>
+                      <span className="font-medium">{pricing.maxDimension}mm</span>
+                    </div>
                   </div>
                 </div>
 
@@ -159,8 +200,8 @@ const CostCalculator = () => {
                   {printDuration[0] > 0 && (
                     <div className="mt-2 text-sm text-muted-foreground">
                       Kostensatz: {(() => {
-                        if (size[0] <= 250) return "1,50€";
-                        if (size[0] <= 350) return "4,00€";
+                        if (pricing.maxDimension <= 250) return "1,50€";
+                        if (pricing.maxDimension <= 350) return "4,00€";
                         return "Über 350mm - Individuelle Berechnung";
                       })()} pro Stunde
                     </div>
