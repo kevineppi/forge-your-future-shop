@@ -8,21 +8,21 @@ interface SEOData {
 
 export const useSEO = (sectionId?: string): SEOData => {
   const [seoData, setSeoData] = useState<SEOData>({
-    title: "3D-Druck Service Oberösterreich | ekdruck e.U. Gunskirchen",
-    description: "Professioneller 3D-Druck Service aus Gunskirchen, Oberösterreich. Einzelanfertigungen, Prototypen & Serienfertigung mit österreichischem Filament. Kostenlose Beratung!",
-    keywords: "3D-Druck Oberösterreich, 3D-Druck Gunskirchen, 3D-Druck Wels, 3D-Druck Linz, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck"
+    title: "3D-Druck Service Linz | ekdruck e.U. Oberösterreich",
+    description: "Professioneller 3D-Druck Service für Linz und Oberösterreich. Einzelanfertigungen, Prototypen & Serienfertigung mit österreichischem Filament. Kostenlose Beratung!",
+    keywords: "3D-Druck Linz, 3D-Druck Oberösterreich, 3D-Druck Wels, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, regional"
   });
 
   useEffect(() => {
     const seoConfigs = {
       hero: {
-        title: "3D-Druck Service Oberösterreich | ekdruck e.U. Gunskirchen",
-        description: "Professioneller 3D-Druck Service aus Gunskirchen, Oberösterreich. Einzelanfertigungen, Prototypen & Serienfertigung mit österreichischem Filament. Kostenlose Beratung!",
-        keywords: "3D-Druck Oberösterreich, 3D-Druck Gunskirchen, 3D-Druck Wels, 3D-Druck Linz, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck"
+        title: "3D-Druck Service Linz | ekdruck e.U. Oberösterreich",
+        description: "Professioneller 3D-Druck Service für Linz und Oberösterreich. Einzelanfertigungen, Prototypen & Serienfertigung mit österreichischem Filament. Kostenlose Beratung!",
+        keywords: "3D-Druck Linz, 3D-Druck Oberösterreich, 3D-Druck Wels, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, regional"
       },
       services: {
         title: "3D-Druck Leistungen & Services | ekdruck e.U. Oberösterreich",
-        description: "Umfassende 3D-Druck Services: Einzelanfertigungen, Serienfertigung, Inneneinrichtung, Planung & Konstruktion. Regionale Fertigung aus Gunskirchen, OÖ.",
+        description: "Umfassende 3D-Druck Services: Einzelanfertigungen, Serienfertigung, Inneneinrichtung, Planung & Konstruktion. Regionale Fertigung für Linz und Oberösterreich.",
         keywords: "3D-Druck Services, Einzelanfertigungen, Serienfertigung, 3D-Modellierung, CAD-Konstruktion, nachhaltige Inneneinrichtung, technischer Entwurf"
       },
       advantages: {
@@ -32,8 +32,8 @@ export const useSEO = (sectionId?: string): SEOData => {
       },
       about: {
         title: "Über ekdruck e.U. | 3D-Druck Spezialist aus Oberösterreich",
-        description: "Lernen Sie ekdruck e.U. kennen - Ihr regionaler 3D-Druck Partner aus Gunskirchen. Nachhaltigkeit, Qualität und persönliche Beratung seit Jahren.",
-        keywords: "ekdruck e.U., 3D-Druck Unternehmen, Gunskirchen, Oberösterreich, nachhaltige Fertigung, österreichisches Filament, Qualität, Kundennähe"
+        description: "Lernen Sie ekdruck e.U. kennen - Ihr regionaler 3D-Druck Partner für Linz und Oberösterreich. Nachhaltigkeit, Qualität und persönliche Beratung seit Jahren.",
+        keywords: "ekdruck e.U., 3D-Druck Unternehmen, Linz, Oberösterreich, nachhaltige Fertigung, österreichisches Filament, Qualität, Kundennähe"
       },
       reviews: {
         title: "Kundenbewertungen & Erfahrungen | ekdruck e.U. 3D-Druck",
@@ -42,8 +42,8 @@ export const useSEO = (sectionId?: string): SEOData => {
       },
       contact: {
         title: "Kontakt & Angebot | 3D-Druck Service ekdruck e.U. OÖ",
-        description: "Kontaktieren Sie ekdruck e.U. für Ihr 3D-Druck Projekt. Kostenlose Beratung und individuelles Angebot aus Gunskirchen, Oberösterreich. Jetzt anfragen!",
-        keywords: "3D-Druck Kontakt, Angebot 3D-Druck, kostenlose Beratung, 3D-Druck Anfrage, Gunskirchen, Oberösterreich, individuelles Angebot"
+        description: "Kontaktieren Sie ekdruck e.U. für Ihr 3D-Druck Projekt. Kostenlose Beratung und individuelles Angebot für Linz und Oberösterreich. Jetzt anfragen!",
+        keywords: "3D-Druck Kontakt, Angebot 3D-Druck, kostenlose Beratung, 3D-Druck Anfrage, Linz, Oberösterreich, individuelles Angebot"
       }
     };
 

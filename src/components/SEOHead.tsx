@@ -8,9 +8,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "3D-Druck Service Oberösterreich | ekdruck e.U. Gunskirchen",
-  description = "Professioneller 3D-Druck Service aus Gunskirchen, Oberösterreich. Einzelanfertigungen, Prototypen & Serienfertigung mit österreichischem Filament. Kostenlose Beratung!",
-  keywords = "3D-Druck Oberösterreich, 3D-Druck Gunskirchen, 3D-Druck Wels, 3D-Druck Linz, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck",
+  title = "3D-Druck Service Linz | ekdruck e.U. Oberösterreich",
+  description = "Professioneller 3D-Druck Service für Linz und Oberösterreich. Einzelanfertigungen, Prototypen & Serienfertigung mit österreichischem Filament. Kostenlose Beratung!",
+  keywords = "3D-Druck Linz, 3D-Druck Oberösterreich, 3D-Druck Wels, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, regional",
   path = ""
 }: SEOHeadProps) => {
   useEffect(() => {

@@ -14,13 +14,13 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "ekdruck e.U.",
-            "description": "Professioneller 3D-Druck Service aus Gunskirchen, Oberösterreich. Einzelanfertigungen, Prototypen und Serienfertigung mit österreichischem Filament.",
+            "description": "Professioneller 3D-Druck Service für Linz und Oberösterreich. Einzelanfertigungen, Prototypen und Serienfertigung mit österreichischem Filament.",
             "url": "https://www.ek-druck.at",
             "telephone": "+43 676 5517197",
             "email": "office@ek-druck.at",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Gunskirchen",
+              "streetAddress": "Negrellistraße 15",
               "addressLocality": "Gunskirchen",
               "addressRegion": "Oberösterreich",
               "postalCode": "4623",
@@ -34,7 +34,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             "openingHours": "Mo-Fr 08:00-17:00",
             "areaServed": [
               "Oberösterreich",
-              "Gunskirchen",
+              "Linz",
               "Wels",
               "Linz",
               "Österreich"
@@ -97,7 +97,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                 "name": "Wie schnell ist die Lieferung von 3D-Druck Teilen?",
                 "acceptedAnswer": {
                   "@type": "Answer", 
-                  "text": "Standard-Lieferzeit beträgt 3-5 Tage. Express-Service (24-48h) ist verfügbar. Direkte Abholung in Gunskirchen möglich."
+                  "text": "Standard-Lieferzeit beträgt 3-5 Tage. Express-Service (24-48h) ist verfügbar. Lieferung in ganz Oberösterreich."
                 }
               },
               {

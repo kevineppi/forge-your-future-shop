@@ -27,7 +27,7 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Über <span className="text-gradient">ekdruck e.U.</span> - Ihr 3D-Druck Partner
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Ihr regionaler 3D-Druck Partner aus Gunskirchen, Oberösterreich. Nachhaltige Fertigung mit österreichischem Filament, persönliche Beratung und kurze Lieferwege nach Wels, Linz und ganz Österreich.</p>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Ihr regionaler 3D-Druck Partner für Linz und Oberösterreich. Nachhaltige Fertigung mit österreichischem Filament, persönliche Beratung und kurze Lieferwege nach Wels, Salzburg und ganz Österreich.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
@@ -35,7 +35,7 @@ const About = () => {
           <div>
             <h3 className="text-2xl font-bold mb-6">Unsere Mission - Nachhaltiger 3D-Druck aus Oberösterreich</h3>
             <div className="space-y-4 text-muted-foreground">
-              <p>ekdruck e.U. ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. Wir bieten maßgeschneiderte Prototypen, Kleinserien und individuelle Fertigungslösungen direkt aus Gunskirchen bei Wels - mit kurzen Lieferwegen nach Linz, Salzburg und ganz Österreich.</p>
+              <p>ekdruck e.U. ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. Wir bieten maßgeschneiderte Prototypen, Kleinserien und individuelle Fertigungslösungen für Linz, Wels und ganz Oberösterreich - mit kurzen Lieferwegen nach Salzburg und ganz Österreich.</p>
               <p>Als regionaler 3D-Druck Spezialist legen wir Wert auf persönliche Beratung und langfristige Kundenpartnerschaften. Unser Standort in Oberösterreich ermöglicht schnelle Reaktionszeiten und direkten Kontakt zu unseren Kunden in Österreich und der Dach - Region.</p>
               <p>
                 Um ressourcenschonend zu produzieren, beziehen wir unser Filament ausschließlich aus 
