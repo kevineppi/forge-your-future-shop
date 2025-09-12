@@ -6,21 +6,21 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-gradient">EK-Druck</h1>
+            <h1 className="text-3xl font-bold text-gradient tracking-tight">EK-Druck</h1>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-foreground hover:text-primary transition-colors">Leistungen</a>
-            <a href="#portfolio" className="text-foreground hover:text-primary transition-colors">Portfolio</a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">Über uns</a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">Kontakt</a>
-            <Button variant="hero" size="sm" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
+          <div className="hidden md:flex items-center space-x-10">
+            <a href="#services" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium">Leistungen</a>
+            <a href="#portfolio" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium">Portfolio</a>
+            <a href="#about" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium">Über uns</a>
+            <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium">Kontakt</a>
+            <Button variant="hero" size="lg" className="ml-4" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot erhalten</Button>
           </div>
 
           {/* Mobile Menu Button */}
