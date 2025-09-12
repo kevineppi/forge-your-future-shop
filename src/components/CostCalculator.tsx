@@ -11,15 +11,14 @@ const CostCalculator = () => {
   const [complexity, setComplexity] = useState([2]);
   const [quantity, setQuantity] = useState([1]);
   const [size, setSize] = useState([50]);
+  const [printDuration, setPrintDuration] = useState([0]);
 
   const materials = {
-    pla: { name: "PLA", price: 0.05, factor: 1.0 },
-    petg: { name: "PETG", price: 0.08, factor: 1.2 },
-    abs: { name: "ABS", price: 0.07, factor: 1.1 },
-    tpu: { name: "TPU (Flexibel)", price: 0.12, factor: 1.5 },
-    wood: { name: "Holz-Filament", price: 0.10, factor: 1.3 },
-    metal: { name: "Metall-Filament", price: 0.15, factor: 1.8 },
-    resin: { name: "Resin (SLA)", price: 0.20, factor: 2.0 }
+    pla: { name: "PLA", price: 0.10, factor: 1.0 },
+    petg: { name: "PETG", price: 0.16, factor: 1.2 },
+    abs: { name: "ABS", price: 0.14, factor: 1.1 },
+    pa12: { name: "PA12 Nylon", price: 0.50, factor: 1.6 },
+    pa6: { name: "PA6 Nylon", price: 0.50, factor: 1.6 }
   };
 
   const complexityLevels = [
@@ -33,16 +32,27 @@ const CostCalculator = () => {
   const calculatePrice = () => {
     const baseMaterial = materials[material as keyof typeof materials];
     const sizeVolume = Math.pow(size[0] / 100, 3); // Convert mm to relative volume
+    const volumeInMm3 = Math.pow(size[0], 3); // Volume in mm³ for print time calculation
     const complexityMultiplier = 1 + (complexity[0] * 0.3);
     const quantityDiscount = quantity[0] > 10 ? 0.9 : quantity[0] > 5 ? 0.95 : 1.0;
     
     const basePrice = sizeVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
-    const totalPrice = basePrice * quantity[0] * quantityDiscount;
+    
+    // Print duration cost calculation
+    let printDurationCost = 0;
+    if (printDuration[0] > 0) {
+      const hourlyRate = volumeInMm3 > 250 ? 4.0 : 1.5;
+      printDurationCost = printDuration[0] * hourlyRate;
+    }
+    
+    const totalBasePrice = basePrice + printDurationCost;
+    const totalPrice = totalBasePrice * quantity[0] * quantityDiscount;
     
     return {
-      perPiece: Math.max(5, basePrice),
+      perPiece: Math.max(5, totalBasePrice),
       total: Math.max(5 * quantity[0], totalPrice),
-      savings: quantity[0] > 5 ? (basePrice * quantity[0] - totalPrice) : 0
+      savings: quantity[0] > 5 ? (totalBasePrice * quantity[0] - totalPrice) : 0,
+      printDurationCost
     };
   };
 
@@ -126,6 +136,30 @@ const CostCalculator = () => {
                   </div>
                 </div>
 
+                {/* Print Duration */}
+                <div>
+                  <label className="text-sm font-medium mb-2 block">
+                    Druckdauer (falls bekannt): {printDuration[0] === 0 ? "Unbekannt" : `${printDuration[0]}h`}
+                  </label>
+                  <Slider
+                    value={printDuration}
+                    onValueChange={setPrintDuration}
+                    max={72}
+                    min={0}
+                    step={1}
+                    className="mt-2"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>0h (unbekannt)</span>
+                    <span>72h</span>
+                  </div>
+                  {printDuration[0] > 0 && (
+                    <div className="mt-2 text-sm text-muted-foreground">
+                      Kostensatz: {Math.pow(size[0], 3) > 250 ? "4,00€" : "1,50€"} pro Stunde
+                    </div>
+                  )}
+                </div>
+
                 {/* Quantity */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">
@@ -163,6 +197,15 @@ const CostCalculator = () => {
                       €{pricing.perPiece.toFixed(2)}
                     </span>
                   </div>
+
+                  {pricing.printDurationCost > 0 && (
+                    <div className="flex justify-between items-center p-4 bg-muted/30 rounded-lg">
+                      <span className="font-medium">Druckzeit-Kosten:</span>
+                      <span className="text-lg font-semibold">
+                        €{pricing.printDurationCost.toFixed(2)}
+                      </span>
+                    </div>
+                  )}
 
                   <div className="flex justify-between items-center p-4 bg-primary/10 rounded-lg">
                     <span className="font-medium">Gesamtpreis:</span>
