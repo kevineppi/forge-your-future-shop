@@ -263,7 +263,7 @@ const CostCalculator = () => {
                   </div>
 
                   {pricing.savings > 0 && (
-                    <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border border-green-500/20 hover:bg-background hover:border-green-500 transition-all duration-300 cursor-pointer">
+                    <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border border-green-500/20 hover:scale-105 transition-transform duration-300 cursor-pointer">
                       <span className="font-medium text-green-600">Mengenrabatt:</span>
                       <span className="text-lg font-bold text-green-600">
                         -€{pricing.savings.toFixed(2)}
@@ -272,7 +272,7 @@ const CostCalculator = () => {
                   )}
 
                   {quantity[0] >= 5 && (
-                    <Badge className="w-full justify-center bg-green-500/10 text-green-600 border-green-500/20 hover:bg-background hover:border-green-500 hover:text-green-600 transition-all duration-300 cursor-pointer">
+                    <Badge className="w-full justify-center bg-green-500/10 text-green-600 border-green-500/20 hover:scale-105 transition-transform duration-300 cursor-pointer">
                       🎉 Mengenrabatt aktiv!
                     </Badge>
                   )}
