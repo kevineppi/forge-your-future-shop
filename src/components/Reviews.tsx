@@ -159,10 +159,10 @@ const Reviews = () => {
                   Jetzt Projekt starten
                 </a>
                 <a 
-                  href="tel:+43123456789" 
+                  href="tel:+436765517197" 
                   className="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-sm font-medium transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:scale-105"
                 >
-                  Anrufen: +43 123 456 789
+                  Anrufen: +43 676 5517197
                 </a>
               </div>
             </CardContent>
