@@ -62,7 +62,7 @@ const Reviews = () => {
         {/* Trust Indicators */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Warum <span className="text-gradient">ekdruck e.U.</span> vertrauen?
+            Warum <span className="text-gradient">ekdruck e.U.</span> für 3D-Druck vertrauen?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
             Unsere Kunden schätzen unsere Zuverlässigkeit, Qualität und den persönlichen Service.
@@ -86,7 +86,7 @@ const Reviews = () => {
         {/* Reviews Section */}
         <div className="text-center mb-12">
           <h3 className="text-3xl font-bold mb-4">
-            Das sagen unsere <span className="text-gradient">Kunden</span>
+            Das sagen unsere <span className="text-gradient">3D-Druck Kunden</span> über ekdruck e.U.
           </h3>
           <div className="flex items-center justify-center gap-2 mb-8">
             <div className="flex">

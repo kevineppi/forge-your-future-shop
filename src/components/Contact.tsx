@@ -171,7 +171,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Nehmen Sie <span className="text-gradient">Kontakt</span> auf
+            <span className="text-gradient">Kontakt</span> für Ihr 3D-Druck Projekt
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Bereit für Ihr 3D-Druck Projekt? Kontaktieren Sie uns für eine kostenlose Beratung 

@@ -68,7 +68,7 @@ const Advantages = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Vorteile des <span className="text-gradient">3D-Drucks</span>
+            Vorteile des <span className="text-gradient">3D-Drucks</span> gegenüber traditioneller Fertigung
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Entdecken Sie die revolutionären Vorteile der additiven Fertigung gegenüber traditionellen Herstellungsverfahren
@@ -98,7 +98,7 @@ const Advantages = () => {
         {/* Cost Comparison Table */}
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-center mb-8">
-            Kostenvergleich: <span className="text-gradient">3D-Druck vs. Traditionelle Fertigung</span>
+            Kostenvergleich: <span className="text-gradient">3D-Druck vs. Traditionelle Fertigung</span> in Oberösterreich
           </h3>
           
           <div className="max-w-4xl mx-auto">

@@ -7,10 +7,22 @@ import Reviews from "@/components/Reviews";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    // Update document title for main page
+    document.title = "3D-Druck Service Oberösterreich | ekdruck e.U. Gunskirchen - Nachhaltiger 3D-Druck";
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <>
+      <StructuredData type="organization" />
+      <StructuredData type="service" />
+      <StructuredData type="faq" />
+      <StructuredData type="breadcrumb" />
+      <div className="min-h-screen">
       <Navigation />
       <Hero />
       <Services />
@@ -20,7 +32,8 @@ const Index = () => {
       <About />
       <Contact />
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

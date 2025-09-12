@@ -1,10 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-modern-3d-printer.jpg";
+import SEOHead from "./SEOHead";
+import { useSEO } from "@/hooks/useSEO";
 
 const Hero = () => {
+  const seoData = useSEO('hero');
+  
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-background">
+    <>
+      <SEOHead 
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        path="/"
+      />
+      <section className="relative min-h-screen flex items-center justify-center bg-background">
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
@@ -57,7 +68,8 @@ const Hero = () => {
       <div className="absolute top-20 left-10 w-20 h-20 border border-primary/20 rotate-45 hidden lg:block"></div>
       <div className="absolute bottom-32 right-16 w-16 h-16 border border-primary/20 rotate-12 hidden lg:block"></div>
       <div className="absolute top-1/2 right-8 w-8 h-8 bg-primary/30 rotate-45 hidden lg:block"></div>
-    </section>
+      </section>
+    </>
   );
 };
 

@@ -25,7 +25,7 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Über <span className="text-gradient">ekdruck e.U.</span>
+            Über <span className="text-gradient">ekdruck e.U.</span> - Ihr 3D-Druck Partner
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ihr regionaler 3D-Druck Partner aus Gunskirchen, Oberösterreich. Nachhaltige Fertigung mit 
@@ -36,7 +36,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
           {/* Company Story */}
           <div>
-            <h3 className="text-2xl font-bold mb-6">Unsere Mission</h3>
+            <h3 className="text-2xl font-bold mb-6">Unsere Mission - Nachhaltiger 3D-Druck aus Oberösterreich</h3>
             <div className="space-y-4 text-muted-foreground">
               <p>ekdruck e.U. ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. Wir bieten maßgeschneiderte Prototypen, Kleinserien und individuelle Fertigungslösungen direkt aus Gunskirchen bei Wels - mit kurzen Lieferwegen nach Linz, Salzburg und ganz Austria.</p>
               <p>Als regionaler 3D-Druck Spezialist legen wir Wert auf persönliche Beratung und langfristige Kundenpartnerschaften. Unser Standort in Oberösterreich ermöglicht schnelle Reaktionszeiten und direkten Kontakt zu unseren Kunden in ganz Austria.</p>
@@ -50,7 +50,7 @@ const About = () => {
 
           {/* Values */}
           <div>
-            <h3 className="text-2xl font-bold mb-6">Unsere Werte</h3>
+            <h3 className="text-2xl font-bold mb-6">Unsere Werte - Nachhaltigkeit & Qualität</h3>
             <div className="space-y-6">
               {values.map((value, index) => <div key={index} className="flex items-start space-x-4">
                   <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
@@ -69,10 +69,10 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <Card className="gradient-card border-0">
             <CardContent className="p-8">
-              <h3 className="text-xl font-bold mb-6 flex items-center">
+              <h4 className="text-xl font-bold mb-6 flex items-center">
                 <CheckCircle className="mr-3 h-6 w-6 text-primary" />
-                Unsere Leistungen
-              </h3>
+                Unsere 3D-Druck Leistungen
+              </h4>
               <div className="grid grid-cols-1 gap-3">
                 {capabilities.map((capability, index) => <div key={index} className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
@@ -84,10 +84,10 @@ const About = () => {
 
           <Card className="gradient-card border-0">
             <CardContent className="p-8">
-              <h3 className="text-xl font-bold mb-6 flex items-center">
+              <h4 className="text-xl font-bold mb-6 flex items-center">
                 <CheckCircle className="mr-3 h-6 w-6 text-secondary" />
-                Nachhaltige Materialien
-              </h3>
+                Nachhaltige 3D-Druck Materialien aus Österreich
+              </h4>
               <div className="flex flex-wrap gap-2">
                 {materials.map((material, index) => <Badge key={index} variant="outline" className="text-xs">
                     {material}
