@@ -25,7 +25,7 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Über <span className="text-gradient">EK-Druck</span>
+            Über <span className="text-gradient">ekdruck e.U.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Regionalität und Nachhaltigkeit sind uns ein persönliches Anliegen. Als 3D-Druck Dienstleister 

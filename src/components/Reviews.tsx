@@ -40,11 +40,6 @@ const Reviews = () => {
 
   const trustIndicators = [
     {
-      icon: <Shield className="w-6 h-6" />,
-      title: "ISO 9001 Zertifiziert",
-      description: "Qualitätsmanagement nach internationalen Standards"
-    },
-    {
       icon: <Award className="w-6 h-6" />,
       title: "5 Jahre Erfahrung",
       description: "Bewährte Expertise in der additiven Fertigung"
@@ -67,13 +62,13 @@ const Reviews = () => {
         {/* Trust Indicators */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Warum <span className="text-gradient">EK-Druck</span> vertrauen?
+            Warum <span className="text-gradient">ekdruck e.U.</span> vertrauen?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
             Unsere Kunden schätzen unsere Zuverlässigkeit, Qualität und den persönlichen Service.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {trustIndicators.map((indicator, index) => (
               <Card key={index} className="gradient-card border-0 hover:shadow-card transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardContent className="p-6 text-center">
