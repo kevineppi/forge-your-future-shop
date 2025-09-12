@@ -5,9 +5,9 @@ import {
   Wrench, 
   Palette, 
   Zap, 
-  Shield, 
+  PenTool, 
   Clock,
-  ArrowRight 
+  ArrowRight
 } from "lucide-react";
 
 const Services = () => {
@@ -31,10 +31,10 @@ const Services = () => {
       features: ["Kleinserien", "Prototypenerstellung", "Präzisionsfertigung", "Zuverlässige Qualität"]
     },
     {
-      icon: Shield,
-      title: "Österreichisches Filament",
-      description: "Nachhaltiger 3D-Druck mit Filament aus Österreich, hergestellt aus Industrieabfällen.",
-      features: ["100% österreichisch", "Aus Industrieabfällen", "Ressourcenschonend", "Hohe Qualität"]
+      icon: PenTool,
+      title: "Planung / Konstruktion",
+      description: "Professionelle 3D-Modellierung und technische Konstruktion für Ihre individuellen Projekte.",
+      features: ["3D-Modellierung", "Technische Zeichnungen", "CAD-Konstruktion", "Design-Optimierung"]
     },
     {
       icon: Clock,
