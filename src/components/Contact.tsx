@@ -15,8 +15,10 @@ const Contact = () => {
     timeline: "",
     message: ""
   });
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<{ [key: string]: number }>({});
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -24,6 +26,73 @@ const Contact = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    const validFiles = files.filter(file => {
+      const isValidType = file.type.includes('model') || 
+                         file.name.toLowerCase().endsWith('.stl') ||
+                         file.name.toLowerCase().endsWith('.obj') ||
+                         file.name.toLowerCase().endsWith('.3mf') ||
+                         file.type.includes('pdf') ||
+                         file.type.includes('image');
+      const isValidSize = file.size <= 50 * 1024 * 1024; // 50MB
+      
+      if (!isValidType) {
+        toast({
+          title: "Ungültiger Dateityp",
+          description: `${file.name} ist kein unterstützter Dateityp.`,
+          variant: "destructive",
+        });
+        return false;
+      }
+      
+      if (!isValidSize) {
+        toast({
+          title: "Datei zu groß",
+          description: `${file.name} ist größer als 50MB.`,
+          variant: "destructive",
+        });
+        return false;
+      }
+      
+      return true;
+    });
+    
+    setUploadedFiles(prev => [...prev, ...validFiles]);
+  };
+
+  const removeFile = (index: number) => {
+    setUploadedFiles(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const uploadFiles = async (files: File[]): Promise<string[]> => {
+    const uploadedUrls: string[] = [];
+    
+    for (const file of files) {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
+      const filePath = `contact-files/${Date.now()}-${fileName}`;
+      
+      setUploadProgress(prev => ({ ...prev, [file.name]: 0 }));
+      
+      try {
+        const { error } = await supabase.storage
+          .from('contact-files')
+          .upload(filePath, file);
+
+        if (error) throw error;
+        
+        uploadedUrls.push(filePath);
+        setUploadProgress(prev => ({ ...prev, [file.name]: 100 }));
+      } catch (error) {
+        console.error('Upload error:', error);
+        throw new Error(`Fehler beim Hochladen von ${file.name}`);
+      }
+    }
+    
+    return uploadedUrls;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,6 +110,13 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      let fileUrls: string[] = [];
+      
+      // Upload files if any
+      if (uploadedFiles.length > 0) {
+        fileUrls = await uploadFiles(uploadedFiles);
+      }
+
       const { error } = await supabase
         .from('contact_inquiries')
         .insert([
@@ -50,6 +126,7 @@ const Contact = () => {
             project_type: formData.project,
             timeline: formData.timeline,
             message: formData.message,
+            file_urls: fileUrls.length > 0 ? fileUrls : null,
             status: 'new'
           }
         ]);
@@ -66,6 +143,8 @@ const Contact = () => {
         timeline: "",
         message: ""
       });
+      setUploadedFiles([]);
+      setUploadProgress({});
 
       toast({
         title: "Anfrage gesendet!",
@@ -163,7 +242,10 @@ const Contact = () => {
                   </p>
                   <Button 
                     variant="outline" 
-                    onClick={() => setIsSubmitted(false)}
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setUploadedFiles([]);
+                    }}
                     className="mt-4"
                   >
                     Neue Anfrage senden
@@ -252,17 +334,57 @@ const Contact = () => {
                       />
                     </div>
 
-                    <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
-                      <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-                      <p className="text-muted-foreground mb-2">
-                        Laden Sie Ihre 3D-Dateien hoch (STL, OBJ, 3MF)
-                      </p>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Max. Dateigröße: 50MB. Mehrere Dateien möglich.
-                      </p>
-                      <Button variant="outline" type="button" disabled={isSubmitting}>
-                        Dateien wählen
-                      </Button>
+                    <div className="border-2 border-dashed border-border rounded-lg p-6">
+                      <div className="text-center">
+                        <Upload className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium">
+                            3D-Dateien hochladen (optional)
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            STL, OBJ, 3MF, PDF, Bilder - Max. 50MB pro Datei
+                          </p>
+                        </div>
+                        <input
+                          type="file"
+                          multiple
+                          accept=".stl,.obj,.3mf,.pdf,image/*"
+                          onChange={handleFileChange}
+                          className="hidden"
+                          id="file-upload"
+                          disabled={isSubmitting}
+                        />
+                        <label htmlFor="file-upload">
+                          <Button variant="outline" type="button" disabled={isSubmitting} asChild>
+                            <span className="cursor-pointer">Dateien wählen</span>
+                          </Button>
+                        </label>
+                      </div>
+                      
+                      {uploadedFiles.length > 0 && (
+                        <div className="mt-4 space-y-2">
+                          <p className="text-sm font-medium">Ausgewählte Dateien:</p>
+                          {uploadedFiles.map((file, index) => (
+                            <div key={index} className="flex items-center justify-between bg-muted/50 p-2 rounded">
+                              <div className="flex items-center space-x-2">
+                                <span className="text-sm truncate max-w-48">{file.name}</span>
+                                <span className="text-xs text-muted-foreground">
+                                  ({(file.size / 1024 / 1024).toFixed(1)} MB)
+                                </span>
+                              </div>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => removeFile(index)}
+                                disabled={isSubmitting}
+                                className="h-6 w-6 p-0"
+                              >
+                                ✕
+                              </Button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     <Button 
