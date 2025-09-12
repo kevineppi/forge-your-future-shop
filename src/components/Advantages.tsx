@@ -102,7 +102,35 @@ const Advantages = () => {
           </h3>
           
           <div className="max-w-4xl mx-auto">
-            <Card className="gradient-card border-0">
+            {/* Mobile Version - Stacked Cards */}
+            <div className="md:hidden space-y-4">
+              {costComparison.map((item, index) => (
+                <Card key={index} className="gradient-card border-0">
+                  <CardContent className="p-4">
+                    <h4 className="font-semibold text-lg mb-4">{item.category}</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-muted-foreground">Traditionelle Fertigung:</span>
+                        <span className="font-medium">{item.traditional}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-muted-foreground">3D-Druck:</span>
+                        <span className="font-medium text-primary">{item.printing}</span>
+                      </div>
+                      <div className="flex justify-between items-center pt-2 border-t border-border/30">
+                        <span className="text-sm font-medium">Ersparnis:</span>
+                        <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
+                          {item.savings}
+                        </Badge>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Desktop Version - Table */}
+            <Card className="gradient-card border-0 hidden md:block">
               <CardContent className="p-0">
                 <div className="overflow-x-auto">
                   <table className="w-full">
