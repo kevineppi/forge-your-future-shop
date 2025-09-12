@@ -46,7 +46,7 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">office@ekdruck.at</p>
+                <p className="text-muted-foreground">office@ek-druck.at</p>
               </CardContent>
             </Card>
 

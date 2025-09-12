@@ -53,7 +53,7 @@ const Footer = () => {
             <div className="space-y-3 text-muted-foreground">
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-3 text-primary" />
-                <span className="text-sm">office@ekdruck.at</span>
+                <span className="text-sm">office@ek-druck.at</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-3 text-primary" />
