@@ -10,7 +10,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png" 
+              alt="EK-Druck Logo" 
+              className="h-12 w-auto"
+            />
             <h1 className="text-3xl font-bold text-gradient tracking-tight">EK-Druck</h1>
           </div>
 
