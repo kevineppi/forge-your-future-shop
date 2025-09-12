@@ -5,7 +5,19 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { supabase, type ContactInquiry } from "@/lib/supabase";
+import { supabase } from "@/integrations/supabase/client";
+
+export type ContactInquiry = {
+  id?: string
+  name: string
+  email: string
+  project_type: string
+  timeline: string
+  message: string
+  status: 'new' | 'in_progress' | 'completed' | 'archived'
+  created_at?: string
+  updated_at?: string
+}
 import { useToast } from "@/hooks/use-toast";
 import { Search, Filter, Download, RefreshCw, Eye, CheckCircle, Clock, Archive } from "lucide-react";
 import { format } from "date-fns";
