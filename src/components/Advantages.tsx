@@ -135,31 +135,6 @@ const Advantages = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center">
-          <Card className="gradient-card border-0 max-w-2xl mx-auto">
-            <CardContent className="p-8">
-              <h4 className="text-2xl font-bold mb-4">Bereit für Ihr 3D-Druck Projekt?</h4>
-              <p className="text-muted-foreground mb-6">
-                Lassen Sie uns gemeinsam herausfinden, wie viel Sie mit 3D-Druck sparen können.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="#contact" 
-                  className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-                >
-                  Kostenloses Beratungsgespräch
-                </a>
-                <a 
-                  href="#contact" 
-                  className="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  Kostenvoranschlag anfordern
-                </a>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );
