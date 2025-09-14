@@ -26,7 +26,6 @@ const RapidPrototyping = () => {
         <section className="py-16 lg:py-24 bg-primary">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
-              <Badge className="mb-6 bg-white/20 text-white border-white/30">Rapid Prototyping Service</Badge>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
                 Rapid Prototyping
                 <span className="block text-2xl lg:text-3xl mt-2 opacity-90">Von der Idee zum Prototyp in 24-48h</span>
