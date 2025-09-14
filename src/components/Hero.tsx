@@ -15,9 +15,11 @@ const Hero = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
-              Individueller <span className="text-primary font-extrabold">3D-Druck</span> aus
-              <span className="block text-primary font-extrabold">Oberösterreich</span>
+              Individueller 3D-Druck aus Oberösterreich
             </h1>
+            <h2 className="text-2xl md:text-3xl text-primary font-extrabold mb-4">
+              Nachhaltiger FDM 3D-Druck Service
+            </h2>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               <span className="text-primary font-semibold">Nachhaltiger FDM 3D-Druck Service</span> aus <span className="text-primary font-semibold">Oberösterreich</span> mit österreichischem Filament. 
