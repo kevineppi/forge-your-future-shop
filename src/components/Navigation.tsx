@@ -27,12 +27,7 @@ const Navigation = () => {
             <a href="#cost-calculator" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Preisrechner</a>
             <a href="#about" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</a>
-            <div className="flex gap-2">
-              <Button variant="outline" asChild>
-                <a href="/auth">Anmelden</a>
-              </Button>
-              <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
-            </div>
+            <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
           </div>
 
           {/* Mobile Menu Button */}

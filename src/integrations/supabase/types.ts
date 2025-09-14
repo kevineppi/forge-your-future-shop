@@ -53,66 +53,6 @@ export type Database = {
         }
         Relationships: []
       }
-      projects: {
-        Row: {
-          complexity_level: number | null
-          created_at: string
-          description: string | null
-          estimated_price: number | null
-          file_name: string
-          file_size: number
-          file_url: string
-          final_price: number | null
-          id: string
-          material: string | null
-          name: string
-          payment_intent_id: string | null
-          quote_file_url: string | null
-          status: Database["public"]["Enums"]["project_status"]
-          updated_at: string
-          user_id: string
-          volume_cm3: number | null
-        }
-        Insert: {
-          complexity_level?: number | null
-          created_at?: string
-          description?: string | null
-          estimated_price?: number | null
-          file_name: string
-          file_size: number
-          file_url: string
-          final_price?: number | null
-          id?: string
-          material?: string | null
-          name: string
-          payment_intent_id?: string | null
-          quote_file_url?: string | null
-          status?: Database["public"]["Enums"]["project_status"]
-          updated_at?: string
-          user_id: string
-          volume_cm3?: number | null
-        }
-        Update: {
-          complexity_level?: number | null
-          created_at?: string
-          description?: string | null
-          estimated_price?: number | null
-          file_name?: string
-          file_size?: number
-          file_url?: string
-          final_price?: number | null
-          id?: string
-          material?: string | null
-          name?: string
-          payment_intent_id?: string | null
-          quote_file_url?: string | null
-          status?: Database["public"]["Enums"]["project_status"]
-          updated_at?: string
-          user_id?: string
-          volume_cm3?: number | null
-        }
-        Relationships: []
-      }
       user_roles: {
         Row: {
           created_at: string
@@ -153,15 +93,6 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
-      project_status:
-        | "uploaded"
-        | "analyzing"
-        | "quote_ready"
-        | "quote_sent"
-        | "paid"
-        | "in_production"
-        | "completed"
-        | "cancelled"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -290,16 +221,6 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "moderator", "user"],
-      project_status: [
-        "uploaded",
-        "analyzing",
-        "quote_ready",
-        "quote_sent",
-        "paid",
-        "in_production",
-        "completed",
-        "cancelled",
-      ],
     },
   },
 } as const

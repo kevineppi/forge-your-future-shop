@@ -1,189 +1,265 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { supabase } from "@/integrations/supabase/client";
+import type { User, Session } from '@supabase/supabase-js';
+import { Lock, Mail, UserPlus, LogIn, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2 } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
 
 const Auth = () => {
+  const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
+  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { toast } = useToast();
 
   useEffect(() => {
-    if (user) {
-      navigate("/dashboard");
-    }
-  }, [user, navigate]);
-
-  const handleEmailAuth = async (isSignUp: boolean) => {
-    setLoading(true);
-    try {
-      if (isSignUp) {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            emailRedirectTo: `${window.location.origin}/`
-          }
-        });
-        if (error) throw error;
-        toast({
-          title: "Registrierung erfolgreich",
-          description: "Bitte bestätigen Sie Ihre E-Mail-Adresse.",
-        });
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        if (error) throw error;
-        toast({
-          title: "Anmeldung erfolgreich",
-          description: "Sie werden weitergeleitet...",
-        });
-        navigate("/dashboard");
+    // Set up auth state listener FIRST
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setSession(session);
+        setUser(session?.user ?? null);
+        
+        // Redirect authenticated users to main page
+        if (session?.user) {
+          navigate("/");
+        }
       }
-    } catch (error: any) {
-      toast({
-        title: "Fehler",
-        description: error.message,
-        variant: "destructive",
+    );
+
+    // THEN check for existing session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      
+      // Redirect if already authenticated
+      if (session?.user) {
+        navigate("/");
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
+  const handleSignUp = async () => {
+    setLoading(true);
+    setError("");
+
+    if (!email || !password) {
+      setError("Bitte füllen Sie alle Felder aus.");
+      setLoading(false);
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Das Passwort muss mindestens 6 Zeichen lang sein.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const redirectUrl = `${window.location.origin}/`;
+      
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: redirectUrl
+        }
       });
+
+      if (error) {
+        if (error.message.includes("already registered")) {
+          setError("Diese E-Mail-Adresse ist bereits registriert. Versuchen Sie sich anzumelden.");
+        } else {
+          setError(error.message);
+        }
+      } else {
+        toast({
+          title: "Registrierung erfolgreich!",
+          description: "Prüfen Sie Ihre E-Mails für den Bestätigungslink.",
+        });
+        setEmail("");
+        setPassword("");
+      }
+    } catch (err) {
+      setError("Ein unerwarteter Fehler ist aufgetreten.");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleGoogleAuth = async () => {
+  const handleSignIn = async () => {
     setLoading(true);
+    setError("");
+
+    if (!email || !password) {
+      setError("Bitte füllen Sie alle Felder aus.");
+      setLoading(false);
+      return;
+    }
+
     try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: `${window.location.origin}/dashboard`
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        if (error.message.includes("Invalid login credentials")) {
+          setError("Ungültige Anmeldedaten. Prüfen Sie E-Mail und Passwort.");
+        } else {
+          setError(error.message);
         }
-      });
-      if (error) throw error;
-    } catch (error: any) {
-      toast({
-        title: "Fehler",
-        description: error.message,
-        variant: "destructive",
-      });
+      }
+    } catch (err) {
+      setError("Ein unerwarteter Fehler ist aufgetreten.");
+    } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-muted/30 p-4">
+      <Card className="w-full max-w-md gradient-card border-0">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl">Willkommen</CardTitle>
-          <CardDescription>
-            Melden Sie sich an oder erstellen Sie ein Konto
-          </CardDescription>
+          <CardTitle className="text-2xl font-bold">
+            EK-Druck <span className="text-gradient">Admin</span>
+          </CardTitle>
+          <p className="text-muted-foreground">
+            Melden Sie sich an oder registrieren Sie sich
+          </p>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="signin" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="signin">Anmelden</TabsTrigger>
-              <TabsTrigger value="signup">Registrieren</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="signin" className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">E-Mail</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="ihre@email.de"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">Passwort</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Ihr Passwort"
-                />
-              </div>
-              <Button
-                onClick={() => handleEmailAuth(false)}
-                disabled={loading}
-                className="w-full"
-              >
-                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              <TabsTrigger value="signin" className="flex items-center gap-2">
+                <LogIn className="h-4 w-4" />
                 Anmelden
+              </TabsTrigger>
+              <TabsTrigger value="signup" className="flex items-center gap-2">
+                <UserPlus className="h-4 w-4" />
+                Registrieren
+              </TabsTrigger>
+            </TabsList>
+
+            {error && (
+              <Alert variant="destructive" className="mt-4">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
+            <TabsContent value="signin" className="space-y-4 mt-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium">E-Mail</label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="email"
+                    placeholder="ihre@email.at"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="pl-9"
+                    disabled={loading}
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Passwort</label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="password"
+                    placeholder="Ihr Passwort"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="pl-9"
+                    disabled={loading}
+                    onKeyPress={(e) => e.key === 'Enter' && handleSignIn()}
+                  />
+                </div>
+              </div>
+              <Button 
+                onClick={handleSignIn} 
+                className="w-full" 
+                disabled={loading}
+                variant="hero"
+              >
+                {loading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    Anmelden...
+                  </>
+                ) : (
+                  <>
+                    <LogIn className="mr-2 h-4 w-4" />
+                    Anmelden
+                  </>
+                )}
               </Button>
             </TabsContent>
-            
-            <TabsContent value="signup" className="space-y-4">
+
+            <TabsContent value="signup" className="space-y-4 mt-6">
               <div className="space-y-2">
-                <Label htmlFor="email">E-Mail</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="ihre@email.de"
-                />
+                <label className="text-sm font-medium">E-Mail</label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="email"
+                    placeholder="ihre@email.at"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="pl-9"
+                    disabled={loading}
+                  />
+                </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password">Passwort</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Ihr Passwort"
-                />
+                <label className="text-sm font-medium">Passwort</label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="password"
+                    placeholder="Mindestens 6 Zeichen"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="pl-9"
+                    disabled={loading}
+                    onKeyPress={(e) => e.key === 'Enter' && handleSignUp()}
+                  />
+                </div>
               </div>
-              <Button
-                onClick={() => handleEmailAuth(true)}
+              <Button 
+                onClick={handleSignUp} 
+                className="w-full" 
                 disabled={loading}
-                className="w-full"
+                variant="hero"
               >
-                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Registrieren
+                {loading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    Registrieren...
+                  </>
+                ) : (
+                  <>
+                    <UserPlus className="mr-2 h-4 w-4" />
+                    Registrieren
+                  </>
+                )}
               </Button>
+              <p className="text-xs text-muted-foreground text-center">
+                Nach der Registrierung erhalten Sie eine Bestätigungs-E-Mail.
+              </p>
             </TabsContent>
           </Tabs>
-          
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
-                  Oder
-                </span>
-              </div>
-            </div>
-            
-            <Button
-              variant="outline"
-              onClick={handleGoogleAuth}
-              disabled={loading}
-              className="w-full mt-4"
-            >
-              {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Mit Google anmelden
-            </Button>
-          </div>
         </CardContent>
       </Card>
     </div>
