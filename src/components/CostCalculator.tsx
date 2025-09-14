@@ -15,56 +15,90 @@ const CostCalculator = () => {
   const [height, setHeight] = useState([50]);
   const [printDuration, setPrintDuration] = useState([0]);
 
-  // Safe state setters to prevent invalid values
-  const setLengthSafe = useCallback((value: number[]) => {
-    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
-      setLength([Math.max(10, Math.min(300, value[0]))]);
-    }
-  }, []);
-
-  const setWidthSafe = useCallback((value: number[]) => {
-    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
-      setWidth([Math.max(10, Math.min(300, value[0]))]);
-    }
-  }, []);
-
-  const setHeightSafe = useCallback((value: number[]) => {
-    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
-      setHeight([Math.max(10, Math.min(300, value[0]))]);
-    }
-  }, []);
-
-  const setComplexitySafe = useCallback((value: number[]) => {
-    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
-      setComplexity([Math.max(0, Math.min(4, value[0]))]);
-    }
-  }, []);
-
-  const setQuantitySafe = useCallback((value: number[]) => {
-    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
-      setQuantity([Math.max(1, Math.min(100, value[0]))]);
-    }
-  }, []);
-
-  const setPrintDurationSafe = useCallback((value: number[]) => {
-    if (Array.isArray(value) && value.length > 0 && !isNaN(value[0])) {
-      setPrintDuration([Math.max(0, Math.min(72, value[0]))]);
-    }
-  }, []);
-
-  const setMaterialSafe = useCallback((value: string) => {
-    if (value && materials.hasOwnProperty(value)) {
-      setMaterial(value);
-    }
-  }, []);
-
-  const materials = {
+  const materials = useMemo(() => ({
     pla: { name: "PLA", price: 0.20, factor: 1.0 },
     petg: { name: "PETG", price: 0.32, factor: 1.2 },
     abs: { name: "ABS", price: 0.28, factor: 1.1 },
     pa12: { name: "PA12 Nylon", price: 1.00, factor: 1.6 },
     pa6: { name: "PA6 Nylon", price: 1.00, factor: 1.6 }
-  };
+  }), []);
+
+  // Safe state setters to prevent invalid values
+  const setLengthSafe = useCallback((value: number[]) => {
+    try {
+      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
+        const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
+        setLength([newValue]);
+      }
+    } catch (error) {
+      console.error('Error setting length:', error);
+    }
+  }, []);
+
+  const setWidthSafe = useCallback((value: number[]) => {
+    try {
+      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
+        const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
+        setWidth([newValue]);
+      }
+    } catch (error) {
+      console.error('Error setting width:', error);
+    }
+  }, []);
+
+  const setHeightSafe = useCallback((value: number[]) => {
+    try {
+      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
+        const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
+        setHeight([newValue]);
+      }
+    } catch (error) {
+      console.error('Error setting height:', error);
+    }
+  }, []);
+
+  const setComplexitySafe = useCallback((value: number[]) => {
+    try {
+      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
+        const newValue = Math.max(0, Math.min(4, Math.round(value[0])));
+        setComplexity([newValue]);
+      }
+    } catch (error) {
+      console.error('Error setting complexity:', error);
+    }
+  }, []);
+
+  const setQuantitySafe = useCallback((value: number[]) => {
+    try {
+      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
+        const newValue = Math.max(1, Math.min(100, Math.round(value[0])));
+        setQuantity([newValue]);
+      }
+    } catch (error) {
+      console.error('Error setting quantity:', error);
+    }
+  }, []);
+
+  const setPrintDurationSafe = useCallback((value: number[]) => {
+    try {
+      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
+        const newValue = Math.max(0, Math.min(72, Math.round(value[0])));
+        setPrintDuration([newValue]);
+      }
+    } catch (error) {
+      console.error('Error setting print duration:', error);
+    }
+  }, []);
+
+  const setMaterialSafe = useCallback((value: string) => {
+    try {
+      if (value && typeof value === 'string' && materials[value as keyof typeof materials]) {
+        setMaterial(value);
+      }
+    } catch (error) {
+      console.error('Error setting material:', error);
+    }
+  }, [materials]);
 
   const complexityLevels = [
     "Einfach (Grundformen)",
@@ -118,7 +152,7 @@ const CostCalculator = () => {
       console.error('Error calculating price:', error);
       return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, volume: 125000, maxDimension: 50 };
     }
-  }, [material, length, width, height, complexity, quantity, printDuration]);
+  }, [material, length, width, height, complexity, quantity, printDuration, materials]);
 
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
