@@ -107,13 +107,87 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-4 animate-fade-in">
-            <a href="#services" className="block text-foreground hover:text-primary transition-colors">Leistungen</a>
-            <a href="#advantages" className="block text-foreground hover:text-primary transition-colors">Vorteile</a>
-            <a href="#cost-calculator" className="block text-foreground hover:text-primary transition-colors">Preisrechner</a>
-            <a href="#about" className="block text-foreground hover:text-primary transition-colors">Über uns</a>
-            <a href="#contact" className="block text-foreground hover:text-primary transition-colors">Kontakt</a>
-            <Button variant="hero" size="sm" className="w-full" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot erhalten</Button>
+          <div className="md:hidden pb-4 space-y-3 animate-fade-in">
+            <div className="space-y-2">
+              <div className="text-sm font-semibold text-muted-foreground px-2 mb-2">Services</div>
+              <a 
+                href="/fdm-3d-druck" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <Box className="h-4 w-4 text-primary" />
+                FDM 3D-Druck
+              </a>
+              <a 
+                href="/rapid-prototyping" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <Clock className="h-4 w-4 text-primary" />
+                Rapid Prototyping
+              </a>
+              <a 
+                href="/3d-druck-materialien" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <Leaf className="h-4 w-4 text-primary" />
+                Materialien
+              </a>
+              <a 
+                href="/einzelanfertigungen" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <Sparkles className="h-4 w-4 text-primary" />
+                Einzelanfertigungen
+              </a>
+              <a 
+                href="/serienfertigung" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <Factory className="h-4 w-4 text-primary" />
+                Serienfertigung
+              </a>
+            </div>
+            <div className="border-t border-border/50 pt-3 space-y-2">
+              <a 
+                href="#advantages" 
+                className="block text-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                Vorteile
+              </a>
+              <a 
+                href="#about" 
+                className="block text-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                Über uns
+              </a>
+              <a 
+                href="#contact" 
+                className="block text-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10"
+                onClick={() => {
+                  setIsOpen(false);
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Kontakt
+              </a>
+            </div>
+            <Button 
+              variant="hero" 
+              size="sm" 
+              className="w-full" 
+              onClick={() => {
+                setIsOpen(false);
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Angebot erhalten
+            </Button>
           </div>
         )}
       </div>
