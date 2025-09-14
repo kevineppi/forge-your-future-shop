@@ -20,7 +20,6 @@ const Index = () => {
     <>
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      <StructuredData type="faq" />
       <StructuredData type="breadcrumb" />
       <div className="min-h-screen">
       <Navigation />
