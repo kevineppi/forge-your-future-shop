@@ -58,8 +58,13 @@ const Services = () => {
             Unsere <span className="text-gradient">3D-Druck Leistungen</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> bis zur <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung</a> - nachhaltige 3D-Druck Lösungen 
-            aus Oberösterreich für jeden Bedarf. Entdecken Sie auch unsere <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltigen Materialien</a> und <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Services</a>.
+            Unser professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich bietet umfassende Lösungen 
+            für alle Bereiche der additiven Fertigung. Von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> 
+            bis zur <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung</a> - 
+            unser <strong className="text-primary">3D-Druck Dienstleister</strong> realisiert Ihre Projekte mit nachhaltigen Materialien 
+            aus Oberösterreich. Entdecken Sie auch unsere <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltigen österreichischen Filamente</a> 
+            und unseren <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express Rapid Prototyping Service</a> 
+            für die schnelle Entwicklung Ihrer Ideen.
           </p>
         </div>
 
