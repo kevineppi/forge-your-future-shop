@@ -58,8 +58,8 @@ const Services = () => {
             Unsere <span className="text-gradient">3D-Druck Leistungen</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Von Einzelanfertigungen bis zur Serienfertigung - nachhaltige 3D-Druck Lösungen 
-            aus Oberösterreich für jeden Bedarf.
+            Von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> bis zur <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung</a> - nachhaltige 3D-Druck Lösungen 
+            aus Oberösterreich für jeden Bedarf. Entdecken Sie auch unsere <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltigen Materialien</a> und <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Services</a>.
           </p>
         </div>
 

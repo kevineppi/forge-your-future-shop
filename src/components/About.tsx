@@ -27,7 +27,13 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Über <span className="text-gradient">ekdruck e.U.</span> - Ihr 3D-Druck Partner
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Ihr regionaler 3D-Druck Partner aus Oberösterreich. Nachhaltige Fertigung mit österreichischem Filament, persönliche Beratung und kurze Lieferwege in ganz Österreich.</p>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Ihr regionaler 3D-Druck Partner aus Oberösterreich. Nachhaltige Fertigung mit 
+            <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold mx-1">österreichischem Filament</a>, 
+            persönliche Beratung und kurze Lieferwege in ganz Österreich. Spezialisiert auf 
+            <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> und 
+            <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung</a>.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
@@ -35,12 +41,21 @@ const About = () => {
           <div>
             <h3 className="text-2xl font-bold mb-6">Unsere Mission - Nachhaltiger 3D-Druck aus Oberösterreich</h3>
             <div className="space-y-4 text-muted-foreground">
-              <p>ekdruck e.U. ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. Wir bieten maßgeschneiderte Prototypen, Kleinserien und individuelle Fertigungslösungen aus Oberösterreich - mit kurzen Lieferwegen in ganz Österreich.</p>
-              <p>Als regionaler 3D-Druck Spezialist legen wir Wert auf persönliche Beratung und langfristige Kundenpartnerschaften. Unser Standort in Oberösterreich ermöglicht schnelle Reaktionszeiten und direkten Kontakt zu unseren Kunden in Österreich und der Dach - Region.</p>
+              <p>
+                ekdruck e.U. ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. Wir bieten 
+                <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold mx-1">maßgeschneiderte Prototypen</a>, 
+                <a href="/serienfertigung" className="text-primary hover:underline font-semibold mx-1">Kleinserien</a> und 
+                individuelle Fertigungslösungen aus Oberösterreich - mit kurzen Lieferwegen in ganz Österreich.
+              </p>
+              <p>
+                Als regionaler <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">3D-Druck Spezialist</a> 
+                legen wir Wert auf persönliche Beratung und langfristige Kundenpartnerschaften. Unser Standort in 
+                Oberösterreich ermöglicht schnelle Reaktionszeiten und direkten Kontakt zu unseren Kunden in Österreich und der DACH-Region.
+              </p>
               <p>
                 Um ressourcenschonend zu produzieren, beziehen wir unser Filament ausschließlich aus 
-                Österreich, wo es aus Industrieabfällen hergestellt wird. So verbinden wir Qualität 
-                mit Nachhaltigkeit.
+                <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold mx-1">Österreich</a>, 
+                wo es aus Industrieabfällen hergestellt wird. So verbinden wir Qualität mit Nachhaltigkeit.
               </p>
             </div>
           </div>

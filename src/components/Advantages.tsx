@@ -71,7 +71,9 @@ const Advantages = () => {
             Vorteile des <span className="text-gradient">3D-Drucks</span> gegenüber traditioneller Fertigung
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Entdecken Sie die revolutionären Vorteile der additiven Fertigung gegenüber traditionellen Herstellungsverfahren
+            Entdecken Sie die revolutionären Vorteile der additiven Fertigung gegenüber traditionellen Herstellungsverfahren. 
+            Erfahren Sie mehr über unsere <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM-Technologie</a> und 
+            <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold mx-1">Express-Services</a>.
           </p>
         </div>
 
