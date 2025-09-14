@@ -7,98 +7,22 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calculator, Info, Sparkles } from "lucide-react";
 
 const CostCalculator = () => {
+  // Initialize state with proper defaults
   const [material, setMaterial] = useState("pla");
-  const [complexity, setComplexity] = useState([2]);
-  const [quantity, setQuantity] = useState([1]);
-  const [length, setLength] = useState([50]);
-  const [width, setWidth] = useState([50]);
-  const [height, setHeight] = useState([50]);
-  const [printDuration, setPrintDuration] = useState([0]);
+  const [complexity, setComplexity] = useState(2);
+  const [quantity, setQuantity] = useState(1);
+  const [length, setLength] = useState(50);
+  const [width, setWidth] = useState(50);
+  const [height, setHeight] = useState(50);
+  const [printDuration, setPrintDuration] = useState(0);
 
-  const materials = useMemo(() => ({
+  const materials = {
     pla: { name: "PLA", price: 0.20, factor: 1.0 },
     petg: { name: "PETG", price: 0.32, factor: 1.2 },
     abs: { name: "ABS", price: 0.28, factor: 1.1 },
     pa12: { name: "PA12 Nylon", price: 1.00, factor: 1.6 },
     pa6: { name: "PA6 Nylon", price: 1.00, factor: 1.6 }
-  }), []);
-
-  // Safe state setters to prevent invalid values
-  const setLengthSafe = useCallback((value: number[]) => {
-    try {
-      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
-        const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
-        setLength([newValue]);
-      }
-    } catch (error) {
-      console.error('Error setting length:', error);
-    }
-  }, []);
-
-  const setWidthSafe = useCallback((value: number[]) => {
-    try {
-      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
-        const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
-        setWidth([newValue]);
-      }
-    } catch (error) {
-      console.error('Error setting width:', error);
-    }
-  }, []);
-
-  const setHeightSafe = useCallback((value: number[]) => {
-    try {
-      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
-        const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
-        setHeight([newValue]);
-      }
-    } catch (error) {
-      console.error('Error setting height:', error);
-    }
-  }, []);
-
-  const setComplexitySafe = useCallback((value: number[]) => {
-    try {
-      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
-        const newValue = Math.max(0, Math.min(4, Math.round(value[0])));
-        setComplexity([newValue]);
-      }
-    } catch (error) {
-      console.error('Error setting complexity:', error);
-    }
-  }, []);
-
-  const setQuantitySafe = useCallback((value: number[]) => {
-    try {
-      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
-        const newValue = Math.max(1, Math.min(100, Math.round(value[0])));
-        setQuantity([newValue]);
-      }
-    } catch (error) {
-      console.error('Error setting quantity:', error);
-    }
-  }, []);
-
-  const setPrintDurationSafe = useCallback((value: number[]) => {
-    try {
-      if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'number' && !isNaN(value[0])) {
-        const newValue = Math.max(0, Math.min(72, Math.round(value[0])));
-        setPrintDuration([newValue]);
-      }
-    } catch (error) {
-      console.error('Error setting print duration:', error);
-    }
-  }, []);
-
-  const setMaterialSafe = useCallback((value: string) => {
-    try {
-      if (value && typeof value === 'string' && materials[value as keyof typeof materials]) {
-        setMaterial(value);
-      }
-    } catch (error) {
-      console.error('Error setting material:', error);
-    }
-  }, [materials]);
+  };
 
   const complexityLevels = [
     "Einfach (Grundformen)",
@@ -108,42 +32,95 @@ const CostCalculator = () => {
     "Extrem komplex (Multimaterial)"
   ];
 
+  // Safe state setters with proper number handling
+  const handleLengthChange = useCallback((value: number[]) => {
+    console.log('Length change:', value);
+    if (value && value[0] && typeof value[0] === 'number') {
+      const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
+      setLength(newValue);
+    }
+  }, []);
+
+  const handleWidthChange = useCallback((value: number[]) => {
+    console.log('Width change:', value);
+    if (value && value[0] && typeof value[0] === 'number') {
+      const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
+      setWidth(newValue);
+    }
+  }, []);
+
+  const handleHeightChange = useCallback((value: number[]) => {
+    console.log('Height change:', value);
+    if (value && value[0] && typeof value[0] === 'number') {
+      const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
+      setHeight(newValue);
+    }
+  }, []);
+
+  const handleComplexityChange = useCallback((value: number[]) => {
+    console.log('Complexity change:', value);
+    if (value && value[0] && typeof value[0] === 'number') {
+      const newValue = Math.max(0, Math.min(4, Math.round(value[0])));
+      setComplexity(newValue);
+    }
+  }, []);
+
+  const handleQuantityChange = useCallback((value: number[]) => {
+    console.log('Quantity change:', value);
+    if (value && value[0] && typeof value[0] === 'number') {
+      const newValue = Math.max(1, Math.min(100, Math.round(value[0])));
+      setQuantity(newValue);
+    }
+  }, []);
+
+  const handlePrintDurationChange = useCallback((value: number[]) => {
+    console.log('Print duration change:', value);
+    if (value && value[0] && typeof value[0] === 'number') {
+      const newValue = Math.max(0, Math.min(72, Math.round(value[0])));
+      setPrintDuration(newValue);
+    }
+  }, []);
+
+  const handleMaterialChange = useCallback((value: string) => {
+    console.log('Material change:', value);
+    try {
+      if (value && typeof value === 'string' && materials[value as keyof typeof materials]) {
+        setMaterial(value);
+      }
+    } catch (error) {
+      console.error('Error setting material:', error);
+    }
+  }, []);
+
   const calculatePrice = useCallback(() => {
     try {
       const baseMaterial = materials[material as keyof typeof materials];
       if (!baseMaterial) return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, volume: 125000, maxDimension: 50 };
       
-      const safeLength = Array.isArray(length) && length.length > 0 ? length[0] : 50;
-      const safeWidth = Array.isArray(width) && width.length > 0 ? width[0] : 50;
-      const safeHeight = Array.isArray(height) && height.length > 0 ? height[0] : 50;
-      const safeComplexity = Array.isArray(complexity) && complexity.length > 0 ? complexity[0] : 2;
-      const safeQuantity = Array.isArray(quantity) && quantity.length > 0 ? quantity[0] : 1;
-      const safePrintDuration = Array.isArray(printDuration) && printDuration.length > 0 ? printDuration[0] : 0;
-      
-      const actualVolume = (safeLength * safeWidth * safeHeight) / 1000000; // Convert mm³ to relative volume
-      const maxDimension = Math.max(safeLength, safeWidth, safeHeight); // Longest side for print time calculation
-      const complexityMultiplier = 1 + (safeComplexity * 0.3);
-      const quantityDiscount = safeQuantity > 10 ? 0.9 : safeQuantity > 5 ? 0.95 : 1.0;
+      const actualVolume = (length * width * height) / 1000000; // Convert mm³ to relative volume
+      const maxDimension = Math.max(length, width, height); // Longest side for print time calculation
+      const complexityMultiplier = 1 + (complexity * 0.3);
+      const quantityDiscount = quantity > 10 ? 0.9 : quantity > 5 ? 0.95 : 1.0;
       
       const basePrice = actualVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
       
       // Print duration cost calculation based on longest side
       let printDurationCost = 0;
-      if (safePrintDuration > 0) {
+      if (printDuration > 0) {
         let hourlyRate = 1.5; // Default rate for <= 250mm
         if (maxDimension > 250 && maxDimension <= 350) {
           hourlyRate = 4.0;
         }
-        printDurationCost = safePrintDuration * hourlyRate;
+        printDurationCost = printDuration * hourlyRate;
       }
       
       const totalBasePrice = basePrice + printDurationCost;
-      const totalPrice = totalBasePrice * safeQuantity * quantityDiscount;
+      const totalPrice = totalBasePrice * quantity * quantityDiscount;
       
       return {
         perPiece: Math.max(5, totalBasePrice),
-        total: Math.max(5 * safeQuantity, totalPrice),
-        savings: safeQuantity > 5 ? (totalBasePrice * safeQuantity - totalPrice) : 0,
+        total: Math.max(5 * quantity, totalPrice),
+        savings: quantity > 5 ? (totalBasePrice * quantity - totalPrice) : 0,
         printDurationCost,
         volume: actualVolume * 1000000, // Return volume in mm³ for display
         maxDimension
@@ -152,7 +129,7 @@ const CostCalculator = () => {
       console.error('Error calculating price:', error);
       return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, volume: 125000, maxDimension: 50 };
     }
-  }, [material, length, width, height, complexity, quantity, printDuration, materials]);
+  }, [material, length, width, height, complexity, quantity, printDuration]);
 
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
@@ -182,16 +159,16 @@ const CostCalculator = () => {
                 {/* Material Selection */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">Material</label>
-                  <Select value={material} onValueChange={setMaterialSafe}>
-                    <SelectTrigger>
-                      <SelectValue />
+                  <Select value={material} onValueChange={handleMaterialChange}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Material auswählen" />
                     </SelectTrigger>
                     <SelectContent>
-                      {Object.entries(materials).map(([key, mat]) => (
-                        <SelectItem key={key} value={key}>
-                          {mat.name} - €{mat.price.toFixed(2)}/g
-                        </SelectItem>
-                      ))}
+                      <SelectItem value="pla">PLA - €0.20/g</SelectItem>
+                      <SelectItem value="petg">PETG - €0.32/g</SelectItem>
+                      <SelectItem value="abs">ABS - €0.28/g</SelectItem>
+                      <SelectItem value="pa12">PA12 Nylon - €1.00/g</SelectItem>
+                      <SelectItem value="pa6">PA6 Nylon - €1.00/g</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -200,11 +177,11 @@ const CostCalculator = () => {
                 <div className="space-y-4">
                   <div>
                     <label className="text-sm font-medium mb-2 block">
-                      Länge: {length[0]}mm
+                      Länge: {length}mm
                     </label>
                     <Slider
-                      value={length}
-                      onValueChange={setLengthSafe}
+                      value={[length]}
+                      onValueChange={handleLengthChange}
                       max={300}
                       min={10}
                       step={5}
@@ -214,11 +191,11 @@ const CostCalculator = () => {
                   
                   <div>
                     <label className="text-sm font-medium mb-2 block">
-                      Breite: {width[0]}mm
+                      Breite: {width}mm
                     </label>
                     <Slider
-                      value={width}
-                      onValueChange={setWidthSafe}
+                      value={[width]}
+                      onValueChange={handleWidthChange}
                       max={300}
                       min={10}
                       step={5}
@@ -228,11 +205,11 @@ const CostCalculator = () => {
                   
                   <div>
                     <label className="text-sm font-medium mb-2 block">
-                      Höhe: {height[0]}mm
+                      Höhe: {height}mm
                     </label>
                     <Slider
-                      value={height}
-                      onValueChange={setHeightSafe}
+                      value={[height]}
+                      onValueChange={handleHeightChange}
                       max={300}
                       min={10}
                       step={5}
@@ -255,11 +232,11 @@ const CostCalculator = () => {
                 {/* Complexity */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">
-                    Komplexität: {complexityLevels[complexity[0]]}
+                    Komplexität: {complexityLevels[complexity]}
                   </label>
                   <Slider
-                    value={complexity}
-                    onValueChange={setComplexitySafe}
+                    value={[complexity]}
+                    onValueChange={handleComplexityChange}
                     max={4}
                     min={0}
                     step={1}
@@ -274,11 +251,11 @@ const CostCalculator = () => {
                 {/* Print Duration */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">
-                    Druckdauer (falls bekannt): {printDuration[0] === 0 ? "Unbekannt" : `${printDuration[0]}h`}
+                    Druckdauer (falls bekannt): {printDuration === 0 ? "Unbekannt" : `${printDuration}h`}
                   </label>
                   <Slider
-                    value={printDuration}
-                    onValueChange={setPrintDurationSafe}
+                    value={[printDuration]}
+                    onValueChange={handlePrintDurationChange}
                     max={72}
                     min={0}
                     step={1}
@@ -288,7 +265,7 @@ const CostCalculator = () => {
                     <span>0h (unbekannt)</span>
                     <span>72h</span>
                   </div>
-                  {printDuration[0] > 0 && (
+                  {printDuration > 0 && (
                     <div className="mt-2 text-sm text-muted-foreground">
                       Kostensatz: {(() => {
                         if (pricing.maxDimension <= 250) return "1,50€";
@@ -302,11 +279,11 @@ const CostCalculator = () => {
                 {/* Quantity */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">
-                    Stückzahl: {quantity[0]}
+                    Stückzahl: {quantity}
                   </label>
                   <Slider
-                    value={quantity}
-                    onValueChange={setQuantitySafe}
+                    value={[quantity]}
+                    onValueChange={handleQuantityChange}
                     max={100}
                     min={1}
                     step={1}
@@ -362,7 +339,7 @@ const CostCalculator = () => {
                     </div>
                   )}
 
-                  {quantity[0] >= 5 && (
+                  {quantity >= 5 && (
                     <Badge className="w-full justify-center bg-green-500/10 text-green-600 border-green-500/20 hover:scale-105 transition-transform duration-300 cursor-pointer">
                       🎉 Mengenrabatt aktiv!
                     </Badge>
