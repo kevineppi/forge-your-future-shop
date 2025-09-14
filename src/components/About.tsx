@@ -44,22 +44,22 @@ const About = () => {
               <p>
                 <strong className="text-primary">ekdruck e.U.</strong> ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. 
                 Wir bieten professionellen <strong className="text-primary">FDM 3D-Druck Service</strong> mit modernster Technologie und 
-                <strong className="text-primary">nachhaltigen österreichischen Materialien</strong>. 
-                <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Maßgeschneiderte Prototypen</a>, 
+                <strong className="text-primary"> nachhaltigen österreichischen Materialien</strong>. 
+                <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold"> Maßgeschneiderte Prototypen</a>, 
                 <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Kleinserien</a> und 
                 individuelle Fertigungslösungen aus Oberösterreich - mit kurzen Lieferwegen in ganz Österreich.
               </p>
               <p>
                 Unser <strong className="text-primary">3D-Druck Dienstleister</strong> deckt alle Bereiche der additiven Fertigung ab. 
                 Von der schnellen <strong className="text-primary">Prototypenerstellung</strong> über 
-                <strong className="text-primary">individuelle Einzelanfertigungen</strong> bis hin zur 
-                <strong className="text-primary">effizienten Serienfertigung</strong>. 
+                <strong className="text-primary"> individuelle Einzelanfertigungen</strong> bis hin zur 
+                <strong className="text-primary"> effizienten Serienfertigung</strong>. 
                 Als regionaler <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">3D-Druck Spezialist</a> 
                 legen wir Wert auf persönliche Beratung und langfristige Kundenpartnerschaften.
               </p>
               <p>
                 Dabei verwenden wir ausschließlich 
-                <strong className="text-primary">nachhaltige Filamente aus österreichischen Industrieabfällen</strong>, 
+                <strong className="text-primary"> nachhaltige Filamente aus österreichischen Industrieabfällen</strong>, 
                 um ressourcenschonend und umweltfreundlich zu produzieren. So verbinden wir Qualität mit Nachhaltigkeit 
                 und ermöglichen kurze Reaktionszeiten in ganz Österreich und der DACH-Region.
               </p>
