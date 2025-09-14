@@ -14,7 +14,7 @@ const Einzelanfertigungen = () => {
       <SEOHead 
         title="3D-Druck Einzelanfertigungen Österreich | Custom Parts & Unikate | ekdruck e.U."
         description="Individuelle 3D-Druck Einzelanfertigungen ✨ Ersatzteile, Geschenke, Prototypen ✨ Von der Idee zum Unikat ✨ Persönliche Beratung in Oberösterreich!"
-        keywords="3d-druck einzelanfertigungen österreich, custom 3d parts, individuelle 3d-teile linz, maßanfertigungen wels, 3d-druck unikate oberösterreich"
+        keywords="3d-druck einzelanfertigungen österreich, custom 3d parts österreich, individuelle 3d-teile oberösterreich, maßanfertigungen österreich, 3d-druck unikate oberösterreich"
         path="/einzelanfertigungen"
       />
       <StructuredData type="service" />

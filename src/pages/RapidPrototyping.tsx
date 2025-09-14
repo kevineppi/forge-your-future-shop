@@ -14,7 +14,7 @@ const RapidPrototyping = () => {
       <SEOHead 
         title="Rapid Prototyping Österreich | 3D-Prototypen in 24-48h | ekdruck e.U."
         description="Express Rapid Prototyping Service ⚡ Prototypen in 24-48h ⚡ Funktionsprototypen & Designmodelle ⚡ 3D-Druck Österreich ⚡ Kostenlose Machbarkeitsprüfung!"
-        keywords="rapid prototyping österreich, schnelle prototypen linz, 3d prototypen 24h, express prototyping wels, funktionsprototypen oberösterreich, prototyping service"
+        keywords="rapid prototyping österreich, schnelle prototypen oberösterreich, 3d prototypen 24h österreich, express prototyping oberösterreich, funktionsprototypen österreich"
         path="/rapid-prototyping"
       />
       <StructuredData type="service" />

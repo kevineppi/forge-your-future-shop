@@ -15,7 +15,7 @@ const Materialien = () => {
       <SEOHead 
         title="3D-Druck Materialien Österreich | Nachhaltiges Filament | ekdruck e.U."
         description="Premium 3D-Druck Materialien aus Österreich 🌱 Nachhaltiges Filament aus Industrieabfällen 🌱 PLA, PETG, ABS, PC 🌱 Regional & umweltfreundlich!"
-        keywords="3d-druck materialien österreich, nachhaltiges filament, österreichisches filament, pla petg abs, recyceltes filament, regionale materialien oberösterreich"
+        keywords="3d-druck materialien österreich, nachhaltiges filament österreich, österreichisches filament oberösterreich, pla petg abs österreich, recyceltes filament oberösterreich"
         path="/3d-druck-materialien"
       />
       <StructuredData type="service" />
