@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Printer, Clock, Leaf, Sparkles, Factory } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,22 +27,64 @@ const Navigation = () => {
               <DropdownMenuTrigger className="flex items-center text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
                 Services <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem asChild>
-                  <a href="/fdm-3d-druck">FDM 3D-Druck</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a href="/rapid-prototyping">Rapid Prototyping</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a href="/3d-druck-materialien">Materialien</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a href="/einzelanfertigungen">Einzelanfertigungen</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a href="/serienfertigung">Serienfertigung</a>
-                </DropdownMenuItem>
+              <DropdownMenuContent className="w-80 p-2 bg-background/95 backdrop-blur-lg border border-border/50 shadow-xl">
+                <div className="grid gap-1">
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/fdm-3d-druck" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Printer className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">FDM 3D-Druck</div>
+                        <div className="text-sm text-muted-foreground">Vielseitig & kostengünstig</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/rapid-prototyping" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Clock className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Rapid Prototyping</div>
+                        <div className="text-sm text-muted-foreground">Prototypen in 24-48h</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/3d-druck-materialien" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Leaf className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Materialien</div>
+                        <div className="text-sm text-muted-foreground">Nachhaltige österreichische Filamente</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/einzelanfertigungen" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Sparkles className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Einzelanfertigungen</div>
+                        <div className="text-sm text-muted-foreground">Unikate nach Ihren Wünschen</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/serienfertigung" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Factory className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Serienfertigung</div>
+                        <div className="text-sm text-muted-foreground">Kleinserien 10-10.000 Stück</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
+                </div>
               </DropdownMenuContent>
             </DropdownMenu>
             <a href="#advantages" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Vorteile</a>
