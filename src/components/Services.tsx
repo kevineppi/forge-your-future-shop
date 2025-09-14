@@ -57,14 +57,19 @@ const Services = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Unsere <span className="text-gradient">3D-Druck Leistungen</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
             Unser professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich bietet umfassende Lösungen 
             für alle Bereiche der additiven Fertigung. Von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> 
             bis zur <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung</a> - 
             unser <strong className="text-primary">3D-Druck Dienstleister</strong> realisiert Ihre Projekte mit nachhaltigen Materialien 
-            aus Oberösterreich. Entdecken Sie auch unsere <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltigen österreichischen Filamente</a> 
-            und unseren <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express Rapid Prototyping Service</a> 
-            für die schnelle Entwicklung Ihrer Ideen.
+            aus Oberösterreich.
+          </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <strong className="text-primary">ekdruck e.U.</strong> ist spezialisiert auf 
+            <strong className="text-primary">FDM 3D-Druck</strong>, <strong className="text-primary">Rapid Prototyping</strong> und 
+            <strong className="text-primary">additive Fertigung</strong> für ganz Österreich. Mit unserem 
+            <strong className="text-primary">Express Rapid Prototyping Service</strong> erhalten Sie 
+            Ihre Prototypen bereits in 24-48 Stunden.
           </p>
         </div>
 

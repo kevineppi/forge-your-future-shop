@@ -42,20 +42,26 @@ const About = () => {
             <h3 className="text-2xl font-bold mb-6">Unsere Mission - Nachhaltiger 3D-Druck aus Oberösterreich</h3>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                ekdruck e.U. ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. Wir bieten 
-                <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold mx-1">maßgeschneiderte Prototypen</a>, 
+                <strong className="text-primary">ekdruck e.U.</strong> ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. 
+                Wir bieten professionellen <strong className="text-primary">FDM 3D-Druck Service</strong> mit modernster Technologie und 
+                <strong className="text-primary">nachhaltigen österreichischen Materialien</strong>. 
+                <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold mx-1">Maßgeschneiderte Prototypen</a>, 
                 <a href="/serienfertigung" className="text-primary hover:underline font-semibold mx-1">Kleinserien</a> und 
                 individuelle Fertigungslösungen aus Oberösterreich - mit kurzen Lieferwegen in ganz Österreich.
               </p>
               <p>
+                Unser <strong className="text-primary">3D-Druck Dienstleister</strong> deckt alle Bereiche der additiven Fertigung ab. 
+                Von der schnellen <strong className="text-primary">Prototypenerstellung</strong> über 
+                <strong className="text-primary">individuelle Einzelanfertigungen</strong> bis hin zur 
+                <strong className="text-primary">effizienten Serienfertigung</strong>. 
                 Als regionaler <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">3D-Druck Spezialist</a> 
-                legen wir Wert auf persönliche Beratung und langfristige Kundenpartnerschaften. Unser Standort in 
-                Oberösterreich ermöglicht schnelle Reaktionszeiten und direkten Kontakt zu unseren Kunden in Österreich und der DACH-Region.
+                legen wir Wert auf persönliche Beratung und langfristige Kundenpartnerschaften.
               </p>
               <p>
-                Um ressourcenschonend zu produzieren, beziehen wir unser Filament ausschließlich aus 
-                <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold mx-1">Österreich</a>, 
-                wo es aus Industrieabfällen hergestellt wird. So verbinden wir Qualität mit Nachhaltigkeit.
+                Dabei verwenden wir ausschließlich 
+                <strong className="text-primary">nachhaltige Filamente aus österreichischen Industrieabfällen</strong>, 
+                um ressourcenschonend und umweltfreundlich zu produzieren. So verbinden wir Qualität mit Nachhaltigkeit 
+                und ermöglichen kurze Reaktionszeiten in ganz Österreich und der DACH-Region.
               </p>
             </div>
           </div>
