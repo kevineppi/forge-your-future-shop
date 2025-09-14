@@ -342,7 +342,7 @@ const Contact = () => {
                     <div className="border-2 border-dashed border-border rounded-lg p-6">
                       <div className="text-center">
                         <Upload className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
-                        <div className="space-y-2">
+                        <div className="space-y-2 mb-6">
                           <p className="text-sm font-medium">
                             3D-Dateien hochladen (optional)
                           </p>
