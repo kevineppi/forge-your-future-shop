@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -109,7 +109,15 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden pb-4 space-y-3 animate-fade-in">
             <div className="space-y-2">
-              <div className="text-sm font-semibold text-muted-foreground px-2 mb-2">Services</div>
+              <a 
+                href="/" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <Home className="h-4 w-4 text-primary" />
+                Startseite
+              </a>
+              <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Services</div>
               <a 
                 href="/fdm-3d-druck" 
                 className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
@@ -151,36 +159,10 @@ const Navigation = () => {
                 Serienfertigung
               </a>
             </div>
-            <div className="border-t border-border/50 pt-3 space-y-2">
-              <a 
-                href="#advantages" 
-                className="block text-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                Vorteile
-              </a>
-              <a 
-                href="#about" 
-                className="block text-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                Über uns
-              </a>
-              <a 
-                href="#contact" 
-                className="block text-foreground hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10"
-                onClick={() => {
-                  setIsOpen(false);
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                Kontakt
-              </a>
-            </div>
             <Button 
               variant="hero" 
               size="sm" 
-              className="w-full" 
+              className="w-full mt-4" 
               onClick={() => {
                 setIsOpen(false);
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
