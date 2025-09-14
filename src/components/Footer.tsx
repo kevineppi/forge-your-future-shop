@@ -33,16 +33,16 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Materials */}
           <div>
             <h4 className="font-semibold mb-4">Materialien</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#about" className="hover:text-primary transition-colors">PLA & PLA+</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors">PETG</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors">ABS</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors">PA12 & PA6</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors">Verstärkte Materialien</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors">TPU Flexible</a></li>
+              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">PLA & PLA+</a></li>
+              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">PETG</a></li>
+              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">ABS</a></li>
+              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">ASA</a></li>
+              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">PC (Polycarbonat)</a></li>
+              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">Alle Materialien</a></li>
             </ul>
           </div>
 
