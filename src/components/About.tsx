@@ -29,7 +29,7 @@ const About = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ihr regionaler 3D-Druck Partner aus Oberösterreich. Nachhaltige Fertigung mit 
-            <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold mx-1">österreichischem Filament</a>, 
+            <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">österreichischem Filament</a>, 
             persönliche Beratung und kurze Lieferwege in ganz Österreich. Spezialisiert auf 
             <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> und 
             <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung</a>.
@@ -45,8 +45,8 @@ const About = () => {
                 <strong className="text-primary">ekdruck e.U.</strong> ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. 
                 Wir bieten professionellen <strong className="text-primary">FDM 3D-Druck Service</strong> mit modernster Technologie und 
                 <strong className="text-primary">nachhaltigen österreichischen Materialien</strong>. 
-                <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold mx-1">Maßgeschneiderte Prototypen</a>, 
-                <a href="/serienfertigung" className="text-primary hover:underline font-semibold mx-1">Kleinserien</a> und 
+                <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Maßgeschneiderte Prototypen</a>, 
+                <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Kleinserien</a> und 
                 individuelle Fertigungslösungen aus Oberösterreich - mit kurzen Lieferwegen in ganz Österreich.
               </p>
               <p>
