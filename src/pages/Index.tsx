@@ -13,7 +13,7 @@ import { useEffect } from "react";
 const Index = () => {
   useEffect(() => {
     // Update document title for main page
-    document.title = "3D-Druck Service Linz | ekdruck e.U. Oberösterreich - Nachhaltiger 3D-Druck";
+    document.title = "3D-Druck Salzburg & Österreich | Rapid Prototyping | ekdruck e.U.";
   }, []);
 
   return (

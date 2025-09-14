@@ -8,32 +8,32 @@ interface SEOData {
 
 export const useSEO = (sectionId?: string): SEOData => {
   const [seoData, setSeoData] = useState<SEOData>({
-    title: "3D-Druck Service Linz | ekdruck e.U. Oberösterreich",
-    description: "Professioneller 3D-Druck Service für Linz und Oberösterreich. Einzelanfertigungen, Prototypen & Serienfertigung mit österreichischem Filament. Kostenlose Beratung!",
-    keywords: "3D-Druck Linz, 3D-Druck Oberösterreich, 3D-Druck Wels, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, regional"
+    title: "3D-Druck Salzburg & Österreich | Rapid Prototyping | ekdruck e.U.",
+    description: "3D-Druck Dienstleister für Salzburg, Linz & Österreich. Rapid Prototyping, Stereolithografie, HP Multi Jet Fusion. 3D-Drucker Service für Privatpersonen.",
+    keywords: "3d-druck salzburg, 3d-druck dienstleister, 3d-druck österreich, rapid prototyping österreich, 3d drucker kaufen österreich, 3d-druck firma, stereolithografie, hp multi jet fusion"
   });
 
   useEffect(() => {
     const seoConfigs = {
       hero: {
-        title: "3D-Druck Service Linz | ekdruck e.U. Oberösterreich",
-        description: "Professioneller 3D-Druck Service für Linz und Oberösterreich. Einzelanfertigungen, Prototypen & Serienfertigung mit österreichischem Filament. Kostenlose Beratung!",
-        keywords: "3D-Druck Linz, 3D-Druck Oberösterreich, 3D-Druck Wels, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, regional"
+        title: "3D-Druck Salzburg & Österreich | Rapid Prototyping | ekdruck e.U.",
+        description: "3D-Druck Dienstleister für Salzburg, Linz & Österreich. Rapid Prototyping, Stereolithografie, HP Multi Jet Fusion. 3D-Drucker Service für Privatpersonen.",
+        keywords: "3d-druck salzburg, 3d-druck dienstleister, 3d-druck österreich, rapid prototyping österreich, 3d drucker kaufen österreich, 3d-druck firma, stereolithografie, hp multi jet fusion"
       },
       services: {
-        title: "3D-Druck Leistungen & Services | ekdruck e.U. Oberösterreich",
-        description: "Umfassende 3D-Druck Services: Einzelanfertigungen, Serienfertigung, Inneneinrichtung, Planung & Konstruktion. Regionale Fertigung für Linz und Oberösterreich.",
-        keywords: "3D-Druck Services, Einzelanfertigungen, Serienfertigung, 3D-Modellierung, CAD-Konstruktion, nachhaltige Inneneinrichtung, technischer Entwurf"
+        title: "3D-Druck Dienstleister Salzburg | Rapid Prototyping Services",
+        description: "Professionelle 3D-Druck Services: Rapid Prototyping, Stereolithografie, HP Multi Jet Fusion. 3D-Drucker Modelle erstellen für Salzburg & Österreich.",
+        keywords: "3d-druck dienstleister, rapid prototyping österreich, stereolithografie, hp multi jet fusion, 3d drucker modelle erstellen, additives fertigungsverfahren, finishing druck"
       },
       advantages: {
-        title: "Vorteile 3D-Druck vs. traditionelle Fertigung | ekdruck e.U.",
-        description: "Entdecken Sie die Vorteile des 3D-Drucks: Schnelle Prototypen, kosteneffiziente Kleinserien, komplexe Geometrien und nachhaltige Produktion in Oberösterreich.",
-        keywords: "3D-Druck Vorteile, Prototypenerstellung, Kleinserien, additive Fertigung, Kostenvergleich, nachhaltige Produktion, komplexe Geometrien"
+        title: "Rapid Prototyping Verfahren Vergleich | 3D-Druck Salzburg",
+        description: "Additives Fertigungsverfahren vs. traditionelle Fertigung: Rapid Prototyping Verfahren Übersicht, Finishing Druck & kosteneffiziente Prototypen.",
+        keywords: "rapid prototyping verfahren vergleich, additives fertigungsverfahren, rapid prototyping verfahren übersicht, finishing druck, fertigungsverfahren finishen"
       },
       about: {
-        title: "Über ekdruck e.U. | 3D-Druck Spezialist aus Oberösterreich",
-        description: "Lernen Sie ekdruck e.U. kennen - Ihr regionaler 3D-Druck Partner für Linz und Oberösterreich. Nachhaltigkeit, Qualität und persönliche Beratung seit Jahren.",
-        keywords: "ekdruck e.U., 3D-Druck Unternehmen, Linz, Oberösterreich, nachhaltige Fertigung, österreichisches Filament, Qualität, Kundennähe"
+        title: "3D-Druck Firma Salzburg | ekdruck e.U. Österreich",
+        description: "Führende 3D-Druck Firma für Salzburg & Österreich. Spezialist für Rapid Prototyping, 3D-Drucker Service & 3D-Druck für Privatpersonen. Qualität seit Jahren.",
+        keywords: "3d-druck firma, 3d-druck salzburg, 3d-druck für privatpersonen, 3d drucker salzburg, drucker salzburg, 3d-druck shop österreich"
       },
       reviews: {
         title: "Kundenbewertungen & Erfahrungen | ekdruck e.U. 3D-Druck",
@@ -41,9 +41,9 @@ export const useSEO = (sectionId?: string): SEOData => {
         keywords: "Kundenbewertungen, 3D-Druck Erfahrungen, Testimonials, 5 Sterne Service, Kundenzufriedenheit, zuverlässiger 3D-Druck"
       },
       contact: {
-        title: "Kontakt & Angebot | 3D-Druck Service ekdruck e.U. OÖ",
-        description: "Kontaktieren Sie ekdruck e.U. für Ihr 3D-Druck Projekt. Kostenlose Beratung und individuelles Angebot für Linz und Oberösterreich. Jetzt anfragen!",
-        keywords: "3D-Druck Kontakt, Angebot 3D-Druck, kostenlose Beratung, 3D-Druck Anfrage, Linz, Oberösterreich, individuelles Angebot"
+        title: "3D-Drucker kaufen Österreich | Kontakt 3D-Druck Salzburg",
+        description: "3D-Drucker kaufen Österreich oder 3D-Druck Service nutzen? Kontakt für Salzburg & Österreich. Kostenlose Beratung für 3D-Druck Dienstleister Vergleich.",
+        keywords: "3d drucker kaufen österreich, 3d-druck dienstleister vergleich, 3d-druck salzburg kontakt, 3d-druck shop österreich, kostenlose beratung"
       }
     };
 
