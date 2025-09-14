@@ -13,7 +13,7 @@ import { useEffect } from "react";
 const Index = () => {
   useEffect(() => {
     // Update document title for main page
-    document.title = "3D-Druck Österreich | FDM 3D-Druck Service | ekdruck e.U.";
+    document.title = "3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U.";
   }, []);
 
   return (
