@@ -1,0 +1,279 @@
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import StructuredData from "@/components/StructuredData";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Printer, Zap, DollarSign, Wrench, CheckCircle, ArrowRight } from "lucide-react";
+
+const FdmDruck = () => {
+  return (
+    <>
+      <SEOHead 
+        title="FDM 3D-Druck Österreich | Fused Deposition Modeling | ekdruck e.U."
+        description="Professioneller FDM 3D-Druck Service für ganz Österreich. Präzise, kostengünstig & vielseitig. PLA, PETG, ABS Materialien. Jetzt anfragen!"
+        keywords="fdm 3d-druck, fused deposition modeling, fdm verfahren österreich, 3d-druck fdm, fdm 3d-drucker service"
+        path="/fdm-3d-druck"
+      />
+      <StructuredData type="service" />
+      
+      <Navigation />
+      
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="py-16 lg:py-24 bg-gradient-hero">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <Badge className="mb-6 bg-white/20 text-white border-white/30">FDM 3D-Druck Technologie</Badge>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 gradient-text-white">
+                FDM 3D-Druck Service
+                <span className="block text-2xl lg:text-3xl mt-2 opacity-90">für ganz Österreich</span>
+              </h1>
+              <p className="text-xl lg:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
+                Präzise, kostengünstige und vielseitige FDM 3D-Druck Lösungen mit höchster Qualität. 
+                Von Prototypen bis zur Serienfertigung - österreichweit verfügbar.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" variant="secondary" className="text-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  Kostenloses Angebot <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                  FDM Verfahren Details
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Was ist FDM? */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Was ist FDM 3D-Druck?</h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Fused Deposition Modeling (FDM) ist das vielseitigste und kostengünstigste 3D-Druckverfahren 
+                  für Prototypen, Funktionsteile und Kleinserien.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                  <h3 className="text-2xl font-bold mb-6">So funktioniert FDM 3D-Druck</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-primary/20 p-2 rounded-lg flex-shrink-0">
+                        <div className="w-6 h-6 bg-primary rounded text-white flex items-center justify-center text-sm font-bold">1</div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Material-Extrusion</h4>
+                        <p className="text-muted-foreground">Thermoplastisches Filament wird erhitzt und durch eine Düse extrudiert.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="bg-primary/20 p-2 rounded-lg flex-shrink-0">
+                        <div className="w-6 h-6 bg-primary rounded text-white flex items-center justify-center text-sm font-bold">2</div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Schicht für Schicht</h4>
+                        <p className="text-muted-foreground">Das Material wird präzise Schicht für Schicht aufgetragen und verbindet sich.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="bg-primary/20 p-2 rounded-lg flex-shrink-0">
+                        <div className="w-6 h-6 bg-primary rounded text-white flex items-center justify-center text-sm font-bold">3</div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Fertiges Bauteil</h4>
+                        <p className="text-muted-foreground">Nach dem Abkühlen entstehen stabile, funktionsfähige 3D-Objekte.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gradient-card p-8 rounded-2xl">
+                  <div className="text-center">
+                    <Printer className="h-24 w-24 text-primary mx-auto mb-6" />
+                    <h4 className="text-xl font-bold mb-4">Hochpräzise FDM-Drucker</h4>
+                    <p className="text-muted-foreground mb-6">
+                      Unsere professionellen FDM 3D-Drucker erreichen Schichtauflösungen bis 0,1mm 
+                      für perfekte Oberflächenqualität.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div className="bg-background/50 p-3 rounded-lg">
+                        <div className="font-semibold">Min. Schichthöhe</div>
+                        <div className="text-primary">0,1 mm</div>
+                      </div>
+                      <div className="bg-background/50 p-3 rounded-lg">
+                        <div className="font-semibold">Max. Bauteilgröße</div>
+                        <div className="text-primary">30×30×40 cm</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FDM Vorteile */}
+        <section className="py-16 lg:py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Warum FDM 3D-Druck?</h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Das FDM-Verfahren bietet unschlagbare Vorteile für vielseitige Anwendungen
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <Card className="text-center border-0 shadow-card">
+                  <CardHeader>
+                    <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <CardTitle>Kostengünstig</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Niedrige Materialkosten und effiziente Produktion machen FDM zum preiswertesten 3D-Druckverfahren.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center border-0 shadow-card">
+                  <CardHeader>
+                    <Wrench className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <CardTitle>Vielseitig</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Große Auswahl an Materialien: PLA, PETG, ABS, flexible Filamente und technische Werkstoffe.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center border-0 shadow-card">
+                  <CardHeader>
+                    <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <CardTitle>Schnell</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Kurze Rüstzeiten und parallele Fertigung mehrerer Teile für schnelle Prototypenerstellung.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center border-0 shadow-card">
+                  <CardHeader>
+                    <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <CardTitle>Bewährt</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Ausgereiftes Verfahren mit vorhersagbaren Ergebnissen für zuverlässige Qualität.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FDM Materialien */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">FDM 3D-Druck Materialien</h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Hochwertige österreichische Filamente für jede Anwendung
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                <Card className="border-0 shadow-card">
+                  <CardHeader>
+                    <CardTitle className="text-xl">PLA & PLA+</CardTitle>
+                    <CardDescription>Einfach, umweltfreundlich, präzise</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>• Biologisch abbaubar</li>
+                      <li>• Niedrige Drucktemperatur</li>
+                      <li>• Hohe Detailgenauigkeit</li>
+                      <li>• Ideal für Prototypen</li>
+                      <li>• Alle Farben verfügbar</li>
+                    </ul>
+                    <Badge className="mt-4">Bestseller</Badge>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-0 shadow-card">
+                  <CardHeader>
+                    <CardTitle className="text-xl">PETG</CardTitle>
+                    <CardDescription>Chemikalienbeständig, transparent</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>• Lebensmittelecht</li>
+                      <li>• Chemisch beständig</li>
+                      <li>• Transparent möglich</li>
+                      <li>• Schlagzäh</li>
+                      <li>• Für Funktionsteile</li>
+                    </ul>
+                    <Badge className="mt-4" variant="secondary">Technisch</Badge>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-0 shadow-card">
+                  <CardHeader>
+                    <CardTitle className="text-xl">ABS</CardTitle>
+                    <CardDescription>Robust, hitzebeständig, nachbearbeitbar</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>• Hitzebeständig bis 80°C</li>
+                      <li>• Schlagfest</li>
+                      <li>• Aceton-glättbar</li>
+                      <li>• Für Gehäuse</li>
+                      <li>• Langlebig</li>
+                    </ul>
+                    <Badge className="mt-4" variant="outline">Industrial</Badge>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 lg:py-20 bg-gradient-primary">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                Ihr FDM 3D-Druck Projekt startet hier
+              </h2>
+              <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+                Kostenlose Beratung, faire Preise und schnelle Lieferung österreichweit. 
+                Lassen Sie uns Ihre Ideen in die Realität umsetzen!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" variant="secondary" className="text-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  Kostenloses Angebot anfordern
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                  +43 676 5517197
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  );
+};
+
+export default FdmDruck;

@@ -5,6 +5,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
 import Index from "./pages/Index";
+import FdmDruck from "./pages/FdmDruck";
+import RapidPrototyping from "./pages/RapidPrototyping";
+import Materialien from "./pages/Materialien";
+import Einzelanfertigungen from "./pages/Einzelanfertigungen";
+import Serienfertigung from "./pages/Serienfertigung";
 import Impressum from "./pages/Impressum";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
@@ -21,6 +26,11 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/fdm-3d-druck" element={<FdmDruck />} />
+            <Route path="/rapid-prototyping" element={<RapidPrototyping />} />
+            <Route path="/3d-druck-materialien" element={<Materialien />} />
+            <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
+            <Route path="/serienfertigung" element={<Serienfertigung />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/auth" element={<Auth />} />
