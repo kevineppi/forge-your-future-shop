@@ -24,19 +24,30 @@ const Materialien = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
+        <section className="py-16 lg:py-24 bg-gradient-to-br from-background to-accent/5 relative overflow-hidden">
+          {/* Floating Elements */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-10 right-20 w-4 h-4 bg-primary rounded-full animate-bounce"></div>
+            <div className="absolute top-32 left-16 w-6 h-6 bg-accent rounded-full animate-bounce delay-200"></div>
+            <div className="absolute bottom-32 right-32 w-8 h-8 bg-primary rounded-full animate-bounce delay-500"></div>
+            <div className="absolute bottom-20 left-20 w-5 h-5 bg-accent rounded-full animate-bounce delay-700"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl mb-8 hover-scale">
+                <Leaf className="h-10 w-10 text-primary" />
+              </div>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground">
                 3D-Druck Materialien
-                <span className="block text-2xl lg:text-3xl mt-2 opacity-90">Nachhaltig. Regional. Hochwertig.</span>
+                <span className="block text-2xl lg:text-3xl mt-2 text-accent font-normal">Nachhaltig. Regional. Hochwertig.</span>
               </h1>
-              <p className="text-xl lg:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
+              <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
                 Premium 3D-Druck Materialien aus österreichischer Produktion. Hergestellt aus recycelten 
                 Industrieabfällen für höchste Qualität und Nachhaltigkeit.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Material-Beratung <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
@@ -488,18 +499,22 @@ const Materialien = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 lg:py-20 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
+        <section className="py-16 lg:py-20 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-primary/5 to-accent/5"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+                <Recycle className="h-8 w-8 text-primary" />
+              </div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                 Unsicher welches Material?
               </h2>
-              <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+              <p className="text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
                 Unsere Experten beraten Sie kostenlos bei der Auswahl des optimalen Materials 
                 für Ihre spezifische Anwendung. Kontaktieren Sie uns für eine individuelle Beratung!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Kostenlose Material-Beratung
                 </Button>
               </div>

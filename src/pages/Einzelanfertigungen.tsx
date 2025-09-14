@@ -23,19 +23,30 @@ const Einzelanfertigungen = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
+        <section className="py-16 lg:py-24 bg-gradient-to-tr from-background via-primary/5 to-accent/10 relative overflow-hidden">
+          {/* Creative Pattern Background */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-16 left-16 w-32 h-32 border-2 border-primary rounded-lg rotate-12 animate-pulse"></div>
+            <div className="absolute top-32 right-32 w-24 h-24 border-2 border-accent rounded-full animate-pulse delay-300"></div>
+            <div className="absolute bottom-32 left-32 w-28 h-28 border-2 border-primary rounded-lg -rotate-12 animate-pulse delay-700"></div>
+            <div className="absolute bottom-16 right-16 w-20 h-20 border-2 border-accent rounded-full animate-pulse delay-1000"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-8 hover-scale">
+                <Sparkles className="h-10 w-10 text-primary" />
+              </div>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground">
                 Einzelanfertigungen
-                <span className="block text-2xl lg:text-3xl mt-2 opacity-90">Ihre Idee. Unser 3D-Druck. Perfekt umgesetzt.</span>
+                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Ihre Idee. Unser 3D-Druck. Perfekt umgesetzt.</span>
               </h1>
-              <p className="text-xl lg:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
+              <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
                 Von der ersten Skizze bis zum fertigen Unikat - wir verwirklichen Ihre individuellen 
                 3D-Druck Projekte mit höchster Präzision und Kreativität.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Projekt besprechen <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
@@ -399,18 +410,22 @@ const Einzelanfertigungen = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 lg:py-20 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
+        <section className="py-16 lg:py-20 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+                <Lightbulb className="h-8 w-8 text-primary" />
+              </div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                 Verwirklichen Sie Ihre individuelle Idee!
               </h2>
-              <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+              <p className="text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
                 Egal wie ausgefallen oder komplex Ihr Projekt ist - wir finden eine Lösung! 
                 Kontaktieren Sie uns für ein kostenloses Erstgespräch und individuelles Angebot.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Kostenloses Erstgespräch
                 </Button>
               </div>

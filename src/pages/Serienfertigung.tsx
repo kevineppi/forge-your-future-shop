@@ -24,19 +24,30 @@ const Serienfertigung = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
+        <section className="py-16 lg:py-24 bg-gradient-to-bl from-background via-muted/20 to-accent/10 relative overflow-hidden">
+          {/* Industrial Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-20 left-20 w-16 h-16 bg-primary transform rotate-45"></div>
+            <div className="absolute top-40 right-40 w-12 h-12 bg-accent transform rotate-45"></div>
+            <div className="absolute bottom-40 left-40 w-20 h-20 bg-primary transform rotate-45"></div>
+            <div className="absolute bottom-20 right-20 w-14 h-14 bg-accent transform rotate-45"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-8 hover-scale">
+                <Factory className="h-10 w-10 text-primary" />
+              </div>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground">
                 3D-Druck Serienfertigung
-                <span className="block text-2xl lg:text-3xl mt-2 opacity-90">Kleinserien von 10 bis 10.000 Stück</span>
+                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Kleinserien von 10 bis 10.000 Stück</span>
               </h1>
-              <p className="text-xl lg:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
+              <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
                 Kostengünstige Alternative zu traditioneller Serienfertigung. Ohne Werkzeugkosten, 
                 flexibel skalierbar und perfekt für Kleinserien und Markttests.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Serienfertigung anfragen <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
@@ -445,18 +456,22 @@ const Serienfertigung = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 lg:py-20 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
+        <section className="py-16 lg:py-20 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+                <BarChart3 className="h-8 w-8 text-primary" />
+              </div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                 Starten Sie Ihre 3D-Druck Serienfertigung
               </h2>
-              <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+              <p className="text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
                 Kostenlose Machbarkeitsprüfung und individuelles Angebot für Ihre Serienfertigung. 
                 Vom Prototyp zur Serie - wir begleiten Sie durch den gesamten Prozess.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Kostenloses Beratungsgespräch
                 </Button>
               </div>

@@ -23,19 +23,29 @@ const RapidPrototyping = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
+        <section className="py-16 lg:py-24 bg-gradient-to-br from-background via-accent/5 to-background relative overflow-hidden">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary rounded-full animate-pulse"></div>
+            <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-accent rounded-full animate-pulse delay-500"></div>
+            <div className="absolute top-1/2 left-3/4 w-24 h-24 bg-primary rounded-full animate-pulse delay-1000"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-8 hover-scale">
+                <Clock className="h-10 w-10 text-primary" />
+              </div>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground">
                 Rapid Prototyping
-                <span className="block text-2xl lg:text-3xl mt-2 opacity-90">Von der Idee zum Prototyp in 24-48h</span>
+                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Von der Idee zum Prototyp in 24-48h</span>
               </h1>
-              <p className="text-xl lg:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
+              <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
                 Beschleunigen Sie Ihre Produktentwicklung mit unserem Rapid Prototyping Service. 
                 Schnell, präzise und kostengünstig - österreichweit verfügbar.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Express-Prototyp anfragen <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
@@ -229,35 +239,37 @@ const RapidPrototyping = () => {
         <section className="py-16 lg:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <div className="bg-primary p-8 lg:p-12 rounded-2xl text-white">
+              <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 lg:p-12 rounded-2xl border border-primary/20 shadow-lg hover-scale">
                 <div className="text-center mb-8">
-                  <Timer className="h-16 w-16 mx-auto mb-4 text-white" />
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-4">Express Rapid Prototyping</h2>
-                  <p className="text-xl text-white/90 max-w-2xl mx-auto">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-4">
+                    <Timer className="h-8 w-8 text-primary" />
+                  </div>
+                  <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">Express Rapid Prototyping</h2>
+                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                     Brauchen Sie Ihren Prototyp noch schneller? Unser Express-Service macht es möglich!
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6 text-center">
-                  <div className="bg-white/10 p-6 rounded-xl">
-                    <h3 className="text-2xl font-bold mb-2">24h Express</h3>
-                    <p className="text-white/80 mb-4">Ihr Prototyp in nur 24 Stunden</p>
-                    <div className="text-lg font-semibold">+50% Aufpreis</div>
+                  <div className="bg-background/50 p-6 rounded-xl border border-primary/10 hover-scale">
+                    <h3 className="text-2xl font-bold mb-2 text-foreground">24h Express</h3>
+                    <p className="text-muted-foreground mb-4">Ihr Prototyp in nur 24 Stunden</p>
+                    <div className="text-lg font-semibold text-primary">+50% Aufpreis</div>
                   </div>
-                  <div className="bg-white/10 p-6 rounded-xl">
-                    <h3 className="text-2xl font-bold mb-2">Same-Day</h3>
-                    <p className="text-white/80 mb-4">Fertigung am selben Tag bei Auftrag bis 10:00</p>
-                    <div className="text-lg font-semibold">+100% Aufpreis</div>
+                  <div className="bg-background/50 p-6 rounded-xl border border-primary/10 hover-scale">
+                    <h3 className="text-2xl font-bold mb-2 text-foreground">Same-Day</h3>
+                    <p className="text-muted-foreground mb-4">Fertigung am selben Tag bei Auftrag bis 10:00</p>
+                    <div className="text-lg font-semibold text-primary">+100% Aufpreis</div>
                   </div>
-                  <div className="bg-white/10 p-6 rounded-xl">
-                    <h3 className="text-2xl font-bold mb-2">Overnight</h3>
-                    <p className="text-white/80 mb-4">Über-Nacht-Service für dringende Projekte</p>
-                    <div className="text-lg font-semibold">+150% Aufpreis</div>
+                  <div className="bg-background/50 p-6 rounded-xl border border-primary/10 hover-scale">
+                    <h3 className="text-2xl font-bold mb-2 text-foreground">Overnight</h3>
+                    <p className="text-muted-foreground mb-4">Über-Nacht-Service für dringende Projekte</p>
+                    <div className="text-lg font-semibold text-primary">+150% Aufpreis</div>
                   </div>
                 </div>
 
                 <div className="text-center mt-8">
-                  <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                     Express-Prototyp jetzt anfragen
                   </Button>
                 </div>
