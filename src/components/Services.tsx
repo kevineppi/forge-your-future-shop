@@ -47,8 +47,8 @@ const Services = () => {
             aus Oberösterreich.
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            <strong className="text-primary">ekdruck e.U.</strong> ist spezialisiert auf 
-            <strong className="text-primary">FDM 3D-Druck</strong>, <strong className="text-primary">Rapid Prototyping</strong> und 
+            <strong className="text-primary">ekdruck e.U.</strong> ist spezialisiert auf{" "}
+            <strong className="text-primary">FDM 3D-Druck</strong>, <strong className="text-primary">Rapid Prototyping</strong> und
             <strong className="text-primary">additive Fertigung</strong> für ganz Österreich. Mit unserem 
             <strong className="text-primary">Express Rapid Prototyping Service</strong> erhalten Sie 
             Ihre Prototypen bereits in 24-48 Stunden.
