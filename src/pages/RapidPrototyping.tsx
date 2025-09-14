@@ -22,11 +22,11 @@ const RapidPrototyping = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-gradient-hero">
+        <section className="py-16 lg:py-24 bg-primary">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <Badge className="mb-6 bg-white/20 text-white border-white/30">Rapid Prototyping Service</Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 gradient-text-white">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
                 Rapid Prototyping
                 <span className="block text-2xl lg:text-3xl mt-2 opacity-90">Von der Idee zum Prototyp in 24-48h</span>
               </h1>
@@ -35,7 +35,7 @@ const RapidPrototyping = () => {
                 Schnell, präzise und kostengünstig - österreichweit verfügbar.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Express-Prototyp anfragen <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
@@ -232,7 +232,7 @@ const RapidPrototyping = () => {
         <section className="py-16 lg:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <div className="bg-gradient-primary p-8 lg:p-12 rounded-2xl text-white">
+              <div className="bg-primary p-8 lg:p-12 rounded-2xl text-white">
                 <div className="text-center mb-8">
                   <Timer className="h-16 w-16 mx-auto mb-4 text-white" />
                   <h2 className="text-3xl lg:text-4xl font-bold mb-4">Express Rapid Prototyping</h2>
@@ -260,7 +260,7 @@ const RapidPrototyping = () => {
                 </div>
 
                 <div className="text-center mt-8">
-                  <Button size="lg" variant="secondary" className="text-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                     Express-Prototyp jetzt anfragen
                   </Button>
                 </div>

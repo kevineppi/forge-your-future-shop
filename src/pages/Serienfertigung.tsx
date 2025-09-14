@@ -23,11 +23,11 @@ const Serienfertigung = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-gradient-hero">
+        <section className="py-16 lg:py-24 bg-primary">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <Badge className="mb-6 bg-white/20 text-white border-white/30">Additive Serienfertigung</Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 gradient-text-white">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white">
                 3D-Druck Serienfertigung
                 <span className="block text-2xl lg:text-3xl mt-2 opacity-90">Kleinserien von 10 bis 10.000 Stück</span>
               </h1>
@@ -36,7 +36,7 @@ const Serienfertigung = () => {
                 flexibel skalierbar und perfekt für Kleinserien und Markttests.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Serienfertigung anfragen <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
@@ -448,7 +448,7 @@ const Serienfertigung = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 lg:py-20 bg-gradient-primary">
+        <section className="py-16 lg:py-20 bg-primary">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
@@ -459,7 +459,7 @@ const Serienfertigung = () => {
                 Vom Prototyp zur Serie - wir begleiten Sie durch den gesamten Prozess.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="secondary" className="text-primary bg-white hover:bg-white/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Kostenloses Beratungsgespräch
                 </Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
