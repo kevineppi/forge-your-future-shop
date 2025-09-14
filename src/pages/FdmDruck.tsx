@@ -12,9 +12,9 @@ const FdmDruck = () => {
   return (
     <>
       <SEOHead 
-        title="FDM 3D-Druck Österreich | Fused Deposition Modeling | ekdruck e.U."
-        description="Professioneller FDM 3D-Druck Service für ganz Österreich. Präzise, kostengünstig & vielseitig. PLA, PETG, ABS Materialien. Jetzt anfragen!"
-        keywords="fdm 3d-druck, fused deposition modeling, fdm verfahren österreich, 3d-druck fdm, fdm 3d-drucker service"
+        title="FDM 3D-Druck Österreich | Fused Deposition Modeling Service | ekdruck e.U."
+        description="Professioneller FDM 3D-Druck Service für ganz Österreich ✓ Vielseitig & kostengünstig ✓ PLA, PETG, ABS ✓ Schichtauflösung 0,1mm ✓ Kostenlose Beratung!"
+        keywords="fdm 3d-druck österreich, fused deposition modeling service, fdm verfahren linz, 3d-druck fdm wels, fdm drucker service oberösterreich, schichtauflösung 3d-druck"
         path="/fdm-3d-druck"
       />
       <StructuredData type="service" />

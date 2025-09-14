@@ -12,9 +12,9 @@ const RapidPrototyping = () => {
   return (
     <>
       <SEOHead 
-        title="Rapid Prototyping Österreich | Schnelle Prototypen | ekdruck e.U."
-        description="Rapid Prototyping Service für ganz Österreich. Schnelle, präzise Prototypen mit FDM 3D-Druck. Von der Idee zum fertigen Prototyp in 24-48h!"
-        keywords="rapid prototyping österreich, schnelle prototypen, prototyping service, 3d prototypen, rapid prototyping verfahren"
+        title="Rapid Prototyping Österreich | 3D-Prototypen in 24-48h | ekdruck e.U."
+        description="Express Rapid Prototyping Service ⚡ Prototypen in 24-48h ⚡ Funktionsprototypen & Designmodelle ⚡ 3D-Druck Österreich ⚡ Kostenlose Machbarkeitsprüfung!"
+        keywords="rapid prototyping österreich, schnelle prototypen linz, 3d prototypen 24h, express prototyping wels, funktionsprototypen oberösterreich, prototyping service"
         path="/rapid-prototyping"
       />
       <StructuredData type="service" />

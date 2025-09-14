@@ -52,23 +52,53 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             "@context": "https://schema.org",
             "@type": "Service",
             "name": "3D-Druck Service Oberösterreich",
-            "description": "Professionelle 3D-Druck Dienstleistungen: Einzelanfertigungen, Prototypen, Serienfertigung und nachhaltige Inneneinrichtung aus Oberösterreich.",
+            "description": "Professionelle 3D-Druck Dienstleistungen: FDM 3D-Druck, Rapid Prototyping, Einzelanfertigungen, Serienfertigung und nachhaltige Materialien aus Oberösterreich.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "ekdruck e.U.",
-              "url": "https://www.ek-druck.at"
+              "url": "https://www.ek-druck.at",
+              "telephone": "+43 676 5517197",
+              "email": "office@ek-druck.at",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Negrellistraße 15",
+                "addressLocality": "Gunskirchen",
+                "addressRegion": "Oberösterreich",
+                "postalCode": "4623",
+                "addressCountry": "AT"
+              }
             },
-            "areaServed": {
-              "@type": "Place",
-              "name": "Oberösterreich, Österreich"
-            },
+            "areaServed": [
+              {
+                "@type": "Place",
+                "name": "Oberösterreich"
+              },
+              {
+                "@type": "Place", 
+                "name": "Linz"
+              },
+              {
+                "@type": "Place",
+                "name": "Wels"
+              },
+              {
+                "@type": "Place",
+                "name": "Österreich"
+              }
+            ],
             "availableChannel": {
               "@type": "ServiceChannel",
               "serviceUrl": "https://www.ek-druck.at",
               "servicePhone": "+43 676 5517197"
             },
-            "serviceType": "3D-Druck, Prototyping, Additive Fertigung",
-            "category": "Manufacturing, 3D Printing, Prototyping"
+            "serviceType": "3D-Druck, Rapid Prototyping, FDM, Additive Fertigung, Prototypenerstellung",
+            "category": "Manufacturing, 3D Printing, Prototyping, Custom Manufacturing",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceRange": "€€",
+              "priceCurrency": "EUR"
+            }
           };
         
         case 'faq':
