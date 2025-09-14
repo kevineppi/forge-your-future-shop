@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Printer, Clock, Leaf, Sparkles, Factory } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navigation = () => {
                   <DropdownMenuItem asChild className="p-0">
                     <a href="/fdm-3d-druck" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
                       <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                        <Printer className="h-5 w-5 text-primary" />
+                        <Box className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex-1">
                         <div className="font-medium text-foreground">FDM 3D-Druck</div>
