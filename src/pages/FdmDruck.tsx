@@ -6,7 +6,7 @@ import Contact from "@/components/Contact";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Printer, Zap, DollarSign, Wrench, CheckCircle, ArrowRight } from "lucide-react";
+import { Box, Zap, DollarSign, Wrench, CheckCircle, ArrowRight } from "lucide-react";
 
 const FdmDruck = () => {
   return (
@@ -33,7 +33,7 @@ const FdmDruck = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-2xl mb-8 hover-scale">
-                <Printer className="h-10 w-10 text-primary" />
+                <Box className="h-10 w-10 text-primary" />
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground animate-fade-in">
                 FDM 3D-Druck Service
@@ -99,7 +99,7 @@ const FdmDruck = () => {
                 </div>
                 <div className="bg-gradient-card p-8 rounded-2xl">
                   <div className="text-center">
-                    <Printer className="h-24 w-24 text-primary mx-auto mb-6" />
+                    <Box className="h-24 w-24 text-primary mx-auto mb-6" />
                     <h4 className="text-xl font-bold mb-4">Hochpräzise FDM-Drucker</h4>
                     <p className="text-muted-foreground mb-6">
                       Unsere professionellen FDM 3D-Drucker erreichen Schichtauflösungen bis 0,1mm 
