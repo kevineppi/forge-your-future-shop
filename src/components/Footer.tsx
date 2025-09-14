@@ -25,12 +25,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#services" className="hover:text-primary transition-colors">Einzelanfertigungen</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Nachhaltige Inneneinrichtung</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Serienfertigung</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Express-Service</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Technischer Entwurf</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Beratung</a></li>
+              <li><a href="/fdm-3d-druck" className="hover:text-primary transition-colors">FDM 3D-Druck</a></li>
+              <li><a href="/rapid-prototyping" className="hover:text-primary transition-colors">Rapid Prototyping</a></li>
+              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">3D-Druck Materialien</a></li>
+              <li><a href="/einzelanfertigungen" className="hover:text-primary transition-colors">Einzelanfertigungen</a></li>
+              <li><a href="/serienfertigung" className="hover:text-primary transition-colors">Serienfertigung</a></li>
             </ul>
           </div>
 
