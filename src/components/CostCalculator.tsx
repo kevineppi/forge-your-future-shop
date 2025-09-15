@@ -14,9 +14,9 @@ const CostCalculator = () => {
   const [material, setMaterial] = useState("pla");
   const [complexity, setComplexity] = useState(2);
   const [quantity, setQuantity] = useState(1);
-  const [length, setLength] = useState(50);
-  const [width, setWidth] = useState(50);
-  const [height, setHeight] = useState(50);
+  const [length, setLength] = useState(10);
+  const [width, setWidth] = useState(10);
+  const [height, setHeight] = useState(10);
   const [printDuration, setPrintDuration] = useState(0);
 
   // Ensure component is properly hydrated
@@ -36,28 +36,28 @@ const CostCalculator = () => {
     "Einfach (Grundformen)",
     "Mittel (Details)",
     "Komplex (Feine Strukturen)",
-    "Sehr komplex (Überhänge, Support)",
-    "Extrem komplex (Multimaterial)"
+    "Überhänge/Support (+50%)",
+    "Mehrfärbig/Sehr komplex (+100%)"
   ];
 
   // Safe state setters with proper number handling
   const handleLengthChange = useCallback((value: number[]) => {
     if (value && value[0] && typeof value[0] === 'number') {
-      const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
+      const newValue = Math.max(1, Math.min(300, Math.round(value[0])));
       setLength(newValue);
     }
   }, []);
 
   const handleWidthChange = useCallback((value: number[]) => {
     if (value && value[0] && typeof value[0] === 'number') {
-      const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
+      const newValue = Math.max(1, Math.min(300, Math.round(value[0])));
       setWidth(newValue);
     }
   }, []);
 
   const handleHeightChange = useCallback((value: number[]) => {
     if (value && value[0] && typeof value[0] === 'number') {
-      const newValue = Math.max(10, Math.min(300, Math.round(value[0])));
+      const newValue = Math.max(1, Math.min(300, Math.round(value[0])));
       setHeight(newValue);
     }
   }, []);
@@ -96,7 +96,15 @@ const CostCalculator = () => {
       
       const actualVolume = (length * width * height) / 1000000;
       const maxDimension = Math.max(length, width, height);
-      const complexityMultiplier = 1 + (complexity * 0.3);
+      
+      // Updated complexity multipliers with new margins
+      let complexityMultiplier = 1.0;
+      if (complexity === 0) complexityMultiplier = 1.0;
+      else if (complexity === 1) complexityMultiplier = 1.2;
+      else if (complexity === 2) complexityMultiplier = 1.4;
+      else if (complexity === 3) complexityMultiplier = 1.5; // Überhänge: 150%
+      else if (complexity === 4) complexityMultiplier = 2.0; // Mehrfärbig/Sehr komplex: 200%
+      
       const quantityDiscount = quantity > 10 ? 0.9 : quantity > 5 ? 0.95 : 1.0;
       
       const basePrice = actualVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
@@ -157,8 +165,8 @@ const CostCalculator = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
             {/* Calculator Form */}
             <Card className="gradient-card border-0 animate-fade-in">
               <CardHeader>
@@ -167,12 +175,12 @@ const CostCalculator = () => {
                   Projekt-Details
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4 lg:space-y-6 p-4 lg:p-6">
                 {/* Material Selection */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">Material</label>
                   <Select value={material} onValueChange={handleMaterialChange}>
-                    <SelectTrigger className="w-full bg-background">
+                    <SelectTrigger className="w-full bg-background h-12 text-base">
                       <SelectValue placeholder="Material auswählen" />
                     </SelectTrigger>
                     <SelectContent className="bg-background border border-border z-50">
@@ -186,7 +194,7 @@ const CostCalculator = () => {
                 </div>
 
                 {/* Dimensions */}
-                <div className="space-y-4">
+                <div className="space-y-3 lg:space-y-4">
                   <div>
                     <label className="text-sm font-medium mb-2 block">
                       Länge: {length}mm
@@ -195,8 +203,8 @@ const CostCalculator = () => {
                       value={[length]}
                       onValueChange={handleLengthChange}
                       max={300}
-                      min={10}
-                      step={5}
+                      min={1}
+                      step={1}
                       className="mt-2"
                     />
                   </div>
@@ -209,8 +217,8 @@ const CostCalculator = () => {
                       value={[width]}
                       onValueChange={handleWidthChange}
                       max={300}
-                      min={10}
-                      step={5}
+                      min={1}
+                      step={1}
                       className="mt-2"
                     />
                   </div>
@@ -223,8 +231,8 @@ const CostCalculator = () => {
                       value={[height]}
                       onValueChange={handleHeightChange}
                       max={300}
-                      min={10}
-                      step={5}
+                      min={1}
+                      step={1}
                       className="mt-2"
                     />
                   </div>
@@ -254,9 +262,9 @@ const CostCalculator = () => {
                     step={1}
                     className="mt-2"
                   />
-                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1 px-1">
                     <span>Einfach</span>
-                    <span>Extrem komplex</span>
+                    <span>Sehr komplex</span>
                   </div>
                 </div>
 
@@ -301,7 +309,7 @@ const CostCalculator = () => {
                     step={1}
                     className="mt-2"
                   />
-                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1 px-1">
                     <span>1 Stück</span>
                     <span>100+ Stück</span>
                   </div>
@@ -317,8 +325,8 @@ const CostCalculator = () => {
                   Kostenvoranschlag
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-4">
+              <CardContent className="space-y-4 lg:space-y-6 p-4 lg:p-6">
+                <div className="space-y-3 lg:space-y-4">
                   <div className="flex justify-between items-center p-4 bg-muted/50 rounded-lg">
                     <span className="font-medium">Preis pro Stück:</span>
                     <span className="text-xl font-bold text-primary">
