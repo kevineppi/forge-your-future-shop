@@ -131,10 +131,10 @@ const Materialien = () => {
               </div>
 
               <Tabs defaultValue="standard" className="w-full">
-                <TabsList className="grid w-full md:w-auto md:mx-auto grid-cols-3 mb-8">
-                  <TabsTrigger value="standard">Standard Materialien</TabsTrigger>
-                  <TabsTrigger value="technical">Technische Materialien</TabsTrigger>
-                  <TabsTrigger value="special">Spezial Materialien</TabsTrigger>
+                <TabsList className="grid w-full md:w-auto md:mx-auto grid-cols-1 md:grid-cols-3 gap-2 mb-8 p-1">
+                  <TabsTrigger value="standard" className="text-xs md:text-sm px-2 md:px-4">Standard Materialien</TabsTrigger>
+                  <TabsTrigger value="technical" className="text-xs md:text-sm px-2 md:px-4">Technische Materialien</TabsTrigger>
+                  <TabsTrigger value="special" className="text-xs md:text-sm px-2 md:px-4">Spezielle Materialien</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="standard" className="space-y-8">
