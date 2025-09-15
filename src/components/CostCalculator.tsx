@@ -149,7 +149,7 @@ const CostCalculator = () => {
       let expressShipping = 0;
       
       if (isExpressService) {
-        expressCharge = basePriceBeforeExpress * 0.5; // 50% surcharge
+        expressCharge = 10; // Fixed €10 surcharge for express
         expressShipping = 20; // Additional €20 for express shipping
       }
       
