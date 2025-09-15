@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Calculator, Info, Sparkles } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Calculator, Info, Sparkles, Zap, Wrench } from "lucide-react";
 
 const CostCalculator = () => {
   // Add loading state to prevent early rendering issues
@@ -12,12 +13,17 @@ const CostCalculator = () => {
   
   // Initialize state with proper defaults
   const [material, setMaterial] = useState("pla");
-  const [complexity, setComplexity] = useState(2);
+  const [complexity, setComplexity] = useState(0); // Start at 0 (Einfach)
   const [quantity, setQuantity] = useState(1);
   const [length, setLength] = useState(10);
   const [width, setWidth] = useState(10);
   const [height, setHeight] = useState(10);
   const [printDuration, setPrintDuration] = useState(0);
+  
+  // New features
+  const [isExpressService, setIsExpressService] = useState(false);
+  const [postProcessing, setPostProcessing] = useState("none");
+  const [supportRemoval, setSupportRemoval] = useState(false);
 
   // Ensure component is properly hydrated
   useEffect(() => {
@@ -39,6 +45,13 @@ const CostCalculator = () => {
     "Überhänge/Support (+50%)",
     "Mehrfärbig/Sehr komplex (+100%)"
   ];
+
+  const postProcessingOptions = {
+    none: { name: "Keine", price: 0 },
+    sanding: { name: "Schleifen/Glätten", price: 15 },
+    painting: { name: "Grundierung + Lackierung", price: 25 },
+    premium: { name: "Premium Finish", price: 45 }
+  };
 
   // Safe state setters with proper number handling
   const handleLengthChange = useCallback((value: number[]) => {
@@ -109,6 +122,24 @@ const CostCalculator = () => {
       
       const basePrice = actualVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
       
+      // Additional services
+      let additionalServices = 0;
+      
+      // Post-processing costs
+      const postProcessingCost = postProcessingOptions[postProcessing as keyof typeof postProcessingOptions]?.price || 0;
+      additionalServices += postProcessingCost;
+      
+      // Support removal (if complexity >= 3)
+      if (supportRemoval && complexity >= 3) {
+        additionalServices += 8; // €8 for support removal
+      }
+      
+      // Express service (24h delivery)
+      let expressMultiplier = 1.0;
+      if (isExpressService) {
+        expressMultiplier = 1.5; // 50% surcharge for express
+      }
+      
       let printDurationCost = 0;
       if (printDuration > 0) {
         let hourlyRate = 1.5;
@@ -118,22 +149,32 @@ const CostCalculator = () => {
         printDurationCost = printDuration * hourlyRate;
       }
       
-      const totalBasePrice = basePrice + printDurationCost;
-      const totalPrice = totalBasePrice * quantity * quantityDiscount;
+      const totalBasePrice = (basePrice + printDurationCost + additionalServices) * expressMultiplier;
+      
+      // Enhanced quantity discounts
+      let discount = 1.0;
+      if (quantity >= 50) discount = 0.8;
+      else if (quantity >= 20) discount = 0.85;
+      else if (quantity >= 10) discount = 0.9;
+      else if (quantity >= 5) discount = 0.95;
+      
+      const totalPrice = totalBasePrice * quantity * discount;
       
       return {
         perPiece: Math.max(5, totalBasePrice),
         total: Math.max(5 * quantity, totalPrice),
-        savings: quantity > 5 ? (totalBasePrice * quantity - totalPrice) : 0,
+        savings: quantity > 4 ? (totalBasePrice * quantity - totalPrice) : 0,
         printDurationCost,
+        additionalServices,
+        expressCharge: isExpressService ? (totalBasePrice - (totalBasePrice / expressMultiplier)) : 0,
         volume: actualVolume * 1000000,
         maxDimension
       };
     } catch (error) {
       console.error('Error calculating price:', error);
-      return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, volume: 125000, maxDimension: 50 };
+      return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, additionalServices: 0, expressCharge: 0, volume: 125000, maxDimension: 50 };
     }
-  }, [material, length, width, height, complexity, quantity, printDuration]);
+  }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval]);
 
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
@@ -314,6 +355,60 @@ const CostCalculator = () => {
                     <span>100+ Stück</span>
                   </div>
                 </div>
+
+                {/* Additional Services */}
+                <div className="space-y-4">
+                  <h4 className="font-medium text-sm">Zusätzliche Services</h4>
+                  
+                  {/* Post-processing */}
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Nachbearbeitung</label>
+                    <Select value={postProcessing} onValueChange={setPostProcessing}>
+                      <SelectTrigger className="w-full bg-background h-12 text-base">
+                        <SelectValue placeholder="Nachbearbeitung wählen" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-background border border-border z-50">
+                        <SelectItem value="none">Keine</SelectItem>
+                        <SelectItem value="sanding">Schleifen/Glätten (+€15)</SelectItem>
+                        <SelectItem value="painting">Grundierung + Lackierung (+€25)</SelectItem>
+                        <SelectItem value="premium">Premium Finish (+€45)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Support removal checkbox */}
+                  {complexity >= 3 && (
+                    <div className="flex items-center space-x-2">
+                      <Checkbox 
+                        id="support-removal"
+                        checked={supportRemoval}
+                        onCheckedChange={(checked) => setSupportRemoval(checked === true)}
+                      />
+                      <label 
+                        htmlFor="support-removal"
+                        className="text-sm font-medium cursor-pointer"
+                      >
+                        Support-Entfernung (+€8)
+                      </label>
+                    </div>
+                  )}
+
+                  {/* Express service */}
+                  <div className="flex items-center space-x-2">
+                    <Checkbox 
+                      id="express-service"
+                      checked={isExpressService}
+                      onCheckedChange={(checked) => setIsExpressService(checked === true)}
+                    />
+                    <label 
+                      htmlFor="express-service"
+                      className="text-sm font-medium cursor-pointer flex items-center gap-1"
+                    >
+                      <Zap className="w-4 h-4 text-yellow-500" />
+                      Express-Service 24h (+50%)
+                    </label>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
@@ -328,11 +423,35 @@ const CostCalculator = () => {
               <CardContent className="space-y-4 lg:space-y-6 p-4 lg:p-6">
                 <div className="space-y-3 lg:space-y-4">
                   <div className="flex justify-between items-center p-4 bg-muted/50 rounded-lg">
-                    <span className="font-medium">Preis pro Stück:</span>
+                    <span className="font-medium">Basis-Preis pro Stück:</span>
                     <span className="text-xl font-bold text-primary">
-                      €{pricing.perPiece.toFixed(2)}
+                      €{(pricing.perPiece - pricing.additionalServices - pricing.expressCharge).toFixed(2)}
                     </span>
                   </div>
+
+                  {pricing.additionalServices > 0 && (
+                    <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg">
+                      <span className="font-medium flex items-center gap-1">
+                        <Wrench className="w-4 h-4" />
+                        Zusätzliche Services:
+                      </span>
+                      <span className="text-lg font-semibold text-blue-600">
+                        +€{pricing.additionalServices.toFixed(2)}
+                      </span>
+                    </div>
+                  )}
+
+                  {pricing.expressCharge > 0 && (
+                    <div className="flex justify-between items-center p-4 bg-yellow-500/10 rounded-lg">
+                      <span className="font-medium flex items-center gap-1">
+                        <Zap className="w-4 h-4 text-yellow-500" />
+                        Express-Aufschlag:
+                      </span>
+                      <span className="text-lg font-semibold text-yellow-600">
+                        +€{pricing.expressCharge.toFixed(2)}
+                      </span>
+                    </div>
+                  )}
 
                   {pricing.printDurationCost > 0 && (
                     <div className="flex justify-between items-center p-4 bg-muted/30 rounded-lg">
@@ -361,7 +480,13 @@ const CostCalculator = () => {
 
                   {quantity >= 5 && (
                     <Badge className="w-full justify-center bg-green-500/10 text-green-600 border-green-500/20 hover:scale-105 transition-transform duration-300 cursor-pointer">
-                      🎉 Mengenrabatt aktiv!
+                      🎉 {quantity >= 50 ? "Mega-Rabatt" : quantity >= 20 ? "Großkunden-Rabatt" : quantity >= 10 ? "Volumen-Rabatt" : "Mengen-Rabatt"} aktiv!
+                    </Badge>
+                  )}
+
+                  {isExpressService && (
+                    <Badge className="w-full justify-center bg-yellow-500/10 text-yellow-600 border-yellow-500/20">
+                      ⚡ Express-Lieferung in 24h
                     </Badge>
                   )}
                 </div>
@@ -369,16 +494,22 @@ const CostCalculator = () => {
                 <div className="space-y-3 pt-4 border-t border-border/50">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Info className="w-4 h-4" />
-                    Lieferzeit: 2-5 Werktage
+                    Lieferzeit: {isExpressService ? "24 Stunden" : "2-5 Werktage"}
                   </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Info className="w-4 h-4" />
-                    Inkl. Nachbearbeitung
+                    {postProcessing !== "none" ? "Inkl. Nachbearbeitung" : "Basis-Nachbearbeitung inkludiert"}
                   </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Info className="w-4 h-4" />
                     Kostenlose Beratung
                   </div>
+                  {quantity >= 5 && (
+                    <div className="flex items-center gap-2 text-sm text-green-600">
+                      <Info className="w-4 h-4" />
+                      Mengenrabatt: {quantity >= 50 ? "20%" : quantity >= 20 ? "15%" : quantity >= 10 ? "10%" : "5%"}
+                    </div>
+                  )}
                 </div>
 
                 <div className="space-y-3 pt-4">
