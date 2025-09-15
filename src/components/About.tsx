@@ -92,27 +92,6 @@ const About = () => {
                 und ermöglichen kurze Reaktionszeiten in ganz Österreich und der DACH-Region.
               </p>
               
-              <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-lg border-l-4 border-primary">
-                <h4 className="font-semibold text-primary mb-3">Warum 3D-Druck die Zukunft der Fertigung ist:</h4>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span><strong>Kosteneffizienz:</strong> Keine teuren Werkzeuge oder Formen nötig - ideal für Prototypen und Kleinserien</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span><strong>Nachhaltigkeit:</strong> Minimaler Materialverbrauch und Produktion aus recycelten Materialien</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span><strong>Flexibilität:</strong> Schnelle Anpassungen und Iterationen ohne Zusatzkosten</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span><strong>Komplexität:</strong> Geometrien die mit traditioneller Fertigung unmöglich wären</span>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
 

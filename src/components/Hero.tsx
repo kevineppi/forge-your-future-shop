@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import heroImage from "@/assets/hero-modern-3d-printer.jpg";
+
 import SEOHead from "./SEOHead";
 import { useSEO } from "@/hooks/useSEO";
 
