@@ -132,14 +132,6 @@ const CostCalculator = () => {
         additionalServices += 8; // €8 for support removal
       }
       
-      // Express service (24h delivery)
-      let expressMultiplier = 1.0;
-      let expressShipping = 0;
-      if (isExpressService) {
-        expressMultiplier = 1.5; // 50% surcharge for express
-        expressShipping = 20; // Additional €20 for express shipping
-      }
-      
       let printDurationCost = 0;
       if (printDuration > 0) {
         let hourlyRate = 1.5;
@@ -149,7 +141,21 @@ const CostCalculator = () => {
         printDurationCost = printDuration * hourlyRate;
       }
       
-      const totalBasePrice = (basePrice + printDurationCost + additionalServices) * expressMultiplier + expressShipping;
+      // Base price before express
+      const basePriceBeforeExpress = basePrice + printDurationCost + additionalServices;
+      
+      // Express service (24h delivery) - always add €20 for express shipping
+      let expressMultiplier = 1.0;
+      let expressShipping = 0;
+      let expressCharge = 0;
+      
+      if (isExpressService) {
+        expressMultiplier = 1.5; // 50% surcharge for express
+        expressShipping = 20; // Additional €20 for express shipping
+        expressCharge = basePriceBeforeExpress * 0.5; // 50% surcharge
+      }
+      
+      const totalBasePrice = basePriceBeforeExpress * expressMultiplier + expressShipping;
       
       // Enhanced quantity discounts
       let discount = 1.0;
@@ -160,13 +166,16 @@ const CostCalculator = () => {
       
       const totalPrice = totalBasePrice * quantity * discount;
       
+      // Round to 5 cents (0.05)
+      const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
+      
       return {
-        perPiece: Math.max(5, totalBasePrice),
-        total: Math.max(5 * quantity, totalPrice),
+        perPiece: Math.max(5, roundTo5Cents(totalBasePrice)),
+        total: Math.max(5 * quantity, roundTo5Cents(totalPrice)),
         savings: quantity > 4 ? (totalBasePrice * quantity - totalPrice) : 0,
         printDurationCost,
         additionalServices,
-        expressCharge: isExpressService ? (totalBasePrice - ((basePrice + printDurationCost + additionalServices) * expressMultiplier)) : 0,
+        expressCharge: isExpressService ? expressCharge : 0,
         expressShipping: isExpressService ? expressShipping : 0,
         volume: actualVolume * 1000000,
         maxDimension
