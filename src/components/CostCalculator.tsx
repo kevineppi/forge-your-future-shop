@@ -105,7 +105,7 @@ const CostCalculator = () => {
   const calculatePrice = useCallback(() => {
     try {
       const baseMaterial = materials[material as keyof typeof materials];
-      if (!baseMaterial) return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, volume: 125000, maxDimension: 50 };
+      if (!baseMaterial) return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, additionalServices: 0, expressCharge: 0, volume: 125000, maxDimension: 50 };
       
       const actualVolume = (length * width * height) / 1000000;
       const maxDimension = Math.max(length, width, height);
@@ -117,8 +117,6 @@ const CostCalculator = () => {
       else if (complexity === 2) complexityMultiplier = 1.4;
       else if (complexity === 3) complexityMultiplier = 1.5; // Überhänge: 150%
       else if (complexity === 4) complexityMultiplier = 2.0; // Mehrfärbig/Sehr komplex: 200%
-      
-      const quantityDiscount = quantity > 10 ? 0.9 : quantity > 5 ? 0.95 : 1.0;
       
       const basePrice = actualVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
       
