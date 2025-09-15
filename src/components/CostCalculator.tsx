@@ -105,7 +105,7 @@ const CostCalculator = () => {
   const calculatePrice = useCallback(() => {
     try {
       const baseMaterial = materials[material as keyof typeof materials];
-      if (!baseMaterial) return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, additionalServices: 0, expressCharge: 0, volume: 125000, maxDimension: 50 };
+      if (!baseMaterial) return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, additionalServices: 0, expressCharge: 0, expressShipping: 0, volume: 125000, maxDimension: 50 };
       
       const actualVolume = (length * width * height) / 1000000;
       const maxDimension = Math.max(length, width, height);
@@ -134,8 +134,10 @@ const CostCalculator = () => {
       
       // Express service (24h delivery)
       let expressMultiplier = 1.0;
+      let expressShipping = 0;
       if (isExpressService) {
         expressMultiplier = 1.5; // 50% surcharge for express
+        expressShipping = 20; // Additional €20 for express shipping
       }
       
       let printDurationCost = 0;
@@ -147,7 +149,7 @@ const CostCalculator = () => {
         printDurationCost = printDuration * hourlyRate;
       }
       
-      const totalBasePrice = (basePrice + printDurationCost + additionalServices) * expressMultiplier;
+      const totalBasePrice = (basePrice + printDurationCost + additionalServices) * expressMultiplier + expressShipping;
       
       // Enhanced quantity discounts
       let discount = 1.0;
@@ -164,13 +166,14 @@ const CostCalculator = () => {
         savings: quantity > 4 ? (totalBasePrice * quantity - totalPrice) : 0,
         printDurationCost,
         additionalServices,
-        expressCharge: isExpressService ? (totalBasePrice - (totalBasePrice / expressMultiplier)) : 0,
+        expressCharge: isExpressService ? (totalBasePrice - ((basePrice + printDurationCost + additionalServices) * expressMultiplier)) : 0,
+        expressShipping: isExpressService ? expressShipping : 0,
         volume: actualVolume * 1000000,
         maxDimension
       };
     } catch (error) {
       console.error('Error calculating price:', error);
-      return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, additionalServices: 0, expressCharge: 0, volume: 125000, maxDimension: 50 };
+      return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, additionalServices: 0, expressCharge: 0, expressShipping: 0, volume: 125000, maxDimension: 50 };
     }
   }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval]);
 
@@ -443,10 +446,22 @@ const CostCalculator = () => {
                     <div className="flex justify-between items-center p-4 bg-yellow-500/10 rounded-lg">
                       <span className="font-medium flex items-center gap-1">
                         <Zap className="w-4 h-4 text-yellow-500" />
-                        Express-Aufschlag:
+                        Express-Aufschlag (50%):
                       </span>
                       <span className="text-lg font-semibold text-yellow-600">
                         +€{pricing.expressCharge.toFixed(2)}
+                      </span>
+                    </div>
+                  )}
+
+                  {pricing.expressShipping > 0 && (
+                    <div className="flex justify-between items-center p-4 bg-orange-500/10 rounded-lg">
+                      <span className="font-medium flex items-center gap-1">
+                        <Zap className="w-4 h-4 text-orange-500" />
+                        Express-Versand:
+                      </span>
+                      <span className="text-lg font-semibold text-orange-600">
+                        +€{pricing.expressShipping.toFixed(2)}
                       </span>
                     </div>
                   )}
