@@ -15,9 +15,9 @@ const CostCalculator = () => {
   const [material, setMaterial] = useState("pla");
   const [complexity, setComplexity] = useState(0); // Start at 0 (Einfach)
   const [quantity, setQuantity] = useState(1);
-  const [length, setLength] = useState(10);
-  const [width, setWidth] = useState(10);
-  const [height, setHeight] = useState(10);
+  const [length, setLength] = useState(100);
+  const [width, setWidth] = useState(100);
+  const [height, setHeight] = useState(100);
   const [printDuration, setPrintDuration] = useState(0);
   
   // New features
@@ -56,21 +56,21 @@ const CostCalculator = () => {
   // Safe state setters with proper number handling
   const handleLengthChange = useCallback((value: number[]) => {
     if (value && value[0] && typeof value[0] === 'number') {
-      const newValue = Math.max(1, Math.min(300, Math.round(value[0])));
+      const newValue = Math.max(5, Math.min(300, Math.round(value[0] / 5) * 5));
       setLength(newValue);
     }
   }, []);
 
   const handleWidthChange = useCallback((value: number[]) => {
     if (value && value[0] && typeof value[0] === 'number') {
-      const newValue = Math.max(1, Math.min(300, Math.round(value[0])));
+      const newValue = Math.max(5, Math.min(300, Math.round(value[0] / 5) * 5));
       setWidth(newValue);
     }
   }, []);
 
   const handleHeightChange = useCallback((value: number[]) => {
     if (value && value[0] && typeof value[0] === 'number') {
-      const newValue = Math.max(1, Math.min(300, Math.round(value[0])));
+      const newValue = Math.max(5, Math.min(300, Math.round(value[0] / 5) * 5));
       setHeight(newValue);
     }
   }, []);
@@ -242,8 +242,8 @@ const CostCalculator = () => {
                       value={[length]}
                       onValueChange={handleLengthChange}
                       max={300}
-                      min={1}
-                      step={1}
+                      min={5}
+                      step={5}
                       className="mt-2"
                     />
                   </div>
@@ -256,8 +256,8 @@ const CostCalculator = () => {
                       value={[width]}
                       onValueChange={handleWidthChange}
                       max={300}
-                      min={1}
-                      step={1}
+                      min={5}
+                      step={5}
                       className="mt-2"
                     />
                   </div>
@@ -270,8 +270,8 @@ const CostCalculator = () => {
                       value={[height]}
                       onValueChange={handleHeightChange}
                       max={300}
-                      min={1}
-                      step={1}
+                      min={5}
+                      step={5}
                       className="mt-2"
                     />
                   </div>
