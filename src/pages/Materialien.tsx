@@ -131,14 +131,14 @@ const Materialien = () => {
               </div>
 
               <Tabs defaultValue="standard" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 mb-8 h-auto p-1">
-                  <TabsTrigger value="standard" className="text-sm px-4 py-3 data-[state=active]:bg-background data-[state=active]:text-foreground whitespace-nowrap">
+                <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 gap-2 mb-8 h-auto p-2">
+                  <TabsTrigger value="standard" className="text-sm px-4 py-3 data-[state=active]:bg-background data-[state=active]:text-foreground">
                     Standard Materialien
                   </TabsTrigger>
-                  <TabsTrigger value="technical" className="text-sm px-4 py-3 data-[state=active]:bg-background data-[state=active]:text-foreground whitespace-nowrap">
+                  <TabsTrigger value="technical" className="text-sm px-4 py-3 data-[state=active]:bg-background data-[state=active]:text-foreground">
                     Technische Materialien
                   </TabsTrigger>
-                  <TabsTrigger value="special" className="text-sm px-4 py-3 data-[state=active]:bg-background data-[state=active]:text-foreground whitespace-nowrap">
+                  <TabsTrigger value="special" className="text-sm px-4 py-3 data-[state=active]:bg-background data-[state=active]:text-foreground">
                     Spezielle Materialien
                   </TabsTrigger>
                 </TabsList>
