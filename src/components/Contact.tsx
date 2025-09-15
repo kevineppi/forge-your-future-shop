@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Phone, Clock, Send, Upload, CheckCircle } from "lucide-react";
+import { Mail, Phone, Clock, Send, Upload, CheckCircle, MapPin } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import SocialShare from "./SocialShare";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -207,7 +208,22 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            
+            <Card className="gradient-card border-0">
+              <CardHeader>
+                <CardTitle className="flex items-center text-lg">
+                  <MapPin className="mr-3 h-5 w-5 text-primary" />
+                  Adresse
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <address className="text-muted-foreground not-italic">
+                  ekdruck e.U.<br />
+                  Negrellistraße 15<br />
+                  4623 Gunskirchen<br />
+                  Oberösterreich
+                </address>
+              </CardContent>
+            </Card>
 
             <Card className="gradient-card border-0">
               <CardHeader>
@@ -255,6 +271,14 @@ const Contact = () => {
                   >
                     Neue Anfrage senden
                   </Button>
+                  
+                  <div className="mt-6 pt-6 border-t border-border/20">
+                    <SocialShare 
+                      title="3D-Druck Service aus Österreich | ekdruck e.U."
+                      description="Professioneller 3D-Druck Dienstleister für ganz Österreich mit nachhaltigen Materialien"
+                      className="justify-center"
+                    />
+                  </div>
                 </div>
               </Card>
             ) : (

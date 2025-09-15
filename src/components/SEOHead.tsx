@@ -5,13 +5,17 @@ interface SEOHeadProps {
   description?: string;
   keywords?: string;
   path?: string;
+  image?: string;
+  type?: string;
 }
 
 const SEOHead = ({ 
-  title = "3D-Druck Service Linz | ekdruck e.U. Oberösterreich",
-  description = "Professioneller 3D-Druck Service für Linz und Oberösterreich. Einzelanfertigungen, Prototypen & Serienfertigung mit österreichischem Filament. Kostenlose Beratung!",
-  keywords = "3D-Druck Linz, 3D-Druck Oberösterreich, 3D-Druck Wels, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, regional",
-  path = ""
+  title = "3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U.",
+  description = "3D-Druck Service für ganz Österreich ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Nachhaltiger 3D-Druck Dienstleister ✓ Österreichisches Filament ✓ Express Service",
+  keywords = "3d-druck österreich, 3d-druck dienstleister, fdm 3d-druck, rapid prototyping österreich, 3d drucker kaufen österreich, 3d-druck firma, 3d-druck shop österreich, additives fertigungsverfahren",
+  path = "",
+  image = "https://www.ek-druck.at/og-image.jpg",
+  type = "website"
 }: SEOHeadProps) => {
   useEffect(() => {
     // Update document title
@@ -62,7 +66,25 @@ const SEOHead = ({
       twitterDescription.setAttribute('content', description);
     }
     
-  }, [title, description, keywords, path]);
+    // Update OG Image
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    if (ogImage) {
+      ogImage.setAttribute('content', image);
+    }
+    
+    // Update OG Type
+    const ogType = document.querySelector('meta[property="og:type"]');
+    if (ogType) {
+      ogType.setAttribute('content', type);
+    }
+    
+    // Update Twitter Image
+    const twitterImage = document.querySelector('meta[name="twitter:image"]');
+    if (twitterImage) {
+      twitterImage.setAttribute('content', image);
+    }
+    
+  }, [title, description, keywords, path, image, type]);
 
   return null;
 };
