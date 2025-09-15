@@ -131,10 +131,16 @@ const Materialien = () => {
               </div>
 
               <Tabs defaultValue="standard" className="w-full">
-                <TabsList className="grid w-full md:w-auto md:mx-auto grid-cols-1 md:grid-cols-3 gap-2 mb-8 p-1">
-                  <TabsTrigger value="standard" className="text-xs md:text-sm px-2 md:px-4">Standard Materialien</TabsTrigger>
-                  <TabsTrigger value="technical" className="text-xs md:text-sm px-2 md:px-4">Technische Materialien</TabsTrigger>
-                  <TabsTrigger value="special" className="text-xs md:text-sm px-2 md:px-4">Spezielle Materialien</TabsTrigger>
+                <TabsList className="flex flex-col sm:flex-row w-full max-w-2xl mx-auto bg-background/50 backdrop-blur-sm p-2 rounded-xl gap-2 mb-8">
+                  <TabsTrigger value="standard" className="flex-1 text-sm font-medium px-6 py-3 rounded-lg transition-all duration-200">
+                    Standard Materialien
+                  </TabsTrigger>
+                  <TabsTrigger value="technical" className="flex-1 text-sm font-medium px-6 py-3 rounded-lg transition-all duration-200">
+                    Technische Materialien
+                  </TabsTrigger>
+                  <TabsTrigger value="special" className="flex-1 text-sm font-medium px-6 py-3 rounded-lg transition-all duration-200">
+                    Spezielle Materialien
+                  </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="standard" className="space-y-8">
