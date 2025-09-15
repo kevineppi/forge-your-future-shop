@@ -144,18 +144,16 @@ const CostCalculator = () => {
       // Base price before express
       const basePriceBeforeExpress = basePrice + printDurationCost + additionalServices;
       
-      // Express service (24h delivery) - always add €20 for express shipping
-      let expressMultiplier = 1.0;
-      let expressShipping = 0;
+      // Express service (24h delivery)
       let expressCharge = 0;
+      let expressShipping = 0;
       
       if (isExpressService) {
-        expressMultiplier = 1.5; // 50% surcharge for express
-        expressShipping = 20; // Additional €20 for express shipping
         expressCharge = basePriceBeforeExpress * 0.5; // 50% surcharge
+        expressShipping = 20; // Additional €20 for express shipping
       }
       
-      const totalBasePrice = basePriceBeforeExpress * expressMultiplier + expressShipping;
+      const totalBasePrice = basePriceBeforeExpress + expressCharge + expressShipping;
       
       // Enhanced quantity discounts
       let discount = 1.0;
