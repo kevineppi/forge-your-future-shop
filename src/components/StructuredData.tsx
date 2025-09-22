@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 interface StructuredDataProps {
-  type: 'organization' | 'service' | 'faq' | 'breadcrumb' | 'blog' | 'article';
+  type: 'organization' | 'service' | 'faq' | 'breadcrumb';
   data?: any;
 }
 
@@ -172,61 +172,6 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
               }
             ]
           };
-
-        case 'blog':
-          return {
-            "@context": "https://schema.org",
-            "@type": "Blog",
-            "name": "3D-Druck Blog | ekdruck e.U.",
-            "description": "Expertenwissen, Tipps und Trends rund um 3D-Druck, FDM-Verfahren und Rapid Prototyping aus Österreich.",
-            "url": "https://www.ek-druck.at/blog",
-            "author": {
-              "@type": "Organization",
-              "name": "ekdruck e.U.",
-              "url": "https://www.ek-druck.at"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "ekdruck e.U.",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.ek-druck.at/logo.png"
-              }
-            }
-          };
-
-        case 'article':
-          if (data) {
-            return {
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              "headline": data.title,
-              "description": data.excerpt,
-              "image": `https://www.ek-druck.at${data.image}`,
-              "datePublished": data.date,
-              "dateModified": data.date,
-              "author": {
-                "@type": "Person",
-                "name": data.author,
-                "jobTitle": "3D-Druck Experte"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "ekdruck e.U.",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://www.ek-druck.at/logo.png"
-                }
-              },
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": `https://www.ek-druck.at/blog/${data.id}`
-              },
-              "keywords": data.tags.join(", "),
-              "wordCount": data.content ? data.content.split(' ').length : 800
-            };
-          }
-          return null;
         
         default:
           return null;
