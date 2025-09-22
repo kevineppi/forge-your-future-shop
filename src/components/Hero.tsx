@@ -15,16 +15,17 @@ const Hero = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
-              3D-Druck Service aus Österreich
+              3D-Druck Service Österreich | 3D-Druckerei & FDM 3D-Druck
             </h1>
             <h2 className="text-2xl md:text-3xl text-primary font-extrabold mb-4">
-              Nachhaltiger FDM 3D-Druck Service
+              3D-Druckservice Online | Rapid Prototyping Österreich
             </h2>
             
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              <span className="text-primary font-semibold">Nachhaltiger FDM 3D-Druck Service</span> aus <span className="text-primary font-semibold">Oberösterreich</span> mit österreichischem Filament. 
-              <span className="text-primary font-semibold">Prototypen</span>, <span className="text-primary font-semibold">Einzelanfertigungen</span> und <span className="text-primary font-semibold">Serienfertigung</span> - 
-              regional, schnell und umweltfreundlich.
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              <span className="text-primary font-semibold">3D-Druck Österreich Dienstleister</span> für professionellen <span className="text-primary font-semibold">FDM 3D-Druck Service</span> aus <span className="text-primary font-semibold">Oberösterreich</span>. 
+              Unsere <span className="text-primary font-semibold">3D-Druckerei</span> bietet <span className="text-primary font-semibold">Rapid Prototyping</span>, 
+              <span className="text-primary font-semibold">Einzelanfertigungen</span> und <span className="text-primary font-semibold">Serienfertigung</span> mit österreichischem Filament. 
+              <span className="text-primary font-semibold">3D-Druckservice Online</span> für ganz Österreich - nachhaltig, schnell und kosteneffizient.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -7,13 +7,23 @@ import Reviews from "@/components/Reviews";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
+import ContentSection from "@/components/ContentSection";
 import StructuredData from "@/components/StructuredData";
 import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    // Update document title for main page
-    document.title = "3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U.";
+    // Update document title for main page with key SEO keywords
+    document.title = "3D-Druck Österreich | 3D-Druckerei & FDM 3D-Druck Service | ekdruck e.U.";
+    
+    // Update meta description with target keywords
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 
+        '3D-Druck Dienstleister für ganz Österreich ✓ 3D-Druckerei ✓ FDM 3D-Druck Service ✓ Rapid Prototyping ✓ 3D-Druckservice Online ✓ Firmen 3D-Druck ✓ 3D-Druck Salzburg, Wien'
+      );
+    }
   }, []);
 
   return (
@@ -29,6 +39,8 @@ const Index = () => {
       <CostCalculator />
       <Reviews />
       <About />
+      <ContentSection />
+      <FAQ />
       <Contact />
       <Footer />
       </div>

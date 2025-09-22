@@ -36,9 +36,9 @@ const Services = () => {
   return <section id="services" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Unsere <span className="text-gradient">3D-Druck Leistungen</span>
-          </h2>
+           <h2 className="text-4xl md:text-5xl font-bold mb-6">
+             <span className="text-gradient">3D-Druck Service Österreich</span> | Unsere Leistungen
+           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
             Unser professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich bietet umfassende Lösungen 
             für alle Bereiche der additiven Fertigung. Von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen </a> 
