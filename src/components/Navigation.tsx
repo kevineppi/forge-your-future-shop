@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, BookOpen } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,6 +90,7 @@ const Navigation = () => {
             </DropdownMenu>
             <a href="#advantages" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Vorteile</a>
             <a href="#about" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</a>
+            <Link to="/blog" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Blog</Link>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</a>
             <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
           </div>
@@ -158,6 +160,15 @@ const Navigation = () => {
                 <Factory className="h-4 w-4 text-primary" />
                 Serienfertigung
               </a>
+              <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Mehr</div>
+              <Link 
+                to="/blog" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <BookOpen className="h-4 w-4 text-primary" />
+                Blog
+              </Link>
             </div>
             <Button 
               variant="hero" 

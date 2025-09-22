@@ -11,6 +11,8 @@ import Materialien from "./pages/Materialien";
 import Einzelanfertigungen from "./pages/Einzelanfertigungen";
 import Serienfertigung from "./pages/Serienfertigung";
 import Impressum from "./pages/Impressum";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
@@ -31,6 +33,8 @@ const App = () => (
             <Route path="/3d-druck-materialien" element={<Materialien />} />
             <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
             <Route path="/serienfertigung" element={<Serienfertigung />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/auth" element={<Auth />} />
