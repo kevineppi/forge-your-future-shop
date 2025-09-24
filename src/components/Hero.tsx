@@ -1,48 +1,37 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-
 import SEOHead from "./SEOHead";
 import { useSEO } from "@/hooks/useSEO";
-
 const Hero = () => {
   const seoData = useSEO('hero');
-  
-  return (
-    <>
+  return <>
       <SEOHead title={seoData.title} description={seoData.description} keywords={seoData.keywords} path="/" />
       <section className="relative min-h-screen flex items-center justify-center bg-background pt-20">
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
-              3D-Druck Service aus Österreich
-            </h1>
+            <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-foreground mb-6 leading-tight">3D-Druck Service Österreich</h1>
             <h2 className="text-2xl md:text-3xl text-primary font-extrabold mb-4">
               Nachhaltiger FDM 3D-Druck Service
             </h2>
             
-            <div className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto space-y-4">
-              <p>
-                <span className="text-primary font-semibold">Professioneller 3D-Druck Service</span> aus <span className="text-primary font-semibold">Oberösterreich</span> für ganz Österreich. 
-                Unser <span className="text-primary font-semibold">FDM 3D-Druck Service</span> bietet nachhaltige Fertigung mit 100% <span className="text-primary font-semibold">österreichischem Filament</span>.
-              </p>
-              <p className="text-lg">
-                Von <span className="text-primary font-semibold">Rapid Prototyping</span> über <span className="text-primary font-semibold">Einzelanfertigungen</span> bis zur <span className="text-primary font-semibold">Serienfertigung</span> - 
-                Ihr zuverlässiger <span className="text-primary font-semibold">3D-Druck Dienstleister</span> mit kostenloser Beratung und Express-Service österreichweit.
-              </p>
-            </div>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <span className="text-primary font-semibold">Professioneller 3D-Druck Service aus Oberösterreich. Unser FDM 3D-Druck Service bietet nachhaltige Fertigung mit 100% österreichischem Filament.</span> aus <span className="text-primary font-semibold">Oberösterreich</span> mit österreichischem Filament. 
+              <span className="text-primary font-semibold">Prototypen</span>, <span className="text-primary font-semibold">Einzelanfertigungen</span> und <span className="text-primary font-semibold">Serienfertigung</span> - 
+              regional, schnell und umweltfreundlich.
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="hero" size="lg" className="group" onClick={() => document.getElementById('contact')?.scrollIntoView({
-                behavior: 'smooth'
-              })}>
+              behavior: 'smooth'
+            })}>
                 Kostenloses Angebot
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
               <Button variant="outline" size="lg" className="group border-primary text-primary hover:bg-primary hover:text-white" onClick={() => document.getElementById('services')?.scrollIntoView({
-                behavior: 'smooth'
-              })}>
+              behavior: 'smooth'
+            })}>
                 <Play className="mr-2 h-5 w-5" />
                 Unsere Leistungen
               </Button>
@@ -75,8 +64,6 @@ const Hero = () => {
         <div className="absolute bottom-32 right-16 w-16 h-16 border border-primary/20 rotate-12 hidden lg:block"></div>
         <div className="absolute top-1/2 right-8 w-8 h-8 bg-primary/30 rotate-45 hidden lg:block"></div>
       </section>
-    </>
-  );
+    </>;
 };
-
 export default Hero;
