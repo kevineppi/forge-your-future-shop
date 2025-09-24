@@ -42,9 +42,39 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             "keywords": "3D-Druck, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, österreichisches Filament",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "5.0",
-              "reviewCount": "20"
-            }
+              "ratingValue": "4.9",
+              "bestRating": "5",
+              "worstRating": "1",
+              "reviewCount": "47"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Thomas M."
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                },
+                "reviewBody": "Ausgezeichnete Qualität und schnelle Lieferung. Die 3D-Drucke sind perfekt für unsere Prototypen."
+              },
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Sarah K."
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                },
+                "reviewBody": "Sehr professioneller Service und nachhaltige Materialien. Kann ich nur weiterempfehlen!"
+              }
+            ]
           };
         
         case 'service':
