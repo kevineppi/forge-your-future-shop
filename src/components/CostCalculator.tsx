@@ -56,21 +56,21 @@ const CostCalculator = () => {
   // Safe state setters with proper number handling
   const handleLengthChange = useCallback((value: number[]) => {
     if (value && value[0] && typeof value[0] === 'number') {
-      const newValue = Math.max(5, Math.min(300, Math.round(value[0] / 5) * 5));
+      const newValue = Math.max(5, Math.min(350, Math.round(value[0] / 5) * 5));
       setLength(newValue);
     }
   }, []);
 
   const handleWidthChange = useCallback((value: number[]) => {
     if (value && value[0] && typeof value[0] === 'number') {
-      const newValue = Math.max(5, Math.min(300, Math.round(value[0] / 5) * 5));
+      const newValue = Math.max(5, Math.min(350, Math.round(value[0] / 5) * 5));
       setWidth(newValue);
     }
   }, []);
 
   const handleHeightChange = useCallback((value: number[]) => {
     if (value && value[0] && typeof value[0] === 'number') {
-      const newValue = Math.max(5, Math.min(300, Math.round(value[0] / 5) * 5));
+      const newValue = Math.max(5, Math.min(350, Math.round(value[0] / 5) * 5));
       setHeight(newValue);
     }
   }, []);
@@ -251,7 +251,7 @@ const CostCalculator = () => {
                     <Slider
                       value={[length]}
                       onValueChange={handleLengthChange}
-                      max={300}
+                      max={350}
                       min={5}
                       step={5}
                       className="mt-2"
@@ -265,7 +265,7 @@ const CostCalculator = () => {
                     <Slider
                       value={[width]}
                       onValueChange={handleWidthChange}
-                      max={300}
+                      max={350}
                       min={5}
                       step={5}
                       className="mt-2"
@@ -279,7 +279,7 @@ const CostCalculator = () => {
                     <Slider
                       value={[height]}
                       onValueChange={handleHeightChange}
-                      max={300}
+                      max={350}
                       min={5}
                       step={5}
                       className="mt-2"
