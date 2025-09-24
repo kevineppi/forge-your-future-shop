@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    // Update document title for main page
+    // Update document title for main page - SEO optimized with target keywords
     document.title = "3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U.";
   }, []);
 

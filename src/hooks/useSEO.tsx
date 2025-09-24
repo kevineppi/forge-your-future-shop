@@ -8,17 +8,17 @@ interface SEOData {
 
 export const useSEO = (sectionId?: string): SEOData => {
   const [seoData, setSeoData] = useState<SEOData>({
-    title: "3D-Druck Österreich | FDM 3D-Druck Service | ekdruck e.U.",
-    description: "3D-Druck Dienstleister für ganz Österreich. FDM 3D-Druck, Rapid Prototyping, Additives Fertigungsverfahren. 3D-Drucker Service für Privatpersonen österreichweit.",
-    keywords: "3d-druck österreich, 3d-druck dienstleister, fdm 3d-druck, rapid prototyping österreich, 3d drucker kaufen österreich, 3d-druck firma, additives fertigungsverfahren"
+    title: "3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U.",
+    description: "3D-Druck Service für ganz Österreich ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Nachhaltiger 3D-Druck Dienstleister ✓ Österreichisches Filament ✓ Express Service",
+    keywords: "3d-druck österreich, 3d-druck service, fdm 3d-druck, rapid prototyping österreich, 3d-druck dienstleister, 3d-druck firma, 3d-druck shop österreich, additives fertigungsverfahren"
   });
 
   useEffect(() => {
     const seoConfigs = {
       hero: {
-        title: "3D-Druck Österreich | FDM 3D-Druck Service | ekdruck e.U.",
-        description: "3D-Druck Dienstleister für ganz Österreich. FDM 3D-Druck, Rapid Prototyping, Additives Fertigungsverfahren. 3D-Drucker Service für Privatpersonen österreichweit.",
-        keywords: "3d-druck österreich, 3d-druck dienstleister, fdm 3d-druck, rapid prototyping österreich, 3d drucker kaufen österreich, 3d-druck firma, additives fertigungsverfahren"
+        title: "3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U.",
+        description: "3D-Druck Service für ganz Österreich ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Nachhaltiger 3D-Druck Dienstleister ✓ Österreichisches Filament ✓ Express Service",
+        keywords: "3d-druck österreich, 3d-druck service, fdm 3d-druck, rapid prototyping österreich, 3d-druck dienstleister, 3d-druck firma, 3d-druck shop österreich, additives fertigungsverfahren"
       },
       services: {
         title: "FDM 3D-Druck Services Österreich | Rapid Prototyping",

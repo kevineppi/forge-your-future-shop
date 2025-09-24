@@ -21,11 +21,16 @@ const Hero = () => {
               Nachhaltiger FDM 3D-Druck Service
             </h2>
             
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              <span className="text-primary font-semibold">Nachhaltiger FDM 3D-Druck Service</span> aus <span className="text-primary font-semibold">Oberösterreich</span> mit österreichischem Filament. 
-              <span className="text-primary font-semibold">Prototypen</span>, <span className="text-primary font-semibold">Einzelanfertigungen</span> und <span className="text-primary font-semibold">Serienfertigung</span> - 
-              regional, schnell und umweltfreundlich.
-            </p>
+            <div className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto space-y-4">
+              <p>
+                <span className="text-primary font-semibold">Professioneller 3D-Druck Service</span> aus <span className="text-primary font-semibold">Oberösterreich</span> für ganz Österreich. 
+                Unser <span className="text-primary font-semibold">FDM 3D-Druck Service</span> bietet nachhaltige Fertigung mit 100% <span className="text-primary font-semibold">österreichischem Filament</span>.
+              </p>
+              <p className="text-lg">
+                Von <span className="text-primary font-semibold">Rapid Prototyping</span> über <span className="text-primary font-semibold">Einzelanfertigungen</span> bis zur <span className="text-primary font-semibold">Serienfertigung</span> - 
+                Ihr zuverlässiger <span className="text-primary font-semibold">3D-Druck Dienstleister</span> mit kostenloser Beratung und Express-Service österreichweit.
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="hero" size="lg" className="group" onClick={() => document.getElementById('contact')?.scrollIntoView({
