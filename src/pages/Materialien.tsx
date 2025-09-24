@@ -15,8 +15,16 @@ const Materialien = () => {
       <SEOHead 
         title="3D-Druck Materialien Österreich | Nachhaltiges Filament | ekdruck e.U."
         description="Premium 3D-Druck Materialien aus Österreich 🌱 Nachhaltiges Filament aus Industrieabfällen 🌱 PLA, PETG, ABS, PC 🌱 Regional & umweltfreundlich!"
-        keywords="3d-druck materialien österreich, nachhaltiges filament österreich, österreichisches filament oberösterreich, pla petg abs österreich, recyceltes filament oberösterreich"
+        keywords="3d-druck materialien österreich, nachhaltiges filament österreich, österreichisches filament oberösterreich, pla petg abs österreich, recyceltes filament oberösterreich, bio-basierte kunststoffe, thermoplastisches filament, additive fertigungsmaterialien"
         path="/3d-druck-materialien"
+        schemaType="product"
+        breadcrumbs={[
+          {name: "Home", url: "/"},
+          {name: "3D-Druck Materialien", url: "/3d-druck-materialien"}
+        ]}
+        preloadResources={[
+          {href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png", as: "image", type: "image/png"}
+        ]}
       />
       <StructuredData type="service" />
       

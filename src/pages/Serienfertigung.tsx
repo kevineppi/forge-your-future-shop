@@ -15,8 +15,16 @@ const Serienfertigung = () => {
       <SEOHead 
         title="3D-Druck Serienfertigung Österreich | Kleinserien ohne Werkzeugkosten | ekdruck e.U."
         description="3D-Druck Serienfertigung ⚡ 10-10.000 Stück ⚡ Keine Werkzeugkosten ⚡ Alternative zu Spritzguss ⚡ Flexible Stückzahlen ⚡ Österreichweit verfügbar!"
-        keywords="3d-druck serienfertigung österreich, kleinserien 3d-druck oberösterreich, additive serienfertigung österreich, 3d-druck produktion oberösterreich, spritzguss alternative österreich"
+        keywords="3d-druck serienfertigung österreich, kleinserien 3d-druck oberösterreich, additive serienfertigung österreich, 3d-druck produktion oberösterreich, spritzguss alternative österreich, rapid manufacturing, on-demand produktion, flexible stückzahlen"
         path="/serienfertigung"
+        schemaType="service"
+        breadcrumbs={[
+          {name: "Home", url: "/"},
+          {name: "Serienfertigung", url: "/serienfertigung"}
+        ]}
+        preloadResources={[
+          {href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png", as: "image", type: "image/png"}
+        ]}
       />
       <StructuredData type="service" />
       

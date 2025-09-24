@@ -14,8 +14,16 @@ const RapidPrototyping = () => {
       <SEOHead 
         title="Rapid Prototyping Österreich | 3D-Prototypen in 24-48h | ekdruck e.U."
         description="Express Rapid Prototyping Service ⚡ Prototypen in 24-48h ⚡ Funktionsprototypen & Designmodelle ⚡ 3D-Druck Österreich ⚡ Kostenlose Machbarkeitsprüfung!"
-        keywords="rapid prototyping österreich, schnelle prototypen oberösterreich, 3d prototypen 24h österreich, express prototyping oberösterreich, funktionsprototypen österreich"
+        keywords="rapid prototyping österreich, schnelle prototypen oberösterreich, 3d prototypen 24h österreich, express prototyping oberösterreich, funktionsprototypen österreich, iterative prototypenerstellung, designvalidierung, passgenauigkeitstests"
         path="/rapid-prototyping"
+        schemaType="service"
+        breadcrumbs={[
+          {name: "Home", url: "/"},
+          {name: "Rapid Prototyping", url: "/rapid-prototyping"}
+        ]}
+        preloadResources={[
+          {href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png", as: "image", type: "image/png"}
+        ]}
       />
       <StructuredData type="service" />
       

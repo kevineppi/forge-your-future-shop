@@ -14,8 +14,16 @@ const Einzelanfertigungen = () => {
       <SEOHead 
         title="3D-Druck Einzelanfertigungen Österreich | Custom Parts & Unikate | ekdruck e.U."
         description="Individuelle 3D-Druck Einzelanfertigungen ✨ Ersatzteile, Geschenke, Prototypen ✨ Von der Idee zum Unikat ✨ Persönliche Beratung in Oberösterreich!"
-        keywords="3d-druck einzelanfertigungen österreich, custom 3d parts österreich, individuelle 3d-teile oberösterreich, maßanfertigungen österreich, 3d-druck unikate oberösterreich"
+        keywords="3d-druck einzelanfertigungen österreich, custom 3d parts österreich, individuelle 3d-teile oberösterreich, maßanfertigungen österreich, 3d-druck unikate oberösterreich, spezialanfertigungen 3d-druck, personalisierte 3d-objekte, millimetergenaue fertigung"
         path="/einzelanfertigungen"
+        schemaType="service"
+        breadcrumbs={[
+          {name: "Home", url: "/"},
+          {name: "Einzelanfertigungen", url: "/einzelanfertigungen"}
+        ]}
+        preloadResources={[
+          {href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png", as: "image", type: "image/png"}
+        ]}
       />
       <StructuredData type="service" />
       

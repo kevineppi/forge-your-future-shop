@@ -7,6 +7,9 @@ interface SEOHeadProps {
   path?: string;
   image?: string;
   type?: string;
+  schemaType?: 'service' | 'article' | 'faq' | 'product';
+  breadcrumbs?: Array<{name: string, url: string}>;
+  preloadResources?: Array<{href: string, as: string, type?: string}>;
 }
 
 const SEOHead = ({ 
@@ -15,7 +18,10 @@ const SEOHead = ({
   keywords = "3d-druck österreich, 3d-druck dienstleister, fdm 3d-druck, rapid prototyping österreich, 3d drucker kaufen österreich, 3d-druck firma, 3d-druck shop österreich, additives fertigungsverfahren",
   path = "",
   image = "",
-  type = "website"
+  type = "website",
+  schemaType = "service",
+  breadcrumbs = [],
+  preloadResources = []
 }: SEOHeadProps) => {
   useEffect(() => {
     // Update document title
@@ -33,13 +39,40 @@ const SEOHead = ({
       metaKeywords.setAttribute('content', keywords);
     }
     
+    // Add meta author
+    let metaAuthor = document.querySelector('meta[name="author"]');
+    if (!metaAuthor) {
+      metaAuthor = document.createElement('meta');
+      metaAuthor.setAttribute('name', 'author');
+      document.head.appendChild(metaAuthor);
+    }
+    metaAuthor.setAttribute('content', 'ekdruck e.U.');
+    
+    // Add meta robots with enhanced directives
+    let metaRobots = document.querySelector('meta[name="robots"]');
+    if (!metaRobots) {
+      metaRobots = document.createElement('meta');
+      metaRobots.setAttribute('name', 'robots');
+      document.head.appendChild(metaRobots);
+    }
+    metaRobots.setAttribute('content', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
+    
+    // Add meta viewport (ensure it exists)
+    let metaViewport = document.querySelector('meta[name="viewport"]');
+    if (!metaViewport) {
+      metaViewport = document.createElement('meta');
+      metaViewport.setAttribute('name', 'viewport');
+      document.head.appendChild(metaViewport);
+    }
+    metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, minimum-scale=1.0');
+    
     // Update canonical URL
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
       canonical.setAttribute('href', `https://www.ek-druck.at${path}`);
     }
     
-    // Update Open Graph tags
+    // Update Open Graph tags with enhanced properties
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
       ogTitle.setAttribute('content', title);
@@ -84,7 +117,163 @@ const SEOHead = ({
       twitterImage.setAttribute('content', image);
     }
     
-  }, [title, description, keywords, path, image, type]);
+    // Add preload resources for performance
+    preloadResources.forEach((resource) => {
+      const existingPreload = document.querySelector(`link[rel="preload"][href="${resource.href}"]`);
+      if (!existingPreload) {
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.href = resource.href;
+        preloadLink.as = resource.as;
+        if (resource.type) {
+          preloadLink.type = resource.type;
+        }
+        document.head.appendChild(preloadLink);
+      }
+    });
+    
+    // Add individual Schema.org structured data
+    const schemaId = `schema-${schemaType}-${path.replace(/\//g, '-') || 'home'}`;
+    let existingSchema = document.querySelector(`script[data-schema-id="${schemaId}"]`);
+    
+    if (existingSchema) {
+      existingSchema.remove();
+    }
+    
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.setAttribute('data-schema-id', schemaId);
+    schemaScript.textContent = JSON.stringify(getSchemaData(schemaType, path, title, description, breadcrumbs));
+    document.head.appendChild(schemaScript);
+    
+    // Cleanup function
+    return () => {
+      preloadResources.forEach((resource) => {
+        const preloadLink = document.querySelector(`link[rel="preload"][href="${resource.href}"]`);
+        if (preloadLink) {
+          preloadLink.remove();
+        }
+      });
+      
+      const schemaToRemove = document.querySelector(`script[data-schema-id="${schemaId}"]`);
+      if (schemaToRemove) {
+        schemaToRemove.remove();
+      }
+    };
+  }, [title, description, keywords, path, image, type, schemaType, breadcrumbs, preloadResources]);
+
+  const getSchemaData = (schemaType: string, path: string, title: string, description: string, breadcrumbs: Array<{name: string, url: string}>) => {
+    const baseSchema = {
+      "@context": "https://schema.org",
+      "url": `https://www.ek-druck.at${path}`,
+      "name": title,
+      "description": description,
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "ekdruck e.U.",
+        "url": "https://www.ek-druck.at",
+        "telephone": "+43 676 5517197",
+        "email": "office@ek-druck.at",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Negrellistraße 15",
+          "addressLocality": "Gunskirchen",
+          "addressRegion": "Oberösterreich",
+          "postalCode": "4623",
+          "addressCountry": "AT"
+        }
+      }
+    };
+
+    switch (schemaType) {
+      case 'service':
+        return {
+          ...baseSchema,
+          "@type": "Service",
+          "serviceType": "3D-Druck Service",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Austria"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "3D-Druck Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "FDM 3D-Druck",
+                  "description": "Professioneller FDM 3D-Druck Service für Prototypen und Kleinserien"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Rapid Prototyping",
+                  "description": "Schnelle Prototypenerstellung in 24-48 Stunden"
+                }
+              }
+            ]
+          }
+        };
+      
+      case 'article':
+        return {
+          ...baseSchema,
+          "@type": "Article",
+          "headline": title,
+          "author": {
+            "@type": "Organization",
+            "name": "ekdruck e.U."
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "ekdruck e.U.",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png"
+            }
+          },
+          "datePublished": new Date().toISOString(),
+          "dateModified": new Date().toISOString()
+        };
+      
+      case 'faq':
+        return {
+          ...baseSchema,
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Was kostet 3D-Druck in Österreich?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Die Kosten hängen von Material, Größe und Komplexität ab. Wir bieten faire Preise ab €5 pro Stunde Druckzeit."
+              }
+            }
+          ]
+        };
+      
+      case 'product':
+        return {
+          ...baseSchema,
+          "@type": "Product",
+          "brand": {
+            "@type": "Brand",
+            "name": "ekdruck e.U."
+          },
+          "manufacturer": {
+            "@type": "Organization",
+            "name": "ekdruck e.U."
+          }
+        };
+      
+      default:
+        return baseSchema;
+    }
+  };
 
   return null;
 };
