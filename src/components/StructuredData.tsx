@@ -42,37 +42,76 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             "keywords": "3D-Druck, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, österreichisches Filament",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.9",
+              "ratingValue": "5.0",
               "bestRating": "5",
-              "worstRating": "1",
-              "reviewCount": "47"
+              "worstRating": "5",
+              "reviewCount": "7"
             },
             "review": [
               {
                 "@type": "Review",
                 "author": {
                   "@type": "Person",
-                  "name": "Thomas M."
+                  "name": "Ing. Rocco Skombor BSc"
                 },
                 "reviewRating": {
                   "@type": "Rating",
                   "ratingValue": "5",
                   "bestRating": "5"
                 },
-                "reviewBody": "Ausgezeichnete Qualität und schnelle Lieferung. Die 3D-Drucke sind perfekt für unsere Prototypen."
+                "reviewBody": "Alles hat wunderbar geklappt. Kundenservice sehr professionell. Kann ich weiter empfehlen!"
               },
               {
                 "@type": "Review",
                 "author": {
                   "@type": "Person",
-                  "name": "Sarah K."
+                  "name": "Christian Seiler"
                 },
                 "reviewRating": {
                   "@type": "Rating",
                   "ratingValue": "5",
                   "bestRating": "5"
                 },
-                "reviewBody": "Sehr professioneller Service und nachhaltige Materialien. Kann ich nur weiterempfehlen!"
+                "reviewBody": "Ich bin absolut begeistert von ekDruck! Die Qualität ist erstklassig, jedes Detail wird sehr präzise und sauber umgesetzt. Die Kommunikation war von Anfang an ausgesprochen freundlich und professionell."
+              },
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Sadin Ramic"
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                },
+                "reviewBody": "Kompetent und motiviert! Falls man in Richtung 3D Druck etwas braucht, ist man bei Kevin gut aufgehoben!"
+              },
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Gertude Emirich"
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                },
+                "reviewBody": "Persönlich, sehr kompetente Beratung. Individuelle Dekoantikel in verschiedenen Ausführungen und nach Wunsch - sehr empfehlenswert! Gerne wieder!"
+              },
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Georg Obereder"
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                },
+                "reviewBody": "Tolle Produkte Made in Austria, wo nix unmöglich ist!"
               }
             ]
           };
