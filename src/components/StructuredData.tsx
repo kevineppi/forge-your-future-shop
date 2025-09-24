@@ -65,7 +65,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                 "@type": "Review",
                 "author": {
                   "@type": "Person",
-                  "name": "Christian Seiler"
+                  "name": "Christian Steller"
                 },
                 "reviewRating": {
                   "@type": "Rating",
