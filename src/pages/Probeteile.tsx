@@ -123,7 +123,7 @@ const Probeteile = () => {
   };
   return <>
       <SEOHead 
-        title="Kostenlose 3D-Druck Probeteile für B2B Serienfertigung | ekdruck Oberösterreich" 
+        title="Kostenlose 3D-Druck Probeteile für B2B Serienfertigung | ekdruck e.U. Oberösterreich" 
         description="Fordern Sie kostenlose 3D-Druck Probeteile für Ihre B2B Serienfertigung an. Professioneller FDM 3D-Druck Service in Oberösterreich - Qualitätstest vor Serienauftrag. Österreichische Produktion mit schneller Lieferung." 
         keywords="kostenlose probeteile 3d-druck, b2b 3d-druck österreich, serienfertigung probedruck, 3d-druck muster oberösterreich, fdm probeteile kostenlos, 3d-druck qualitätstest, serienfertigung österreich" 
         path="/probeteile" 
@@ -190,6 +190,7 @@ const Probeteile = () => {
               <CardContent>
                 <p className="text-muted-foreground">
                   Ein kostenloses 3D-Druck Probeteil pro Unternehmen bis 50g Material oder 25cm³ Volumen. 
+                  Sie erhalten bei Serienbestellung eine Gutschrift in Höhe der Probeteil-Kosten. 
                   Perfekt für die Bewertung unserer Serienfertigung-Qualität.
                 </p>
               </CardContent>
@@ -418,6 +419,7 @@ const Probeteile = () => {
                         </p>
                         <ul className="text-amber-700 dark:text-amber-300 space-y-1">
                           <li>• Nur ein kostenloses 3D-Druck Probeteil pro Unternehmen</li>
+                          <li>• Bei Serienbestellung erhalten Sie eine Gutschrift in Höhe der Probeteil-Kosten</li>
                           <li>• Maximales Materialvolumen: 50g oder 25cm³ (ca. 5x5x5cm)</li>
                           <li>• Ausschließlich für geplante B2B Serienfertigungen ab 10 Stück</li>
                           <li>• Keine Einzelanfertigungen, Prototypen oder Privatpersonen</li>
