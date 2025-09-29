@@ -154,7 +154,7 @@ const Contact = () => {
 
       toast({
         title: "Anfrage gesendet!",
-        description: "Wir melden uns innerhalb von 12 Stunden bei Ihnen.",
+        description: "Wir melden uns innerhalb von 6 Stunden bei Ihnen.",
       });
 
     } catch (error) {
@@ -258,7 +258,7 @@ const Contact = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-green-600">Vielen Dank!</h3>
                   <p className="text-muted-foreground max-w-md">
-                    Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns innerhalb von 12 Stunden 
+                    Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns innerhalb von 6 Stunden 
                     mit einem detaillierten Angebot bei Ihnen.
                   </p>
                   <Button 
@@ -285,7 +285,7 @@ const Contact = () => {
               <Card className="gradient-card border-0">
                 <CardHeader>
                   <CardTitle className="text-2xl">Ihr individuelles Angebot</CardTitle>
-                  <p className="text-muted-foreground">Füllen Sie das Formular aus und wir melden uns innerhalb von 12 Stunden mit einem detaillierten Angebot.</p>
+                  <p className="text-muted-foreground">Füllen Sie das Formular aus und wir melden uns innerhalb von 6 Stunden mit einem detaillierten Angebot.</p>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">

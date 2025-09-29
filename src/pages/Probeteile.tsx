@@ -123,7 +123,7 @@ const Probeteile = () => {
 
       toast({
         title: "Anfrage erfolgreich gesendet!",
-        description: "Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
+        description: "Wir werden uns innerhalb von 6 Stunden bei Ihnen melden.",
       });
 
       form.reset();
@@ -160,7 +160,7 @@ const Probeteile = () => {
               <Building2 className="w-4 h-4" />
               Nur für B2B-Anfragen
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent leading-tight">
               Kostenlose 3D-Druck Probeteile für B2B Serienfertigung in Österreich
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -188,15 +188,12 @@ const Probeteile = () => {
                   <h2 className="text-2xl font-semibold mb-4 text-primary">Für welche Unternehmen?</h2>
                   <p className="text-muted-foreground mb-4">
                     Unser B2B Probeteile-Service richtet sich an österreichische und deutsche Unternehmen, 
-                    die eine 3D-Druck Serienfertigung planen. Ideal für Maschinenbau, Automotive, 
-                    Medizintechnik und Produktentwicklung.
+                    die eine 3D-Druck Serienfertigung planen. Ideal für Maschinenbau und Produktentwicklung.
                   </p>
                   <ul className="space-y-2 text-muted-foreground">
                     <li>• Produktentwicklung und Prototyping</li>
                     <li>• Ersatzteilproduktion in Serie</li>
                     <li>• Kleinserien für Maschinenbau</li>
-                    <li>• Automotive Komponenten</li>
-                    <li>• Medizintechnik Bauteile</li>
                   </ul>
                 </div>
               </div>
@@ -280,7 +277,7 @@ const Probeteile = () => {
               <CardTitle className="text-2xl">Probeteile-Anfrage</CardTitle>
               <CardDescription>
                 Füllen Sie das Formular aus, um Ihr kostenloses Probeteil anzufordern. 
-                Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+                Wir melden uns innerhalb von 6 Stunden bei Ihnen.
               </CardDescription>
             </CardHeader>
             <CardContent>
