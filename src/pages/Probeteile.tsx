@@ -161,45 +161,117 @@ const Probeteile = () => {
               Nur für B2B-Anfragen
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              Kostenlose Probeteile für die Serienfertigung
+              Kostenlose 3D-Druck Probeteile für B2B Serienfertigung in Österreich
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Überzeugen Sie sich von unserer Qualität mit einem kostenlosen Probedruck für Ihr Serienprojekt. 
-              Nur für Unternehmen mit geplanten Produktionsvolumen ab 10 Stück.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              Testen Sie die Qualität unserer FDM 3D-Druck Serienfertigung mit einem kostenlosen Probeteil. 
+              Professioneller B2B Service für österreichische Unternehmen mit geplanten Produktionsvolumen ab 10 Stück.
             </p>
+            <div className="max-w-4xl mx-auto text-left mb-12">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4 text-primary">Warum kostenlose Probeteile?</h2>
+                  <p className="text-muted-foreground mb-4">
+                    Bevor Sie sich für eine 3D-Druck Serienfertigung entscheiden, möchten Sie sicherstellen, 
+                    dass Qualität, Maßhaltigkeit und Materialauswahl Ihren Anforderungen entsprechen. 
+                    Unser kostenloses Probeteil-Service ermöglicht es Ihnen, unsere FDM-Druckqualität 
+                    ohne Risiko zu bewerten.
+                  </p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Qualitätsprüfung vor Serienauftrag</li>
+                    <li>• Materialtest für Ihre Anwendung</li>
+                    <li>• Maßhaltigkeit und Oberflächenqualität prüfen</li>
+                    <li>• Funktionstest des Bauteils</li>
+                  </ul>
+                </div>
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4 text-primary">Für welche Unternehmen?</h2>
+                  <p className="text-muted-foreground mb-4">
+                    Unser B2B Probeteile-Service richtet sich an österreichische und deutsche Unternehmen, 
+                    die eine 3D-Druck Serienfertigung planen. Ideal für Maschinenbau, Automotive, 
+                    Medizintechnik und Produktentwicklung.
+                  </p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Produktentwicklung und Prototyping</li>
+                    <li>• Ersatzteilproduktion in Serie</li>
+                    <li>• Kleinserien für Maschinenbau</li>
+                    <li>• Automotive Komponenten</li>
+                    <li>• Medizintechnik Bauteile</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Benefits Cards */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <Card className="border-primary/20">
+            <Card className="border-primary/20 hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Package className="w-8 h-8 text-primary mb-2" />
-                <CardTitle className="text-lg">Kostenlos für B2B</CardTitle>
+                <CardTitle className="text-lg">Kostenlos für B2B Kunden</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">Ein kostenloses Probeteil pro Unternehmen bis 50g Material oder 25cm³ Volumen.</p>
+                <p className="text-muted-foreground">
+                  Ein kostenloses 3D-Druck Probeteil pro Unternehmen bis 50g Material oder 25cm³ Volumen. 
+                  Perfekt für die Bewertung unserer Serienfertigung-Qualität.
+                </p>
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="border-primary/20 hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CheckCircle2 className="w-8 h-8 text-primary mb-2" />
-                <CardTitle className="text-lg">Qualitätsgarantie</CardTitle>
+                <CardTitle className="text-lg">Österreichische Qualität</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">Hochwertige FDM-Technologie mit österreichischen Materialien für optimale Ergebnisse.</p>
+                <p className="text-muted-foreground">
+                  Hochpräzise FDM 3D-Druck Technologie mit hochwertigen Materialien. 
+                  Lokale Produktion in Oberösterreich für kurze Lieferzeiten.
+                </p>
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="border-primary/20 hover:shadow-lg transition-shadow">
               <CardHeader>
                 <AlertCircle className="w-8 h-8 text-primary mb-2" />
-                <CardTitle className="text-lg">Nur Serienfertigung</CardTitle>
+                <CardTitle className="text-lg">B2B Serienfertigung</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">Ausschließlich zur Beurteilung der Serienfertigung - keine Einzelanfertigungen.</p>
+                <p className="text-muted-foreground">
+                  Ausschließlich für Unternehmen mit geplanter 3D-Druck Serienfertigung ab 10 Stück. 
+                  Keine Einzelanfertigungen oder Privataufträge.
+                </p>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Additional Info Section */}
+          <div className="bg-secondary/20 rounded-lg p-8 mb-12">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold text-center mb-6">Ihr Weg zur professionellen 3D-Druck Serienfertigung</h2>
+              <div className="grid md:grid-cols-4 gap-6 text-center">
+                <div className="space-y-2">
+                  <div className="bg-primary text-primary-foreground rounded-full w-12 h-12 flex items-center justify-center mx-auto font-bold text-lg">1</div>
+                  <h3 className="font-semibold">Anfrage senden</h3>
+                  <p className="text-sm text-muted-foreground">Formular ausfüllen und 3D-Dateien hochladen</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="bg-primary text-primary-foreground rounded-full w-12 h-12 flex items-center justify-center mx-auto font-bold text-lg">2</div>
+                  <h3 className="font-semibold">Qualifikation</h3>
+                  <p className="text-sm text-muted-foreground">Prüfung Ihrer B2B Anfrage und Serienpotential</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="bg-primary text-primary-foreground rounded-full w-12 h-12 flex items-center justify-center mx-auto font-bold text-lg">3</div>
+                  <h3 className="font-semibold">Probedruck</h3>
+                  <p className="text-sm text-muted-foreground">Kostenloser FDM 3D-Druck Ihres Bauteils</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="bg-primary text-primary-foreground rounded-full w-12 h-12 flex items-center justify-center mx-auto font-bold text-lg">4</div>
+                  <h3 className="font-semibold">Serienfertigung</h3>
+                  <p className="text-sm text-muted-foreground">Angebot für Ihre 3D-Druck Serienfertigung</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Form Section */}
@@ -414,11 +486,12 @@ const Probeteile = () => {
                           Wichtige Hinweise:
                         </p>
                         <ul className="text-amber-700 dark:text-amber-300 space-y-1">
-                          <li>• Nur ein kostenloses Probeteil pro Unternehmen</li>
-                          <li>• Maximales Materialvolumen: 50g oder 25cm³</li>
-                          <li>• Ausschließlich für geplante Serienfertigungen ab 10 Stück</li>
-                          <li>• Keine Einzelanfertigungen oder Privatpersonen</li>
-                          <li>• Lieferzeit: 3-5 Werktage nach Bestätigung</li>
+                          <li>• Nur ein kostenloses 3D-Druck Probeteil pro Unternehmen</li>
+                          <li>• Maximales Materialvolumen: 50g oder 25cm³ (ca. 5x5x5cm)</li>
+                          <li>• Ausschließlich für geplante B2B Serienfertigungen ab 10 Stück</li>
+                          <li>• Keine Einzelanfertigungen, Prototypen oder Privatpersonen</li>
+                          <li>• Lieferzeit: 3-5 Werktage nach Qualifikation und Bestätigung</li>
+                          <li>• Verfügbare Materialien: PLA, PETG, ABS, ASA, TPU</li>
                         </ul>
                       </div>
                     </div>
