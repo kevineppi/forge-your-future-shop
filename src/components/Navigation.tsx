@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,6 +84,17 @@ const Navigation = () => {
                       </div>
                     </a>
                   </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/probeteile" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <TestTube className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Probeteile</div>
+                        <div className="text-sm text-muted-foreground">Kostenlose B2B Muster</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -157,6 +168,14 @@ const Navigation = () => {
               >
                 <Factory className="h-4 w-4 text-primary" />
                 Serienfertigung
+              </a>
+              <a 
+                href="/probeteile" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <TestTube className="h-4 w-4 text-primary" />
+                Probeteile
               </a>
             </div>
             <Button 
