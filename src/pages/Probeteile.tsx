@@ -123,7 +123,7 @@ const Probeteile = () => {
   };
   return <>
       <SEOHead 
-        title="Kostenlose 3D-Druck Probeteile für B2B Serienfertigung | ekdruck Oberösterreich" 
+        title="Kostenlose 3D-Druck Probeteile für B2B Serienfertigung | ekdruck e.U. Oberösterreich"
         description="Fordern Sie kostenlose 3D-Druck Probeteile für Ihre B2B Serienfertigung an. Professioneller FDM 3D-Druck Service in Oberösterreich - Qualitätstest vor Serienauftrag. Österreichische Produktion mit schneller Lieferung." 
         keywords="kostenlose probeteile 3d-druck, b2b 3d-druck österreich, serienfertigung probedruck, 3d-druck muster oberösterreich, fdm probeteile kostenlos, 3d-druck qualitätstest, serienfertigung österreich" 
         path="/probeteile" 
@@ -145,7 +145,7 @@ const Probeteile = () => {
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 my-0 py-0">
               Testen Sie die Qualität unserer FDM 3D-Druck Serienfertigung mit einem kostenlosen Probeteil. 
-              Professioneller B2B Service für österreichische Unternehmen mit geplanten Produktionsvolumen ab 10 Stück.
+              Professioneller B2B Service für österreichische Unternehmen mit geplanten Produktionsvolumen ab 50 Stück.
             </p>
             <div className="max-w-4xl mx-auto text-left mb-12">
               <div className="grid md:grid-cols-2 gap-8">
@@ -189,7 +189,7 @@ const Probeteile = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Ein kostenloses 3D-Druck Probeteil pro Unternehmen bis 50g Material oder 25cm³ Volumen. 
+                  Ein kostenloses 3D-Druck Probeteil pro Unternehmen mit bis zu 20cm Seitenlänge. 
                   Perfekt für die Bewertung unserer Serienfertigung-Qualität.
                 </p>
               </CardContent>
@@ -215,8 +215,8 @@ const Probeteile = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Ausschließlich für Unternehmen mit geplanter 3D-Druck Serienfertigung ab 10 Stück. 
-                  Keine Einzelanfertigungen oder Privataufträge.
+                  Ausschließlich für Unternehmen mit geplanter 3D-Druck Serienfertigung ab 50 Stück. 
+                  Für kleinere Mengen nutzen Sie bitte unser normales Bestellformular mit entsprechender Anmerkung.
                 </p>
               </CardContent>
             </Card>
@@ -318,7 +318,6 @@ const Probeteile = () => {
                                 <SelectValue placeholder="Stückzahl wählen" />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="10-50">10-50 Stück</SelectItem>
                                 <SelectItem value="50-100">50-100 Stück</SelectItem>
                                 <SelectItem value="100-500">100-500 Stück</SelectItem>
                                 <SelectItem value="500-1000">500-1000 Stück</SelectItem>
@@ -418,8 +417,8 @@ const Probeteile = () => {
                         </p>
                         <ul className="text-amber-700 dark:text-amber-300 space-y-1">
                           <li>• Nur ein kostenloses 3D-Druck Probeteil pro Unternehmen</li>
-                          <li>• Maximales Materialvolumen: 50g oder 25cm³ (ca. 5x5x5cm)</li>
-                          <li>• Ausschließlich für geplante B2B Serienfertigungen ab 10 Stück</li>
+                          <li>• Maximale Seitenlänge: bis zu 20cm</li>
+                          <li>• Ausschließlich für geplante B2B Serienfertigungen ab 50 Stück</li>
                           <li>• Keine Einzelanfertigungen, Prototypen oder Privatpersonen</li>
                           <li>• Lieferzeit: 3-5 Werktage nach Qualifikation und Bestätigung</li>
                           <li>• Verfügbare Materialien: PLA, PETG, ABS, ASA, TPU</li>
