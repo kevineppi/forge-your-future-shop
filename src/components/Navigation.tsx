@@ -90,7 +90,7 @@ const Navigation = () => {
                         <TestTube className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <div className="font-medium text-foreground">Probeteile</div>
+                        <div className="font-medium text-foreground">Kostenlose Probeteile</div>
                         <div className="text-sm text-muted-foreground">Kostenlose B2B Muster</div>
                       </div>
                     </a>
@@ -175,7 +175,7 @@ const Navigation = () => {
                 onClick={() => setIsOpen(false)}
               >
                 <TestTube className="h-4 w-4 text-primary" />
-                Probeteile
+                Kostenlose Probeteile
               </a>
             </div>
             <Button 

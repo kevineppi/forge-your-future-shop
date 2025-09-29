@@ -122,7 +122,13 @@ const Probeteile = () => {
     }
   };
   return <>
-      <SEOHead title="Kostenlose Probeteile für B2B Serienfertigung - 3D-Druck Österreich" description="Fordern Sie kostenlose Probeteile für Ihre Serienfertigung an. Professioneller B2B 3D-Druck Service in Österreich für größere Produktionsvolumen." keywords="probeteile 3d-druck, b2b 3d-druck österreich, serienfertigung probedruck, kostenlose muster 3d-druck" path="/probeteile" schemaType="service" />
+      <SEOHead 
+        title="Kostenlose 3D-Druck Probeteile für B2B Serienfertigung | ekdruck Oberösterreich" 
+        description="Fordern Sie kostenlose 3D-Druck Probeteile für Ihre B2B Serienfertigung an. Professioneller FDM 3D-Druck Service in Oberösterreich - Qualitätstest vor Serienauftrag. Österreichische Produktion mit schneller Lieferung." 
+        keywords="kostenlose probeteile 3d-druck, b2b 3d-druck österreich, serienfertigung probedruck, 3d-druck muster oberösterreich, fdm probeteile kostenlos, 3d-druck qualitätstest, serienfertigung österreich" 
+        path="/probeteile" 
+        schemaType="service" 
+      />
       
       <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
         <Navigation />
