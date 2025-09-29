@@ -113,6 +113,54 @@ export type Database = {
         }
         Relationships: []
       }
+      sample_requests: {
+        Row: {
+          company_name: string
+          contact_person: string
+          created_at: string
+          email: string
+          file_urls: string[] | null
+          id: string
+          material: string
+          phone: string
+          planned_quantity: string
+          project_description: string
+          status: string
+          timeline: string
+          updated_at: string
+        }
+        Insert: {
+          company_name: string
+          contact_person: string
+          created_at?: string
+          email: string
+          file_urls?: string[] | null
+          id?: string
+          material: string
+          phone: string
+          planned_quantity: string
+          project_description: string
+          status?: string
+          timeline: string
+          updated_at?: string
+        }
+        Update: {
+          company_name?: string
+          contact_person?: string
+          created_at?: string
+          email?: string
+          file_urls?: string[] | null
+          id?: string
+          material?: string
+          phone?: string
+          planned_quantity?: string
+          project_description?: string
+          status?: string
+          timeline?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
