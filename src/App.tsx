@@ -10,6 +10,7 @@ import RapidPrototyping from "./pages/RapidPrototyping";
 import Materialien from "./pages/Materialien";
 import Einzelanfertigungen from "./pages/Einzelanfertigungen";
 import Serienfertigung from "./pages/Serienfertigung";
+import Probeteile from "./pages/Probeteile";
 import Impressum from "./pages/Impressum";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/3d-druck-materialien" element={<Materialien />} />
             <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
             <Route path="/serienfertigung" element={<Serienfertigung />} />
+            <Route path="/probeteile" element={<Probeteile />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/auth" element={<Auth />} />
