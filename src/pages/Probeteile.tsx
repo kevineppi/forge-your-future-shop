@@ -103,7 +103,7 @@ const Probeteile = () => {
       }
 
       const { error } = await supabase
-        .from('sample_requests')
+        .from('sample_requests' as any)
         .insert({
           company_name: data.companyName,
           contact_person: data.contactPerson,
