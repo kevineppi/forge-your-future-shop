@@ -15,7 +15,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Building2, FileUp, AlertCircle, CheckCircle2, Package } from "lucide-react";
-
 const formSchema = z.object({
   companyName: z.string().min(2, "Firmenname muss mindestens 2 Zeichen lang sein").max(100),
   contactPerson: z.string().min(2, "Ansprechpartner muss mindestens 2 Zeichen lang sein").max(100),
@@ -24,16 +23,15 @@ const formSchema = z.object({
   plannedQuantity: z.string().min(1, "Geplante Stückzahl ist erforderlich"),
   projectDescription: z.string().min(10, "Projektbeschreibung muss mindestens 10 Zeichen lang sein").max(1000),
   timeline: z.string().min(1, "Zeitrahmen ist erforderlich"),
-  material: z.string().min(1, "Materialwunsch ist erforderlich"),
+  material: z.string().min(1, "Materialwunsch ist erforderlich")
 });
-
 type FormData = z.infer<typeof formSchema>;
-
 const Probeteile = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,10 +42,9 @@ const Probeteile = () => {
       plannedQuantity: "",
       projectDescription: "",
       timeline: "",
-      material: "",
-    },
+      material: ""
+    }
   });
-
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const selectedFiles = Array.from(event.target.files);
@@ -56,76 +53,61 @@ const Probeteile = () => {
         const isValidSize = file.size <= 50 * 1024 * 1024; // 50MB limit
         return isValidType && isValidSize;
       });
-
       if (validFiles.length !== selectedFiles.length) {
         toast({
           title: "Ungültige Dateien",
           description: "Nur STL, OBJ, 3MF, STEP und IGES Dateien bis 50MB sind erlaubt.",
-          variant: "destructive",
+          variant: "destructive"
         });
       }
-
       setFiles(validFiles);
     }
   };
-
   const uploadFiles = async () => {
     const uploadedUrls: string[] = [];
-    
     for (const file of files) {
       const fileExt = file.name.split('.').pop();
       const fileName = `${Math.random()}.${fileExt}`;
       const filePath = `probeteile/${fileName}`;
-
-      const { error: uploadError } = await supabase.storage
-        .from('project-files')
-        .upload(filePath, file);
-
+      const {
+        error: uploadError
+      } = await supabase.storage.from('project-files').upload(filePath, file);
       if (uploadError) {
         console.error('Upload error:', uploadError);
         throw new Error(`Fehler beim Hochladen der Datei ${file.name}`);
       }
-
       uploadedUrls.push(filePath);
     }
-
     return uploadedUrls;
   };
-
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-
     try {
       let fileUrls: string[] = [];
-      
       if (files.length > 0) {
         fileUrls = await uploadFiles();
       }
-
-      const { error } = await supabase
-        .from('sample_requests' as any)
-        .insert({
-          company_name: data.companyName,
-          contact_person: data.contactPerson,
-          email: data.email,
-          phone: data.phone,
-          planned_quantity: data.plannedQuantity,
-          project_description: data.projectDescription,
-          timeline: data.timeline,
-          material: data.material,
-          file_urls: fileUrls,
-        });
-
+      const {
+        error
+      } = await supabase.from('sample_requests' as any).insert({
+        company_name: data.companyName,
+        contact_person: data.contactPerson,
+        email: data.email,
+        phone: data.phone,
+        planned_quantity: data.plannedQuantity,
+        project_description: data.projectDescription,
+        timeline: data.timeline,
+        material: data.material,
+        file_urls: fileUrls
+      });
       if (error) {
         console.error('Database error:', error);
         throw new Error('Fehler beim Speichern der Anfrage');
       }
-
       toast({
         title: "Anfrage erfolgreich gesendet!",
-        description: "Wir werden uns innerhalb von 6 Stunden bei Ihnen melden.",
+        description: "Wir werden uns innerhalb von 6 Stunden bei Ihnen melden."
       });
-
       form.reset();
       setFiles([]);
     } catch (error: any) {
@@ -133,22 +115,14 @@ const Probeteile = () => {
       toast({
         title: "Fehler beim Senden",
         description: error.message || "Bitte versuchen Sie es erneut.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  return (
-    <>
-      <SEOHead
-        title="Kostenlose Probeteile für B2B Serienfertigung - 3D-Druck Österreich"
-        description="Fordern Sie kostenlose Probeteile für Ihre Serienfertigung an. Professioneller B2B 3D-Druck Service in Österreich für größere Produktionsvolumen."
-        keywords="probeteile 3d-druck, b2b 3d-druck österreich, serienfertigung probedruck, kostenlose muster 3d-druck"
-        path="/probeteile"
-        schemaType="service"
-      />
+  return <>
+      <SEOHead title="Kostenlose Probeteile für B2B Serienfertigung - 3D-Druck Österreich" description="Fordern Sie kostenlose Probeteile für Ihre Serienfertigung an. Professioneller B2B 3D-Druck Service in Österreich für größere Produktionsvolumen." keywords="probeteile 3d-druck, b2b 3d-druck österreich, serienfertigung probedruck, kostenlose muster 3d-druck" path="/probeteile" schemaType="service" />
       
       <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
         <Navigation />
@@ -160,10 +134,10 @@ const Probeteile = () => {
               <Building2 className="w-4 h-4" />
               Nur für B2B-Anfragen
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent leading-tight py-0 my-0">
               Kostenlose 3D-Druck Probeteile für B2B Serienfertigung in Österreich
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 my-0 py-0">
               Testen Sie die Qualität unserer FDM 3D-Druck Serienfertigung mit einem kostenlosen Probeteil. 
               Professioneller B2B Service für österreichische Unternehmen mit geplanten Produktionsvolumen ab 10 Stück.
             </p>
@@ -284,71 +258,53 @@ const Probeteile = () => {
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="companyName"
-                      render={({ field }) => (
-                        <FormItem>
+                    <FormField control={form.control} name="companyName" render={({
+                    field
+                  }) => <FormItem>
                           <FormLabel>Firmenname *</FormLabel>
                           <FormControl>
                             <Input placeholder="Ihre Firma GmbH" {...field} />
                           </FormControl>
                           <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                        </FormItem>} />
                     
-                    <FormField
-                      control={form.control}
-                      name="contactPerson"
-                      render={({ field }) => (
-                        <FormItem>
+                    <FormField control={form.control} name="contactPerson" render={({
+                    field
+                  }) => <FormItem>
                           <FormLabel>Ansprechpartner *</FormLabel>
                           <FormControl>
                             <Input placeholder="Max Mustermann" {...field} />
                           </FormControl>
                           <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                        </FormItem>} />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
+                    <FormField control={form.control} name="email" render={({
+                    field
+                  }) => <FormItem>
                           <FormLabel>E-Mail-Adresse *</FormLabel>
                           <FormControl>
                             <Input type="email" placeholder="kontakt@ihrefirma.at" {...field} />
                           </FormControl>
                           <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                        </FormItem>} />
                     
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
+                    <FormField control={form.control} name="phone" render={({
+                    field
+                  }) => <FormItem>
                           <FormLabel>Telefonnummer *</FormLabel>
                           <FormControl>
                             <Input placeholder="+43 123 456789" {...field} />
                           </FormControl>
                           <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                        </FormItem>} />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="plannedQuantity"
-                      render={({ field }) => (
-                        <FormItem>
+                    <FormField control={form.control} name="plannedQuantity" render={({
+                    field
+                  }) => <FormItem>
                           <FormLabel>Geplante Stückzahl (Serie) *</FormLabel>
                           <FormControl>
                             <Select onValueChange={field.onChange}>
@@ -365,15 +321,11 @@ const Probeteile = () => {
                             </Select>
                           </FormControl>
                           <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                        </FormItem>} />
                     
-                    <FormField
-                      control={form.control}
-                      name="timeline"
-                      render={({ field }) => (
-                        <FormItem>
+                    <FormField control={form.control} name="timeline" render={({
+                    field
+                  }) => <FormItem>
                           <FormLabel>Zeitrahmen für Serie *</FormLabel>
                           <FormControl>
                             <Select onValueChange={field.onChange}>
@@ -390,16 +342,12 @@ const Probeteile = () => {
                             </Select>
                           </FormControl>
                           <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                        </FormItem>} />
                   </div>
 
-                  <FormField
-                    control={form.control}
-                    name="material"
-                    render={({ field }) => (
-                      <FormItem>
+                  <FormField control={form.control} name="material" render={({
+                  field
+                }) => <FormItem>
                         <FormLabel>Gewünschtes Material *</FormLabel>
                         <FormControl>
                           <Select onValueChange={field.onChange}>
@@ -416,27 +364,17 @@ const Probeteile = () => {
                           </Select>
                         </FormControl>
                         <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                      </FormItem>} />
 
-                  <FormField
-                    control={form.control}
-                    name="projectDescription"
-                    render={({ field }) => (
-                      <FormItem>
+                  <FormField control={form.control} name="projectDescription" render={({
+                  field
+                }) => <FormItem>
                         <FormLabel>Projektbeschreibung *</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="Beschreiben Sie Ihr Projekt und die Anforderungen an das Bauteil..."
-                            className="min-h-[100px]"
-                            {...field}
-                          />
+                          <Textarea placeholder="Beschreiben Sie Ihr Projekt und die Anforderungen an das Bauteil..." className="min-h-[100px]" {...field} />
                         </FormControl>
                         <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                      </FormItem>} />
 
                   {/* File Upload */}
                   <div className="space-y-4">
@@ -452,26 +390,16 @@ const Probeteile = () => {
                             STL, OBJ, 3MF, STEP, IGES (max. 50MB pro Datei)
                           </p>
                         </div>
-                        <input
-                          type="file"
-                          multiple
-                          accept=".stl,.obj,.3mf,.step,.stp,.iges,.igs"
-                          onChange={handleFileChange}
-                          className="hidden"
-                        />
+                        <input type="file" multiple accept=".stl,.obj,.3mf,.step,.stp,.iges,.igs" onChange={handleFileChange} className="hidden" />
                       </label>
                     </div>
-                    {files.length > 0 && (
-                      <div className="space-y-2">
+                    {files.length > 0 && <div className="space-y-2">
                         <p className="text-sm font-medium">Ausgewählte Dateien:</p>
-                        {files.map((file, index) => (
-                          <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        {files.map((file, index) => <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
                             <CheckCircle2 className="w-4 h-4 text-green-500" />
                             {file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                          </div>)}
+                      </div>}
                   </div>
 
                   {/* Important Notice */}
@@ -494,12 +422,7 @@ const Probeteile = () => {
                     </div>
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
+                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? "Wird gesendet..." : "Probeteile-Anfrage senden"}
                   </Button>
                 </form>
@@ -510,8 +433,6 @@ const Probeteile = () => {
 
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default Probeteile;
