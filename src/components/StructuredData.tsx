@@ -44,10 +44,70 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
               "@type": "AggregateRating",
               "ratingValue": "5.0",
               "bestRating": "5",
-              "worstRating": "5",
-              "reviewCount": "7"
+              "worstRating": "1",
+              "reviewCount": "20"
             },
             "review": [
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Hannah E."
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                },
+                "reviewBody": "Inhaber sehr zuvorkommend und freundlich, mein Auftrag wurde schnell bearbeitet, Top Qualität, kann ich nur weiterempfehlen..",
+                "datePublished": "2025-01-15"
+              },
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Simone G."
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                },
+                "reviewBody": "Anwortet schnell👌 Preis- Leistung extrem fair Empfehlenswert!",
+                "datePublished": "2025-01-10"
+              },
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Klaus F."
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                },
+                "reviewBody": "Sehr schnelle Abwicklung. Ein Teil wurde sogar 2x gedruckt, da beim ersten Druck ein Überhang nicht sauber war, was für meine Anwendung nicht relevant gewesen wäre. Das auf eigene Kosten der Firma. Kommunikation war ausgezeichnet.",
+                "datePublished": "2025-01-12"
+              },
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Silvio T."
+                },
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                },
+                "reviewBody": "Sehr freundlich und unkompliziert. Ich bin begeistert von dem Stück. Exakter Clone vom Forschungsstück. Absolut professionell!! Kann ich nur weiterempfehlen! Sehr gerne wieder. Preis Leistung ist einfach Super. Sehr gerne wieder",
+                "datePublished": "2025-01-18"
+              },
               {
                 "@type": "Review",
                 "author": {
@@ -57,9 +117,11 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                 "reviewRating": {
                   "@type": "Rating",
                   "ratingValue": "5",
-                  "bestRating": "5"
+                  "bestRating": "5",
+                  "worstRating": "1"
                 },
-                "reviewBody": "Alles hat wunderbar geklappt. Kundenservice sehr professionell. Kann ich weiter empfehlen!"
+                "reviewBody": "Alles hat wunderbar geklappt. Kundenservice sehr professionell. Kann ich weiter empfehlen!",
+                "datePublished": "2024-12-20"
               },
               {
                 "@type": "Review",
@@ -70,9 +132,11 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                 "reviewRating": {
                   "@type": "Rating",
                   "ratingValue": "5",
-                  "bestRating": "5"
+                  "bestRating": "5",
+                  "worstRating": "1"
                 },
-                "reviewBody": "Ich bin absolut begeistert von ekDruck! Die Qualität ist erstklassig, jedes Detail wird sehr präzise und sauber umgesetzt. Die Kommunikation war von Anfang an ausgesprochen freundlich und professionell."
+                "reviewBody": "Ich bin absolut begeistert von ekDruck! Die Qualität ist erstklassig, jedes Detail wird sehr präzise und sauber umgesetzt. Die Kommunikation war von Anfang an ausgesprochen freundlich und professionell.",
+                "datePublished": "2024-12-15"
               },
               {
                 "@type": "Review",
@@ -83,9 +147,11 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                 "reviewRating": {
                   "@type": "Rating",
                   "ratingValue": "5",
-                  "bestRating": "5"
+                  "bestRating": "5",
+                  "worstRating": "1"
                 },
-                "reviewBody": "Kompetent und motiviert! Falls man in Richtung 3D Druck etwas braucht, ist man bei Kevin gut aufgehoben!"
+                "reviewBody": "Kompetent und motiviert! Falls man in Richtung 3D Druck etwas braucht, ist man bei Kevin gut aufgehoben!",
+                "datePublished": "2024-12-10"
               },
               {
                 "@type": "Review",
@@ -96,9 +162,11 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                 "reviewRating": {
                   "@type": "Rating",
                   "ratingValue": "5",
-                  "bestRating": "5"
+                  "bestRating": "5",
+                  "worstRating": "1"
                 },
-                "reviewBody": "Persönlich, sehr kompetente Beratung. Individuelle Dekoantikel in verschiedenen Ausführungen und nach Wunsch - sehr empfehlenswert! Gerne wieder!"
+                "reviewBody": "Persönlich, sehr kompetente Beratung. Individuelle Dekoantikel in verschiedenen Ausführungen und nach Wunsch - sehr empfehlenswert! Gerne wieder!",
+                "datePublished": "2024-12-05"
               },
               {
                 "@type": "Review",
@@ -109,9 +177,11 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                 "reviewRating": {
                   "@type": "Rating",
                   "ratingValue": "5",
-                  "bestRating": "5"
+                  "bestRating": "5",
+                  "worstRating": "1"
                 },
-                "reviewBody": "Tolle Produkte Made in Austria, wo nix unmöglich ist!"
+                "reviewBody": "Tolle Produkte Made in Austria, wo nix unmöglich ist!",
+                "datePublished": "2024-11-28"
               }
             ]
           };
