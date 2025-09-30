@@ -95,7 +95,7 @@ const Reviews = () => {
               ))}
             </div>
             <span className="text-lg font-semibold ml-2">5.0</span>
-            <span className="text-muted-foreground ml-2">aus 20 Bewertungen</span>
+            <span className="text-muted-foreground ml-2">aus 21 Bewertungen</span>
           </div>
         </div>
 

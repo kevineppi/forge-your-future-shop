@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import StructuredData from "@/components/StructuredData";
 
 const Impressum = () => {
   useEffect(() => {
@@ -11,8 +13,17 @@ const Impressum = () => {
     }
   }, []);
   return (
-    <div className="min-h-screen">
-      <Navigation />
+    <>
+      <SEOHead 
+        title="Impressum - ekdruck e.U. | 3D-Druck Oberösterreich"
+        description="Impressum der ekdruck e.U. aus Gunskirchen, Oberösterreich. Rechtliche Informationen zum 3D-Druck Service in Austria."
+        keywords="ekdruck impressum, 3d-druck österreich kontakt, ekdruck kontaktdaten"
+        path="/impressum"
+      />
+      <StructuredData type="organization" />
+      
+      <div className="min-h-screen">
+        <Navigation />
       
       <main className="py-24">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -92,7 +103,8 @@ const Impressum = () => {
       </main>
       
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

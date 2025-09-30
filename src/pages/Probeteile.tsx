@@ -5,6 +5,7 @@ import * as z from "zod";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -129,6 +130,8 @@ const Probeteile = () => {
         path="/probeteile" 
         schemaType="service" 
       />
+      <StructuredData type="organization" />
+      <StructuredData type="service" />
       
       <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
         <Navigation />

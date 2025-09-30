@@ -25,6 +25,7 @@ const Einzelanfertigungen = () => {
           {href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png", as: "image", type: "image/png"}
         ]}
       />
+      <StructuredData type="organization" />
       <StructuredData type="service" />
       
       <Navigation />

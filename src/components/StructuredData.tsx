@@ -45,7 +45,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
               "ratingValue": "5.0",
               "bestRating": "5",
               "worstRating": "1",
-              "reviewCount": "20"
+              "reviewCount": "21"
             },
             "review": [
               {
