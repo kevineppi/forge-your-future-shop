@@ -55,7 +55,7 @@ const Kostenrechner = () => {
                     <li><strong>Bauteilgröße:</strong> Länge, Breite und Höhe bestimmen das Volumen und damit den Materialverbrauch</li>
                     <li><strong>Komplexität & Geometrie:</strong> Einfache Formen sind günstiger als komplexe Strukturen mit Stützstrukturen</li>
                     <li><strong>Druckdauer:</strong> Optional können Sie die geschätzte Druckzeit für eine präzisere Kalkulation angeben</li>
-                    <li><strong>Stückzahl & Mengenrabatt:</strong> Ab 5 Stück erhalten Sie automatisch Staffelpreise</li>
+                    <li><strong>Stückzahl:</strong> Größere Mengen können individuell kalkuliert werden</li>
                     <li><strong>Nachbearbeitung:</strong> Schleifen, Lackieren oder Premium-Finish für ein perfektes Ergebnis</li>
                     <li><strong>Express-Service:</strong> 24-Stunden Lieferung für dringende Projekte</li>
                   </ul>
@@ -66,13 +66,13 @@ const Kostenrechner = () => {
                 <h2 className="text-3xl font-bold mb-6">3D-Druck Preise & Kosten in Österreich</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Die Kosten für <strong>3D-Druck in Österreich</strong> hängen von verschiedenen Faktoren ab. Bei ekdruck bieten wir 
-                  <strong>transparente Preise</strong> ohne versteckte Kosten. Unsere Preise beginnen bereits ab <strong>5€ pro Teil</strong> 
-                  für kleine, einfache Objekte. Für <strong>technische Bauteile</strong> und <strong>Funktionsprototypen</strong> aus 
-                  hochwertigen Materialien wie PA12 Nylon passen wir die Preise individuell an.
+                  <strong>transparente Preise</strong> ohne versteckte Kosten. Unsere Preise richten sich nach Material, Größe, 
+                  Komplexität und Druckdauer. Für <strong>technische Bauteile</strong> und <strong>Funktionsprototypen</strong> aus 
+                  hochwertigen Materialien wie PA12 Nylon erstellen wir Ihnen gerne ein individuelles Angebot.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Mit unserem <strong>Mengenrabatt-System</strong> sparen Sie bei größeren Bestellungen automatisch. Ab 5 Stück erhalten 
-                  Sie 5% Rabatt, ab 10 Stück 10%, ab 20 Stück 15% und ab 50 Stück sogar 20% Rabatt auf den Gesamtpreis.
+                  Größere Bestellmengen bieten in der Regel bessere Konditionen. Kontaktieren Sie uns für ein maßgeschneidertes 
+                  Angebot basierend auf Ihren spezifischen Anforderungen.
                 </p>
               </div>
 
@@ -96,15 +96,6 @@ const Kostenrechner = () => {
                     <p className="text-muted-foreground">Professionelle FDM-Drucker und Premium-Filamente</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="bg-primary/10 p-6 rounded-lg border border-primary/20">
-                <p className="font-semibold mb-2">💡 Hinweis zur Preisschätzung</p>
-                <p className="text-sm text-muted-foreground">
-                  Dies ist eine automatische Schätzung basierend auf den eingegebenen Parametern. Für ein exaktes Angebot 
-                  mit Ihrer <strong>CAD-Datei</strong> (STL, STEP, OBJ) kontaktieren Sie uns bitte direkt. Wir erstellen 
-                  Ihnen innerhalb von <strong>24 Stunden</strong> ein individuelles, unverbindliches Angebot.
-                </p>
               </div>
             </div>
           </div>
