@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube, Calculator } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,7 +99,10 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             <a href="#advantages" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Vorteile</a>
-            <a href="#about" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</a>
+            <a href="/kostenrechner" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
+              <Calculator className="w-4 h-4" />
+              Kostenrechner
+            </a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</a>
             <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
           </div>

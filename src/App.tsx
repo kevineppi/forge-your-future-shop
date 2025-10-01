@@ -12,6 +12,12 @@ import Einzelanfertigungen from "./pages/Einzelanfertigungen";
 import Serienfertigung from "./pages/Serienfertigung";
 import Probeteile from "./pages/Probeteile";
 import Impressum from "./pages/Impressum";
+import Kostenrechner from "./pages/Kostenrechner";
+import Wien3DDruck from "./pages/Wien3DDruck";
+import Linz3DDruck from "./pages/Linz3DDruck";
+import Graz3DDruck from "./pages/Graz3DDruck";
+import Salzburg3DDruck from "./pages/Salzburg3DDruck";
+import Innsbruck3DDruck from "./pages/Innsbruck3DDruck";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
@@ -34,6 +40,12 @@ const App = () => (
             <Route path="/serienfertigung" element={<Serienfertigung />} />
             <Route path="/probeteile" element={<Probeteile />} />
             <Route path="/impressum" element={<Impressum />} />
+            <Route path="/kostenrechner" element={<Kostenrechner />} />
+            <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
+            <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
+            <Route path="/3d-druck-graz" element={<Graz3DDruck />} />
+            <Route path="/3d-druck-salzburg" element={<Salzburg3DDruck />} />
+            <Route path="/3d-druck-innsbruck" element={<Innsbruck3DDruck />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/auth" element={<Auth />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

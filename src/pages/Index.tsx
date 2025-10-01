@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Advantages from "@/components/Advantages";
-import CostCalculator from "@/components/CostCalculator";
+import ReviewsWidget from "@/components/ReviewsWidget";
 import Reviews from "@/components/Reviews";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import SEOHead from "@/components/SEOHead";
+import { Button } from "@/components/ui/button";
+import { MapPin } from "lucide-react";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -42,7 +44,72 @@ const Index = () => {
       <Hero />
       <Services />
       <Advantages />
-      <CostCalculator />
+      
+      {/* City Pages Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              3D-Druck in <span className="text-gradient">ganz Österreich</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Professioneller FDM 3D-Druck Service mit schneller Lieferung in alle österreichischen Bundesländer
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <a href="/3d-druck-wien" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Wien</h3>
+              </div>
+              <p className="text-muted-foreground">3D-Druck Service in Wien - Express 24h Lieferung</p>
+            </a>
+            
+            <a href="/3d-druck-linz" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Linz</h3>
+              </div>
+              <p className="text-muted-foreground">Lokale Produktion in Oberösterreich - Same-Day möglich</p>
+            </a>
+            
+            <a href="/3d-druck-graz" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Graz</h3>
+              </div>
+              <p className="text-muted-foreground">3D-Druck Service in der Steiermark - 24-48h Lieferung</p>
+            </a>
+            
+            <a href="/3d-druck-salzburg" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Salzburg</h3>
+              </div>
+              <p className="text-muted-foreground">Schnelle Lieferung nach Salzburg Stadt und Land</p>
+            </a>
+            
+            <a href="/3d-druck-innsbruck" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Innsbruck</h3>
+              </div>
+              <p className="text-muted-foreground">3D-Druck Service in Tirol - Zuverlässige Lieferung</p>
+            </a>
+            
+            <div className="gradient-card p-6 rounded-xl flex items-center justify-center">
+              <div className="text-center">
+                <p className="text-muted-foreground mb-3">Lieferung in ganz Österreich</p>
+                <Button asChild>
+                  <a href="/kostenrechner">Kosten berechnen</a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <ReviewsWidget />
       <Reviews />
       <About />
       <Contact />
