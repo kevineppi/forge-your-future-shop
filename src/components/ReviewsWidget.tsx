@@ -60,7 +60,7 @@ const ReviewsWidget = () => {
 
         <div className="text-center mt-8">
           <a 
-            href="https://www.google.com/maps/search/ekdruck/" 
+            href="https://www.google.com/maps/place/ekdruck+e.U.+%7C+3D-Druck/@48.1295256,13.9462736,17z/data=!4m8!3m7!1s0x4773f3f9134767df:0x738fc33072668317!8m2!3d48.129522!4d13.9488485!9m1!1b1!16s%2Fg%2F11vztpkz0f?entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium"
