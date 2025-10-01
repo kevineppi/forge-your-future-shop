@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CostCalculator from "@/components/CostCalculator";
+import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { useEffect } from "react";
@@ -144,6 +145,8 @@ const Kostenrechner = () => {
               </div>
             </div>
           </div>
+          
+          <Contact />
         </div>
         <Footer />
       </div>
