@@ -27,7 +27,7 @@ const Navigation = () => {
               <DropdownMenuTrigger className="flex items-center text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
                 Services <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-80 p-2 bg-background/95 backdrop-blur-lg border border-border/50 shadow-xl">
+              <DropdownMenuContent sideOffset={12} className="w-80 p-2 bg-background border border-border/50 shadow-xl z-[110]">
                 <div className="grid gap-1">
                   <DropdownMenuItem asChild className="p-0">
                     <a href="/fdm-3d-druck" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
