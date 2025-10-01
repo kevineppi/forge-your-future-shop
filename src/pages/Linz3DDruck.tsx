@@ -10,14 +10,14 @@ import { useEffect } from "react";
 
 const Linz3DDruck = () => {
   useEffect(() => {
-    document.title = "3D-Druck Linz | Lokaler FDM 3D-Druck Service | ekdruck e.U.";
+    document.title = "3D Druck Linz – Prototypen & Fertigung | ek-druck";
   }, []);
 
   return (
     <>
       <SEOHead 
-        title="3D-Druck Linz | Lokaler FDM 3D-Druck Service | ekdruck e.U."
-        description="Professioneller 3D-Druck Service in Linz und Oberösterreich ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Lokale Produktion ✓ Express 24h"
+        title="3D Druck Linz – Prototypen & Fertigung | ek-druck"
+        description="Professioneller 3D Druck in Linz. Prototypen, Einzelfertigung & Serienfertigung – schnell, präzise & individuell. Jetzt unverbindlich anfragen!"
         keywords="3d-druck linz, 3d drucker linz, fdm druck linz, rapid prototyping linz, 3d-druck oberösterreich, prototypen linz"
         path="/3d-druck-linz"
       />

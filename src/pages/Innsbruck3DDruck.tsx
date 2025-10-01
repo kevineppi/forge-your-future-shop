@@ -10,14 +10,14 @@ import { useEffect } from "react";
 
 const Innsbruck3DDruck = () => {
   useEffect(() => {
-    document.title = "3D-Druck Innsbruck | Professioneller FDM 3D-Druck Service | ekdruck e.U.";
+    document.title = "3D Druck Innsbruck – Prototypen & Fertigung | ek-druck";
   }, []);
 
   return (
     <>
       <SEOHead 
-        title="3D-Druck Innsbruck | Professioneller FDM 3D-Druck Service | ekdruck e.U."
-        description="Professioneller 3D-Druck Service in Innsbruck ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Nachhaltige Materialien ✓ Express 24h ✓ Lieferung in ganz Tirol"
+        title="3D Druck Innsbruck – Prototypen & Fertigung | ek-druck"
+        description="Professioneller 3D Druck in Innsbruck. Prototypen, Einzelfertigung & Serienfertigung – schnell, präzise & individuell. Jetzt unverbindlich anfragen!"
         keywords="3d-druck innsbruck, 3d drucker innsbruck, fdm druck innsbruck, rapid prototyping innsbruck, 3d-druck tirol, prototypen innsbruck"
         path="/3d-druck-innsbruck"
       />

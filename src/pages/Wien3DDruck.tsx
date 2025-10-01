@@ -10,14 +10,14 @@ import { useEffect } from "react";
 
 const Wien3DDruck = () => {
   useEffect(() => {
-    document.title = "3D-Druck Wien | Schneller FDM 3D-Druck Service | ekdruck e.U.";
+    document.title = "3D Druck Wien – Prototypen & Fertigung | ek-druck";
   }, []);
 
   return (
     <>
       <SEOHead 
-        title="3D-Druck Wien | Schneller FDM 3D-Druck Service | ekdruck e.U."
-        description="Professioneller 3D-Druck Service in Wien ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Nachhaltige Materialien ✓ Express 24h ✓ Lieferung in ganz Wien"
+        title="3D Druck Wien – Prototypen & Fertigung | ek-druck"
+        description="Professioneller 3D Druck in Wien. Prototypen, Einzelfertigung & Serienfertigung – schnell, präzise & individuell. Jetzt unverbindlich anfragen!"
         keywords="3d-druck wien, 3d drucker wien, fdm druck wien, rapid prototyping wien, 3d-druck service wien, prototypen wien"
         path="/3d-druck-wien"
       />
