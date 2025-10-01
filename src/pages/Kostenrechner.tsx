@@ -28,16 +28,6 @@ const Kostenrechner = () => {
         <div className="pt-24">
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12">
-                <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                  3D-Druck <span className="text-gradient">Kostenrechner</span>
-                </h1>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                  Berechnen Sie die Kosten für Ihr 3D-Druck Projekt in Echtzeit. Sofortige Preiskalkulation für Prototypen, 
-                  Einzelteile und Kleinserien – transparent, schnell und unverbindlich.
-                </p>
-              </div>
-
               <div className="grid md:grid-cols-3 gap-6 mb-12">
                 <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-xl border border-primary/20">
                   <h3 className="font-bold text-lg mb-3">🎯 Alle Materialien</h3>
@@ -59,14 +49,6 @@ const Kostenrechner = () => {
                     Von Einzelstücken bis zur Serie – für jede Stückzahl geeignet
                   </p>
                 </div>
-              </div>
-
-              <div className="bg-muted/30 p-6 rounded-xl mb-8">
-                <p className="text-center text-muted-foreground">
-                  <strong>FDM 3D-Druck Service</strong> für ganz Österreich: Wien, Linz, Graz, Salzburg, Innsbruck & mehr. 
-                  Nutzen Sie unseren <strong>Online Preisrechner</strong> für eine transparente Kostenübersicht und kontaktieren Sie uns 
-                  für ein individuelles Angebot basierend auf Ihrer <strong>CAD-Datei</strong>.
-                </p>
               </div>
             </div>
           </div>
