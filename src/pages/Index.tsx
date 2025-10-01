@@ -97,6 +97,46 @@ const Index = () => {
               <p className="text-muted-foreground">3D-Druck Service in Tirol - Zuverlässige Lieferung</p>
             </a>
             
+            <a href="/3d-druck-klagenfurt" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Klagenfurt</h3>
+              </div>
+              <p className="text-muted-foreground">3D-Druck Service in Kärnten - Express Lieferung</p>
+            </a>
+            
+            <a href="/3d-druck-villach" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Villach</h3>
+              </div>
+              <p className="text-muted-foreground">Schnelle Lieferung nach Villach und Kärnten</p>
+            </a>
+            
+            <a href="/3d-druck-wels" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Wels</h3>
+              </div>
+              <p className="text-muted-foreground">Same-Day Lieferung in Oberösterreich möglich</p>
+            </a>
+            
+            <a href="/3d-druck-st-poelten" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">St. Pölten</h3>
+              </div>
+              <p className="text-muted-foreground">3D-Druck Service für Niederösterreich</p>
+            </a>
+            
+            <a href="/3d-druck-dornbirn" className="gradient-card p-6 rounded-xl hover:shadow-glow transition-all duration-300 group">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Dornbirn</h3>
+              </div>
+              <p className="text-muted-foreground">3D-Druck Service in Vorarlberg - Schnelle Lieferung</p>
+            </a>
+            
             <div className="gradient-card p-6 rounded-xl flex items-center justify-center">
               <div className="text-center">
                 <p className="text-muted-foreground mb-3">Lieferung in ganz Österreich</p>

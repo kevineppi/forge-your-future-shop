@@ -135,6 +135,35 @@ const Linz3DDruck = () => {
           </div>
         </section>
 
+        {/* Applications & Materials - Similar to Wien */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                Anwendungsbereiche für <span className="text-gradient">3D-Druck in Linz</span>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🏭 Industrie & Maschinenbau</h3>
+                  <p className="text-muted-foreground">Funktionale Prototypen, Ersatzteile und Betriebsmittel für Linzer Industrieunternehmen</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🏗️ Architektur & Bau</h3>
+                  <p className="text-muted-foreground">Architekturmodelle und Designstudien für Linzer Architekten</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🎨 Design & Kunst</h3>
+                  <p className="text-muted-foreground">Kunstobjekte und individuelle Einzelstücke</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🔬 Forschung</h3>
+                  <p className="text-muted-foreground">Rapid Prototyping für JKU und Forschungseinrichtungen</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <ReviewsWidget />
 
         <section id="contact" className="py-16">

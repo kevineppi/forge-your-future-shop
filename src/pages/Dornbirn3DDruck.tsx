@@ -8,22 +8,22 @@ import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
 import { useEffect } from "react";
 
-const Salzburg3DDruck = () => {
+const Dornbirn3DDruck = () => {
   useEffect(() => {
-    document.title = "3D Druck Salzburg – Prototypen & Fertigung | ek-druck";
+    document.title = "3D Druck Dornbirn – Prototypen & Fertigung | ek-druck";
   }, []);
 
   return (
     <>
       <SEOHead 
-        title="3D Druck Salzburg – Prototypen & Fertigung | ek-druck"
-        description="Professioneller 3D Druck in Salzburg. Prototypen, Einzelfertigung & Serienfertigung – schnell, präzise & individuell. Jetzt unverbindlich anfragen!"
-        keywords="3d-druck salzburg, 3d drucker salzburg, fdm druck salzburg, rapid prototyping salzburg, 3d-druck service salzburg, prototypen salzburg"
-        path="/3d-druck-salzburg"
+        title="3D Druck Dornbirn – Prototypen & Fertigung | ek-druck"
+        description="Professioneller 3D Druck in Dornbirn. FDM 3D-Druck Service für Vorarlberg – schnell, präzise & individuell. Jetzt unverbindlich anfragen!"
+        keywords="3d-druck dornbirn, 3d drucker dornbirn, fdm druck dornbirn, rapid prototyping vorarlberg, 3d-druck service dornbirn"
+        path="/3d-druck-dornbirn"
       />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},
-        {name: "3D-Druck Salzburg", url: "/3d-druck-salzburg"}
+        {name: "3D-Druck Dornbirn", url: "/3d-druck-dornbirn"}
       ]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
@@ -36,13 +36,13 @@ const Salzburg3DDruck = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <MapPin className="w-6 h-6 text-primary" />
-                <span className="text-primary font-semibold">Salzburg</span>
+                <span className="text-primary font-semibold">Dornbirn</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                3D-Druck Service in <span className="text-gradient">Salzburg</span>
+                3D-Druck Service in <span className="text-gradient">Dornbirn</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Professioneller FDM 3D-Druck Service für Salzburg Stadt und Land. Schnelle Lieferung, nachhaltige Materialien und faire Preise.
+                Professioneller FDM 3D-Druck für Dornbirn und ganz Vorarlberg. Schnelle Lieferung, hochwertige Materialien und faire Preise.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -59,32 +59,32 @@ const Salzburg3DDruck = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-12">
-              Unsere <span className="text-gradient">Services in Salzburg</span>
+              Unsere <span className="text-gradient">Services in Dornbirn</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="gradient-card p-6 rounded-xl">
                 <Box className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold mb-3">FDM 3D-Druck</h3>
                 <p className="text-muted-foreground mb-4">
-                  Hochwertiger FDM 3D-Druck für Prototypen, Modelle und Einzelteile in Salzburg.
+                  Professioneller FDM 3D-Druck für Prototypen und Fertigung in Dornbirn.
                 </p>
                 <a href="/fdm-3d-druck" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
               
               <div className="gradient-card p-6 rounded-xl">
                 <Clock className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Express Service 24-48h</h3>
+                <h3 className="text-xl font-bold mb-3">Express Service</h3>
                 <p className="text-muted-foreground mb-4">
-                  Schnelle Lieferung nach Salzburg Stadt und in das gesamte Bundesland.
+                  24-48h Lieferung nach Dornbirn und Vorarlberg.
                 </p>
                 <a href="/rapid-prototyping" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
               
               <div className="gradient-card p-6 rounded-xl">
                 <CheckCircle className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Nachhaltige Materialien</h3>
+                <h3 className="text-xl font-bold mb-3">Premium Qualität</h3>
                 <p className="text-muted-foreground mb-4">
-                  Hochwertige österreichische Filamente für beste Druckqualität.
+                  Hochwertige Filamente aus österreichischer Produktion.
                 </p>
                 <a href="/3d-druck-materialien" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
@@ -96,22 +96,22 @@ const Salzburg3DDruck = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl font-bold mb-8 text-center">
-                Warum ekdruck für <span className="text-gradient">Salzburg</span>?
+                Warum ekdruck für <span className="text-gradient">Dornbirn</span>?
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Schnelle Lieferung nach Salzburg</h3>
-                    <p className="text-muted-foreground">Express-Versand innerhalb von 24-48h nach Salzburg Stadt und Land</p>
+                    <h3 className="font-bold mb-2">Schnelle Lieferung nach Vorarlberg</h3>
+                    <p className="text-muted-foreground">Express-Versand innerhalb von 24-48h nach Dornbirn</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Österreichische Produktion</h3>
-                    <p className="text-muted-foreground">Made in Austria - kurze Lieferwege und Top-Qualität</p>
+                    <h3 className="font-bold mb-2">Österreichischer Anbieter</h3>
+                    <p className="text-muted-foreground">Lokale Produktion aus Österreich</p>
                   </div>
                 </div>
                 
@@ -119,44 +119,16 @@ const Salzburg3DDruck = () => {
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold mb-2">Persönliche Beratung</h3>
-                    <p className="text-muted-foreground">Kompetente Unterstützung bei der Materialauswahl und Verfahrenswahl</p>
+                    <p className="text-muted-foreground">Kompetente Unterstützung bei Material- und Verfahrenswahl</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Transparente Preisgestaltung</h3>
-                    <p className="text-muted-foreground">Nutzen Sie unseren Online-Kostenrechner für sofortige Preisschätzung</p>
+                    <h3 className="font-bold mb-2">Transparente Preise</h3>
+                    <p className="text-muted-foreground">Kostenrechner für sofortige Preisschätzung</p>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-8 text-center">
-                Anwendungsbereiche für <span className="text-gradient">3D-Druck in Salzburg</span>
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🏭 Industrie</h3>
-                  <p className="text-muted-foreground">Funktionale Prototypen für Salzburger Industriebetriebe</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🏗️ Architektur</h3>
-                  <p className="text-muted-foreground">Architekturmodelle für Salzburger Planungsbüros</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🎓 Bildung</h3>
-                  <p className="text-muted-foreground">Unterstützung für Universität Salzburg</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🎨 Design</h3>
-                  <p className="text-muted-foreground">Individuelle Kunstobjekte</p>
                 </div>
               </div>
             </div>
@@ -169,7 +141,7 @@ const Salzburg3DDruck = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center gradient-card p-12 rounded-2xl">
               <h2 className="text-4xl font-bold mb-6">
-                Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in Salzburg
+                Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in Dornbirn
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
                 Kontaktieren Sie uns noch heute für ein kostenloses Angebot
@@ -201,4 +173,4 @@ const Salzburg3DDruck = () => {
   );
 };
 
-export default Salzburg3DDruck;
+export default Dornbirn3DDruck;

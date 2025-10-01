@@ -135,6 +135,34 @@ const Graz3DDruck = () => {
           </div>
         </section>
 
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                Anwendungsbereiche für <span className="text-gradient">3D-Druck in Graz</span>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🏭 Industrie & Technik</h3>
+                  <p className="text-muted-foreground">Funktionale Prototypen und Ersatzteile für Grazer Industriebetriebe</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🎓 Bildung & Forschung</h3>
+                  <p className="text-muted-foreground">Unterstützung für TU Graz und Forschungseinrichtungen</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🏗️ Architektur</h3>
+                  <p className="text-muted-foreground">Architekturmodelle für Grazer Planungsbüros</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🎨 Design</h3>
+                  <p className="text-muted-foreground">Individuelle Designobjekte und Kunstprojekte</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <ReviewsWidget />
 
         <section id="contact" className="py-16">

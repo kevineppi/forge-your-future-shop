@@ -18,6 +18,11 @@ import Linz3DDruck from "./pages/Linz3DDruck";
 import Graz3DDruck from "./pages/Graz3DDruck";
 import Salzburg3DDruck from "./pages/Salzburg3DDruck";
 import Innsbruck3DDruck from "./pages/Innsbruck3DDruck";
+import Klagenfurt3DDruck from "./pages/Klagenfurt3DDruck";
+import Villach3DDruck from "./pages/Villach3DDruck";
+import Wels3DDruck from "./pages/Wels3DDruck";
+import StPoelten3DDruck from "./pages/StPoelten3DDruck";
+import Dornbirn3DDruck from "./pages/Dornbirn3DDruck";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
@@ -46,6 +51,11 @@ const App = () => (
             <Route path="/3d-druck-graz" element={<Graz3DDruck />} />
             <Route path="/3d-druck-salzburg" element={<Salzburg3DDruck />} />
             <Route path="/3d-druck-innsbruck" element={<Innsbruck3DDruck />} />
+            <Route path="/3d-druck-klagenfurt" element={<Klagenfurt3DDruck />} />
+            <Route path="/3d-druck-villach" element={<Villach3DDruck />} />
+            <Route path="/3d-druck-wels" element={<Wels3DDruck />} />
+            <Route path="/3d-druck-st-poelten" element={<StPoelten3DDruck />} />
+            <Route path="/3d-druck-dornbirn" element={<Dornbirn3DDruck />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/auth" element={<Auth />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
