@@ -7,6 +7,8 @@ import { Mail, Phone, Clock, Send, Upload, CheckCircle, MapPin } from "lucide-re
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import SocialShare from "./SocialShare";
+import GoogleMaps from "./GoogleMaps";
+import GoogleReviews from "./GoogleReviews";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -440,6 +442,18 @@ const Contact = () => {
               </Card>
             )}
           </div>
+        </div>
+
+        {/* Google Maps und Reviews Section */}
+        <div className="mt-16 space-y-12">
+          <div>
+            <h3 className="text-3xl font-bold mb-8 text-center">
+              Unser <span className="text-gradient">Standort</span>
+            </h3>
+            <GoogleMaps />
+          </div>
+
+          <GoogleReviews />
         </div>
       </div>
     </section>;
