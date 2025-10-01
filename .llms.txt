@@ -1,0 +1,231 @@
+# ekdruck e.U. - 3D-Druck Service Österreich
+
+## Über das Unternehmen
+
+ekdruck e.U. ist ein professioneller 3D-Druck Service mit Sitz in Gunskirchen, Oberösterreich. 
+Wir bieten nachhaltigen FDM 3D-Druck für ganz Österreich mit Fokus auf Qualität, 
+Nachhaltigkeit und schnellen Service.
+
+## Kontaktinformationen
+
+- **Firma:** ekdruck e.U.
+- **Adresse:** Negrellistraße 15, 4623 Gunskirchen, Österreich
+- **Telefon:** +43 650 9036077
+- **E-Mail:** office@ekdruck.at
+- **Website:** https://www.ek-druck.at
+- **Öffnungszeiten:** Mo-Fr 08:00-17:00
+
+## Services
+
+### FDM 3D-Druck
+Professioneller FDM (Fused Deposition Modeling) 3D-Druck für Prototypen, 
+Einzelanfertigungen und Kleinserien. Wir setzen auf hochwertige Drucker und 
+österreichische Premium-Filamente.
+
+### Rapid Prototyping
+Schnelle Umsetzung Ihrer Produktideen - von der CAD-Datei zum fertigen Prototyp 
+in kürzester Zeit. Express-Service mit 24h Lieferung verfügbar.
+
+### Einzelanfertigungen
+Individuelle Bauteile nach Ihren Vorgaben - ob Ersatzteile, Designobjekte oder 
+technische Komponenten. Jedes Teil wird mit höchster Präzision gefertigt.
+
+### Serienfertigung
+Kostengünstige Produktion von Kleinserien im FDM-Verfahren. Ideal für Start-ups, 
+Produktentwicklung und limitierte Auflagen.
+
+### CAD-Konstruktion
+Professionelle 3D-Modellierung und technische Zeichnungen. Von der Idee zum 
+fertigen 3D-Modell - wir unterstützen Sie bei der Entwicklung.
+
+## Materialien
+
+Wir verwenden ausschließlich hochwertige Filamente:
+
+- **PLA** - Biokunststoff, nachhaltig, ideal für Prototypen und Designmodelle
+- **PETG** - Robust, schlagfest, chemikalienbeständig, für funktionale Bauteile
+- **ABS** - Hitzebeständig, stabil, für technische Anwendungen
+- **PA12 Nylon** - Premium-Material mit höchster Festigkeit und Flexibilität
+- **Flexible Filamente** - TPU für elastische und stoßabsorbierende Teile
+
+Alle Materialien stammen von österreichischen Herstellern und garantieren 
+höchste Qualität bei minimaler Umweltbelastung.
+
+## Liefergebiete
+
+Wir liefern in ganz Österreich mit besonders schnellem Service in:
+
+- **Wien** - Express 24h Lieferung
+- **Linz** - Same-Day möglich (lokale Produktion)
+- **Graz** - 24-48h Lieferung
+- **Salzburg** - Schnelle Lieferung Stadt und Land
+- **Innsbruck** - Zuverlässige Lieferung nach Tirol
+- **Klagenfurt** - Express-Service für Kärnten
+- **Villach** - Schnelle Lieferung Kärnten
+- **Wels** - Same-Day möglich (Oberösterreich)
+- **St. Pölten** - Service für Niederösterreich
+- **Dornbirn** - Schnelle Lieferung Vorarlberg
+
+## Anwendungsbereiche
+
+- **Industrie & Maschinenbau:** Funktionsprototypen, Ersatzteile, Vorrichtungen
+- **Architektur:** Architekturmodelle, Visualisierungen, Präsentationsmodelle
+- **Design & Kunst:** Kunstobjekte, Designprototypen, individuelle Einzelstücke
+- **Forschung & Entwicklung:** Rapid Prototyping für Universitäten und Start-ups
+- **Medizintechnik:** Prototypen und Hilfsmittel
+- **Automotive:** Prototypen und Betriebsmittel
+- **Elektronikindustrie:** Gehäuse, Halterungen, Befestigungen
+
+## Nachhaltigkeit
+
+Nachhaltigkeit ist uns wichtig:
+- Verwendung von österreichischem Filament aus Industrieabfällen
+- Energieeffiziente Produktionsprozesse
+- Minimierung von Abfall durch präzise Fertigung
+- Lokale Produktion reduziert Transportwege
+- PLA aus nachwachsenden Rohstoffen
+
+## Technische Informationen
+
+### Druckparameter
+- **Schichthöhe:** 0.1mm - 0.3mm (je nach Anforderung)
+- **Maximales Bauvolumen:** 350 x 350 x 400mm
+- **Genauigkeit:** ±0.1mm
+- **Oberflächenqualität:** Von Standard bis High-End Finish
+
+### Nachbearbeitung
+- Schleifen und Glätten
+- Lackieren in allen RAL-Farben
+- Versiegeln und Beschichten
+- Montage und Zusammenbau
+- Gewindeeinsätze und Metallteile
+
+## Preise und Konditionen
+
+Die Kosten für 3D-Druck hängen ab von:
+- Material und Materialverbrauch
+- Bauteilgröße und Volumen
+- Komplexität und Druckdauer
+- Nachbearbeitung und Finishing
+- Stückzahl und Projektgröße
+
+Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung oder 
+kontaktieren Sie uns für ein individuelles Angebot.
+
+### Express-Service
+- Standard: 3-5 Werktage
+- Express: 24-48 Stunden
+- Same-Day: Für lokale Kunden in Oberösterreich
+
+## Qualitätsgarantie
+
+- Professionelle FDM-Drucker der neuesten Generation
+- Qualitätskontrolle jedes einzelnen Bauteils
+- Präzise Maßhaltigkeit und Oberflächenqualität
+- 100% österreichische Produktion
+- Persönliche Beratung und Support
+
+## Kundenbewertungen
+
+⭐⭐⭐⭐⭐ 5.0/5.0 (21 Bewertungen)
+
+Unsere Kunden schätzen besonders:
+- Schnelle Reaktionszeit und Lieferung
+- Ausgezeichnete Qualität der Druckteile
+- Faire Preise und transparente Kalkulation
+- Persönlicher Service und kompetente Beratung
+- Zuverlässigkeit und Termintreue
+
+## Website-Struktur
+
+### Hauptseiten
+- **Startseite** (/) - Überblick über Services und Vorteile
+- **FDM 3D-Druck** (/fdm-3d-druck) - Details zum FDM-Verfahren
+- **Rapid Prototyping** (/rapid-prototyping) - Schnelle Prototypenerstellung
+- **Materialien** (/3d-druck-materialien) - Übersicht aller Materialien
+- **Einzelanfertigungen** (/einzelanfertigungen) - Custom Parts
+- **Serienfertigung** (/serienfertigung) - Kleinserienproduktion
+- **Probeteile** (/probeteile) - Kostenlose Probeteile anfragen
+- **Kostenrechner** (/kostenrechner) - Online Preiskalkulation
+
+### Städteseiten (SEO-optimiert)
+- /3d-druck-wien
+- /3d-druck-linz
+- /3d-druck-graz
+- /3d-druck-salzburg
+- /3d-druck-innsbruck
+- /3d-druck-klagenfurt
+- /3d-druck-villach
+- /3d-druck-wels
+- /3d-druck-st-poelten
+- /3d-druck-dornbirn
+
+### Rechtliches
+- **Impressum** (/impressum) - Rechtliche Informationen
+
+## SEO Keywords
+
+Primäre Keywords:
+- 3D-Druck Österreich
+- FDM 3D-Druck
+- Rapid Prototyping Österreich
+- 3D-Druck Service
+- 3D-Druck Oberösterreich
+- Prototypen 3D-Druck
+
+Städte-Keywords:
+- 3D-Druck Wien, Linz, Graz, Salzburg, Innsbruck
+- 3D Drucker Wien, Linz, Graz
+- 3D-Druck Service [Stadt]
+
+Material-Keywords:
+- PLA 3D-Druck
+- PETG 3D-Druck
+- ABS 3D-Druck
+- Nylon 3D-Druck
+
+Service-Keywords:
+- Einzelanfertigungen 3D-Druck
+- Serienfertigung 3D-Druck
+- CAD-Konstruktion
+- Prototypenbau
+
+## Technische Details der Website
+
+- **Technologie:** React, TypeScript, Vite
+- **Styling:** Tailwind CSS
+- **Hosting:** Lovable Cloud
+- **Backend:** Supabase
+- **SEO:** Optimierte Meta-Tags, Structured Data (Schema.org)
+- **Performance:** Optimierte Bilder, Code-Splitting
+
+## Dateiformate
+
+Wir akzeptieren folgende Dateiformate:
+- STL (Standard)
+- OBJ
+- STEP / STP
+- IGES
+- 3MF
+- PLY
+- FBX
+
+Bei Fragen zu anderen Formaten kontaktieren Sie uns bitte.
+
+## Zahlungsmethoden
+
+- Banküberweisung
+- Barzahlung bei Abholung
+- Rechnung für Geschäftskunden
+
+## Versand
+
+- Österreichweiter Versand mit Österreichischer Post
+- Expressversand verfügbar
+- Selbstabholung in Gunskirchen möglich
+- Sorgfältige Verpackung aller Teile
+
+---
+
+Letzte Aktualisierung: Januar 2025
+Version: 1.0
