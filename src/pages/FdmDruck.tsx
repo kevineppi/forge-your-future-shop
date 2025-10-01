@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Contact from "@/components/Contact";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,6 +28,10 @@ const FdmDruck = () => {
       />
       <StructuredData type="organization" />
       <StructuredData type="service" />
+      <BreadcrumbSchema items={[
+        {name: "Home", url: "/"},
+        {name: "FDM 3D-Druck", url: "/fdm-3d-druck"}
+      ]} />
       
       <Navigation />
       

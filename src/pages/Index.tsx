@@ -8,6 +8,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import SEOHead from "@/components/SEOHead";
 import { useEffect } from "react";
 
@@ -32,7 +33,10 @@ const Index = () => {
       />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      <StructuredData type="breadcrumb" />
+      <StructuredData type="faq" />
+      <BreadcrumbSchema items={[
+        {name: "Home", url: "/"}
+      ]} />
       <div className="min-h-screen">
       <Navigation />
       <Hero />

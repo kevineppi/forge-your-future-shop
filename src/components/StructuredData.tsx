@@ -32,13 +32,32 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
               "longitude": "13.975"
             },
             "openingHours": "Mo-Fr 08:00-17:00",
+            "priceRange": "€€",
+            "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
             "areaServed": [
-              "Oberösterreich",
-              "Linz",
-              "Wels",
-              "Linz",
-              "Österreich"
+              {
+                "@type": "City",
+                "name": "Linz"
+              },
+              {
+                "@type": "City",
+                "name": "Wels"
+              },
+              {
+                "@type": "City",
+                "name": "Gunskirchen"
+              },
+              {
+                "@type": "State",
+                "name": "Oberösterreich"
+              },
+              {
+                "@type": "Country",
+                "name": "Österreich"
+              }
             ],
+            "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+            "currenciesAccepted": "EUR",
             "keywords": "3D-Druck, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, österreichisches Filament",
             "aggregateRating": {
               "@type": "AggregateRating",

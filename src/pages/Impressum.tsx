@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const Impressum = () => {
   useEffect(() => {
@@ -21,6 +22,10 @@ const Impressum = () => {
         path="/impressum"
       />
       <StructuredData type="organization" />
+      <BreadcrumbSchema items={[
+        {name: "Home", url: "/"},
+        {name: "Impressum", url: "/impressum"}
+      ]} />
       
       <div className="min-h-screen">
         <Navigation />
