@@ -177,8 +177,8 @@ const Salzburg3DDruck = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                 <div className="flex items-center gap-2">
                   <Phone className="w-5 h-5 text-primary" />
-                  <a href="tel:+436509036077" className="text-lg hover:text-primary transition-colors">
-                    +43 650 9036077
+                  <a href="tel:+436765517197" className="text-lg hover:text-primary transition-colors">
+                    +43 676 5517197
                   </a>
                 </div>
                 <div className="flex items-center gap-2">

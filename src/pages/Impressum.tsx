@@ -78,7 +78,7 @@ const Impressum = () => {
                       office@ek-druck.at
                     </a>
                   </p>
-                  <p>Tel: +43 6765517197</p>
+                  <p>Tel: +43 676 5517197</p>
                   <p>E-Mail: 
                     <a href="mailto:office@ek-druck.at" className="text-primary hover:underline ml-1">
                       office@ek-druck.at
