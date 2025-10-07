@@ -23,6 +23,13 @@ import Villach3DDruck from "./pages/Villach3DDruck";
 import Wels3DDruck from "./pages/Wels3DDruck";
 import StPoelten3DDruck from "./pages/StPoelten3DDruck";
 import Dornbirn3DDruck from "./pages/Dornbirn3DDruck";
+import Burgenland3DDruck from "./pages/Burgenland3DDruck";
+import Steiermark3DDruck from "./pages/Steiermark3DDruck";
+import Oberoesterreich3DDruck from "./pages/Oberoesterreich3DDruck";
+import Niederoesterreich3DDruck from "./pages/Niederoesterreich3DDruck";
+import Vorarlberg3DDruck from "./pages/Vorarlberg3DDruck";
+import Kaernten3DDruck from "./pages/Kaernten3DDruck";
+import Gunskirchen3DDruck from "./pages/Gunskirchen3DDruck";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
@@ -56,6 +63,13 @@ const App = () => (
             <Route path="/3d-druck-wels" element={<Wels3DDruck />} />
             <Route path="/3d-druck-st-poelten" element={<StPoelten3DDruck />} />
             <Route path="/3d-druck-dornbirn" element={<Dornbirn3DDruck />} />
+            <Route path="/3d-druck-burgenland" element={<Burgenland3DDruck />} />
+            <Route path="/3d-druck-steiermark" element={<Steiermark3DDruck />} />
+            <Route path="/3d-druck-oberoesterreich" element={<Oberoesterreich3DDruck />} />
+            <Route path="/3d-druck-niederoesterreich" element={<Niederoesterreich3DDruck />} />
+            <Route path="/3d-druck-vorarlberg" element={<Vorarlberg3DDruck />} />
+            <Route path="/3d-druck-kaernten" element={<Kaernten3DDruck />} />
+            <Route path="/3d-druck-gunskirchen" element={<Gunskirchen3DDruck />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/auth" element={<Auth />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

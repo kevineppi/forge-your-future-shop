@@ -47,6 +47,49 @@ const Index = () => {
       <Reviews />
       <About />
       <ReviewsWidget />
+      
+      {/* Regional Links Section */}
+      <section className="py-16 px-4 bg-primary/5">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-bold mb-8 text-center">3D-Druck in ganz Österreich</h2>
+          <p className="text-center text-muted-foreground mb-8">Wir liefern schnell und zuverlässig in alle österreichischen Bundesländer und Städte</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div>
+              <h3 className="font-semibold mb-3">Bundesländer</h3>
+              <div className="space-y-2">
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-oberoesterreich">Oberösterreich</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-niederoesterreich">Niederösterreich</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-steiermark">Steiermark</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-kaernten">Kärnten</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-vorarlberg">Vorarlberg</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-burgenland">Burgenland</a></Button>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3">Städte A-L</h3>
+              <div className="space-y-2">
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-dornbirn">Dornbirn</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-graz">Graz</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-gunskirchen">Gunskirchen</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-innsbruck">Innsbruck</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-klagenfurt">Klagenfurt</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-linz">Linz</a></Button>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3">Städte S-W</h3>
+              <div className="space-y-2">
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-salzburg">Salzburg</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-st-poelten">St. Pölten</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-villach">Villach</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-wels">Wels</a></Button>
+                <Button variant="link" asChild className="p-0 h-auto justify-start"><a href="/3d-druck-wien">Wien</a></Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <Contact />
       <Footer />
       </div>
