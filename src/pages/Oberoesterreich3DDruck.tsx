@@ -89,6 +89,215 @@ const Oberoesterreich3DDruck = () => {
           </div>
         </section>
 
+        {/* Detailed Content Section */}
+        <section className="py-16 px-4 bg-primary/5">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold mb-8">3D-Druck Oberösterreich: Ihr Partner für professionelle Fertigung</h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-muted-foreground mb-6">
+                Als führender Anbieter für 3D-Druck in Oberösterreich bieten wir professionelle FDM 3D-Druck Dienstleistungen für Unternehmen, 
+                Entwickler und Privatpersonen in Linz, Wels, Steyr und der gesamten Region. Unsere moderne FDM-Technologie (Fused Deposition Modeling) 
+                ermöglicht die Fertigung hochwertiger Prototypen, Funktionsteile und Serienprodukte mit höchster Präzision und Zuverlässigkeit.
+              </p>
+              <p className="text-muted-foreground mb-6">
+                Der 3D-Druck hat sich in Oberösterreich zu einer Schlüsseltechnologie entwickelt, die traditionelle Fertigungsverfahren ergänzt und 
+                innovative Lösungen ermöglicht. Mit unserem FDM 3D-Druck Service in Oberösterreich profitieren Sie von kurzen Lieferzeiten, 
+                flexibler Produktion und kosteneffizienter Fertigung – auch bei kleinen Stückzahlen.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Applications */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold mb-12 text-center">Anwendungsbereiche 3D-Druck Oberösterreich</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-xl font-semibold mb-4">Maschinenbau & Industrie</h3>
+                <p className="text-muted-foreground">
+                  Funktionsprototypen, Ersatzteile und Vorrichtungen für den Maschinenbau in Oberösterreich. 
+                  Perfekt für Unternehmen in Linz, Wels und Steyr, die schnelle Iterationen benötigen.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-xl font-semibold mb-4">Produktentwicklung</h3>
+                <p className="text-muted-foreground">
+                  Rapid Prototyping für Start-ups und Entwicklungsabteilungen. Testen Sie Ihre Produktideen 
+                  schnell und kostengünstig mit unserem 3D-Druck Service in Oberösterreich.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-xl font-semibold mb-4">Architektur & Modellbau</h3>
+                <p className="text-muted-foreground">
+                  Detaillierte Architekturmodelle und Präsentationsmodelle für Planungsbüros in ganz Oberösterreich. 
+                  Präzise Fertigung für beeindruckende Kundenpräsentationen.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-xl font-semibold mb-4">Automotive</h3>
+                <p className="text-muted-foreground">
+                  Spezialteile, Prototypen und Kleinserien für die Automobilindustrie. FDM 3D-Druck für 
+                  Innenraumkomponenten, Halterungen und funktionale Bauteile.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-xl font-semibold mb-4">Medizintechnik</h3>
+                <p className="text-muted-foreground">
+                  Medizinische Modelle, Hilfsmittel und Prototypen für die Gesundheitsbranche in Oberösterreich. 
+                  Biokompatible Materialien auf Anfrage verfügbar.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-xl font-semibold mb-4">Kleinserien & Einzelstücke</h3>
+                <p className="text-muted-foreground">
+                  Wirtschaftliche Fertigung von Kleinserien und individuellen Einzelanfertigungen. 
+                  Ideal für Start-ups und Innovatoren in Oberösterreich.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Technology & Materials */}
+        <section className="py-16 px-4 bg-primary/5">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold mb-8">FDM 3D-Druck Technologie & Materialien</h2>
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-semibold mb-4">Modernste FDM-Technologie</h3>
+                <p className="text-muted-foreground mb-4">
+                  Unser 3D-Druck Service in Oberösterreich nutzt hochmoderne FDM-Drucker (Fused Deposition Modeling), 
+                  die für ihre Zuverlässigkeit und Präzision bekannt sind. Diese Technologie eignet sich hervorragend 
+                  für funktionale Prototypen, Endverbrauchsteile und technische Anwendungen.
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  FDM 3D-Druck bietet zahlreiche Vorteile: kosteneffiziente Produktion, schnelle Herstellung, 
+                  mechanisch belastbare Bauteile und eine breite Materialauswahl. Für Unternehmen in Linz, Wels 
+                  und ganz Oberösterreich bedeutet dies maximale Flexibilität in der Produktentwicklung.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold mb-4">Hochwertige Materialien</h3>
+                <p className="text-muted-foreground mb-4">
+                  Wir verwenden ausschließlich hochwertige 3D-Druck Filamente, bevorzugt aus österreichischer Produktion. 
+                  Unser Sortiment umfasst:
+                </p>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong>PLA:</strong> Umweltfreundlich, ideal für Prototypen und Präsentationsmodelle</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong>PETG:</strong> Robust und chemikalienbeständig für funktionale Bauteile</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong>ASA:</strong> UV-beständig für Außenanwendungen in Oberösterreich</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong>TPU:</strong> Flexibel für Dichtungen und elastische Komponenten</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold mb-12 text-center">So funktioniert unser 3D-Druck Service</h2>
+            <div className="grid md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-primary">
+                  1
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Anfrage senden</h3>
+                <p className="text-muted-foreground">
+                  Senden Sie uns Ihre 3D-Datei (STL, STEP, OBJ) oder kontaktieren Sie uns für eine Beratung zu Ihrem Projekt in Oberösterreich.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-primary">
+                  2
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Angebot erhalten</h3>
+                <p className="text-muted-foreground">
+                  Innerhalb von 24 Stunden erhalten Sie ein transparentes Angebot mit Preis, Lieferzeit und Materialempfehlung für Ihren 3D-Druck.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-primary">
+                  3
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Produktion</h3>
+                <p className="text-muted-foreground">
+                  Nach Ihrer Freigabe starten wir die FDM 3D-Druck Produktion mit höchster Qualität und Präzision in unserem Werk.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-primary">
+                  4
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Versand</h3>
+                <p className="text-muted-foreground">
+                  Schneller Versand nach Linz, Wels, Steyr und ganz Oberösterreich. Express-Lieferung innerhalb von 24-48h möglich.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 px-4 bg-primary/5">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold mb-12 text-center">Häufig gestellte Fragen zu 3D-Druck Oberösterreich</h2>
+            <div className="space-y-6 max-w-3xl mx-auto">
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-lg font-semibold mb-3">Wie lange dauert die Fertigung mit FDM 3D-Druck in Oberösterreich?</h3>
+                <p className="text-muted-foreground">
+                  Die Produktionszeit hängt von der Größe und Komplexität Ihres Bauteils ab. Kleinere Teile können innerhalb von 24 Stunden 
+                  gefertigt werden. Für größere oder komplexe Projekte beträgt die Lieferzeit in der Regel 2-5 Werktage. Express-Service 
+                  für dringende Anfragen ist verfügbar.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-lg font-semibold mb-3">Welche Dateiformate werden für 3D-Druck akzeptiert?</h3>
+                <p className="text-muted-foreground">
+                  Wir akzeptieren alle gängigen 3D-Dateiformate: STL, STEP, OBJ, 3MF und andere CAD-Formate. Sollten Sie keine 3D-Datei haben, 
+                  unterstützen wir Sie gerne bei der Erstellung oder Konvertierung Ihrer Konstruktionsdaten.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-lg font-semibold mb-3">Was kostet 3D-Druck in Oberösterreich?</h3>
+                <p className="text-muted-foreground">
+                  Die Kosten für FDM 3D-Druck hängen von Material, Größe, Komplexität und Stückzahl ab. Nutzen Sie unseren Online-Kostenrechner 
+                  für eine erste Einschätzung oder kontaktieren Sie uns für ein individuelles Angebot. Wir bieten faire und transparente Preise 
+                  für Kunden in ganz Oberösterreich.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-lg font-semibold mb-3">Liefern Sie auch nach Linz, Wels und Steyr?</h3>
+                <p className="text-muted-foreground">
+                  Ja, wir liefern schnell und zuverlässig in alle Städte und Gemeinden in Oberösterreich. Express-Lieferung nach Linz, Wels, 
+                  Steyr und Umgebung ist innerhalb von 24-48 Stunden möglich. Auch österreichweiter Versand ist selbstverständlich verfügbar.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl border border-border bg-card">
+                <h3 className="text-lg font-semibold mb-3">Welche Materialien verwenden Sie für 3D-Druck?</h3>
+                <p className="text-muted-foreground">
+                  Wir verwenden hochwertige FDM-Materialien wie PLA, PETG, ASA, ABS und TPU. Bevorzugt setzen wir auf Filamente aus 
+                  österreichischer Produktion für beste Qualität und Nachhaltigkeit. Jedes Material hat spezifische Eigenschaften – 
+                  wir beraten Sie gerne bei der Auswahl.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* City Links */}
         <section className="py-16 px-4 bg-primary/5">
           <div className="container mx-auto max-w-6xl">
