@@ -197,6 +197,138 @@ const Dornbirn3DDruck = () => {
           </div>
         </section>
 
+        {/* Applications */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                Anwendungsbereiche für <span className="text-gradient">3D-Druck in Dornbirn</span>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🏭 Industrie & Maschinenbau</h3>
+                  <p className="text-muted-foreground">Funktionale Prototypen, Ersatzteile und Betriebsmittel für Dornbirner Industrieunternehmen</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">👔 Textilindustrie</h3>
+                  <p className="text-muted-foreground">Spezielle Halterungen, Werkzeuge und Prototypen für Vorarlbergs Textilindustrie</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🏗️ Architektur & Bau</h3>
+                  <p className="text-muted-foreground">Architekturmodelle und Präsentationsmodelle für Dornbirner Architekten</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🔬 Forschung & Entwicklung</h3>
+                  <p className="text-muted-foreground">Rapid Prototyping für Forschungseinrichtungen und Start-ups in Vorarlberg</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Materials Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                <span className="text-gradient">Materialien</span> für Ihr Projekt in Dornbirn
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
+                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen und Designmodelle</p>
+                  <p className="text-sm text-primary">Ab sofort verfügbar in Dornbirn</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
+                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
+                  <p className="text-sm text-primary">Express-Service verfügbar</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
+                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
+                  <p className="text-sm text-primary">Industriequalität</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PA12 Nylon - Premium</h3>
+                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel, für anspruchsvolle Anwendungen</p>
+                  <p className="text-sm text-primary">Auf Anfrage</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                So einfach geht <span className="text-gradient">3D-Druck in Dornbirn</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">1</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Anfrage senden</h3>
+                    <p className="text-muted-foreground">Senden Sie uns Ihre CAD-Datei oder nutzen Sie unseren Kostenrechner für eine erste Schätzung</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">2</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Angebot erhalten</h3>
+                    <p className="text-muted-foreground">Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot mit Preis und Lieferzeit</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">3</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Produktion</h3>
+                    <p className="text-muted-foreground">Nach Ihrer Freigabe starten wir sofort mit dem 3D-Druck Ihres Projekts</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">4</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Lieferung nach Dornbirn</h3>
+                    <p className="text-muted-foreground">Express-Versand innerhalb von 24-48h direkt zu Ihnen nach Dornbirn</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                Häufig gestellte <span className="text-gradient">Fragen</span> zum 3D-Druck in Dornbirn
+              </h2>
+              <div className="space-y-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie schnell kann ich mein 3D-Druck-Teil in Dornbirn erhalten?</h3>
+                  <p className="text-muted-foreground">Mit unserem Express-Service liefern wir innerhalb von 24 Stunden nach Dornbirn. Standard-Lieferungen dauern 2-3 Werktage.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h3>
+                  <p className="text-muted-foreground">Wir akzeptieren STL, OBJ, STEP und viele weitere gängige CAD-Formate. Bei Fragen zu Ihrem Format kontaktieren Sie uns gerne.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie werden die Kosten für 3D-Druck in Dornbirn berechnet?</h3>
+                  <p className="text-muted-foreground">Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Bieten Sie auch Nachbearbeitung an?</h3>
+                  <p className="text-muted-foreground">Ja, wir bieten Schleifen, Lackieren und weitere Finishing-Optionen für Ihre 3D-gedruckten Teile in Dornbirn an.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <ReviewsWidget />
 
         <section id="contact" className="py-16">

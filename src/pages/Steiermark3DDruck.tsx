@@ -6,7 +6,7 @@ import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, Box, Clock, MapPin, CheckCircle } from "lucide-react";
 
 const Steiermark3DDruck = () => {
   useEffect(() => {
@@ -26,24 +26,77 @@ const Steiermark3DDruck = () => {
         {name: "Home", url: "/"},
         {name: "3D-Druck Steiermark", url: "/3d-druck-steiermark"}
       ]} />
+      <StructuredData type="organization" />
       <StructuredData type="service" />
+      
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ekdruck e.U. - 3D-Druck Steiermark",
+          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
+          "@id": "https://www.ek-druck.at",
+          "url": "https://www.ek-druck.at/3d-druck-steiermark",
+          "telephone": "+436765517197",
+          "email": "office@ekdruck.at",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Steiermark",
+            "addressCountry": "AT"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Steiermark"
+          },
+          "priceRange": "€€"
+        })}
+      </script>
+      
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Liefern Sie 3D-gedruckte Teile in die Steiermark?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja, wir liefern schnell und zuverlässig in die gesamte Steiermark. Express-Service innerhalb von 24-48 Stunden nach Graz und Umgebung verfügbar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Welche 3D-Druck Materialien bieten Sie an?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wir bieten PLA, PETG, ABS, TPU und Nylon aus österreichischer Produktion. Alle Materialien sind für verschiedene Anwendungen optimiert."
+              }
+            }
+          ]
+        })}
+      </script>
       
       <div className="min-h-screen">
         <Navigation />
         
         {/* Hero Section */}
-        <section className="pt-32 pb-16 px-4 bg-gradient-to-b from-primary/5 to-background">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
-                3D-Druck Service Steiermark
+        <section className="pt-32 pb-16 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <MapPin className="w-6 h-6 text-primary" />
+                <span className="text-primary font-semibold">Steiermark</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                3D-Druck Service <span className="text-gradient">Steiermark</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              <p className="text-xl text-muted-foreground mb-8">
                 Professioneller FDM 3D-Druck für Graz, Leoben, Kapfenberg und ganz Steiermark. Schnelle Lieferung, nachhaltige Materialien aus Österreich.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Jetzt Angebot anfordern <ArrowRight className="ml-2 h-5 w-5" />
+                  Jetzt Angebot erhalten
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="/kostenrechner">Kosten berechnen</a>
@@ -54,121 +107,248 @@ const Steiermark3DDruck = () => {
         </section>
 
         {/* Services Overview */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold mb-12 text-center">Unsere Services für Steiermark</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold mb-4">FDM 3D-Druck</h3>
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-12">
+              Unsere <span className="text-gradient">Services</span> für Steiermark
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="gradient-card p-6 rounded-xl">
+                <Box className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-bold mb-3">FDM 3D-Druck</h3>
                 <p className="text-muted-foreground mb-4">
-                  Hochwertige Bauteile mit modernster FDM-Technologie für Prototypen und Serienteile.
+                  Professioneller FDM 3D-Druck für Prototypen, Einzelteile und Kleinserien in der Steiermark.
                 </p>
-                <Button variant="link" asChild className="p-0">
-                  <a href="/fdm-3d-druck">Mehr erfahren →</a>
-                </Button>
+                <a href="/fdm-3d-druck" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
-              <div className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold mb-4">Express Service</h3>
+              
+              <div className="gradient-card p-6 rounded-xl">
+                <Clock className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-bold mb-3">Express Service</h3>
                 <p className="text-muted-foreground mb-4">
-                  Schnelle Fertigung in 24-48h für dringende Projekte und Prototypen.
+                  24-48h Lieferung nach Graz und in die gesamte Steiermark.
                 </p>
-                <Button variant="link" asChild className="p-0">
-                  <a href="/rapid-prototyping">Mehr erfahren →</a>
-                </Button>
+                <a href="/rapid-prototyping" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
-              <div className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold mb-4">Nachhaltige Materialien</h3>
+              
+              <div className="gradient-card p-6 rounded-xl">
+                <CheckCircle className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-bold mb-3">Nachhaltige Materialien</h3>
                 <p className="text-muted-foreground mb-4">
-                  Hochwertige Filamente aus österreichischer Produktion für umweltbewussten 3D-Druck.
+                  Hochwertige Filamente aus österreichischer Produktion.
                 </p>
-                <Button variant="link" asChild className="p-0">
-                  <a href="/3d-druck-materialien">Mehr erfahren →</a>
-                </Button>
+                <a href="/3d-druck-materialien" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* City Links */}
-        <section className="py-16 px-4 bg-primary/5">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold mb-8 text-center">3D-Druck Service in der Steiermark</h2>
-            <p className="text-center text-muted-foreground mb-8">
-              Wir liefern schnell und zuverlässig in alle steirischen Städte
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="outline" asChild>
-                <a href="/3d-druck-graz">3D-Druck Graz</a>
-              </Button>
+        {/* Applications */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                Anwendungsbereiche für <span className="text-gradient">3D-Druck in der Steiermark</span>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🏭 Industrie & Maschinenbau</h3>
+                  <p className="text-muted-foreground">Funktionale Prototypen, Ersatzteile und Betriebsmittel für steirische Industrieunternehmen</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🏗️ Architektur & Bau</h3>
+                  <p className="text-muted-foreground">Architekturmodelle und Präsentationsmodelle für Grazer Architekten</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🎨 Design & Kunst</h3>
+                  <p className="text-muted-foreground">Kunstobjekte und Designprototypen für Kreativschaffende</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h3 className="font-bold text-lg mb-3">🔬 Forschung & Entwicklung</h3>
+                  <p className="text-muted-foreground">Rapid Prototyping für Universitäten und Forschungseinrichtungen</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold mb-12 text-center">Warum ekdruck für Steiermark?</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-2">Schnelle Lieferung</h3>
-                  <p className="text-muted-foreground">Express-Versand nach Graz und ganz Steiermark</p>
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                Warum ekdruck für <span className="text-gradient">Steiermark</span>?
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex gap-4">
+                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold mb-2">Schnelle Lieferung</h3>
+                    <p className="text-muted-foreground">Express-Versand nach Graz und ganz Steiermark</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-2">Österreichische Qualität</h3>
-                  <p className="text-muted-foreground">Hochwertige Materialien aus regionaler Produktion</p>
+                
+                <div className="flex gap-4">
+                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold mb-2">Österreichische Qualität</h3>
+                    <p className="text-muted-foreground">Hochwertige Materialien aus regionaler Produktion</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-2">Individuelle Beratung</h3>
-                  <p className="text-muted-foreground">Persönlicher Support für Ihr 3D-Druck-Projekt</p>
+                
+                <div className="flex gap-4">
+                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold mb-2">Individuelle Beratung</h3>
+                    <p className="text-muted-foreground">Persönlicher Support für Ihr 3D-Druck-Projekt</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-2">Faire Preise</h3>
-                  <p className="text-muted-foreground">Transparente Kalkulation ohne versteckte Kosten</p>
+                
+                <div className="flex gap-4">
+                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold mb-2">Faire Preise</h3>
+                    <p className="text-muted-foreground">Transparente Kalkulation ohne versteckte Kosten</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Reviews */}
-        <section className="py-16 px-4 bg-primary/5">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold mb-12 text-center">Kundenstimmen aus Steiermark</h2>
-            <ReviewsWidget />
+        {/* Materials Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                <span className="text-gradient">Materialien</span> für Steiermark
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
+                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen und Designmodelle</p>
+                  <p className="text-sm text-primary">Ab sofort verfügbar</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
+                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
+                  <p className="text-sm text-primary">Express-Service verfügbar</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
+                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
+                  <p className="text-sm text-primary">Industriequalität</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PA12 Nylon - Premium</h3>
+                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel, für anspruchsvolle Anwendungen</p>
+                  <p className="text-sm text-primary">Auf Anfrage</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
+
+        {/* Process Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                So einfach geht <span className="text-gradient">3D-Druck</span> in der Steiermark
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">1</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Anfrage senden</h3>
+                    <p className="text-muted-foreground">Senden Sie uns Ihre CAD-Datei oder nutzen Sie unseren Kostenrechner</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">2</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Angebot erhalten</h3>
+                    <p className="text-muted-foreground">Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">3</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Produktion</h3>
+                    <p className="text-muted-foreground">Nach Ihrer Freigabe starten wir sofort mit dem 3D-Druck</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">4</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Lieferung in die Steiermark</h3>
+                    <p className="text-muted-foreground">Express-Versand innerhalb von 24-48h nach Graz und Umgebung</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                Häufig gestellte <span className="text-gradient">Fragen</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie schnell erfolgt die Lieferung in die Steiermark?</h3>
+                  <p className="text-muted-foreground">Mit unserem Express-Service liefern wir innerhalb von 24-48 Stunden nach Graz und in die gesamte Steiermark. Standard-Lieferungen dauern 2-3 Werktage.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h3>
+                  <p className="text-muted-foreground">Wir akzeptieren STL, OBJ, STEP, IGES und viele weitere gängige CAD-Formate.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie werden die Kosten berechnet?</h3>
+                  <p className="text-muted-foreground">Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Bieten Sie auch Nachbearbeitung an?</h3>
+                  <p className="text-muted-foreground">Ja, wir bieten Schleifen, Lackieren, Glattieren und weitere Finishing-Optionen an.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <ReviewsWidget />
 
         {/* Contact CTA */}
-        <section id="contact" className="py-16 px-4">
-          <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold mb-6">Jetzt 3D-Druck Service in Steiermark nutzen</h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Kontaktieren Sie uns für ein kostenloses Angebot
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <a href="tel:+436641337778" className="flex items-center justify-center gap-2 text-lg hover:text-primary transition-colors">
-                <Phone className="h-5 w-5" />
-                +43 664 1337778
-              </a>
-              <a href="mailto:office@ek-druck.at" className="flex items-center justify-center gap-2 text-lg hover:text-primary transition-colors">
-                <Mail className="h-5 w-5" />
-                office@ek-druck.at
-              </a>
+        <section id="contact" className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center gradient-card p-12 rounded-2xl">
+              <h2 className="text-4xl font-bold mb-6">
+                Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in der Steiermark
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Kontaktieren Sie uns noch heute für ein kostenloses Angebot
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-5 h-5 text-primary" />
+                  <a href="tel:+436765517197" className="text-lg hover:text-primary transition-colors">
+                    +43 676 5517197
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-primary" />
+                  <a href="mailto:office@ekdruck.at" className="text-lg hover:text-primary transition-colors">
+                    office@ekdruck.at
+                  </a>
+                </div>
+              </div>
+              <Button size="lg" asChild>
+                <a href="/#contact">Kontaktformular</a>
+              </Button>
             </div>
-            <Button size="lg" onClick={() => window.location.href = '/#contact'}>
-              Kontaktformular
-            </Button>
           </div>
         </section>
 
