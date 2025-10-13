@@ -404,7 +404,7 @@ const Linz3DDruck = () => {
                     <p className="text-sm text-muted-foreground">Österreichische Materialien</p>
                   </div>
                   <div className="text-center p-6 bg-card rounded-xl border">
-                    <div className="text-4xl font-bold text-primary mb-2">300mm³</div>
+                    <div className="text-4xl font-bold text-primary mb-2">350mm³</div>
                     <p className="text-sm text-muted-foreground">Max. Druckvolumen</p>
                   </div>
                 </div>
@@ -433,8 +433,8 @@ const Linz3DDruck = () => {
                     <Factory className="w-12 h-12 text-primary mb-4" />
                     <h3 className="text-2xl font-bold mb-4">Industrie & Produktion</h3>
                     <p className="text-muted-foreground mb-4 leading-relaxed">
-                      Linz ist Heimat führender Industrieunternehmen wie voestalpine, Engel und Rosenbauer. 
-                      Unser <strong className="text-primary">3D-Druck Service</strong> unterstützt diese Unternehmen mit:
+                      Linz ist ein bedeutender Industriestandort in Österreich. 
+                      Unser <strong className="text-primary">3D-Druck Service</strong> unterstützt produzierende Unternehmen mit:
                     </p>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
@@ -462,8 +462,8 @@ const Linz3DDruck = () => {
                     <FlaskConical className="w-12 h-12 text-primary mb-4" />
                     <h3 className="text-2xl font-bold mb-4">Forschung & Innovation</h3>
                     <p className="text-muted-foreground mb-4 leading-relaxed">
-                      Mit der Johannes Kepler Universität und der FH Oberösterreich ist Linz ein bedeutender 
-                      Forschungsstandort. Wir bieten spezialisierte Lösungen für:
+                      Als Universitäts- und Forschungsstandort profitiert Linz von innovativen 3D-Druck-Lösungen. 
+                      Wir bieten spezialisierte Services für:
                     </p>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
@@ -489,10 +489,10 @@ const Linz3DDruck = () => {
               
               <AnimatedSection delay={0.3}>
                 <div className="bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-8 md:p-12 rounded-2xl border">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">Start-up Hotspot Linz</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">Start-up Hotspot</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
-                    Die Linzer Start-up-Szene wächst rasant. Tech2b, das Softwarepark Hagenberg und zahlreiche 
-                    Innovationszentren machen Oberösterreich zum idealen Standort für Gründer. Als lokaler 
+                    Die Start-up-Szene in Österreich wächst rasant. Innovationszentren, Tech-Hubs und Gründer-Initiativen 
+                    machen unser Land zum idealen Standort für innovative Unternehmen. Als lokaler 
                     <strong className="text-primary"> 3D-Druck Dienstleister</strong> bieten wir Start-ups besondere Vorteile:
                   </p>
                   <div className="grid md:grid-cols-3 gap-6">
@@ -964,8 +964,8 @@ const Linz3DDruck = () => {
                       Welche Größe können die 3D-Drucke maximal haben?
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground leading-relaxed">
-                      Unser Druckvolumen beträgt bis zu 300 x 300 x 400 mm. Größere Teile können wir in Segmenten drucken und 
-                      anschließend montieren. Kontaktieren Sie uns für spezielle Anforderungen.
+                      Unser Druckvolumen beträgt bis zu 350 x 350 x 350 mm. Größere Teile können wir in Segmenten drucken und 
+                      anschließend professionell montieren. Kontaktieren Sie uns für spezielle Anforderungen.
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
