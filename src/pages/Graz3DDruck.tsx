@@ -28,6 +28,76 @@ const Graz3DDruck = () => {
       <StructuredData type="organization" />
       <StructuredData type="service" />
       
+      {/* LocalBusiness Schema */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ekdruck e.U. - 3D-Druck Graz",
+          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
+          "@id": "https://www.ek-druck.at",
+          "url": "https://www.ek-druck.at/3d-druck-graz",
+          "telephone": "+436765517197",
+          "email": "office@ekdruck.at",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Graz",
+            "addressRegion": "Steiermark",
+            "addressCountry": "AT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 47.0707,
+            "longitude": 15.4395
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Graz"
+            },
+            {
+              "@type": "State",
+              "name": "Steiermark"
+            }
+          ],
+          "priceRange": "€€"
+        })}
+      </script>
+      
+      {/* FAQPage Schema */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Wie schnell kann ich mein 3D-Druck-Teil in Graz erhalten?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mit unserem Express-Service liefern wir innerhalb von 24 Stunden nach Graz. Standard-Lieferungen dauern 2-3 Werktage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Welche Dateiformate werden akzeptiert?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wir akzeptieren STL, OBJ, STEP und viele weitere gängige CAD-Formate."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie werden die Kosten für 3D-Druck in Graz berechnet?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung."
+              }
+            }
+          ]
+        })}
+      </script>
+      
       <div className="min-h-screen">
         <Navigation />
         
