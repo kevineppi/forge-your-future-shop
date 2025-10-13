@@ -115,7 +115,7 @@ const Linz3DDruck = () => {
         <Navigation />
         
         {/* Hero Section - Enhanced */}
-        <section className="relative pt-32 pb-28 overflow-hidden">
+        <section className="relative pt-32 pb-20 overflow-hidden">
           {/* Animated Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
@@ -171,7 +171,7 @@ const Linz3DDruck = () => {
         </section>
 
         {/* Services Section - Enhanced */}
-        <section className="py-28 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <AnimatedSection>
               <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -238,7 +238,7 @@ const Linz3DDruck = () => {
         </section>
 
         {/* Why ekdruck Section - Enhanced */}
-        <section className="py-28 bg-muted/30">
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <AnimatedSection>
@@ -305,7 +305,7 @@ const Linz3DDruck = () => {
         </section>
 
         {/* Technology Deep Dive Section - NEW */}
-        <section className="py-28 bg-muted/30">
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <AnimatedSection>
@@ -415,7 +415,7 @@ const Linz3DDruck = () => {
         </section>
 
         {/* Linz-Specific Industry Section - NEW */}
-        <section className="py-28 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <AnimatedSection>
@@ -525,7 +525,7 @@ const Linz3DDruck = () => {
           </div>
         </section>
 
-        <section className="py-28 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <AnimatedSection>
@@ -596,7 +596,7 @@ const Linz3DDruck = () => {
         </section>
 
         {/* Materials Section - Enhanced */}
-        <section className="py-28 bg-muted/30">
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <AnimatedSection>
@@ -711,7 +711,7 @@ const Linz3DDruck = () => {
         </section>
 
         {/* Process Section - Enhanced */}
-        <section className="py-28 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <AnimatedSection>
@@ -795,7 +795,7 @@ const Linz3DDruck = () => {
         </section>
 
         {/* Quality & Sustainability Section - NEW */}
-        <section className="py-28 bg-muted/30">
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <AnimatedSection>
@@ -895,7 +895,7 @@ const Linz3DDruck = () => {
 
 
         {/* FAQ Section - Enhanced with Accordion */}
-        <section className="py-28 bg-muted/30">
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <AnimatedSection>
@@ -977,7 +977,7 @@ const Linz3DDruck = () => {
 
         <ReviewsWidget />
 
-        <section id="contact" className="py-24">
+        <section id="contact" className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center gradient-card p-12 rounded-2xl">
               <h2 className="text-4xl font-bold mb-6">
