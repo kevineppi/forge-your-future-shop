@@ -342,31 +342,108 @@ const Graz3DDruck = () => {
         {/* Materials Section */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-8 text-center">
-                <span className="text-gradient">Materialien</span> für Ihr Projekt in Graz
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
-                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen und Designmodelle</p>
-                  <p className="text-sm text-primary">Ab sofort verfügbar in Graz</p>
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold mb-4">
+                  Materialien für Ihr Projekt
+                </h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Hochwertige Filamente aus österreichischer Produktion – Ab sofort verfügbar in Graz
+                </p>
+              </div>
+              <div className="grid md:grid-cols-4 gap-6">
+                <div className="bg-card p-6 rounded-xl border">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-bold text-lg">PLA</h3>
+                    <span className="text-xs px-2 py-1 bg-green-500/10 text-green-500 rounded-full">Bio</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm mb-4">Biokunststoff, nachhaltig & vielseitig</p>
+                  <div className="space-y-1 text-sm">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Umweltfreundlich</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Ideal für Prototypen</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Präzise Details</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
-                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
-                  <p className="text-sm text-primary">Express-Service verfügbar</p>
+                
+                <div className="bg-card p-6 rounded-xl border">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-bold text-lg">PETG</h3>
+                    <span className="text-xs px-2 py-1 bg-blue-500/10 text-blue-500 rounded-full">Robust</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm mb-4">Schlagfest & chemikalienbeständig</p>
+                  <div className="space-y-1 text-sm">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Hohe Festigkeit</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Funktionale Bauteile</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Witterungsbeständig</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
-                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
-                  <p className="text-sm text-primary">Industriequalität</p>
+                
+                <div className="bg-card p-6 rounded-xl border">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-bold text-lg">ABS</h3>
+                    <span className="text-xs px-2 py-1 bg-orange-500/10 text-orange-500 rounded-full">Technisch</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm mb-4">Hitzebeständig & stabil</p>
+                  <div className="space-y-1 text-sm">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Bis 100°C belastbar</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Technische Teile</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Nachbearbeitbar</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PA12 Nylon - Premium</h3>
-                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel, für anspruchsvolle Anwendungen</p>
-                  <p className="text-sm text-primary">Auf Anfrage</p>
+                
+                <div className="bg-card p-6 rounded-xl border">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-bold text-lg">PA12 Nylon</h3>
+                    <span className="text-xs px-2 py-1 bg-purple-500/10 text-purple-500 rounded-full">Premium</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm mb-4">Höchste Festigkeit & flexibel</p>
+                  <div className="space-y-1 text-sm">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Extrem belastbar</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Anspruchsvoll</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span className="text-muted-foreground">Chemikalienresistent</span>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div className="text-center mt-8">
+                <Button size="lg" asChild>
+                  <a href="/3d-druck-materialien">Alle Materialien im Detail ansehen</a>
+                </Button>
               </div>
             </div>
           </div>
