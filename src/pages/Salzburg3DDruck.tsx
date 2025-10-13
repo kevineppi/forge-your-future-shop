@@ -422,15 +422,6 @@ const Salzburg3DDruck = () => {
             </div>
           </div>
         </section>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PA12 Nylon - Premium</h3>
-                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel, für anspruchsvolle Anwendungen</p>
-                  <p className="text-sm text-primary">Auf Anfrage</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Process Section */}
         <section className="py-16 bg-muted/30">

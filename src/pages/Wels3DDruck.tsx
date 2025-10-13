@@ -373,10 +373,6 @@ const Wels3DDruck = () => {
             </div>
           </div>
         </section>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* FAQ */}
         <section className="py-16 bg-muted/30">
