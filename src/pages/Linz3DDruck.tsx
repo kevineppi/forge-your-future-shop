@@ -598,9 +598,9 @@ const Linz3DDruck = () => {
         {/* Materials Section - Enhanced */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <AnimatedSection>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
                   <span className="text-gradient">Materialien</span> für Ihr Projekt in Linz
                 </h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
@@ -609,103 +609,106 @@ const Linz3DDruck = () => {
                 </p>
               </AnimatedSection>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 <AnimatedSection delay={0.1}>
-                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-bold text-xl">PLA</h3>
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="font-bold text-2xl">PLA</h3>
                       <span className="px-3 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">Bio</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      Nachhaltiger Biokunststoff, ideal für Prototypen, Designmodelle und Visualisierungen. 
-                      100% biologisch abbaubar.
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      Nachhaltiger Biokunststoff, ideal für Prototypen, Designmodelle und Visualisierungen. 100% biologisch abbaubar.
                     </p>
-                    <div className="space-y-2 text-sm">
+                    <div className="space-y-3">
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        <span>Umweltfreundlich</span>
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Umweltfreundlich</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        <span>Hohe Detailgenauigkeit</span>
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Hohe Detailgenauigkeit</span>
                       </div>
                     </div>
                   </div>
                 </AnimatedSection>
                 
                 <AnimatedSection delay={0.2}>
-                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-bold text-xl">PETG</h3>
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="font-bold text-2xl">PETG</h3>
                       <span className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs font-semibold">Robust</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       Schlagfest und chemikalienbeständig. Perfekt für funktionale Bauteile und Endverbrauchsteile mit hoher Belastung.
                     </p>
-                    <div className="space-y-2 text-sm">
+                    <div className="space-y-3">
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        <span>Hohe Festigkeit</span>
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Hohe Festigkeit</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        <span>Witterungsbeständig</span>
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Witterungsbeständig</span>
                       </div>
                     </div>
                   </div>
                 </AnimatedSection>
                 
                 <AnimatedSection delay={0.3}>
-                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-bold text-xl">ABS</h3>
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="font-bold text-2xl">ABS</h3>
                       <span className="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-semibold">Technisch</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       Hitzebeständig bis 100°C. Ideal für technische Anwendungen, Industriekomponenten und Gehäuse.
                     </p>
-                    <div className="space-y-2 text-sm">
+                    <div className="space-y-3">
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        <span>Temperaturbeständig</span>
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Temperaturbeständig</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        <span>Industriequalität</span>
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Industriequalität</span>
                       </div>
                     </div>
                   </div>
                 </AnimatedSection>
                 
                 <AnimatedSection delay={0.4}>
-                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-bold text-xl">PA12 Nylon</h3>
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="font-bold text-2xl">PA12 Nylon</h3>
                       <span className="px-3 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">Premium</span>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       Höchste Festigkeit und Flexibilität. Für anspruchsvolle mechanische Anwendungen und Sonderanfertigungen.
                     </p>
-                    <div className="space-y-2 text-sm">
+                    <div className="space-y-3">
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        <span>Extrem belastbar</span>
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Extrem belastbar</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary" />
-                        <span>Flexibel & stark</span>
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Flexibel & stark</span>
                       </div>
                     </div>
                   </div>
                 </AnimatedSection>
               </div>
               
-              <div className="text-center mt-10">
-                <a href="/3d-druck-materialien" className="inline-flex items-center gap-2 text-primary hover:underline font-semibold text-lg">
-                  Alle Materialien im Detail ansehen
-                  <TrendingUp className="w-5 h-5" />
-                </a>
-              </div>
+              <AnimatedSection delay={0.5}>
+                <div className="text-center">
+                  <Button variant="outline" size="lg" asChild>
+                    <a href="/3d-druck-materialien" className="group">
+                      Alle Materialien im Detail ansehen
+                      <TrendingUp className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </Button>
+                </div>
+              </AnimatedSection>
             </div>
           </div>
         </section>
