@@ -140,108 +140,6 @@ const Klagenfurt3DDruck = () => {
           </div>
         </section>
 
-        {/* Technology Deep Dive Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-                Professioneller <span className="text-gradient">FDM 3D-Druck</span> für Klagenfurt
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
-                Modernste Technologie trifft auf österreichische Qualität – Ihr 3D-Druck Partner in Kärnten.
-              </p>
-              
-              <div className="grid md:grid-cols-2 gap-12 mb-16">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-6">Was ist FDM 3D-Druck?</h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    FDM (Fused Deposition Modeling) ist das führende Verfahren im <strong className="text-primary">3D-Druck</strong> und 
-                    bildet die Grundlage unseres Services in Klagenfurt. Bei diesem additiven Fertigungsverfahren wird thermoplastisches 
-                    Material schichtweise aufgetragen, um präzise dreidimensionale Objekte zu erstellen.
-                  </p>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Als professioneller <strong className="text-primary">3D-Druck Dienstleister</strong> setzen wir 
-                    auf modernste FDM-Technologie mit Schichtauflösungen bis zu 0,1mm. Diese Präzision ermöglicht die Herstellung 
-                    komplexer Geometrien, die mit traditionellen Fertigungsmethoden nur schwer oder gar nicht realisierbar wären.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Ob für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>, 
-                    <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold"> individuelle Einzelanfertigungen</a> oder 
-                    <a href="/serienfertigung" className="text-primary hover:underline font-semibold"> Kleinserien</a> – FDM 3D-Druck 
-                    bietet maximale Flexibilität für Ihre Projekte in Klagenfurt.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-6">Vorteile für Klagenfurter Unternehmen</h3>
-                  <div className="space-y-4">
-                    <div className="flex gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold mb-1">Kosteneffizienz</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Keine teuren Werkzeuge oder Formen notwendig. Ideal für Prototypen und Kleinserien – 
-                          deutlich günstiger als traditionelle Fertigungsverfahren.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold mb-1">Schnelle Iteration</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Von der Idee zum fertigen Prototyp in 24-48 Stunden. Perfekt für agile Entwicklungsprozesse 
-                          in Start-ups und Forschungseinrichtungen in Klagenfurt.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold mb-1">Designfreiheit</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Komplexe Geometrien, Hinterschneidungen und organische Formen – mit 3D-Druck sind 
-                          nahezu keine Grenzen gesetzt.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold mb-1">Nachhaltigkeit</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Materialeffizienz durch additive Fertigung. Wir verwenden ausschließlich hochwertige 
-                          Filamente aus österreichischer Produktion – Made in Austria für Klagenfurt.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Industry Stats/Facts */}
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="text-center p-6 bg-card rounded-xl border">
-                  <div className="text-4xl font-bold text-primary mb-2">0,1mm</div>
-                  <p className="text-sm text-muted-foreground">Minimale Schichtauflösung</p>
-                </div>
-                <div className="text-center p-6 bg-card rounded-xl border">
-                  <div className="text-4xl font-bold text-primary mb-2">24h</div>
-                  <p className="text-sm text-muted-foreground">Express-Lieferung nach Klagenfurt</p>
-                </div>
-                <div className="text-center p-6 bg-card rounded-xl border">
-                  <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                  <p className="text-sm text-muted-foreground">Österreichische Materialien</p>
-                </div>
-                <div className="text-center p-6 bg-card rounded-xl border">
-                  <div className="text-4xl font-bold text-primary mb-2">350mm³</div>
-                  <p className="text-sm text-muted-foreground">Max. Druckvolumen</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Applications */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
@@ -318,107 +216,31 @@ const Klagenfurt3DDruck = () => {
         {/* Materials */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-                <span className="text-gradient">Materialien</span> für Ihr Projekt in Klagenfurt
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                <span className="text-gradient">Materialien</span> für Klagenfurt
               </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
-                Wir setzen ausschließlich auf hochwertige Filamente aus österreichischer Produktion. 
-                Nachhaltig, qualitativ und perfekt für Ihre Anforderungen.
-              </p>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-bold text-2xl">PLA</h3>
-                    <span className="px-3 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">Bio</span>
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Nachhaltiger Biokunststoff, ideal für Prototypen, Designmodelle und Visualisierungen. 100% biologisch abbaubar.
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Umweltfreundlich</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Hohe Detailgenauigkeit</span>
-                    </div>
-                  </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
+                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen</p>
                 </div>
-                
-                <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-bold text-2xl">PETG</h3>
-                    <span className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs font-semibold">Robust</span>
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Schlagfest und chemikalienbeständig. Perfekt für funktionale Bauteile und Endverbrauchsteile mit hoher Belastung.
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Hohe Festigkeit</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Witterungsbeständig</span>
-                    </div>
-                  </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
+                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
                 </div>
-                
-                <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-bold text-2xl">ABS</h3>
-                    <span className="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-semibold">Technisch</span>
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Hitzebeständig bis 100°C. Ideal für technische Anwendungen, Industriekomponenten und Gehäuse.
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Temperaturbeständig</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Industriequalität</span>
-                    </div>
-                  </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
+                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
                 </div>
-                
-                <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-bold text-2xl">PA12 Nylon</h3>
-                    <span className="px-3 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">Premium</span>
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Höchste Festigkeit und Flexibilität. Für anspruchsvolle mechanische Anwendungen und Sonderanfertigungen.
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Extrem belastbar</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">Flexibel & stark</span>
-                    </div>
-                  </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PA12 Nylon</h3>
+                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel</p>
                 </div>
-              </div>
-              
-              <div className="text-center">
-                <Button variant="outline" size="lg" asChild>
-                  <a href="/3d-druck-materialien" className="group">
-                    Alle Materialien im Detail ansehen →
-                  </a>
-                </Button>
               </div>
             </div>
           </div>
-         </section>
+        </section>
 
         {/* FAQ */}
         <section className="py-16">

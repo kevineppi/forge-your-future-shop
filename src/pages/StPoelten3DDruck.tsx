@@ -181,219 +181,37 @@ const StPoelten3DDruck = () => {
           </div>
         </section>
 
-        {/* Technology Deep Dive Section */}
-        <section className="py-16 bg-primary/5">
+        {/* Materials */}
+        <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-                Professioneller <span className="text-gradient">FDM 3D-Druck</span> für St. Pölten
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                <span className="text-gradient">Materialien</span> für St. Pölten
               </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
-                Modernste Technologie trifft auf österreichische Qualität – Ihr 3D-Druck Partner in Niederösterreich.
-              </p>
-              
-              <div className="grid md:grid-cols-2 gap-12 mb-12">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-6">Was ist FDM 3D-Druck?</h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    FDM (Fused Deposition Modeling) ist das führende Verfahren im <strong className="text-primary">3D-Druck</strong> und 
-                    bildet die Grundlage unseres Services in St. Pölten. Bei diesem additiven Fertigungsverfahren wird thermoplastisches 
-                    Material schichtweise aufgetragen, um präzise dreidimensionale Objekte zu erstellen.
-                  </p>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Als professioneller <strong className="text-primary">3D-Druck Dienstleister</strong> in Niederösterreich setzen wir 
-                    auf modernste FDM-Technologie mit Schichtauflösungen bis zu 0,1mm. Diese Präzision ermöglicht die Herstellung 
-                    komplexer Geometrien, die mit traditionellen Fertigungsmethoden nur schwer oder gar nicht realisierbar wären.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Ob für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>, 
-                    <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold"> individuelle Einzelanfertigungen</a> oder 
-                    <a href="/serienfertigung" className="text-primary hover:underline font-semibold"> Kleinserien</a> – FDM 3D-Druck 
-                    bietet maximale Flexibilität für Ihre Projekte in St. Pölten.
-                  </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
+                  <p className="text-muted-foreground">Nachhaltig, ideal für Prototypen</p>
                 </div>
-                
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-6">Vorteile für St. Pölten Unternehmen</h3>
-                  <div className="space-y-4">
-                    <div className="flex gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold mb-1">Kosteneffizienz</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Keine teuren Werkzeuge oder Formen notwendig. Ideal für Prototypen und Kleinserien – 
-                          deutlich günstiger als traditionelle Fertigungsverfahren.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold mb-1">Schnelle Iteration</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Von der Idee zum fertigen Prototyp in 24-48 Stunden. Perfekt für agile Entwicklungsprozesse 
-                          in Start-ups und Forschungseinrichtungen in Niederösterreich.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold mb-1">Designfreiheit</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Komplexe Geometrien, Hinterschneidungen und organische Formen – mit 3D-Druck sind 
-                          nahezu keine Grenzen gesetzt.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold mb-1">Nachhaltigkeit</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Materialeffizienz durch additive Fertigung. Wir verwenden ausschließlich hochwertige 
-                          Filamente aus österreichischer Produktion – Made in Austria für St. Pölten.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
+                  <p className="text-muted-foreground">Schlagfest für Bauteile</p>
                 </div>
-              </div>
-              
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="text-center p-6 bg-card rounded-xl border">
-                  <div className="text-4xl font-bold text-primary mb-2">0,1mm</div>
-                  <p className="text-sm text-muted-foreground">Minimale Schichtauflösung</p>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
+                  <p className="text-muted-foreground">Hitzebeständig</p>
                 </div>
-                <div className="text-center p-6 bg-card rounded-xl border">
-                  <div className="text-4xl font-bold text-primary mb-2">24-48h</div>
-                  <p className="text-sm text-muted-foreground">Express-Lieferung nach St. Pölten</p>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PA12 Nylon</h3>
+                  <p className="text-muted-foreground">Premium-Festigkeit</p>
                 </div>
-                <div className="text-center p-6 bg-card rounded-xl border">
-                  <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                  <p className="text-sm text-muted-foreground">Österreichische Materialien</p>
-                </div>
-                <div className="text-center p-6 bg-card rounded-xl border">
-                  <div className="text-4xl font-bold text-primary mb-2">350mm³</div>
-                  <p className="text-sm text-muted-foreground">Max. Druckvolumen</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Materials Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold mb-4">
-                  Materialien für Ihr Projekt
-                </h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Hochwertige Filamente aus österreichischer Produktion – Ab sofort verfügbar in St. Pölten
-                </p>
-              </div>
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="bg-card p-6 rounded-xl border">
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="font-bold text-lg">PLA</h3>
-                    <span className="text-xs px-2 py-1 bg-green-500/10 text-green-500 rounded-full">Bio</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm mb-4">Biokunststoff, nachhaltig & vielseitig</p>
-                  <div className="space-y-1 text-sm">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Umweltfreundlich</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Ideal für Prototypen</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Präzise Details</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-card p-6 rounded-xl border">
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="font-bold text-lg">PETG</h3>
-                    <span className="text-xs px-2 py-1 bg-blue-500/10 text-blue-500 rounded-full">Robust</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm mb-4">Schlagfest & chemikalienbeständig</p>
-                  <div className="space-y-1 text-sm">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Hohe Festigkeit</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Funktionale Bauteile</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Witterungsbeständig</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-card p-6 rounded-xl border">
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="font-bold text-lg">ABS</h3>
-                    <span className="text-xs px-2 py-1 bg-orange-500/10 text-orange-500 rounded-full">Technisch</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm mb-4">Hitzebeständig & stabil</p>
-                  <div className="space-y-1 text-sm">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Bis 100°C belastbar</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Technische Teile</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Nachbearbeitbar</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-card p-6 rounded-xl border">
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="font-bold text-lg">PA12 Nylon</h3>
-                    <span className="text-xs px-2 py-1 bg-purple-500/10 text-purple-500 rounded-full">Premium</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm mb-4">Höchste Festigkeit & flexibel</p>
-                  <div className="space-y-1 text-sm">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Extrem belastbar</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Anspruchsvoll</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <span className="text-muted-foreground">Chemikalienresistent</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="text-center mt-8">
-                <Button size="lg" asChild>
-                  <a href="/3d-druck-materialien">Alle Materialien im Detail ansehen</a>
-                </Button>
               </div>
             </div>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="py-16">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl font-bold mb-12 text-center">
