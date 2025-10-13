@@ -320,24 +320,28 @@ const Klagenfurt3DDruck = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl font-bold mb-8 text-center">
-                <span className="text-gradient">Materialien</span> für Klagenfurt
+                <span className="text-gradient">Materialien</span> für Ihr Projekt in Klagenfurt
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-card p-6 rounded-xl">
                   <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
-                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen</p>
+                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen und Designmodelle</p>
+                  <p className="text-sm text-primary">Ab sofort verfügbar in Klagenfurt</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
                   <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
                   <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
+                  <p className="text-sm text-primary">Express-Service verfügbar</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
                   <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
                   <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
+                  <p className="text-sm text-primary">Industriequalität</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PA12 Nylon</h3>
-                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel</p>
+                  <h3 className="font-bold text-lg mb-3">PA12 Nylon - Premium</h3>
+                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel, für anspruchsvolle Anwendungen</p>
+                  <p className="text-sm text-primary">Auf Anfrage</p>
                 </div>
               </div>
             </div>
