@@ -4,6 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
+import Contact from "@/components/Contact";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle, Zap, Shield, Leaf, TrendingUp, Factory, Building2, Palette, FlaskConical } from "lucide-react";
 import { useEffect } from "react";
@@ -1005,6 +1006,9 @@ const Linz3DDruck = () => {
             </div>
           </div>
         </section>
+
+        {/* Contact Form Section */}
+        <Contact />
 
         <Footer />
       </div>
