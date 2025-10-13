@@ -11,6 +11,12 @@ import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import SEOHead from "@/components/SEOHead";
 import { useEffect } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Index = () => {
   useEffect(() => {
@@ -115,98 +121,75 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Materials Section */}
-            <div className="mb-16">
-              <h3 className="text-3xl font-bold mb-8 text-center">
-                Nachhaltige <span className="text-gradient">3D-Druck Materialien</span> aus Österreich
-              </h3>
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="bg-card p-6 rounded-xl border">
-                  <h4 className="font-bold text-lg mb-3">PLA - Biokunststoff</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Nachhaltiges Bio-Filament aus österreichischer Produktion. Ideal für Prototypen und Designmodelle.
-                  </p>
-                  <p className="text-xs text-primary">✓ 100% biologisch abbaubar</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border">
-                  <h4 className="font-bold text-lg mb-3">PETG - Robust</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Schlagfest und chemikalienbeständig. Perfekt für funktionale Bauteile und Endverbrauchsteile.
-                  </p>
-                  <p className="text-xs text-primary">✓ Hohe Festigkeit</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border">
-                  <h4 className="font-bold text-lg mb-3">ABS - Technisch</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Hitzebeständig bis 100°C. Ideal für technische Anwendungen und Industriekomponenten.
-                  </p>
-                  <p className="text-xs text-primary">✓ Industriequalität</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border">
-                  <h4 className="font-bold text-lg mb-3">PA12 Nylon</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Höchste Festigkeit und Flexibilität. Für anspruchsvolle mechanische Anwendungen.
-                  </p>
-                  <p className="text-xs text-primary">✓ Premium Material</p>
-                </div>
-              </div>
-              <div className="text-center mt-8">
-                <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">
-                  Alle Materialien im Detail →
-                </a>
-              </div>
-            </div>
-
             {/* FAQ Section */}
             <div>
-              <h3 className="text-3xl font-bold mb-8 text-center">
+              <h3 className="text-3xl md:text-4xl font-bold mb-12 text-center">
                 Häufig gestellte <span className="text-gradient">Fragen</span> zu 3D-Druck
               </h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-card p-6 rounded-xl">
-                  <h4 className="font-bold text-lg mb-3">Was kostet 3D-Druck bei ekdruck?</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren{" "}
-                    <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für eine sofortige Schätzung. 
-                    Kleine Prototypen ab €5, größere Projekte nach individuellem Angebot.
-                  </p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h4 className="font-bold text-lg mb-3">Wie schnell erhalte ich mein 3D-gedrucktes Teil?</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Standard-Lieferung 3-5 Werktage österreichweit. Mit unserem{" "}
-                    <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Service</a> erhalten Sie 
-                    Ihre Teile bereits in 24-48 Stunden.
-                  </p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h4 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. 
-                    Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze.
-                  </p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h4 className="font-bold text-lg mb-3">Für welche Branchen bietet ekdruck 3D-Druck an?</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, 
-                    Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise.
-                  </p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h4 className="font-bold text-lg mb-3">Warum österreichisches Filament verwenden?</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und 
-                    Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse.
-                  </p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h4 className="font-bold text-lg mb-3">Bietet ekdruck auch Nachbearbeitung an?</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Ja! Wir bieten Schleifen, Lackieren, Grundieren, Glattieren und weitere Finishing-Optionen. 
-                    So erhalten Sie produktionsreife Bauteile direkt einsatzbereit.
-                  </p>
-                </div>
+              <div className="max-w-4xl mx-auto">
+                <Accordion type="single" collapsible className="space-y-4">
+                  <AccordionItem value="item-1" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Was kostet 3D-Druck bei ekdruck?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren{" "}
+                      <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für eine sofortige Schätzung. 
+                      Kleine Prototypen ab €5, größere Projekte nach individuellem Angebot.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-2" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Wie schnell erhalte ich mein 3D-gedrucktes Teil?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Standard-Lieferung 3-5 Werktage österreichweit. Mit unserem{" "}
+                      <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Service</a> erhalten Sie 
+                      Ihre Teile bereits in 24-48 Stunden.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-3" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Welche Dateiformate werden akzeptiert?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. 
+                      Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-4" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Für welche Branchen bietet ekdruck 3D-Druck an?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, 
+                      Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-5" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Warum österreichisches Filament verwenden?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und 
+                      Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-6" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Bietet ekdruck auch Nachbearbeitung an?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Ja! Wir bieten Schleifen, Lackieren, Grundieren, Glattieren und weitere Finishing-Optionen. 
+                      So erhalten Sie produktionsreife Bauteile direkt einsatzbereit.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
           </div>
