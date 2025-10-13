@@ -28,6 +28,52 @@ const Villach3DDruck = () => {
       <StructuredData type="organization" />
       <StructuredData type="service" />
       
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ekdruck e.U. - 3D-Druck Villach",
+          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
+          "@id": "https://www.ek-druck.at",
+          "url": "https://www.ek-druck.at/3d-druck-villach",
+          "telephone": "+436765517197",
+          "email": "office@ekdruck.at",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Villach",
+            "addressRegion": "Kärnten",
+            "addressCountry": "AT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 46.6111,
+            "longitude": 13.8558
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Villach" },
+            { "@type": "State", "name": "Kärnten" }
+          ],
+          "priceRange": "€€"
+        })}
+      </script>
+      
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Liefern Sie nach Villach?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja, wir liefern schnell und zuverlässig nach Villach und ganz Kärnten. Express-Service innerhalb von 24-48 Stunden verfügbar."
+              }
+            }
+          ]
+        })}
+      </script>
+      
       <div className="min-h-screen">
         <Navigation />
         
@@ -129,6 +175,60 @@ const Villach3DDruck = () => {
                     <h3 className="font-bold mb-2">Transparente Preise</h3>
                     <p className="text-muted-foreground">Kostenrechner für sofortige Preisschätzung</p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Materials */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                <span className="text-gradient">Materialien</span> für Villach
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
+                  <p className="text-muted-foreground mb-2">Nachhaltig, ideal für Prototypen</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
+                  <p className="text-muted-foreground mb-2">Schlagfest für funktionale Bauteile</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
+                  <p className="text-muted-foreground mb-2">Hitzebeständig, industrietauglich</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PA12 Nylon</h3>
+                  <p className="text-muted-foreground mb-2">Premium-Festigkeit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                Häufig gestellte <span className="text-gradient">Fragen</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie schnell liefern Sie nach Villach?</h3>
+                  <p className="text-muted-foreground">Express-Service innerhalb von 24-48 Stunden. Standard 2-3 Werktage.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate akzeptieren Sie?</h3>
+                  <p className="text-muted-foreground">STL, OBJ, STEP und weitere gängige CAD-Formate.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie berechnen sich die Kosten?</h3>
+                  <p className="text-muted-foreground">Nach Material, Größe und Druckdauer. Nutzen Sie unseren Kostenrechner.</p>
                 </div>
               </div>
             </div>

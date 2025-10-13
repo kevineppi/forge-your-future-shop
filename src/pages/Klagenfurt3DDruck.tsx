@@ -28,6 +28,52 @@ const Klagenfurt3DDruck = () => {
       <StructuredData type="organization" />
       <StructuredData type="service" />
       
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ekdruck e.U. - 3D-Druck Klagenfurt",
+          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
+          "@id": "https://www.ek-druck.at",
+          "url": "https://www.ek-druck.at/3d-druck-klagenfurt",
+          "telephone": "+436765517197",
+          "email": "office@ekdruck.at",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Klagenfurt",
+            "addressRegion": "Kärnten",
+            "addressCountry": "AT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 46.6237,
+            "longitude": 14.3055
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Klagenfurt" },
+            { "@type": "State", "name": "Kärnten" }
+          ],
+          "priceRange": "€€"
+        })}
+      </script>
+      
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Wie schnell liefern Sie nach Klagenfurt?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Express-Service innerhalb von 24-48 Stunden nach Klagenfurt und Umgebung. Standard-Lieferungen dauern 2-3 Werktage."
+              }
+            }
+          ]
+        })}
+      </script>
+      
       <div className="min-h-screen">
         <Navigation />
         
@@ -161,6 +207,60 @@ const Klagenfurt3DDruck = () => {
                     <h3 className="font-bold mb-2">Transparente Preise</h3>
                     <p className="text-muted-foreground">Nutzen Sie unseren Kostenrechner für eine sofortige Schätzung</p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Materials */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                <span className="text-gradient">Materialien</span> für Klagenfurt
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
+                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
+                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
+                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PA12 Nylon</h3>
+                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                Häufig gestellte <span className="text-gradient">Fragen</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie schnell erhalte ich mein 3D-Druck-Teil in Klagenfurt?</h3>
+                  <p className="text-muted-foreground">Express-Service innerhalb von 24-48 Stunden. Standard-Lieferungen dauern 2-3 Werktage.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h3>
+                  <p className="text-muted-foreground">Wir akzeptieren STL, OBJ, STEP und viele weitere CAD-Formate.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie werden die Kosten berechnet?</h3>
+                  <p className="text-muted-foreground">Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Kostenrechner.</p>
                 </div>
               </div>
             </div>

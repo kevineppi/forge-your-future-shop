@@ -28,6 +28,81 @@ const Linz3DDruck = () => {
       <StructuredData type="organization" />
       <StructuredData type="service" />
       
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ekdruck e.U. - 3D-Druck Linz",
+          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
+          "@id": "https://www.ek-druck.at",
+          "url": "https://www.ek-druck.at/3d-druck-linz",
+          "telephone": "+436765517197",
+          "email": "office@ekdruck.at",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Linz",
+            "addressRegion": "Oberösterreich",
+            "addressCountry": "AT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.3069,
+            "longitude": 14.2858
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Linz" },
+            { "@type": "State", "name": "Oberösterreich" }
+          ],
+          "priceRange": "€€",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "47"
+          }
+        })}
+      </script>
+      
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Wie schnell kann ich mein 3D-Druck-Teil in Linz erhalten?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mit unserem Express-Service liefern wir innerhalb von 24 Stunden nach Linz. Standard-Lieferungen dauern 2-3 Werktage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Welche Dateiformate werden akzeptiert?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wir akzeptieren STL, OBJ, STEP und viele weitere gängige CAD-Formate. Bei Fragen zu Ihrem Format kontaktieren Sie uns gerne."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie werden die Kosten für 3D-Druck in Linz berechnet?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Bieten Sie auch Nachbearbeitung an?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja, wir bieten Schleifen, Lackieren und weitere Finishing-Optionen für Ihre 3D-gedruckten Teile in Linz an."
+              }
+            }
+          ]
+        })}
+      </script>
+      
       <div className="min-h-screen">
         <Navigation />
         

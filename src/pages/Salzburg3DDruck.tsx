@@ -28,6 +28,59 @@ const Salzburg3DDruck = () => {
       <StructuredData type="organization" />
       <StructuredData type="service" />
       
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ekdruck e.U. - 3D-Druck Salzburg",
+          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
+          "@id": "https://www.ek-druck.at",
+          "url": "https://www.ek-druck.at/3d-druck-salzburg",
+          "telephone": "+436765517197",
+          "email": "office@ekdruck.at",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Salzburg",
+            "addressCountry": "AT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 47.8095,
+            "longitude": 13.0550
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Salzburg" },
+            { "@type": "State", "name": "Salzburg" }
+          ],
+          "priceRange": "€€"
+        })}
+      </script>
+      
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Liefern Sie auch nach Salzburg Stadt und Land?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja, wir liefern schnell und zuverlässig nach Salzburg Stadt und in das gesamte Bundesland. Express-Service innerhalb von 24-48 Stunden verfügbar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Welche 3D-Druck Materialien bieten Sie an?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wir bieten PLA, PETG, ABS, TPU und Nylon aus österreichischer Produktion. Alle Materialien sind für verschiedene Anwendungen optimiert."
+              }
+            }
+          ]
+        })}
+      </script>
+      
       <div className="min-h-screen">
         <Navigation />
         
@@ -157,6 +210,109 @@ const Salzburg3DDruck = () => {
                 <div className="bg-card p-6 rounded-xl border">
                   <h3 className="font-bold text-lg mb-3">🎨 Design</h3>
                   <p className="text-muted-foreground">Individuelle Kunstobjekte</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Materials Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                <span className="text-gradient">Materialien</span> für Salzburg
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
+                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen und Designmodelle</p>
+                  <p className="text-sm text-primary">Ab sofort verfügbar</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
+                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
+                  <p className="text-sm text-primary">Express-Service verfügbar</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
+                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
+                  <p className="text-sm text-primary">Industriequalität</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PA12 Nylon - Premium</h3>
+                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel, für anspruchsvolle Anwendungen</p>
+                  <p className="text-sm text-primary">Auf Anfrage</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                So einfach geht <span className="text-gradient">3D-Druck</span> in Salzburg
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">1</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Anfrage senden</h3>
+                    <p className="text-muted-foreground">Senden Sie uns Ihre CAD-Datei oder nutzen Sie unseren Kostenrechner</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">2</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Angebot erhalten</h3>
+                    <p className="text-muted-foreground">Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">3</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Produktion</h3>
+                    <p className="text-muted-foreground">Nach Ihrer Freigabe starten wir sofort mit dem 3D-Druck</p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">4</div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-2">Lieferung nach Salzburg</h3>
+                    <p className="text-muted-foreground">Express-Versand innerhalb von 24-48h nach Salzburg</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                Häufig gestellte <span className="text-gradient">Fragen</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie schnell erfolgt die Lieferung nach Salzburg?</h3>
+                  <p className="text-muted-foreground">Mit unserem Express-Service liefern wir innerhalb von 24-48 Stunden nach Salzburg Stadt und Land. Standard-Lieferungen dauern 2-3 Werktage.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h3>
+                  <p className="text-muted-foreground">Wir akzeptieren STL, OBJ, STEP, IGES und viele weitere gängige CAD-Formate.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie werden die Kosten berechnet?</h3>
+                  <p className="text-muted-foreground">Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Bieten Sie auch Nachbearbeitung an?</h3>
+                  <p className="text-muted-foreground">Ja, wir bieten Schleifen, Lackieren, Glattieren und weitere Finishing-Optionen an.</p>
                 </div>
               </div>
             </div>

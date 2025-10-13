@@ -28,6 +28,60 @@ const Innsbruck3DDruck = () => {
       <StructuredData type="organization" />
       <StructuredData type="service" />
       
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ekdruck e.U. - 3D-Druck Innsbruck",
+          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
+          "@id": "https://www.ek-druck.at",
+          "url": "https://www.ek-druck.at/3d-druck-innsbruck",
+          "telephone": "+436765517197",
+          "email": "office@ekdruck.at",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Innsbruck",
+            "addressRegion": "Tirol",
+            "addressCountry": "AT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 47.2692,
+            "longitude": 11.4041
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Innsbruck" },
+            { "@type": "State", "name": "Tirol" }
+          ],
+          "priceRange": "€€"
+        })}
+      </script>
+      
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Wie schnell kann ich mein 3D-Druck-Teil in Innsbruck erhalten?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mit unserem Express-Service liefern wir innerhalb von 24 Stunden nach Innsbruck. Standard-Lieferungen dauern 2-3 Werktage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Welche Branchen nutzen 3D-Druck in Tirol?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Industrie, Architektur, Tourismus, Medizintechnik, Forschung und viele weitere Branchen in Innsbruck und Tirol nutzen unseren 3D-Druck Service."
+              }
+            }
+          ]
+        })}
+      </script>
+      
       <div className="min-h-screen">
         <Navigation />
         

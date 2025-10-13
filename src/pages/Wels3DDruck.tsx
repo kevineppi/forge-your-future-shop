@@ -28,6 +28,52 @@ const Wels3DDruck = () => {
       <StructuredData type="organization" />
       <StructuredData type="service" />
       
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "ekdruck e.U. - 3D-Druck Wels",
+          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
+          "@id": "https://www.ek-druck.at",
+          "url": "https://www.ek-druck.at/3d-druck-wels",
+          "telephone": "+436765517197",
+          "email": "office@ekdruck.at",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Wels",
+            "addressRegion": "Oberösterreich",
+            "addressCountry": "AT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.1582,
+            "longitude": 14.0263
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Wels" },
+            { "@type": "State", "name": "Oberösterreich" }
+          ],
+          "priceRange": "€€"
+        })}
+      </script>
+      
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Bieten Sie Same-Day Lieferung nach Wels an?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja, für Kunden in Wels bieten wir Same-Day Lieferung an, da wir direkt in Oberösterreich produzieren."
+              }
+            }
+          ]
+        })}
+      </script>
+      
       <div className="min-h-screen">
         <Navigation />
         
@@ -157,6 +203,60 @@ const Wels3DDruck = () => {
                     <h3 className="font-bold mb-2">Faire Preise</h3>
                     <p className="text-muted-foreground">Transparente Kalkulation mit Online-Kostenrechner</p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Materials */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">
+                <span className="text-gradient">Materialien</span> für Wels
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
+                  <p className="text-muted-foreground">Nachhaltig, vielseitig einsetzbar</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
+                  <p className="text-muted-foreground">Schlagfest, chemikalienbeständig</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
+                  <p className="text-muted-foreground">Hitzebeständig, stabil</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">PA12 Nylon</h3>
+                  <p className="text-muted-foreground">Höchste Festigkeit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center">
+                <span className="text-gradient">Häufige Fragen</span> zu 3D-Druck in Wels
+              </h2>
+              <div className="space-y-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie schnell ist die Lieferung nach Wels?</h3>
+                  <p className="text-muted-foreground">Same-Day Lieferung möglich! Standard 1-2 Werktage innerhalb Oberösterreichs.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Welche Formate akzeptieren Sie?</h3>
+                  <p className="text-muted-foreground">STL, OBJ, STEP und weitere CAD-Formate.</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h3 className="font-bold text-lg mb-3">Wie kalkulieren Sie die Kosten?</h3>
+                  <p className="text-muted-foreground">Nach Material, Größe und Druckzeit. Online-Kostenrechner verfügbar.</p>
                 </div>
               </div>
             </div>
