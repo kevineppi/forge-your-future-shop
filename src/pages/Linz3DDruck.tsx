@@ -303,7 +303,227 @@ const Linz3DDruck = () => {
           </div>
         </section>
 
-        {/* Use Cases Section - Enhanced */}
+        {/* Technology Deep Dive Section - NEW */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  Professioneller <span className="text-gradient">FDM 3D-Druck</span> für Linz
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Modernste Technologie trifft auf österreichische Qualität – Ihr 3D-Druck Partner in Oberösterreich.
+                </p>
+              </AnimatedSection>
+              
+              <div className="grid md:grid-cols-2 gap-12 mb-16">
+                <AnimatedSection delay={0.1}>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-6">Was ist FDM 3D-Druck?</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      FDM (Fused Deposition Modeling) ist das führende Verfahren im <strong className="text-primary">3D-Druck</strong> und 
+                      bildet die Grundlage unseres Services in Linz. Bei diesem additiven Fertigungsverfahren wird thermoplastisches 
+                      Material schichtweise aufgetragen, um präzise dreidimensionale Objekte zu erstellen.
+                    </p>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Als professioneller <strong className="text-primary">3D-Druck Dienstleister</strong> in Oberösterreich setzen wir 
+                      auf modernste FDM-Technologie mit Schichtauflösungen bis zu 0,1mm. Diese Präzision ermöglicht die Herstellung 
+                      komplexer Geometrien, die mit traditionellen Fertigungsmethoden nur schwer oder gar nicht realisierbar wären.
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Ob für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>, 
+                      <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold"> individuelle Einzelanfertigungen</a> oder 
+                      <a href="/serienfertigung" className="text-primary hover:underline font-semibold"> Kleinserien</a> – FDM 3D-Druck 
+                      bietet maximale Flexibilität für Ihre Projekte in Linz.
+                    </p>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.2}>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-6">Vorteile für Linzer Unternehmen</h3>
+                    <div className="space-y-4">
+                      <div className="flex gap-3">
+                        <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-bold mb-1">Kosteneffizienz</h4>
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            Keine teuren Werkzeuge oder Formen notwendig. Ideal für Prototypen und Kleinserien – 
+                            deutlich günstiger als traditionelle Fertigungsverfahren.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-bold mb-1">Schnelle Iteration</h4>
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            Von der Idee zum fertigen Prototyp in 24-48 Stunden. Perfekt für agile Entwicklungsprozesse 
+                            in Start-ups und Forschungseinrichtungen in Linz.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-bold mb-1">Designfreiheit</h4>
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            Komplexe Geometrien, Hinterschneidungen und organische Formen – mit 3D-Druck sind 
+                            nahezu keine Grenzen gesetzt.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-bold mb-1">Nachhaltigkeit</h4>
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            Materialeffizienz durch additive Fertigung. Wir verwenden ausschließlich hochwertige 
+                            Filamente aus österreichischer Produktion – Made in Austria für Linz.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              </div>
+              
+              {/* Industry Stats/Facts */}
+              <AnimatedSection delay={0.3}>
+                <div className="grid md:grid-cols-4 gap-6">
+                  <div className="text-center p-6 bg-card rounded-xl border">
+                    <div className="text-4xl font-bold text-primary mb-2">0,1mm</div>
+                    <p className="text-sm text-muted-foreground">Minimale Schichtauflösung</p>
+                  </div>
+                  <div className="text-center p-6 bg-card rounded-xl border">
+                    <div className="text-4xl font-bold text-primary mb-2">24h</div>
+                    <p className="text-sm text-muted-foreground">Express-Lieferung nach Linz</p>
+                  </div>
+                  <div className="text-center p-6 bg-card rounded-xl border">
+                    <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                    <p className="text-sm text-muted-foreground">Österreichische Materialien</p>
+                  </div>
+                  <div className="text-center p-6 bg-card rounded-xl border">
+                    <div className="text-4xl font-bold text-primary mb-2">300mm³</div>
+                    <p className="text-sm text-muted-foreground">Max. Druckvolumen</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        {/* Linz-Specific Industry Section - NEW */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  3D-Druck für die <span className="text-gradient">Linzer Wirtschaft</span>
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Linz ist ein bedeutender Industriestandort in Österreich. Als lokaler 3D-Druck Dienstleister 
+                  unterstützen wir die innovative Wirtschaft der Landeshauptstadt.
+                </p>
+              </AnimatedSection>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <AnimatedSection delay={0.1}>
+                  <div className="bg-card p-8 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <Factory className="w-12 h-12 text-primary mb-4" />
+                    <h3 className="text-2xl font-bold mb-4">Industrie & Produktion</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Linz ist Heimat führender Industrieunternehmen wie voestalpine, Engel und Rosenbauer. 
+                      Unser <strong className="text-primary">3D-Druck Service</strong> unterstützt diese Unternehmen mit:
+                    </p>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Funktionsprototypen für neue Produktentwicklungen</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Ersatzteile und Komponenten on-demand</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Vorrichtungen und Betriebsmittel für die Produktion</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Kleinserien für Spezialprojekte</span>
+                      </li>
+                    </ul>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.2}>
+                  <div className="bg-card p-8 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <FlaskConical className="w-12 h-12 text-primary mb-4" />
+                    <h3 className="text-2xl font-bold mb-4">Forschung & Innovation</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Mit der Johannes Kepler Universität und der FH Oberösterreich ist Linz ein bedeutender 
+                      Forschungsstandort. Wir bieten spezialisierte Lösungen für:
+                    </p>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Wissenschaftliche Modelle und Anschauungsobjekte</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Forschungsprototypen mit kurzen Iterationszyklen</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Spezialanfertigungen für Laborausstattung</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Bildungsmaterialien für Lehre und Ausbildung</span>
+                      </li>
+                    </ul>
+                  </div>
+                </AnimatedSection>
+              </div>
+              
+              <AnimatedSection delay={0.3}>
+                <div className="bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-8 md:p-12 rounded-2xl border">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">Start-up Hotspot Linz</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
+                    Die Linzer Start-up-Szene wächst rasant. Tech2b, das Softwarepark Hagenberg und zahlreiche 
+                    Innovationszentren machen Oberösterreich zum idealen Standort für Gründer. Als lokaler 
+                    <strong className="text-primary"> 3D-Druck Dienstleister</strong> bieten wir Start-ups besondere Vorteile:
+                  </p>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="flex items-start gap-3">
+                      <Zap className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold mb-1">Schnelle Prototypen</h4>
+                        <p className="text-sm text-muted-foreground">MVP in 48 Stunden – perfekt für Pitch und Investorengespräche</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <TrendingUp className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold mb-1">Skalierbare Produktion</h4>
+                        <p className="text-sm text-muted-foreground">Von Einzelstück bis Kleinserie – wir wachsen mit Ihnen</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold mb-1">Persönliche Beratung</h4>
+                        <p className="text-sm text-muted-foreground">Wir helfen bei Design-Optimierung und Materialwahl</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
@@ -572,6 +792,106 @@ const Linz3DDruck = () => {
             </div>
           </div>
         </section>
+
+        {/* Quality & Sustainability Section - NEW */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  Qualität & <span className="text-gradient">Nachhaltigkeit</span> aus Österreich
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Als österreichischer 3D-Druck Dienstleister setzen wir auf höchste Qualitätsstandards 
+                  und nachhaltige Produktion – für Linz und ganz Oberösterreich.
+                </p>
+              </AnimatedSection>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <AnimatedSection delay={0.1}>
+                  <div className="bg-card p-8 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
+                    <Shield className="w-12 h-12 text-primary mb-4" />
+                    <h3 className="text-2xl font-bold mb-4">Qualitätssicherung</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Jedes <strong className="text-primary">3D-gedruckte Teil</strong> durchläuft bei uns eine mehrstufige 
+                      Qualitätskontrolle, bevor es zu Ihnen nach Linz geliefert wird:
+                    </p>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Design-Analyse:</strong> Prüfung und Optimierung Ihrer CAD-Datei vor dem Druck</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Material-Kontrolle:</strong> Nur zertifizierte Filamente aus österreichischer Produktion</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Druck-Überwachung:</strong> Kontinuierliche Kontrolle während des gesamten Druckprozesses</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Finish-Kontrolle:</strong> Visuelle und dimensionale Prüfung des fertigen Bauteils</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Dokumentation:</strong> Lückenlose Nachverfolgbarkeit aller Produktionsschritte</span>
+                      </li>
+                    </ul>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.2}>
+                  <div className="bg-card p-8 rounded-2xl border-2 hover:border-primary/30 transition-all h-full">
+                    <Leaf className="w-12 h-12 text-primary mb-4" />
+                    <h3 className="text-2xl font-bold mb-4">Nachhaltiger 3D-Druck</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Umweltbewusstsein ist uns wichtig. Als <strong className="text-primary">nachhaltiger 3D-Druck Service</strong> 
+                      in Linz setzen wir auf ökologische Verantwortung:
+                    </p>
+                    <ul className="space-y-3 text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Regionale Materialien:</strong> Filamente aus österreichischer Herstellung – kurze Transportwege</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Recycling-Materialien:</strong> PLA aus nachwachsenden Rohstoffen und Industrieabfällen</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Materialeffizienz:</strong> Additive Fertigung minimiert Abfall gegenüber spanenden Verfahren</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Energieoptimierung:</strong> Moderne Drucker mit effizienter Energienutzung</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Lokale Produktion:</strong> Fertigung in Oberösterreich reduziert CO₂-Emissionen</span>
+                      </li>
+                    </ul>
+                  </div>
+                </AnimatedSection>
+              </div>
+              
+              <AnimatedSection delay={0.3}>
+                <div className="bg-gradient-to-br from-primary/5 to-secondary/5 p-8 md:p-10 rounded-2xl border">
+                  <h3 className="text-2xl font-bold mb-4 text-center">Made in Austria – Für Linz</h3>
+                  <p className="text-muted-foreground text-center leading-relaxed max-w-4xl mx-auto">
+                    Als österreichischer <strong className="text-primary">3D-Druck Dienstleister</strong> sind wir stolz darauf, 
+                    ausschließlich mit Partnern aus Österreich zusammenzuarbeiten. Unsere Filamente stammen von führenden 
+                    österreichischen Herstellern, die höchste Qualitätsstandards erfüllen und nachhaltig produzieren. 
+                    Diese Partnerschaft garantiert konstante Materialqualität, kurze Lieferwege und die Unterstützung 
+                    der heimischen Wirtschaft. Für unsere Kunden in Linz bedeutet das: verlässliche Qualität, 
+                    schnelle Verfügbarkeit und ein gutes Gefühl beim Einkauf lokaler Produkte.
+                  </p>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
 
         {/* FAQ Section - Enhanced with Accordion */}
         <section className="py-20 bg-muted/30">
