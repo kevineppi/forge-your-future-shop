@@ -41,6 +41,178 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Services />
+      
+      {/* Additional Content Section - Technology & Process */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+              Professioneller <span className="text-gradient">FDM 3D-Druck</span> aus Oberösterreich
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 mb-16">
+              <div>
+                <h3 className="text-2xl font-bold mb-6">Modernste FDM 3D-Druck Technologie</h3>
+                <p className="text-muted-foreground mb-4">
+                  Als professioneller <strong className="text-primary">3D-Druck Dienstleister</strong> aus Oberösterreich setzen wir auf modernste{" "}
+                  <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM (Fused Deposition Modeling)</a> Technologie. 
+                  Diese additive Fertigungsmethode ermöglicht die präzise Herstellung komplexer Geometrien mit hoher Qualität.
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  Unser <strong className="text-primary">3D-Druck Service</strong> deckt alle Bereiche ab: von schnellem{" "}
+                  <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> über{" "}
+                  <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelanfertigungen</a> bis hin zur{" "}
+                  <a href="/serienfertigung" className="text-primary hover:underline font-semibold">effizienten Serienfertigung</a>. 
+                  Mit Schichtauflösungen bis zu 0,1mm garantieren wir höchste Präzision.
+                </p>
+                <p className="text-muted-foreground">
+                  Als österreichischer <strong className="text-primary">3D-Druck Spezialist</strong> legen wir besonderen Wert auf{" "}
+                  <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltige Materialien</a>. 
+                  Wir verwenden ausschließlich hochwertige Filamente aus österreichischer Produktion für umweltfreundlichen 3D-Druck.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-bold mb-6">Unser 3D-Druck Prozess</h3>
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">1</div>
+                    <div>
+                      <h4 className="font-bold mb-2">Anfrage & Beratung</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Kostenlose Beratung zu Material, Technologie und Machbarkeit Ihres 3D-Druck Projekts
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">2</div>
+                    <div>
+                      <h4 className="font-bold mb-2">Angebot & Design-Optimierung</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Detailliertes Angebot mit Preis und Lieferzeit. Optimierung Ihrer CAD-Dateien für optimale Druckergebnisse
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">3</div>
+                    <div>
+                      <h4 className="font-bold mb-2">Produktion mit FDM 3D-Druck</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Fertigung mit modernsten FDM 3D-Druckern und nachhaltigen österreichischen Materialien
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">4</div>
+                    <div>
+                      <h4 className="font-bold mb-2">Qualitätskontrolle & Versand</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Sorgfältige Prüfung und schneller Versand österreichweit. Express-Service in 24-48h verfügbar
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Materials Section */}
+            <div className="mb-16">
+              <h3 className="text-3xl font-bold mb-8 text-center">
+                Nachhaltige <span className="text-gradient">3D-Druck Materialien</span> aus Österreich
+              </h3>
+              <div className="grid md:grid-cols-4 gap-6">
+                <div className="bg-card p-6 rounded-xl border">
+                  <h4 className="font-bold text-lg mb-3">PLA - Biokunststoff</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Nachhaltiges Bio-Filament aus österreichischer Produktion. Ideal für Prototypen und Designmodelle.
+                  </p>
+                  <p className="text-xs text-primary">✓ 100% biologisch abbaubar</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h4 className="font-bold text-lg mb-3">PETG - Robust</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Schlagfest und chemikalienbeständig. Perfekt für funktionale Bauteile und Endverbrauchsteile.
+                  </p>
+                  <p className="text-xs text-primary">✓ Hohe Festigkeit</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h4 className="font-bold text-lg mb-3">ABS - Technisch</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Hitzebeständig bis 100°C. Ideal für technische Anwendungen und Industriekomponenten.
+                  </p>
+                  <p className="text-xs text-primary">✓ Industriequalität</p>
+                </div>
+                <div className="bg-card p-6 rounded-xl border">
+                  <h4 className="font-bold text-lg mb-3">PA12 Nylon</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Höchste Festigkeit und Flexibilität. Für anspruchsvolle mechanische Anwendungen.
+                  </p>
+                  <p className="text-xs text-primary">✓ Premium Material</p>
+                </div>
+              </div>
+              <div className="text-center mt-8">
+                <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">
+                  Alle Materialien im Detail →
+                </a>
+              </div>
+            </div>
+
+            {/* FAQ Section */}
+            <div>
+              <h3 className="text-3xl font-bold mb-8 text-center">
+                Häufig gestellte <span className="text-gradient">Fragen</span> zu 3D-Druck
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-card p-6 rounded-xl">
+                  <h4 className="font-bold text-lg mb-3">Was kostet 3D-Druck bei ekdruck?</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren{" "}
+                    <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für eine sofortige Schätzung. 
+                    Kleine Prototypen ab €5, größere Projekte nach individuellem Angebot.
+                  </p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h4 className="font-bold text-lg mb-3">Wie schnell erhalte ich mein 3D-gedrucktes Teil?</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Standard-Lieferung 3-5 Werktage österreichweit. Mit unserem{" "}
+                    <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Service</a> erhalten Sie 
+                    Ihre Teile bereits in 24-48 Stunden.
+                  </p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h4 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. 
+                    Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze.
+                  </p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h4 className="font-bold text-lg mb-3">Für welche Branchen bietet ekdruck 3D-Druck an?</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, 
+                    Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise.
+                  </p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h4 className="font-bold text-lg mb-3">Warum österreichisches Filament verwenden?</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und 
+                    Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse.
+                  </p>
+                </div>
+                <div className="bg-card p-6 rounded-xl">
+                  <h4 className="font-bold text-lg mb-3">Bietet ekdruck auch Nachbearbeitung an?</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Ja! Wir bieten Schleifen, Lackieren, Grundieren, Glattieren und weitere Finishing-Optionen. 
+                    So erhalten Sie produktionsreife Bauteile direkt einsatzbereit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <Advantages />
       <Reviews />
       <About />
