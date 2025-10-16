@@ -370,20 +370,6 @@ const Index = () => {
                     </p>
                   </div>
                   <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Medizintechnik</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Anatomische Modelle, Operationsplanungsmodelle, Prothesen-Prototypen und 
-                      medizinische Hilfsmittel. Biokompatible Materialien auf Anfrage verfügbar.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Automotive & Motorsport</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Designstudien, Funktionsteile, Armaturenbrett-Prototypen, aerodynamische Tests 
-                      und individuelle Fahrzeugteile. Temperaturbeständige Materialien verfügbar.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-secondary pl-4">
                     <h4 className="font-bold text-lg mb-2">Bildung & Forschung</h4>
                     <p className="text-muted-foreground text-sm">
                       Lehrmittel, wissenschaftliche Modelle, Forschungsprototypen und 
