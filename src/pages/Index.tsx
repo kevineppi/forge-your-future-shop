@@ -65,99 +65,105 @@ const Index = () => {
             
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               {/* Technologie Sektion */}
-              <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
+                <div className="relative gradient-card p-8 rounded-2xl border-2 border-primary/30 hover:border-primary/50 transition-all shadow-xl">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center shadow-lg shadow-primary/30">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold">Modernste FDM 3D-Druck Technologie</h3>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold">Modernste FDM 3D-Druck Technologie</h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Als professioneller <strong className="text-primary">3D-Druck Dienstleister</strong> aus Oberösterreich setzen wir auf modernste{" "}
+                    <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM (Fused Deposition Modeling)</a> Technologie. 
+                    Diese additive Fertigungsmethode ermöglicht die präzise Herstellung komplexer Geometrien mit hoher Qualität.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Unser <strong className="text-primary">3D-Druck Service</strong> deckt alle Bereiche ab: von schnellem{" "}
+                    <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> über{" "}
+                    <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelanfertigungen</a> bis hin zur{" "}
+                    <a href="/serienfertigung" className="text-primary hover:underline font-semibold">effizienten Serienfertigung</a>. 
+                    Mit Schichtauflösungen bis zu 0,1mm garantieren wir höchste Präzision.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Als österreichischer <strong className="text-primary">3D-Druck Spezialist</strong> legen wir besonderen Wert auf{" "}
+                    <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltige Materialien</a>. 
+                    Wir verwenden ausschließlich hochwertige Filamente aus österreichischer Produktion für umweltfreundlichen 3D-Druck.
+                  </p>
                 </div>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Als professioneller <strong className="text-primary">3D-Druck Dienstleister</strong> aus Oberösterreich setzen wir auf modernste{" "}
-                  <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM (Fused Deposition Modeling)</a> Technologie. 
-                  Diese additive Fertigungsmethode ermöglicht die präzise Herstellung komplexer Geometrien mit hoher Qualität.
-                </p>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Unser <strong className="text-primary">3D-Druck Service</strong> deckt alle Bereiche ab: von schnellem{" "}
-                  <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> über{" "}
-                  <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelanfertigungen</a> bis hin zur{" "}
-                  <a href="/serienfertigung" className="text-primary hover:underline font-semibold">effizienten Serienfertigung</a>. 
-                  Mit Schichtauflösungen bis zu 0,1mm garantieren wir höchste Präzision.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Als österreichischer <strong className="text-primary">3D-Druck Spezialist</strong> legen wir besonderen Wert auf{" "}
-                  <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltige Materialien</a>. 
-                  Wir verwenden ausschließlich hochwertige Filamente aus österreichischer Produktion für umweltfreundlichen 3D-Druck.
-                </p>
               </div>
               
               {/* Prozess Sektion */}
-              <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold">Unser 3D-Druck Prozess</h3>
-                </div>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">1</div>
-                    <div>
-                      <h4 className="font-bold mb-2 flex items-center gap-2">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                        </svg>
-                        Anfrage & Beratung
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Kostenlose Beratung zu Material, Technologie und Machbarkeit Ihres 3D-Druck Projekts
-                      </p>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
+                <div className="relative gradient-card p-8 rounded-2xl border-2 border-secondary/30 hover:border-secondary/50 transition-all shadow-xl">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-secondary to-secondary/70 rounded-lg flex items-center justify-center shadow-lg shadow-secondary/30">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
                     </div>
+                    <h3 className="text-2xl md:text-3xl font-bold">Unser 3D-Druck Prozess</h3>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">2</div>
-                    <div>
-                      <h4 className="font-bold mb-2 flex items-center gap-2">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        Angebot & Design-Optimierung
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Detailliertes Angebot mit Preis und Lieferzeit. Optimierung Ihrer CAD-Dateien für optimale Druckergebnisse
-                      </p>
+                  <div className="space-y-6">
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">1</div>
+                      <div>
+                        <h4 className="font-bold mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                          </svg>
+                          Anfrage & Beratung
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          Kostenlose Beratung zu Material, Technologie und Machbarkeit Ihres 3D-Druck Projekts
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">3</div>
-                    <div>
-                      <h4 className="font-bold mb-2 flex items-center gap-2">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                        </svg>
-                        Produktion mit FDM 3D-Druck
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Fertigung mit modernsten FDM 3D-Druckern und nachhaltigen österreichischen Materialien
-                      </p>
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">2</div>
+                      <div>
+                        <h4 className="font-bold mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          Angebot & Design-Optimierung
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          Detailliertes Angebot mit Preis und Lieferzeit. Optimierung Ihrer CAD-Dateien für optimale Druckergebnisse
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">4</div>
-                    <div>
-                      <h4 className="font-bold mb-2 flex items-center gap-2">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                        </svg>
-                        Qualitätskontrolle & Versand
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Sorgfältige Prüfung und schneller Versand österreichweit. Express-Service in 24-48h verfügbar
-                      </p>
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">3</div>
+                      <div>
+                        <h4 className="font-bold mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                          </svg>
+                          Produktion mit FDM 3D-Druck
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          Fertigung mit modernsten FDM 3D-Druckern und nachhaltigen österreichischen Materialien
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">4</div>
+                      <div>
+                        <h4 className="font-bold mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                          </svg>
+                          Qualitätskontrolle & Versand
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          Sorgfältige Prüfung und schneller Versand österreichweit. Express-Service in 24-48h verfügbar
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -165,231 +171,122 @@ const Index = () => {
             </div>
 
             {/* FAQ Section - Enhanced with Icons */}
-            <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-primary/10">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 rounded-2xl blur-2xl"></div>
+              <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 border-2 border-primary/30 shadow-2xl">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center justify-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center shadow-lg shadow-primary/30">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
                   </div>
+                  <h3 className="text-3xl md:text-4xl font-bold">
+                    Häufig gestellte <span className="text-gradient">Fragen</span> zu 3D-Druck
+                  </h3>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold">
-                  Häufig gestellte <span className="text-gradient">Fragen</span> zu 3D-Druck
-                </h3>
-              </div>
-              <div className="max-w-4xl mx-auto">
-                <Accordion type="single" collapsible className="space-y-4">
-                  <AccordionItem value="item-1" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
-                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
-                      <div className="flex items-center gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        Was kostet 3D-Druck bei ekdruck?
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren{" "}
-                      <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für eine sofortige Schätzung. 
-                      Kleine Prototypen ab €5, größere Projekte nach individuellem Angebot.
-                    </AccordionContent>
-                  </AccordionItem>
+                <div className="max-w-4xl mx-auto">
+                  <Accordion type="single" collapsible className="space-y-4">
+                    <AccordionItem value="item-1" className="bg-gradient-to-r from-background/80 to-background/60 border-2 border-primary/20 rounded-xl px-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all">
+                      <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                        <div className="flex items-center gap-3">
+                          <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          Was kostet 3D-Druck bei ekdruck?
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren{" "}
+                        <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für eine sofortige Schätzung. 
+                        Kleine Prototypen ab €5, größere Projekte nach individuellem Angebot.
+                      </AccordionContent>
+                    </AccordionItem>
 
-                  <AccordionItem value="item-2" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
-                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
-                      <div className="flex items-center gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        Wie schnell erhalte ich mein 3D-gedrucktes Teil?
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      Standard-Lieferung 3-5 Werktage österreichweit. Mit unserem{" "}
-                      <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Service</a> erhalten Sie 
-                      Ihre Teile bereits in 24-48 Stunden.
-                    </AccordionContent>
-                  </AccordionItem>
+                    <AccordionItem value="item-2" className="bg-gradient-to-r from-background/80 to-background/60 border-2 border-secondary/20 rounded-xl px-6 hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/10 transition-all">
+                      <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                        <div className="flex items-center gap-3">
+                          <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          Wie schnell erhalte ich mein 3D-gedrucktes Teil?
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Standard-Lieferung 3-5 Werktage österreichweit. Mit unserem{" "}
+                        <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Service</a> erhalten Sie 
+                        Ihre Teile bereits in 24-48 Stunden.
+                      </AccordionContent>
+                    </AccordionItem>
 
-                  <AccordionItem value="item-3" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
-                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
-                      <div className="flex items-center gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        Welche Dateiformate werden akzeptiert?
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. 
-                      Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze.
-                    </AccordionContent>
-                  </AccordionItem>
+                    <AccordionItem value="item-3" className="bg-gradient-to-r from-background/80 to-background/60 border-2 border-primary/20 rounded-xl px-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all">
+                      <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                        <div className="flex items-center gap-3">
+                          <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          Welche Dateiformate werden akzeptiert?
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. 
+                        Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze.
+                      </AccordionContent>
+                    </AccordionItem>
 
-                  <AccordionItem value="item-4" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
-                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
-                      <div className="flex items-center gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                        Für welche Branchen bietet ekdruck 3D-Druck an?
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, 
-                      Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise.
-                    </AccordionContent>
-                  </AccordionItem>
+                    <AccordionItem value="item-4" className="bg-gradient-to-r from-background/80 to-background/60 border-2 border-secondary/20 rounded-xl px-6 hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/10 transition-all">
+                      <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                        <div className="flex items-center gap-3">
+                          <svg className="w-5 h-5 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                          Für welche Branchen bietet ekdruck 3D-Druck an?
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Industrie & Maschinenbau, Architektur & Bau, Design & Kunst, 
+                        Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise.
+                      </AccordionContent>
+                    </AccordionItem>
 
-                  <AccordionItem value="item-5" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
-                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
-                      <div className="flex items-center gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        Warum österreichisches Filament verwenden?
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und 
-                      Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse.
-                    </AccordionContent>
-                  </AccordionItem>
+                    <AccordionItem value="item-5" className="bg-gradient-to-r from-background/80 to-background/60 border-2 border-primary/20 rounded-xl px-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all">
+                      <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                        <div className="flex items-center gap-3">
+                          <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          Warum österreichisches Filament verwenden?
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und 
+                        Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse.
+                      </AccordionContent>
+                    </AccordionItem>
 
-                  <AccordionItem value="item-6" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
-                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
-                      <div className="flex items-center gap-3">
-                        <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                        </svg>
-                        Bietet ekdruck auch Nachbearbeitung an?
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      Ja! Wir bieten Schleifen, Lackieren, Grundieren, Glattieren und weitere Finishing-Optionen. 
-                      So erhalten Sie produktionsreife Bauteile direkt einsatzbereit.
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                    <AccordionItem value="item-6" className="bg-gradient-to-r from-background/80 to-background/60 border-2 border-secondary/20 rounded-xl px-6 hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/10 transition-all">
+                      <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                        <div className="flex items-center gap-3">
+                          <svg className="w-5 h-5 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                          </svg>
+                          Bietet ekdruck auch Nachbearbeitung an?
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Ja! Wir bieten Schleifen, Lackieren, Grundieren, Glattieren und weitere Finishing-Optionen. 
+                        So erhalten Sie produktionsreife Bauteile direkt einsatzbereit.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
       
-      {/* Material & Applications Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Materialien & <span className="text-gradient">Anwendungsbereiche</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Hochwertige Filamente und vielseitige Einsatzmöglichkeiten für Ihre 3D-Druck Projekte
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              {/* Materials */}
-              <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold">Premium 3D-Druck Materialien</h3>
-                </div>
-                <div className="space-y-6">
-                  <div className="border-l-4 border-primary pl-4">
-                    <h4 className="font-bold text-lg mb-2">PLA (Polylactic Acid)</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Biologisch abbaubares Material aus nachwachsenden Rohstoffen. Ideal für Prototypen, 
-                      Modelle und dekorative Objekte. Temperaturbeständig bis 60°C, einfach zu drucken und 
-                      in vielen Farben verfügbar.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h4 className="font-bold text-lg mb-2">PETG (Polyethylenterephthalat)</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Robustes und schlagfestes Material mit guter chemischer Beständigkeit. 
-                      Temperaturbeständig bis 80°C, lebensmittelecht und UV-beständig. Perfekt für 
-                      funktionale Bauteile und Außenanwendungen.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h4 className="font-bold text-lg mb-2">ABS (Acrylnitril-Butadien-Styrol)</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Hochfestes technisches Material mit ausgezeichneter Temperaturbeständigkeit bis 100°C. 
-                      Ideal für mechanisch belastbare Bauteile, Gehäuse und Automotive-Anwendungen. 
-                      Nachbearbeitbar durch Schleifen und Lackieren.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h4 className="font-bold text-lg mb-2">TPU (Thermoplastisches Polyurethan)</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Flexibles, elastisches Material mit hoher Abriebfestigkeit. Shore-Härte 95A, 
-                      dehnbar bis 500%. Optimal für Dichtungen, Dämpfungselemente und flexible Verbindungen.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Spezial-Filamente</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Carbon-verstärkte Materialien, Holz-Filamente, Metall-Filamente und weitere 
-                      Spezial-Composites für anspruchsvolle Anwendungen mit besonderen Anforderungen.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Applications */}
-              <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold">Vielseitige Anwendungsbereiche</h3>
-                </div>
-                <div className="space-y-6">
-                  <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Industrie & Maschinenbau</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Funktionsprototypen, Ersatzteile, Betriebsmittel, Vorrichtungen und Halterungen. 
-                      Schnelle Iterationen für Produktentwicklung und kosteneffiziente Kleinserien.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Architektur & Bauwesen</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Architekturmodelle, Gebäudevisualisierungen, Prototypen für Bauelemente und 
-                      Designstudien. Maßstabsgetreue Modelle für Präsentationen und Planungen.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Bildung & Forschung</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Lehrmittel, wissenschaftliche Modelle, Forschungsprototypen und 
-                      Anschauungsobjekte für Universitäten, Schulen und Forschungseinrichtungen.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Design & Kunst</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Kunstobjekte, Skulpturen, Schmuck-Prototypen und individualisierte Designprodukte. 
-                      Vielfältige Materialien und Farben für kreative Projekte.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Quality & Standards Section */}
       <section className="py-24 bg-gradient-to-b from-muted/20 to-background">
         <div className="container mx-auto px-4">
@@ -404,52 +301,52 @@ const Index = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="group bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-8 rounded-2xl border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Sorgfältige Qualitätskontrolle</h3>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Sorgfältige Qualitätskontrolle</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Jedes Bauteil wird visuell geprüft und auf Maßhaltigkeit kontrolliert. Wir garantieren 
                   reproduzierbare Qualität durch kalibrierte Drucker und standardisierte Prozesse.
                 </p>
               </div>
 
-              <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
-                <div className="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <svg className="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="group bg-gradient-to-br from-secondary/10 via-secondary/5 to-transparent p-8 rounded-2xl border-2 border-secondary/20 hover:border-secondary/40 transition-all hover:shadow-2xl hover:shadow-secondary/20 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/70 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-secondary/20">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Schnelle Lieferzeiten</h3>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-secondary transition-colors">Schnelle Lieferzeiten</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Standard-Lieferung in 3-5 Werktagen österreichweit. Express-Service in 24-48 Stunden 
                   verfügbar für zeitkritische Projekte.
                 </p>
               </div>
 
-              <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="group bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-8 rounded-2xl border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Nachhaltige Materialien</h3>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Nachhaltige Materialien</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Wir verwenden ausschließlich österreichische Filamente aus recycelten Industrieabfällen. 
                   Umweltfreundliche Produktion mit Ökostrom für eine bessere Zukunft.
                 </p>
               </div>
 
-              <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
-                <div className="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <svg className="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="group bg-gradient-to-br from-secondary/10 via-secondary/5 to-transparent p-8 rounded-2xl border-2 border-secondary/20 hover:border-secondary/40 transition-all hover:shadow-2xl hover:shadow-secondary/20 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/70 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-secondary/20">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Persönliche Beratung</h3>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-secondary transition-colors">Persönliche Beratung</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Von der ersten Idee bis zum fertigen Produkt: Unser Team berät Sie bei Material, 
                   Design-Optimierung und Machbarkeit Ihres Projekts.
@@ -457,8 +354,12 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 rounded-3xl p-10 border-2 border-primary/20 shadow-2xl">
-              <div className="max-w-5xl mx-auto">
+            <div className="relative bg-gradient-to-br from-primary/5 via-background to-secondary/5 rounded-3xl p-10 border-2 border-transparent overflow-hidden shadow-2xl">
+              {/* Animated border gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary opacity-20 blur-xl"></div>
+              <div className="absolute inset-0 border-2 border-primary/30 rounded-3xl"></div>
+              
+              <div className="max-w-5xl mx-auto relative z-10">
                 <div className="text-center mb-12">
                   <div className="inline-flex items-center justify-center gap-3 mb-6">
                     <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center shadow-lg">
