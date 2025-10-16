@@ -1,55 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, Users, Zap, Target, CheckCircle } from "lucide-react";
-
 const About = () => {
-  const capabilities = [
-    "Einzelanfertigungen & Spezialanfertigungen",
-    "Nachhaltige Inneneinrichtung",
-    "Serienfertigung & Kleinserien",
-    "Technischer Entwurf & Beratung",
-    "Millimetergenaue Präzision",
-    "Express-Service verfügbar"
-  ];
-
-  const materials = [
-    "100% Österreichisches Filament",
-    "Hergestellt aus Industrieabfällen",
-    "PLA & PLA+ nachhaltig",
-    "PETG regional",
-    "ABS aus Austria",
-    "Flexible Materialien",
-    "Alle Farben verfügbar",
-    "Verschiedene Größen",
-    "Umweltfreundlich",
-    "Ressourcenschonend"
-  ];
-
-  const values = [
-    {
-      icon: Target,
-      title: "Nachhaltigkeit",
-      description: "100% österreichisches Filament aus Industrieabfällen für ressourcenschonende Produktion"
-    },
-    {
-      icon: Zap,
-      title: "Regionalität",
-      description: "Kurze Wege, persönlicher Kontakt und schnelle Lieferzeiten aus Oberösterreich"
-    },
-    {
-      icon: Users,
-      title: "Kundennähe",
-      description: "Langfristige Partnerschaften und kostenlose, individuelle Beratung für jeden Kunden"
-    },
-    {
-      icon: Award,
-      title: "Qualität",
-      description: "Hohe Qualitätsansprüche und millimetergenaue Präzision bei jedem Projekt"
-    }
-  ];
-
-  return (
-    <section id="about" className="py-24 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+  const capabilities = ["Einzelanfertigungen & Spezialanfertigungen", "Nachhaltige Inneneinrichtung", "Serienfertigung & Kleinserien", "Technischer Entwurf & Beratung", "Millimetergenaue Präzision", "Express-Service verfügbar"];
+  const materials = ["100% Österreichisches Filament", "Hergestellt aus Industrieabfällen", "PLA & PLA+ nachhaltig", "PETG regional", "ABS aus Austria", "Flexible Materialien", "Alle Farben verfügbar", "Verschiedene Größen", "Umweltfreundlich", "Ressourcenschonend"];
+  const values = [{
+    icon: Target,
+    title: "Nachhaltigkeit",
+    description: "100% österreichisches Filament aus Industrieabfällen für ressourcenschonende Produktion"
+  }, {
+    icon: Zap,
+    title: "Regionalität",
+    description: "Kurze Wege, persönlicher Kontakt und schnelle Lieferzeiten aus Oberösterreich"
+  }, {
+    icon: Users,
+    title: "Kundennähe",
+    description: "Langfristige Partnerschaften und kostenlose, individuelle Beratung für jeden Kunden"
+  }, {
+    icon: Award,
+    title: "Qualität",
+    description: "Hohe Qualitätsansprüche und millimetergenaue Präzision bei jedem Projekt"
+  }];
+  return <section id="about" className="py-24 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-secondary/5 rounded-full blur-3xl"></div>
@@ -117,8 +89,7 @@ const About = () => {
               <h3 className="text-3xl font-bold">Unsere Werte</h3>
             </div>
             <div className="space-y-8">
-              {values.map((value, index) => (
-                <div key={index} className="group flex items-start space-x-5 p-5 rounded-xl bg-background/50 border border-primary/10 hover:border-primary/30 transition-all hover:shadow-lg">
+              {values.map((value, index) => <div key={index} className="group flex items-start space-x-5 p-5 rounded-xl bg-background/50 border border-primary/10 hover:border-primary/30 transition-all hover:shadow-lg">
                   <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <value.icon className="h-7 w-7 text-primary" />
                   </div>
@@ -126,8 +97,7 @@ const About = () => {
                     <h4 className="font-bold text-lg mb-2">{value.title}</h4>
                     <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -135,41 +105,14 @@ const About = () => {
         {/* Capabilities and Materials */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <Card className="gradient-card border-0">
-            <CardContent className="p-8">
-              <h4 className="text-xl font-bold mb-6 flex items-center">
-                <CheckCircle className="mr-3 h-6 w-6 text-primary" />
-                Unsere 3D-Druck Leistungen
-              </h4>
-              <div className="grid grid-cols-1 gap-3">
-                {capabilities.map((capability, index) => (
-                  <div key={index} className="flex items-center">
-                    <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                    <span className="text-sm">{capability}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
+            
           </Card>
 
           <Card className="gradient-card border-0">
-            <CardContent className="p-8">
-              <h4 className="text-xl font-bold mb-6 flex items-center">
-                <CheckCircle className="mr-3 h-6 w-6 text-secondary" />
-                Nachhaltige 3D-Druck Materialien aus Österreich
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {materials.map((material, index) => (
-                  <Badge key={index} variant="outline" className="text-xs">
-                    {material}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
+            
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;

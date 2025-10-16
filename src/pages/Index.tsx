@@ -574,7 +574,7 @@ const Index = () => {
       
       {/* Reviews Section - Enhanced Visual Separation */}
       <div className="bg-gradient-to-b from-background to-muted/30">
-        <Reviews />
+        
         <ReviewsWidget />
       </div>
       
