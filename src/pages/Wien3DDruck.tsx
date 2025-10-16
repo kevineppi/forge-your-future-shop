@@ -6,12 +6,8 @@ import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
-import { useEffect } from "react";
 
 const Wien3DDruck = () => {
-  useEffect(() => {
-    document.title = "3D Druck Wien – Prototypen & Fertigung | ek-druck";
-  }, []);
 
   return (
     <>
@@ -27,82 +23,7 @@ const Wien3DDruck = () => {
       ]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      
-      {/* LocalBusiness Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "ekdruck e.U. - 3D-Druck Wien",
-          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-          "@id": "https://www.ek-druck.at",
-          "url": "https://www.ek-druck.at/3d-druck-wien",
-          "telephone": "+436765517197",
-          "email": "office@ekdruck.at",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Wien",
-            "addressCountry": "AT"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 48.2082,
-            "longitude": 16.3738
-          },
-          "areaServed": {
-            "@type": "City",
-            "name": "Wien"
-          },
-          "priceRange": "€€",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "47"
-          }
-        })}
-      </script>
-      
-      {/* FAQPage Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Wie schnell kann ich mein 3D-Druck-Teil in Wien erhalten?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Mit unserem Express-Service liefern wir innerhalb von 24 Stunden nach Wien. Standard-Lieferungen dauern 2-3 Werktage."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Welche Dateiformate werden akzeptiert?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Wir akzeptieren STL, OBJ, STEP und viele weitere gängige CAD-Formate. Bei Fragen zu Ihrem Format kontaktieren Sie uns gerne."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Wie werden die Kosten für 3D-Druck in Wien berechnet?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Bieten Sie auch Nachbearbeitung an?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ja, wir bieten Schleifen, Lackieren und weitere Finishing-Optionen für Ihre 3D-gedruckten Teile in Wien an."
-              }
-            }
-          ]
-        })}
-      </script>
+      <StructuredData type="faq" />
       
       <div className="min-h-screen">
         <Navigation />

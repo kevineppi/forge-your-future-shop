@@ -6,12 +6,8 @@ import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
-import { useEffect } from "react";
 
 const Villach3DDruck = () => {
-  useEffect(() => {
-    document.title = "3D Druck Villach – Prototypen & Fertigung | ek-druck";
-  }, []);
 
   return (
     <>
@@ -27,52 +23,7 @@ const Villach3DDruck = () => {
       ]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "ekdruck e.U. - 3D-Druck Villach",
-          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-          "@id": "https://www.ek-druck.at",
-          "url": "https://www.ek-druck.at/3d-druck-villach",
-          "telephone": "+436765517197",
-          "email": "office@ekdruck.at",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Villach",
-            "addressRegion": "Kärnten",
-            "addressCountry": "AT"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 46.6111,
-            "longitude": 13.8558
-          },
-          "areaServed": [
-            { "@type": "City", "name": "Villach" },
-            { "@type": "State", "name": "Kärnten" }
-          ],
-          "priceRange": "€€"
-        })}
-      </script>
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Liefern Sie nach Villach?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ja, wir liefern schnell und zuverlässig nach Villach und ganz Kärnten. Express-Service innerhalb von 24-48 Stunden verfügbar."
-              }
-            }
-          ]
-        })}
-      </script>
+      <StructuredData type="faq" />
       
       <div className="min-h-screen">
         <Navigation />

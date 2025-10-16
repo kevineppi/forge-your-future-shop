@@ -10,7 +10,6 @@ import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import SEOHead from "@/components/SEOHead";
-import { useEffect } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -19,10 +18,6 @@ import {
 } from "@/components/ui/accordion";
 
 const Index = () => {
-  useEffect(() => {
-    // Update document title for main page - SEO optimized with target keywords
-    document.title = "3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U.";
-  }, []);
 
   return (
     <>

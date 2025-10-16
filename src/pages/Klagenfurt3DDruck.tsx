@@ -6,12 +6,8 @@ import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
-import { useEffect } from "react";
 
 const Klagenfurt3DDruck = () => {
-  useEffect(() => {
-    document.title = "3D Druck Klagenfurt – Prototypen & Fertigung | ek-druck";
-  }, []);
 
   return (
     <>
@@ -27,52 +23,7 @@ const Klagenfurt3DDruck = () => {
       ]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "ekdruck e.U. - 3D-Druck Klagenfurt",
-          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-          "@id": "https://www.ek-druck.at",
-          "url": "https://www.ek-druck.at/3d-druck-klagenfurt",
-          "telephone": "+436765517197",
-          "email": "office@ekdruck.at",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Klagenfurt",
-            "addressRegion": "Kärnten",
-            "addressCountry": "AT"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 46.6237,
-            "longitude": 14.3055
-          },
-          "areaServed": [
-            { "@type": "City", "name": "Klagenfurt" },
-            { "@type": "State", "name": "Kärnten" }
-          ],
-          "priceRange": "€€"
-        })}
-      </script>
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Wie schnell liefern Sie nach Klagenfurt?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Express-Service innerhalb von 24-48 Stunden nach Klagenfurt und Umgebung. Standard-Lieferungen dauern 2-3 Werktage."
-              }
-            }
-          ]
-        })}
-      </script>
+      <StructuredData type="faq" />
       
       <div className="min-h-screen">
         <Navigation />

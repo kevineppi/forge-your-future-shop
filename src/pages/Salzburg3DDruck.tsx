@@ -6,12 +6,8 @@ import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
-import { useEffect } from "react";
 
 const Salzburg3DDruck = () => {
-  useEffect(() => {
-    document.title = "3D Druck Salzburg – Prototypen & Fertigung | ek-druck";
-  }, []);
 
   return (
     <>
@@ -27,59 +23,7 @@ const Salzburg3DDruck = () => {
       ]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "ekdruck e.U. - 3D-Druck Salzburg",
-          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-          "@id": "https://www.ek-druck.at",
-          "url": "https://www.ek-druck.at/3d-druck-salzburg",
-          "telephone": "+436765517197",
-          "email": "office@ekdruck.at",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Salzburg",
-            "addressCountry": "AT"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 47.8095,
-            "longitude": 13.0550
-          },
-          "areaServed": [
-            { "@type": "City", "name": "Salzburg" },
-            { "@type": "State", "name": "Salzburg" }
-          ],
-          "priceRange": "€€"
-        })}
-      </script>
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Liefern Sie auch nach Salzburg Stadt und Land?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ja, wir liefern schnell und zuverlässig nach Salzburg Stadt und in das gesamte Bundesland. Express-Service innerhalb von 24-48 Stunden verfügbar."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Welche 3D-Druck Materialien bieten Sie an?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Wir bieten PLA, PETG, ABS, TPU und Nylon aus österreichischer Produktion. Alle Materialien sind für verschiedene Anwendungen optimiert."
-              }
-            }
-          ]
-        })}
-      </script>
+      <StructuredData type="faq" />
       
       <div className="min-h-screen">
         <Navigation />

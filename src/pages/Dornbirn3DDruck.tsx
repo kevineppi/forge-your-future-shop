@@ -6,12 +6,8 @@ import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
-import { useEffect } from "react";
 
 const Dornbirn3DDruck = () => {
-  useEffect(() => {
-    document.title = "3D Druck Dornbirn – Prototypen & Fertigung | ek-druck";
-  }, []);
 
   return (
     <>
@@ -27,68 +23,7 @@ const Dornbirn3DDruck = () => {
       ]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      
-      {/* LocalBusiness Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "ekdruck e.U. - 3D-Druck Dornbirn",
-          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-          "@id": "https://www.ek-druck.at",
-          "url": "https://www.ek-druck.at/3d-druck-dornbirn",
-          "telephone": "+436765517197",
-          "email": "office@ekdruck.at",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dornbirn",
-            "addressRegion": "Vorarlberg",
-            "addressCountry": "AT"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 47.4125,
-            "longitude": 9.7417
-          },
-          "areaServed": [
-            {
-              "@type": "City",
-              "name": "Dornbirn"
-            },
-            {
-              "@type": "State",
-              "name": "Vorarlberg"
-            }
-          ],
-          "priceRange": "€€"
-        })}
-      </script>
-      
-      {/* FAQPage Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Wie schnell erfolgt die Lieferung nach Dornbirn?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Express-Service innerhalb von 24 Stunden nach Dornbirn. Standard-Lieferungen dauern 2-3 Werktage."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Welche Branchen nutzen 3D-Druck in Dornbirn?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Industrie, Textilindustrie, Architektur, Maschinenbau und viele weitere Branchen in Dornbirn profitieren von unserem 3D-Druck Service."
-              }
-            }
-          ]
-        })}
-      </script>
+      <StructuredData type="faq" />
       
       <div className="min-h-screen">
         <Navigation />
