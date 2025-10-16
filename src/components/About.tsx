@@ -49,13 +49,22 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="about" className="py-24 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-secondary/5 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center justify-center gap-3 mb-6">
+            <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center shadow-lg">
+              <Award className="w-8 h-8 text-white" />
+            </div>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Über <span className="text-gradient">ekdruck e.U.</span> - Ihr 3D-Druck Partner
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Ihr regionaler 3D-Druck Partner aus Oberösterreich. Nachhaltige Fertigung mit{" "}
             <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">österreichischem Filament</a>, 
             persönliche Beratung und kurze Lieferwege in ganz Österreich. Spezialisiert auf{" "}
@@ -64,11 +73,16 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {/* Company Story */}
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Unsere Mission - Nachhaltiger 3D-Druck aus Oberösterreich</h3>
-            <div className="space-y-6 text-muted-foreground">
+          <div className="gradient-card p-10 rounded-2xl border-2 border-primary/10">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center">
+                <Target className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="text-3xl font-bold">Unsere Mission</h3>
+            </div>
+            <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
                 <strong className="text-primary">ekdruck e.U.</strong> ist Ihr vertrauensvoller 3D-Druck Partner aus Oberösterreich. 
                 Wir bieten professionellen <strong className="text-primary">FDM 3D-Druck Service</strong> mit modernster Technologie und{" "}
@@ -91,22 +105,26 @@ const About = () => {
                 um ressourcenschonend und umweltfreundlich zu produzieren. So verbinden wir Qualität mit Nachhaltigkeit 
                 und ermöglichen kurze Reaktionszeiten in ganz Österreich und der DACH-Region.
               </p>
-              
             </div>
           </div>
 
           {/* Values */}
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Unsere Werte - Nachhaltigkeit & Qualität</h3>
-            <div className="space-y-6">
+          <div className="gradient-card p-10 rounded-2xl border-2 border-primary/10">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center">
+                <Zap className="w-7 h-7 text-secondary" />
+              </div>
+              <h3 className="text-3xl font-bold">Unsere Werte</h3>
+            </div>
+            <div className="space-y-8">
               {values.map((value, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                    <value.icon className="h-6 w-6 text-white" />
+                <div key={index} className="group flex items-start space-x-5 p-5 rounded-xl bg-background/50 border border-primary/10 hover:border-primary/30 transition-all hover:shadow-lg">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <value.icon className="h-7 w-7 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">{value.title}</h4>
-                    <p className="text-muted-foreground text-sm">{value.description}</p>
+                    <h4 className="font-bold text-lg mb-2">{value.title}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
                   </div>
                 </div>
               ))}

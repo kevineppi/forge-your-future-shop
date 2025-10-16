@@ -417,101 +417,179 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8 mb-12">
-              <div className="bg-card p-6 rounded-xl border border-primary/20 hover:border-primary/40 transition-all">
-                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+              <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Präzision & Genauigkeit</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Schichtauflösung von 0,1mm bis 0,3mm je nach Anforderung. Toleranzen gemäß 
-                  DIN ISO 2768-1 mittel (±0,2mm bis ±0,5mm abhängig von der Bauteilgröße). 
-                  Kalibrierte Drucker für reproduzierbare Ergebnisse.
+                <h3 className="text-xl font-bold mb-4">Sorgfältige Qualitätskontrolle</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Jedes Bauteil wird visuell geprüft und auf Maßhaltigkeit kontrolliert. Wir garantieren 
+                  reproduzierbare Qualität durch kalibrierte Drucker und standardisierte Prozesse.
                 </p>
               </div>
 
-              <div className="bg-card p-6 rounded-xl border border-primary/20 hover:border-primary/40 transition-all">
-                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
+                <div className="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Qualitätskontrolle</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Mehrstufiger Qualitätsprozess: Visuelle Inspektion, dimensionale Prüfung, 
-                  Oberflächenbewertung. Dokumentation aller Produktionsparameter. 
-                  Optional: Messprotokoll und Qualitätszertifikat auf Anfrage.
+                <h3 className="text-xl font-bold mb-4">Schnelle Lieferzeiten</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Standard-Lieferung in 3-5 Werktagen österreichweit. Express-Service in 24-48 Stunden 
+                  verfügbar für zeitkritische Projekte.
                 </p>
               </div>
 
-              <div className="bg-card p-6 rounded-xl border border-primary/20 hover:border-primary/40 transition-all">
-                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Nachhaltige Produktion</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  100% österreichische Filamente aus recycelten Industrieabfällen. 
-                  Energieeffiziente Produktion mit Ökostrom. Minimaler Materialabfall durch 
-                  optimierte Druckparameter. Klimaneutrale Lieferung innerhalb Österreichs.
+                <h3 className="text-xl font-bold mb-4">Nachhaltige Materialien</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Wir verwenden ausschließlich österreichische Filamente aus recycelten Industrieabfällen. 
+                  Umweltfreundliche Produktion mit Ökostrom für eine bessere Zukunft.
+                </p>
+              </div>
+
+              <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
+                <div className="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-4">Persönliche Beratung</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Von der ersten Idee bis zum fertigen Produkt: Unser Team berät Sie bei Material, 
+                  Design-Optimierung und Machbarkeit Ihres Projekts.
                 </p>
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-2xl p-8 border border-primary/20">
-              <div className="max-w-4xl mx-auto">
-                <h3 className="text-2xl font-bold mb-6 text-center">Technische Spezifikationen unserer FDM 3D-Drucker</h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-5 border border-primary/10">
-                    <div className="flex items-center gap-3 mb-3">
-                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            <div className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 rounded-3xl p-10 border-2 border-primary/20 shadow-2xl">
+              <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center justify-center gap-3 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center shadow-lg">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                       </svg>
-                      <h4 className="font-bold">Bauvolumen</h4>
                     </div>
-                    <p className="text-muted-foreground text-sm">
-                      Standard: 300 × 300 × 400mm<br/>
-                      Großformat: bis 500 × 500 × 600mm verfügbar
-                    </p>
                   </div>
-                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-5 border border-primary/10">
-                    <div className="flex items-center gap-3 mb-3">
-                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                      <h4 className="font-bold">Druckgeschwindigkeit</h4>
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                    Was macht unseren <span className="text-gradient">3D-Druck Service</span> besonders?
+                  </h3>
+                  <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                    Kombinieren Sie österreichische Qualität mit modernster 3D-Druck Technologie
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-8">
+                  <div className="bg-background/90 backdrop-blur-sm rounded-xl p-6 border border-primary/20 hover:border-primary/40 transition-all">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-2">Präzise Fertigung</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Modernste FDM-Drucker mit Schichtauflösungen von 0,1mm bis 0,3mm. 
+                          Gleichbleibende Qualität durch regelmäßige Kalibrierung und optimierte Druckprofile.
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-muted-foreground text-sm">
-                      Qualitätsdruck: 40-60mm/s<br/>
-                      Schnelldruck: bis 150mm/s für Prototypen
-                    </p>
                   </div>
-                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-5 border border-primary/10">
-                    <div className="flex items-center gap-3 mb-3">
-                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                      </svg>
-                      <h4 className="font-bold">Schichtstärke</h4>
+
+                  <div className="bg-background/90 backdrop-blur-sm rounded-xl p-6 border border-primary/20 hover:border-primary/40 transition-all">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-2">Design-Optimierung</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Wir analysieren Ihre CAD-Dateien und optimieren sie für den 3D-Druck. 
+                          Kostenlose Beratung zu Wandstärken, Supportstrukturen und Druckorientierung.
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-muted-foreground text-sm">
-                      Fein: 0,1mm (hohe Details)<br/>
-                      Standard: 0,2mm | Grob: 0,3mm (schneller)
-                    </p>
                   </div>
-                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-5 border border-primary/10">
-                    <div className="flex items-center gap-3 mb-3">
-                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                      </svg>
-                      <h4 className="font-bold">Düsendurchmesser</h4>
+
+                  <div className="bg-background/90 backdrop-blur-sm rounded-xl p-6 border border-primary/20 hover:border-primary/40 transition-all">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-2">Faire Preise</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Transparente Preisgestaltung ohne versteckte Kosten. Nutzen Sie unseren 
+                          Kostenrechner für eine sofortige Preisindikation oder fordern Sie ein individuelles Angebot an.
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-muted-foreground text-sm">
-                      Standard: 0,4mm<br/>
-                      Optional: 0,2mm | 0,6mm | 0,8mm für spezielle Anwendungen
-                    </p>
+                  </div>
+
+                  <div className="bg-background/90 backdrop-blur-sm rounded-xl p-6 border border-primary/20 hover:border-primary/40 transition-all">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-2">Für alle Branchen</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Von Einzelpersonen bis zu Großunternehmen - wir bedienen alle Branchen. 
+                          Industrie, Architektur, Medizintechnik, Design, Bildung und viele mehr.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-background/90 backdrop-blur-sm rounded-xl p-6 border border-primary/20 hover:border-primary/40 transition-all">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-2">Finishing-Optionen</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Nachbearbeitung für produktionsreife Teile: Schleifen, Grundieren, Lackieren, 
+                          Glattieren mit Aceton-Dampf und weitere Veredelungsmöglichkeiten.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-background/90 backdrop-blur-sm rounded-xl p-6 border border-primary/20 hover:border-primary/40 transition-all">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-2">Komplettservice</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Sie haben keine CAD-Datei? Kein Problem! Wir erstellen 3D-Modelle nach Ihren 
+                          Vorgaben, Skizzen oder Fotos. Von der Idee bis zum fertigen Produkt.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
