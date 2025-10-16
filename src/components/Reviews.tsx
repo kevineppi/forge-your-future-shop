@@ -82,20 +82,7 @@ const Reviews = () => {
         {/* Call to Action */}
         <div className="text-center mt-12">
           <Card className="gradient-card border-0 max-w-2xl mx-auto animate-scale-in">
-            <CardContent className="p-8">
-              <h4 className="text-2xl font-bold mb-4">Werden Sie unser nächster zufriedener Kunde!</h4>
-              <p className="text-muted-foreground mb-6">
-                Starten Sie noch heute Ihr 3D-Druck Projekt und erleben Sie unseren erstklassigen Service.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact" className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:scale-105">
-                  Jetzt Projekt starten
-                </a>
-                <a href="tel:+436765517197" className="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-sm font-medium transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:scale-105">
-                  Anrufen: +43 676 5517197
-                </a>
-              </div>
-            </CardContent>
+            
           </Card>
         </div>
       </div>
