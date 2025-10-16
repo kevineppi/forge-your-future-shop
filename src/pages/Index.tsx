@@ -278,6 +278,248 @@ const Index = () => {
         </div>
       </section>
       
+      {/* Material & Applications Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Materialien & <span className="text-gradient">Anwendungsbereiche</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Hochwertige Filamente und vielseitige Einsatzmöglichkeiten für Ihre 3D-Druck Projekte
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              {/* Materials */}
+              <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold">Premium 3D-Druck Materialien</h3>
+                </div>
+                <div className="space-y-6">
+                  <div className="border-l-4 border-primary pl-4">
+                    <h4 className="font-bold text-lg mb-2">PLA (Polylactic Acid)</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Biologisch abbaubares Material aus nachwachsenden Rohstoffen. Ideal für Prototypen, 
+                      Modelle und dekorative Objekte. Temperaturbeständig bis 60°C, einfach zu drucken und 
+                      in vielen Farben verfügbar.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <h4 className="font-bold text-lg mb-2">PETG (Polyethylenterephthalat)</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Robustes und schlagfestes Material mit guter chemischer Beständigkeit. 
+                      Temperaturbeständig bis 80°C, lebensmittelecht und UV-beständig. Perfekt für 
+                      funktionale Bauteile und Außenanwendungen.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <h4 className="font-bold text-lg mb-2">ABS (Acrylnitril-Butadien-Styrol)</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Hochfestes technisches Material mit ausgezeichneter Temperaturbeständigkeit bis 100°C. 
+                      Ideal für mechanisch belastbare Bauteile, Gehäuse und Automotive-Anwendungen. 
+                      Nachbearbeitbar durch Schleifen und Lackieren.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <h4 className="font-bold text-lg mb-2">TPU (Thermoplastisches Polyurethan)</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Flexibles, elastisches Material mit hoher Abriebfestigkeit. Shore-Härte 95A, 
+                      dehnbar bis 500%. Optimal für Dichtungen, Dämpfungselemente und flexible Verbindungen.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <h4 className="font-bold text-lg mb-2">Spezial-Filamente</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Carbon-verstärkte Materialien, Holz-Filamente, Metall-Filamente und weitere 
+                      Spezial-Composites für anspruchsvolle Anwendungen mit besonderen Anforderungen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Applications */}
+              <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold">Vielseitige Anwendungsbereiche</h3>
+                </div>
+                <div className="space-y-6">
+                  <div className="border-l-4 border-secondary pl-4">
+                    <h4 className="font-bold text-lg mb-2">Industrie & Maschinenbau</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Funktionsprototypen, Ersatzteile, Betriebsmittel, Vorrichtungen und Halterungen. 
+                      Schnelle Iterationen für Produktentwicklung und kosteneffiziente Kleinserien.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-secondary pl-4">
+                    <h4 className="font-bold text-lg mb-2">Architektur & Bauwesen</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Architekturmodelle, Gebäudevisualisierungen, Prototypen für Bauelemente und 
+                      Designstudien. Maßstabsgetreue Modelle für Präsentationen und Planungen.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-secondary pl-4">
+                    <h4 className="font-bold text-lg mb-2">Medizintechnik</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Anatomische Modelle, Operationsplanungsmodelle, Prothesen-Prototypen und 
+                      medizinische Hilfsmittel. Biokompatible Materialien auf Anfrage verfügbar.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-secondary pl-4">
+                    <h4 className="font-bold text-lg mb-2">Automotive & Motorsport</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Designstudien, Funktionsteile, Armaturenbrett-Prototypen, aerodynamische Tests 
+                      und individuelle Fahrzeugteile. Temperaturbeständige Materialien verfügbar.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-secondary pl-4">
+                    <h4 className="font-bold text-lg mb-2">Bildung & Forschung</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Lehrmittel, wissenschaftliche Modelle, Forschungsprototypen und 
+                      Anschauungsobjekte für Universitäten, Schulen und Forschungseinrichtungen.
+                    </p>
+                  </div>
+                  <div className="border-l-4 border-secondary pl-4">
+                    <h4 className="font-bold text-lg mb-2">Design & Kunst</h4>
+                    <p className="text-muted-foreground text-sm">
+                      Kunstobjekte, Skulpturen, Schmuck-Prototypen und individualisierte Designprodukte. 
+                      Vielfältige Materialien und Farben für kreative Projekte.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quality & Standards Section */}
+      <section className="py-24 bg-gradient-to-b from-muted/20 to-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Qualität & <span className="text-gradient">Standards</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Höchste Qualitätsansprüche und professionelle Fertigungsstandards für Ihre 3D-Druck Projekte
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8 mb-12">
+              <div className="bg-card p-6 rounded-xl border border-primary/20 hover:border-primary/40 transition-all">
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-3">Präzision & Genauigkeit</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Schichtauflösung von 0,1mm bis 0,3mm je nach Anforderung. Toleranzen gemäß 
+                  DIN ISO 2768-1 mittel (±0,2mm bis ±0,5mm abhängig von der Bauteilgröße). 
+                  Kalibrierte Drucker für reproduzierbare Ergebnisse.
+                </p>
+              </div>
+
+              <div className="bg-card p-6 rounded-xl border border-primary/20 hover:border-primary/40 transition-all">
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-3">Qualitätskontrolle</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Mehrstufiger Qualitätsprozess: Visuelle Inspektion, dimensionale Prüfung, 
+                  Oberflächenbewertung. Dokumentation aller Produktionsparameter. 
+                  Optional: Messprotokoll und Qualitätszertifikat auf Anfrage.
+                </p>
+              </div>
+
+              <div className="bg-card p-6 rounded-xl border border-primary/20 hover:border-primary/40 transition-all">
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-3">Nachhaltige Produktion</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  100% österreichische Filamente aus recycelten Industrieabfällen. 
+                  Energieeffiziente Produktion mit Ökostrom. Minimaler Materialabfall durch 
+                  optimierte Druckparameter. Klimaneutrale Lieferung innerhalb Österreichs.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-2xl p-8 border border-primary/20">
+              <div className="max-w-4xl mx-auto">
+                <h3 className="text-2xl font-bold mb-6 text-center">Technische Spezifikationen unserer FDM 3D-Drucker</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-5 border border-primary/10">
+                    <div className="flex items-center gap-3 mb-3">
+                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                      </svg>
+                      <h4 className="font-bold">Bauvolumen</h4>
+                    </div>
+                    <p className="text-muted-foreground text-sm">
+                      Standard: 300 × 300 × 400mm<br/>
+                      Großformat: bis 500 × 500 × 600mm verfügbar
+                    </p>
+                  </div>
+                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-5 border border-primary/10">
+                    <div className="flex items-center gap-3 mb-3">
+                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      <h4 className="font-bold">Druckgeschwindigkeit</h4>
+                    </div>
+                    <p className="text-muted-foreground text-sm">
+                      Qualitätsdruck: 40-60mm/s<br/>
+                      Schnelldruck: bis 150mm/s für Prototypen
+                    </p>
+                  </div>
+                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-5 border border-primary/10">
+                    <div className="flex items-center gap-3 mb-3">
+                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                      </svg>
+                      <h4 className="font-bold">Schichtstärke</h4>
+                    </div>
+                    <p className="text-muted-foreground text-sm">
+                      Fein: 0,1mm (hohe Details)<br/>
+                      Standard: 0,2mm | Grob: 0,3mm (schneller)
+                    </p>
+                  </div>
+                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-5 border border-primary/10">
+                    <div className="flex items-center gap-3 mb-3">
+                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                      <h4 className="font-bold">Düsendurchmesser</h4>
+                    </div>
+                    <p className="text-muted-foreground text-sm">
+                      Standard: 0,4mm<br/>
+                      Optional: 0,2mm | 0,6mm | 0,8mm für spezielle Anwendungen
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <About />
       
