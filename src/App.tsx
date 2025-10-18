@@ -35,6 +35,8 @@ import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import Ratgeber from "./pages/Ratgeber";
 import KostenGuide from "./pages/ratgeber/KostenGuide";
+import VerfahrensVergleich from "./pages/ratgeber/VerfahrensVergleich";
+import MaterialGuide from "./pages/ratgeber/MaterialGuide";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +59,8 @@ const App = () => (
             <Route path="/kostenrechner" element={<Kostenrechner />} />
             <Route path="/ratgeber" element={<Ratgeber />} />
             <Route path="/ratgeber/kosten-guide" element={<KostenGuide />} />
+            <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />
+            <Route path="/ratgeber/material-guide" element={<MaterialGuide />} />
             <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
             <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
             <Route path="/3d-druck-graz" element={<Graz3DDruck />} />

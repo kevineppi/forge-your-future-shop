@@ -16,15 +16,28 @@ const Ratgeber = () => {
       category: "Kosten & Preise",
       readTime: "8 Min. Lesezeit",
       date: "Januar 2025"
+    },
+    {
+      title: "FDM vs. SLA vs. SLS: Welches 3D-Druckverfahren ist das richtige?",
+      description: "Wissenschaftlich fundierter Vergleich der drei wichtigsten 3D-Druckverfahren. Genauigkeit, Kosten, Anwendungen und technische Details im direkten Vergleich.",
+      link: "/ratgeber/verfahrens-vergleich",
+      icon: Award,
+      category: "Technologie",
+      readTime: "12 Min. Lesezeit",
+      date: "Januar 2025"
+    },
+    {
+      title: "PLA, PETG oder ASA? Der wissenschaftliche Material-Guide",
+      description: "Fundierter Vergleich der wichtigsten FDM-Materialien mit mechanischen Eigenschaften, Temperaturbeständigkeit und Anwendungsbereichen – wissenschaftlich belegt.",
+      link: "/ratgeber/material-guide",
+      icon: BookOpen,
+      category: "Materialien",
+      readTime: "10 Min. Lesezeit",
+      date: "Januar 2025"
     }
   ];
 
   const upcomingArticles = [
-    {
-      title: "FDM vs. SLA vs. SLS: Welches 3D-Druckverfahren ist das richtige?",
-      category: "Technologie",
-      comingSoon: true
-    },
     {
       title: "Die 10 häufigsten Fehler beim 3D-Druck Auftrag",
       category: "Best Practices",
@@ -33,6 +46,11 @@ const Ratgeber = () => {
     {
       title: "Nachhaltigkeit im 3D-Druck: Warum österreichisches Filament wichtig ist",
       category: "Nachhaltigkeit",
+      comingSoon: true
+    },
+    {
+      title: "3D-Druck für Startups: Von der Idee zum Prototyp",
+      category: "Business",
       comingSoon: true
     }
   ];
@@ -84,7 +102,7 @@ const Ratgeber = () => {
               <Card className="text-center">
                 <CardContent className="pt-6">
                   <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-foreground">~8 Min</div>
+                  <div className="text-2xl font-bold text-foreground">~10 Min</div>
                   <div className="text-sm text-muted-foreground">Durchschn. Lesezeit</div>
                 </CardContent>
               </Card>
