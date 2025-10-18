@@ -43,15 +43,6 @@ const Ratgeber = () => {
       category: "Maschinenbau",
       readTime: "10 Min. Lesezeit",
       date: "Januar 2025"
-    },
-    {
-      title: "3D-Druck für Architekturmodelle: Von BIM zum physischen Modell",
-      description: "Professionelle Architekturmodelle mit 3D-Druck – Maßstäbe, BIM-Integration, Materialwahl und 60-80% Kostenersparnis gegenüber traditionellem Modellbau.",
-      link: "/ratgeber/architektur",
-      icon: BookOpen,
-      category: "Architektur",
-      readTime: "9 Min. Lesezeit",
-      date: "Januar 2025"
     }
   ];
 
