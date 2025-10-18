@@ -5,120 +5,62 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 const VerfahrensVergleich = () => {
-  const comparisonData = [
-    {
-      aspect: "Schichthöhe / Auflösung",
-      fdm: "0.1 - 0.4 mm",
-      sla: "0.025 - 0.1 mm",
-      sls: "0.06 - 0.15 mm"
-    },
-    {
-      aspect: "Genauigkeit",
-      fdm: "±0.5% (min. ±0.5mm)",
-      sla: "±0.1mm",
-      sls: "±0.3%"
-    },
-    {
-      aspect: "Oberflächengüte",
-      fdm: "Sichtbare Schichten",
-      sla: "Glatte Oberfläche",
-      sls: "Leicht körnig"
-    },
-    {
-      aspect: "Stützstrukturen",
-      fdm: "Erforderlich",
-      sla: "Erforderlich",
-      sls: "Nicht erforderlich"
-    },
-    {
-      aspect: "Materialauswahl",
-      fdm: "Sehr breit",
-      sla: "Photopolymere",
-      sls: "Nylon, TPU"
-    },
-    {
-      aspect: "Kosten (Gerät)",
-      fdm: "500€ - 5.000€",
-      sla: "2.000€ - 10.000€",
-      sls: "10.000€ - 100.000€+"
-    },
-    {
-      aspect: "Kosten (Material)",
-      fdm: "20-50€/kg",
-      sla: "100-200€/L",
-      sls: "60-100€/kg"
-    }
-  ];
-
-  const fdmAdvantages = [
-    "Niedrigste Anschaffungs- und Betriebskosten",
-    "Breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites)",
-    "Einfache Bedienung und Wartung",
-    "Ideal für funktionale Prototypen und Endteile",
-    "Nachhaltige Materialien verfügbar (recyceltes Filament)"
-  ];
-
-  const fdmDisadvantages = [
-    "Geringere Oberflächenqualität (sichtbare Schichten)",
-    "Niedrigere Detailauflösung als SLA",
-    "Anisotrope Festigkeit (Schwächere Z-Achse)",
-    "Stützstrukturen hinterlassen Spuren"
-  ];
-
-  const slaAdvantages = [
-    "Höchste Detailgenauigkeit (0.025mm Schichthöhe)",
-    "Glatte Oberflächen ohne sichtbare Schichten",
-    "Ideal für feine Details und komplexe Geometrien",
-    "Isotrope mechanische Eigenschaften"
-  ];
-
-  const slaDisadvantages = [
-    "Höhere Material- und Gerätekosten",
-    "Aufwendige Nachbearbeitung (Waschen, Aushärten)",
-    "Begrenzte Materialauswahl",
-    "Gesundheits- und Sicherheitsaspekte bei Resinhandhabung"
-  ];
-
-  const slsAdvantages = [
-    "Keine Stützstrukturen erforderlich",
-    "Hohe mechanische Festigkeit",
-    "Exzellente Oberflächenqualität",
-    "Geeignet für Endprodukte und Kleinserien"
-  ];
-
-  const slsDisadvantages = [
-    "Sehr hohe Anschaffungskosten",
-    "Höherer Energieverbrauch",
-    "Begrenzte Materialauswahl",
-    "Pulverentsorgung und -handhabung komplex"
-  ];
-
-  return (
-    <>
-      <SEOHead
-        title="FDM vs. SLA vs. SLS: 3D-Druckverfahren im Vergleich 2025 | ekdruck"
-        description="Wissenschaftlicher Vergleich der 3D-Druckverfahren ✓ FDM, SLA & SLS Technologien ✓ Genauigkeit, Kosten & Anwendungen ✓ Fundierte Entscheidungshilfe vom Experten"
-        keywords="fdm vs sla vs sls, 3d-druckverfahren vergleich, fdm 3d-druck, stereolithographie, selektives lasersintern, additive fertigung"
-        path="/ratgeber/verfahrens-vergleich"
-        schemaType="article"
-      />
-      <BreadcrumbSchema
-        items={[
-          { name: "Home", url: "/" },
-          { name: "Ratgeber", url: "/ratgeber" },
-          { name: "Verfahrensvergleich", url: "/ratgeber/verfahrens-vergleich" }
-        ]}
-      />
+  const comparisonData = [{
+    aspect: "Schichthöhe / Auflösung",
+    fdm: "0.1 - 0.4 mm",
+    sla: "0.025 - 0.1 mm",
+    sls: "0.06 - 0.15 mm"
+  }, {
+    aspect: "Genauigkeit",
+    fdm: "±0.5% (min. ±0.5mm)",
+    sla: "±0.1mm",
+    sls: "±0.3%"
+  }, {
+    aspect: "Oberflächengüte",
+    fdm: "Sichtbare Schichten",
+    sla: "Glatte Oberfläche",
+    sls: "Leicht körnig"
+  }, {
+    aspect: "Stützstrukturen",
+    fdm: "Erforderlich",
+    sla: "Erforderlich",
+    sls: "Nicht erforderlich"
+  }, {
+    aspect: "Materialauswahl",
+    fdm: "Sehr breit",
+    sla: "Photopolymere",
+    sls: "Nylon, TPU"
+  }, {
+    aspect: "Kosten (Gerät)",
+    fdm: "500€ - 5.000€",
+    sla: "2.000€ - 10.000€",
+    sls: "10.000€ - 100.000€+"
+  }, {
+    aspect: "Kosten (Material)",
+    fdm: "20-50€/kg",
+    sla: "100-200€/L",
+    sls: "60-100€/kg"
+  }];
+  const fdmAdvantages = ["Niedrigste Anschaffungs- und Betriebskosten", "Breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites)", "Einfache Bedienung und Wartung", "Ideal für funktionale Prototypen und Endteile", "Nachhaltige Materialien verfügbar (recyceltes Filament)"];
+  const fdmDisadvantages = ["Geringere Oberflächenqualität (sichtbare Schichten)", "Niedrigere Detailauflösung als SLA", "Anisotrope Festigkeit (Schwächere Z-Achse)", "Stützstrukturen hinterlassen Spuren"];
+  const slaAdvantages = ["Höchste Detailgenauigkeit (0.025mm Schichthöhe)", "Glatte Oberflächen ohne sichtbare Schichten", "Ideal für feine Details und komplexe Geometrien", "Isotrope mechanische Eigenschaften"];
+  const slaDisadvantages = ["Höhere Material- und Gerätekosten", "Aufwendige Nachbearbeitung (Waschen, Aushärten)", "Begrenzte Materialauswahl", "Gesundheits- und Sicherheitsaspekte bei Resinhandhabung"];
+  const slsAdvantages = ["Keine Stützstrukturen erforderlich", "Hohe mechanische Festigkeit", "Exzellente Oberflächenqualität", "Geeignet für Endprodukte und Kleinserien"];
+  const slsDisadvantages = ["Sehr hohe Anschaffungskosten", "Höherer Energieverbrauch", "Begrenzte Materialauswahl", "Pulverentsorgung und -handhabung komplex"];
+  return <>
+      <SEOHead title="FDM vs. SLA vs. SLS: 3D-Druckverfahren im Vergleich 2025 | ekdruck" description="Wissenschaftlicher Vergleich der 3D-Druckverfahren ✓ FDM, SLA & SLS Technologien ✓ Genauigkeit, Kosten & Anwendungen ✓ Fundierte Entscheidungshilfe vom Experten" keywords="fdm vs sla vs sls, 3d-druckverfahren vergleich, fdm 3d-druck, stereolithographie, selektives lasersintern, additive fertigung" path="/ratgeber/verfahrens-vergleich" schemaType="article" />
+      <BreadcrumbSchema items={[{
+      name: "Home",
+      url: "/"
+    }, {
+      name: "Ratgeber",
+      url: "/ratgeber"
+    }, {
+      name: "Verfahrensvergleich",
+      url: "/ratgeber/verfahrens-vergleich"
+    }]} />
 
       <div className="min-h-screen bg-background">
         <Navigation />
@@ -179,14 +121,12 @@ const VerfahrensVergleich = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {comparisonData.map((row, index) => (
-                      <TableRow key={index}>
+                    {comparisonData.map((row, index) => <TableRow key={index}>
                         <TableCell className="font-medium">{row.aspect}</TableCell>
                         <TableCell>{row.fdm}</TableCell>
                         <TableCell>{row.sla}</TableCell>
                         <TableCell>{row.sls}</TableCell>
-                      </TableRow>
-                    ))}
+                      </TableRow>)}
                   </TableBody>
                 </Table>
               </div>
@@ -216,12 +156,10 @@ const VerfahrensVergleich = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {fdmAdvantages.map((adv, i) => (
-                        <li key={i} className="flex items-start gap-2">
+                      {fdmAdvantages.map((adv, i) => <li key={i} className="flex items-start gap-2">
                           <span className="text-primary mt-1">✓</span>
                           <span className="text-muted-foreground">{adv}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </CardContent>
                 </Card>
@@ -235,12 +173,10 @@ const VerfahrensVergleich = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {fdmDisadvantages.map((dis, i) => (
-                        <li key={i} className="flex items-start gap-2">
+                      {fdmDisadvantages.map((dis, i) => <li key={i} className="flex items-start gap-2">
                           <span className="text-muted-foreground mt-1">−</span>
                           <span className="text-muted-foreground">{dis}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </CardContent>
                 </Card>
@@ -271,12 +207,10 @@ const VerfahrensVergleich = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {slaAdvantages.map((adv, i) => (
-                        <li key={i} className="flex items-start gap-2">
+                      {slaAdvantages.map((adv, i) => <li key={i} className="flex items-start gap-2">
                           <span className="text-primary mt-1">✓</span>
                           <span className="text-muted-foreground">{adv}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </CardContent>
                 </Card>
@@ -290,12 +224,10 @@ const VerfahrensVergleich = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {slaDisadvantages.map((dis, i) => (
-                        <li key={i} className="flex items-start gap-2">
+                      {slaDisadvantages.map((dis, i) => <li key={i} className="flex items-start gap-2">
                           <span className="text-muted-foreground mt-1">−</span>
                           <span className="text-muted-foreground">{dis}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </CardContent>
                 </Card>
@@ -326,12 +258,10 @@ const VerfahrensVergleich = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {slsAdvantages.map((adv, i) => (
-                        <li key={i} className="flex items-start gap-2">
+                      {slsAdvantages.map((adv, i) => <li key={i} className="flex items-start gap-2">
                           <span className="text-primary mt-1">✓</span>
                           <span className="text-muted-foreground">{adv}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </CardContent>
                 </Card>
@@ -345,12 +275,10 @@ const VerfahrensVergleich = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {slsDisadvantages.map((dis, i) => (
-                        <li key={i} className="flex items-start gap-2">
+                      {slsDisadvantages.map((dis, i) => <li key={i} className="flex items-start gap-2">
                           <span className="text-muted-foreground mt-1">−</span>
                           <span className="text-muted-foreground">{dis}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </CardContent>
                 </Card>
@@ -405,21 +333,7 @@ const VerfahrensVergleich = () => {
             </section>
 
             {/* CTA */}
-            <section className="bg-gradient-primary text-primary-foreground rounded-xl p-8 md:p-12 text-center">
-              <Settings className="w-16 h-16 mx-auto mb-6 opacity-90" />
-              <h2 className="text-3xl font-bold mb-4">Unsere Empfehlung: FDM für 95% aller Anwendungen</h2>
-              <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-                Bei ekdruck setzen wir auf FDM-Technologie, weil sie für die meisten Anwendungsfälle die beste Balance aus Kosten, Qualität und Nachhaltigkeit bietet. Kontaktieren Sie uns für eine kostenlose Beratung!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" variant="secondary">
-                  <a href="/#contact">Kostenlose Beratung</a>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-                  <a href="/fdm-3d-druck">Mehr über FDM</a>
-                </Button>
-              </div>
-            </section>
+            
 
             {/* Related Articles */}
             <section className="mt-16 pt-16 border-t border-border">
@@ -467,8 +381,6 @@ const VerfahrensVergleich = () => {
 
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default VerfahrensVergleich;
