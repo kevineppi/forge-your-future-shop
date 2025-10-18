@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube, Calculator } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube, Calculator, BookOpen } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,6 +98,7 @@ const Navigation = () => {
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
+            <a href="/ratgeber" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Ratgeber</a>
             <a href="#advantages" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Vorteile</a>
             <a href="/kostenrechner" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
               <Calculator className="w-4 h-4" />
@@ -181,7 +182,16 @@ const Navigation = () => {
                 Kostenlose Probeteile
               </a>
             </div>
-            <Button 
+            <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Wissen</div>
+            <a 
+              href="/ratgeber" 
+              className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+              onClick={() => setIsOpen(false)}
+            >
+              <BookOpen className="h-4 w-4 text-primary" />
+              Ratgeber
+            </a>
+            <Button
               variant="hero" 
               size="sm" 
               className="w-full mt-4" 

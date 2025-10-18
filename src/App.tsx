@@ -33,6 +33,8 @@ import Gunskirchen3DDruck from "./pages/Gunskirchen3DDruck";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import Ratgeber from "./pages/Ratgeber";
+import KostenGuide from "./pages/ratgeber/KostenGuide";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +55,8 @@ const App = () => (
             <Route path="/probeteile" element={<Probeteile />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/kostenrechner" element={<Kostenrechner />} />
+            <Route path="/ratgeber" element={<Ratgeber />} />
+            <Route path="/ratgeber/kosten-guide" element={<KostenGuide />} />
             <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
             <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
             <Route path="/3d-druck-graz" element={<Graz3DDruck />} />
