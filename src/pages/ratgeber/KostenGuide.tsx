@@ -5,97 +5,67 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const KostenGuide = () => {
-  const costFactors = [
-    {
-      icon: Package,
-      title: "Volumen & Größe",
-      description: "Je größer das Bauteil, desto mehr Material und Druckzeit wird benötigt. Ein kleines Teil (5x5x5cm) kostet typischerweise 15-30€, während größere Teile (20x20x20cm) 80-150€ kosten können."
-    },
-    {
-      icon: Clock,
-      title: "Druckzeit",
-      description: "Die Druckzeit ist ein entscheidender Kostenfaktor. Einfache Teile können in 2-4 Stunden gedruckt werden, komplexe Geometrien benötigen 12-48 Stunden. Express-Service (24h) kostet ca. 30% Aufpreis."
-    },
-    {
-      icon: FileText,
-      title: "Material",
-      description: "Standardmaterialien wie PLA kosten 3-5€ pro 100g, während technische Materialien wie Carbon-PETG oder ASA 8-15€ pro 100g kosten. Wir verwenden ausschließlich österreichisches Premium-Filament."
-    },
-    {
-      icon: TrendingUp,
-      title: "Komplexität",
-      description: "Komplexe Geometrien mit vielen Stützstrukturen erhöhen den Materialverbrauch um 20-40%. Nachbearbeitung (Finish, Schleifen, Lackieren) kostet zusätzlich 15-50€ je nach Aufwand."
-    }
-  ];
-
-  const priceExamples = [
-    {
-      title: "Kleines Prototypen-Teil",
-      size: "5x5x5cm",
-      material: "PLA",
-      time: "3 Stunden",
-      price: "18-25€",
-      description: "Ideal für erste Prototypen, Anschauungsmodelle, kleine Ersatzteile"
-    },
-    {
-      title: "Mittleres Funktionsbauteil",
-      size: "10x10x8cm",
-      material: "PETG",
-      time: "8 Stunden",
-      price: "45-65€",
-      description: "Perfekt für funktionale Prototypen, Gehäuse, mechanische Teile"
-    },
-    {
-      title: "Großes technisches Teil",
-      size: "20x15x12cm",
-      material: "Carbon-PETG",
-      time: "24 Stunden",
-      price: "120-180€",
-      description: "Für hochbelastbare Bauteile, Vorrichtungen, Kleinserien"
-    },
-    {
-      title: "Komplexes Architekturmodell",
-      size: "25x25x15cm",
-      material: "PLA (weiß)",
-      time: "36 Stunden",
-      price: "200-280€",
-      description: "Detaillierte Architekturmodelle mit Nachbearbeitung und Finish"
-    }
-  ];
-
-  const savingTips = [
-    "Optimieren Sie Ihr 3D-Modell: Reduzieren Sie unnötige Wandstärken und Vollmaterial",
-    "Wählen Sie die richtige Auflösung: Nicht jedes Teil benötigt 0.1mm Schichthöhe",
-    "Mehrere Teile kombinieren: Bestellen Sie mehrere Teile gleichzeitig für bessere Konditionen",
-    "Standardmaterialien nutzen: PLA und PETG sind günstiger als Spezialmaterialien",
-    "Auf Express verzichten: Standardlieferzeit spart 30% gegenüber 24h-Service",
-    "Eigenfinish: Nachbearbeitung selbst übernehmen kann 30-50€ sparen"
-  ];
-
-  return (
-    <>
-      <SEOHead
-        title="3D-Druck Kosten Österreich 2025 | Preise & Kalkulation | ekdruck"
-        description="Was kostet 3D-Druck in Österreich? Detaillierter Kosten-Guide 2025 ✓ Preisbeispiele ✓ Kostenfaktoren ✓ Spartipps ✓ Kostenloser Rechner ✓ Faire Preise aus OÖ"
-        keywords="3d-druck kosten österreich, 3d-druck preise, fdm 3d-druck kosten, rapid prototyping kosten, 3d-druck kalkulation, was kostet 3d-druck, 3d-druck preisrechner"
-        path="/ratgeber/kosten-guide"
-        schemaType="article"
-      />
-      <BreadcrumbSchema
-        items={[
-          { name: "Home", url: "/" },
-          { name: "Ratgeber", url: "/ratgeber" },
-          { name: "Kosten Guide", url: "/ratgeber/kosten-guide" }
-        ]}
-      />
+  const costFactors = [{
+    icon: Package,
+    title: "Volumen & Größe",
+    description: "Je größer das Bauteil, desto mehr Material und Druckzeit wird benötigt. Ein kleines Teil (5x5x5cm) kostet typischerweise 15-30€, während größere Teile (20x20x20cm) 80-150€ kosten können."
+  }, {
+    icon: Clock,
+    title: "Druckzeit",
+    description: "Die Druckzeit ist ein entscheidender Kostenfaktor. Einfache Teile können in 2-4 Stunden gedruckt werden, komplexe Geometrien benötigen 12-48 Stunden. Express-Service (24h) kostet ca. 30% Aufpreis."
+  }, {
+    icon: FileText,
+    title: "Material",
+    description: "Standardmaterialien wie PLA kosten 3-5€ pro 100g, während technische Materialien wie Carbon-PETG oder ASA 8-15€ pro 100g kosten. Wir verwenden ausschließlich österreichisches Premium-Filament."
+  }, {
+    icon: TrendingUp,
+    title: "Komplexität",
+    description: "Komplexe Geometrien mit vielen Stützstrukturen erhöhen den Materialverbrauch um 20-40%. Nachbearbeitung (Finish, Schleifen, Lackieren) kostet zusätzlich 15-50€ je nach Aufwand."
+  }];
+  const priceExamples = [{
+    title: "Kleines Prototypen-Teil",
+    size: "5x5x5cm",
+    material: "PLA",
+    time: "3 Stunden",
+    price: "18-25€",
+    description: "Ideal für erste Prototypen, Anschauungsmodelle, kleine Ersatzteile"
+  }, {
+    title: "Mittleres Funktionsbauteil",
+    size: "10x10x8cm",
+    material: "PETG",
+    time: "8 Stunden",
+    price: "45-65€",
+    description: "Perfekt für funktionale Prototypen, Gehäuse, mechanische Teile"
+  }, {
+    title: "Großes technisches Teil",
+    size: "20x15x12cm",
+    material: "Carbon-PETG",
+    time: "24 Stunden",
+    price: "120-180€",
+    description: "Für hochbelastbare Bauteile, Vorrichtungen, Kleinserien"
+  }, {
+    title: "Komplexes Architekturmodell",
+    size: "25x25x15cm",
+    material: "PLA (weiß)",
+    time: "36 Stunden",
+    price: "200-280€",
+    description: "Detaillierte Architekturmodelle mit Nachbearbeitung und Finish"
+  }];
+  const savingTips = ["Optimieren Sie Ihr 3D-Modell: Reduzieren Sie unnötige Wandstärken und Vollmaterial", "Wählen Sie die richtige Auflösung: Nicht jedes Teil benötigt 0.1mm Schichthöhe", "Mehrere Teile kombinieren: Bestellen Sie mehrere Teile gleichzeitig für bessere Konditionen", "Standardmaterialien nutzen: PLA und PETG sind günstiger als Spezialmaterialien", "Auf Express verzichten: Standardlieferzeit spart 30% gegenüber 24h-Service", "Eigenfinish: Nachbearbeitung selbst übernehmen kann 30-50€ sparen"];
+  return <>
+      <SEOHead title="3D-Druck Kosten Österreich 2025 | Preise & Kalkulation | ekdruck" description="Was kostet 3D-Druck in Österreich? Detaillierter Kosten-Guide 2025 ✓ Preisbeispiele ✓ Kostenfaktoren ✓ Spartipps ✓ Kostenloser Rechner ✓ Faire Preise aus OÖ" keywords="3d-druck kosten österreich, 3d-druck preise, fdm 3d-druck kosten, rapid prototyping kosten, 3d-druck kalkulation, was kostet 3d-druck, 3d-druck preisrechner" path="/ratgeber/kosten-guide" schemaType="article" />
+      <BreadcrumbSchema items={[{
+      name: "Home",
+      url: "/"
+    }, {
+      name: "Ratgeber",
+      url: "/ratgeber"
+    }, {
+      name: "Kosten Guide",
+      url: "/ratgeber/kosten-guide"
+    }]} />
 
       <div className="min-h-screen bg-background">
         <Navigation />
@@ -144,8 +114,7 @@ const KostenGuide = () => {
             <section className="mb-16">
               <h2 className="text-3xl font-bold mb-8 text-foreground">Die 4 wichtigsten Kostenfaktoren</h2>
               <div className="grid md:grid-cols-2 gap-6">
-                {costFactors.map((factor, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-shadow">
+                {costFactors.map((factor, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
                     <CardHeader>
                       <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
                         <factor.icon className="w-6 h-6 text-primary" />
@@ -155,8 +124,7 @@ const KostenGuide = () => {
                     <CardContent>
                       <p className="text-muted-foreground">{factor.description}</p>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </section>
 
@@ -168,8 +136,7 @@ const KostenGuide = () => {
               </p>
               
               <div className="grid md:grid-cols-2 gap-6">
-                {priceExamples.map((example, index) => (
-                  <Card key={index} className="relative">
+                {priceExamples.map((example, index) => <Card key={index} className="relative">
                     <CardHeader>
                       <CardTitle className="text-xl mb-2">{example.title}</CardTitle>
                       <CardDescription className="space-y-1">
@@ -191,8 +158,7 @@ const KostenGuide = () => {
                       <div className="text-3xl font-bold text-primary mb-3">{example.price}</div>
                       <p className="text-sm text-muted-foreground">{example.description}</p>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
 
               <div className="mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20">
@@ -206,16 +172,14 @@ const KostenGuide = () => {
             <section className="mb-16">
               <h2 className="text-3xl font-bold mb-8 text-foreground">6 Tipps: So sparen Sie bei Ihrem 3D-Druck Projekt</h2>
               <div className="space-y-4">
-                {savingTips.map((tip, index) => (
-                  <Card key={index}>
+                {savingTips.map((tip, index) => <Card key={index}>
                     <CardContent className="flex items-start gap-4 p-6">
                       <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="text-primary font-bold">{index + 1}</span>
                       </div>
                       <p className="text-foreground pt-1">{tip}</p>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </section>
 
@@ -286,21 +250,7 @@ const KostenGuide = () => {
             </section>
 
             {/* CTA */}
-            <section className="bg-gradient-primary text-primary-foreground rounded-xl p-8 md:p-12 text-center">
-              <Calculator className="w-16 h-16 mx-auto mb-6 opacity-90" />
-              <h2 className="text-3xl font-bold mb-4">Berechnen Sie jetzt Ihre 3D-Druck Kosten</h2>
-              <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-                Nutzen Sie unseren kostenlosen Online-Rechner für eine sofortige Kostenschätzung oder kontaktieren Sie uns für ein individuelles Angebot.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" variant="secondary">
-                  <a href="/kostenrechner">Zum Kostenrechner</a>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-                  <a href="/#contact">Individuelle Beratung</a>
-                </Button>
-              </div>
-            </section>
+            
 
             {/* Related Articles */}
             <section className="mt-16 pt-16 border-t border-border">
@@ -348,8 +298,6 @@ const KostenGuide = () => {
 
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default KostenGuide;
