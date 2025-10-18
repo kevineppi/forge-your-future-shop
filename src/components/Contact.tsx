@@ -9,6 +9,15 @@ import { useToast } from "@/hooks/use-toast";
 import SocialShare from "./SocialShare";
 import GoogleMaps from "./GoogleMaps";
 import GoogleReviews from "./GoogleReviews";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name ist erforderlich").max(100, "Name darf maximal 100 Zeichen lang sein"),
+  email: z.string().trim().email("Ungültige E-Mail-Adresse").max(255, "E-Mail darf maximal 255 Zeichen lang sein"),
+  project: z.string().max(100).optional(),
+  timeline: z.string().max(100).optional(),
+  message: z.string().trim().max(2000, "Nachricht darf maximal 2000 Zeichen lang sein").optional()
+});
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -106,10 +115,14 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email) {
+    // Validate form data with zod schema
+    const validationResult = contactSchema.safeParse(formData);
+    
+    if (!validationResult.success) {
+      const firstError = validationResult.error.errors[0];
       toast({
         title: "Fehler",
-        description: "Bitte füllen Sie alle Pflichtfelder aus.",
+        description: firstError.message,
         variant: "destructive",
       });
       return;
@@ -125,15 +138,17 @@ const Contact = () => {
         fileUrls = await uploadFiles(uploadedFiles);
       }
 
+      const validatedData = validationResult.data;
+      
       const { error } = await supabase
         .from('contact_inquiries')
         .insert([
           {
-            name: formData.name,
-            email: formData.email,
-            project_type: formData.project,
-            timeline: formData.timeline,
-            message: formData.message,
+            name: validatedData.name,
+            email: validatedData.email,
+            project_type: validatedData.project || null,
+            timeline: validatedData.timeline || null,
+            message: validatedData.message || null,
             file_urls: fileUrls.length > 0 ? fileUrls : null,
             status: 'new'
           }
@@ -160,7 +175,6 @@ const Contact = () => {
       });
 
     } catch (error) {
-      console.error('Error submitting form:', error);
       toast({
         title: "Fehler",
         description: "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",

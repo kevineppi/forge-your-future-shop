@@ -22,6 +22,16 @@ interface ContactNotificationRequest {
   };
 }
 
+// HTML escape function to prevent XSS
+const escapeHtml = (unsafe: string): string => {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+};
+
 const handler = async (req: Request): Promise<Response> => {
   console.log("Contact notification function called");
 
@@ -34,19 +44,37 @@ const handler = async (req: Request): Promise<Response> => {
     const { record }: ContactNotificationRequest = await req.json();
     console.log("Processing contact form submission:", record.id);
 
-    // Format the email content
+    // Validate and sanitize input
+    if (!record.name || record.name.length > 100) {
+      throw new Error("Invalid name");
+    }
+    if (!record.email || record.email.length > 255 || !record.email.includes('@')) {
+      throw new Error("Invalid email");
+    }
+    if (record.message && record.message.length > 2000) {
+      throw new Error("Message too long");
+    }
+
+    // Escape all user input to prevent XSS
+    const safeName = escapeHtml(record.name);
+    const safeEmail = escapeHtml(record.email);
+    const safeProjectType = record.project_type ? escapeHtml(record.project_type) : '';
+    const safeTimeline = record.timeline ? escapeHtml(record.timeline) : '';
+    const safeMessage = record.message ? escapeHtml(record.message).replace(/\n/g, '<br>') : 'Keine Nachricht hinterlassen';
+
+    // Format the email content with escaped values
     const emailContent = `
       <h2>Neue Kontaktanfrage von EK-Druck</h2>
       <div style="font-family: Arial, sans-serif; max-width: 600px;">
         <h3>Kundendaten:</h3>
-        <p><strong>Name:</strong> ${record.name}</p>
-        <p><strong>E-Mail:</strong> ${record.email}</p>
-        ${record.project_type ? `<p><strong>Projektart:</strong> ${record.project_type}</p>` : ''}
-        ${record.timeline ? `<p><strong>Zeitrahmen:</strong> ${record.timeline}</p>` : ''}
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>E-Mail:</strong> ${safeEmail}</p>
+        ${safeProjectType ? `<p><strong>Projektart:</strong> ${safeProjectType}</p>` : ''}
+        ${safeTimeline ? `<p><strong>Zeitrahmen:</strong> ${safeTimeline}</p>` : ''}
         
         <h3>Nachricht:</h3>
         <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0;">
-          ${record.message ? record.message.replace(/\n/g, '<br>') : 'Keine Nachricht hinterlassen'}
+          ${safeMessage}
         </div>
         
         <p><strong>Eingereicht am:</strong> ${new Date(record.created_at).toLocaleString('de-DE')}</p>
