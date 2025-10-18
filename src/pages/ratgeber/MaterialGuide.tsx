@@ -5,91 +5,69 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 const MaterialGuide = () => {
-  const materialComparison = [
-    {
-      property: "Zugfestigkeit",
-      pla: "50-70 MPa",
-      petg: "50-60 MPa",
-      asa: "40-50 MPa",
-      unit: "Höher = fester"
-    },
-    {
-      property: "E-Modul",
-      pla: "3.5 GPa",
-      petg: "2.1 GPa",
-      asa: "2.0 GPa",
-      unit: "Steifigkeit"
-    },
-    {
-      property: "Bruchdehnung",
-      pla: "2-5%",
-      petg: "30-100%",
-      asa: "25-50%",
-      unit: "Flexibilität"
-    },
-    {
-      property: "Glasübergangstemperatur",
-      pla: "60-65°C",
-      petg: "75-80°C",
-      asa: "95-105°C",
-      unit: "Max. Einsatztemp."
-    },
-    {
-      property: "Drucktemperatur",
-      pla: "190-220°C",
-      petg: "230-250°C",
-      asa: "240-260°C",
-      unit: "Extruder"
-    },
-    {
-      property: "UV-Beständigkeit",
-      pla: "Gering",
-      petg: "Mittel",
-      asa: "Sehr gut",
-      unit: "Außeneinsatz"
-    },
-    {
-      property: "Chemikalienbeständigkeit",
-      pla: "Gering",
-      petg: "Gut",
-      asa: "Sehr gut",
-      unit: "Öle, Säuren"
-    },
-    {
-      property: "Preis",
-      pla: "20-30€/kg",
-      petg: "25-35€/kg",
-      asa: "35-50€/kg",
-      unit: "Pro Kilogramm"
-    }
-  ];
-
-  return (
-    <>
-      <SEOHead
-        title="3D-Druck Materialien: PLA vs. PETG vs. ASA | Wissenschaftlicher Guide"
-        description="Fundierter Vergleich der wichtigsten FDM-Materialien ✓ Mechanische Eigenschaften ✓ Temperaturbeständigkeit ✓ Anwendungsbereiche ✓ Wissenschaftlich belegt"
-        keywords="pla petg asa vergleich, 3d-druck materialien, filament eigenschaften, fdm materialien, thermoplastische kunststoffe"
-        path="/ratgeber/material-guide"
-        schemaType="article"
-      />
-      <BreadcrumbSchema
-        items={[
-          { name: "Home", url: "/" },
-          { name: "Ratgeber", url: "/ratgeber" },
-          { name: "Material Guide", url: "/ratgeber/material-guide" }
-        ]}
-      />
+  const materialComparison = [{
+    property: "Zugfestigkeit",
+    pla: "50-70 MPa",
+    petg: "50-60 MPa",
+    asa: "40-50 MPa",
+    unit: "Höher = fester"
+  }, {
+    property: "E-Modul",
+    pla: "3.5 GPa",
+    petg: "2.1 GPa",
+    asa: "2.0 GPa",
+    unit: "Steifigkeit"
+  }, {
+    property: "Bruchdehnung",
+    pla: "2-5%",
+    petg: "30-100%",
+    asa: "25-50%",
+    unit: "Flexibilität"
+  }, {
+    property: "Glasübergangstemperatur",
+    pla: "60-65°C",
+    petg: "75-80°C",
+    asa: "95-105°C",
+    unit: "Max. Einsatztemp."
+  }, {
+    property: "Drucktemperatur",
+    pla: "190-220°C",
+    petg: "230-250°C",
+    asa: "240-260°C",
+    unit: "Extruder"
+  }, {
+    property: "UV-Beständigkeit",
+    pla: "Gering",
+    petg: "Mittel",
+    asa: "Sehr gut",
+    unit: "Außeneinsatz"
+  }, {
+    property: "Chemikalienbeständigkeit",
+    pla: "Gering",
+    petg: "Gut",
+    asa: "Sehr gut",
+    unit: "Öle, Säuren"
+  }, {
+    property: "Preis",
+    pla: "20-30€/kg",
+    petg: "25-35€/kg",
+    asa: "35-50€/kg",
+    unit: "Pro Kilogramm"
+  }];
+  return <>
+      <SEOHead title="3D-Druck Materialien: PLA vs. PETG vs. ASA | Wissenschaftlicher Guide" description="Fundierter Vergleich der wichtigsten FDM-Materialien ✓ Mechanische Eigenschaften ✓ Temperaturbeständigkeit ✓ Anwendungsbereiche ✓ Wissenschaftlich belegt" keywords="pla petg asa vergleich, 3d-druck materialien, filament eigenschaften, fdm materialien, thermoplastische kunststoffe" path="/ratgeber/material-guide" schemaType="article" />
+      <BreadcrumbSchema items={[{
+      name: "Home",
+      url: "/"
+    }, {
+      name: "Ratgeber",
+      url: "/ratgeber"
+    }, {
+      name: "Material Guide",
+      url: "/ratgeber/material-guide"
+    }]} />
 
       <div className="min-h-screen bg-background">
         <Navigation />
@@ -151,15 +129,13 @@ const MaterialGuide = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {materialComparison.map((row, index) => (
-                      <TableRow key={index}>
+                    {materialComparison.map((row, index) => <TableRow key={index}>
                         <TableCell className="font-medium">{row.property}</TableCell>
                         <TableCell>{row.pla}</TableCell>
                         <TableCell>{row.petg}</TableCell>
                         <TableCell>{row.asa}</TableCell>
                         <TableCell className="text-muted-foreground text-sm">{row.unit}</TableCell>
-                      </TableRow>
-                    ))}
+                      </TableRow>)}
                   </TableBody>
                 </Table>
               </div>
@@ -423,21 +399,7 @@ const MaterialGuide = () => {
             </section>
 
             {/* CTA */}
-            <section className="bg-gradient-primary text-primary-foreground rounded-xl p-8 md:p-12 text-center">
-              <Leaf className="w-16 h-16 mx-auto mb-6 opacity-90" />
-              <h2 className="text-3xl font-bold mb-4">Österreichisches Premium-Filament</h2>
-              <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-                Wir verwenden ausschließlich hochwertige Filamente aus österreichischer Produktion. Für eine kostenlose Materialberatung kontaktieren Sie uns!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" variant="secondary">
-                  <a href="/#contact">Materialberatung</a>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-                  <a href="/3d-druck-materialien">Unsere Materialien</a>
-                </Button>
-              </div>
-            </section>
+            
 
             {/* Related Articles */}
             <section className="mt-16 pt-16 border-t border-border">
@@ -485,8 +447,6 @@ const MaterialGuide = () => {
 
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default MaterialGuide;
