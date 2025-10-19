@@ -43,33 +43,6 @@ const Ratgeber = () => {
       category: "Maschinenbau",
       readTime: "10 Min. Lesezeit",
       date: "Oktober 2025"
-    },
-    {
-      title: "3D-Druck für Produktentwicklung: Vom Konzept zur Marktreife",
-      description: "Erfahren Sie, wie Sie 3D-Druck optimal in Ihren Entwicklungsprozess integrieren. Mit Fallstudien österreichischer Unternehmen und Expertenempfehlungen.",
-      link: "/ratgeber/produktentwicklung",
-      icon: TrendingUp,
-      category: "Entwicklung",
-      readTime: "9 Min. Lesezeit",
-      date: "Oktober 2025"
-    },
-    {
-      title: "Nachbearbeitung von 3D-Drucken: Techniken für perfekte Oberflächen",
-      description: "Professionelle Nachbearbeitungsmethoden für FDM-Drucke: Schleifen, Lackieren, Chemisches Glätten und mehr. Mit Schritt-für-Schritt-Anleitungen.",
-      link: "/ratgeber/nachbearbeitung",
-      icon: Award,
-      category: "Finishing",
-      readTime: "11 Min. Lesezeit",
-      date: "Oktober 2025"
-    },
-    {
-      title: "Rechtliche Aspekte beim 3D-Druck in Österreich",
-      description: "Urheberrecht, Produkthaftung und Zertifizierungen beim 3D-Druck. Was Sie rechtlich beachten müssen – erklärt von Expert:innen aus Österreich.",
-      link: "/ratgeber/rechtliches",
-      icon: BookOpen,
-      category: "Recht & Compliance",
-      readTime: "7 Min. Lesezeit",
-      date: "Oktober 2025"
     }
   ];
 
