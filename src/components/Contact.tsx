@@ -400,7 +400,7 @@ const Contact = () => {
                       type="submit" 
                       variant="hero" 
                       size="lg" 
-                      className="w-full"
+                      className="w-full group"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -410,11 +410,15 @@ const Contact = () => {
                         </>
                       ) : (
                         <>
-                          <Send className="mr-2 h-5 w-5" />
-                          Angebot anfordern
+                          <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                          Jetzt Angebot anfordern
                         </>
                       )}
                     </Button>
+
+                    <p className="text-xs text-muted-foreground text-center">
+                      ✓ Kostenlos & unverbindlich ✓ Antwort innerhalb von 6 Stunden ✓ Persönliche Beratung
+                    </p>
                   </form>
                 </CardContent>
               </Card>

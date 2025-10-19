@@ -10,6 +10,9 @@ import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import SEOHead from "@/components/SEOHead";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import TrustSignals from "@/components/TrustSignals";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
@@ -33,6 +36,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Services />
+      <TrustSignals />
       
       {/* Advantages Section - Warum ekdruck wählen */}
       <Advantages />
@@ -581,6 +585,8 @@ const Index = () => {
       {/* Contact Section */}
       <Contact />
       <Footer />
+      <WhatsAppButton />
+      <ExitIntentPopup />
       </div>
     </>;
 };
