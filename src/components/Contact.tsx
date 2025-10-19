@@ -331,6 +331,42 @@ const Contact = () => {
                       </div>
                     </div>
 
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Projekt-Art</label>
+                        <select 
+                          name="project" 
+                          value={formData.project} 
+                          onChange={handleInputChange} 
+                          className="w-full p-3 border border-input rounded-md bg-background disabled:opacity-50"
+                          disabled={isSubmitting}
+                        >
+                          <option value="">Projekt-Art wählen</option>
+                          <option value="einzelanfertigung">Einzelanfertigung</option>
+                          <option value="serienfertigung">Serienfertigung</option>
+                          <option value="inneneinrichtung">Inneneinrichtung</option>
+                          <option value="beratung">Beratung & Design</option>
+                          <option value="sonstiges">Sonstiges</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Zeitrahmen</label>
+                        <select 
+                          name="timeline" 
+                          value={formData.timeline} 
+                          onChange={handleInputChange} 
+                          className="w-full p-3 border border-input rounded-md bg-background disabled:opacity-50"
+                          disabled={isSubmitting}
+                        >
+                          <option value="">Zeitrahmen wählen</option>
+                          <option value="express">Express (24-48 Stunden)</option>
+                          <option value="standard">Standard (3-5 Tage)</option>
+                          <option value="extended">Erweitert (1-2 Wochen)</option>
+                          <option value="flexibel">Flexibel</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <div>
                       <label className="block text-sm font-medium mb-2">Projekt-Details</label>
                       <Textarea 
@@ -400,7 +436,7 @@ const Contact = () => {
                       type="submit" 
                       variant="hero" 
                       size="lg" 
-                      className="w-full group"
+                      className="w-full"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -410,15 +446,11 @@ const Contact = () => {
                         </>
                       ) : (
                         <>
-                          <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                          Jetzt Angebot anfordern
+                          <Send className="mr-2 h-5 w-5" />
+                          Angebot anfordern
                         </>
                       )}
                     </Button>
-
-                    <p className="text-xs text-muted-foreground text-center">
-                      ✓ Kostenlos & unverbindlich ✓ Antwort innerhalb von 6 Stunden ✓ Persönliche Beratung
-                    </p>
                   </form>
                 </CardContent>
               </Card>
