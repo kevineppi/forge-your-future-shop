@@ -13,7 +13,7 @@ import SEOHead from "@/components/SEOHead";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
-      <SEOHead title="3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U." description="3D-Druck Service für ganz Österreich ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Nachhaltiger 3D-Druck Service ✓ 3D Druck Oberösterreich ✓ Express Service" keywords="3d-druck österreich, 3d-druck dienstleister, fdm 3d-druck, rapid prototyping österreich, 3d drucker kaufen österreich, 3d-druck firma, etikettendrucker österreich, 3d-druck shop österreich, dienstleistung 3d druck, 3d-druck für privatpersonen, additives fertigungsverfahren, finishing druck, 3d drucker modelle erstellen, rapid prototyping verfahren" path="/" schemaType="service" preloadResources={[{
+      <SEOHead title="3D-Druck Dienstleister Österreich | Prototypen & Serienfertigung | ekdruck" description="⚡ Ihr 3D-Druck Dienstleister aus Österreich ✓ Prototypen ab 24h ✓ Funktionsteile ✓ Serienfertigung ✓ Kostenloser Versand ab €50 ✓ 100% AT-Filament → Jetzt anfragen!" keywords="3d-druck dienstleister, 3d druck prototypen, prototypen 3d-druck, 3d-druck österreich, fdm 3d-druck, rapid prototyping österreich, 3d druck service, 3d-druck firma, dienstleistung 3d druck, prototyping service österreich" path="/" schemaType="service" preloadResources={[{
       href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
       as: "image",
       type: "image/png"
@@ -71,7 +71,8 @@ const Index = () => {
                   Diese additive Fertigungsmethode ermöglicht die präzise Herstellung komplexer Geometrien mit hoher Qualität.
                 </p>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Unser <strong className="text-primary">3D-Druck Service</strong> deckt alle Bereiche ab: von schnellem{" "}
+                  Unser <strong className="text-primary">3D-Druck Service</strong> deckt alle Bereiche ab: von professionellem{" "}
+                  <a href="/prototypen" className="text-primary hover:underline font-semibold">Prototypenbau</a> und{" "}
                   <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> über{" "}
                   <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelanfertigungen</a> bis hin zur{" "}
                   <a href="/serienfertigung" className="text-primary hover:underline font-semibold">effizienten Serienfertigung</a>. 

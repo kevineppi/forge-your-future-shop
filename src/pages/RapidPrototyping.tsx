@@ -13,9 +13,9 @@ const RapidPrototyping = () => {
   return (
     <>
       <SEOHead 
-        title="Rapid Prototyping Österreich | 3D-Prototypen in 24-48h | ekdruck e.U."
-        description="Express Rapid Prototyping Service ⚡ Prototypen in 24-48h ⚡ Funktionsprototypen & Designmodelle ⚡ 3D-Druck Österreich ⚡ Kostenlose Machbarkeitsprüfung!"
-        keywords="rapid prototyping österreich, schnelle prototypen oberösterreich, 3d prototypen 24h österreich, express prototyping oberösterreich, funktionsprototypen österreich, iterative prototypenerstellung, designvalidierung, passgenauigkeitstests"
+        title="Rapid Prototyping Service | 3D-Druck Express in 24h | ekdruck"
+        description="⚡ Rapid Prototyping Express-Service aus Österreich ✓ Prototypen in 24-48h ✓ Funktionale Testmodelle ✓ Same-Day möglich ✓ Professionelle Beratung → Jetzt Express-Prototyp anfragen!"
+        keywords="rapid prototyping, rapid prototyping österreich, rapid prototyping wien, rapid prototyping linz, fdm rapid prototyping, 3d druck express, prototypen schnell, express 3d-druck, same day prototyping"
         path="/rapid-prototyping"
         schemaType="service"
         breadcrumbs={[

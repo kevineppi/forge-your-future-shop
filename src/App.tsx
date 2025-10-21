@@ -38,6 +38,7 @@ import KostenGuide from "./pages/ratgeber/KostenGuide";
 import VerfahrensVergleich from "./pages/ratgeber/VerfahrensVergleich";
 import MaterialGuide from "./pages/ratgeber/MaterialGuide";
 import Maschinenbau from "./pages/ratgeber/Maschinenbau";
+import Prototypen from "./pages/Prototypen";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/fdm-3d-druck" element={<FdmDruck />} />
             <Route path="/rapid-prototyping" element={<RapidPrototyping />} />
+            <Route path="/prototypen" element={<Prototypen />} />
             <Route path="/3d-druck-materialien" element={<Materialien />} />
             <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
             <Route path="/serienfertigung" element={<Serienfertigung />} />
