@@ -13,8 +13,8 @@ const FdmDruck = () => {
   return (
     <>
       <SEOHead 
-        title="FDM 3D-Druck Österreich | Fused Deposition Modeling Service | ekdruck e.U."
-        description="Professioneller FDM 3D-Druck Service für ganz Österreich ✓ Vielseitig & kostengünstig ✓ PLA, PETG, ABS ✓ Schichtauflösung 0,1mm ✓ Kostenlose Beratung!"
+        title="FDM 3D-Druck Service Österreich | Präzise & Kostengünstig | ekdruck"
+        description="⚙️ Professioneller FDM 3D-Druck aus Österreich ✓ Vielseitig & kostengünstig ✓ PLA, PETG, ABS, PA12 ✓ 0,1mm Präzision ✓ Schnelle Lieferung → Jetzt anfragen!"
         keywords="fdm 3d-druck österreich, fused deposition modeling oberösterreich, fdm verfahren österreich, 3d-druck fdm oberösterreich, fdm drucker service österreich, schichtauflösung 0.1mm, thermoplastisches filament, material-extrusion"
         path="/fdm-3d-druck"
         schemaType="service"

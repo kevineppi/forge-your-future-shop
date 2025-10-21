@@ -125,9 +125,9 @@ const Probeteile = () => {
   };
   return <>
       <SEOHead 
-        title="Kostenlose 3D-Druck Probeteile für B2B Serienfertigung | ekdruck e.U. Oberösterreich"
-        description="Fordern Sie kostenlose 3D-Druck Probeteile für Ihre B2B Serienfertigung an. Professioneller FDM 3D-Druck Service in Oberösterreich - Qualitätstest vor Serienauftrag. Österreichische Produktion mit schneller Lieferung." 
-        keywords="kostenlose probeteile 3d-druck, b2b 3d-druck österreich, serienfertigung probedruck, 3d-druck muster oberösterreich, fdm probeteile kostenlos, 3d-druck qualitätstest, serienfertigung österreich" 
+        title="Kostenlose 3D-Druck Probeteile für B2B | Serienfertigung | ekdruck"
+        description="🎁 Kostenlose 3D-Druck Probeteile für B2B Serienfertigung ✓ Qualitätstest vor Serienauftrag ✓ FDM 3D-Druck ✓ Schnelle Lieferung → Jetzt Probeteil anfordern!" 
+        keywords="kostenlose probeteile 3d-druck, b2b 3d-druck österreich, serienfertigung probedruck, 3d-druck muster oberösterreich, fdm probeteile kostenlos, 3d-druck qualitätstest, serienfertigung österreich"
         path="/probeteile" 
         schemaType="service" 
       />

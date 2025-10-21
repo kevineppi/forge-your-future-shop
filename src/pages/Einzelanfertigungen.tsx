@@ -13,8 +13,8 @@ const Einzelanfertigungen = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Einzelanfertigungen Österreich | Custom Parts & Unikate | ekdruck e.U."
-        description="Individuelle 3D-Druck Einzelanfertigungen ✨ Ersatzteile, Geschenke, Prototypen ✨ Von der Idee zum Unikat ✨ Persönliche Beratung in Oberösterreich!"
+        title="3D-Druck Einzelanfertigungen | Custom Parts & Unikate | ekdruck"
+        description="✨ Individuelle 3D-Druck Einzelanfertigungen aus Österreich ✓ Ersatzteile ✓ Geschenke ✓ Prototypen ✓ Von der Idee zum Unikat → Jetzt anfragen!"
         keywords="3d-druck einzelanfertigungen österreich, custom 3d parts österreich, individuelle 3d-teile oberösterreich, maßanfertigungen österreich, 3d-druck unikate oberösterreich, spezialanfertigungen 3d-druck, personalisierte 3d-objekte, millimetergenaue fertigung"
         path="/einzelanfertigungen"
         schemaType="service"
