@@ -110,7 +110,6 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             <a href="/ratgeber" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Ratgeber</a>
-            <a href="#advantages" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Vorteile</a>
             <a href="/kostenrechner" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
               <Calculator className="w-4 h-4" />
               Kostenrechner
