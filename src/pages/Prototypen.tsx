@@ -99,10 +99,122 @@ const Prototypen = () => {
           </div>
         </section>
 
-        {/* Google Reviews - Social Proof */}
-        <section className="py-16 relative overflow-hidden">
+        {/* Main Content - Prototypen Erklärt */}
+        <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
           <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="mb-16 animate-fade-in">
+                <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                  Professioneller <span className="text-gradient">Prototypenbau</span> mit FDM 3D-Druck
+                </h2>
+                <p className="text-xl text-muted-foreground leading-relaxed mb-6">
+                  Prototypen sind der Schlüssel zur erfolgreichen Produktentwicklung. Mit unserem 3D-Druck Service fertigen wir 
+                  <strong className="text-foreground"> Funktionsprototypen, Designmuster und Konzeptmodelle</strong> in kürzester Zeit. 
+                  Ob für mechanische Tests, Designvalidierung oder Kundenpräsentationen - wir liefern präzise Ergebnisse.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                  Die additive Fertigung revolutioniert den Prototypenbau: Statt wochen- oder monatelanger Wartezeiten und hoher Werkzeugkosten 
+                  erhalten Sie Ihren Prototypen bereits in <strong className="text-foreground">24-48 Stunden</strong>. Änderungen am Design? 
+                  Kein Problem - neue Iterationen sind schnell und kostengünstig umsetzbar.
+                </p>
+              </div>
+
+              {/* Anwendungsbereiche als Fließtext */}
+              <div className="mb-16 animate-fade-in" style={{animationDelay: '0.1s'}}>
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 flex items-center">
+                  <Package className="w-8 h-8 text-primary mr-3" />
+                  Einsatzbereiche für 3D-Druck Prototypen
+                </h3>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p className="mb-4 leading-relaxed">
+                    <strong className="text-foreground">Produktentwicklung & Innovation:</strong> Testen Sie neue Produktideen schnell und kostengünstig. 
+                    Validieren Sie Design-Konzepte, bevor Sie in teure Werkzeuge investieren. Ideal für Startups und Entwicklungsabteilungen, 
+                    die agil arbeiten möchten.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    <strong className="text-foreground">Maschinenbau & Konstruktion:</strong> Fertigen Sie funktionale Bauteile für Passungstests, 
+                    Montageprüfungen und mechanische Belastungstests. Prüfen Sie Toleranzen und Bewegungsabläufe, bevor die Serie produziert wird. 
+                    Besonders wertvoll für komplexe Baugruppen mit mehreren Komponenten.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    <strong className="text-foreground">Design & Architektur:</strong> Präsentieren Sie Ihre Entwürfe als greifbare Modelle. 
+                    Architekturmodelle, Produktdesigns und künstlerische Konzepte werden durch physische Prototypen erlebbar. 
+                    Perfekt für Kundenpräsentationen und Designfreigaben.
+                  </p>
+                  <p className="leading-relaxed">
+                    <strong className="text-foreground">Medizintechnik & Orthopädie:</strong> Individuelle Anpassungen, anatomische Modelle und 
+                    medizinische Hilfsmittel können präzise nach Patientendaten gefertigt werden. Biokompatible Materialien auf Anfrage verfügbar.
+                  </p>
+                </div>
+              </div>
+
+              {/* Materialien & Eigenschaften */}
+              <div className="mb-16 animate-fade-in" style={{animationDelay: '0.2s'}}>
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 flex items-center">
+                  <Shield className="w-8 h-8 text-primary mr-3" />
+                  Materialien für jeden Einsatzzweck
+                </h3>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p className="mb-4 leading-relaxed">
+                    Die Wahl des richtigen Materials ist entscheidend für die Qualität Ihres Prototyps. Wir verwenden ausschließlich 
+                    <strong className="text-foreground"> hochwertige österreichische Filamente</strong>, die für industrielle Anwendungen geeignet sind:
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    <strong className="text-foreground">PLA (Polylactid):</strong> Nachhaltig und biologisch abbaubar. Ideal für Designprototypen, 
+                    Präsentationsmodelle und Konzeptstudien. Bietet die beste Oberflächenqualität und Detailtreue. Kosteneffizient für 
+                    visuelle Prototypen ohne mechanische Belastung.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    <strong className="text-foreground">PETG (Polyethylenterephthalat-Glykol):</strong> Robust, schlagfest und chemikalienbeständig. 
+                    Perfekt für Funktionsprototypen mit mechanischer Belastung. UV-beständig und lebensmittelecht. Der Standard für technische 
+                    Anwendungen und Bauteile, die Belastungen standhalten müssen.
+                  </p>
+                  <p className="leading-relaxed">
+                    <strong className="text-foreground">Weitere Materialien:</strong> ASA für UV-Beständigkeit im Außenbereich, TPU für flexible 
+                    Bauteile, PA12 (Nylon) für höchste Festigkeit. Wir beraten Sie gerne bei der Materialauswahl für Ihre spezifische Anwendung.
+                  </p>
+                </div>
+              </div>
+
+              {/* Technologie & Qualität */}
+              <div className="mb-16 animate-fade-in" style={{animationDelay: '0.3s'}}>
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 flex items-center">
+                  <TrendingUp className="w-8 h-8 text-primary mr-3" />
+                  Präzise FDM 3D-Druck Technologie
+                </h3>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p className="mb-4 leading-relaxed">
+                    Unser FDM (Fused Deposition Modeling) Verfahren ermöglicht <strong className="text-foreground">Schichtauflösungen bis 0,1mm</strong> 
+                    und garantiert präzise, wiederholbare Ergebnisse. Die additive Schichtbauweise erlaubt komplexe Geometrien, die mit 
+                    traditionellen Fertigungsmethoden unmöglich oder extrem teuer wären.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    <strong className="text-foreground">Qualitätskontrolle:</strong> Jeder Prototyp wird vor dem Versand visuell und dimensional geprüft. 
+                    Wir stellen sicher, dass die Maße Ihren CAD-Daten entsprechen und die Oberflächenqualität den Anforderungen genügt. 
+                    Bei Unstimmigkeiten kontaktieren wir Sie vor der Fertigung.
+                  </p>
+                  <p className="leading-relaxed">
+                    <strong className="text-foreground">Express-Service:</strong> Dringende Projekte? Unser 24h-Express-Service liefert kritische 
+                    Prototypen über Nacht. Standard-Lieferzeit beträgt 3-5 Werktage, Express in 24-48 Stunden möglich.
+                  </p>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="text-center animate-fade-in" style={{animationDelay: '0.4s'}}>
+                <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  Jetzt Prototyp anfragen
+                  <ArrowRight className="ml-2" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Google Reviews - Social Proof */}
+        <section className="py-16 bg-gradient-to-b from-muted/20 to-background">
+          <div className="container mx-auto px-4">
             <div className="text-center mb-12 animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Was unsere Kunden <span className="text-gradient">sagen</span>
@@ -115,200 +227,6 @@ const Prototypen = () => {
           </div>
         </section>
 
-        {/* Prototypen Arten */}
-        <section className="py-20 bg-gradient-to-b from-background to-muted/20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                Welchen <span className="text-gradient">Prototyp</span> benötigen Sie?
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Von Designmustern bis zu voll funktionsfähigen Testprototypen - wir fertigen jeden Prototyp nach Ihren Anforderungen.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <Card className="gradient-card hover-scale animate-fade-in">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Package className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle>Funktionsprototypen</CardTitle>
-                  <CardDescription>Voll funktionsfähige Testmodelle</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Mechanische Funktionstests</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Passung & Montageprüfung</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Belastungstests</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Hochfeste Materialien (PA12, PETG)</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="gradient-card hover-scale border-primary shadow-lg animate-fade-in" style={{animationDelay: '0.1s'}}>
-                <CardHeader>
-                  <Badge className="w-fit mb-2">Beliebt</Badge>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Shield className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle>Designprototypen</CardTitle>
-                  <CardDescription>Visualisierung & Präsentation</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Produktpräsentationen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Kundenfreigaben</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Design-Validierung</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Hochwertige Oberflächenqualität</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="gradient-card hover-scale animate-fade-in" style={{animationDelay: '0.2s'}}>
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <TrendingUp className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle>Konzeptmodelle</CardTitle>
-                  <CardDescription>Schnelle Iteration & Entwicklung</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Schnelle Designiterationen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Formstudien</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Größenvergleiche</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Kosteneffiziente Fertigung</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Vorteile Section - Reduced to 2 Cards */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2"></div>
-          <div className="absolute top-1/2 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <Card className="text-center hover-scale animate-fade-in backdrop-blur-sm bg-card/95">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Clock className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle>Schnelle Lieferung</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-lg">
-                    <strong className="text-primary">Express-Service in 24-48h</strong>. Standard-Prototypen innerhalb von 3-5 Werktagen.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover-scale animate-fade-in backdrop-blur-sm bg-card/95" style={{animationDelay: '0.1s'}}>
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Package className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle>Faire Preise</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-lg">
-                    Transparente Kalkulation ohne versteckte Kosten. <strong className="text-primary">Kleine Prototypen ab €5</strong>.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Materialien - Reduced to 2 Materials */}
-        <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12 animate-fade-in">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  <span className="text-gradient">Materialien</span> für Prototypen
-                </h2>
-                <p className="text-xl text-muted-foreground">
-                  Hochwertige, österreichische Filamente für optimale Qualität.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <Card className="hover:border-primary/50 transition-all hover-scale animate-fade-in">
-                  <CardHeader>
-                    <CardTitle>PLA - Designprototypen</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-3">
-                      Ideal für Designmuster und Präsentationsmodelle. Nachhaltig und kostengünstig mit bester Oberflächenqualität.
-                    </p>
-                    <Badge variant="secondary">Nachhaltig</Badge>
-                    <Badge variant="secondary" className="ml-2">Beste Oberfläche</Badge>
-                  </CardContent>
-                </Card>
-
-                <Card className="hover:border-primary/50 transition-all hover-scale animate-fade-in" style={{animationDelay: '0.1s'}}>
-                  <CardHeader>
-                    <CardTitle>PETG - Funktionsprototypen</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-3">
-                      Robust und schlagfest. Perfekt für funktionale Testteile mit mechanischer Belastung und UV-Beständigkeit.
-                    </p>
-                    <Badge variant="secondary">Robust</Badge>
-                    <Badge variant="secondary" className="ml-2">UV-beständig</Badge>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <div className="text-center">
-                <Button variant="outline" onClick={() => window.location.href = '/materialien'}>
-                  Alle Materialien ansehen
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Process Timeline */}
         <section className="py-20 relative overflow-hidden">
