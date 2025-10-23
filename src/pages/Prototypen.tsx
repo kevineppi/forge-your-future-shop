@@ -5,6 +5,10 @@ import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
+import GoogleReviews from "@/components/GoogleReviews";
+import QuickInquiryForm from "@/components/QuickInquiryForm";
+import CaseStudiesTeaser from "@/components/CaseStudiesTeaser";
+import WeeklyProductionCounter from "@/components/WeeklyProductionCounter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -14,9 +18,9 @@ const Prototypen = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Prototypen & Prototyping Service | Schnell & Präzise | ekdruck"
-        description="⚡ Professionelle 3D-Druck Prototypen aus Österreich ✓ Funktionsprototypen ✓ Designmuster ✓ Testmodelle ✓ Ab 24h Lieferzeit ✓ Kostenloser Versand ab €50 → Jetzt Prototyp anfragen!"
-        keywords="3d druck prototypen, prototypen 3d-druck, 3d-druck prototypen österreich, prototyping service, funktionsprototypen, designprototypen, testprototypen, prototypenbau 3d druck"
+        title="3D-Druck Prototypen ab €5 | 24h Express | 100+ Projekte | ekdruck"
+        description="⚡ Funktionsprototypen in 24-48h ✓ Ab €5 ✓ 0,1mm Präzision ✓ Gratis Beratung ✓ 100% AT-Produktion → Jetzt kostenlos Angebot anfordern!"
+        keywords="3d druck prototypen, prototypen 3d-druck, 3d-druck prototypen österreich, funktionsprototypen, prototyping service, designprototypen"
         path="/prototypen"
         schemaType="service"
       />
@@ -42,25 +46,25 @@ const Prototypen = () => {
               </Badge>
               
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                3D-Druck <span className="text-gradient">Prototypen</span> aus Österreich
+                3D-Druck <span className="text-gradient">Prototypen ab €5</span> aus Österreich
               </h1>
               
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                Von der <strong className="text-primary">Idee zum fertigen Prototyp</strong> in nur 24-48 Stunden. 
-                Professionelle Funktionsprototypen, Designmuster und Testmodelle mit modernster FDM 3D-Druck Technologie.
+              <p className="text-xl text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed">
+                <strong className="text-primary">Funktionsprototypen, Designmuster, Konzeptmodelle</strong> - Lieferung in 24-48 Stunden. 
+                Professionelle 3D-Druck Prototypen mit österreichischen Premium-Materialien.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                 <Button 
                   variant="hero" 
                   size="lg"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Prototyp anfragen
+                  Jetzt Prototyp anfragen
                   <ArrowRight className="ml-2" />
                 </Button>
                 <Button 
-                  variant="outline" 
+                  variant="secondary" 
                   size="lg"
                   onClick={() => window.location.href = '/kostenrechner'}
                 >
@@ -68,8 +72,24 @@ const Prototypen = () => {
                 </Button>
               </div>
 
+              {/* Trust Badges */}
+              <div className="flex flex-wrap justify-center gap-4 mb-6">
+                <Badge variant="secondary" className="px-4 py-2">
+                  <CheckCircle2 className="w-4 h-4 mr-2" />
+                  100+ erfolgreiche Projekte
+                </Badge>
+                <Badge variant="secondary" className="px-4 py-2">
+                  <CheckCircle2 className="w-4 h-4 mr-2" />
+                  5.0/5 Google Bewertungen
+                </Badge>
+                <Badge variant="secondary" className="px-4 py-2">
+                  <CheckCircle2 className="w-4 h-4 mr-2" />
+                  100% AT-Produktion
+                </Badge>
+              </div>
+
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary mb-2">24-48h</div>
                   <div className="text-sm text-muted-foreground">Express-Lieferung</div>
@@ -87,7 +107,23 @@ const Prototypen = () => {
                   <div className="text-sm text-muted-foreground">Präzision</div>
                 </div>
               </div>
+
+              {/* Quick Inquiry Form */}
+              <QuickInquiryForm />
             </div>
+          </div>
+        </section>
+
+        {/* Google Reviews - Social Proof */}
+        <section className="py-12 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                Was unsere Kunden <span className="text-gradient">sagen</span>
+              </h2>
+              <WeeklyProductionCounter />
+            </div>
+            <GoogleReviews />
           </div>
         </section>
 
@@ -198,17 +234,14 @@ const Prototypen = () => {
           </div>
         </section>
 
-        {/* Vorteile Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                Warum <span className="text-gradient">ekdruck</span> für Ihren Prototyp?
-              </h2>
-            </div>
+        {/* Case Studies Teaser */}
+        <CaseStudiesTeaser />
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              <Card className="text-center">
+        {/* Vorteile Section - Reduced to 2 Cards */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <Card className="text-center hover:scale-105 transition-transform">
                 <CardHeader>
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Clock className="w-8 h-8 text-primary" />
@@ -216,41 +249,13 @@ const Prototypen = () => {
                   <CardTitle>Schnelle Lieferung</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Express-Service mit Lieferung in 24-48h. Standard-Prototypen innerhalb von 3-5 Werktagen.
+                  <p className="text-muted-foreground text-lg">
+                    <strong className="text-primary">Express-Service in 24-48h</strong>. Standard-Prototypen innerhalb von 3-5 Werktagen.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle>Höchste Qualität</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Professionelle FDM 3D-Drucker mit 0,1mm Präzision und österreichische Premium-Materialien.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle>Persönliche Beratung</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Kostenlose Designoptimierung und Materialberatung für perfekte Prototypen-Ergebnisse.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center">
+              <Card className="text-center hover:scale-105 transition-transform">
                 <CardHeader>
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Package className="w-8 h-8 text-primary" />
@@ -258,8 +263,8 @@ const Prototypen = () => {
                   <CardTitle>Faire Preise</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Transparente Kalkulation ohne versteckte Kosten. Kleine Prototypen bereits ab €5.
+                  <p className="text-muted-foreground text-lg">
+                    Transparente Kalkulation ohne versteckte Kosten. <strong className="text-primary">Kleine Prototypen ab €5</strong>.
                   </p>
                 </CardContent>
               </Card>
@@ -267,112 +272,55 @@ const Prototypen = () => {
           </div>
         </section>
 
-        {/* Anwendungsbereiche */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                <span className="text-gradient">Branchen</span> & Anwendungen
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Unsere 3D-Druck Prototypen werden in verschiedensten Branchen eingesetzt.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {[
-                { title: "Maschinenbau", items: ["Funktionsteile", "Vorrichtungen", "Ersatzteile", "Testaufbauten"] },
-                { title: "Produktdesign", items: ["Designmuster", "Formstudien", "Präsentationsmodelle", "Ergonomietests"] },
-                { title: "Automotive", items: ["KFZ-Prototypen", "Innenraumteile", "Halterungen", "Zubehör"] },
-                { title: "Medizintechnik", items: ["Anschauungsmodelle", "Testaufbauten", "Hilfsmittel", "Modelle"] },
-                { title: "Architektur", items: ["Gebäudemodelle", "Präsentationsmodelle", "Studienmodelle", "Prototypen"] },
-                { title: "Startups & Innovation", items: ["MVP-Prototypen", "Crowdfunding-Muster", "Investoren-Präsentation", "Konzepttests"] }
-              ].map((bereich, index) => (
-                <Card key={index} className="hover:border-primary/50 transition-colors">
-                  <CardHeader>
-                    <CardTitle>{bereich.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {bereich.items.map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 text-muted-foreground">
-                          <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Materialien */}
-        <section className="py-20 bg-muted/30">
+        {/* Materialien - Reduced to 2 Materials */}
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  <span className="text-gradient">Materialien</span> für jeden Prototyp
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                  <span className="text-gradient">Materialien</span> für Prototypen
                 </h2>
                 <p className="text-muted-foreground">
-                  Wir verwenden ausschließlich hochwertige, österreichische Filamente für optimale Prototypen-Qualität.
+                  Hochwertige, österreichische Filamente für optimale Qualität.
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card>
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <Card className="hover:border-primary/50 transition-colors">
                   <CardHeader>
                     <CardTitle>PLA - Designprototypen</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground mb-3">
-                      Ideal für Designmuster und Präsentationsmodelle. Nachhaltig und kostengünstig.
+                      Ideal für Designmuster und Präsentationsmodelle. Nachhaltig und kostengünstig mit bester Oberflächenqualität.
                     </p>
                     <Badge variant="secondary">Nachhaltig</Badge>
                     <Badge variant="secondary" className="ml-2">Beste Oberfläche</Badge>
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="hover:border-primary/50 transition-colors">
                   <CardHeader>
                     <CardTitle>PETG - Funktionsprototypen</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground mb-3">
-                      Robust und schlagfest. Perfekt für funktionale Testteile mit mechanischer Belastung.
+                      Robust und schlagfest. Perfekt für funktionale Testteile mit mechanischer Belastung und UV-Beständigkeit.
                     </p>
                     <Badge variant="secondary">Robust</Badge>
                     <Badge variant="secondary" className="ml-2">UV-beständig</Badge>
                   </CardContent>
                 </Card>
+              </div>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle>ABS - Belastbare Prototypen</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-3">
-                      Hitzebeständig und formstabil. Ideal für Automotive und technische Anwendungen.
-                    </p>
-                    <Badge variant="secondary">Hitzebeständig</Badge>
-                    <Badge variant="secondary" className="ml-2">Formstabil</Badge>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle>PA12 Nylon - High-End</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-3">
-                      Höchste Festigkeit und Haltbarkeit. Für anspruchsvolle Funktionsprototypen.
-                    </p>
-                    <Badge variant="secondary">Hochfest</Badge>
-                    <Badge variant="secondary" className="ml-2">Verschleißfest</Badge>
-                  </CardContent>
-                </Card>
+              <div className="text-center">
+                <Button 
+                  variant="outline" 
+                  onClick={() => window.location.href = '/materialien'}
+                >
+                  Alle Materialien ansehen
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
               </div>
             </div>
           </div>

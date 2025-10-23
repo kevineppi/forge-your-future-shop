@@ -224,6 +224,13 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                 "addressRegion": "Oberösterreich",
                 "postalCode": "4623",
                 "addressCountry": "AT"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "bestRating": "5",
+                "worstRating": "1",
+                "reviewCount": "50"
               }
             },
             "areaServed": [
@@ -251,12 +258,30 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             },
             "serviceType": "3D-Druck, Rapid Prototyping, FDM, Additive Fertigung, Prototypenerstellung",
             "category": "Manufacturing, 3D Printing, Prototyping, Custom Manufacturing",
-            "offers": {
-              "@type": "Offer",
-              "availability": "https://schema.org/InStock",
-              "priceRange": "€€",
-              "priceCurrency": "EUR"
-            }
+            "offers": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "3D-Druck Funktionsprototyp",
+                  "description": "Voll funktionsfähige Testmodelle für mechanische Tests"
+                },
+                "price": "5.00",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "3D-Druck Designprototyp",
+                  "description": "Hochwertige Präsentationsmodelle"
+                },
+                "price": "5.00",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              }
+            ]
           };
         
         case 'faq':

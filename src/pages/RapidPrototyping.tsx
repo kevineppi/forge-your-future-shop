@@ -13,9 +13,9 @@ const RapidPrototyping = () => {
   return (
     <>
       <SEOHead 
-        title="Rapid Prototyping Service | 3D-Druck Express in 24h | ekdruck"
-        description="⚡ Rapid Prototyping Express-Service aus Österreich ✓ Prototypen in 24-48h ✓ Funktionale Testmodelle ✓ Same-Day möglich ✓ Professionelle Beratung → Jetzt Express-Prototyp anfragen!"
-        keywords="rapid prototyping, rapid prototyping österreich, rapid prototyping wien, rapid prototyping linz, fdm rapid prototyping, 3d druck express, prototypen schnell, express 3d-druck, same day prototyping"
+        title="Rapid Prototyping Express: Prototyp in 24h | Same-Day verfügbar"
+        description="🚀 Same-Day Prototyping Service ✓ 24h Express ab +50% ✓ Overnight möglich ✓ FDM 3D-Druck OÖ → Jetzt Express-Prototyp anfragen!"
+        keywords="rapid prototyping, rapid prototyping österreich, express 3d-druck, same day prototyping, prototypen express"
         path="/rapid-prototyping"
         schemaType="service"
         breadcrumbs={[
@@ -51,17 +51,94 @@ const RapidPrototyping = () => {
                 <Clock className="h-10 w-10 text-primary" />
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground">
-                Rapid Prototyping
-                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Von der Idee zum Prototyp in 24-48h</span>
+                <span className="text-gradient">Rapid Prototyping Express</span>
+                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Prototyp in 24h - Same-Day & Overnight verfügbar</span>
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-                Beschleunigen Sie Ihre Produktentwicklung mit unserem Rapid Prototyping Service. 
-                Schnell, präzise und kostengünstig - österreichweit verfügbar.
+                <strong className="text-foreground">Notfall-Service für extreme Urgenz</strong>: Same-Day Prototyping, 24h Express und Overnight-Lieferung. 
+                Wenn jede Stunde zählt - österreichweit verfügbar.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Express-Prototyp anfragen <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Express Service Matrix - NEW */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">Wählen Sie Ihren Express-Service</h2>
+                <p className="text-xl text-muted-foreground">
+                  Transparente Aufpreise für beschleunigte Lieferung
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                <Card className="text-center hover:scale-105 transition-transform border-primary/50">
+                  <CardHeader>
+                    <div className="text-4xl font-bold text-primary mb-2">24h</div>
+                    <CardTitle className="text-2xl">Express</CardTitle>
+                    <CardDescription className="text-lg">Ihr Prototyp in nur 24 Stunden</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-3xl font-bold text-primary mb-4">+50%</div>
+                    <p className="text-muted-foreground mb-6">Aufpreis auf Standardpreis</p>
+                    <Button 
+                      size="lg" 
+                      variant="hero" 
+                      className="w-full"
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                      Jetzt anfragen
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center hover:scale-105 transition-transform border-primary shadow-lg">
+                  <CardHeader>
+                    <Badge className="w-fit mx-auto mb-2">Schnellste Option</Badge>
+                    <div className="text-4xl font-bold text-primary mb-2">Same-Day</div>
+                    <CardTitle className="text-2xl">Fertigung am selben Tag</CardTitle>
+                    <CardDescription className="text-lg">Auftrag bis 10:00 Uhr</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-3xl font-bold text-primary mb-4">+100%</div>
+                    <p className="text-muted-foreground mb-6">Aufpreis auf Standardpreis</p>
+                    <Button 
+                      size="lg" 
+                      variant="hero" 
+                      className="w-full"
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                      Jetzt anfragen
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center hover:scale-105 transition-transform border-primary/50">
+                  <CardHeader>
+                    <div className="text-4xl font-bold text-primary mb-2">48-72h</div>
+                    <CardTitle className="text-2xl">Standard</CardTitle>
+                    <CardDescription className="text-lg">Reguläre Lieferzeit</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-3xl font-bold text-primary mb-4">Normalpreis</div>
+                    <p className="text-muted-foreground mb-6">Ohne Aufpreis</p>
+                    <Button 
+                      size="lg" 
+                      variant="secondary" 
+                      className="w-full"
+                      onClick={() => window.location.href = '/prototypen'}
+                    >
+                      Zur Standardseite
+                    </Button>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>

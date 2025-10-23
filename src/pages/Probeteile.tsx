@@ -125,9 +125,9 @@ const Probeteile = () => {
   };
   return <>
       <SEOHead 
-        title="Kostenlose 3D-Druck Probeteile für B2B | Serienfertigung | ekdruck"
-        description="🎁 Kostenlose 3D-Druck Probeteile für B2B Serienfertigung ✓ Qualitätstest vor Serienauftrag ✓ FDM 3D-Druck ✓ Schnelle Lieferung → Jetzt Probeteil anfordern!" 
-        keywords="kostenlose probeteile 3d-druck, b2b 3d-druck österreich, serienfertigung probedruck, 3d-druck muster oberösterreich, fdm probeteile kostenlos, 3d-druck qualitätstest, serienfertigung österreich"
+        title="GRATIS 3D-Druck Probeteil für B2B | Serienfertigung ab 50 Stück"
+        description="🎁 1 Probeteil KOSTENLOS für B2B ✓ Serienfertigung ab 50 Stk ✓ Qualitätstest vor Auftrag ✓ FDM 3D-Druck OÖ → Jetzt Gratis-Probeteil anfordern!" 
+        keywords="kostenlose probeteile 3d-druck, b2b 3d-druck, serienfertigung probedruck, gratis probeteil"
         path="/probeteile" 
         schemaType="service" 
       />
@@ -148,12 +148,12 @@ const Probeteile = () => {
               <Building2 className="w-4 h-4" />
               Nur für B2B-Anfragen
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent leading-relaxed py-2">
-              Kostenlose 3D-Druck-Probeteile für die B2B-Serienfertigung in Österreich
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent leading-relaxed py-2">
+              <span className="text-gradient">GRATIS 3D-Druck Probeteil</span> für B2B Serienfertigung
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 my-0 py-0">
-              Testen Sie die Qualität unserer FDM 3D-Druck Serienfertigung mit einem kostenlosen Probeteil. 
-              Professioneller B2B Service für österreichische Unternehmen mit geplanten Produktionsvolumen ab 50 Stück.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
+              <strong className="text-foreground">Kostenloser Qualitätstest</strong> vor Serienauftrag ab 50 Stück. 
+              Professioneller B2B Service für österreichische Unternehmen - 100% unverbindlich.
             </p>
             <div className="max-w-4xl mx-auto text-left mb-12">
               <div className="grid md:grid-cols-2 gap-8">
