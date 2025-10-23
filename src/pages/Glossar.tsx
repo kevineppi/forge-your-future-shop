@@ -158,6 +158,156 @@ const glossaryTerms = [
     term: "Post-Processing (Nachbearbeitung)",
     category: "Nachbearbeitung",
     definition: "Alle Bearbeitungsschritte nach dem 3D-Druck zur Verbesserung von Optik oder Funktion. Umfasst: Support-Entfernung, Schleifen, Grundieren, Lackieren, chemisches Glätten (Aceton-Dampf bei ABS, Ethylacetat bei PETG), Einfügen von Gewindeeinsätzen, Bohren, Kleben mehrerer Teile. Professionelles Post-Processing kann 3D-Drucke wie Spritzgussteile aussehen lassen."
+  },
+  {
+    term: "Ghosting / Ringing",
+    category: "Druckfehler",
+    definition: "Wellenförmige Artefakte oder Echo-Muster, die parallel zu scharfen Kanten auftreten. Verursacht durch mechanische Vibrationen des Druckers bei schnellen Richtungswechseln. Das Trägheitsmoment des Druckkopfs führt zu Schwingungen im Rahmen. Lösungen: Beschleunigung reduzieren, Druckgeschwindigkeit senken, mechanische Stabilität erhöhen (Riemenspannung, Rahmenversteifungen), Input Shaping aktivieren."
+  },
+  {
+    term: "Elephant's Foot",
+    category: "Druckfehler",
+    definition: "Aufweitung der ersten Schichten am Bauteilfuß, wodurch der Grundriss größer als gewollt wird. Entsteht, wenn die erste Schicht zu stark ans Bett gedrückt wird oder das Heizbett zu heiß ist und untere Schichten erweicht. Lösungen: Z-Offset erhöhen (0,02-0,05mm), Betttemperatur nach 1-2 Schichten reduzieren, Brim statt Raft verwenden, erste Schicht langsamer drucken."
+  },
+  {
+    term: "Zits and Blobs",
+    category: "Druckfehler",
+    definition: "Kleine Kunststoffhügel oder Unreinheiten auf der Oberfläche, oft an der Stelle, wo eine neue Schicht beginnt (Seam). Entstehen durch Materialaustritt beim Stopp/Start des Extruders oder inkonsistenten Materialfluss. Lösungen: Retraction optimieren, Seam-Position anpassen (auf Ecken legen oder zufällig verteilen), Coasting aktivieren, Drucktemperatur senken, Wiping aktivieren."
+  },
+  {
+    term: "Bowden Extruder",
+    category: "Hardware",
+    definition: "Extruder-System, bei dem der Filamentantrieb (Feeder) räumlich vom Hot-End getrennt ist. Filament wird durch ein PTFE-Rohr (Bowden Tube) zur Düse transportiert. Vorteile: Leichterer Druckkopf ermöglicht höhere Geschwindigkeiten, weniger bewegte Masse. Nachteile: Höhere Retraction-Distanzen nötig (4-6mm), weniger direkte Kontrolle über Extrusion, schlechter für flexible Materialien."
+  },
+  {
+    term: "Direct Drive Extruder",
+    category: "Hardware",
+    definition: "Extruder-System, bei dem der Filamentantrieb direkt am Hot-End montiert ist. Filament hat minimalen Abstand zwischen Antrieb und Düse. Vorteile: Präzisere Extrusionskontrolle, niedrige Retraction (1-2mm), besser für flexible Materialien (TPU). Nachteile: Höhere bewegte Masse begrenzt Beschleunigung und Geschwindigkeit, komplexere Kabelführung."
+  },
+  {
+    term: "Acceleration (Beschleunigung)",
+    category: "Druckparameter",
+    definition: "Die Rate, mit der der Druckkopf seine Geschwindigkeit ändert, gemessen in mm/s². Höhere Werte ermöglichen schnellere Drucke, verursachen aber mehr Vibrationen (Ghosting). Typische Werte: 500-1000mm/s² für Standard-Drucker, 3000-10000mm/s² für moderne CoreXY-Drucker mit Input Shaping. Separate Einstellungen für Druck (Print), Verfahren (Travel), Retraktion und erste Schicht üblich."
+  },
+  {
+    term: "Jerk",
+    category: "Druckparameter",
+    definition: "Die instantane Geschwindigkeitsänderung, die der Drucker ohne Beschleunigungsrampe ausführen darf, gemessen in mm/s. Reduziert Vibrationen an Ecken, kann aber zu mechanischem Verschleiß führen. In Marlin/Repetier-Firmware: typisch 5-20mm/s. Moderne Firmware (Klipper) verwendet Junction Deviation statt Jerk. Zu niedrige Werte verursachen abgerundete Ecken, zu hohe führen zu Ghosting."
+  },
+  {
+    term: "Print Speed (Druckgeschwindigkeit)",
+    category: "Druckparameter",
+    definition: "Die Geschwindigkeit, mit der der Druckkopf beim Extrudieren verfährt, in mm/s. Typische Werte: 40-60mm/s für PLA, 30-50mm/s für PETG/ABS, 20-30mm/s für TPU. Besteht aus mehreren Sub-Geschwindigkeiten: Außenwand (langsamer für Qualität), Innenwand, Infill (schneller), erste Schicht (langsam für Haftung). Höhere Geschwindigkeit = kürzere Druckzeit, aber mögliche Qualitätseinbußen."
+  },
+  {
+    term: "Travel Speed (Verfahrgeschwindigkeit)",
+    category: "Druckparameter",
+    definition: "Die Geschwindigkeit für Bewegungen ohne Extrusion zwischen verschiedenen Druckbereichen. Kann deutlich höher sein als Print Speed (100-200mm/s) ohne Qualitätsverlust. Höhere Travel Speed reduziert Stringing-Risiko (Material hat weniger Zeit zum Tropfen), kann aber bei zu hohen Werten zu Riemenschlag und mechanischen Problemen führen."
+  },
+  {
+    term: "Cooling Fan (Teilekühlung)",
+    category: "Hardware",
+    definition: "Lüfter zur Kühlung der frisch gedruckten Schichten. Kritisch für Überhänge und Brücken - kühlt das Filament schnell ab, bevor es absackt. PLA benötigt 100% Kühlung, PETG 30-50%, ABS meist 0-20% (Warping-Gefahr). Layer-Fan sollte erst ab 2.-3. Schicht aktiviert werden. Moderne Drucker nutzen Radiallüfter mit gezielter Luftführung aus mehreren Richtungen."
+  },
+  {
+    term: "Flow Rate (Durchflussrate)",
+    category: "Druckparameter",
+    definition: "Multiplikator für die Extrusionsmenge, angegeben in Prozent (normalerweise 100%). Kompensiert Abweichungen im Filamentdurchmesser oder in der Extruder-Kalibrierung. 95% Flow = 5% weniger Material, 105% = 5% mehr. Falsche Flow-Einstellung führt zu Over-Extrusion (zu viel = Blobs, unsaubere Oberfläche) oder Under-Extrusion (zu wenig = Lücken, schwache Schichten). Kalibrierung via Flow-Cube empfohlen."
+  },
+  {
+    term: "Extrusion Multiplier",
+    category: "Kalibrierung",
+    definition: "Synonym für Flow Rate. Wichtiger Kalibrierungsparameter zur Feinabstimmung der Materialzufuhr. Wird durch Drucken eines kalibrierten Würfels oder Hohlwand-Tests ermittelt. Formel: Neuer Multiplier = Aktueller Multiplier × (Soll-Wandstärke / Ist-Wandstärke). Material-spezifisch: Jedes Filament kann leicht unterschiedliche Werte benötigen (±3-5%)."
+  },
+  {
+    term: "PID Tuning",
+    category: "Kalibrierung",
+    definition: "Automatischer Kalibrierungsprozess für die Heizungsregelung (Hot-End und Heizbett). PID-Regler (Proportional-Integral-Derivative) passt Heizleistung dynamisch an, um Zieltemperatur präzise zu halten. Notwendig nach Hardware-Änderungen (neue Düse, Heizbett) oder bei Temperaturschwankungen. Kommando in Marlin: M303 für Hot-End, M304 für Bett. Ergebnis: Optimierte P-, I- und D-Werte für stabiles Heizen."
+  },
+  {
+    term: "Input Shaping",
+    category: "Kalibrierung",
+    definition: "Fortschrittliche Firmware-Funktion (Klipper) zur Kompensation mechanischer Resonanzen. Misst Eigenschwingungen des Druckers via Beschleunigungssensor und generiert Gegenschwingungen, die Ghosting/Ringing eliminieren. Ermöglicht deutlich höhere Beschleunigungen (5000-15000mm/s²) ohne Qualitätsverlust. Verschiedene Algorithmen: ZV, MZV, EI, 2HUMP_EI. Revolutioniert schnelles Drucken bei höchster Qualität."
+  },
+  {
+    term: "Coasting",
+    category: "Druckparameter",
+    definition: "Technik zur Vermeidung von Blobs am Schichtende. Stoppt die Extrusion kurz vor dem Endpunkt (0,1-0,5mm), nutzt Restdruck im Hot-End zum Weiterfließen. Reduziert Material-Austreten beim Stopp, vermindert Seam-Sichtbarkeit. Zu viel Coasting führt zu Under-Extrusion an Endpunkten. Alternative/Ergänzung zu Retraction. Nicht in allen Slicern verfügbar (Simplify3D, Cura)."
+  },
+  {
+    term: "Seam Position (Nahtstelle)",
+    category: "Druckparameter",
+    definition: "Der Punkt, an dem jede Schicht beginnt und endet. Sichtbar als vertikale Linie (Z-Seam). Platzierungsstrategien: User Specified (feste Position, z.B. Rückseite), Sharpest Corner (auf scharfsten Ecken verstecken), Random (zufällig verteilt für gleichmäßige Oberfläche), Aligned (vertikal ausgerichtet). Optimierung durch Coasting, Retraction und Wipe-Einstellungen. Bei organischen Formen oft Random bevorzugt."
+  },
+  {
+    term: "Vase Mode / Spiralize",
+    category: "Druckparameter",
+    definition: "Spezieller Druckmodus für einwandige, hohle Objekte ohne Schichtwechsel. Düse fährt kontinuierlich spiralförmig nach oben, Z-Achse bewegt sich kontinuierlich während einer Schicht. Vorteile: Keine sichtbare Naht, sehr schnell, wasserdicht, dekorativ. Einschränkungen: Nur einfache, geschlossene Geometrien, keine Überhänge/Brücken möglich, nur eine Perimeter, kein Infill/Top. Ideal für Vasen, Becher, Lampenschirme."
+  },
+  {
+    term: "Ironing",
+    category: "Druckparameter",
+    definition: "Nachbearbeitungsfunktion im Slicer, die oberste Schicht glättet. Hot-End fährt mit wenig/keiner Extrusion über die Top-Schicht und 'bügelt' Material glatt durch Hitze und Druck. Erzeugt glänzende, nahezu schichtlinienfreie Oberflächen. Verlängert Druckzeit um 10-30%. Parameter: Ironing-Durchfluss (5-15%), Geschwindigkeit (langsam, ~20mm/s), Linienabstand (0,1-0,15mm). Besonders effektiv bei PLA und PETG."
+  },
+  {
+    term: "Adaptive Layers (Variable Schichthöhe)",
+    category: "Druckparameter",
+    definition: "Automatische Anpassung der Layer Height basierend auf Modellgeometrie. Flache Bereiche mit hohen Schichten (schnell), Details und Kurven mit niedrigen Schichten (präzise). Reduziert Druckzeit bei gleichbleibender Qualität an kritischen Stellen. Slicer analysiert Oberflächenwinkel und passt zwischen Min/Max-Werten an (z.B. 0,1-0,3mm). PrusaSlicer und Cura unterstützen diese Funktion nativ."
+  },
+  {
+    term: "Minimum Layer Time",
+    category: "Druckparameter",
+    definition: "Mindestzeit pro Schicht (typisch 5-20 Sekunden). Verhindert, dass kleine Schichten zu schnell gedruckt werden und Material nicht ausreichend kühlt. Wenn Schicht schneller als Minimum-Zeit druckbar wäre, reduziert Slicer automatisch Geschwindigkeit oder fügt Wartezeit ein. Besonders wichtig bei kleinen Türmchen, Buchstaben, Figuren. Zu kurze Layer Time führt zu Schmelzen/Verformen vorheriger Schichten."
+  },
+  {
+    term: "Maximum Volumetric Speed",
+    category: "Druckparameter",
+    definition: "Maximale Materialmenge, die pro Sekunde geschmolzen und extrudiert werden kann, in mm³/s. Physikalische Grenze des Hot-Ends, abhängig von Heizleistung, Düsengröße und Material. Typisch: 10-15mm³/s bei Standard-Hot-Ends, bis 30mm³/s bei High-Flow-Hot-Ends (z.B. E3D Volcano). Formel: mm³/s = Geschwindigkeit × Layer Height × Linienbreite. Limitiert effektive Druckgeschwindigkeit."
+  },
+  {
+    term: "Heat Creep",
+    category: "Druckfehler",
+    definition: "Unerwünschtes Aufschmelzen von Filament im Cold-End oberhalb des Hot-Ends. Verursacht durch unzureichende Kühlung oder defekte Kühlkörper/Lüfter. Führt zu Verstopfungen, inkonsistenter Extrusion, Klicken des Extruders. Symptome verschlimmern sich bei höheren Temperaturen oder längeren Druckjobs. Lösungen: Hotend-Lüfter prüfen, Heatbreak ersetzen, PTFE-Tube kontrollieren, bei PLA Druckpausen einlegen."
+  },
+  {
+    term: "Cold-End",
+    category: "Hardware",
+    definition: "Der obere, ungeheizte Teil des Extruders mit Kühlkörper und Lüfter. Hält Filament fest und kühl bis zum Heatbreak. Enthält den Antriebsmechanismus (bei Direct Drive) oder die Bowden-Kupplung. Kühlkörper mit Rippen und aktiver Lüftung verhindert Heat Creep. Material meist Aluminium für gute Wärmeableitung. Wichtig für zuverlässige Langzeitdrucke und temperaturkritische Materialien."
+  },
+  {
+    term: "Heatbreak",
+    category: "Hardware",
+    definition: "Thermische Barriere zwischen Cold-End und Hot-End. Schlankes Rohr mit minimaler Kontaktfläche zur Wärmedämmung, meist aus Edelstahl oder Titan (schlechte Wärmeleiter). Innenloch nur etwas größer als Filamentdurchmesser. Kritische Komponente für saubere thermische Trennung. All-Metal-Heatbreaks (kein PTFE) erlauben Hochtemperatur-Materialien >250°C. Bi-Metall-Designs (Kupfer+Titan) optimieren Wärmeleitung und -trennung."
+  },
+  {
+    term: "PTFE Tube (Bowden Tube)",
+    category: "Hardware",
+    definition: "Teflon-Schlauch zur Führung des Filaments. Bei Bowden-Extrudern: Leitet Filament vom Feeder zum Hot-End. Im Hot-End: Als Liner zur Filamentführung (bis ~250°C, darüber All-Metal). PTFE hat extrem niedrige Reibung, verschleißt aber bei hohen Temperaturen. Innendurchmesser kritisch: 2mm für 1,75mm Filament, 3mm für 2,85mm. Qualität variiert stark - Capricorn-PTFE gilt als Standard für höhere Temperaturen (bis 260°C)."
+  },
+  {
+    term: "Stepper Motor (Schrittmotor)",
+    category: "Hardware",
+    definition: "Elektromagnete, die den 3D-Drucker präzise bewegen. NEMA17 (42×42mm) am häufigsten für X/Y/Z und Extruder. Dreht in kleinen Schritten (1,8° = 200 Steps/Rotation Standard). Mit Microstepping (16×, 32×, 256×) bis zu 51.200 Mikroschritte/Rotation möglich. Höheres Drehmoment (N·cm) = mehr Kraft. Treiber (TMC2208, TMC2209) regeln Strom und ermöglichen Silent-Mode. Überhitzung führt zu Schrittverlust."
+  },
+  {
+    term: "Belt Tension (Riemenspannung)",
+    category: "Kalibrierung",
+    definition: "Spannung der Zahnriemen (GT2) für X/Y-Achsen. Kritisch für Präzision und Druckqualität. Zu locker: Schrittverlust, ungenaue Maße, verschobene Schichten, Ghosting. Zu straff: Erhöhter Verschleiß, Lagerbelastung, Motorüberhitzung. Prüfung: Riemen sollte gespannt sein, aber mit Finger seitlich 5-10mm auslenkbar. Sound-Test: Anschlagen des Riemens sollte tiefen, gleichmäßigen Ton ergeben. Regelmäßige Nachspannung nötig (Dehnung über Zeit)."
+  },
+  {
+    term: "Firmware",
+    category: "Software",
+    definition: "Basissoftware des 3D-Druckers, interpretiert G-Code und steuert Hardware. Hauptoptionen: Marlin (am weitesten verbreitet, gut dokumentiert, für 8/32-bit), Klipper (Raspberry Pi-basiert, höchste Performance, Input Shaping), RepRapFirmware (Duet-Boards, webbasiert), RRF/Smoothieware (32-bit). Firmware-Updates ermöglichen neue Features (Mesh Bed Leveling, Linear Advance). Konfiguration via Configuration.h (Marlin) oder printer.cfg (Klipper)."
+  },
+  {
+    term: "Fuzzy Skin",
+    category: "Druckparameter",
+    definition: "Oberflächen-Effekt, der glatte Außenwände durch zufällige Mikroabweichungen aufraut. Erzeugt griffige, texturierte Oberfläche ähnlich feinem Sandpapier oder Gummi. Slicer verschiebt Außenperimeter zufällig um 0,1-0,4mm. Nützlich für Griffe, ergonomische Teile, Spielzeug. Verbirgt auch Druckfehler und Schichtlinien. Erhöht Druckzeit leicht (5-15%). Parameter: Dicke und Punktdichte der Textur. In Cura, PrusaSlicer, SuperSlicer verfügbar."
+  },
+  {
+    term: "Mesh Bed Leveling (ABL)",
+    category: "Kalibrierung",
+    definition: "Automatisches oder manuelles Vermessen der Bettoberfläche in einem Raster (z.B. 5×5 Punkte). Erstellt Höhenkarte der Unebenheiten. Software kompensiert während des Drucks durch Z-Achsenanpassung in Echtzeit. Arten: Manuell (Papiermethode an mehreren Punkten), BLTouch/CR-Touch (mechanischer Sensor), induktiv (nur Metall-Betten), Kapazitiv (alle Oberflächen). Ersetzt nicht perfektes Leveling, kompensiert nur Restabweichungen (±0,3mm)."
   }
 ];
 
@@ -176,9 +326,9 @@ const Glossar = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Glossar | Fachbegriffe & Definitionen | ekdruck"
-        description="Umfassendes 3D-Druck Glossar mit 30+ Fachbegriffen: FDM, Filament, Slicing, Retraction, Warping und mehr. Verständlich erklärt für Einsteiger und Profis."
-        keywords="3d-druck glossar, 3d-druck fachbegriffe, fdm begriffe, additive fertigung lexikon, 3d-druck definitionen, slicing, retraction, filament"
+        title="3D-Druck Glossar | 60+ Fachbegriffe & Definitionen | ekdruck"
+        description="Umfassendes 3D-Druck Glossar mit 60+ Fachbegriffen: FDM, Ghosting, Pressure Advance, Input Shaping, Firmware und mehr. Von Basics bis Advanced - verständlich erklärt."
+        keywords="3d-druck glossar, 3d-druck fachbegriffe, fdm begriffe, additive fertigung lexikon, ghosting, ringing, pressure advance, input shaping, klipper, marlin"
         path="/glossar"
         schemaType="article"
       />
@@ -209,8 +359,8 @@ const Glossar = () => {
               </h1>
 
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                Alle wichtigen Fachbegriffe rund um FDM 3D-Druck, additive Fertigung und Rapid Prototyping - 
-                verständlich erklärt für Einsteiger und Profis.
+                60+ wichtige Fachbegriffe rund um FDM 3D-Druck, additive Fertigung und Rapid Prototyping - 
+                von Grundlagen bis Advanced Topics verständlich erklärt.
               </p>
 
               {/* Search Bar */}
