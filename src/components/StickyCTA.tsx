@@ -12,7 +12,7 @@ const StickyCTA = () => {
   return (
     <Button
       onClick={scrollToContact}
-      className="fixed bottom-6 right-6 z-50 shadow-2xl animate-pulse hover:animate-none rounded-full h-16 px-6 text-base font-semibold"
+      className="fixed bottom-6 right-6 z-50 shadow-2xl rounded-full h-16 px-6 text-base font-semibold"
       variant="hero"
       size="lg"
     >
