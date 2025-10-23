@@ -315,45 +315,76 @@ const RapidPrototyping = () => {
           </div>
         </section>
 
-        {/* Express Service */}
+        {/* SEO Content Section */}
         <section className="py-16 lg:py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 lg:p-12 rounded-2xl border border-primary/20 shadow-lg hover-scale">
-                <div className="text-center mb-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-4">
-                    <Timer className="h-8 w-8 text-primary" />
-                  </div>
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">Express Rapid Prototyping</h2>
-                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                    Brauchen Sie Ihren Prototyp noch schneller? Unser Express-Service macht es möglich!
+            <div className="max-w-4xl mx-auto">
+              <div className="prose prose-lg max-w-none">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                  Rapid Prototyping in Österreich: Express 3D-Druck für kritische Projekte
+                </h2>
+                
+                <div className="space-y-6 text-muted-foreground">
+                  <p className="text-lg leading-relaxed">
+                    <strong className="text-foreground">Rapid Prototyping</strong> hat die Produktentwicklung revolutioniert. Was früher Wochen oder Monate dauerte, 
+                    realisieren wir heute in wenigen Stunden. Unser <strong className="text-foreground">Express 3D-Druck Service in Österreich</strong> ist 
+                    speziell für Situationen konzipiert, in denen Zeit der kritische Faktor ist: Messevorbereitungen, Last-Minute-Präsentationen, 
+                    dringende Funktionstests oder wenn Produktionsausfälle schnelle Ersatzteile erfordern.
                   </p>
-                </div>
 
-                <div className="grid md:grid-cols-3 gap-6 text-center">
-                  <div className="bg-background/50 p-6 rounded-xl border border-primary/10 hover-scale">
-                    <h3 className="text-2xl font-bold mb-2 text-foreground">24h Express</h3>
-                    <p className="text-muted-foreground mb-4">Ihr Prototyp in nur 24 Stunden</p>
-                    <div className="text-lg font-semibold text-primary">+50% Aufpreis</div>
-                  </div>
-                  <div className="bg-background/50 p-6 rounded-xl border border-primary/10 hover-scale">
-                    <h3 className="text-2xl font-bold mb-2 text-foreground">Same-Day</h3>
-                    <p className="text-muted-foreground mb-4">Fertigung am selben Tag bei Auftrag bis 10:00</p>
-                    <div className="text-lg font-semibold text-primary">+100% Aufpreis</div>
-                  </div>
-                  <div className="bg-background/50 p-6 rounded-xl border border-primary/10 hover-scale">
-                    <h3 className="text-2xl font-bold mb-2 text-foreground">Overnight</h3>
-                    <p className="text-muted-foreground mb-4">Über-Nacht-Service für dringende Projekte</p>
-                    <div className="text-lg font-semibold text-primary">+150% Aufpreis</div>
-                  </div>
-                </div>
+                  <p className="text-lg leading-relaxed">
+                    Der Begriff <strong className="text-foreground">Same-Day Prototyping</strong> beschreibt dabei die Königsdisziplin unseres Services: 
+                    Aufträge, die bis 10:00 Uhr morgens eingehen, werden noch am selben Tag gefertigt und können abgeholt oder per Express-Kurier 
+                    österreichweit verschickt werden. Diese Notfall-Kapazität ist möglich durch unsere optimierte Produktionsplanung und 
+                    dedizierte Express-Fertigungslinien.
+                  </p>
 
-                <div className="text-center mt-8">
-                  <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({
-                  behavior: 'smooth'
-                })}>
-                    Express-Prototyp jetzt anfragen
-                  </Button>
+                  <h3 className="text-2xl font-bold mt-8 mb-4 text-foreground">
+                    Rapid Prototyping Österreich: Lokale Fertigung als Vorteil
+                  </h3>
+
+                  <p className="text-lg leading-relaxed">
+                    Im Gegensatz zu internationalen Anbietern profitieren Sie bei unserem <strong className="text-foreground">Rapid Prototyping in Österreich</strong> von 
+                    mehreren entscheidenden Vorteilen: Keine Zollabwicklung, keine Sprachbarrieren, direkte Kommunikation während der Fertigung 
+                    und persönliche Abholmöglichkeit bei extremer Dringlichkeit. Gerade bei technisch anspruchsvollen Projekten ist der direkte 
+                    Austausch während des Prototyping-Prozesses Gold wert.
+                  </p>
+
+                  <p className="text-lg leading-relaxed">
+                    Unser <strong className="text-foreground">Prototypen Express Service</strong> umfasst die komplette Prozesskette: Von der CAD-Analyse 
+                    über Design-Optimierung für 3D-Druck, Materialauswahl, Express-Fertigung bis zur Overnight-Lieferung. Dabei setzen wir auf 
+                    hochwertige österreichische Materialien und modernste FDM 3D-Druck Technologie mit Schichtauflösungen bis 0,1mm.
+                  </p>
+
+                  <h3 className="text-2xl font-bold mt-8 mb-4 text-foreground">
+                    Wann sich Express 3D-Druck wirklich lohnt
+                  </h3>
+
+                  <p className="text-lg leading-relaxed">
+                    <strong className="text-foreground">Express 3D-Druck</strong> ist eine Investition, die sich in bestimmten Situationen vielfach auszahlt: 
+                    Wenn ein Messeauftritt bevorsteht und das Präsentationsmodell noch fehlt. Wenn in der Produktion ein kritisches Bauteil ausfällt 
+                    und die Fertigung stillsteht. Wenn ein Investor-Meeting ansteht und der funktionsfähige Prototyp den Unterschied macht. 
+                    In solchen Szenarien rechtfertigt der Mehrwert den Aufpreis für Express-Fertigung bei weitem.
+                  </p>
+
+                  <p className="text-lg leading-relaxed">
+                    Die Transparenz unserer Aufpreisstruktur (+50% für 24h, +100% für Same-Day) ermöglicht Ihnen eine klare Kosten-Nutzen-Abwägung. 
+                    Bei Standard-Projekten ohne Zeitdruck empfehlen wir die reguläre Lieferzeit von 48-72 Stunden – damit halten Sie Kosten niedrig. 
+                    Für echte Notfälle steht Ihnen unsere Express-Kapazität jederzeit zur Verfügung.
+                  </p>
+
+                  <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-6 rounded-xl border border-primary/20 mt-8">
+                    <h4 className="text-xl font-bold mb-3 text-foreground">Ihr direkter Draht zum Rapid Prototyping Team</h4>
+                    <p className="text-base mb-4">
+                      Bei Express-Anfragen zählt jede Minute. Kontaktieren Sie uns direkt für eine Machbarkeitsprüfung 
+                      und exakte Lieferzeit-Zusage. Unser Rapid Prototyping Team ist werktags von 8:00-18:00 Uhr erreichbar.
+                    </p>
+                    <Button size="lg" variant="cta" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                      <Clock className="w-5 h-5 mr-2" />
+                      Express-Anfrage starten
+                      <ArrowRight className="ml-2" />
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
