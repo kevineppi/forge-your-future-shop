@@ -33,6 +33,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [uploadProgress, setUploadProgress] = useState<{ [key: string]: number }>({});
+  const [currentStep, setCurrentStep] = useState(1);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -112,6 +113,28 @@ const Contact = () => {
     }
     
     return uploadedUrls;
+  };
+
+  const handleNextStep = () => {
+    // Validate step 1 fields
+    const step1Schema = z.object({
+      name: z.string().trim().min(1, "Name ist erforderlich").max(100),
+      email: z.string().trim().email("Ungültige E-Mail-Adresse").max(255),
+    });
+
+    const validationResult = step1Schema.safeParse(formData);
+    
+    if (!validationResult.success) {
+      const firstError = validationResult.error.errors[0];
+      toast({
+        title: "Fehler",
+        description: firstError.message,
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setCurrentStep(2);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -294,6 +317,7 @@ const Contact = () => {
                     onClick={() => {
                       setIsSubmitted(false);
                       setUploadedFiles([]);
+                      setCurrentStep(1);
                     }}
                     className="mt-4"
                   >
@@ -314,155 +338,196 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="text-2xl">Ihr individuelles Angebot</CardTitle>
                   <p className="text-muted-foreground">Füllen Sie das Formular aus und wir melden uns innerhalb von 6 Stunden mit einem detaillierten Angebot.</p>
+                  
+                  {/* Progress Bar */}
+                  <div className="mt-6">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium">Schritt {currentStep} von 2</span>
+                      <span className="text-sm text-muted-foreground">{currentStep === 1 ? 'Kontaktdaten' : 'Projekt-Details'}</span>
+                    </div>
+                    <div className="w-full bg-muted rounded-full h-2">
+                      <div 
+                        className="bg-primary h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${(currentStep / 2) * 100}%` }}
+                      />
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium mb-2">Name *</label>
-                        <Input 
-                          name="name" 
-                          value={formData.name} 
-                          onChange={handleInputChange} 
-                          placeholder="Ihr vollständiger Name" 
-                          required 
-                          disabled={isSubmitting}
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium mb-2">E-Mail *</label>
-                        <Input 
-                          name="email" 
-                          type="email" 
-                          value={formData.email} 
-                          onChange={handleInputChange} 
-                          placeholder="ihre@email.at" 
-                          required 
-                          disabled={isSubmitting}
-                        />
-                      </div>
-                    </div>
+                    {currentStep === 1 && (
+                      <>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium mb-2">Name *</label>
+                            <Input 
+                              name="name" 
+                              value={formData.name} 
+                              onChange={handleInputChange} 
+                              placeholder="Ihr vollständiger Name" 
+                              required 
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium mb-2">E-Mail *</label>
+                            <Input 
+                              name="email" 
+                              type="email" 
+                              value={formData.email} 
+                              onChange={handleInputChange} 
+                              placeholder="ihre@email.at" 
+                              required 
+                            />
+                          </div>
+                        </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium mb-2">Projekt-Art</label>
-                        <select 
-                          name="project" 
-                          value={formData.project} 
-                          onChange={handleInputChange} 
-                          className="w-full p-3 border border-input rounded-md bg-background disabled:opacity-50"
-                          disabled={isSubmitting}
-                        >
-                          <option value="">Projekt-Art wählen</option>
-                          <option value="einzelanfertigung">Einzelanfertigung</option>
-                          <option value="serienfertigung">Serienfertigung</option>
-                          <option value="inneneinrichtung">Inneneinrichtung</option>
-                          <option value="beratung">Beratung & Design</option>
-                          <option value="sonstiges">Sonstiges</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium mb-2">Zeitrahmen</label>
-                        <select 
-                          name="timeline" 
-                          value={formData.timeline} 
-                          onChange={handleInputChange} 
-                          className="w-full p-3 border border-input rounded-md bg-background disabled:opacity-50"
-                          disabled={isSubmitting}
-                        >
-                          <option value="">Zeitrahmen wählen</option>
-                          <option value="express">Express (24-48 Stunden)</option>
-                          <option value="standard">Standard (3-5 Tage)</option>
-                          <option value="extended">Erweitert (1-2 Wochen)</option>
-                          <option value="flexibel">Flexibel</option>
-                        </select>
-                      </div>
-                    </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium mb-2">Projekt-Art</label>
+                            <select 
+                              name="project" 
+                              value={formData.project} 
+                              onChange={handleInputChange} 
+                              className="w-full p-3 border border-input rounded-md bg-background"
+                            >
+                              <option value="">Projekt-Art wählen</option>
+                              <option value="einzelanfertigung">Einzelanfertigung</option>
+                              <option value="serienfertigung">Serienfertigung</option>
+                              <option value="inneneinrichtung">Inneneinrichtung</option>
+                              <option value="beratung">Beratung & Design</option>
+                              <option value="sonstiges">Sonstiges</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium mb-2">Zeitrahmen</label>
+                            <select 
+                              name="timeline" 
+                              value={formData.timeline} 
+                              onChange={handleInputChange} 
+                              className="w-full p-3 border border-input rounded-md bg-background"
+                            >
+                              <option value="">Zeitrahmen wählen</option>
+                              <option value="express">Express (24-48 Stunden)</option>
+                              <option value="standard">Standard (3-5 Tage)</option>
+                              <option value="extended">Erweitert (1-2 Wochen)</option>
+                              <option value="flexibel">Flexibel</option>
+                            </select>
+                          </div>
+                        </div>
 
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Projekt-Details</label>
-                      <Textarea 
-                        name="message" 
-                        value={formData.message} 
-                        onChange={handleInputChange} 
-                        placeholder="Erzählen Sie uns von Ihrem Projekt: Materialien, Stückzahl, besondere Anforderungen..." 
-                        rows={4}
-                        disabled={isSubmitting}
-                      />
-                    </div>
-
-                    <div className="border-2 border-dashed border-border rounded-lg p-6">
-                      <div className="text-center">
-                        <Upload className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
-                        <div className="space-y-2 mb-6">
-                          <p className="text-sm font-medium">
-                            3D-Dateien hochladen (optional)
-                          </p>
-                          <p className="text-xs text-muted-foreground">
-                            STL, OBJ, 3MF, PDF, Bilder - Max. 50MB pro Datei
+                        <div className="flex items-center justify-center p-4 bg-muted/50 rounded-lg">
+                          <p className="text-sm font-medium text-muted-foreground">
+                            ✓ 100% kostenlos & unverbindlich
                           </p>
                         </div>
-                        <input
-                          type="file"
-                          multiple
-                          accept=".stl,.obj,.3mf,.pdf,image/*"
-                          onChange={handleFileChange}
-                          className="hidden"
-                          id="file-upload"
-                          disabled={isSubmitting}
-                        />
-                        <label htmlFor="file-upload">
-                          <Button variant="outline" type="button" disabled={isSubmitting} asChild>
-                            <span className="cursor-pointer">Dateien wählen</span>
-                          </Button>
-                        </label>
-                      </div>
-                      
-                      {uploadedFiles.length > 0 && (
-                        <div className="mt-4 space-y-2">
-                          <p className="text-sm font-medium">Ausgewählte Dateien:</p>
-                          {uploadedFiles.map((file, index) => (
-                            <div key={index} className="flex items-center justify-between bg-muted/50 p-2 rounded">
-                              <div className="flex items-center space-x-2">
-                                <span className="text-sm truncate max-w-48">{file.name}</span>
-                                <span className="text-xs text-muted-foreground">
-                                  ({(file.size / 1024 / 1024).toFixed(1)} MB)
-                                </span>
-                              </div>
-                              <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={() => removeFile(index)}
-                                disabled={isSubmitting}
-                                className="h-6 w-6 p-0"
-                              >
-                                ✕
-                              </Button>
+
+                        <Button 
+                          type="button"
+                          onClick={handleNextStep}
+                          className="w-full"
+                        >
+                          Weiter zu Schritt 2
+                        </Button>
+                      </>
+                    )}
+
+                    {currentStep === 2 && (
+                      <>
+                        <div>
+                          <label className="block text-sm font-medium mb-2">Projekt-Details</label>
+                          <Textarea 
+                            name="message" 
+                            value={formData.message} 
+                            onChange={handleInputChange} 
+                            placeholder="Erzählen Sie uns von Ihrem Projekt: Materialien, Stückzahl, besondere Anforderungen..." 
+                            rows={4}
+                            disabled={isSubmitting}
+                          />
+                        </div>
+
+                        <div className="border-2 border-dashed border-border rounded-lg p-6">
+                          <div className="text-center">
+                            <Upload className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
+                            <div className="space-y-2 mb-6">
+                              <p className="text-sm font-medium">
+                                3D-Dateien hochladen (optional)
+                              </p>
+                              <p className="text-xs text-muted-foreground">
+                                STL, OBJ, 3MF, PDF, Bilder - Max. 50MB pro Datei
+                              </p>
                             </div>
-                          ))}
+                            <input
+                              type="file"
+                              multiple
+                              accept=".stl,.obj,.3mf,.pdf,image/*"
+                              onChange={handleFileChange}
+                              className="hidden"
+                              id="file-upload"
+                              disabled={isSubmitting}
+                            />
+                            <label htmlFor="file-upload">
+                              <Button variant="outline" type="button" disabled={isSubmitting} asChild>
+                                <span className="cursor-pointer">Dateien wählen</span>
+                              </Button>
+                            </label>
+                          </div>
+                          
+                          {uploadedFiles.length > 0 && (
+                            <div className="mt-4 space-y-2">
+                              <p className="text-sm font-medium">Ausgewählte Dateien:</p>
+                              {uploadedFiles.map((file, index) => (
+                                <div key={index} className="flex items-center justify-between bg-muted/50 p-2 rounded">
+                                  <div className="flex items-center space-x-2">
+                                    <span className="text-sm truncate max-w-48">{file.name}</span>
+                                    <span className="text-xs text-muted-foreground">
+                                      ({(file.size / 1024 / 1024).toFixed(1)} MB)
+                                    </span>
+                                  </div>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => removeFile(index)}
+                                    disabled={isSubmitting}
+                                    className="h-6 w-6 p-0"
+                                  >
+                                    ✕
+                                  </Button>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div>
 
-                    <Button 
-                      type="submit" 
-                      variant="hero" 
-                      size="lg" 
-                      className="w-full"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Wird gesendet...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="mr-2 h-5 w-5" />
-                          Angebot anfordern
-                        </>
-                      )}
-                    </Button>
+                        <div className="flex gap-4">
+                          <Button 
+                            type="button"
+                            variant="outline"
+                            onClick={() => setCurrentStep(1)}
+                            className="flex-1"
+                            disabled={isSubmitting}
+                          >
+                            Zurück
+                          </Button>
+                          <Button 
+                            type="submit" 
+                            disabled={isSubmitting}
+                            className="flex-1"
+                          >
+                            {isSubmitting ? (
+                              <>
+                                <Send className="mr-2 h-4 w-4 animate-spin" />
+                                Wird gesendet...
+                              </>
+                            ) : (
+                              <>
+                                <Send className="mr-2 h-4 w-4" />
+                                Anfrage senden
+                              </>
+                            )}
+                          </Button>
+                        </div>
+                      </>
+                    )}
                   </form>
                 </CardContent>
               </Card>

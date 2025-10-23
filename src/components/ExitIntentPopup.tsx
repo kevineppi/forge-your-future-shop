@@ -4,6 +4,12 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+const newsletterSchema = z.object({
+  email: z.string().trim().email("Ungültige E-Mail-Adresse").max(255, "E-Mail darf maximal 255 Zeichen lang sein"),
+});
 
 const ExitIntentPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,14 +29,45 @@ const ExitIntentPopup = () => {
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, [hasShown]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      // Here you would typically send to backend/newsletter service
-      console.log('Newsletter signup:', email);
+    
+    // Validate email with zod
+    const validationResult = newsletterSchema.safeParse({ email });
+    
+    if (!validationResult.success) {
+      const firstError = validationResult.error.errors[0];
+      toast.error(firstError.message);
+      return;
+    }
+
+    try {
+      const { error } = await (supabase as any)
+        .from('newsletter_subscribers')
+        .insert([
+          {
+            email: validationResult.data.email,
+            name: '',
+            source: 'exit_intent_popup'
+          }
+        ]);
+
+      if (error) {
+        // Check if email already exists
+        if (error.code === '23505') {
+          toast.error("Diese E-Mail ist bereits für den Newsletter registriert.");
+        } else {
+          throw error;
+        }
+        return;
+      }
+
       toast.success("Vielen Dank! Check deine E-Mails für den Rabatt-Code! 🎉");
       setIsOpen(false);
       setEmail("");
+    } catch (error) {
+      console.error('Newsletter signup error:', error);
+      toast.error("Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
     }
   };
 
