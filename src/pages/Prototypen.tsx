@@ -90,20 +90,7 @@ const Prototypen = () => {
               </div>
 
               {/* Trust Badges */}
-              <div className="flex flex-wrap justify-center gap-4 mb-6">
-                <Badge variant="secondary" className="px-4 py-2">
-                  <CheckCircle2 className="w-4 h-4 mr-2" />
-                  100+ erfolgreiche Projekte
-                </Badge>
-                <Badge variant="secondary" className="px-4 py-2">
-                  <CheckCircle2 className="w-4 h-4 mr-2" />
-                  5.0/5 Google Bewertungen
-                </Badge>
-                <Badge variant="secondary" className="px-4 py-2">
-                  <CheckCircle2 className="w-4 h-4 mr-2" />
-                  100% AT-Produktion
-                </Badge>
-              </div>
+              
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
