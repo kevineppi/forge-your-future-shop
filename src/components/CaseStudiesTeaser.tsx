@@ -10,21 +10,21 @@ const CaseStudiesTeaser = () => {
       industry: "Maschinenbau",
       title: "Hydraulikventil-Prototyp",
       result: "75% Kostenersparnis, 90% Zeitersparnis",
-      link: "/referenzen/maschinenbau-hydraulikventil"
+      link: "/kontakt"
     },
     {
       icon: Heart,
       industry: "Medizintechnik",
       title: "Individuelle Orthesen",
       result: "5x schnellere Fertigung, 30% leichter",
-      link: "/referenzen/medizintechnik-orthese"
+      link: "/kontakt"
     },
     {
       icon: Car,
       industry: "Automotive",
       title: "Oldtimer-Ersatzteil",
       result: "500€ gespart, perfekte Passform",
-      link: "/referenzen/automotive-oldtimer"
+      link: "/kontakt"
     }
   ];
 
@@ -61,7 +61,7 @@ const CaseStudiesTeaser = () => {
                     className="w-full group"
                     onClick={() => window.location.href = study.link}
                   >
-                    Case Study ansehen
+                    Jetzt Prototyp anfragen
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>
@@ -74,9 +74,9 @@ const CaseStudiesTeaser = () => {
           <Button 
             size="lg" 
             variant="secondary"
-            onClick={() => window.location.href = '/referenzen'}
+            onClick={() => window.location.href = '/kostenrechner'}
           >
-            Alle Referenzen ansehen
+            Kosten für Ihr Projekt berechnen
             <ArrowRight className="ml-2" />
           </Button>
         </div>
