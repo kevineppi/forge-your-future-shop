@@ -10,6 +10,10 @@ import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import SEOHead from "@/components/SEOHead";
+import StickyCTA from "@/components/StickyCTA";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
+import TrustBadges from "@/components/TrustBadges";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
@@ -579,9 +583,21 @@ const Index = () => {
         <ReviewsWidget />
       </div>
       
+      {/* Trust Badges Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <TrustBadges variant="full" />
+        </div>
+      </section>
+      
       {/* Contact Section */}
       <Contact />
       <Footer />
+      
+      {/* Sticky Elements - Quick Wins */}
+      <StickyCTA />
+      <WhatsAppButton />
+      <ExitIntentPopup />
       </div>
     </>;
 };

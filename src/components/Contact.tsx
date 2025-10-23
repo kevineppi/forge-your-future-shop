@@ -9,6 +9,8 @@ import { useToast } from "@/hooks/use-toast";
 import SocialShare from "./SocialShare";
 import GoogleMaps from "./GoogleMaps";
 import GoogleReviews from "./GoogleReviews";
+import TrustBadges from "./TrustBadges";
+import LiveCounter from "./LiveCounter";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -186,7 +188,7 @@ const Contact = () => {
   };
   return <section id="contact" className="py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-gradient">Kontakt</span> für Ihr 3D-Druck Projekt
           </h2>
@@ -194,6 +196,16 @@ const Contact = () => {
             Bereit für Ihr 3D-Druck Projekt? Kontaktieren Sie uns für eine kostenlose Beratung 
             und ein individuelles Angebot aus Oberösterreich.
           </p>
+        </div>
+        
+        {/* Live Counter */}
+        <div className="flex justify-center mb-8">
+          <LiveCounter />
+        </div>
+        
+        {/* Trust Badges Compact */}
+        <div className="mb-16">
+          <TrustBadges variant="compact" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

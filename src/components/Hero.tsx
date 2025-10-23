@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import SEOHead from "./SEOHead";
 import { useSEO } from "@/hooks/useSEO";
+import LiveCounter from "./LiveCounter";
 const Hero = () => {
   const seoData = useSEO('hero');
   return <>
@@ -20,6 +21,11 @@ const Hero = () => {
               <span className="text-primary font-semibold">Prototypen</span>, <span className="text-primary font-semibold">Einzelanfertigungen</span> und <span className="text-primary font-semibold">Serienfertigung</span> - 
               regional, schnell und umweltfreundlich.
             </p>
+            
+            {/* Live Counter */}
+            <div className="flex justify-center mb-8">
+              <LiveCounter />
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="hero" size="lg" className="group" onClick={() => document.getElementById('contact')?.scrollIntoView({
