@@ -11,7 +11,6 @@ import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import SEOHead from "@/components/SEOHead";
 import StickyCTA from "@/components/StickyCTA";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -596,7 +595,6 @@ const Index = () => {
       
       {/* Sticky Elements - Quick Wins */}
       <StickyCTA />
-      <WhatsAppButton />
       <ExitIntentPopup />
       </div>
     </>;
