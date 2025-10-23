@@ -13,21 +13,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Clock, Shield, Zap, CheckCircle2, Package, TrendingUp, Users } from "lucide-react";
-
 const Prototypen = () => {
-  return (
-    <>
-      <SEOHead 
-        title="3D-Druck Prototypen ab €5 | 24h Express | 100+ Projekte | ekdruck"
-        description="⚡ Funktionsprototypen in 24-48h ✓ Ab €5 ✓ 0,1mm Präzision ✓ Gratis Beratung ✓ 100% AT-Produktion → Jetzt kostenlos Angebot anfordern!"
-        keywords="3d druck prototypen, prototypen 3d-druck, 3d-druck prototypen österreich, funktionsprototypen, prototyping service, designprototypen"
-        path="/prototypen"
-        schemaType="service"
-      />
-      <BreadcrumbSchema items={[
-        { name: "Home", url: "/" },
-        { name: "3D-Druck Prototypen", url: "/prototypen" }
-      ]} />
+  return <>
+      <SEOHead title="3D-Druck Prototypen ab €5 | 24h Express | 100+ Projekte | ekdruck" description="⚡ Funktionsprototypen in 24-48h ✓ Ab €5 ✓ 0,1mm Präzision ✓ Gratis Beratung ✓ 100% AT-Produktion → Jetzt kostenlos Angebot anfordern!" keywords="3d druck prototypen, prototypen 3d-druck, 3d-druck prototypen österreich, funktionsprototypen, prototyping service, designprototypen" path="/prototypen" schemaType="service" />
+      <BreadcrumbSchema items={[{
+      name: "Home",
+      url: "/"
+    }, {
+      name: "3D-Druck Prototypen",
+      url: "/prototypen"
+    }]} />
       <StructuredData type="service" />
 
       <div className="min-h-screen">
@@ -55,19 +50,13 @@ const Prototypen = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                <Button 
-                  variant="hero" 
-                  size="lg"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
+                <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth'
+              })}>
                   Jetzt Prototyp anfragen
                   <ArrowRight className="ml-2" />
                 </Button>
-                <Button 
-                  variant="secondary" 
-                  size="lg"
-                  onClick={() => window.location.href = '/kostenrechner'}
-                >
+                <Button variant="secondary" size="lg" onClick={() => window.location.href = '/kostenrechner'}>
                   Kosten berechnen
                 </Button>
               </div>
@@ -314,10 +303,7 @@ const Prototypen = () => {
               </div>
 
               <div className="text-center">
-                <Button 
-                  variant="outline" 
-                  onClick={() => window.location.href = '/materialien'}
-                >
+                <Button variant="outline" onClick={() => window.location.href = '/materialien'}>
                   Alle Materialien ansehen
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
@@ -340,13 +326,23 @@ const Prototypen = () => {
               </div>
 
               <div className="space-y-8">
-                {[
-                  { step: "1", title: "Anfrage senden", desc: "Senden Sie uns Ihre CAD-Datei oder Idee. Wir beraten Sie kostenlos zu Material und Machbarkeit." },
-                  { step: "2", title: "Angebot erhalten", desc: "Sie erhalten ein transparentes Angebot mit Preis und Lieferzeit. Inklusive Design-Optimierungsvorschlägen." },
-                  { step: "3", title: "Fertigung", desc: "Nach Ihrer Freigabe produzieren wir Ihren Prototyp mit modernster FDM 3D-Druck Technologie." },
-                  { step: "4", title: "Lieferung", desc: "Ihr Prototyp wird sorgfältig geprüft und sicher verpackt österreichweit versendet." }
-                ].map((item, index) => (
-                  <div key={index} className="flex gap-6 items-start">
+                {[{
+                step: "1",
+                title: "Anfrage senden",
+                desc: "Senden Sie uns Ihre CAD-Datei oder Idee. Wir beraten Sie kostenlos zu Material und Machbarkeit."
+              }, {
+                step: "2",
+                title: "Angebot erhalten",
+                desc: "Sie erhalten ein transparentes Angebot mit Preis und Lieferzeit. Inklusive Design-Optimierungsvorschlägen."
+              }, {
+                step: "3",
+                title: "Fertigung",
+                desc: "Nach Ihrer Freigabe produzieren wir Ihren Prototyp mit modernster FDM 3D-Druck Technologie."
+              }, {
+                step: "4",
+                title: "Lieferung",
+                desc: "Ihr Prototyp wird sorgfältig geprüft und sicher verpackt österreichweit versendet."
+              }].map((item, index) => <div key={index} className="flex gap-6 items-start">
                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
                       {item.step}
                     </div>
@@ -354,16 +350,13 @@ const Prototypen = () => {
                       <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
                       <p className="text-muted-foreground text-lg">{item.desc}</p>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
 
               <div className="mt-12 text-center">
-                <Button 
-                  variant="hero" 
-                  size="lg"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
+                <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth'
+              })}>
                   Jetzt Prototyp anfragen
                   <ArrowRight className="ml-2" />
                 </Button>
@@ -388,78 +381,40 @@ const Prototypen = () => {
               </h2>
               
               <div className="space-y-6">
-                {[
-                  {
-                    q: "Was kostet ein 3D-Druck Prototyp?",
-                    a: "Die Kosten hängen von Größe, Material und Komplexität ab. Kleine Prototypen starten ab €5. Nutzen Sie unseren kostenlosen Kostenrechner für eine sofortige Schätzung oder fordern Sie ein individuelles Angebot an."
-                  },
-                  {
-                    q: "Wie schnell kann ich meinen Prototyp erhalten?",
-                    a: "Standard-Lieferung innerhalb von 3-5 Werktagen. Mit unserem Express-Service erhalten Sie Ihren Prototyp bereits in 24-48 Stunden."
-                  },
-                  {
-                    q: "Welches Material eignet sich für meinen Prototyp?",
-                    a: "Das hängt vom Verwendungszweck ab: PLA für Designmuster, PETG für funktionale Tests, ABS für hitzebeständige Teile und PA12 Nylon für höchste Belastbarkeit. Wir beraten Sie gerne kostenlos."
-                  },
-                  {
-                    q: "Kann ich auch ohne CAD-Datei einen Prototyp anfragen?",
-                    a: "Ja! Senden Sie uns einfach Ihre Idee, Skizze oder Fotos. Wir erstellen die CAD-Datei für Sie oder helfen Ihnen bei der Optimierung bestehender Dateien."
-                  },
-                  {
-                    q: "Bieten Sie auch Nachbearbeitung an?",
-                    a: "Ja, wir bieten verschiedene Nachbearbeitungsoptionen wie Glätten, Grundieren oder Lackieren an. Sprechen Sie uns einfach darauf an."
-                  }
-                ].map((faq, index) => (
-                  <Card key={index}>
+                {[{
+                q: "Was kostet ein 3D-Druck Prototyp?",
+                a: "Die Kosten hängen von Größe, Material und Komplexität ab. Kleine Prototypen starten ab €5. Nutzen Sie unseren kostenlosen Kostenrechner für eine sofortige Schätzung oder fordern Sie ein individuelles Angebot an."
+              }, {
+                q: "Wie schnell kann ich meinen Prototyp erhalten?",
+                a: "Standard-Lieferung innerhalb von 3-5 Werktagen. Mit unserem Express-Service erhalten Sie Ihren Prototyp bereits in 24-48 Stunden."
+              }, {
+                q: "Welches Material eignet sich für meinen Prototyp?",
+                a: "Das hängt vom Verwendungszweck ab: PLA für Designmuster, PETG für funktionale Tests, ABS für hitzebeständige Teile und PA12 Nylon für höchste Belastbarkeit. Wir beraten Sie gerne kostenlos."
+              }, {
+                q: "Kann ich auch ohne CAD-Datei einen Prototyp anfragen?",
+                a: "Ja! Senden Sie uns einfach Ihre Idee, Skizze oder Fotos. Wir erstellen die CAD-Datei für Sie oder helfen Ihnen bei der Optimierung bestehender Dateien."
+              }, {
+                q: "Bieten Sie auch Nachbearbeitung an?",
+                a: "Ja, wir bieten verschiedene Nachbearbeitungsoptionen wie Glätten, Grundieren oder Lackieren an. Sprechen Sie uns einfach darauf an."
+              }].map((faq, index) => <Card key={index}>
                     <CardHeader>
                       <CardTitle className="text-lg">{faq.q}</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground">{faq.a}</p>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
-          <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Bereit für Ihren <span className="text-gradient">Prototyp</span>?
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Lassen Sie uns gemeinsam Ihre Idee zum Leben erwecken. Kostenlose Beratung & schnelle Umsetzung garantiert.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  variant="hero" 
-                  size="lg"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Kostenloses Angebot anfordern
-                  <ArrowRight className="ml-2" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  onClick={() => window.location.href = '/kostenrechner'}
-                >
-                  Kosten berechnen
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        
 
         <Contact />
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default Prototypen;
