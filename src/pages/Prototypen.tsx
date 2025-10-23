@@ -121,7 +121,9 @@ const Prototypen = () => {
               </div>
 
               {/* Anwendungsbereiche als Fließtext */}
-              <div className="mb-16 animate-fade-in" style={{animationDelay: '0.1s'}}>
+              <div className="mb-16 animate-fade-in" style={{
+              animationDelay: '0.1s'
+            }}>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 flex items-center">
                   <Package className="w-8 h-8 text-primary mr-3" />
                   Einsatzbereiche für 3D-Druck Prototypen
@@ -150,7 +152,9 @@ const Prototypen = () => {
               </div>
 
               {/* Materialien & Eigenschaften */}
-              <div className="mb-16 animate-fade-in" style={{animationDelay: '0.2s'}}>
+              <div className="mb-16 animate-fade-in" style={{
+              animationDelay: '0.2s'
+            }}>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 flex items-center">
                   <Shield className="w-8 h-8 text-primary mr-3" />
                   Materialien für jeden Einsatzzweck
@@ -178,7 +182,9 @@ const Prototypen = () => {
               </div>
 
               {/* Technologie & Qualität */}
-              <div className="mb-16 animate-fade-in" style={{animationDelay: '0.3s'}}>
+              <div className="mb-16 animate-fade-in" style={{
+              animationDelay: '0.3s'
+            }}>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 flex items-center">
                   <TrendingUp className="w-8 h-8 text-primary mr-3" />
                   Präzise FDM 3D-Druck Technologie
@@ -202,8 +208,12 @@ const Prototypen = () => {
               </div>
 
               {/* CTA */}
-              <div className="text-center animate-fade-in" style={{animationDelay: '0.4s'}}>
-                <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              <div className="text-center animate-fade-in" style={{
+              animationDelay: '0.4s'
+            }}>
+                <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth'
+              })}>
                   Jetzt Prototyp anfragen
                   <ArrowRight className="ml-2" />
                 </Button>
@@ -213,19 +223,7 @@ const Prototypen = () => {
         </section>
 
         {/* Google Reviews - Social Proof */}
-        <section className="py-16 bg-gradient-to-b from-muted/20 to-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12 animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Was unsere Kunden <span className="text-gradient">sagen</span>
-              </h2>
-              <WeeklyProductionCounter />
-            </div>
-            <div className="animate-fade-in">
-              <GoogleReviews />
-            </div>
-          </div>
-        </section>
+        
 
 
         {/* Process Timeline */}
@@ -259,7 +257,9 @@ const Prototypen = () => {
                 step: "4",
                 title: "Lieferung",
                 desc: "Ihr Prototyp wird sorgfältig geprüft und sicher verpackt österreichweit versendet."
-              }].map((item, index) => <div key={index} className="flex gap-6 items-start animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+              }].map((item, index) => <div key={index} className="flex gap-6 items-start animate-fade-in" style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg hover-scale">
                       {item.step}
                     </div>
