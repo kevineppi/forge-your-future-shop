@@ -54,10 +54,10 @@ const ExitIntentPopup = () => {
         <div className="space-y-4 py-4">
           <div className="space-y-2">
             <h3 className="text-xl font-semibold">
-              Kostenloses 3D-Druck Erstgespräch
+              Newsletter-Rabatt sichern!
             </h3>
             <p className="text-muted-foreground">
-              Erhalten Sie außerdem <strong className="text-primary">10% Rabatt</strong> auf Ihre erste Bestellung!
+              Erhalten Sie <strong className="text-primary">10% Rabatt</strong> auf Ihre erste Bestellung, wenn Sie sich für unseren Newsletter anmelden!
             </p>
           </div>
 
