@@ -8,13 +8,13 @@ const TrustBadges = ({ variant = "full" }: TrustBadgesProps) => {
   const badges = [
     {
       icon: Users,
-      text: "500+ erfolgreiche Projekte",
-      highlight: "500+",
+      text: "100+ erfolgreiche Projekte",
+      highlight: "100+",
     },
     {
       icon: Star,
-      text: "4.9/5 bei Google Bewertungen",
-      highlight: "4.9/5",
+      text: "5.0/5 bei Google Bewertungen",
+      highlight: "5.0/5",
     },
     {
       icon: CheckCircle,

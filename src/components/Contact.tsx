@@ -10,7 +10,6 @@ import SocialShare from "./SocialShare";
 import GoogleMaps from "./GoogleMaps";
 import GoogleReviews from "./GoogleReviews";
 import TrustBadges from "./TrustBadges";
-import LiveCounter from "./LiveCounter";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -219,11 +218,6 @@ const Contact = () => {
             Bereit für Ihr 3D-Druck Projekt? Kontaktieren Sie uns für eine kostenlose Beratung 
             und ein individuelles Angebot aus Oberösterreich.
           </p>
-        </div>
-        
-        {/* Live Counter */}
-        <div className="flex justify-center mb-8">
-          <LiveCounter />
         </div>
         
         {/* Trust Badges Compact */}
