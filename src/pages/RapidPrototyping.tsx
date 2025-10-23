@@ -8,30 +8,28 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Lightbulb, Cog, Zap, CheckCircle, ArrowRight, Timer } from "lucide-react";
-
 const RapidPrototyping = () => {
-  return (
-    <>
-      <SEOHead 
-        title="Rapid Prototyping Express: Prototyp in 24h | Same-Day verfügbar"
-        description="🚀 Same-Day Prototyping Service ✓ 24h Express ab +50% ✓ Overnight möglich ✓ FDM 3D-Druck OÖ → Jetzt Express-Prototyp anfragen!"
-        keywords="rapid prototyping, rapid prototyping österreich, express 3d-druck, same day prototyping, prototypen express"
-        path="/rapid-prototyping"
-        schemaType="service"
-        breadcrumbs={[
-          {name: "Home", url: "/"},
-          {name: "Rapid Prototyping", url: "/rapid-prototyping"}
-        ]}
-        preloadResources={[
-          {href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png", as: "image", type: "image/png"}
-        ]}
-      />
+  return <>
+      <SEOHead title="Rapid Prototyping Express: Prototyp in 24h | Same-Day verfügbar" description="🚀 Same-Day Prototyping Service ✓ 24h Express ab +50% ✓ Overnight möglich ✓ FDM 3D-Druck OÖ → Jetzt Express-Prototyp anfragen!" keywords="rapid prototyping, rapid prototyping österreich, express 3d-druck, same day prototyping, prototypen express" path="/rapid-prototyping" schemaType="service" breadcrumbs={[{
+      name: "Home",
+      url: "/"
+    }, {
+      name: "Rapid Prototyping",
+      url: "/rapid-prototyping"
+    }]} preloadResources={[{
+      href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
+      as: "image",
+      type: "image/png"
+    }]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      <BreadcrumbSchema items={[
-        {name: "Home", url: "/"},
-        {name: "Rapid Prototyping", url: "/rapid-prototyping"}
-      ]} />
+      <BreadcrumbSchema items={[{
+      name: "Home",
+      url: "/"
+    }, {
+      name: "Rapid Prototyping",
+      url: "/rapid-prototyping"
+    }]} />
       
       <Navigation />
       
@@ -59,7 +57,9 @@ const RapidPrototyping = () => {
                 Wenn jede Stunde zählt - österreichweit verfügbar.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth'
+              })}>
                   Express-Prototyp anfragen <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
@@ -88,12 +88,9 @@ const RapidPrototyping = () => {
                   <CardContent>
                     <div className="text-3xl font-bold text-primary mb-4">+50%</div>
                     <p className="text-muted-foreground mb-6">Aufpreis auf Standardpreis</p>
-                    <Button 
-                      size="lg" 
-                      variant="hero" 
-                      className="w-full"
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    >
+                    <Button size="lg" variant="hero" className="w-full" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                    behavior: 'smooth'
+                  })}>
                       Jetzt anfragen
                     </Button>
                   </CardContent>
@@ -109,12 +106,9 @@ const RapidPrototyping = () => {
                   <CardContent>
                     <div className="text-3xl font-bold text-primary mb-4">+100%</div>
                     <p className="text-muted-foreground mb-6">Aufpreis auf Standardpreis</p>
-                    <Button 
-                      size="lg" 
-                      variant="hero" 
-                      className="w-full"
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    >
+                    <Button size="lg" variant="hero" className="w-full" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                    behavior: 'smooth'
+                  })}>
                       Jetzt anfragen
                     </Button>
                   </CardContent>
@@ -129,12 +123,7 @@ const RapidPrototyping = () => {
                   <CardContent>
                     <div className="text-3xl font-bold text-primary mb-4">Normalpreis</div>
                     <p className="text-muted-foreground mb-6">Ohne Aufpreis</p>
-                    <Button 
-                      size="lg" 
-                      variant="secondary" 
-                      className="w-full"
-                      onClick={() => window.location.href = '/prototypen'}
-                    >
+                    <Button size="lg" variant="secondary" className="w-full" onClick={() => window.location.href = '/prototypen'}>
                       Zur Standardseite
                     </Button>
                   </CardContent>
@@ -360,7 +349,9 @@ const RapidPrototyping = () => {
                 </div>
 
                 <div className="text-center mt-8">
-                  <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                  behavior: 'smooth'
+                })}>
                     Express-Prototyp jetzt anfragen
                   </Button>
                 </div>
@@ -370,31 +361,12 @@ const RapidPrototyping = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 lg:py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Starten Sie Ihr Rapid Prototyping Projekt
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Laden Sie Ihre CAD-Datei hoch oder kontaktieren Sie uns für eine kostenlose Beratung. 
-                Wir unterstützen Sie bei der optimalen Umsetzung Ihrer Prototyping-Anforderungen.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Kostenloses Angebot anfordern
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        
         {/* Contact Section */}
         <Contact />
       </main>
 
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default RapidPrototyping;
