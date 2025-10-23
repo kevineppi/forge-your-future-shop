@@ -228,7 +228,7 @@ const Prototypen = () => {
               <div className="text-center animate-fade-in" style={{
               animationDelay: '0.4s'
             }}>
-                <Button variant="cta-glow" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                <Button variant="cta" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
                 behavior: 'smooth'
               })}>
                   <Shield className="w-5 h-5 mr-2" />
