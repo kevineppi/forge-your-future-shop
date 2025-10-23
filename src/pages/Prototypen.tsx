@@ -22,6 +22,35 @@ const Prototypen = () => {
       url: "/prototypen"
     }]} />
       <StructuredData type="service" />
+      <StructuredData type="faq" data={{
+      faqs: [{
+        q: "Was kostet ein 3D-Druck Prototyp?",
+        a: "Die Kosten für einen 3D-Druck Prototyp variieren stark je nach Größe, Material, Komplexität und gewünschter Lieferzeit. Kleine, einfache Prototypen in PLA starten bereits ab €5. Für einen durchschnittlichen Funktionsprototyp (ca. 10x10x5 cm) in PETG können Sie mit €15-30 rechnen. Größere oder technisch anspruchsvolle Bauteile in Hochleistungsmaterialien wie PA12 Nylon können zwischen €50-150 kosten. Der Express-Service verursacht einen Aufpreis von ca. 30-50%. Nutzen Sie unseren kostenlosen Kostenrechner auf der Website für eine sofortige, unverbindliche Schätzung, oder fordern Sie ein detailliertes Angebot an."
+      }, {
+        q: "Wie schnell kann ich meinen Prototyp erhalten?",
+        a: "Unsere Standard-Lieferzeit beträgt 3-5 Werktage ab Auftragsbestätigung. Für dringende Projekte bieten wir einen Express-Service an: Ihr Prototyp wird priorisiert gefertigt und kann bereits innerhalb von 24-48 Stunden bei Ihnen sein. Die genaue Lieferzeit hängt von der Größe und Komplexität des Bauteils ab. Bei Auftragsvergabe teilen wir Ihnen das genaue Lieferdatum mit. Österreichweiter Versand erfolgt mit DHL oder Post, wobei Express-Lieferungen per Overnight-Service verschickt werden."
+      }, {
+        q: "Welches Material eignet sich am besten für meinen Prototyp?",
+        a: "Die Materialwahl ist entscheidend für den Erfolg Ihres Prototyps und hängt vom Einsatzzweck ab: PLA ist ideal für Designprototypen und Präsentationsmodelle. PETG empfehlen wir für Funktionsprototypen, die mechanischen Belastungen standhalten müssen. ASA eignet sich für Außenanwendungen dank UV-Beständigkeit. TPU ist perfekt für flexible Bauteile. PA12 Nylon kommt bei höchsten Festigkeitsanforderungen zum Einsatz. Unsere Ingenieure beraten Sie kostenlos bei der optimalen Materialwahl für Ihre spezifische Anwendung."
+      }, {
+        q: "Kann ich auch ohne CAD-Datei einen Prototyp anfragen?",
+        a: "Absolut! Sie benötigen keine CAD-Kenntnisse, um mit uns zu arbeiten. Senden Sie uns einfach Ihre Idee in welcher Form auch immer: handgezeichnete Skizzen, Fotos von Vorbildern, technische Zeichnungen, oder beschreiben Sie einfach Ihr Konzept. Unser Team erstellt dann eine passende 3D-CAD-Datei für Sie. Alternativ können Sie auch ein vorhandenes Teil zusenden, das wir per 3D-Scan digitalisieren. Wir unterstützen alle gängigen CAD-Formate (STEP, IGES, STL, OBJ, 3MF)."
+      }, {
+        q: "Bieten Sie auch Nachbearbeitung und Veredelung an?",
+        a: "Ja, wir bieten umfangreiche Nachbearbeitungsoptionen: Glätten der Oberfläche durch chemische Behandlung oder mechanisches Schleifen, Grundieren und Lackieren in nahezu jeder RAL-Farbe, Montage von mehreren Einzelteilen, sowie Einpressen von Gewindeeinsätzen für verschraubbare Prototypen. Auch spezielle Oberflächenbehandlungen wie transparente Schutzlacke oder Metallicfinishes sind möglich."
+      }, {
+        q: "Wie genau sind 3D-gedruckte Prototypen?",
+        a: "Unsere FDM 3D-Drucker arbeiten mit einer Schichtauflösung von 0,1 bis 0,3 mm. Die typische Maßgenauigkeit liegt bei ±0,2 mm für Dimensionen unter 100 mm und ±0,3-0,5% für größere Bauteile. Diese Präzision ist für die meisten Prototyping-Anwendungen mehr als ausreichend. Bei kritischen Toleranzen beraten wir Sie zur optimalen Ausrichtung und können bei Bedarf auch eine mechanische Nachbearbeitung durchführen."
+      }, {
+        q: "Was passiert, wenn der Prototyp nicht meinen Erwartungen entspricht?",
+        a: "Kundenzufriedenheit steht bei uns an erster Stelle. Vor der Fertigung erhalten Sie ein detailliertes Angebot mit Vorschau. Bei technischen Problemen kontaktieren wir Sie vor dem Druck. Sollte der gelieferte Prototyp Fertigungsfehler aufweisen oder nicht den vereinbarten Spezifikationen entsprechen, fertigen wir selbstverständlich kostenlos einen Ersatz. Designänderungen nach Produktionsbeginn sind technisch bedingt nicht mehr möglich, aber Sie können jederzeit einen neuen Prototyp mit angepasstem Design zu vergünstigten Konditionen bestellen."
+      }, {
+        q: "Welche Dateiformate akzeptieren Sie für die Prototypenfertigung?",
+        a: "Wir arbeiten mit allen gängigen 3D-Dateiformaten. Ideal sind STEP (.step, .stp) oder IGES (.igs, .iges) Dateien. Auch STL, OBJ, 3MF und AMF Dateien verarbeiten wir problemlos. CAD-Formate wie SolidWorks (.sldprt), Fusion 360 (.f3d), Inventor (.ipt) oder AutoCAD (.dwg) können wir ebenfalls importieren. Bei 2D-Zeichnungen (.pdf, .dxf) erstellen wir das 3D-Modell für Sie."
+      }],
+      pageName: "3D-Druck Prototypen",
+      pageUrl: "https://www.ek-druck.at/prototypen"
+    }} />
 
       <div className="min-h-screen">
         <Navigation />
@@ -48,14 +77,15 @@ const Prototypen = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                <Button variant="cta" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
                 behavior: 'smooth'
               })}>
-                  Jetzt Prototyp anfragen
+                  <Zap className="w-5 h-5 mr-2" />
+                  Kostenlos Prototyp anfragen
                   <ArrowRight className="ml-2" />
                 </Button>
-                <Button variant="secondary" size="lg" onClick={() => window.location.href = '/kostenrechner'}>
-                  Kosten berechnen
+                <Button variant="cta-outline" size="lg" onClick={() => window.location.href = '/kostenrechner'}>
+                  Sofort Preis berechnen
                 </Button>
               </div>
 
@@ -211,10 +241,11 @@ const Prototypen = () => {
               <div className="text-center animate-fade-in" style={{
               animationDelay: '0.4s'
             }}>
-                <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                <Button variant="cta-glow" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
                 behavior: 'smooth'
               })}>
-                  Jetzt Prototyp anfragen
+                  <Shield className="w-5 h-5 mr-2" />
+                  Jetzt kostenlose Beratung sichern
                   <ArrowRight className="ml-2" />
                 </Button>
               </div>
@@ -271,10 +302,11 @@ const Prototypen = () => {
               </div>
 
               <div className="mt-12 text-center">
-                <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                <Button variant="cta" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
                 behavior: 'smooth'
               })}>
-                  Jetzt Prototyp anfragen
+                  <Clock className="w-5 h-5 mr-2" />
+                  Projekt jetzt starten
                   <ArrowRight className="ml-2" />
                 </Button>
               </div>

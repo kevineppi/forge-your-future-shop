@@ -1,8 +1,17 @@
 import { useEffect } from 'react';
 
+interface FAQItem {
+  q: string;
+  a: string;
+}
+
 interface StructuredDataProps {
   type: 'organization' | 'service' | 'faq' | 'breadcrumb';
-  data?: any;
+  data?: {
+    faqs?: FAQItem[];
+    pageName?: string;
+    pageUrl?: string;
+  };
 }
 
 const StructuredData = ({ type, data }: StructuredDataProps) => {
@@ -285,43 +294,37 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
           };
         
         case 'faq':
+          // Use dynamic FAQs if provided, otherwise use default
+          const faqItems = data?.faqs || [
+            {
+              q: "Was kostet 3D-Druck in Oberösterreich?",
+              a: "Die Kosten für 3D-Druck hängen von Material, Größe und Komplexität ab. Kontaktieren Sie uns für ein kostenloses Angebot. Prototypen beginnen bereits ab €50."
+            },
+            {
+              q: "Welche Materialien verwenden Sie für 3D-Druck?",
+              a: "Wir verwenden ausschließlich österreichisches Filament aus Industrieabfällen: PLA, PLA+, PETG, ABS und flexible Materialien in allen Farben."
+            },
+            {
+              q: "Wie schnell ist die Lieferung von 3D-Druck Teilen?",
+              a: "Standard-Lieferzeit beträgt 3-5 Tage. Express-Service (24-48h) ist verfügbar. Lieferung in ganz Oberösterreich."
+            },
+            {
+              q: "Bieten Sie auch CAD-Design und Konstruktion an?",
+              a: "Ja, wir bieten professionelle 3D-Modellierung, CAD-Konstruktion und technische Zeichnungen für Ihre individuellen Projekte an."
+            }
+          ];
+
           return {
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Was kostet 3D-Druck in Oberösterreich?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Die Kosten für 3D-Druck hängen von Material, Größe und Komplexität ab. Kontaktieren Sie uns für ein kostenloses Angebot. Prototypen beginnen bereits ab €50."
-                }
-              },
-              {
-                "@type": "Question", 
-                "name": "Welche Materialien verwenden Sie für 3D-Druck?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Wir verwenden ausschließlich österreichisches Filament aus Industrieabfällen: PLA, PLA+, PETG, ABS und flexible Materialien in allen Farben."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Wie schnell ist die Lieferung von 3D-Druck Teilen?",
-                "acceptedAnswer": {
-                  "@type": "Answer", 
-                  "text": "Standard-Lieferzeit beträgt 3-5 Tage. Express-Service (24-48h) ist verfügbar. Lieferung in ganz Oberösterreich."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Bieten Sie auch CAD-Design und Konstruktion an?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Ja, wir bieten professionelle 3D-Modellierung, CAD-Konstruktion und technische Zeichnungen für Ihre individuellen Projekte an."
-                }
+            "mainEntity": faqItems.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
               }
-            ]
+            }))
           };
         
         case 'breadcrumb':
