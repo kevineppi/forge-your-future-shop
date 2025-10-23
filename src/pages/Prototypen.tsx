@@ -6,8 +6,6 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import GoogleReviews from "@/components/GoogleReviews";
-import QuickInquiryForm from "@/components/QuickInquiryForm";
-import CaseStudiesTeaser from "@/components/CaseStudiesTeaser";
 import WeeklyProductionCounter from "@/components/WeeklyProductionCounter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -97,29 +95,30 @@ const Prototypen = () => {
                 </div>
               </div>
 
-              {/* Quick Inquiry Form */}
-              <QuickInquiryForm />
             </div>
           </div>
         </section>
 
         {/* Google Reviews - Social Proof */}
-        <section className="py-12 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">
+        <section className="py-16 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-12 animate-fade-in">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Was unsere Kunden <span className="text-gradient">sagen</span>
               </h2>
               <WeeklyProductionCounter />
             </div>
-            <GoogleReviews />
+            <div className="animate-fade-in">
+              <GoogleReviews />
+            </div>
           </div>
         </section>
 
         {/* Prototypen Arten */}
-        <section className="py-20">
+        <section className="py-20 bg-gradient-to-b from-background to-muted/20">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Welchen <span className="text-gradient">Prototyp</span> benötigen Sie?
               </h2>
@@ -129,7 +128,7 @@ const Prototypen = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <Card className="gradient-card hover:scale-105 transition-transform">
+              <Card className="gradient-card hover-scale animate-fade-in">
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <Package className="w-6 h-6 text-primary" />
@@ -159,7 +158,7 @@ const Prototypen = () => {
                 </CardContent>
               </Card>
 
-              <Card className="gradient-card hover:scale-105 transition-transform border-primary">
+              <Card className="gradient-card hover-scale border-primary shadow-lg animate-fade-in" style={{animationDelay: '0.1s'}}>
                 <CardHeader>
                   <Badge className="w-fit mb-2">Beliebt</Badge>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -190,7 +189,7 @@ const Prototypen = () => {
                 </CardContent>
               </Card>
 
-              <Card className="gradient-card hover:scale-105 transition-transform">
+              <Card className="gradient-card hover-scale animate-fade-in" style={{animationDelay: '0.2s'}}>
                 <CardHeader>
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <TrendingUp className="w-6 h-6 text-primary" />
@@ -223,14 +222,13 @@ const Prototypen = () => {
           </div>
         </section>
 
-        {/* Case Studies Teaser */}
-        <CaseStudiesTeaser />
-
         {/* Vorteile Section - Reduced to 2 Cards */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2"></div>
+          <div className="absolute top-1/2 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <Card className="text-center hover:scale-105 transition-transform">
+              <Card className="text-center hover-scale animate-fade-in backdrop-blur-sm bg-card/95">
                 <CardHeader>
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Clock className="w-8 h-8 text-primary" />
@@ -244,7 +242,7 @@ const Prototypen = () => {
                 </CardContent>
               </Card>
 
-              <Card className="text-center hover:scale-105 transition-transform">
+              <Card className="text-center hover-scale animate-fade-in backdrop-blur-sm bg-card/95" style={{animationDelay: '0.1s'}}>
                 <CardHeader>
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Package className="w-8 h-8 text-primary" />
@@ -262,20 +260,20 @@ const Prototypen = () => {
         </section>
 
         {/* Materialien - Reduced to 2 Materials */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <div className="text-center mb-12 animate-fade-in">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   <span className="text-gradient">Materialien</span> für Prototypen
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-xl text-muted-foreground">
                   Hochwertige, österreichische Filamente für optimale Qualität.
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <Card className="hover:border-primary/50 transition-colors">
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <Card className="hover:border-primary/50 transition-all hover-scale animate-fade-in">
                   <CardHeader>
                     <CardTitle>PLA - Designprototypen</CardTitle>
                   </CardHeader>
@@ -288,7 +286,7 @@ const Prototypen = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="hover:border-primary/50 transition-colors">
+                <Card className="hover:border-primary/50 transition-all hover-scale animate-fade-in" style={{animationDelay: '0.1s'}}>
                   <CardHeader>
                     <CardTitle>PETG - Funktionsprototypen</CardTitle>
                   </CardHeader>
@@ -313,10 +311,11 @@ const Prototypen = () => {
         </section>
 
         {/* Process Timeline */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-background to-primary/5"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-16">
+              <div className="text-center mb-16 animate-fade-in">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4">
                   Von der Idee zum <span className="text-gradient">Prototyp</span>
                 </h2>
@@ -342,8 +341,8 @@ const Prototypen = () => {
                 step: "4",
                 title: "Lieferung",
                 desc: "Ihr Prototyp wird sorgfältig geprüft und sicher verpackt österreichweit versendet."
-              }].map((item, index) => <div key={index} className="flex gap-6 items-start">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+              }].map((item, index) => <div key={index} className="flex gap-6 items-start animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg hover-scale">
                       {item.step}
                     </div>
                     <div className="flex-1 pt-3">
