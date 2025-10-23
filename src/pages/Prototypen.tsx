@@ -4,6 +4,7 @@ import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
+import HowToSchema from "@/components/HowToSchema";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import GoogleReviews from "@/components/GoogleReviews";
 import WeeklyProductionCounter from "@/components/WeeklyProductionCounter";
@@ -22,6 +23,29 @@ const Prototypen = () => {
       url: "/prototypen"
     }]} />
       <StructuredData type="service" />
+      <HowToSchema
+        name="3D-Druck Prototyp anfertigen lassen"
+        description="Schritt-für-Schritt Anleitung: So lassen Sie professionelle 3D-Druck Prototypen fertigen - von der Anfrage bis zum fertigen Bauteil"
+        totalTime="P3D"
+        steps={[
+          {
+            name: "Anfrage senden & CAD-Datei hochladen",
+            text: "Senden Sie uns Ihre 3D-CAD-Datei (STL, STEP, IGES) oder eine Skizze Ihres Prototyps. Teilen Sie uns Material, Größe und gewünschte Lieferzeit mit. Unser Team prüft die Machbarkeit und berät Sie zur optimalen Material- und Verfahrenswahl."
+          },
+          {
+            name: "Angebot erhalten & bestätigen",
+            text: "Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot mit Preis, Lieferzeit und technischen Details. Das Angebot enthält eine Vorschau Ihres Bauteils und alle relevanten Spezifikationen. Nach Ihrer Bestätigung starten wir die Produktion."
+          },
+          {
+            name: "Produktion & Qualitätskontrolle",
+            text: "Ihr Prototyp wird auf unseren professionellen FDM 3D-Druckern mit 0,1mm Präzision gefertigt. Jedes Teil durchläuft eine mehrstufige Qualitätskontrolle: dimensionale Prüfung, Sichtprüfung der Oberfläche und Funktionstest falls erforderlich."
+          },
+          {
+            name: "Versand & Lieferung",
+            text: "Der fertige Prototyp wird sicher verpackt und österreichweit versendet. Standard-Lieferzeit beträgt 3-5 Werktage, Express-Lieferung in 24-48 Stunden verfügbar. Sie erhalten eine Tracking-Nummer zur Sendungsverfolgung."
+          }
+        ]}
+      />
       <StructuredData type="faq" data={{
       faqs: [{
         q: "Was kostet ein 3D-Druck Prototyp?",

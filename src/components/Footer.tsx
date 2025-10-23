@@ -79,6 +79,9 @@ const Footer = () => {
             <a href="/impressum" className="text-muted-foreground hover:text-primary text-sm transition-colors">
               Impressum
             </a>
+            <a href="/glossar" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+              3D-Druck Glossar
+            </a>
           </div>
         </div>
       </div>

@@ -39,6 +39,7 @@ import VerfahrensVergleich from "./pages/ratgeber/VerfahrensVergleich";
 import MaterialGuide from "./pages/ratgeber/MaterialGuide";
 import Maschinenbau from "./pages/ratgeber/Maschinenbau";
 import Prototypen from "./pages/Prototypen";
+import Glossar from "./pages/Glossar";
 
 const queryClient = new QueryClient();
 
@@ -65,6 +66,7 @@ const App = () => (
             <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />
             <Route path="/ratgeber/material-guide" element={<MaterialGuide />} />
             <Route path="/ratgeber/maschinenbau" element={<Maschinenbau />} />
+            <Route path="/glossar" element={<Glossar />} />
             <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
             <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
             <Route path="/3d-druck-graz" element={<Graz3DDruck />} />
