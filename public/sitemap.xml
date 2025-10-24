@@ -30,6 +30,12 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://www.ek-druck.at/prototypen</loc>
+    <lastmod>2025-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://www.ek-druck.at/fdm-3d-druck</loc>
     <lastmod>2025-01-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -42,9 +48,27 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.ek-druck.at/kostenrechner</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.ek-druck.at/3d-druck-materialien</loc>
     <lastmod>2025-01-23</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/ratgeber</loc>
+    <lastmod>2025-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/glossar</loc>
+    <lastmod>2025-02-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
@@ -54,10 +78,28 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ek-druck.at/kostenrechner</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://www.ek-druck.at/ratgeber/kosten-guide</loc>
+    <lastmod>2025-02-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/ratgeber/material-guide</loc>
+    <lastmod>2025-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/ratgeber/verfahrens-vergleich</loc>
+    <lastmod>2025-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/ratgeber/maschinenbau</loc>
+    <lastmod>2025-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/3d-druck-wien</loc>
@@ -96,36 +138,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ek-druck.at/3d-druck-villach</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/3d-druck-wels</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/3d-druck-st-poelten</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/3d-druck-dornbirn</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/prototypen</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
     <loc>https://www.ek-druck.at/3d-druck-oberoesterreich</loc>
     <lastmod>2025-01-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -162,45 +174,33 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://www.ek-druck.at/3d-druck-gunskirchen</loc>
+    <loc>https://www.ek-druck.at/3d-druck-villach</loc>
     <lastmod>2025-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ek-druck.at/ratgeber</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/ratgeber/kosten-guide</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/ratgeber/material-guide</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/ratgeber/verfahrens-vergleich</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/ratgeber/maschinenbau</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/glossar</loc>
-    <lastmod>2025-02-10</lastmod>
+    <loc>https://www.ek-druck.at/3d-druck-wels</loc>
+    <lastmod>2025-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-st-poelten</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-dornbirn</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-gunskirchen</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
