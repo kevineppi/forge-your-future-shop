@@ -576,6 +576,113 @@ const Index = () => {
       {/* About Section */}
       <About />
       
+      {/* Regional Services Section - New */}
+      <section className="py-24 bg-gradient-to-b from-background via-muted/20 to-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                3D-Druck Service in <span className="text-gradient">ganz Österreich</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Schnelle Lieferung in alle österreichischen Bundesländer und Städte. Finden Sie Ihren regionalen 3D-Druck Service.
+              </p>
+            </div>
+
+            {/* Bundesländer */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold mb-6 text-center">Bundesländer</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <a href="/3d-druck-oberoesterreich" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Oberösterreich</h4>
+                  <p className="text-sm text-muted-foreground mt-1">3D-Druck OÖ</p>
+                </a>
+                <a href="/3d-druck-niederoesterreich" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Niederösterreich</h4>
+                  <p className="text-sm text-muted-foreground mt-1">3D-Druck NÖ</p>
+                </a>
+                <a href="/3d-druck-wien" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Wien</h4>
+                  <p className="text-sm text-muted-foreground mt-1">3D-Druck Wien</p>
+                </a>
+                <a href="/3d-druck-steiermark" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Steiermark</h4>
+                  <p className="text-sm text-muted-foreground mt-1">3D-Druck Stmk</p>
+                </a>
+                <a href="/3d-druck-salzburg" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Salzburg</h4>
+                  <p className="text-sm text-muted-foreground mt-1">3D-Druck Sbg</p>
+                </a>
+                <a href="/3d-druck-kaernten" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Kärnten</h4>
+                  <p className="text-sm text-muted-foreground mt-1">3D-Druck Ktn</p>
+                </a>
+                <a href="/3d-druck-vorarlberg" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Vorarlberg</h4>
+                  <p className="text-sm text-muted-foreground mt-1">3D-Druck Vbg</p>
+                </a>
+                <a href="/3d-druck-burgenland" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Burgenland</h4>
+                  <p className="text-sm text-muted-foreground mt-1">3D-Druck Bgld</p>
+                </a>
+              </div>
+            </div>
+
+            {/* Städte */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-center">Wichtige Städte</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <a href="/3d-druck-wien" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Wien</h4>
+                </a>
+                <a href="/3d-druck-linz" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Linz</h4>
+                </a>
+                <a href="/3d-druck-graz" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Graz</h4>
+                </a>
+                <a href="/3d-druck-salzburg" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Salzburg</h4>
+                </a>
+                <a href="/3d-druck-innsbruck" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Innsbruck</h4>
+                </a>
+                <a href="/3d-druck-klagenfurt" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Klagenfurt</h4>
+                </a>
+                <a href="/3d-druck-villach" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Villach</h4>
+                </a>
+                <a href="/3d-druck-wels" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Wels</h4>
+                </a>
+                <a href="/3d-druck-st-poelten" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">St. Pölten</h4>
+                </a>
+                <a href="/3d-druck-dornbirn" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Dornbirn</h4>
+                </a>
+                <a href="/3d-druck-gunskirchen" className="group bg-card hover:bg-primary/10 p-4 rounded-xl border border-border hover:border-primary/50 transition-all hover:shadow-lg text-center">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">Gunskirchen</h4>
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-muted-foreground mb-6">
+                Schnelle Lieferung österreichweit • Express-Service verfügbar • Persönliche Beratung
+              </p>
+              <a href="#contact" className="inline-flex items-center gap-2 text-primary hover:underline font-semibold">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+                Jetzt anfragen für Ihre Region
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Reviews Section - Enhanced Visual Separation */}
       <div className="bg-gradient-to-b from-background to-muted/30">
         
