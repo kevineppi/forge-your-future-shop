@@ -27,52 +27,18 @@ const StPoelten3DDruck = () => {
       ]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "ekdruck e.U. - 3D-Druck St. Pölten",
-          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-          "@id": "https://www.ek-druck.at",
-          "url": "https://www.ek-druck.at/3d-druck-st-poelten",
-          "telephone": "+436765517197",
-          "email": "office@ekdruck.at",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "St. Pölten",
-            "addressRegion": "Niederösterreich",
-            "addressCountry": "AT"
+      <StructuredData type="faq" data={{
+        faqs: [
+          {
+            q: "Wie schnell erfolgt die Lieferung nach St. Pölten?",
+            a: "Express-Service innerhalb von 24-48 Stunden nach St. Pölten und Niederösterreich. Standard-Lieferungen dauern 2-3 Werktage."
           },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 48.2083,
-            "longitude": 15.6251
-          },
-          "areaServed": [
-            { "@type": "City", "name": "St. Pölten" },
-            { "@type": "State", "name": "Niederösterreich" }
-          ],
-          "priceRange": "€€"
-        })}
-      </script>
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Wie schnell erfolgt die Lieferung nach St. Pölten?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Express-Service innerhalb von 24-48 Stunden nach St. Pölten und Niederösterreich. Standard-Lieferungen dauern 2-3 Werktage."
-              }
-            }
-          ]
-        })}
-      </script>
+          {
+            q: "Welche Materialien verwenden Sie für 3D-Druck?",
+            a: "Wir verwenden ausschließlich österreichisches Filament: PLA, PETG, ABS, TPU und Nylon - nachhaltig aus Industrieabfällen produziert."
+          }
+        ]
+      }} />
       
       <div className="min-h-screen">
         <Navigation />

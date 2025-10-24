@@ -270,23 +270,25 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             "offers": [
               {
                 "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Product",
-                  "name": "3D-Druck Funktionsprototyp",
-                  "description": "Voll funktionsfähige Testmodelle für mechanische Tests"
-                },
+                "name": "3D-Druck Funktionsprototyp",
+                "description": "Voll funktionsfähige Testmodelle für mechanische Tests",
                 "price": "5.00",
                 "priceCurrency": "EUR",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Product",
-                  "name": "3D-Druck Designprototyp",
-                  "description": "Hochwertige Präsentationsmodelle"
-                },
+                "name": "3D-Druck Designprototyp",
+                "description": "Hochwertige Präsentationsmodelle",
                 "price": "5.00",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "name": "3D-Druck Einzelanfertigung",
+                "description": "Individuelle Einzelstücke nach Kundenwunsch",
+                "price": "10.00",
                 "priceCurrency": "EUR",
                 "availability": "https://schema.org/InStock"
               }

@@ -28,54 +28,18 @@ const Steiermark3DDruck = () => {
       ]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "ekdruck e.U. - 3D-Druck Steiermark",
-          "image": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-          "@id": "https://www.ek-druck.at",
-          "url": "https://www.ek-druck.at/3d-druck-steiermark",
-          "telephone": "+436765517197",
-          "email": "office@ekdruck.at",
-          "address": {
-            "@type": "PostalAddress",
-            "addressRegion": "Steiermark",
-            "addressCountry": "AT"
+      <StructuredData type="faq" data={{
+        faqs: [
+          {
+            q: "Liefern Sie 3D-gedruckte Teile in die Steiermark?",
+            a: "Ja, wir liefern schnell und zuverlässig in die gesamte Steiermark. Express-Service innerhalb von 24-48 Stunden nach Graz und Umgebung verfügbar."
           },
-          "areaServed": {
-            "@type": "State",
-            "name": "Steiermark"
-          },
-          "priceRange": "€€"
-        })}
-      </script>
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Liefern Sie 3D-gedruckte Teile in die Steiermark?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ja, wir liefern schnell und zuverlässig in die gesamte Steiermark. Express-Service innerhalb von 24-48 Stunden nach Graz und Umgebung verfügbar."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Welche 3D-Druck Materialien bieten Sie an?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Wir bieten PLA, PETG, ABS, TPU und Nylon aus österreichischer Produktion. Alle Materialien sind für verschiedene Anwendungen optimiert."
-              }
-            }
-          ]
-        })}
-      </script>
+          {
+            q: "Welche 3D-Druck Materialien bieten Sie an?",
+            a: "Wir bieten PLA, PETG, ABS, TPU und Nylon aus österreichischer Produktion. Alle Materialien sind für verschiedene Anwendungen optimiert."
+          }
+        ]
+      }} />
       
       <div className="min-h-screen">
         <Navigation />
