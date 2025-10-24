@@ -12,11 +12,11 @@ const StickyCTA = () => {
   return (
     <Button
       onClick={scrollToContact}
-      className="fixed bottom-6 right-6 z-50 shadow-2xl rounded-full h-16 px-6 text-base font-semibold"
+      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 shadow-2xl rounded-full h-12 md:h-16 px-4 md:px-6 text-sm md:text-base font-semibold"
       variant="hero"
       size="lg"
     >
-      <MessageCircle className="w-5 h-5" />
+      <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
       Kostenloses Angebot
     </Button>
   );
