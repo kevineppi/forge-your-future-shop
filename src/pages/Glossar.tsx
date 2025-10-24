@@ -354,11 +354,11 @@ const Glossar = () => {
                 Fachwissen 3D-Druck
               </Badge>
 
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight">
                 3D-Druck <span className="text-gradient">Glossar</span>
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
                 60+ wichtige Fachbegriffe rund um FDM 3D-Druck, additive Fertigung und Rapid Prototyping - 
                 von Grundlagen bis Advanced Topics verständlich erklärt.
               </p>
@@ -404,17 +404,17 @@ const Glossar = () => {
                 </p>
               </div>
 
-              <div className="grid gap-6">
+              <div className="grid gap-4 md:gap-6">
                 {filteredTerms.map((item, index) => (
                   <Card key={index} className="hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="flex items-start justify-between gap-4">
-                        <CardTitle className="text-2xl">{item.term}</CardTitle>
-                        <Badge variant="secondary">{item.category}</Badge>
+                    <CardHeader className="pb-3 md:pb-4">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
+                        <CardTitle className="text-lg sm:text-xl md:text-2xl break-words">{item.term}</CardTitle>
+                        <Badge variant="secondary" className="self-start sm:self-auto shrink-0">{item.category}</Badge>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-base leading-relaxed text-foreground">
+                    <CardContent className="pt-0">
+                      <CardDescription className="text-sm sm:text-base leading-relaxed text-foreground">
                         {item.definition}
                       </CardDescription>
                     </CardContent>
@@ -439,16 +439,16 @@ const Glossar = () => {
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
                 Über dieses <span className="text-gradient">Glossar</span>
               </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground">
-                <p className="mb-4 leading-relaxed">
+              <div className="max-w-none text-muted-foreground text-sm md:text-base">
+                <p className="mb-3 md:mb-4 leading-relaxed">
                   Dieses 3D-Druck Glossar wurde speziell für die <strong className="text-foreground">additive Fertigung mit FDM-Technologie</strong> erstellt 
                   und basiert auf jahrelanger praktischer Erfahrung im Prototypenbau und der Serienfertigung. Die Definitionen orientieren sich 
                   an fachspezifischen Quellen aus der 3D-Druck-Community, technischen Foren und Herstellerdokumentation.
                 </p>
-                <p className="mb-4 leading-relaxed">
+                <p className="mb-3 md:mb-4 leading-relaxed">
                   Alle Begriffe sind <strong className="text-foreground">praxisnah erklärt</strong> und berücksichtigen die spezifischen Anforderungen 
                   der modernen additiven Fertigung. Das Glossar wird regelmäßig aktualisiert, um neue Entwicklungen und Technologien zu berücksichtigen.
                 </p>
