@@ -14,8 +14,8 @@ const Materialien = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Materialien | 100% Österreichisches Filament | ekdruck"
-        description="🌱 Premium 3D-Druck Materialien aus Österreich ✓ Nachhaltiges Filament ✓ PLA, PETG, ABS, PA12 ✓ Aus Industrieabfällen ✓ Regional produziert → Mehr erfahren!"
+        title="Nachhaltiges AT-Filament: Aus Industrieabfällen gefertigt | ekdruck"
+        description="Echte Kreislaufwirtschaft: Unser Filament entsteht aus österreichischen Industrieabfällen. PLA, PETG, ABS - regional & nachhaltig. Materialproben gratis!"
         keywords="3d-druck materialien österreich, nachhaltiges filament österreich, österreichisches filament oberösterreich, pla petg abs österreich, recyceltes filament oberösterreich, bio-basierte kunststoffe, thermoplastisches filament, additive fertigungsmaterialien"
         path="/3d-druck-materialien"
         schemaType="product"

@@ -14,8 +14,8 @@ const Serienfertigung = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Serienfertigung | Kleinserien 10-10.000 Stück | ekdruck"
-        description="🏭 3D-Druck Serienfertigung aus Österreich ✓ 10-10.000 Stück ✓ Keine Werkzeugkosten ✓ Spritzguss-Alternative ✓ Flexible Stückzahlen → Jetzt Angebot anfragen!"
+        title="Kleinserien ohne Werkzeugkosten | 3D-Druck ab 10 Stück | ekdruck"
+        description="Produzieren Sie wirtschaftlich ab 10 Stück! Keine Werkzeugkosten, flexible Anpassungen möglich, schneller als Spritzguss. Rechner inklusive."
         keywords="3d-druck serienfertigung österreich, kleinserien 3d-druck oberösterreich, additive serienfertigung österreich, 3d-druck produktion oberösterreich, spritzguss alternative österreich, rapid manufacturing, on-demand produktion, flexible stückzahlen"
         path="/serienfertigung"
         schemaType="service"

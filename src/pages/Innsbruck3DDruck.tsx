@@ -12,8 +12,8 @@ const Innsbruck3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D Druck Innsbruck – Prototypen & Fertigung | ek-druck"
-        description="Professioneller 3D Druck in Innsbruck. Prototypen, Einzelfertigung & Serienfertigung – schnell, präzise & individuell. Jetzt unverbindlich anfragen!"
+        title="3D-Druck Innsbruck & Tirol | Alpine Innovation aus OÖ | ekdruck"
+        description="🗻 Präzisions-3D-Druck für Tiroler Sportartikel & Technik. Robuste Materialien, perfekt für Alpine Bedingungen. Express-Versand möglich!"
         keywords="3d-druck innsbruck, 3d drucker innsbruck, fdm druck innsbruck, rapid prototyping innsbruck, 3d-druck tirol, prototypen innsbruck"
         path="/3d-druck-innsbruck"
       />

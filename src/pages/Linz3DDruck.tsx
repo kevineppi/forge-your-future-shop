@@ -20,8 +20,8 @@ const Linz3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D Druck Linz – Prototypen & Fertigung | ek-druck"
-        description="Professioneller 3D Druck in Linz. Prototypen, Einzelfertigung & Serienfertigung – schnell, präzise & individuell. Jetzt unverbindlich anfragen!"
+        title="3D-Druck Linz: Same-Day Abholung möglich | Nur 30km entfernt | ekdruck"
+        description="⚡ Same-Day Service für Linz! Nur 30km von Gunskirchen ✓ Abholung möglich ✓ Express in 24h ✓ Regional aus OÖ → Jetzt anfragen!"
         keywords="3d-druck linz, 3d drucker linz, fdm druck linz, rapid prototyping linz, 3d-druck oberösterreich, prototypen linz"
         path="/3d-druck-linz"
       />

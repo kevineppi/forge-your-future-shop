@@ -12,8 +12,8 @@ const Graz3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D Druck Graz – Prototypen & Fertigung | ek-druck"
-        description="Professioneller 3D Druck in Graz. Prototypen, Einzelfertigung & Serienfertigung – schnell, präzise & individuell. Jetzt unverbindlich anfragen!"
+        title="3D-Druck Graz & Steiermark | Technische Bauteile vom Experten | ekdruck"
+        description="🎓 Hochpräziser 3D-Druck für Grazer Industrie & Forschung. Technische Prototypen, Funktionsteile, Engineering-Support. Kostenlose Beratung!"
         keywords="3d-druck graz, 3d drucker graz, fdm druck graz, rapid prototyping graz, 3d-druck steiermark, prototypen graz"
         path="/3d-druck-graz"
       />
