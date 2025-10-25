@@ -20,7 +20,6 @@ const Steiermark3DDruck = () => {
         description="Professioneller 3D-Druck Service für Steiermark ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
         keywords="3d-druck steiermark, 3d druck graz, fdm 3d-druck steiermark, rapid prototyping steiermark"
         path="/3d-druck-steiermark"
-        schemaType="service"
       />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},

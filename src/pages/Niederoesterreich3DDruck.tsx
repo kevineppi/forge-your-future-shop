@@ -20,7 +20,6 @@ const Niederoesterreich3DDruck = () => {
         description="Professioneller 3D-Druck Service für Niederösterreich ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
         keywords="3d-druck niederösterreich, 3d druck st pölten, fdm 3d-druck niederösterreich, rapid prototyping niederösterreich"
         path="/3d-druck-niederoesterreich"
-        schemaType="service"
       />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},

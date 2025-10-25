@@ -17,7 +17,6 @@ const FdmDruck = () => {
         description="Warum FDM? Beste Kosten-Nutzen-Balance für technische Teile. Große Materialauswahl, robuste Bauteile, schnelle Fertigung. Vergleich inklusive!"
         keywords="fdm 3d-druck österreich, fused deposition modeling oberösterreich, fdm verfahren österreich, 3d-druck fdm oberösterreich, fdm drucker service österreich, schichtauflösung 0.1mm, thermoplastisches filament, material-extrusion"
         path="/fdm-3d-druck"
-        schemaType="service"
         breadcrumbs={[
           {name: "Home", url: "/"},
           {name: "FDM 3D-Druck", url: "/fdm-3d-druck"}

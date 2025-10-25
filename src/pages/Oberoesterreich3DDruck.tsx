@@ -20,7 +20,6 @@ const Oberoesterreich3DDruck = () => {
         description="Professioneller 3D-Druck Service für Oberösterreich ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
         keywords="3d-druck oberösterreich, 3d druck linz, fdm 3d-druck oberösterreich, rapid prototyping oberösterreich"
         path="/3d-druck-oberoesterreich"
-        schemaType="service"
       />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},

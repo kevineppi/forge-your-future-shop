@@ -20,7 +20,6 @@ const Burgenland3DDruck = () => {
         description="Professioneller 3D-Druck Service für Burgenland ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
         keywords="3d-druck burgenland, 3d druck eisenstadt, fdm 3d-druck burgenland, rapid prototyping burgenland"
         path="/3d-druck-burgenland"
-        schemaType="service"
       />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},

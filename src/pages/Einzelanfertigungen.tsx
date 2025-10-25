@@ -17,7 +17,6 @@ const Einzelanfertigungen = () => {
         description="Von der Skizze zum fertigen Unikat. Wir realisieren Ihre individuellen 3D-Projekte - Ersatzteile, Geschenke, Prototypen. Beratung kostenlos!"
         keywords="3d-druck einzelanfertigungen österreich, custom 3d parts österreich, individuelle 3d-teile oberösterreich, maßanfertigungen österreich, 3d-druck unikate oberösterreich, spezialanfertigungen 3d-druck, personalisierte 3d-objekte, millimetergenaue fertigung"
         path="/einzelanfertigungen"
-        schemaType="service"
         breadcrumbs={[
           {name: "Home", url: "/"},
           {name: "Einzelanfertigungen", url: "/einzelanfertigungen"}

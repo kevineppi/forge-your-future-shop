@@ -20,7 +20,6 @@ const Kaernten3DDruck = () => {
         description="Professioneller 3D-Druck Service für Kärnten ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
         keywords="3d-druck kärnten, 3d druck klagenfurt, fdm 3d-druck kärnten, rapid prototyping kärnten"
         path="/3d-druck-kaernten"
-        schemaType="service"
       />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},

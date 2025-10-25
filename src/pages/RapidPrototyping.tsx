@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Lightbulb, Cog, Zap, CheckCircle, ArrowRight, Timer } from "lucide-react";
 const RapidPrototyping = () => {
   return <>
-      <SEOHead title="Rapid Prototyping Express: Prototyp in 24h | Same-Day verfügbar" description="🚀 Same-Day Prototyping Service ✓ 24h Express ab +50% ✓ Overnight möglich ✓ FDM 3D-Druck OÖ → Jetzt Express-Prototyp anfragen!" keywords="rapid prototyping, rapid prototyping österreich, express 3d-druck, same day prototyping, prototypen express" path="/rapid-prototyping" schemaType="service" breadcrumbs={[{
+      <SEOHead title="Rapid Prototyping Express: Prototyp in 24h | Same-Day verfügbar" description="🚀 Same-Day Prototyping Service ✓ 24h Express ab +50% ✓ Overnight möglich ✓ FDM 3D-Druck OÖ → Jetzt Express-Prototyp anfragen!" keywords="rapid prototyping, rapid prototyping österreich, express 3d-druck, same day prototyping, prototypen express" path="/rapid-prototyping" breadcrumbs={[{
       name: "Home",
       url: "/"
     }, {
