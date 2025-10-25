@@ -368,8 +368,8 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
 
     const structuredData = getStructuredData();
     if (structuredData) {
-      // Generate unique ID including page URL to prevent conflicts across pages
-      const scriptId = `structured-data-${type}-${window.location.pathname.replace(/\//g, '-') || 'home'}`;
+      // Use consistent ID format matching SEOHead to prevent duplicates
+      const scriptId = `schema-${type}-${window.location.pathname.replace(/\//g, '-') || 'home'}`;
       
       // Remove any existing scripts with this ID
       const existing = document.getElementById(scriptId);
@@ -377,11 +377,17 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
         existing.remove();
       }
       
-      // Also remove any old-style scripts without page identifier (for cleanup)
-      const oldStyleScript = document.getElementById(`structured-data-${type}`);
-      if (oldStyleScript) {
-        oldStyleScript.remove();
-      }
+      // Also clean up old format IDs (for migration)
+      const oldFormatIds = [
+        `structured-data-${type}`,
+        `structured-data-${type}-${window.location.pathname.replace(/\//g, '-') || 'home'}`
+      ];
+      oldFormatIds.forEach(oldId => {
+        const oldScript = document.getElementById(oldId);
+        if (oldScript) {
+          oldScript.remove();
+        }
+      });
       
       const script = document.createElement('script');
       script.type = 'application/ld+json';
