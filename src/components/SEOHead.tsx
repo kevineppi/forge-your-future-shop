@@ -19,7 +19,7 @@ const SEOHead = ({
   path = "",
   image = "",
   type = "website",
-  schemaType = "service",
+  schemaType,
   breadcrumbs = [],
   preloadResources = []
 }: SEOHeadProps) => {
@@ -132,19 +132,21 @@ const SEOHead = ({
       }
     });
     
-    // Add individual Schema.org structured data
-    const schemaId = `schema-${schemaType}-${path.replace(/\//g, '-') || 'home'}`;
-    let existingSchema = document.querySelector(`script[data-schema-id="${schemaId}"]`);
-    
-    if (existingSchema) {
-      existingSchema.remove();
+    // Add individual Schema.org structured data only if schemaType is explicitly provided
+    if (schemaType) {
+      const schemaId = `schema-${schemaType}-${path.replace(/\//g, '-') || 'home'}`;
+      let existingSchema = document.querySelector(`script[data-schema-id="${schemaId}"]`);
+      
+      if (existingSchema) {
+        existingSchema.remove();
+      }
+      
+      const schemaScript = document.createElement('script');
+      schemaScript.type = 'application/ld+json';
+      schemaScript.setAttribute('data-schema-id', schemaId);
+      schemaScript.textContent = JSON.stringify(getSchemaData(schemaType, path, title, description, breadcrumbs));
+      document.head.appendChild(schemaScript);
     }
-    
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.setAttribute('data-schema-id', schemaId);
-    schemaScript.textContent = JSON.stringify(getSchemaData(schemaType, path, title, description, breadcrumbs));
-    document.head.appendChild(schemaScript);
     
     // Cleanup function
     return () => {
@@ -155,9 +157,12 @@ const SEOHead = ({
         }
       });
       
-      const schemaToRemove = document.querySelector(`script[data-schema-id="${schemaId}"]`);
-      if (schemaToRemove) {
-        schemaToRemove.remove();
+      if (schemaType) {
+        const schemaId = `schema-${schemaType}-${path.replace(/\//g, '-') || 'home'}`;
+        const schemaToRemove = document.querySelector(`script[data-schema-id="${schemaId}"]`);
+        if (schemaToRemove) {
+          schemaToRemove.remove();
+        }
       }
     };
   }, [title, description, keywords, path, image, type, schemaType, breadcrumbs, preloadResources]);
