@@ -16,7 +16,7 @@ import TrustBadges from "@/components/TrustBadges";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
-      <SEOHead title="3D-Druck Dienstleister Österreich | Prototypen & Serienfertigung | ekdruck" description="⚡ Ihr 3D-Druck Dienstleister aus Österreich ✓ Prototypen ab 24h ✓ Funktionsteile ✓ Serienfertigung ✓ Kostenloser Versand ab €50 ✓ 100% AT-Filament → Jetzt anfragen!" keywords="3d-druck dienstleister, 3d druck prototypen, prototypen 3d-druck, 3d-druck österreich, fdm 3d-druck, rapid prototyping österreich, 3d druck service, 3d-druck firma, dienstleistung 3d druck, prototyping service österreich" path="/" preloadResources={[{
+      <SEOHead title="3D-Druck Österreich | FDM Prototypen & Serienfertigung" description="Professioneller 3D-Druck Service aus Österreich mit FDM-Technologie. Prototypen ab 24h, nachhaltige Materialien aus AT, kostenloser Versand ab 50 EUR. Jetzt anfragen!" keywords="3d-druck österreich, fdm 3d-druck, prototypen, serienfertigung, rapid prototyping österreich, 3d druck service, 3d-druck dienstleister, nachhaltig" path="/" preloadResources={[{
       href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
       as: "image",
       type: "image/png"
@@ -66,26 +66,23 @@ const Index = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold">Modernste FDM 3D-Druck Technologie</h3>
-                </div>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Als professioneller <strong className="text-primary">3D-Druck Dienstleister</strong> aus Oberösterreich setzen wir auf modernste{" "}
-                  <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM (Fused Deposition Modeling)</a> Technologie. 
-                  Diese additive Fertigungsmethode ermöglicht die präzise Herstellung komplexer Geometrien mit hoher Qualität.
-                </p>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Unser <strong className="text-primary">3D-Druck Service</strong> deckt alle Bereiche ab: von professionellem{" "}
-                  <a href="/prototypen" className="text-primary hover:underline font-semibold">Prototypenbau</a> und{" "}
-                  <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> über{" "}
-                  <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelanfertigungen</a> bis hin zur{" "}
-                  <a href="/serienfertigung" className="text-primary hover:underline font-semibold">effizienten Serienfertigung</a>. 
-                  Mit Schichtauflösungen bis zu 0,1mm garantieren wir höchste Präzision.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Als österreichischer <strong className="text-primary">3D-Druck Spezialist</strong> legen wir besonderen Wert auf{" "}
-                  <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltige Materialien</a>. 
-                  Wir verwenden ausschließlich hochwertige Filamente aus österreichischer Produktion für umweltfreundlichen 3D-Druck.
-                </p>
+                   <h3 className="text-2xl md:text-3xl font-bold">Modernste FDM 3D-Druck Technologie</h3>
+                 </div>
+                 <p className="text-muted-foreground mb-4 leading-relaxed">
+                   Als professioneller Dienstleister aus Oberösterreich setzen wir auf modernste{" "}
+                   <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM (Fused Deposition Modeling)</a> Technologie, 
+                   die additive Fertigungsmethode, welche die präzise Herstellung komplexer Geometrien mit außergewöhnlich hoher Qualität ermöglicht. 
+                   Unser Service deckt dabei sämtliche Bereiche der additiven Fertigung ab: von professionellem{" "}
+                   <a href="/prototypen" className="text-primary hover:underline font-semibold">Prototypenbau</a> und{" "}
+                   <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> über{" "}
+                   <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelanfertigungen</a> bis hin zur{" "}
+                   <a href="/serienfertigung" className="text-primary hover:underline font-semibold">effizienten Serienfertigung</a>.
+                 </p>
+                 <p className="text-muted-foreground leading-relaxed">
+                   Mit Schichtauflösungen bis zu 0,1mm garantieren wir höchste Präzision für Ihre Projekte. Als österreichischer Spezialist legen wir besonderen Wert auf{" "}
+                   <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltige Materialien</a> und verwenden ausschließlich 
+                   hochwertige Filamente aus österreichischer Produktion, was nicht nur kurze Transportwege bedeutet, sondern auch umweltfreundlichen und klimaneutralen 3D-Druck ermöglicht.
+                 </p>
               </div>
               
               {/* Prozess Sektion */}
@@ -96,66 +93,66 @@ const Index = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold">Unser 3D-Druck Prozess</h3>
-                </div>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">1</div>
-                    <div>
-                      <h4 className="font-bold mb-2 flex items-center gap-2">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                        </svg>
-                        Anfrage & Beratung
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Kostenlose Beratung zu Material, Technologie und Machbarkeit Ihres 3D-Druck Projekts
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">2</div>
-                    <div>
-                      <h4 className="font-bold mb-2 flex items-center gap-2">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        Angebot & Design-Optimierung
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Detailliertes Angebot mit Preis und Lieferzeit. Optimierung Ihrer CAD-Dateien für optimale Druckergebnisse
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">3</div>
-                    <div>
-                      <h4 className="font-bold mb-2 flex items-center gap-2">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                        </svg>
-                        Produktion mit FDM 3D-Druck
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Fertigung mit modernsten FDM 3D-Druckern und nachhaltigen österreichischen Materialien
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">4</div>
-                    <div>
-                      <h4 className="font-bold mb-2 flex items-center gap-2">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                        </svg>
-                        Qualitätskontrolle & Versand
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Sorgfältige Prüfung und schneller Versand österreichweit. Express-Service in 24-48h verfügbar
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                   <h3 className="text-2xl md:text-3xl font-bold">Unser Produktionsprozess</h3>
+                 </div>
+                 <div className="space-y-6">
+                   <div className="flex gap-4">
+                     <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">1</div>
+                     <div>
+                       <p className="font-bold mb-2 flex items-center gap-2">
+                         <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                         </svg>
+                         Anfrage & Beratung
+                       </p>
+                       <p className="text-sm text-muted-foreground">
+                         Wir beraten Sie kostenlos und umfassend zu Material, Technologie und Machbarkeit Ihres individuellen Projekts, damit Sie von Anfang an die beste Lösung für Ihre Anforderungen erhalten.
+                       </p>
+                     </div>
+                   </div>
+                   <div className="flex gap-4">
+                     <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">2</div>
+                     <div>
+                       <p className="font-bold mb-2 flex items-center gap-2">
+                         <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                         </svg>
+                         Angebot & Design-Optimierung
+                       </p>
+                       <p className="text-sm text-muted-foreground">
+                         Sie erhalten ein detailliertes Angebot mit transparentem Preis und realistischer Lieferzeit, während wir Ihre CAD-Dateien für optimale Druckergebnisse und maximale Materialeffizienz optimieren.
+                       </p>
+                     </div>
+                   </div>
+                   <div className="flex gap-4">
+                     <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">3</div>
+                     <div>
+                       <p className="font-bold mb-2 flex items-center gap-2">
+                         <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                         </svg>
+                         Produktion mit FDM-Technologie
+                       </p>
+                       <p className="text-sm text-muted-foreground">
+                         Die Fertigung erfolgt mit modernsten FDM-Druckern und nachhaltigen österreichischen Materialien, die höchste Qualität bei gleichzeitig minimaler Umweltbelastung garantieren.
+                       </p>
+                     </div>
+                   </div>
+                   <div className="flex gap-4">
+                     <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">4</div>
+                     <div>
+                       <p className="font-bold mb-2 flex items-center gap-2">
+                         <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                         </svg>
+                         Qualitätskontrolle & Versand
+                       </p>
+                       <p className="text-sm text-muted-foreground">
+                         Nach sorgfältiger Prüfung jedes einzelnen Bauteils erfolgt der schnelle Versand österreichweit, wobei unser Express-Service Ihre Teile bereits in 24-48 Stunden zu Ihnen bringt.
+                       </p>
+                     </div>
+                   </div>
+                 </div>
               </div>
             </div>
 
@@ -169,9 +166,9 @@ const Index = () => {
                     </svg>
                   </div>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold">
-                  Häufig gestellte <span className="text-gradient">Fragen</span> zu 3D-Druck
-                </h3>
+                 <h3 className="text-3xl md:text-4xl font-bold">
+                   Häufig gestellte <span className="text-gradient">Fragen</span>
+                 </h3>
               </div>
               <div className="max-w-4xl mx-auto">
                 <Accordion type="single" collapsible className="space-y-4">
