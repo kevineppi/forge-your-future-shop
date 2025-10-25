@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Clock, Shield, Zap, CheckCircle2, Package, TrendingUp, Users } from "lucide-react";
 const Prototypen = () => {
   return <>
-      <SEOHead title="Funktionsprototypen ab €5: Test vor Produktion | 100+ Projekte | ekdruck" description="Sparen Sie teure Produktionsfehler! Testen Sie Funktion, Passform & Design vorab. Echter 24h-Express, kostenlose Designberatung, 100% Vertraulichkeit." keywords="3d druck prototypen, prototypen 3d-druck, 3d-druck prototypen österreich, funktionsprototypen, prototyping service, designprototypen" path="/prototypen" schemaType="service" />
+      <SEOHead title="Funktionsprototypen ab €5: Test vor Produktion | 100+ Projekte | ekdruck" description="Sparen Sie teure Produktionsfehler! Testen Sie Funktion, Passform & Design vorab. Echter 24h-Express, kostenlose Designberatung, 100% Vertraulichkeit." keywords="3d druck prototypen, prototypen 3d-druck, 3d-druck prototypen österreich, funktionsprototypen, prototyping service, designprototypen" path="/prototypen" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

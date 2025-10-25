@@ -368,21 +368,30 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
 
     const structuredData = getStructuredData();
     if (structuredData) {
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.text = JSON.stringify(structuredData);
-      script.id = `structured-data-${type}`;
+      // Generate unique ID including page URL to prevent conflicts across pages
+      const scriptId = `structured-data-${type}-${window.location.pathname.replace(/\//g, '-') || 'home'}`;
       
-      // Remove existing script if it exists
-      const existing = document.getElementById(`structured-data-${type}`);
+      // Remove any existing scripts with this ID
+      const existing = document.getElementById(scriptId);
       if (existing) {
         existing.remove();
       }
       
+      // Also remove any old-style scripts without page identifier (for cleanup)
+      const oldStyleScript = document.getElementById(`structured-data-${type}`);
+      if (oldStyleScript) {
+        oldStyleScript.remove();
+      }
+      
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(structuredData);
+      script.id = scriptId;
+      
       document.head.appendChild(script);
       
       return () => {
-        const scriptToRemove = document.getElementById(`structured-data-${type}`);
+        const scriptToRemove = document.getElementById(scriptId);
         if (scriptToRemove) {
           scriptToRemove.remove();
         }

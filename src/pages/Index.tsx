@@ -16,7 +16,7 @@ import TrustBadges from "@/components/TrustBadges";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
-      <SEOHead title="3D-Druck Dienstleister Österreich | Prototypen & Serienfertigung | ekdruck" description="⚡ Ihr 3D-Druck Dienstleister aus Österreich ✓ Prototypen ab 24h ✓ Funktionsteile ✓ Serienfertigung ✓ Kostenloser Versand ab €50 ✓ 100% AT-Filament → Jetzt anfragen!" keywords="3d-druck dienstleister, 3d druck prototypen, prototypen 3d-druck, 3d-druck österreich, fdm 3d-druck, rapid prototyping österreich, 3d druck service, 3d-druck firma, dienstleistung 3d druck, prototyping service österreich" path="/" schemaType="service" preloadResources={[{
+      <SEOHead title="3D-Druck Dienstleister Österreich | Prototypen & Serienfertigung | ekdruck" description="⚡ Ihr 3D-Druck Dienstleister aus Österreich ✓ Prototypen ab 24h ✓ Funktionsteile ✓ Serienfertigung ✓ Kostenloser Versand ab €50 ✓ 100% AT-Filament → Jetzt anfragen!" keywords="3d-druck dienstleister, 3d druck prototypen, prototypen 3d-druck, 3d-druck österreich, fdm 3d-druck, rapid prototyping österreich, 3d druck service, 3d-druck firma, dienstleistung 3d druck, prototyping service österreich" path="/" preloadResources={[{
       href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
       as: "image",
       type: "image/png"
