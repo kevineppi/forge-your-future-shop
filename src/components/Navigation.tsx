@@ -163,6 +163,14 @@ const Navigation = () => {
                 FDM 3D-Druck
               </a>
               <a 
+                href="/prototypen" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <TestTube className="h-4 w-4 text-primary" />
+                Prototypen
+              </a>
+              <a 
                 href="/rapid-prototyping" 
                 className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
                 onClick={() => setIsOpen(false)}

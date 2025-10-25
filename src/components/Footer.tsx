@@ -26,24 +26,26 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li><a href="/fdm-3d-druck" className="hover:text-primary transition-colors">FDM 3D-Druck</a></li>
+              <li><a href="/prototypen" className="hover:text-primary transition-colors">Prototypen</a></li>
               <li><a href="/rapid-prototyping" className="hover:text-primary transition-colors">Rapid Prototyping</a></li>
               <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">3D-Druck Materialien</a></li>
               <li><a href="/einzelanfertigungen" className="hover:text-primary transition-colors">Einzelanfertigungen</a></li>
               <li><a href="/serienfertigung" className="hover:text-primary transition-colors">Serienfertigung</a></li>
-              <li><a href="/glossar" className="hover:text-primary transition-colors">3D-Druck Glossar</a></li>
+              <li><a href="/probeteile" className="hover:text-primary transition-colors">Kostenlose Probeteile</a></li>
+              <li><a href="/kostenrechner" className="hover:text-primary transition-colors">Kostenrechner</a></li>
             </ul>
           </div>
 
-          {/* Materials */}
+          {/* Resources */}
           <div>
-            <h4 className="font-semibold mb-4">Materialien</h4>
+            <h4 className="font-semibold mb-4">Wissen</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">PLA & PLA+</a></li>
-              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">PETG</a></li>
-              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">ABS</a></li>
-              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">ASA</a></li>
-              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">PC (Polycarbonat)</a></li>
-              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">Alle Materialien</a></li>
+              <li><a href="/ratgeber" className="hover:text-primary transition-colors">Ratgeber</a></li>
+              <li><a href="/ratgeber/kosten-guide" className="hover:text-primary transition-colors">Kosten-Guide</a></li>
+              <li><a href="/ratgeber/material-guide" className="hover:text-primary transition-colors">Material-Guide</a></li>
+              <li><a href="/ratgeber/verfahrens-vergleich" className="hover:text-primary transition-colors">Verfahrens-Vergleich</a></li>
+              <li><a href="/ratgeber/maschinenbau" className="hover:text-primary transition-colors">3D-Druck Maschinenbau</a></li>
+              <li><a href="/glossar" className="hover:text-primary transition-colors">3D-Druck Glossar</a></li>
             </ul>
           </div>
 
@@ -67,6 +69,30 @@ const Footer = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Regional Pages */}
+        <div className="mt-12 pt-8 border-t border-border">
+          <h4 className="font-semibold mb-4">3D-Druck in Österreich</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm text-muted-foreground">
+            <a href="/3d-druck-oberoesterreich" className="hover:text-primary transition-colors">Oberösterreich</a>
+            <a href="/3d-druck-wien" className="hover:text-primary transition-colors">Wien</a>
+            <a href="/3d-druck-niederoesterreich" className="hover:text-primary transition-colors">Niederösterreich</a>
+            <a href="/3d-druck-steiermark" className="hover:text-primary transition-colors">Steiermark</a>
+            <a href="/3d-druck-kaernten" className="hover:text-primary transition-colors">Kärnten</a>
+            <a href="/3d-druck-vorarlberg" className="hover:text-primary transition-colors">Vorarlberg</a>
+            <a href="/3d-druck-burgenland" className="hover:text-primary transition-colors">Burgenland</a>
+            <a href="/3d-druck-linz" className="hover:text-primary transition-colors">Linz</a>
+            <a href="/3d-druck-graz" className="hover:text-primary transition-colors">Graz</a>
+            <a href="/3d-druck-salzburg" className="hover:text-primary transition-colors">Salzburg</a>
+            <a href="/3d-druck-innsbruck" className="hover:text-primary transition-colors">Innsbruck</a>
+            <a href="/3d-druck-klagenfurt" className="hover:text-primary transition-colors">Klagenfurt</a>
+            <a href="/3d-druck-villach" className="hover:text-primary transition-colors">Villach</a>
+            <a href="/3d-druck-wels" className="hover:text-primary transition-colors">Wels</a>
+            <a href="/3d-druck-st-poelten" className="hover:text-primary transition-colors">St. Pölten</a>
+            <a href="/3d-druck-dornbirn" className="hover:text-primary transition-colors">Dornbirn</a>
+            <a href="/3d-druck-gunskirchen" className="hover:text-primary transition-colors">Gunskirchen</a>
           </div>
         </div>
 
