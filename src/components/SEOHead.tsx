@@ -7,7 +7,7 @@ interface SEOHeadProps {
   path?: string;
   image?: string;
   type?: string;
-  schemaType?: 'service' | 'article' | 'faq' | 'product';
+  schemaType?: 'service' | 'article' | 'product';
   breadcrumbs?: Array<{name: string, url: string}>;
   preloadResources?: Array<{href: string, as: string, type?: string}>;
 }
@@ -243,22 +243,6 @@ const SEOHead = ({
           },
           "datePublished": new Date().toISOString(),
           "dateModified": new Date().toISOString()
-        };
-      
-      case 'faq':
-        return {
-          ...baseSchema,
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Was kostet 3D-Druck in Österreich?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Die Kosten hängen von Material, Größe und Komplexität ab. Wir bieten faire Preise ab €5 pro Stunde Druckzeit."
-              }
-            }
-          ]
         };
       
       case 'product':

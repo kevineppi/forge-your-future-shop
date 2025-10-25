@@ -371,7 +371,22 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
       // Use consistent ID format matching SEOHead to prevent duplicates
       const scriptId = `schema-${type}-${window.location.pathname.replace(/\//g, '-') || 'home'}`;
       
-      // Remove any existing scripts with this ID
+      // CRITICAL: Remove ALL old FAQ schemas from SEOHead that might still exist
+      if (type === 'faq') {
+        document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+          try {
+            const data = JSON.parse(script.textContent || '');
+            if (data['@type'] === 'FAQPage' && script.id !== scriptId) {
+              console.log('Removing duplicate FAQPage schema:', script.id);
+              script.remove();
+            }
+          } catch (e) {
+            // Ignore parsing errors
+          }
+        });
+      }
+      
+      // Remove any existing scripts with this exact ID
       const existing = document.getElementById(scriptId);
       if (existing) {
         existing.remove();
