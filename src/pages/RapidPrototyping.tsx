@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Lightbulb, Cog, Zap, CheckCircle, ArrowRight, Timer } from "lucide-react";
 const RapidPrototyping = () => {
   return <>
-      <SEOHead title="Rapid Prototyping Express: Prototyp in 24h | Same-Day verfügbar" description="🚀 Same-Day Prototyping Service ✓ 24h Express ab +50% ✓ Overnight möglich ✓ FDM 3D-Druck OÖ → Jetzt Express-Prototyp anfragen!" keywords="rapid prototyping, rapid prototyping österreich, express 3d-druck, same day prototyping, prototypen express" path="/rapid-prototyping" breadcrumbs={[{
+      <SEOHead title="Rapid Prototyping Österreich | Express 3D-Druck 24h | Same-Day Service" description="🚀 Rapid Prototyping Österreich ✓ Same-Day Express ✓ 24h Prototypen ✓ FDM 3D-Druck Service ✓ Österreichweite Lieferung → Jetzt anfragen!" keywords="rapid prototyping österreich, rapid prototyping, express 3d-druck österreich, same day prototyping, prototypen 24h" path="/rapid-prototyping" breadcrumbs={[{
       name: "Home",
       url: "/"
     }, {
@@ -49,8 +49,8 @@ const RapidPrototyping = () => {
                 <Clock className="h-10 w-10 text-primary" />
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground">
-                <span className="text-gradient">Rapid Prototyping Express</span>
-                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Prototyp in 24h - Same-Day & Overnight verfügbar</span>
+                <span className="text-gradient">Rapid Prototyping Österreich</span>
+                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Express 3D-Druck in 24h - Same-Day & Overnight Service</span>
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
                 <strong className="text-foreground">Notfall-Service für extreme Urgenz</strong>: Same-Day Prototyping, 24h Express und Overnight-Lieferung. 
@@ -72,9 +72,9 @@ const RapidPrototyping = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">Wählen Sie Ihren Express-Service</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">Rapid Prototyping Express-Services in Österreich</h2>
                 <p className="text-xl text-muted-foreground">
-                  Transparente Aufpreise für beschleunigte Lieferung
+                  Transparente Aufpreise für beschleunigte Prototypen-Lieferung
                 </p>
               </div>
 
@@ -138,9 +138,9 @@ const RapidPrototyping = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Warum Rapid Prototyping?</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Warum Rapid Prototyping in Österreich?</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Verkürzen Sie Entwicklungszeiten und minimieren Sie Risiken durch schnelle, iterative Prototypenerstellung
+                  Verkürzen Sie Entwicklungszeiten und minimieren Sie Risiken durch schnelle, iterative Prototypenerstellung mit lokalem Service
                 </p>
               </div>
 
@@ -196,7 +196,7 @@ const RapidPrototyping = () => {
 
               {/* Prototyping Timeline */}
               <div className="bg-gradient-card p-8 rounded-2xl">
-                <h3 className="text-2xl font-bold text-center mb-8">Unser Rapid Prototyping Prozess</h3>
+                <h3 className="text-2xl font-bold text-center mb-8">Unser Rapid Prototyping Prozess in Österreich</h3>
                 <div className="grid md:grid-cols-4 gap-6">
                   <div className="text-center">
                     <div className="bg-primary/20 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -241,9 +241,9 @@ const RapidPrototyping = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Prototyping Anwendungsgebiete</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Rapid Prototyping Anwendungsgebiete in Österreich</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Von der ersten Designidee bis zum marktfähigen Produkt - in jeder Phase der richtige Prototyp
+                  Von der ersten Designidee bis zum marktfähigen Produkt - in jeder Phase der richtige Express-Prototyp
                 </p>
               </div>
 
@@ -326,11 +326,13 @@ const RapidPrototyping = () => {
                 
                 <div className="space-y-6 text-muted-foreground">
                   <p className="text-lg leading-relaxed">
-                    <strong className="text-foreground">Rapid Prototyping</strong> hat die Produktentwicklung revolutioniert. Was früher Wochen oder Monate dauerte, 
-                    realisieren wir heute in wenigen Stunden. Unser <strong className="text-foreground">Express 3D-Druck Service in Österreich</strong> ist 
+                    <strong className="text-foreground">Rapid Prototyping Österreich</strong> hat die Produktentwicklung revolutioniert. Was früher Wochen oder Monate dauerte, 
+                    realisieren wir heute in wenigen Stunden. Unser <strong className="text-foreground">Rapid Prototyping Service in Österreich</strong> ist 
                     speziell für Situationen konzipiert, in denen Zeit der kritische Faktor ist: Messevorbereitungen, Last-Minute-Präsentationen, 
                     dringende Funktionstests oder wenn Produktionsausfälle schnelle Ersatzteile erfordern.
                   </p>
+                  
+                  <img src="/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png" alt="Rapid Prototyping Österreich - Express 3D-Druck Service Same-Day" className="w-full rounded-xl my-8 shadow-lg" loading="lazy" />
 
                   <p className="text-lg leading-relaxed">
                     Der Begriff <strong className="text-foreground">Same-Day Prototyping</strong> beschreibt dabei die Königsdisziplin unseres Services: 
@@ -357,7 +359,7 @@ const RapidPrototyping = () => {
                   </p>
 
                   <h3 className="text-2xl font-bold mt-8 mb-4 text-foreground">
-                    Wann sich Express 3D-Druck wirklich lohnt
+                    Wann sich Rapid Prototyping Express-Service wirklich lohnt
                   </h3>
 
                   <p className="text-lg leading-relaxed">
