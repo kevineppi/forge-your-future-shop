@@ -16,7 +16,7 @@ import TrustBadges from "@/components/TrustBadges";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
-      <SEOHead title="3D-Druck Österreich | FDM Prototypen & Serienfertigung" description="Professioneller 3D-Druck Service aus Österreich mit FDM-Technologie. Prototypen ab 24h, nachhaltige Materialien aus AT, kostenloser Versand ab 50 EUR. Jetzt anfragen!" keywords="3d-druck österreich, fdm 3d-druck, prototypen, serienfertigung, rapid prototyping österreich, 3d druck service, 3d-druck dienstleister, nachhaltig" path="/" preloadResources={[{
+      <SEOHead title="3D-Druck Österreich | FDM Prototypen & Serienfertigung" description="FDM 3D-Druck Service aus Österreich. Prototypen in 24h, nachhaltige Materialien, versandkostenfrei ab 50€. Jetzt anfragen!" keywords="3d-druck österreich, fdm 3d-druck, prototypen, serienfertigung, rapid prototyping österreich, 3d druck service, 3d-druck dienstleister, nachhaltig" path="/" preloadResources={[{
       href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
       as: "image",
       type: "image/png"
@@ -69,19 +69,21 @@ const Index = () => {
                    <h3 className="text-2xl md:text-3xl font-bold">Modernste FDM 3D-Druck Technologie</h3>
                  </div>
                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                   Als professioneller Dienstleister aus Oberösterreich setzen wir auf modernste{" "}
-                   <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM (Fused Deposition Modeling)</a> Technologie, 
-                   die additive Fertigungsmethode, welche die präzise Herstellung komplexer Geometrien mit außergewöhnlich hoher Qualität ermöglicht. 
-                   Unser Service deckt dabei sämtliche Bereiche der additiven Fertigung ab: von professionellem{" "}
+                   Als Dienstleister aus Oberösterreich setzen wir auf modernste{" "}
+                   <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM (Fused Deposition Modeling)</a> Technologie.
+                   Diese additive Fertigungsmethode ermöglicht die präzise Herstellung komplexer Geometrien mit außergewöhnlich hoher Qualität.
+                 </p>
+                 <p className="text-muted-foreground mb-4 leading-relaxed">
+                   Unser Service deckt alle Bereiche ab: von{" "}
                    <a href="/prototypen" className="text-primary hover:underline font-semibold">Prototypenbau</a> und{" "}
-                   <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> über{" "}
-                   <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelanfertigungen</a> bis hin zur{" "}
-                   <a href="/serienfertigung" className="text-primary hover:underline font-semibold">effizienten Serienfertigung</a>.
+                   <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">schnellem Rapid Prototyping</a> über{" "}
+                   <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Fertigungen</a> bis zur{" "}
+                   <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung von Kleinserien</a>.
                  </p>
                  <p className="text-muted-foreground leading-relaxed">
-                   Mit Schichtauflösungen bis zu 0,1mm garantieren wir höchste Präzision für Ihre Projekte. Als österreichischer Spezialist legen wir besonderen Wert auf{" "}
-                   <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">nachhaltige Materialien</a> und verwenden ausschließlich 
-                   hochwertige Filamente aus österreichischer Produktion, was nicht nur kurze Transportwege bedeutet, sondern auch umweltfreundlichen und klimaneutralen 3D-Druck ermöglicht.
+                   Mit Schichtauflösungen bis 0,1mm garantieren wir höchste Präzision. Wir verwenden ausschließlich{" "}
+                   <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">hochwertige österreichische Filamente</a>.
+                   Das bedeutet kurze Transportwege und umweltfreundliche Produktion.
                  </p>
               </div>
               
@@ -99,57 +101,57 @@ const Index = () => {
                    <div className="flex gap-4">
                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">1</div>
                      <div>
-                       <p className="font-bold mb-2 flex items-center gap-2">
-                         <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                         </svg>
-                         Anfrage & Beratung
-                       </p>
-                       <p className="text-sm text-muted-foreground">
-                         Wir beraten Sie kostenlos und umfassend zu Material, Technologie und Machbarkeit Ihres individuellen Projekts, damit Sie von Anfang an die beste Lösung für Ihre Anforderungen erhalten.
-                       </p>
+                        <p className="font-bold mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                          </svg>
+                          Anfrage & Beratung
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Kostenlose Beratung zu Material, Technologie und Machbarkeit. Wir finden die beste Lösung für Ihr Projekt.
+                        </p>
                      </div>
                    </div>
                    <div className="flex gap-4">
                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">2</div>
                      <div>
-                       <p className="font-bold mb-2 flex items-center gap-2">
-                         <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                         </svg>
-                         Angebot & Design-Optimierung
-                       </p>
-                       <p className="text-sm text-muted-foreground">
-                         Sie erhalten ein detailliertes Angebot mit transparentem Preis und realistischer Lieferzeit, während wir Ihre CAD-Dateien für optimale Druckergebnisse und maximale Materialeffizienz optimieren.
-                       </p>
+                        <p className="font-bold mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          Angebot & Design-Optimierung
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Detailliertes Angebot mit transparentem Preis und realistischer Lieferzeit. Wir optimieren Ihre CAD-Dateien für beste Druckergebnisse.
+                        </p>
                      </div>
                    </div>
                    <div className="flex gap-4">
                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">3</div>
                      <div>
-                       <p className="font-bold mb-2 flex items-center gap-2">
-                         <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                         </svg>
-                         Produktion mit FDM-Technologie
-                       </p>
-                       <p className="text-sm text-muted-foreground">
-                         Die Fertigung erfolgt mit modernsten FDM-Druckern und nachhaltigen österreichischen Materialien, die höchste Qualität bei gleichzeitig minimaler Umweltbelastung garantieren.
-                       </p>
+                        <p className="font-bold mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                          </svg>
+                          Produktion mit FDM-Technologie
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Fertigung mit modernsten FDM-Druckern und nachhaltigen österreichischen Materialien. Höchste Qualität bei minimaler Umweltbelastung.
+                        </p>
                      </div>
                    </div>
                    <div className="flex gap-4">
                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">4</div>
                      <div>
-                       <p className="font-bold mb-2 flex items-center gap-2">
-                         <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                         </svg>
-                         Qualitätskontrolle & Versand
-                       </p>
-                       <p className="text-sm text-muted-foreground">
-                         Nach sorgfältiger Prüfung jedes einzelnen Bauteils erfolgt der schnelle Versand österreichweit, wobei unser Express-Service Ihre Teile bereits in 24-48 Stunden zu Ihnen bringt.
-                       </p>
+                        <p className="font-bold mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                          </svg>
+                          Qualitätskontrolle & Versand
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Sorgfältige Prüfung jedes Bauteils vor dem Versand. Express-Service liefert in 24-48 Stunden österreichweit.
+                        </p>
                      </div>
                    </div>
                  </div>
@@ -294,40 +296,37 @@ const Index = () => {
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold">Premium 3D-Druck Materialien</h3>
                 </div>
-                <div className="space-y-6">
-                  <div className="border-l-4 border-primary pl-4">
-                    <h4 className="font-bold text-lg mb-2">PLA (Polylactic Acid)</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Biologisch abbaubares Material aus nachwachsenden Rohstoffen. Ideal für Prototypen, 
-                      Modelle und dekorative Objekte. Temperaturbeständig bis 60°C, einfach zu drucken und 
-                      in vielen Farben verfügbar.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h4 className="font-bold text-lg mb-2">PETG (Polyethylenterephthalat)</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Robustes und schlagfestes Material mit guter chemischer Beständigkeit. 
-                      Temperaturbeständig bis 80°C, lebensmittelecht und UV-beständig. Perfekt für 
-                      funktionale Bauteile und Außenanwendungen.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h4 className="font-bold text-lg mb-2">ABS (Acrylnitril-Butadien-Styrol)</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Hochfestes technisches Material mit ausgezeichneter Temperaturbeständigkeit bis 100°C. 
-                      Ideal für mechanisch belastbare Bauteile, Gehäuse und Automotive-Anwendungen. 
-                      Nachbearbeitbar durch Schleifen und Lackieren.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h4 className="font-bold text-lg mb-2">TPU (Thermoplastisches Polyurethan)</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Flexibles, elastisches Material mit hoher Abriebfestigkeit. Shore-Härte 95A, 
-                      dehnbar bis 500%. Optimal für Dichtungen, Dämpfungselemente und flexible Verbindungen.
-                    </p>
-                  </div>
-                  
-                </div>
+                 <div className="space-y-6">
+                   <div className="border-l-4 border-primary pl-4">
+                     <p className="font-bold text-lg mb-2">PLA (Polylactic Acid)</p>
+                     <p className="text-muted-foreground text-sm">
+                       Biologisch abbaubares Material aus nachwachsenden Rohstoffen. Ideal für Prototypen und Modelle.
+                       Temperaturbeständig bis 60°C. In vielen Farben verfügbar.
+                     </p>
+                   </div>
+                   <div className="border-l-4 border-primary pl-4">
+                     <p className="font-bold text-lg mb-2">PETG (Polyethylenterephthalat)</p>
+                     <p className="text-muted-foreground text-sm">
+                       Robustes Material mit guter chemischer Beständigkeit. Temperaturbeständig bis 80°C.
+                       Lebensmittelecht und UV-beständig. Perfekt für funktionale Bauteile.
+                     </p>
+                   </div>
+                   <div className="border-l-4 border-primary pl-4">
+                     <p className="font-bold text-lg mb-2">ABS (Acrylnitril-Butadien-Styrol)</p>
+                     <p className="text-muted-foreground text-sm">
+                       Hochfestes technisches Material. Temperaturbeständigkeit bis 100°C.
+                       Ideal für mechanisch belastbare Teile und Gehäuse. Nachbearbeitbar durch Schleifen und Lackieren.
+                     </p>
+                   </div>
+                   <div className="border-l-4 border-primary pl-4">
+                     <p className="font-bold text-lg mb-2">TPU (Thermoplastisches Polyurethan)</p>
+                     <p className="text-muted-foreground text-sm">
+                       Flexibles Material mit hoher Abriebfestigkeit. Shore-Härte 95A, dehnbar bis 500%.
+                       Optimal für Dichtungen und flexible Verbindungen.
+                     </p>
+                   </div>
+                   
+                 </div>
               </div>
 
               {/* Applications */}
@@ -340,36 +339,36 @@ const Index = () => {
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold">Vielseitige Anwendungsbereiche</h3>
                 </div>
-                <div className="space-y-6">
-                  <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Industrie & Maschinenbau</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Funktionsprototypen, Ersatzteile, Betriebsmittel, Vorrichtungen und Halterungen. 
-                      Schnelle Iterationen für Produktentwicklung und kosteneffiziente Kleinserien.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Architektur & Bauwesen</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Architekturmodelle, Gebäudevisualisierungen, Prototypen für Bauelemente und 
-                      Designstudien. Maßstabsgetreue Modelle für Präsentationen und Planungen.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Bildung & Forschung</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Lehrmittel, wissenschaftliche Modelle, Forschungsprototypen und 
-                      Anschauungsobjekte für Universitäten, Schulen und Forschungseinrichtungen.
-                    </p>
-                  </div>
-                  <div className="border-l-4 border-secondary pl-4">
-                    <h4 className="font-bold text-lg mb-2">Design & Kunst</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Kunstobjekte, Skulpturen, Schmuck-Prototypen und individualisierte Designprodukte. 
-                      Vielfältige Materialien und Farben für kreative Projekte.
-                    </p>
-                  </div>
-                </div>
+                 <div className="space-y-6">
+                   <div className="border-l-4 border-secondary pl-4">
+                     <p className="font-bold text-lg mb-2">Industrie & Maschinenbau</p>
+                     <p className="text-muted-foreground text-sm">
+                       Funktionsprototypen, Ersatzteile, Betriebsmittel und Halterungen.
+                       Schnelle Iterationen und kosteneffiziente Kleinserien.
+                     </p>
+                   </div>
+                   <div className="border-l-4 border-secondary pl-4">
+                     <p className="font-bold text-lg mb-2">Architektur & Bauwesen</p>
+                     <p className="text-muted-foreground text-sm">
+                       Architekturmodelle und Gebäudevisualisierungen.
+                       Maßstabsgetreue Modelle für Präsentationen.
+                     </p>
+                   </div>
+                   <div className="border-l-4 border-secondary pl-4">
+                     <p className="font-bold text-lg mb-2">Bildung & Forschung</p>
+                     <p className="text-muted-foreground text-sm">
+                       Lehrmittel und wissenschaftliche Modelle.
+                       Anschauungsobjekte für Universitäten und Schulen.
+                     </p>
+                   </div>
+                   <div className="border-l-4 border-secondary pl-4">
+                     <p className="font-bold text-lg mb-2">Design & Kunst</p>
+                     <p className="text-muted-foreground text-sm">
+                       Kunstobjekte, Skulpturen und Schmuck-Prototypen.
+                       Vielfältige Materialien für kreative Projekte.
+                     </p>
+                   </div>
+                 </div>
               </div>
             </div>
           </div>
@@ -396,11 +395,11 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Sorgfältige Qualitätskontrolle</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Jedes Bauteil wird visuell geprüft und auf Maßhaltigkeit kontrolliert. Wir garantieren 
-                  reproduzierbare Qualität durch kalibrierte Drucker und standardisierte Prozesse.
-                </p>
+                 <p className="text-xl font-bold mb-4">Sorgfältige Qualitätskontrolle</p>
+                 <p className="text-muted-foreground leading-relaxed">
+                   Jedes Bauteil wird visuell geprüft und auf Maßhaltigkeit kontrolliert.
+                   Reproduzierbare Qualität durch kalibrierte Drucker.
+                 </p>
               </div>
 
               <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
@@ -409,11 +408,10 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Schnelle Lieferzeiten</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Standard-Lieferung in 3-5 Werktagen österreichweit. Express-Service in 24-48 Stunden 
-                  verfügbar für zeitkritische Projekte.
-                </p>
+                 <p className="text-xl font-bold mb-4">Schnelle Lieferzeiten</p>
+                 <p className="text-muted-foreground leading-relaxed">
+                   Standard in 3-5 Werktagen österreichweit. Express-Service in 24-48 Stunden verfügbar.
+                 </p>
               </div>
 
               <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
@@ -422,11 +420,11 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Nachhaltige Materialien</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Wir verwenden ausschließlich österreichische Filamente aus recycelten Industrieabfällen. 
-                  Umweltfreundliche Produktion mit Ökostrom für eine bessere Zukunft.
-                </p>
+                 <p className="text-xl font-bold mb-4">Nachhaltige Materialien</p>
+                 <p className="text-muted-foreground leading-relaxed">
+                   Ausschließlich österreichische Filamente aus recycelten Industrieabfällen.
+                   Umweltfreundliche Produktion mit Ökostrom.
+                 </p>
               </div>
 
               <div className="group bg-gradient-to-br from-card to-card/50 p-8 rounded-2xl border-2 border-primary/10 hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5">
@@ -435,11 +433,10 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Persönliche Beratung</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Von der ersten Idee bis zum fertigen Produkt: Unser Team berät Sie bei Material, 
-                  Design-Optimierung und Machbarkeit Ihres Projekts.
-                </p>
+                 <p className="text-xl font-bold mb-4">Persönliche Beratung</p>
+                 <p className="text-muted-foreground leading-relaxed">
+                   Von der Idee bis zum Produkt. Beratung zu Material, Design und Machbarkeit.
+                 </p>
               </div>
             </div>
 
@@ -469,13 +466,13 @@ const Index = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                         </svg>
                       </div>
-                      <div>
-                        <h4 className="font-bold text-lg mb-2">Präzise Fertigung</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Modernste FDM-Drucker mit Schichtauflösungen von 0,1mm bis 0,3mm. 
-                          Gleichbleibende Qualität durch regelmäßige Kalibrierung und optimierte Druckprofile.
-                        </p>
-                      </div>
+                       <div>
+                         <p className="font-bold text-lg mb-2">Präzise Fertigung</p>
+                         <p className="text-muted-foreground text-sm leading-relaxed">
+                           FDM-Drucker mit Schichtauflösungen von 0,1mm bis 0,3mm.
+                           Gleichbleibende Qualität durch regelmäßige Kalibrierung.
+                         </p>
+                       </div>
                     </div>
                   </div>
 
@@ -486,13 +483,13 @@ const Index = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                       </div>
-                      <div>
-                        <h4 className="font-bold text-lg mb-2">Design-Optimierung</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Wir analysieren Ihre CAD-Dateien und optimieren sie für den 3D-Druck. 
-                          Kostenlose Beratung zu Wandstärken, Supportstrukturen und Druckorientierung.
-                        </p>
-                      </div>
+                       <div>
+                         <p className="font-bold text-lg mb-2">Design-Optimierung</p>
+                         <p className="text-muted-foreground text-sm leading-relaxed">
+                           Analyse und Optimierung Ihrer CAD-Dateien.
+                           Kostenlose Beratung zu Wandstärken und Druckorientierung.
+                         </p>
+                       </div>
                     </div>
                   </div>
 
@@ -503,9 +500,9 @@ const Index = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
-                      <div>
-                        <h4 className="font-bold text-lg mb-2">Faire Preise</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                       <div>
+                         <p className="font-bold text-lg mb-2">Faire Preise</p>
+                         <p className="text-muted-foreground text-sm leading-relaxed">
                           Transparente Preisgestaltung ohne versteckte Kosten. Nutzen Sie unseren 
                           Kostenrechner für eine sofortige Preisindikation oder fordern Sie ein individuelles Angebot an.
                         </p>
