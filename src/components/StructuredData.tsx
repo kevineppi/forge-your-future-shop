@@ -267,32 +267,45 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             },
             "serviceType": "3D-Druck, Rapid Prototyping, FDM, Additive Fertigung, Prototypenerstellung",
             "category": "Manufacturing, 3D Printing, Prototyping, Custom Manufacturing",
-            "offers": [
-              {
-                "@type": "Offer",
-                "name": "3D-Druck Funktionsprototyp",
-                "description": "Voll funktionsfähige Testmodelle für mechanische Tests",
-                "price": "5.00",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock"
-              },
-              {
-                "@type": "Offer",
-                "name": "3D-Druck Designprototyp",
-                "description": "Hochwertige Präsentationsmodelle",
-                "price": "5.00",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock"
-              },
-              {
-                "@type": "Offer",
-                "name": "3D-Druck Einzelanfertigung",
-                "description": "Individuelle Einzelstücke nach Kundenwunsch",
-                "price": "10.00",
-                "priceCurrency": "EUR",
-                "availability": "https://schema.org/InStock"
-              }
-            ]
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "3D-Druck Dienstleistungen",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "3D-Druck Funktionsprototyp",
+                    "description": "Voll funktionsfähige Testmodelle für mechanische Tests"
+                  },
+                  "price": "5.00",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "3D-Druck Designprototyp",
+                    "description": "Hochwertige Präsentationsmodelle"
+                  },
+                  "price": "5.00",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "3D-Druck Einzelanfertigung",
+                    "description": "Individuelle Einzelstücke nach Kundenwunsch"
+                  },
+                  "price": "10.00",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock"
+                }
+              ]
+            }
           };
         
         case 'faq':

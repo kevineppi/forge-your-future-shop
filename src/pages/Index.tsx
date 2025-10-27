@@ -27,7 +27,6 @@ const Index = () => {
     }]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      <StructuredData type="faq" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"
