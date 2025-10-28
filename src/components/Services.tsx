@@ -43,7 +43,7 @@ const Services = () => {
             Unser professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich bietet umfassende Lösungen 
             für alle Bereiche der additiven Fertigung. Von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen </a> 
             bis zur <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung</a> - 
-            unser <strong className="text-primary">3D-Druck Dienstleister</strong> realisiert Ihre Projekte mit nachhaltigen Materialien 
+            unser  realisiert Ihre Projekte mit nachhaltigen Materialien 
             aus Oberösterreich.
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -80,17 +80,14 @@ const Services = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button 
-            variant="hero" 
-            size="lg" 
-            className="shadow-lg"
-            onClick={() => {
-              const contactElement = document.getElementById('contact');
-              if (contactElement) {
-                contactElement.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-          >
+          <Button variant="hero" size="lg" className="shadow-lg" onClick={() => {
+          const contactElement = document.getElementById('contact');
+          if (contactElement) {
+            contactElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }}>
             Individuelles Angebot anfordern
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
