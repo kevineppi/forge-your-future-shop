@@ -43,7 +43,7 @@ const Services = () => {
             Unser professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich bietet umfassende Lösungen 
             für alle Bereiche der additiven Fertigung. Von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen </a> 
             bis zur <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung</a> - 
-            unser  realisiert Ihre Projekte mit nachhaltigen Materialien 
+            wir realisieren Ihre Projekte mit nachhaltigen Materialien 
             aus Oberösterreich.
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
