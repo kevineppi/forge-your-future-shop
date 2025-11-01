@@ -37,6 +37,7 @@ import Ratgeber from "./pages/Ratgeber";
 import KostenGuide from "./pages/ratgeber/KostenGuide";
 import VerfahrensVergleich from "./pages/ratgeber/VerfahrensVergleich";
 import MaterialGuide from "./pages/ratgeber/MaterialGuide";
+import PrototypingGuide from "./pages/ratgeber/PrototypingGuide";
 import Maschinenbau from "./pages/ratgeber/Maschinenbau";
 import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
@@ -65,6 +66,7 @@ const App = () => (
             <Route path="/ratgeber/kosten-guide" element={<KostenGuide />} />
             <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />
             <Route path="/ratgeber/material-guide" element={<MaterialGuide />} />
+            <Route path="/ratgeber/prototyping-guide" element={<PrototypingGuide />} />
             <Route path="/ratgeber/maschinenbau" element={<Maschinenbau />} />
             <Route path="/glossar" element={<Glossar />} />
             <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
