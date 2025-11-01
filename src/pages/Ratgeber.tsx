@@ -15,7 +15,7 @@ const Ratgeber = () => {
       icon: Clock,
       category: "Produktentwicklung",
       readTime: "12 Min. Lesezeit",
-      date: "Januar 2025"
+      date: "November 2025"
     },
     {
       title: "3D-Druck Kosten in Österreich: Der ultimative Preisguide 2025",

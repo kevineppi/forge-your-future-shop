@@ -161,7 +161,7 @@ const PrototypingGuide = () => {
               </h1>
 
               <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8">
-                <span>Zuletzt aktualisiert: Januar 2025</span>
+                <span>Zuletzt aktualisiert: November 2025</span>
                 <span>•</span>
                 <span>12 Min. Lesezeit</span>
               </div>
@@ -508,7 +508,7 @@ const PrototypingGuide = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground mb-3">
-                      Forschungen zeigen: Teams, die bereits in der Konzeptphase mit physischen Prototypen arbeiten, reduzieren Entwicklungszeit um durchschnittlich 40%. Starten Sie mit einfachen Konzeptmodellen (PLA, niedrige Qualität) für €20-30.
+                      Forschungen zeigen: Teams, die bereits in der Konzeptphase mit physischen Prototypen arbeiten, reduzieren Entwicklungszeit um durchschnittlich 40%. Starten Sie mit einfachen Konzeptmodellen aus PLA für €20-30.
                     </p>
                     <div className="text-sm text-primary">
                       → Empfehlung: Mindestens 3-5 Iterationen vor Finalisierung
@@ -688,15 +688,15 @@ const PrototypingGuide = () => {
             <section className="mb-12 p-6 bg-muted/30 rounded-lg">
               <h3 className="text-xl font-bold mb-4 text-foreground">Wissenschaftliche Quellen</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
-                <p>1. Ricoh USA (2024): "Case Study: Rapid Prototyping Additive Manufacturing Lab"</p>
-                <p>2. MDPI Applied Sciences (2025): "Head-to-Head Evaluation of FDM and SLA in Additive Manufacturing"</p>
-                <p>3. Hasso-Plattner-Institut (2023): "What is the Value of Prototyping? Empirical Studies"</p>
-                <p>4. Kim, G.D. & Oh, Y.T. (2008): "Benchmark study on rapid prototyping processes" - Journal of Engineering Manufacture</p>
-                <p>5. IOP Conference Series (2024): "Product Development and Comparative Analysis by SLA, SLS and FDM"</p>
-                <p>6. Open PRAIRIE Research (2023): "Comparing SLA and FDM Printing Technologies"</p>
-                <p>7. Longsheng Manufacturing (2024): "Cost Reduction Through Rapid Prototyping"</p>
-                <p>8. FasterCapital Industry Analysis (2025): "The Benefits of Rapid Prototyping in Product Development"</p>
-                <p>9. Precedence Research (2024): "Rapid Prototyping Market Analysis"</p>
+                <p>1. Ricoh USA (2024): <a href="https://www.ricoh-usa.com/en/insights/case-studies/rapid-prototyping-additive-manufacturing-lab" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"Case Study: Rapid Prototyping Additive Manufacturing Lab"</a></p>
+                <p>2. MDPI Applied Sciences (2025): <a href="https://www.mdpi.com/2076-3417/15/4/2245" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"Head-to-Head Evaluation of FDM and SLA in Additive Manufacturing"</a></p>
+                <p>3. Hasso-Plattner-Institut (2023): <a href="https://hpi.de/dtrp/projekte/projekte-201112/what-is-the-value-of-prototyping-empirical-studies-of-how-prototyping-practices-affect-learning-motivation-and-outcome-in-design.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"What is the Value of Prototyping? Empirical Studies"</a></p>
+                <p>4. Kim, G.D. & Oh, Y.T. (2008): <a href="https://journals.sagepub.com/doi/10.1243/09544054jem724" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"Benchmark study on rapid prototyping processes"</a> - Journal of Engineering Manufacture</p>
+                <p>5. IOP Conference Series (2024): <a href="https://iopscience.iop.org/article/10.1088/1757-899X/149/1/012009" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"Product Development and Comparative Analysis by SLA, SLS and FDM"</a></p>
+                <p>6. Open PRAIRIE Research (2023): <a href="https://openprairie.sdstate.edu/cgi/viewcontent.cgi?article=1001&context=jur" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"Comparing SLA and FDM Printing Technologies"</a></p>
+                <p>7. Longsheng Manufacturing (2024): <a href="https://www.longshengmfg.com/how-can-rapid-prototyping-help-you-save-up-to-50-of-product-development-costs/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"Cost Reduction Through Rapid Prototyping"</a></p>
+                <p>8. FasterCapital Industry Analysis (2025): <a href="https://fastercapital.com/content/The-Benefits-of-Rapid-Prototyping-in-Product-Development.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"The Benefits of Rapid Prototyping in Product Development"</a></p>
+                <p>9. Precedence Research (2024): <a href="https://www.precedenceresearch.com/rapid-prototyping-market" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">"Rapid Prototyping Market Analysis"</a></p>
               </div>
             </section>
           </div>
