@@ -325,11 +325,7 @@ const RapidPrototyping = () => {
                   <h2 className="text-3xl md:text-4xl font-bold m-0">
                     Express 3D-Druck für zeitkritische Projekte in Österreich
                   </h2>
-                  <SocialShare 
-                    url={typeof window !== 'undefined' ? window.location.href : 'https://www.3d-druck-service.at/rapid-prototyping'}
-                    title="Rapid Prototyping Österreich - Express 3D-Druck in 24h"
-                    description="Same-Day Express-Prototypen und 24h Schnell-Service für dringende Projekte in ganz Österreich"
-                  />
+                  <SocialShare url={typeof window !== 'undefined' ? window.location.href : 'https://www.3d-druck-service.at/rapid-prototyping'} title="Rapid Prototyping Österreich - Express 3D-Druck in 24h" description="Same-Day Express-Prototypen und 24h Schnell-Service für dringende Projekte in ganz Österreich" />
                 </div>
                 
                 <div className="space-y-6 text-muted-foreground">
@@ -341,7 +337,7 @@ const RapidPrototyping = () => {
                     kritische Funktionstests vor Produktionsbeginn oder wenn unerwartete Produktionsausfälle schnelle Ersatzteile und Lösungen erfordern.
                   </p>
                   
-                  <img src="/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png" alt="Rapid Prototyping Österreich - Express 3D-Druck Service Same-Day" className="w-full rounded-xl my-8 shadow-lg" loading="lazy" />
+                  
 
                   <p className="text-lg leading-relaxed">
                     Der Begriff <strong className="text-foreground">Same-Day Prototyping</strong> beschreibt dabei die absolute Königsdisziplin unseres Express-Services: 
@@ -401,7 +397,9 @@ const RapidPrototyping = () => {
                       Bei Express-Anfragen zählt jede Minute. Kontaktieren Sie uns direkt für eine Machbarkeitsprüfung 
                       und exakte Lieferzeit-Zusage. Unser Rapid Prototyping Team ist werktags von 8:00-18:00 Uhr erreichbar.
                     </p>
-                    <Button size="lg" variant="cta" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                    <Button size="lg" variant="cta" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                    behavior: 'smooth'
+                  })}>
                       <Clock className="w-5 h-5 mr-2" />
                       Express-Anfrage starten
                       <ArrowRight className="ml-2" />
