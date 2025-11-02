@@ -36,40 +36,15 @@ serve(async (req) => {
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
-    console.log('Generating embedding for user question:', message.substring(0, 100));
+    console.log('Searching knowledge base with text search...');
 
-    // Step 1: Generate embedding for the user's question
-    const embeddingResponse = await fetch('https://ai.gateway.lovable.dev/v1/embeddings', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        input: message,
-        model: 'text-embedding-3-small',
-      }),
-    });
-
-    if (!embeddingResponse.ok) {
-      console.error('Failed to generate embedding:', embeddingResponse.status);
-      return new Response(
-        JSON.stringify({ error: 'Failed to process question' }),
-        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-
-    const embeddingData = await embeddingResponse.json();
-    const queryEmbedding = embeddingData.data[0].embedding;
-
-    console.log('Searching knowledge base...');
-
-    // Step 2: Search knowledge base for relevant content
-    const { data: matches, error: searchError } = await supabase.rpc('search_knowledge_base', {
-      query_embedding: queryEmbedding,
-      match_threshold: 0.65,
-      match_count: 5,
-    });
+    // Step 2: Search knowledge base using PostgreSQL full-text search
+    const { data: matches, error: searchError } = await supabase
+      .from('knowledge_base')
+      .select('*')
+      .or(`title.ilike.%${message}%,content.ilike.%${message}%`)
+      .eq('is_active', true)
+      .limit(5);
 
     if (searchError) {
       console.error('Knowledge base search error:', searchError);
@@ -94,7 +69,6 @@ serve(async (req) => {
         title: match.title,
         category: match.category,
         url: match.page_url,
-        similarity: match.similarity,
       })));
     }
 

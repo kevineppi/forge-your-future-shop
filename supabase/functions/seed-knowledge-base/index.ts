@@ -212,28 +212,13 @@ const knowledgeEntries = [
   }
 ];
 
-async function generateEmbedding(text: string, supabaseUrl: string, supabaseKey: string): Promise<number[]> {
-  // Use the existing generate-embedding edge function
-  const response = await fetch(`${supabaseUrl}/functions/v1/generate-embedding`, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${supabaseKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      text: text,
-    }),
-  });
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error('Generate embedding function error:', response.status, errorText);
-    throw new Error(`Generate embedding function error: ${response.status}`);
-  }
-
-  const data = await response.json();
-  return data.embedding;
-}
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+};
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -265,11 +250,7 @@ serve(async (req) => {
       try {
         console.log(`Processing: ${entry.title}`);
         
-        // Generate embedding
-        const embeddingText = `${entry.title}\n\n${entry.content}`;
-        const embedding = await generateEmbedding(embeddingText, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
-
-        // Insert into database
+        // Insert directly without embeddings
         const { error } = await supabase
           .from('knowledge_base')
           .insert({
@@ -277,7 +258,6 @@ serve(async (req) => {
             content: entry.content,
             category: entry.category,
             page_url: entry.page_url,
-            embedding: embedding,
             is_active: true
           });
 
