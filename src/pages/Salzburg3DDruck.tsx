@@ -2,7 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import StructuredData from "@/components/StructuredData";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import FAQSchema from "@/components/FAQSchema";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
@@ -22,9 +23,38 @@ const Salzburg3DDruck = () => {
         {name: "Home", url: "/"},
         {name: "3D-Druck Salzburg", url: "/3d-druck-salzburg"}
       ]} />
-      <StructuredData type="organization" />
-      <StructuredData type="service" />
-      <StructuredData type="faq" />
+      <LocalBusinessSchema 
+        city="Salzburg"
+        region="Salzburg"
+        latitude="47.8095"
+        longitude="13.0550"
+        deliveryTime="24-48h"
+      />
+      <FAQSchema 
+        city="Salzburg"
+        faqs={[
+          {
+            question: "Wie schnell erfolgt die Lieferung nach Salzburg?",
+            answer: "Mit unserem Express-Service liefern wir innerhalb von 24-48 Stunden nach Salzburg Stadt und Land. Standard-Lieferungen dauern 2-3 Werktage. Kostenloser Versand ab €50."
+          },
+          {
+            question: "Welche 3D-Druck Materialien sind in Salzburg verfügbar?",
+            answer: "Alle Materialien sind verfügbar: PLA (biobasiert) ab €1,50/h, PETG (robust) ab €2,00/h, ABS (hitzebeständig) ab €2,50/h, PA12 Nylon ab €4,50/h, PA12-CF (Carbon) ab €6,00/h."
+          },
+          {
+            question: "Welche Dateiformate werden akzeptiert?",
+            answer: "Wir akzeptieren STL, OBJ, STEP, IGES und viele weitere gängige CAD-Formate für 3D-Druck in Salzburg. Bei Fragen: +43 676 5517197"
+          },
+          {
+            question: "Wie werden die Kosten für 3D-Druck in Salzburg berechnet?",
+            answer: "Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner unter /kostenrechner für eine sofortige Schätzung."
+          },
+          {
+            question: "Bieten Sie auch Nachbearbeitung für Salzburger Kunden an?",
+            answer: "Ja, wir bieten professionelle Nachbearbeitung: Schleifen, Lackieren, Glattieren und weitere Finishing-Optionen für 3D-Drucke in Salzburg."
+          }
+        ]}
+      />
       
       <div className="min-h-screen">
         <Navigation />

@@ -2,7 +2,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import StructuredData from "@/components/StructuredData";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import FAQSchema from "@/components/FAQSchema";
+import HowToSchema from "@/components/HowToSchema";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
@@ -22,9 +24,61 @@ const Wien3DDruck = () => {
         {name: "Home", url: "/"},
         {name: "3D-Druck Wien", url: "/3d-druck-wien"}
       ]} />
-      <StructuredData type="organization" />
-      <StructuredData type="service" />
-      <StructuredData type="faq" />
+      <LocalBusinessSchema 
+        city="Wien"
+        region="Wien"
+        latitude="48.2082"
+        longitude="16.3738"
+        deliveryTime="24-48h"
+      />
+      <FAQSchema 
+        city="Wien"
+        faqs={[
+          {
+            question: "Wie schnell kann ich mein 3D-Druck-Teil in Wien erhalten?",
+            answer: "Mit unserem Express-Service liefern wir innerhalb von 24 Stunden nach Wien. Standard-Lieferungen dauern 2-3 Werktage. Kostenloser Versand ab €50 Bestellwert."
+          },
+          {
+            question: "Was kostet 3D-Druck in Wien?",
+            answer: "Die Kosten hängen vom Material ab: PLA ab €1,50/Stunde, PETG ab €2,00/Stunde, ABS ab €2,50/Stunde, PA12 Nylon ab €4,50/Stunde. Nutzen Sie unseren Online-Kostenrechner für eine genaue Schätzung."
+          },
+          {
+            question: "Welche Dateiformate werden für 3D-Druck in Wien akzeptiert?",
+            answer: "Wir akzeptieren STL, OBJ, STEP, IGES und viele weitere gängige CAD-Formate. Bei Fragen zu Ihrem Format kontaktieren Sie uns unter +43 676 5517197."
+          },
+          {
+            question: "Bieten Sie auch Nachbearbeitung für 3D-Drucke in Wien an?",
+            answer: "Ja, wir bieten professionelle Nachbearbeitung: Schleifen, Lackieren, Polieren und weitere Finishing-Optionen für Ihre 3D-gedruckten Teile in Wien."
+          },
+          {
+            question: "Welche Materialien sind für 3D-Druck in Wien verfügbar?",
+            answer: "Wir verwenden ausschließlich österreichisches Premium-Filament: PLA (biobasiert), PETG (robust), ABS (hitzebeständig), PA12 Nylon (hochfest) und PA12-CF (Carbon verstärkt). Alle Materialien in verschiedenen Farben verfügbar."
+          }
+        ]}
+      />
+      <HowToSchema 
+        name="3D-Druck bestellen in Wien"
+        description="So einfach bestellen Sie professionelle 3D-Drucke in Wien bei ekdruck"
+        totalTime="PT24H"
+        steps={[
+          {
+            name: "CAD-Datei hochladen oder Anfrage senden",
+            text: "Senden Sie uns Ihre CAD-Datei (STL, OBJ, STEP) per E-Mail an office@ek-druck.at oder nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung. Telefon: +43 676 5517197"
+          },
+          {
+            name: "Kostenloses Angebot erhalten",
+            text: "Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot mit Preis, Lieferzeit und Materialempfehlung für Ihr 3D-Druck Projekt in Wien."
+          },
+          {
+            name: "Auftrag bestätigen",
+            text: "Nach Ihrer Freigabe starten wir sofort mit der Produktion. Bei Express-Bestellungen erfolgt der Versand am nächsten Werktag nach Wien."
+          },
+          {
+            name: "Lieferung nach Wien erhalten",
+            text: "Ihr fertiges 3D-Druck-Teil wird sicher verpackt per Post direkt zu Ihnen nach Wien geliefert. Express 24h oder Standard 2-3 Werktage. Kostenloser Versand ab €50."
+          }
+        ]}
+      />
       
       <div className="min-h-screen">
         <Navigation />
