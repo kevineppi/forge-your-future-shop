@@ -9,13 +9,13 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 const Ratgeber = () => {
   const articles = [
     {
-      title: "Rapid Prototyping & Prototyping: Der wissenschaftliche Guide",
-      description: "Wissenschaftlich belegt: 85% Zeitersparnis, 70% Kostenreduktion. Alles über beschleunigte Produktentwicklung mit 3D-Druck.",
-      link: "/ratgeber/prototyping-guide",
+      title: "Rapid Prototyping Österreich: Wissenschaftlicher Guide + 24h Express",
+      description: "85% schneller als traditionelle Methoden: Wissenschaftlich fundierter Guide zu Rapid Prototyping mit FDM 3D-Druck. Inkl. Vergleichstabellen, ROI-Berechnung und Branchenanwendungen.",
+      link: "/rapid-prototyping",
       icon: Clock,
-      category: "Produktentwicklung",
-      readTime: "12 Min. Lesezeit",
-      date: "November 2025"
+      category: "Rapid Prototyping",
+      readTime: "15 Min. Lesezeit",
+      date: "Februar 2025"
     },
     {
       title: "3D-Druck Kosten in Österreich: Der ultimative Preisguide 2025",

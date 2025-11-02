@@ -100,7 +100,7 @@ const Linz3DDruck = () => {
                 Unsere <span className="text-gradient">Services in Linz</span>
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Von schnellem Prototyping bis zur Serienfertigung – wir bieten professionelle 3D-Druck-Lösungen für Ihr Projekt in Linz.
+                Von schnellem <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> bis zur Serienfertigung – wir bieten professionelle 3D-Druck-Lösungen für Ihr Projekt in Linz.
               </p>
             </AnimatedSection>
             

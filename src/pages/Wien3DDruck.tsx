@@ -74,7 +74,7 @@ const Wien3DDruck = () => {
                 <Clock className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold mb-3">Express Service 24h</h3>
                 <p className="text-muted-foreground mb-4">
-                  Benötigen Sie Ihr Teil schnell? Wir liefern innerhalb von 24 Stunden in ganz Wien.
+                  Benötigen Sie Ihr Teil schnell? Unser <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">24h Express-Service</a> liefert innerhalb kürzester Zeit in ganz Wien.
                 </p>
                 <a href="/rapid-prototyping" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>

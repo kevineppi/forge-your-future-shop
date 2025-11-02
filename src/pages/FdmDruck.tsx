@@ -178,7 +178,8 @@ const FdmDruck = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Kurze Rüstzeiten und parallele Fertigung mehrerer Teile für schnelle Prototypenerstellung.
+                      Kurze Rüstzeiten und parallele Fertigung mehrerer Teile für schnelle Prototypenerstellung. 
+                      Ideal für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>.
                     </p>
                   </CardContent>
                 </Card>

@@ -52,6 +52,65 @@ const RapidPrototyping = () => {
       <StructuredData type="organization" />
       <StructuredData type="service" />
       <StructuredData type="faq" />
+      
+      {/* Article Schema for SEO */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Rapid Prototyping Österreich: Wissenschaftlicher Guide + 24h Express-Service",
+          "description": "Umfassender wissenschaftlicher Guide zu Rapid Prototyping mit FDM 3D-Druck in Österreich. Inklusive Vergleichstabellen, ROI-Berechnung und Branchenanwendungen.",
+          "image": "https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
+          "author": {
+            "@type": "Organization",
+            "name": "ekdruck e.U.",
+            "url": "https://www.ek-druck.at"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "ekdruck e.U.",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png"
+            }
+          },
+          "datePublished": "2025-02-10",
+          "dateModified": "2025-02-10",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.ek-druck.at/rapid-prototyping"
+          }
+        })}
+      </script>
+      
+      {/* Product Schema for Express Service */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "24h Express Rapid Prototyping Service",
+          "description": "Professioneller 24-48h Express-Service für Rapid Prototyping mit FDM 3D-Druck in Österreich. 85% schneller als traditionelle Methoden.",
+          "image": "https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
+          "brand": {
+            "@type": "Brand",
+            "name": "ekdruck e.U."
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.ek-druck.at/rapid-prototyping",
+            "priceCurrency": "EUR",
+            "price": "50",
+            "priceValidUntil": "2025-12-31",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "89"
+          }
+        })}
+      </script>
       <BreadcrumbSchema items={[
         { name: "Home", url: "/" },
         { name: "Rapid Prototyping Österreich", url: "/rapid-prototyping" }

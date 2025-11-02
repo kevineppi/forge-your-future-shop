@@ -76,7 +76,8 @@ const Materialien = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Warum österreichische Filamente?</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Kurze Transportwege, hohe Qualitätsstandards und Nachhaltigkeit durch Recycling-Innovation
+                  Kurze Transportwege, hohe Qualitätsstandards und Nachhaltigkeit durch Recycling-Innovation. 
+                  Perfekt für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> und Serienfertigung.
                 </p>
               </div>
 
