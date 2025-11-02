@@ -117,7 +117,7 @@ const AIChatWidget = () => {
     switch (type) {
       case 'material':
         userMessage = 'Welches Material empfehlt ihr für mein Projekt?';
-        assistantMessage = 'Die Material-Wahl hängt von Ihrer Anwendung ab:\n\n**PLA:** Günstig, einfach zu drucken, ideal für Prototypen (nicht hitzebeständig)\n**PETG:** Robust, chemikalienbeständig, für funktionale Teile\n**ASA:** UV-beständig, witterungsbeständig, perfekt für Outdoor\n**TPU:** Flexibel, elastisch, für Dichtungen & Griffe\n\nWofür möchten Sie das Teil verwenden?';
+        assistantMessage = 'Die Material-Wahl hängt von Ihrer Anwendung ab:\n\n🟢 PLA: Günstig, einfach zu drucken, ideal für Prototypen (nicht hitzebeständig)\n🔵 PETG: Robust, chemikalienbeständig, für funktionale Teile\n🟡 ASA: UV-beständig, witterungsbeständig, perfekt für Outdoor\n🟣 TPU: Flexibel, elastisch, für Dichtungen & Griffe\n\nWofür möchten Sie das Teil verwenden?';
         actions = [
           { label: 'Material-Guide ansehen', url: '/ratgeber/material-guide', icon: 'material' },
           { label: 'Beratung anfragen', url: '/#contact', icon: 'contact' }
@@ -125,14 +125,14 @@ const AIChatWidget = () => {
         break;
       case 'time':
         userMessage = 'Wie lange dauert die Fertigung?';
-        assistantMessage = 'Die Produktionszeit hängt von Größe & Komplexität ab:\n\n**Kleine Teile (<5cm):** 2-4h Druck, 2-3 Werktage Lieferung\n**Mittlere Teile (5-15cm):** 6-16h Druck, 3-5 Werktage Lieferung\n**Große Teile (>15cm):** 16-48h Druck, 5-7 Werktage Lieferung\n\n**Express-Service:** 24-48h Lieferung (+40-60% Aufpreis)\n\nBenötigen Sie Express-Fertigung?';
+        assistantMessage = 'Die Produktionszeit hängt von Größe & Komplexität ab:\n\n🔸 Kleine Teile (<5cm): 2-4h Druck, 2-3 Werktage Lieferung\n🔶 Mittlere Teile (5-15cm): 6-16h Druck, 3-5 Werktage Lieferung\n🔺 Große Teile (>15cm): 16-48h Druck, 5-7 Werktage Lieferung\n\n⚡ Express-Service: 24-48h Lieferung (+40-60% Aufpreis)\n\nBenötigen Sie Express-Fertigung?';
         actions = [
           { label: 'Angebot anfordern', url: '/#contact', icon: 'contact' }
         ];
         break;
       case 'cost':
         userMessage = 'Was kostet ungefähr mein 3D-Druck Projekt?';
-        assistantMessage = 'Die Kosten hängen von mehreren Faktoren ab:\n\n**Beispiel 10×10×5cm in PETG:**\nMaterial: ~€8-12 | Produktion: ~€20-30 | Setup: ~€8-10\n**Gesamt: €40-55** (Standard) | €55-75 (Express)\n\n**Einflussfaktoren:**\n📏 Größe | ⚙️ Komplexität | 🧱 Material | ⚡ Express';
+        assistantMessage = 'Die Kosten hängen von mehreren Faktoren ab:\n\n💡 Beispiel 10×10×5cm in PETG:\nMaterial: ~€8-12 | Produktion: ~€20-30 | Setup: ~€8-10\n💰 Gesamt: €40-55 (Standard) | €55-75 (Express)\n\n📊 Einflussfaktoren:\n📏 Größe | ⚙️ Komplexität | 🧱 Material | ⚡ Express';
         actions = [
           { label: 'Kostenrechner nutzen', url: '/kostenrechner', icon: 'calculator' },
           { label: 'Individuelles Angebot', url: '/#contact', icon: 'contact' }
