@@ -256,7 +256,7 @@ const AIChatWidget = () => {
 
       {/* Chat Widget */}
       {isOpen && (
-        <Card className="fixed inset-4 md:bottom-6 md:right-6 md:inset-auto md:w-[420px] md:h-[600px] z-50 shadow-2xl border-2 flex flex-col animate-fade-in">
+        <Card className="fixed top-20 left-4 right-4 bottom-4 md:top-auto md:bottom-6 md:right-6 md:left-auto md:w-[420px] md:h-[600px] z-50 shadow-2xl border-2 flex flex-col animate-fade-in">
           <CardHeader className="border-b bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
