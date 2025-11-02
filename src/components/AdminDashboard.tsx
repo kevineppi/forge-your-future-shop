@@ -186,7 +186,7 @@ const AdminDashboard = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -222,6 +222,19 @@ const AdminDashboard = () => {
             <CardContent>
               <div className="text-2xl font-bold text-secondary">
                 {inquiries.filter(i => i.status === 'completed').length}
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Archiviert
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-muted-foreground">
+                {inquiries.filter(i => i.status === 'archived').length}
               </div>
             </CardContent>
           </Card>
@@ -345,6 +358,16 @@ const AdminDashboard = () => {
                               onClick={() => updateStatus(inquiry.id!, 'completed')}
                             >
                               Abschließen
+                            </Button>
+                          )}
+                          {inquiry.status === 'completed' && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => updateStatus(inquiry.id!, 'archived')}
+                            >
+                              <Archive className="h-4 w-4 mr-1" />
+                              Archivieren
                             </Button>
                           )}
                         </div>
