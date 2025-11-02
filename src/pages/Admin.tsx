@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import AdminDashboard from "@/components/AdminDashboard";
+import KnowledgeBaseManager from "@/components/KnowledgeBaseManager";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/hooks/useAuth";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Admin = () => {
   const { user, isAdmin, loading } = useAuth();
@@ -29,7 +31,20 @@ const Admin = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <AdminDashboard />
+      <div className="container mx-auto px-4 py-8 pt-24">
+        <Tabs defaultValue="dashboard" className="w-full">
+          <TabsList className="grid w-full max-w-md grid-cols-2">
+            <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+            <TabsTrigger value="knowledge">Knowledge Base</TabsTrigger>
+          </TabsList>
+          <TabsContent value="dashboard" className="mt-6">
+            <AdminDashboard />
+          </TabsContent>
+          <TabsContent value="knowledge" className="mt-6">
+            <KnowledgeBaseManager />
+          </TabsContent>
+        </Tabs>
+      </div>
       <Footer />
     </div>
   );

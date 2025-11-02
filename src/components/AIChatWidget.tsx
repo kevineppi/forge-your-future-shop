@@ -4,12 +4,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
-import { Bot, X, Send, Clock, Euro, Layers } from 'lucide-react';
+import { Bot, X, Send, Clock, Euro, Layers, ExternalLink, Loader2 } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 interface Message {
   role: 'user' | 'assistant';
   content: string;
   timestamp?: Date;
+  sources?: Array<{
+    title: string;
+    category: string;
+    url?: string;
+    similarity?: number;
+  }>;
   recommendations?: {
     material?: string;
     estimatedCost?: string;
@@ -23,11 +31,13 @@ const AIChatWidget = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: '👋 Hallo! Ich bin Ihr 3D-Druck Assistent. Ich helfe Ihnen bei der Material-Auswahl, Kosten-Schätzung, Verfahrenswahl und beantworte alle Fragen zu 3D-Druck.\n\nWie kann ich Ihnen helfen?',
+      content: '👋 Hallo! Ich bin Ihr 3D-Druck Assistent. Ich beantworte Ihre Fragen basierend auf den Informationen unserer Website.\n\nWie kann ich Ihnen helfen?',
       timestamp: new Date(),
     }
   ]);
   const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const quickQuestions = [
     { icon: Layers, text: 'Welches Material passt?', query: 'material' },
@@ -84,19 +94,80 @@ const AIChatWidget = () => {
     ]);
   };
 
-  const handleSendMessage = () => {
-    if (!inputValue.trim()) return;
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || isLoading) return;
 
+    const userMessage = inputValue;
+    setInputValue('');
+    
+    // Add user message
     setMessages(prev => [
       ...prev,
-      { role: 'user', content: inputValue, timestamp: new Date() },
-      { 
-        role: 'assistant', 
-        content: '🤖 Das ist ein Demo-Modus. Die echte AI-Integration würde hier Ihre Frage analysieren und eine maßgeschneiderte Antwort mit Material-Empfehlungen, Kosten-Schätzungen und Lieferzeiten geben.\n\nKlicken Sie auf eine der Schnellfragen oben für eine Demo-Antwort, oder kontaktieren Sie uns direkt für eine persönliche Beratung!', 
-        timestamp: new Date() 
-      }
+      { role: 'user', content: userMessage, timestamp: new Date() }
     ]);
-    setInputValue('');
+
+    setIsLoading(true);
+
+    try {
+      // Call RAG chat function
+      const { data, error } = await supabase.functions.invoke('rag-chat', {
+        body: { message: userMessage }
+      });
+
+      if (error) {
+        console.error('Error calling rag-chat:', error);
+        throw error;
+      }
+
+      if (data.rateLimited) {
+        toast({
+          title: "Zu viele Anfragen",
+          description: "Bitte versuchen Sie es in einem Moment erneut.",
+          variant: "destructive"
+        });
+        
+        setMessages(prev => [
+          ...prev,
+          { 
+            role: 'assistant', 
+            content: 'Entschuldigung, ich bin gerade überlastet. Bitte versuchen Sie es in einem Moment erneut oder nutzen Sie unser Kontaktformular für eine direkte Antwort!', 
+            timestamp: new Date() 
+          }
+        ]);
+        return;
+      }
+
+      // Add AI response with sources
+      setMessages(prev => [
+        ...prev,
+        { 
+          role: 'assistant', 
+          content: data.answer,
+          sources: data.sources || [],
+          timestamp: new Date() 
+        }
+      ]);
+
+    } catch (error) {
+      console.error('Chat error:', error);
+      
+      toast({
+        title: "Fehler",
+        description: "Es gab ein Problem bei der Verarbeitung Ihrer Anfrage.",
+        variant: "destructive"
+      });
+
+      setMessages(prev => [
+        ...prev,
+        { 
+          role: 'assistant', 
+          content: 'Entschuldigung, es gab einen Fehler bei der Verarbeitung Ihrer Anfrage. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt!', 
+          timestamp: new Date() 
+        }
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -191,6 +262,35 @@ const AIChatWidget = () => {
                         <p className="text-sm whitespace-pre-line leading-relaxed">
                           {msg.content}
                         </p>
+                        
+                        {msg.sources && msg.sources.length > 0 && (
+                          <div className="mt-3 pt-3 border-t border-border/50">
+                            <p className="text-xs font-semibold text-muted-foreground mb-2">Quellen:</p>
+                            <div className="space-y-1">
+                              {msg.sources.map((source, idx) => (
+                                <div key={idx} className="flex items-center gap-2">
+                                  <Badge variant="outline" className="text-xs">
+                                    {source.category}
+                                  </Badge>
+                                  {source.url ? (
+                                    <a 
+                                      href={source.url} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="text-xs text-primary hover:underline flex items-center gap-1"
+                                    >
+                                      {source.title}
+                                      <ExternalLink className="w-3 h-3" />
+                                    </a>
+                                  ) : (
+                                    <span className="text-xs text-muted-foreground">{source.title}</span>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
                         {msg.recommendations && (
                           <div className="mt-3 pt-3 border-t border-border/50 space-y-2">
                             {msg.recommendations.material && (
@@ -241,19 +341,25 @@ const AIChatWidget = () => {
                   placeholder="Ihre Frage zum 3D-Druck..."
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                  onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage()}
+                  disabled={isLoading}
                   className="flex-1"
                 />
                 <Button 
                   onClick={handleSendMessage}
                   size="icon"
+                  disabled={isLoading || !inputValue.trim()}
                   className="bg-gradient-to-br from-primary to-accent hover:from-primary/90 hover:to-accent/90"
                 >
-                  <Send className="h-4 w-4" />
+                  {isLoading ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Send className="h-4 w-4" />
+                  )}
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground mt-2 text-center">
-                💡 Demo-Modus • Powered by AI
+                🤖 KI-gestützt • Basiert auf Website-Inhalten
               </p>
             </div>
           </CardContent>

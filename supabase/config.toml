@@ -1,1 +1,13 @@
 project_id = "jkzrpjlfdsxvcfwhuoey"
+
+[functions.send-contact-notification]
+verify_jwt = false
+
+[functions.send-sample-request-notification]
+verify_jwt = false
+
+[functions.generate-embedding]
+verify_jwt = false
+
+[functions.rag-chat]
+verify_jwt = false
