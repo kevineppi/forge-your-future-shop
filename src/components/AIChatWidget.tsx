@@ -89,6 +89,20 @@ const AIChatWidget = () => {
     }
   }, [messages]);
 
+  // Auto-scroll when chat is opened
+  useEffect(() => {
+    if (isOpen && messages.length > 0) {
+      // Scroll to last assistant message when opening the chat
+      setTimeout(() => {
+        const messageElements = document.querySelectorAll('[data-message-role="assistant"]');
+        const lastAssistantElement = messageElements[messageElements.length - 1];
+        if (lastAssistantElement) {
+          lastAssistantElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 150);
+    }
+  }, [isOpen]);
+
   const quickQuestions = [
     { icon: Layers, text: 'Welches Material passt?', query: 'material' },
     { icon: Clock, text: 'Wie lange dauert\'s?', query: 'time' },
