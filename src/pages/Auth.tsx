@@ -21,15 +21,32 @@ const Auth = () => {
   const { toast } = useToast();
 
   useEffect(() => {
+    const checkAdminAndRedirect = async (userId: string) => {
+      const { data } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', userId)
+        .eq('role', 'admin')
+        .maybeSingle();
+      
+      if (data) {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
+    };
+
     // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setSession(session);
         setUser(session?.user ?? null);
         
-        // Redirect authenticated users to main page
+        // Redirect authenticated users based on role
         if (session?.user) {
-          navigate("/");
+          setTimeout(() => {
+            checkAdminAndRedirect(session.user.id);
+          }, 0);
         }
       }
     );
@@ -41,7 +58,7 @@ const Auth = () => {
       
       // Redirect if already authenticated
       if (session?.user) {
-        navigate("/");
+        checkAdminAndRedirect(session.user.id);
       }
     });
 
