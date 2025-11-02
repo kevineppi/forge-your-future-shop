@@ -134,132 +134,66 @@ const Auth = () => {
             EK-Druck <span className="text-gradient">Admin</span>
           </CardTitle>
           <p className="text-muted-foreground">
-            Melden Sie sich an oder registrieren Sie sich
+            Admin Login
           </p>
         </CardHeader>
         <CardContent>
-          <Tabs defaultValue="signin" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="signin" className="flex items-center gap-2">
-                <LogIn className="h-4 w-4" />
-                Anmelden
-              </TabsTrigger>
-              <TabsTrigger value="signup" className="flex items-center gap-2">
-                <UserPlus className="h-4 w-4" />
-                Registrieren
-              </TabsTrigger>
-            </TabsList>
+          {error && (
+            <Alert variant="destructive" className="mb-4">
+              <AlertCircle className="h-4 w-4" />
+              <AlertDescription>{error}</AlertDescription>
+            </Alert>
+          )}
 
-            {error && (
-              <Alert variant="destructive" className="mt-4">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>{error}</AlertDescription>
-              </Alert>
-            )}
-
-            <TabsContent value="signin" className="space-y-4 mt-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium">E-Mail</label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    type="email"
-                    placeholder="ihre@email.at"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-9"
-                    disabled={loading}
-                  />
-                </div>
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <label className="text-sm font-medium">E-Mail</label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input
+                  type="email"
+                  placeholder="ihre@email.at"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="pl-9"
+                  disabled={loading}
+                />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Passwort</label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    type="password"
-                    placeholder="Ihr Passwort"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="pl-9"
-                    disabled={loading}
-                    onKeyPress={(e) => e.key === 'Enter' && handleSignIn()}
-                  />
-                </div>
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Passwort</label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input
+                  type="password"
+                  placeholder="Ihr Passwort"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="pl-9"
+                  disabled={loading}
+                  onKeyPress={(e) => e.key === 'Enter' && handleSignIn()}
+                />
               </div>
-              <Button 
-                onClick={handleSignIn} 
-                className="w-full" 
-                disabled={loading}
-                variant="hero"
-              >
-                {loading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Anmelden...
-                  </>
-                ) : (
-                  <>
-                    <LogIn className="mr-2 h-4 w-4" />
-                    Anmelden
-                  </>
-                )}
-              </Button>
-            </TabsContent>
-
-            <TabsContent value="signup" className="space-y-4 mt-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium">E-Mail</label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    type="email"
-                    placeholder="ihre@email.at"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-9"
-                    disabled={loading}
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Passwort</label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    type="password"
-                    placeholder="Mindestens 6 Zeichen"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="pl-9"
-                    disabled={loading}
-                    onKeyPress={(e) => e.key === 'Enter' && handleSignUp()}
-                  />
-                </div>
-              </div>
-              <Button 
-                onClick={handleSignUp} 
-                className="w-full" 
-                disabled={loading}
-                variant="hero"
-              >
-                {loading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Registrieren...
-                  </>
-                ) : (
-                  <>
-                    <UserPlus className="mr-2 h-4 w-4" />
-                    Registrieren
-                  </>
-                )}
-              </Button>
-              <p className="text-xs text-muted-foreground text-center">
-                Nach der Registrierung erhalten Sie eine Bestätigungs-E-Mail.
-              </p>
-            </TabsContent>
-          </Tabs>
+            </div>
+            <Button 
+              onClick={handleSignIn} 
+              className="w-full" 
+              disabled={loading}
+              variant="hero"
+            >
+              {loading ? (
+                <>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                  Anmelden...
+                </>
+              ) : (
+                <>
+                  <LogIn className="mr-2 h-4 w-4" />
+                  Anmelden
+                </>
+              )}
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>
