@@ -4,332 +4,293 @@ import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import FAQSchema from "@/components/FAQSchema";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Phone, Mail, Factory, Zap, Leaf, Award, Package, Truck, Users, Sparkles } from "lucide-react";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import AIChatWidget from "@/components/AIChatWidget";
-import { Button } from "@/components/ui/button";
-import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
+import Contact from "@/components/Contact";
+import GoogleMaps from "@/components/GoogleMaps";
+import HowToSchema from "@/components/HowToSchema";
 
 const Salzburg3DDruck = () => {
-
   return (
     <>
-      <SEOHead 
-        title="3D-Druck Salzburg | FDM 3D-Druck Service | ekdruck"
-        description="Nachhaltiger FDM 3D-Druck für Salzburg & Umgebung. 100% österreichisches Material, CO2-neutral, innovative Lösungen. Beratung & Lieferung inklusive!"
-        keywords="3d-druck salzburg, 3d drucker salzburg, fdm druck salzburg, rapid prototyping salzburg, 3d-druck service salzburg, prototypen salzburg"
-        path="/3d-druck-salzburg"
+      <SEOHead
+        title="Professioneller 3D-Druckservice Salzburg | Schnell & Präzise - ekdruck"
+        description="Ihr Partner für hochwertigen 3D-Druck in Salzburg und Umgebung. FDM-Technologie, österreichisches Filament, Express-Service verfügbar. Kostenlose Beratung!"
+        keywords="3D-Druckservice Salzburg, professioneller 3D-Druck Salzburg, FDM-Druck Salzburg Stadt, Rapid Prototyping Salzburg, 3D-Druck Dienstleistungen Salzburg"
+        image="/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png"
       />
-      <BreadcrumbSchema items={[
-        {name: "Home", url: "/"},
-        {name: "3D-Druck Salzburg", url: "/3d-druck-salzburg"}
-      ]} />
-      <LocalBusinessSchema 
-        city="Salzburg"
-        region="Salzburg"
-        latitude="47.8095"
-        longitude="13.0550"
-        deliveryTime="24-48h"
+      
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "3D-Druckservice Salzburg", url: "/3d-druck-salzburg" }
+        ]}
       />
-      <FAQSchema 
+
+      <LocalBusinessSchema city="Salzburg" />
+
+      <HowToSchema
+        name="3D-Druck Anfrage in Salzburg aufgeben"
+        description="So einfach kommen Sie zu Ihrem professionellen 3D-Druck in Salzburg"
+        totalTime="PT30M"
+        steps={[
+          {
+            name: "Angebot anfordern",
+            text: "Senden Sie uns Ihre 3D-Datei per E-Mail oder über unser Kontaktformular. Wir erstellen ein kostenloses und unverbindliches Angebot.",
+          },
+          {
+            name: "Auftrag bestätigen",
+            text: "Nach Ihrer Bestätigung starten wir direkt mit der Produktion Ihrer Bauteile.",
+          },
+          {
+            name: "Fertigung & Versand",
+            text: "Wir produzieren Ihre Teile mit höchster Präzision und versenden sie zuverlässig nach Salzburg.",
+          },
+        ]}
+      />
+      <FAQSchema
         city="Salzburg"
         faqs={[
           {
-            question: "Wie schnell erfolgt die Lieferung nach Salzburg?",
-            answer: "Mit unserem Express-Service liefern wir innerhalb von 24-48 Stunden nach Salzburg Stadt und Land. Standard-Lieferungen dauern 2-3 Werktage. Kostenloser Versand ab €50."
+            question: "Wie schnell kann ich meinen 3D-Druck in Salzburg erhalten?",
+            answer: "Standardlieferung erfolgt innerhalb von 5-7 Werktagen nach Salzburg. Für dringende Projekte bieten wir einen Express-Service mit Lieferung in 24-48 Stunden an."
           },
           {
-            question: "Welche 3D-Druck Materialien sind in Salzburg verfügbar?",
-            answer: "Alle Materialien sind verfügbar: PLA (biobasiert) ab €1,50/h, PETG (robust) ab €2,00/h, ABS (hitzebeständig) ab €2,50/h, PA12 Nylon ab €4,50/h, PA12-CF (Carbon) ab €6,00/h."
+            question: "Welche Dateiformate werden für den 3D-Druckservice akzeptiert?",
+            answer: "Wir akzeptieren STL, OBJ, STEP und weitere gängige 3D-Formate. Wenn Sie unsicher sind, kontaktieren Sie uns - wir helfen gerne bei der Dateivorbereitung."
           },
           {
-            question: "Welche Dateiformate werden akzeptiert?",
-            answer: "Wir akzeptieren STL, OBJ, STEP, IGES und viele weitere gängige CAD-Formate für 3D-Druck in Salzburg. Bei Fragen: +43 676 5517197"
+            question: "Was kostet professioneller 3D-Druck in Salzburg?",
+            answer: "Die Kosten hängen von Größe, Material und Komplexität ab. Nutzen Sie unseren kostenlosen Kostenrechner für eine sofortige Preisschätzung oder fordern Sie ein individuelles Angebot an."
           },
           {
-            question: "Wie werden die Kosten für 3D-Druck in Salzburg berechnet?",
-            answer: "Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner unter /kostenrechner für eine sofortige Schätzung."
-          },
-          {
-            question: "Bieten Sie auch Nachbearbeitung für Salzburger Kunden an?",
-            answer: "Ja, wir bieten professionelle Nachbearbeitung: Schleifen, Lackieren, Glattieren und weitere Finishing-Optionen für 3D-Drucke in Salzburg."
+            question: "Bieten Sie auch Nachbearbeitung für 3D-Drucke an?",
+            answer: "Ja, wir bieten verschiedene Nachbearbeitungsoptionen wie Schleifen, Lackieren und Glättung an. Sprechen Sie uns auf Ihre spezifischen Anforderungen an."
           }
         ]}
       />
-      
-      <div className="min-h-screen">
-        <Navigation />
-        
-        <section className="pt-32 pb-16 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <MapPin className="w-6 h-6 text-primary" />
-                <span className="text-primary font-semibold">Salzburg</span>
-              </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                3D-Druck Service in <span className="text-gradient">Salzburg</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Professioneller FDM 3D-Druck Service für <strong className="text-foreground">Salzburg</strong> Stadt und Land. 
-                <strong className="text-foreground">Innovative</strong> und nachhaltige Lösungen für Ihre Projekte. Schnelle Lieferung nach <strong className="text-foreground">Salzburg</strong>, faire Preise.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Jetzt Angebot erhalten
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="/kostenrechner">Kosten berechnen</a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+      <Navigation />
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-12">
-              Unsere <span className="text-gradient">Services in Salzburg</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="gradient-card p-6 rounded-xl">
-                <Box className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">FDM 3D-Druck</h3>
-                <p className="text-muted-foreground mb-4">
-                  Hochwertiger FDM 3D-Druck für Prototypen, Modelle und Einzelteile in Salzburg.
+      <main className="min-h-screen">
+        {/* Hero Section */}
+        <AnimatedSection animation="fade-in">
+          <section className="relative bg-gradient-to-br from-primary/10 via-background to-primary/5 pt-32 pb-20 overflow-hidden">
+            <div className="absolute inset-0 bg-grid-white/10" />
+            <div className="container mx-auto px-4 relative z-10">
+              <div className="max-w-4xl mx-auto text-center">
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                  Professioneller 3D-Druckservice in Salzburg
+                </h1>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+                  Ihr zuverlässiger Anbieter für hochwertigen FDM-Druck in der Mozartstadt. 
+                  Mit österreichischem Premium-Filament, modernster Fertigungstechnologie und 
+                  schnellem Lieferservice für Ihre innovativen Projekte.
                 </p>
-                <a href="/fdm-3d-druck" className="text-primary hover:underline">Mehr erfahren →</a>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <Button size="lg" asChild className="text-lg px-8">
+                    <a href="/contact">Kostenloses Angebot</a>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild className="text-lg px-8">
+                    <a href="#services">Unsere Leistungen</a>
+                  </Button>
+                </div>
               </div>
-              
-              <div className="gradient-card p-6 rounded-xl">
-                <Clock className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Express Service 24-48h</h3>
-                <p className="text-muted-foreground mb-4">
-                  Schnelle Lieferung nach Salzburg Stadt und in das gesamte Bundesland.
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* Services Section */}
+        <AnimatedSection animation="slide-up" delay={100}>
+          <section id="services" className="py-20 bg-muted/30">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold mb-4">Unsere Dienstleistungen für Salzburg</h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Professionelle 3D-Druckservices für Unternehmen, Privatpersonen und Institutionen in Salzburg und Umgebung
                 </p>
-                <a href="/rapid-prototyping" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
-              
-              <div className="gradient-card p-6 rounded-xl">
-                <CheckCircle className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Nachhaltige Materialien</h3>
-                <p className="text-muted-foreground mb-4">
-                  Hochwertige österreichische Filamente für beste Druckqualität.
+
+              <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <Card className="p-8 hover:shadow-xl transition-all duration-300 border-primary/20 hover:border-primary/40">
+                  <Factory className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-2xl font-semibold mb-4">Präziser FDM-Druck</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Hochauflösender FDM-3D-Druck für funktionale Prototypen, Ersatzteile und 
+                    Kleinserienfertigung mit einer breiten Auswahl an Premium-Materialien.
+                  </p>
+                </Card>
+
+                <Card className="p-8 hover:shadow-xl transition-all duration-300 border-primary/20 hover:border-primary/40">
+                  <Zap className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-2xl font-semibold mb-4">Express-Service</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Eilige Anforderungen? Unser Schnell-Service liefert 
+                    Ihre gedruckten Bauteile in nur 24-48 Stunden nach Salzburg.
+                  </p>
+                </Card>
+
+                <Card className="p-8 hover:shadow-xl transition-all duration-300 border-primary/20 hover:border-primary/40">
+                  <Leaf className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-2xl font-semibold mb-4">Premium-Filamente</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Wir setzen auf österreichisches Qualitätsfilament und nachhaltige 
+                    Werkstoffe für langlebige und umweltfreundliche Ergebnisse.
+                  </p>
+                </Card>
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* Why ekdruck Section */}
+        <AnimatedSection animation="fade-in" delay={200}>
+          <section className="py-20">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold mb-4">Warum ekdruck als Ihr 3D-Druck Partner?</h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Ihr zuverlässiger Dienstleister für hochwertigen additiven Druck in Salzburg
                 </p>
-                <a href="/3d-druck-materialien" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-8 text-center">
-                Warum ekdruck für <span className="text-gradient">Salzburg</span>?
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold mb-2">Schnelle Lieferung nach Salzburg</h3>
-                    <p className="text-muted-foreground">Express-Versand innerhalb von 24-48h nach Salzburg Stadt und Land</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div className="text-center group hover:scale-105 transition-transform">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Award className="w-8 h-8 text-primary" />
                   </div>
+                  <h3 className="text-xl font-semibold mb-2">Premium-Qualität</h3>
+                  <p className="text-muted-foreground">
+                    Österreichische Filamente und professionelle FDM-Technologie
+                  </p>
                 </div>
-                
-                <div className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold mb-2">Österreichische Produktion</h3>
-                    <p className="text-muted-foreground">Made in Austria - kurze Lieferwege und Top-Qualität</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold mb-2">Persönliche Beratung</h3>
-                    <p className="text-muted-foreground">Kompetente Unterstützung bei der Materialauswahl und Verfahrenswahl</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold mb-2">Transparente Preisgestaltung</h3>
-                    <p className="text-muted-foreground">Nutzen Sie unseren Online-Kostenrechner für sofortige Preisschätzung</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-8 text-center">
-                Anwendungsbereiche für <span className="text-gradient">3D-Druck in Salzburg</span>
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🏭 Industrie</h3>
-                  <p className="text-muted-foreground">Funktionale Prototypen für Salzburger Industriebetriebe</p>
+                <div className="text-center group hover:scale-105 transition-transform">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Zap className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Schnelle Fertigung</h3>
+                  <p className="text-muted-foreground">
+                    Express-Lieferung in 24-48h für dringende Anfragen
+                  </p>
                 </div>
-                <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🏗️ Architektur</h3>
-                  <p className="text-muted-foreground">Architekturmodelle für Salzburger Planungsbüros</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🎓 Bildung</h3>
-                  <p className="text-muted-foreground">Unterstützung für Universität Salzburg</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🎨 Design</h3>
-                  <p className="text-muted-foreground">Individuelle Kunstobjekte</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Materials Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-8 text-center">
-                <span className="text-gradient">Materialien</span> für Salzburg
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
-                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen und Designmodelle</p>
-                  <p className="text-sm text-primary">Ab sofort verfügbar</p>
+                <div className="text-center group hover:scale-105 transition-transform">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Phone className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Regionaler Service</h3>
+                  <p className="text-muted-foreground">
+                    Kurze Lieferwege und persönliche Betreuung
+                  </p>
                 </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
-                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
-                  <p className="text-sm text-primary">Express-Service verfügbar</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
-                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
-                  <p className="text-sm text-primary">Industriequalität</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PA12 Nylon - Premium</h3>
-                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel, für anspruchsvolle Anwendungen</p>
-                  <p className="text-sm text-primary">Auf Anfrage</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Process Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-12 text-center">
-                So einfach geht <span className="text-gradient">3D-Druck</span> in Salzburg
-              </h2>
-              <div className="space-y-6">
-                <div className="flex gap-6 items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">1</div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Anfrage senden</h3>
-                    <p className="text-muted-foreground">Senden Sie uns Ihre CAD-Datei oder nutzen Sie unseren Kostenrechner</p>
+                <div className="text-center group hover:scale-105 transition-transform">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Phone className="w-8 h-8 text-primary" />
                   </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">2</div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Angebot erhalten</h3>
-                    <p className="text-muted-foreground">Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot</p>
-                  </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">3</div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Produktion</h3>
-                    <p className="text-muted-foreground">Nach Ihrer Freigabe starten wir sofort mit dem 3D-Druck</p>
-                  </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">4</div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Lieferung nach Salzburg</h3>
-                    <p className="text-muted-foreground">Express-Versand innerhalb von 24-48h nach Salzburg</p>
-                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Kostenlose Beratung</h3>
+                  <p className="text-muted-foreground">
+                    Unverbindliche Angebote und fachkundige Unterstützung
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </AnimatedSection>
 
         {/* FAQ Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-12 text-center">
-                Häufig gestellte <span className="text-gradient">Fragen</span>
-              </h2>
-              <div className="space-y-6">
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie schnell erfolgt die Lieferung nach Salzburg?</h3>
-                  <p className="text-muted-foreground">Mit unserem Express-Service liefern wir innerhalb von 24-48 Stunden nach Salzburg Stadt und Land. Standard-Lieferungen dauern 2-3 Werktage.</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h3>
-                  <p className="text-muted-foreground">Wir akzeptieren STL, OBJ, STEP, IGES und viele weitere gängige CAD-Formate.</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie werden die Kosten berechnet?</h3>
-                  <p className="text-muted-foreground">Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung.</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Bieten Sie auch Nachbearbeitung an?</h3>
-                  <p className="text-muted-foreground">Ja, wir bieten Schleifen, Lackieren, Glattieren und weitere Finishing-Optionen an.</p>
-                </div>
+        <AnimatedSection animation="slide-up" delay={150}>
+          <section className="py-20 bg-muted/30">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold mb-4">Häufig gestellte Fragen</h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Antworten auf die wichtigsten Fragen zu unserem 3D-Druckservice
+                </p>
+              </div>
+
+              <div className="max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger className="text-left">
+                      Wie schnell kann ich meine 3D-gedruckten Teile in Salzburg erhalten?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Die Standardlieferung nach Salzburg erfolgt innerhalb von 5-7 Werktagen. Für eilige Anfragen 
+                      bieten wir einen Express-Service mit Lieferung in nur 24-48 Stunden an.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-2">
+                    <AccordionTrigger className="text-left">
+                      Welche Dateiformate akzeptieren Sie für den 3D-Druck?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Wir akzeptieren STL, OBJ, STEP, IGES und weitere gängige CAD-Formate. Falls Sie 
+                      unsicher sind, kontaktieren Sie uns - wir unterstützen Sie gerne bei der Dateivorbereitung.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-3">
+                    <AccordionTrigger className="text-left">
+                      Wie berechnen sich die Kosten für professionellen 3D-Druck?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Die Kosten richten sich nach Bauteilgröße, gewähltem Material und Komplexität des Objekts. 
+                      Nutzen Sie unseren kostenlosen Online-Rechner für eine sofortige Preisschätzung oder 
+                      fordern Sie ein maßgeschneidertes Angebot an.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-4">
+                    <AccordionTrigger className="text-left">
+                      Welche Nachbearbeitungsmöglichkeiten bieten Sie an?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Wir bieten verschiedene Finishing-Optionen wie Schleifen, professionelles Lackieren, 
+                      chemisches Glätten und weitere Oberflächenbehandlungen. Sprechen Sie uns auf Ihre 
+                      spezifischen Anforderungen an.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
+          </section>
+        </AnimatedSection>
+
+        {/* Reviews Widget */}
+        <AnimatedSection animation="fade-in" delay={100}>
+          <div className="container mx-auto px-4 py-12">
+            <ReviewsWidget />
           </div>
-        </section>
+        </AnimatedSection>
 
-        <ReviewsWidget />
+        {/* Contact Section */}
+        <AnimatedSection animation="fade-in" delay={200}>
+          <section className="py-20 bg-muted/30">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl font-bold mb-6">Starten Sie Ihr 3D-Druck Projekt</h2>
+                  <p className="text-xl text-muted-foreground mb-8">
+                    Kontaktieren Sie uns für ein kostenloses Angebot oder eine fachkundige Beratung
+                  </p>
+                </div>
 
-        <section id="contact" className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center gradient-card p-12 rounded-2xl">
-              <h2 className="text-4xl font-bold mb-6">
-                Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in Salzburg
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Kontaktieren Sie uns noch heute für ein kostenloses Angebot
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-primary" />
-                  <a href="tel:+436765517197" className="text-lg hover:text-primary transition-colors">
-                    +43 676 5517197
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <a href="mailto:office@ekdruck.at" className="text-lg hover:text-primary transition-colors">
-                    office@ekdruck.at
-                  </a>
-                </div>
+                <Contact />
               </div>
-              <Button size="lg" asChild>
-                <a href="/#contact">Kontaktformular</a>
-              </Button>
             </div>
-          </div>
-        </section>
+          </section>
+        </AnimatedSection>
+      </main>
 
-        <AIChatWidget />
-        <Footer />
-      </div>
+      <AIChatWidget />
+      <Footer />
     </>
   );
 };
