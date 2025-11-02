@@ -18,7 +18,7 @@ const Oberoesterreich3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Oberösterreich | FDM 3D-Druck Service | ekdruck e.U."
-        description="Professioneller 3D-Druck Service für Oberösterreich ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
+        description="FDM 3D-Druck Service für Linz, Wels & ganz Oberösterreich. Rapid Prototyping, Express-Service, nachhaltige Materialien aus AT. Jetzt anfragen!"
         keywords="3d-druck oberösterreich, 3d druck linz, fdm 3d-druck oberösterreich, rapid prototyping oberösterreich"
         path="/3d-druck-oberoesterreich"
       />

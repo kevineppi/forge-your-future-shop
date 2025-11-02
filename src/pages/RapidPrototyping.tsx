@@ -38,8 +38,8 @@ const RapidPrototyping = () => {
   return (
     <>
       <SEOHead 
-        title="Rapid Prototyping Österreich 2025: Guide + 24h Express-Service | 85% Zeitersparnis"
-        description="🚀 Wissenschaftlicher Rapid Prototyping Guide mit 24h Express-Service ✓ 85% schneller als traditionelle Methoden ✓ Studien-basiert ✓ FDM 3D-Druck Österreich → Jetzt anfragen!"
+        title="Rapid Prototyping Österreich 2025: 24h Express-Service | 85% Zeitersparnis | ekdruck"
+        description="Rapid Prototyping in Österreich: 85% schneller als traditionelle Methoden. Wissenschaftlich fundiert, 24h Express-Service verfügbar. Jetzt anfragen!"
         keywords="rapid prototyping österreich, rapid prototyping guide, express 3d-druck, prototypen 24h, fdm prototyping, schnelle produktentwicklung"
         path="/rapid-prototyping"
         type="article"

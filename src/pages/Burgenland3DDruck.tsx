@@ -18,7 +18,7 @@ const Burgenland3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Burgenland | FDM 3D-Druck Service | ekdruck e.U."
-        description="Professioneller 3D-Druck Service für Burgenland ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
+        description="FDM 3D-Druck Service für Eisenstadt, Neusiedl & Oberwart. Rapid Prototyping, Express-Service, nachhaltige Materialien aus AT. Jetzt Angebot anfordern!"
         keywords="3d-druck burgenland, 3d druck eisenstadt, fdm 3d-druck burgenland, rapid prototyping burgenland"
         path="/3d-druck-burgenland"
       />

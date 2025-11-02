@@ -58,7 +58,7 @@ const MaterialGuide = () => {
     unit: "Pro Kilogramm"
   }];
   return <>
-      <SEOHead title="3D-Druck Materialien: PLA vs. PETG vs. ASA | Wissenschaftlicher Guide" description="Fundierter Vergleich der wichtigsten FDM-Materialien ✓ Mechanische Eigenschaften ✓ Temperaturbeständigkeit ✓ Anwendungsbereiche ✓ Wissenschaftlich belegt" keywords="pla petg asa vergleich, 3d-druck materialien, filament eigenschaften, fdm materialien, thermoplastische kunststoffe" path="/ratgeber/material-guide" schemaType="article" />
+      <SEOHead title="3D-Druck Materialien: PLA vs. PETG vs. ASA | Wissenschaftlicher Guide" description="Fundierter Vergleich der wichtigsten FDM-Materialien: Mechanische Eigenschaften, Temperaturbeständigkeit, Anwendungen. Wissenschaftlich belegt." keywords="pla petg asa vergleich, 3d-druck materialien, filament eigenschaften, fdm materialien, thermoplastische kunststoffe" path="/ratgeber/material-guide" schemaType="article" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

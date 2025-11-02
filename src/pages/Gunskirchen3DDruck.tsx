@@ -18,7 +18,7 @@ const Gunskirchen3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Gunskirchen | FDM 3D-Druck Service | ekdruck e.U."
-        description="Professioneller 3D-Druck Service für Gunskirchen ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
+        description="Lokaler FDM 3D-Druck Service in Gunskirchen & OÖ. Rapid Prototyping, schnelle Lieferung, persönliche Beratung. Nachhaltige Materialien aus Österreich."
         keywords="3d-druck gunskirchen, 3d druck gunskirchen, fdm 3d-druck gunskirchen, rapid prototyping gunskirchen"
         path="/3d-druck-gunskirchen"
       />

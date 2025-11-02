@@ -18,7 +18,7 @@ const Steiermark3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Steiermark | FDM 3D-Druck Service | ekdruck e.U."
-        description="Professioneller 3D-Druck Service für Steiermark ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
+        description="FDM 3D-Druck Service für Graz, Leoben & ganz Steiermark. Rapid Prototyping, Express-Service, nachhaltige Materialien aus AT. Jetzt anfragen!"
         keywords="3d-druck steiermark, 3d druck graz, fdm 3d-druck steiermark, rapid prototyping steiermark"
         path="/3d-druck-steiermark"
       />

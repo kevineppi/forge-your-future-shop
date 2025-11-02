@@ -14,7 +14,7 @@ const Dornbirn3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Dornbirn & Vorarlberg: Innovation trifft Tradition | ekdruck"
-        description="🎨 3D-Druck für Vorarlbergs Textil- & Designbranche. Kreative Prototypen, funktionale Werkzeuge, nachhaltige Materialien. Beratung kostenlos!"
+        description="FDM 3D-Druck für Vorarlbergs Textil-, Design- & Industriebranche. Kreative Prototypen, funktionale Werkzeuge, nachhaltig. Kostenlose Beratung!"
         keywords="3d-druck dornbirn, 3d drucker dornbirn, fdm druck dornbirn, rapid prototyping vorarlberg, 3d-druck service dornbirn"
         path="/3d-druck-dornbirn"
       />

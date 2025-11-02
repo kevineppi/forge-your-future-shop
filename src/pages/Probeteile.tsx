@@ -127,7 +127,7 @@ const Probeteile = () => {
   return <>
       <SEOHead 
         title="GRATIS 3D-Druck Probeteil für B2B | Serienfertigung ab 50 Stück"
-        description="🎁 1 Probeteil KOSTENLOS für B2B ✓ Serienfertigung ab 50 Stk ✓ Qualitätstest vor Auftrag ✓ FDM 3D-Druck OÖ → Jetzt Gratis-Probeteil anfordern!" 
+        description="1 Probeteil KOSTENLOS für B2B! Serienfertigung ab 50 Stk. Qualitätstest vor Auftrag. FDM 3D-Druck aus OÖ – jetzt Gratis-Probeteil anfordern!" 
         keywords="kostenlose probeteile 3d-druck, b2b 3d-druck, serienfertigung probedruck, gratis probeteil"
         path="/probeteile" 
       />

@@ -14,7 +14,7 @@ const Innsbruck3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Innsbruck & Tirol | Alpine Innovation aus OÖ | ekdruck"
-        description="🗻 Präzisions-3D-Druck für Tiroler Sportartikel & Technik. Robuste Materialien, perfekt für Alpine Bedingungen. Express-Versand möglich!"
+        description="Präzisions-3D-Druck für Tiroler Sportartikel & Technik. Robuste Materialien für alpine Bedingungen. Express-Versand nach Innsbruck verfügbar!"
         keywords="3d-druck innsbruck, 3d drucker innsbruck, fdm druck innsbruck, rapid prototyping innsbruck, 3d-druck tirol, prototypen innsbruck"
         path="/3d-druck-innsbruck"
       />

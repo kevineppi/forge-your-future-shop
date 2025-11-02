@@ -18,7 +18,7 @@ const Kaernten3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Kärnten | FDM 3D-Druck Service | ekdruck e.U."
-        description="Professioneller 3D-Druck Service für Kärnten ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Express Service ✓ Nachhaltige Materialien aus Österreich"
+        description="FDM 3D-Druck Service für Klagenfurt, Villach & ganz Kärnten. Rapid Prototyping, Express-Service, nachhaltige Materialien aus AT. Jetzt anfragen!"
         keywords="3d-druck kärnten, 3d druck klagenfurt, fdm 3d-druck kärnten, rapid prototyping kärnten"
         path="/3d-druck-kaernten"
       />
