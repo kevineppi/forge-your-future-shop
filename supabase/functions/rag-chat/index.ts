@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { message } = await req.json();
+    const { message, conversationHistory } = await req.json();
 
     if (!message) {
       console.error('No message provided');
@@ -105,9 +105,10 @@ serve(async (req) => {
     const systemPrompt = `Sie sind ein professioneller 3D-Druck Berater für ekdruck.at.
 
 KRITISCHE ANFORDERUNGEN:
-1. MAXIMALE KÜRZE: Antworten in 1-2 kurzen Sätzen (max. 120 Zeichen wenn möglich)
-2. KEINE Links im Text erwähnen - stattdessen strukturierte Actions zurückgeben
-3. Professioneller Sie-Ton, präzise Aussagen
+1. KONTEXT BEACHTEN: Sie erhalten die gesamte Gesprächshistorie. Merken Sie sich Informationen aus vorherigen Nachrichten (z.B. bereits genannte Maße, Materialien)
+2. MAXIMALE KÜRZE: Antworten in 1-2 kurzen Sätzen (max. 120 Zeichen wenn möglich)
+3. KEINE Links im Text erwähnen - stattdessen strukturierte Actions zurückgeben
+4. Professioneller Sie-Ton, präzise Aussagen
 
 PREISKALKULATION (bei Bedarf):
 - Volumen = L×B×H / 1.000.000
@@ -134,6 +135,20 @@ ${context ? `\n=== KB ===\n${context}\n=== ENDE ===\n` : ''}`;
 
     console.log('Generating AI response...');
 
+    // Build messages array with conversation history
+    const messages = [
+      { role: 'system', content: systemPrompt }
+    ];
+
+    // Add conversation history if available (excluding the current message as it will be added separately)
+    if (conversationHistory && conversationHistory.length > 0) {
+      // Add previous messages for context
+      messages.push(...conversationHistory);
+    }
+    
+    // Add current message
+    messages.push({ role: 'user', content: message });
+
     const aiResponse = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -142,10 +157,7 @@ ${context ? `\n=== KB ===\n${context}\n=== ENDE ===\n` : ''}`;
       },
       body: JSON.stringify({
         model: 'google/gemini-2.5-flash',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: message }
-        ],
+        messages: messages,
         temperature: 0.1,
         max_tokens: 250,
         response_format: { type: 'json_object' }

@@ -114,9 +114,19 @@ const AIChatWidget = () => {
     setIsLoading(true);
 
     try {
-      // Call RAG chat function
+      // Call RAG chat function with conversation history
+      const conversationHistory = messages
+        .filter(msg => msg.role === 'user' || msg.role === 'assistant')
+        .map(msg => ({
+          role: msg.role,
+          content: msg.content
+        }));
+
       const { data, error } = await supabase.functions.invoke('rag-chat', {
-        body: { message: userMessage }
+        body: { 
+          message: userMessage,
+          conversationHistory: conversationHistory
+        }
       });
 
       if (error) {
