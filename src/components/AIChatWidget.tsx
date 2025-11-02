@@ -242,21 +242,21 @@ const AIChatWidget = () => {
   return (
     <>
       {/* Floating Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
         {!isOpen && (
           <Button
             size="lg"
             onClick={() => setIsOpen(true)}
-            className="h-16 w-16 rounded-full shadow-2xl hover-scale bg-gradient-to-br from-primary to-accent hover:from-primary/90 hover:to-accent/90"
+            className="h-14 w-14 md:h-16 md:w-16 rounded-full shadow-2xl hover-scale bg-gradient-to-br from-primary to-accent hover:from-primary/90 hover:to-accent/90"
           >
-            <Bot className="h-8 w-8" />
+            <Bot className="h-6 w-6 md:h-8 md:w-8" />
           </Button>
         )}
       </div>
 
       {/* Chat Widget */}
       {isOpen && (
-        <Card className="fixed bottom-6 right-6 z-50 w-[420px] h-[600px] shadow-2xl border-2 flex flex-col animate-fade-in">
+        <Card className="fixed inset-4 md:bottom-6 md:right-6 md:inset-auto md:w-[420px] md:h-[600px] z-50 shadow-2xl border-2 flex flex-col animate-fade-in">
           <CardHeader className="border-b bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
