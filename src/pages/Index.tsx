@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import OrganizationSchema from "@/components/OrganizationSchema";
 import SEOHead from "@/components/SEOHead";
 import StickyCTA from "@/components/StickyCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
@@ -26,6 +27,7 @@ const Index = () => {
       as: "image",
       type: "image/png"
     }]} />
+      <OrganizationSchema />
       <StructuredData type="organization" />
       <StructuredData type="service" />
       <BreadcrumbSchema items={[{

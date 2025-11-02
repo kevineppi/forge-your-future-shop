@@ -4,6 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import HowToSchema from "@/components/HowToSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import Contact from "@/components/Contact";
 import SocialShare from "@/components/SocialShare";
 import AIChatWidget from "@/components/AIChatWidget";
@@ -49,6 +50,16 @@ const RapidPrototyping = () => {
         preloadResources={[
           { href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png", as: "image", type: "image/png" }
         ]}
+      />
+      <ServiceSchema 
+        serviceName="Rapid Prototyping 24h Express-Service"
+        description="Professioneller Rapid Prototyping Service mit FDM 3D-Druck in Österreich. Express-Fertigung in 24-48h für schnelle Produktentwicklung und Funktionsprototypen. 85% schneller als traditionelle Methoden."
+        serviceType="Service"
+        offers={{
+          price: "50.00",
+          priceCurrency: "EUR",
+          description: "Rapid Prototyping ab €50, Express-Service verfügbar"
+        }}
       />
       <StructuredData type="organization" />
       <StructuredData type="service" />

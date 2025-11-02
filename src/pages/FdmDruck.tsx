@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
@@ -25,6 +26,16 @@ const FdmDruck = () => {
         preloadResources={[
           {href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png", as: "image", type: "image/png"}
         ]}
+      />
+      <ServiceSchema 
+        serviceName="FDM 3D-Druck Service"
+        description="Professioneller FDM (Fused Deposition Modeling) 3D-Druck Service für Prototypen, Funktionsteile und Kleinserien in ganz Österreich. Präzise Fertigung mit Schichtauflösungen bis 0,1mm."
+        serviceType="Service"
+        offers={{
+          price: "5.00",
+          priceCurrency: "EUR",
+          description: "FDM 3D-Druck ab €5, abhängig von Größe und Material"
+        }}
       />
       <StructuredData type="organization" />
       <StructuredData type="service" />

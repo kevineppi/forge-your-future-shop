@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
@@ -25,6 +26,16 @@ const Einzelanfertigungen = () => {
         preloadResources={[
           {href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png", as: "image", type: "image/png"}
         ]}
+      />
+      <ServiceSchema 
+        serviceName="3D-Druck Einzelanfertigungen"
+        description="Individuelle 3D-Druck Einzelanfertigungen nach Maß. Von Ersatzteilen über personalisierte Geschenke bis zu Funktionsprototypen - wir verwirklichen Ihre einzigartigen Projekte mit höchster Präzision."
+        serviceType="Service"
+        offers={{
+          price: "15.00",
+          priceCurrency: "EUR",
+          description: "Einzelanfertigungen ab €15, individuell kalkuliert nach Projekt"
+        }}
       />
       <StructuredData type="organization" />
       <StructuredData type="service" />
