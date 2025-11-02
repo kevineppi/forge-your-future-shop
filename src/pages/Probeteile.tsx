@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -443,8 +444,9 @@ const Probeteile = () => {
           </Card>
         </main>
 
+        <AIChatWidget />
         <Footer />
       </div>
     </>;
-};
+  };
 export default Probeteile;

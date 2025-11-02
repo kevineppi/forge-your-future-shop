@@ -5,6 +5,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import Contact from "@/components/Contact";
+import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle, Zap, Shield, Leaf, TrendingUp, Factory, Building2, Palette, FlaskConical } from "lucide-react";
 import {
@@ -932,6 +933,7 @@ const Linz3DDruck = () => {
         {/* Contact Form Section */}
         <Contact />
 
+        <AIChatWidget />
         <Footer />
       </div>
     </>

@@ -6,6 +6,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import HowToSchema from "@/components/HowToSchema";
 import Contact from "@/components/Contact";
 import SocialShare from "@/components/SocialShare";
+import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -1109,6 +1110,7 @@ const RapidPrototyping = () => {
         />
       </main>
       
+      <AIChatWidget />
       <Footer />
     </>
   );

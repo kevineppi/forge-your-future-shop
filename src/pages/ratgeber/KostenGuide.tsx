@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import AIChatWidget from "@/components/AIChatWidget";
 const KostenGuide = () => {
   const costFactors = [{
     icon: Package,
@@ -296,8 +297,9 @@ const KostenGuide = () => {
           </div>
         </article>
 
+        <AIChatWidget />
         <Footer />
       </div>
     </>;
-};
+  };
 export default KostenGuide;

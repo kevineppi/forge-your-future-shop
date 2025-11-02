@@ -4,6 +4,7 @@ import CostCalculator from "@/components/CostCalculator";
 import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import AIChatWidget from "@/components/AIChatWidget";
 import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Check, TrendingDown, Clock, Award } from "lucide-react";
@@ -482,6 +483,7 @@ const Kostenrechner = () => {
           
           <Contact />
         </div>
+        <AIChatWidget />
         <Footer />
       </div>
     </>

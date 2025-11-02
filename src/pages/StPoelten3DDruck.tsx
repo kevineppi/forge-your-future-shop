@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import AIChatWidget from "@/components/AIChatWidget";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
@@ -233,6 +234,7 @@ const StPoelten3DDruck = () => {
           </div>
         </section>
 
+        <AIChatWidget />
         <Footer />
       </div>
     </>

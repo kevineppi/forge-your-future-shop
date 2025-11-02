@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import AIChatWidget from "@/components/AIChatWidget";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
@@ -178,6 +179,7 @@ const Gunskirchen3DDruck = () => {
           </div>
         </section>
 
+        <AIChatWidget />
         <Footer />
       </div>
     </>

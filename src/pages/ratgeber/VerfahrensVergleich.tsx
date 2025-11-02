@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import AIChatWidget from "@/components/AIChatWidget";
 const VerfahrensVergleich = () => {
   const comparisonData = [{
     aspect: "Schichthöhe / Auflösung",
@@ -379,8 +380,9 @@ const VerfahrensVergleich = () => {
           </div>
         </article>
 
+        <AIChatWidget />
         <Footer />
       </div>
     </>;
-};
+  };
 export default VerfahrensVergleich;

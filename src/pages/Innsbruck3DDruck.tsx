@@ -4,6 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
+import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
 
@@ -272,6 +273,7 @@ const Innsbruck3DDruck = () => {
           </div>
         </section>
 
+        <AIChatWidget />
         <Footer />
       </div>
     </>

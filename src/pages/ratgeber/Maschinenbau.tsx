@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import AnimatedSection from "@/components/AnimatedSection";
+import AIChatWidget from "@/components/AIChatWidget";
 
 const Maschinenbau = () => {
   const applications = [
@@ -365,6 +366,7 @@ const Maschinenbau = () => {
           </div>
         </AnimatedSection>
 
+        <AIChatWidget />
         <Footer />
       </div>
     </>

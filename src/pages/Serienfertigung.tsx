@@ -4,6 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Contact from "@/components/Contact";
+import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -495,6 +496,7 @@ const Serienfertigung = () => {
         <Contact />
       </main>
 
+      <AIChatWidget />
       <Footer />
     </>
   );
