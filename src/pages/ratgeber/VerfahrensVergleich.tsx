@@ -99,7 +99,7 @@ const VerfahrensVergleich = () => {
 
             {/* Introduction */}
             <section className="prose prose-lg max-w-none mb-12">
-              <h2 className="text-3xl font-bold mb-6 text-foreground">Die drei wichtigsten 3D-Druckverfahren im Überblick</h2>
+              <p className="text-3xl font-bold mb-6 text-foreground">Die drei wichtigsten 3D-Druckverfahren im Überblick</p>
               <p className="text-muted-foreground mb-4">
                 Additive Fertigung, allgemein als 3D-Druck bekannt, beschreibt Verfahren, bei denen dreidimensionale Objekte durch schichtweises Auftragen von Material erstellt werden. Im Gegensatz zu subtraktiven Fertigungsverfahren wie Fräsen oder Drehen wird Material gezielt hinzugefügt statt abgetragen, was Materialverschwendung reduziert und komplexe Geometrien ermöglicht.
               </p>

@@ -56,13 +56,13 @@ const Dornbirn3DDruck = () => {
 
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-12">
+            <p className="text-4xl font-bold text-center mb-12">
               Unsere <span className="text-gradient">Services in Dornbirn</span>
-            </h2>
+            </p>
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="gradient-card p-6 rounded-xl">
                 <Box className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">FDM 3D-Druck</h3>
+                <p className="text-xl font-bold mb-3">FDM 3D-Druck</p>
                 <p className="text-muted-foreground mb-4">
                   Professioneller FDM 3D-Druck für Prototypen und Fertigung in Dornbirn.
                 </p>
@@ -71,7 +71,7 @@ const Dornbirn3DDruck = () => {
               
               <div className="gradient-card p-6 rounded-xl">
                 <Clock className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Express Service</h3>
+                <p className="text-xl font-bold mb-3">Express Service</p>
                 <p className="text-muted-foreground mb-4">
                   24-48h Lieferung nach Dornbirn und Vorarlberg.
                 </p>
@@ -80,7 +80,7 @@ const Dornbirn3DDruck = () => {
               
               <div className="gradient-card p-6 rounded-xl">
                 <CheckCircle className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Premium Qualität</h3>
+                <p className="text-xl font-bold mb-3">Premium Qualität</p>
                 <p className="text-muted-foreground mb-4">
                   Hochwertige Filamente aus österreichischer Produktion.
                 </p>

@@ -51,9 +51,9 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <p className="text-4xl md:text-5xl font-bold mb-4">
                 Professioneller <span className="text-gradient">FDM 3D-Druck</span> aus Oberösterreich
-              </h2>
+              </p>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Modernste Technologie trifft auf österreichische Qualität – Ihr 3D-Druck Partner für Innovation und Nachhaltigkeit
               </p>
@@ -62,14 +62,14 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               {/* Technologie Sektion */}
               <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+                 <div className="flex items-center gap-3 mb-6">
+                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                     <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                     </svg>
+                   </div>
+                    <p className="text-2xl md:text-3xl font-bold">Modernste FDM 3D-Druck Technologie</p>
                   </div>
-                   <h3 className="text-2xl md:text-3xl font-bold">Modernste FDM 3D-Druck Technologie</h3>
-                 </div>
                  <p className="text-muted-foreground mb-4 leading-relaxed">
                    Als Dienstleister aus Oberösterreich setzen wir auf modernste{" "}
                    <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM (Fused Deposition Modeling)</a> Technologie.
@@ -91,14 +91,14 @@ const Index = () => {
               
               {/* Prozess Sektion */}
               <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+                 <div className="flex items-center gap-3 mb-6">
+                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                     <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                     </svg>
+                   </div>
+                    <p className="text-2xl md:text-3xl font-bold">Unser Produktionsprozess</p>
                   </div>
-                   <h3 className="text-2xl md:text-3xl font-bold">Unser Produktionsprozess</h3>
-                 </div>
                  <div className="space-y-6">
                    <div className="flex gap-4">
                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">1</div>
@@ -169,11 +169,11 @@ const Index = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                </div>
-                 <h3 className="text-3xl md:text-4xl font-bold">
-                   Häufig gestellte <span className="text-gradient">Fragen</span>
-                 </h3>
-              </div>
+                 </div>
+                  <p className="text-3xl md:text-4xl font-bold">
+                    Häufig gestellte <span className="text-gradient">Fragen</span>
+                  </p>
+               </div>
               <div className="max-w-4xl mx-auto">
                 <Accordion type="single" collapsible className="space-y-4">
                   <AccordionItem value="item-1" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">

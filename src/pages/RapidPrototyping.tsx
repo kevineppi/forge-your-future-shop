@@ -211,7 +211,7 @@ const RapidPrototyping = () => {
         <section className="py-12 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto bg-gradient-card p-8 rounded-2xl">
-              <h2 className="text-2xl font-bold mb-6 text-center">Inhaltsverzeichnis</h2>
+              <p className="text-2xl font-bold mb-6 text-center">Inhaltsverzeichnis</p>
               <div className="grid md:grid-cols-2 gap-4">
                 <a href="#was-ist" className="text-primary hover:underline flex items-center gap-2">
                   <ArrowRight className="h-4 w-4" /> Was ist Rapid Prototyping?

@@ -106,7 +106,7 @@ const MaterialGuide = () => {
 
             {/* Introduction */}
             <section className="prose prose-lg max-w-none mb-12">
-              <h2 className="text-3xl font-bold mb-6 text-foreground">Thermoplastische Kunststoffe im FDM-Druck</h2>
+              <p className="text-3xl font-bold mb-6 text-foreground">Thermoplastische Kunststoffe im FDM-Druck</p>
               <p className="text-muted-foreground mb-4">
                 FDM-3D-Druck verwendet thermoplastische Polymere, die sich bei Erwärmung verformen lassen und beim Abkühlen ihre Form behalten. Die drei am häufigsten verwendeten Materialien – PLA (Polylactid), PETG (Polyethylenterephthalat-Glycol) und ASA (Acrylnitril-Styrol-Acrylat) – unterscheiden sich fundamental in ihrer chemischen Struktur und damit in ihren physikalischen Eigenschaften.
               </p>

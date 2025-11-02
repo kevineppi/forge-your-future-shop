@@ -8,11 +8,8 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
-            3D-Druck Service Österreich
+            Nachhaltiger FDM <span className="text-primary">3D-Druck Service</span> aus Österreich
           </h1>
-          <h2 className="text-2xl md:text-3xl text-primary font-extrabold mb-4">
-            Nachhaltiger FDM 3D-Druck Service
-          </h2>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Professioneller <a href="/fdm-3d-druck" className="text-primary font-semibold hover:underline">FDM 3D-Druck</a> aus Oberösterreich mit 100% österreichischem Filament. 
