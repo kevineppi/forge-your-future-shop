@@ -112,37 +112,31 @@ const AIChatWidget = () => {
   const handleQuickQuestion = (type: string) => {
     let userMessage = '';
     let assistantMessage = '';
-    let recommendations = undefined;
+    let actions: Array<{label: string; url: string; icon: 'calculator' | 'contact' | 'material' | 'external'}> = [];
 
     switch (type) {
       case 'material':
         userMessage = 'Welches Material empfehlt ihr für mein Projekt?';
-        assistantMessage = 'Die Material-Wahl hängt von Ihrer Anwendung ab:\n\n**PLA:**\n✅ Einfach zu drucken\n✅ Günstig\n✅ Gut für Prototypen & Modelle\n❌ Nicht hitzebeständig\n\n**PETG:**\n✅ Robust & flexibel\n✅ Chemikalienbeständig\n✅ Gut für funktionale Teile\n\n**ASA:**\n✅ UV-beständig\n✅ Witterungsbeständig\n✅ Perfekt für Outdoor\n\n**TPU:**\n✅ Flexibel & elastisch\n✅ Stoßdämpfend\n✅ Für Dichtungen & Griffe\n\nWofür möchten Sie das Teil verwenden?';
-        recommendations = {
-          material: 'Abhängig von Anwendung',
-          estimatedCost: '€20-80',
-          deliveryTime: '3-5 Werktage',
-          priority: 'standard'
-        };
+        assistantMessage = 'Die Material-Wahl hängt von Ihrer Anwendung ab:\n\n**PLA:** Günstig, einfach zu drucken, ideal für Prototypen (nicht hitzebeständig)\n**PETG:** Robust, chemikalienbeständig, für funktionale Teile\n**ASA:** UV-beständig, witterungsbeständig, perfekt für Outdoor\n**TPU:** Flexibel, elastisch, für Dichtungen & Griffe\n\nWofür möchten Sie das Teil verwenden?';
+        actions = [
+          { label: 'Material-Guide ansehen', url: '/ratgeber/material-guide', icon: 'material' },
+          { label: 'Beratung anfragen', url: '/#contact', icon: 'contact' }
+        ];
         break;
       case 'time':
         userMessage = 'Wie lange dauert die Fertigung?';
-        assistantMessage = 'Die Produktionszeit hängt von Größe & Komplexität ab:\n\n**Kleine Teile (<5cm):**\n⏱️ 2-4 Stunden Druck\n📦 Lieferung in 2-3 Werktagen\n\n**Mittlere Teile (5-15cm):**\n⏱️ 6-16 Stunden Druck\n📦 Lieferung in 3-5 Werktagen\n\n**Große Teile (>15cm):**\n⏱️ 16-48 Stunden Druck\n📦 Lieferung in 5-7 Werktagen\n\n**Express-Service:**\n⚡ Lieferung in 24-48 Stunden\n💰 Aufpreis +40-60%\n\nBenötigen Sie Express-Fertigung?';
-        recommendations = {
-          deliveryTime: '3-5 Werktage (Standard)',
-          estimatedCost: '€25-60',
-          priority: 'standard'
-        };
+        assistantMessage = 'Die Produktionszeit hängt von Größe & Komplexität ab:\n\n**Kleine Teile (<5cm):** 2-4h Druck, 2-3 Werktage Lieferung\n**Mittlere Teile (5-15cm):** 6-16h Druck, 3-5 Werktage Lieferung\n**Große Teile (>15cm):** 16-48h Druck, 5-7 Werktage Lieferung\n\n**Express-Service:** 24-48h Lieferung (+40-60% Aufpreis)\n\nBenötigen Sie Express-Fertigung?';
+        actions = [
+          { label: 'Angebot anfordern', url: '/#contact', icon: 'contact' }
+        ];
         break;
       case 'cost':
         userMessage = 'Was kostet ungefähr mein 3D-Druck Projekt?';
-        assistantMessage = 'Die Kosten hängen von mehreren Faktoren ab:\n\n**Einflussfaktoren:**\n📏 Größe des Teils\n⚙️ Komplexität & Details\n🧱 Material-Wahl\n⏱️ Produktionszeit\n⚡ Standard vs. Express\n\n**Beispiel-Kalkulation:**\n**10x10x5cm in PETG:**\n• Material: ~€8-12\n• Produktion: ~€20-30\n• Setup & QC: ~€8-10\n**Gesamt: €40-55**\n\n**Express (+40%):** €55-75\n\nNutzen Sie unseren [Kostenrechner](/kostenrechner) für eine genaue Schätzung oder senden Sie uns Ihr Modell für ein Angebot!';
-        recommendations = {
-          material: 'Abhängig vom Projekt',
-          estimatedCost: '€30-80',
-          deliveryTime: '3-5 Werktage',
-          priority: 'standard'
-        };
+        assistantMessage = 'Die Kosten hängen von mehreren Faktoren ab:\n\n**Beispiel 10×10×5cm in PETG:**\nMaterial: ~€8-12 | Produktion: ~€20-30 | Setup: ~€8-10\n**Gesamt: €40-55** (Standard) | €55-75 (Express)\n\n**Einflussfaktoren:**\n📏 Größe | ⚙️ Komplexität | 🧱 Material | ⚡ Express';
+        actions = [
+          { label: 'Kostenrechner nutzen', url: '/kostenrechner', icon: 'calculator' },
+          { label: 'Individuelles Angebot', url: '/#contact', icon: 'contact' }
+        ];
         break;
     }
 
@@ -153,7 +147,7 @@ const AIChatWidget = () => {
         role: 'assistant', 
         content: assistantMessage, 
         timestamp: new Date(),
-        recommendations 
+        actions
       }
     ]);
   };
