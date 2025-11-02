@@ -11,3 +11,6 @@ verify_jwt = false
 
 [functions.rag-chat]
 verify_jwt = false
+
+[functions.seed-knowledge-base]
+verify_jwt = false
