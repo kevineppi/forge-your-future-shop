@@ -212,25 +212,27 @@ const knowledgeEntries = [
   }
 ];
 
-async function generateEmbedding(text: string, lovableApiKey: string): Promise<number[]> {
-  const response = await fetch('https://ai.gateway.lovable.dev/v1/embeddings', {
+async function generateEmbedding(text: string, supabaseUrl: string, supabaseKey: string): Promise<number[]> {
+  // Use the existing generate-embedding edge function
+  const response = await fetch(`${supabaseUrl}/functions/v1/generate-embedding`, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${lovableApiKey}`,
+      'Authorization': `Bearer ${supabaseKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      input: text,
-      model: 'text-embedding-3-small',
+      text: text,
     }),
   });
 
   if (!response.ok) {
-    throw new Error(`Embedding API error: ${response.status}`);
+    const errorText = await response.text();
+    console.error('Generate embedding function error:', response.status, errorText);
+    throw new Error(`Generate embedding function error: ${response.status}`);
   }
 
   const data = await response.json();
-  return data.data[0].embedding;
+  return data.embedding;
 }
 
 serve(async (req) => {
@@ -239,11 +241,10 @@ serve(async (req) => {
   }
 
   try {
-    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     const SUPABASE_URL = Deno.env.get('SUPABASE_URL');
     const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
 
-    if (!LOVABLE_API_KEY || !SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
+    if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
       return new Response(
         JSON.stringify({ error: 'Missing required environment variables' }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -266,7 +267,7 @@ serve(async (req) => {
         
         // Generate embedding
         const embeddingText = `${entry.title}\n\n${entry.content}`;
-        const embedding = await generateEmbedding(embeddingText, LOVABLE_API_KEY);
+        const embedding = await generateEmbedding(embeddingText, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
         // Insert into database
         const { error } = await supabase
