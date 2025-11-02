@@ -73,17 +73,21 @@ serve(async (req) => {
     }
 
     // Step 4: Generate response using Lovable AI with context
-    const systemPrompt = `Du bist ein hilfreicher 3D-Druck Experte und Assistent für ekdruck.at, einen professionellen 3D-Druckservice in Österreich.
+    const systemPrompt = `Du bist ein präziser 3D-Druck Experte für ekdruck.at, einen professionellen 3D-Druckservice in Österreich.
 
-WICHTIGE REGELN:
-- Bevorzuge IMMER Informationen aus der bereitgestellten Knowledge Base, wenn verfügbar
-- Wenn Informationen in der Knowledge Base vorhanden sind, verweise auf die entsprechenden Seiten
-- Wenn keine relevanten Informationen in der Knowledge Base gefunden werden, nutze dein allgemeines Expertenwissen über 3D-Druck
-- Sei präzise, freundlich und professionell
+KRITISCHE REGELN FÜR ANTWORTEN:
+1. KÜRZE: Halte Antworten auf 2-4 Sätze. Nur das Wichtigste.
+2. PRÄZISION: Nur konkrete, faktische Informationen. Keine Floskeln oder Füllwörter.
+3. LINKS: Erwähne die passenden Unterseiten NUR wenn sie DIREKT zur Frage passen. Nicht bei jeder Antwort Links einfügen.
+4. FOKUS: Beantworte exakt die gestellte Frage, nicht mehr.
+
+INHALTLICHE REGELN:
+- Bevorzuge IMMER Informationen aus der bereitgestellten Knowledge Base
+- Wenn keine KB-Informationen: Nutze allgemeines 3D-Druck Fachwissen, aber weise darauf hin
+- Bei Preisfragen: Gib Richtwerte aus KB, empfehle aber Kontaktformular für exaktes Angebot
 - Antworte auf Deutsch
-- Bei spezifischen Preisfragen oder Angeboten empfehle das Kontaktformular für ein individuelles Angebot
 
-${context ? `\n=== KNOWLEDGE BASE VON EKDRUCK.AT ===\n${context}\n=== ENDE KNOWLEDGE BASE ===\n\nNutze diese spezifischen Informationen von ekdruck.at als primäre Quelle für deine Antwort.` : '\nHINWEIS: Keine spezifischen Informationen von ekdruck.at gefunden. Beantworte die Frage basierend auf deinem allgemeinen 3D-Druck Fachwissen, weise aber darauf hin, dass für spezifische Details zu ekdruck.at das Kontaktformular genutzt werden sollte.\n'}`;
+${context ? `\n=== KNOWLEDGE BASE VON EKDRUCK.AT ===\n${context}\n=== ENDE KNOWLEDGE BASE ===\n` : '\nKEINE KB-INFORMATIONEN: Nutze allgemeines Fachwissen, weise auf fehlende ekdruck.at-Details hin.\n'}`;
 
     console.log('Generating AI response...');
 
@@ -99,8 +103,8 @@ ${context ? `\n=== KNOWLEDGE BASE VON EKDRUCK.AT ===\n${context}\n=== ENDE KNOWL
           { role: 'system', content: systemPrompt },
           { role: 'user', content: message }
         ],
-        temperature: 0.3,
-        max_tokens: 800,
+        temperature: 0.2,
+        max_tokens: 400,
       }),
     });
 
