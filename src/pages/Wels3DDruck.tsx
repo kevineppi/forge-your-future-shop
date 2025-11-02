@@ -13,7 +13,7 @@ const Wels3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Wels: Nur 15km entfernt - Abholung heute möglich! | ekdruck"
+        title="3D-Druck Wels: Nur 15km - Abholung heute | ekdruck"
         description="Express für Wels! Nur 15km von Gunskirchen – Same-Day Abholung möglich. Industriestadt-Service für technische Bauteile & Prototypen!"
         keywords="3d-druck wels, 3d drucker wels, fdm druck wels, rapid prototyping wels, 3d-druck service wels, prototypen wels"
         path="/3d-druck-wels"

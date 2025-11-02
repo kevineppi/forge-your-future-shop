@@ -21,7 +21,7 @@ const Linz3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Linz: Same-Day Abholung möglich | Nur 30km entfernt | ekdruck"
+        title="3D-Druck Linz: Same-Day Abholung | ekdruck"
         description="Same-Day Service für Linz! Nur 30km von Gunskirchen, Abholung möglich, Express in 24h. Regional aus Oberösterreich – jetzt anfragen!"
         keywords="3d-druck linz, 3d drucker linz, fdm druck linz, rapid prototyping linz, 3d-druck oberösterreich, prototypen linz"
         path="/3d-druck-linz"

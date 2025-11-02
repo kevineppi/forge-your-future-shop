@@ -13,7 +13,7 @@ const Graz3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Graz & Steiermark | Technische Bauteile vom Experten | ekdruck"
+        title="3D-Druck Graz & Steiermark | Experten | ekdruck"
         description="Hochpräziser FDM 3D-Druck für Grazer Industrie & Forschung. Technische Prototypen, Funktionsteile, Engineering-Support. Kostenlose Beratung in Graz!"
         keywords="3d-druck graz, 3d drucker graz, fdm druck graz, rapid prototyping graz, 3d-druck steiermark, prototypen graz"
         path="/3d-druck-graz"

@@ -51,7 +51,7 @@ const VerfahrensVergleich = () => {
   const slsAdvantages = ["Keine Stützstrukturen erforderlich", "Hohe mechanische Festigkeit", "Exzellente Oberflächenqualität", "Geeignet für Endprodukte und Kleinserien"];
   const slsDisadvantages = ["Sehr hohe Anschaffungskosten", "Höherer Energieverbrauch", "Begrenzte Materialauswahl", "Pulverentsorgung und -handhabung komplex"];
   return <>
-      <SEOHead title="FDM vs. SLA vs. SLS: 3D-Druckverfahren im Vergleich 2025 | ekdruck" description="Wissenschaftlicher Vergleich der 3D-Druckverfahren FDM, SLA & SLS: Genauigkeit, Kosten, Anwendungen. Fundierte Entscheidungshilfe vom Experten." keywords="fdm vs sla vs sls, 3d-druckverfahren vergleich, fdm 3d-druck, stereolithographie, selektives lasersintern, additive fertigung" path="/ratgeber/verfahrens-vergleich" schemaType="article" />
+      <SEOHead title="FDM vs. SLA vs. SLS Vergleich 2025 | ekdruck" description="Wissenschaftlicher Vergleich der 3D-Druckverfahren FDM, SLA & SLS: Genauigkeit, Kosten, Anwendungen. Fundierte Entscheidungshilfe vom Experten." keywords="fdm vs sla vs sls, 3d-druckverfahren vergleich, fdm 3d-druck, stereolithographie, selektives lasersintern, additive fertigung" path="/ratgeber/verfahrens-vergleich" schemaType="article" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

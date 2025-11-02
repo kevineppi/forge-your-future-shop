@@ -14,7 +14,7 @@ const Salzburg3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Salzburg: Kulturstadt trifft Innovation | Nachhaltig | ekdruck"
+        title="3D-Druck Salzburg: Nachhaltig & innovativ | ekdruck"
         description="Nachhaltiger FDM 3D-Druck für Salzburg & Umgebung. 100% österreichisches Material, CO2-neutral, innovative Lösungen. Beratung & Lieferung inklusive!"
         keywords="3d-druck salzburg, 3d drucker salzburg, fdm druck salzburg, rapid prototyping salzburg, 3d-druck service salzburg, prototypen salzburg"
         path="/3d-druck-salzburg"

@@ -17,7 +17,7 @@ const Niederoesterreich3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Niederösterreich | FDM 3D-Druck Service | ekdruck e.U."
+        title="3D-Druck Niederösterreich | FDM Service | ekdruck"
         description="FDM 3D-Druck Service für St. Pölten, Wiener Neustadt & ganz NÖ. Rapid Prototyping, Express-Service, nachhaltige Materialien aus AT. Jetzt anfragen!"
         keywords="3d-druck niederösterreich, 3d druck st pölten, fdm 3d-druck niederösterreich, rapid prototyping niederösterreich"
         path="/3d-druck-niederoesterreich"

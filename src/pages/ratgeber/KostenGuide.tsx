@@ -56,7 +56,7 @@ const KostenGuide = () => {
   }];
   const savingTips = ["Optimieren Sie Ihr 3D-Modell: Reduzieren Sie unnötige Wandstärken und Vollmaterial", "Wählen Sie die richtige Auflösung: Nicht jedes Teil benötigt 0.1mm Schichthöhe", "Mehrere Teile kombinieren: Bestellen Sie mehrere Teile gleichzeitig für bessere Konditionen", "Standardmaterialien nutzen: PLA und PETG sind günstiger als Spezialmaterialien", "Auf Express verzichten: Standardlieferzeit spart 30% gegenüber 24h-Service", "Eigenfinish: Nachbearbeitung selbst übernehmen kann 30-50€ sparen"];
   return <>
-      <SEOHead title="3D-Druck Kosten Österreich 2025 | Preise & Kalkulation | ekdruck" description="Was kostet 3D-Druck in Österreich? Detaillierter Kosten-Guide 2025 mit Preisbeispielen, Kostenfaktoren & Spartipps. Kostenloser Rechner inklusive!" keywords="3d-druck kosten österreich, 3d-druck preise, fdm 3d-druck kosten, rapid prototyping kosten, 3d-druck kalkulation, was kostet 3d-druck, 3d-druck preisrechner" path="/ratgeber/kosten-guide" schemaType="article" />
+      <SEOHead title="3D-Druck Kosten & Preise 2025 AT | ekdruck" description="Was kostet 3D-Druck in Österreich? Detaillierter Kosten-Guide 2025 mit Preisbeispielen, Kostenfaktoren & Spartipps. Kostenloser Rechner inklusive!" keywords="3d-druck kosten österreich, 3d-druck preise, fdm 3d-druck kosten, rapid prototyping kosten, 3d-druck kalkulation, was kostet 3d-druck, 3d-druck preisrechner" path="/ratgeber/kosten-guide" schemaType="article" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"
