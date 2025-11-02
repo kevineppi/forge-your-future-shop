@@ -91,6 +91,11 @@ const Services = () => {
             Individuelles Angebot anfordern
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
+          
+          {/* KI Chat Hinweis */}
+          <p className="text-sm text-muted-foreground mt-4">
+            oder nutzen Sie unseren <span className="font-semibold text-foreground">🤖 KI-Berater</span> für schnelle Antworten
+          </p>
         </div>
       </div>
     </section>;

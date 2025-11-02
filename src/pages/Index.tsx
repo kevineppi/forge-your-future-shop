@@ -266,6 +266,15 @@ const Index = () => {
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
+                
+                {/* KI Chat Hinweis */}
+                <div className="mt-8 p-6 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 rounded-xl border border-primary/10 text-center">
+                  <p className="text-sm text-muted-foreground">
+                    <span className="font-semibold text-foreground">Noch Fragen? 🤖 Unser KI-Berater antwortet sofort!</span>
+                    <br />
+                    <span className="text-xs">→ Roboter-Button unten rechts anklicken</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>

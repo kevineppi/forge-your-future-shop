@@ -63,6 +63,13 @@ const Hero = () => {
                 <div className="text-muted-foreground">Persönliche Beratung</div>
               </div>
             </div>
+            
+            {/* KI Chat Hinweis */}
+            <div className="mt-12 text-center">
+              <p className="text-sm text-muted-foreground">
+                💬 <span className="font-semibold text-foreground">Fragen? Unser KI-Chat hilft sofort!</span> → Klick auf den Roboter unten rechts
+              </p>
+            </div>
           </div>
         </div>
 
