@@ -65,27 +65,27 @@ const Graz3DDruck = () => {
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="gradient-card p-6 rounded-xl">
                 <Box className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">FDM 3D-Druck</h3>
+                <h3 className="text-xl font-bold mb-3">Industrieller 3D-Druck</h3>
                 <p className="text-muted-foreground mb-4">
-                  Professioneller FDM 3D-Druck für Prototypen, Einzelteile und Kleinserien in Graz.
+                  Technische Bauteile für Grazer Automotive, Maschinenbau und Zulieferindustrie mit Industrie-Toleranzen.
                 </p>
                 <a href="/fdm-3d-druck" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
               
               <div className="gradient-card p-6 rounded-xl">
                 <Clock className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Express Service 24h</h3>
+                <h3 className="text-xl font-bold mb-3">Gleichtags-Service</h3>
                 <p className="text-muted-foreground mb-4">
-                  Benötigen Sie Ihr Teil schnell? Unser <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">24h Express-Service</a> liefert innerhalb kürzester Zeit in ganz Graz.
+                  Produktionsnahe <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Manufacturing</a> für Ihre Grazer Werkstatt oder Labor - noch heute verfügbar.
                 </p>
                 <a href="/rapid-prototyping" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
               
               <div className="gradient-card p-6 rounded-xl">
                 <CheckCircle className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Nachhaltige Materialien</h3>
+                <h3 className="text-xl font-bold mb-3">Engineering-Support</h3>
                 <p className="text-muted-foreground mb-4">
-                  Wir verwenden ausschließlich hochwertige Filamente aus österreichischer Produktion.
+                  Technische Beratung von Ingenieuren für Ingenieure - CAD-Optimierung und DfAM-Prinzipien inklusive.
                 </p>
                 <a href="/3d-druck-materialien" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
@@ -104,32 +104,32 @@ const Graz3DDruck = () => {
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Schnelle Lieferung nach Graz</h3>
-                    <p className="text-muted-foreground">Express-Versand innerhalb von 24h direkt zu Ihnen nach Graz</p>
+                    <h3 className="font-bold mb-2">Automotive-Spezialist</h3>
+                    <p className="text-muted-foreground">Erfahrung mit Magna, AVL und weiteren Grazer Automotive-Größen</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Lokaler österreichischer Anbieter</h3>
-                    <p className="text-muted-foreground">Keine langen Lieferwege aus dem Ausland - direkt aus Oberösterreich</p>
+                    <h3 className="font-bold mb-2">Hochschul-Kooperationen</h3>
+                    <p className="text-muted-foreground">Bevorzugter Partner für TU Graz, Med-Uni und FH Joanneum Projekte</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Persönliche Beratung auf Deutsch</h3>
-                    <p className="text-muted-foreground">Kompetente Unterstützung bei der Material- und Verfahrenswahl</p>
+                    <h3 className="font-bold mb-2">Technische Dokumentation</h3>
+                    <p className="text-muted-foreground">Vollständige Prüfprotokolle und Materialdatenblätter für Ihre Zertifizierung</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Faire Preise & transparente Kosten</h3>
-                    <p className="text-muted-foreground">Nutzen Sie unseren Kostenrechner für eine sofortige Preisschätzung</p>
+                    <h3 className="font-bold mb-2">Projektbasierte Preise</h3>
+                    <p className="text-muted-foreground">Spezielle Konditionen für Serienentwicklung und Iterationen in Graz</p>
                   </div>
                 </div>
               </div>
@@ -146,20 +146,20 @@ const Graz3DDruck = () => {
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🏭 Industrie & Maschinenbau</h3>
-                  <p className="text-muted-foreground">Funktionale Prototypen, Ersatzteile, Vorrichtungen und Betriebsmittel für Grazer Industrieunternehmen</p>
+                  <h3 className="font-bold text-lg mb-3">🚗 Automotive Entwicklung</h3>
+                  <p className="text-muted-foreground">Test-Bauteile, Crash-Dummies und Prototypen-Komponenten für Grazer Fahrzeugindustrie</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🏗️ Architektur & Bau</h3>
-                  <p className="text-muted-foreground">Architekturmodelle, Designstudien und Präsentationsmodelle für Grazer Architekten und Planer</p>
+                  <h3 className="font-bold text-lg mb-3">⚙️ Maschinenbau & Fertigung</h3>
+                  <p className="text-muted-foreground">Betriebsmittel, Spannvorrichtungen und Produktionshilfen für steirische Produktionsstätten</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🎨 Design & Kunst</h3>
-                  <p className="text-muted-foreground">Kunstobjekte, Designprototypen und individuelle Einzelstücke für Grazer Kreativschaffende</p>
+                  <h3 className="font-bold text-lg mb-3">🔬 Medizintechnik</h3>
+                  <p className="text-muted-foreground">Chirurgische Planungsmodelle und Implantate-Prototypen für Med-Uni Graz</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🔬 Forschung & Entwicklung</h3>
-                  <p className="text-muted-foreground">Rapid Prototyping für Universitäten, Forschungseinrichtungen und Start-ups in Graz</p>
+                  <h3 className="font-bold text-lg mb-3">🏗️ Infrastruktur & Bau</h3>
+                  <p className="text-muted-foreground">Ingenieurbauwerke, Brückenmodelle und technische Visualisierungen für Grazer Planungsbüros</p>
                 </div>
               </div>
             </div>
@@ -175,24 +175,24 @@ const Graz3DDruck = () => {
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
-                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen und Designmodelle</p>
-                  <p className="text-sm text-primary">Ab sofort verfügbar in Graz</p>
+                  <h3 className="font-bold text-lg mb-3">PLA Engineering-Grade</h3>
+                  <p className="text-muted-foreground mb-2">Toughened PLA für technische Anwendungen, bessere Schlagzähigkeit als Standard</p>
+                  <p className="text-sm text-primary">Automotive-geeignet</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
-                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
-                  <p className="text-sm text-primary">Express-Service verfügbar</p>
+                  <h3 className="font-bold text-lg mb-3">PETG Transparent</h3>
+                  <p className="text-muted-foreground mb-2">Kristallklar für Sichtfenster, FDA-konform für Lebensmittelkontakt</p>
+                  <p className="text-sm text-primary">Med-Tech ready</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
-                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
-                  <p className="text-sm text-primary">Industriequalität</p>
+                  <h3 className="font-bold text-lg mb-3">ABS-Plus</h3>
+                  <p className="text-muted-foreground mb-2">Verbessertes ABS mit minimaler Verzugs-Neigung für große Bauteile</p>
+                  <p className="text-sm text-primary">Produktions-tauglich</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PA12 Nylon - Premium</h3>
-                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel, für anspruchsvolle Anwendungen</p>
-                  <p className="text-sm text-primary">Auf Anfrage</p>
+                  <h3 className="font-bold text-lg mb-3">PA12-GF30</h3>
+                  <p className="text-muted-foreground mb-2">Glasfaser-verstärkt für maximale Steifigkeit und Hitzebeständigkeit</p>
+                  <p className="text-sm text-primary">Industrie-Standard</p>
                 </div>
               </div>
             </div>
@@ -249,20 +249,20 @@ const Graz3DDruck = () => {
               </h2>
               <div className="space-y-6">
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie schnell kann ich mein 3D-Druck-Teil in Graz erhalten?</h3>
-                  <p className="text-muted-foreground">Mit unserem Express-Service liefern wir innerhalb von 24 Stunden nach Graz. Standard-Lieferungen dauern 2-3 Werktage.</p>
+                  <h3 className="font-bold text-lg mb-3">Arbeiten Sie mit Grazer Automotive-Firmen?</h3>
+                  <p className="text-muted-foreground">Ja! Wir haben Erfahrung mit technischen Anforderungen der Automotive-Branche und liefern mit Dokumentation nach Industriestandards.</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h3>
-                  <p className="text-muted-foreground">Wir akzeptieren STL, OBJ, STEP und viele weitere gängige CAD-Formate. Bei Fragen zu Ihrem Format kontaktieren Sie uns gerne.</p>
+                  <h3 className="font-bold text-lg mb-3">Welche mechanischen Kennwerte erreichen Sie?</h3>
+                  <p className="text-muted-foreground">Abhängig vom Material: PLA bis 50 MPa Zugfestigkeit, PETG bis 53 MPa, PA12-GF bis 95 MPa. Datenblätter auf Anfrage.</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie werden die Kosten für 3D-Druck in Graz berechnet?</h3>
-                  <p className="text-muted-foreground">Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung.</p>
+                  <h3 className="font-bold text-lg mb-3">Können Sie Funktionsprototypen für Crashtests liefern?</h3>
+                  <p className="text-muted-foreground">Ja, wir fertigen Prototypen für nicht-destruktive Tests. Für Crashtests empfehlen wir unsere hochfesten PA-Materialien mit definiertem Bruchverhalten.</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Bieten Sie auch Nachbearbeitung an?</h3>
-                  <p className="text-muted-foreground">Ja, wir bieten Schleifen, Lackieren und weitere Finishing-Optionen für Ihre 3D-gedruckten Teile in Graz an.</p>
+                  <h3 className="font-bold text-lg mb-3">Bieten Sie Reverse Engineering in Graz?</h3>
+                  <p className="text-muted-foreground">Partnerservice: Wir arbeiten mit 3D-Scan-Dienstleistern zusammen und können von Scan zu Druck den kompletten Workflow anbieten.</p>
                 </div>
               </div>
             </div>

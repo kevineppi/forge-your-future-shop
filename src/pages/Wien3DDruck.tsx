@@ -119,27 +119,27 @@ const Wien3DDruck = () => {
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="gradient-card p-6 rounded-xl">
                 <Box className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">FDM 3D-Druck</h3>
+                <h3 className="text-xl font-bold mb-3">Präzisions-Prototyping</h3>
                 <p className="text-muted-foreground mb-4">
-                  Professioneller FDM 3D-Druck für Prototypen, Einzelteile und Kleinserien in Wien.
+                  Hochauflösende 3D-Drucke für Wiener Start-ups, Forschung und Produktentwicklung mit bis zu 0,1mm Schichtauflösung.
                 </p>
-                <a href="/fdm-3d-druck" className="text-primary hover:underline">Mehr erfahren →</a>
+                <a href="/prototypen" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
               
               <div className="gradient-card p-6 rounded-xl">
                 <Clock className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Express Service 24h</h3>
+                <h3 className="text-xl font-bold mb-3">Stadtlieferung 24h</h3>
                 <p className="text-muted-foreground mb-4">
-                  Benötigen Sie Ihr Teil schnell? Unser <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">24h Express-Service</a> liefert innerhalb kürzester Zeit in ganz Wien.
+                  Eilig? Wir liefern Ihre <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Bauteile innerhalb eines Tages</a> direkt in die Wiener Bezirke.
                 </p>
                 <a href="/rapid-prototyping" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
               
               <div className="gradient-card p-6 rounded-xl">
                 <CheckCircle className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Nachhaltige Materialien</h3>
+                <h3 className="text-xl font-bold mb-3">Premium-Filamente</h3>
                 <p className="text-muted-foreground mb-4">
-                  Wir verwenden ausschließlich hochwertige Filamente aus österreichischer Produktion.
+                  Österreichische Bio-Filamente und technische Hochleistungskunststoffe für anspruchsvolle Wiener Projekte.
                 </p>
                 <a href="/3d-druck-materialien" className="text-primary hover:underline">Mehr erfahren →</a>
               </div>
@@ -158,32 +158,32 @@ const Wien3DDruck = () => {
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Schnelle Lieferung nach Wien</h3>
-                    <p className="text-muted-foreground">Express-Versand innerhalb von 24h direkt zu Ihnen nach Wien</p>
+                    <h3 className="font-bold mb-2">Wiener Innovationshub</h3>
+                    <p className="text-muted-foreground">Perfekt angebunden für Wiener Universitäten, TU Wien und Innovation Labs</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Lokaler österreichischer Anbieter</h3>
-                    <p className="text-muted-foreground">Keine langen Lieferwege aus dem Ausland - direkt aus Oberösterreich</p>
+                    <h3 className="font-bold mb-2">Expressversand Innenstadt</h3>
+                    <p className="text-muted-foreground">24h-Lieferung in alle Wiener Bezirke – vom 1. bis zum 23. Bezirk</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Persönliche Beratung auf Deutsch</h3>
-                    <p className="text-muted-foreground">Kompetente Unterstützung bei der Material- und Verfahrenswahl</p>
+                    <h3 className="font-bold mb-2">Technische Expertise</h3>
+                    <p className="text-muted-foreground">Spezialisiert auf komplexe Geometrien für Wiener Ingenieurbüros</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-4">
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-2">Faire Preise & transparente Kosten</h3>
-                    <p className="text-muted-foreground">Nutzen Sie unseren Kostenrechner für eine sofortige Preisschätzung</p>
+                    <h3 className="font-bold mb-2">Kostenlose Erstberatung</h3>
+                    <p className="text-muted-foreground">Unverbindliche CAD-Analyse und Machbarkeitsprüfung für Ihr Wien-Projekt</p>
                   </div>
                 </div>
               </div>
@@ -200,20 +200,20 @@ const Wien3DDruck = () => {
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🏭 Industrie & Maschinenbau</h3>
-                  <p className="text-muted-foreground">Funktionale Prototypen, Ersatzteile, Vorrichtungen und Betriebsmittel für Wiener Industrieunternehmen</p>
+                  <h3 className="font-bold text-lg mb-3">🎓 Universitäten & Forschung</h3>
+                  <p className="text-muted-foreground">Versuchsaufbauten und Studienmodelle für TU Wien, BOKU, Universität Wien und Medizinische Universität</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🏗️ Architektur & Bau</h3>
-                  <p className="text-muted-foreground">Architekturmodelle, Designstudien und Präsentationsmodelle für Wiener Architekten und Planer</p>
+                  <h3 className="font-bold text-lg mb-3">💼 Start-up Szene</h3>
+                  <p className="text-muted-foreground">MVP-Prototypen für Wiener Gründerzentren, Inkubatoren und Tech-Start-ups im innovation hub</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🎨 Design & Kunst</h3>
-                  <p className="text-muted-foreground">Kunstobjekte, Designprototypen und individuelle Einzelstücke für Wiener Kreativschaffende</p>
+                  <h3 className="font-bold text-lg mb-3">🎭 Kunst & Kultur</h3>
+                  <p className="text-muted-foreground">Kunstinstallationen, Theaterrequisiten und Ausstellungsobjekte für Wiener Kultureinrichtungen</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold text-lg mb-3">🔬 Forschung & Entwicklung</h3>
-                  <p className="text-muted-foreground">Rapid Prototyping für Universitäten, Forschungseinrichtungen und Start-ups in Wien</p>
+                  <h3 className="font-bold text-lg mb-3">🏥 Medizintechnik</h3>
+                  <p className="text-muted-foreground">Anatomische Modelle, Orthesen-Prototypen und medizinische Lehrmittel für Wiener Kliniken</p>
                 </div>
               </div>
             </div>
@@ -229,24 +229,24 @@ const Wien3DDruck = () => {
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
-                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen und Designmodelle</p>
-                  <p className="text-sm text-primary">Ab sofort verfügbar in Wien</p>
+                  <h3 className="font-bold text-lg mb-3">Bio-PLA Premium</h3>
+                  <p className="text-muted-foreground mb-2">Österreichisches Biofilament für umweltbewusste Wiener Projekte, kompostierbar</p>
+                  <p className="text-sm text-primary">Perfekt für Ausstellungen</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
-                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
-                  <p className="text-sm text-primary">Express-Service verfügbar</p>
+                  <h3 className="font-bold text-lg mb-3">PETG Engineering</h3>
+                  <p className="text-muted-foreground mb-2">Chemikalienresistent für Labore, UV-stabil für Außeneinsätze</p>
+                  <p className="text-sm text-primary">Medizin-konform verfügbar</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
-                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
-                  <p className="text-sm text-primary">Industriequalität</p>
+                  <h3 className="font-bold text-lg mb-3">ABS Industrial</h3>
+                  <p className="text-muted-foreground mb-2">Bis 100°C hitzebeständig, ideal für Wiener Industrie und Maschinenbau</p>
+                  <p className="text-sm text-primary">Flame-Retardant möglich</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PA12 Nylon - Premium</h3>
-                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel, für anspruchsvolle Anwendungen</p>
-                  <p className="text-sm text-primary">Auf Anfrage</p>
+                  <h3 className="font-bold text-lg mb-3">Carbon-Nylon</h3>
+                  <p className="text-muted-foreground mb-2">Carbon-verstärkt, Leichtbau mit Metallersatz-Eigenschaften</p>
+                  <p className="text-sm text-primary">High-Performance</p>
                 </div>
               </div>
             </div>
@@ -303,20 +303,20 @@ const Wien3DDruck = () => {
               </h2>
               <div className="space-y-6">
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie schnell kann ich mein 3D-Druck-Teil in Wien erhalten?</h3>
-                  <p className="text-muted-foreground">Mit unserem Express-Service liefern wir innerhalb von 24 Stunden nach Wien. Standard-Lieferungen dauern 2-3 Werktage.</p>
+                  <h3 className="font-bold text-lg mb-3">Liefern Sie in alle Wiener Bezirke?</h3>
+                  <p className="text-muted-foreground">Ja, wir beliefern alle 23 Wiener Bezirke per Express in 24h. Vom 1. Bezirk bis Liesing, von Döbling bis Floridsdorf.</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h3>
-                  <p className="text-muted-foreground">Wir akzeptieren STL, OBJ, STEP und viele weitere gängige CAD-Formate. Bei Fragen zu Ihrem Format kontaktieren Sie uns gerne.</p>
+                  <h3 className="font-bold text-lg mb-3">Kann ich CAD-Dateien direkt von der TU Wien schicken?</h3>
+                  <p className="text-muted-foreground">Natürlich! Wir arbeiten mit Studenten und Forschungsgruppen zusammen. STEP, IGES, Parasolid - alle Formate werden unterstützt.</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie werden die Kosten für 3D-Druck in Wien berechnet?</h3>
-                  <p className="text-muted-foreground">Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung.</p>
+                  <h3 className="font-bold text-lg mb-3">Gibt es Mengenrabatt für Wiener Start-ups?</h3>
+                  <p className="text-muted-foreground">Ja! Ab 10 Teilen oder für wiederkehrende Bestellungen aus dem Innovation Hub bieten wir attraktive Staffelpreise an.</p>
                 </div>
                 <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Bieten Sie auch Nachbearbeitung an?</h3>
-                  <p className="text-muted-foreground">Ja, wir bieten Schleifen, Lackieren und weitere Finishing-Optionen für Ihre 3D-gedruckten Teile in Wien an.</p>
+                  <h3 className="font-bold text-lg mb-3">Welche Nachbearbeitung ist in Wien möglich?</h3>
+                  <p className="text-muted-foreground">Von Vapor-Smoothing über Lackierung bis zu manueller Hochglanz-Politur. Perfekt für Wiener Messen und Präsentationen.</p>
                 </div>
               </div>
             </div>
