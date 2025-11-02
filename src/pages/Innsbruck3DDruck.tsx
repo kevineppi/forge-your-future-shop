@@ -221,6 +221,95 @@ const Innsbruck3DDruck = () => {
           </div>
         </section>
 
+        {/* How it Works Section */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  So einfach geht <span className="text-gradient">3D-Druck in Innsbruck</span>
+                </h2>
+                <p className="text-center text-muted-foreground mb-16 max-w-3xl mx-auto text-lg">
+                  Von der ersten Anfrage bis zur Lieferung – unser transparenter Prozess macht 3D-Druck 
+                  einfach und planbar.
+                </p>
+              </AnimatedSection>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <AnimatedSection delay={0.1}>
+                  <div className="relative">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 relative z-10">
+                        <span className="text-2xl font-bold text-primary">1</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">Anfrage senden</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Senden Sie uns Ihre CAD-Datei (STL, OBJ, STEP, etc.) per E-Mail oder nutzen Sie 
+                        unseren Online-Kostenrechner für eine erste Schätzung. Wir prüfen Ihre Datei auf 
+                        Druckbarkeit und optimieren sie bei Bedarf kostenlos.
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.2}>
+                  <div className="relative">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 relative z-10">
+                        <span className="text-2xl font-bold text-primary">2</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">Angebot & Beratung</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot mit Preis, Lieferzeit 
+                        und Materialempfehlung. Bei komplexen Projekten beraten wir Sie persönlich zur optimalen 
+                        Umsetzung.
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.3}>
+                  <div className="relative">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 relative z-10">
+                        <span className="text-2xl font-bold text-primary">3</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">Produktion startet</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Nach Ihrer Auftragsbestätigung beginnt der 3D-Druck sofort. Sie erhalten eine 
+                        Trackingnummer, sobald Ihr Bauteil fertig ist. Express-Aufträge werden priorisiert.
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.4}>
+                  <div className="relative">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 relative z-10">
+                        <span className="text-2xl font-bold text-primary">4</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">Lieferung</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Ihr fertiges Bauteil wird sicher verpackt und per DHL an Sie versendet. Express-Lieferung 
+                        nach Innsbruck in 24-48h. Standard-Versand österreichweit in 2-3 Werktagen.
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              </div>
+              
+              <AnimatedSection delay={0.5}>
+                <div className="mt-12 text-center">
+                  <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                    Jetzt Projekt starten
+                  </Button>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
         {/* Technology Deep Dive Section */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
