@@ -588,7 +588,6 @@ const Index = () => {
       <Footer />
       
       {/* Sticky Elements - Quick Wins */}
-      <StickyCTA />
       <ExitIntentPopup />
       <PrototypingChatWidget />
       </div>
