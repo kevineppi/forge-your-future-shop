@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -43,6 +43,15 @@ const AIChatWidget = () => {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom when new messages are added
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   const quickQuestions = [
     { icon: Layers, text: 'Welches Material passt?', query: 'material' },
@@ -250,7 +259,7 @@ const AIChatWidget = () => {
             </div>
 
             {/* Messages */}
-            <ScrollArea className="flex-1 p-4">
+            <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
               <div className="space-y-4">
                 {messages.map((msg, idx) => (
                   <div
@@ -369,6 +378,7 @@ const AIChatWidget = () => {
                     </div>
                   </div>
                 ))}
+                <div ref={messagesEndRef} />
               </div>
             </ScrollArea>
 
