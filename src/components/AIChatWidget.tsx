@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
-import { Bot, X, Send, Clock, Euro, Layers, ExternalLink, Loader2 } from 'lucide-react';
+import { Bot, X, Send, Clock, Euro, Layers, ExternalLink, Loader2, Calculator } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 
@@ -24,6 +24,11 @@ interface Message {
     deliveryTime?: string;
     priority?: 'express' | 'standard';
   };
+  actions?: Array<{
+    label: string;
+    url: string;
+    icon?: 'calculator' | 'contact' | 'material' | 'external';
+  }>;
 }
 
 const AIChatWidget = () => {
@@ -137,13 +142,14 @@ const AIChatWidget = () => {
         return;
       }
 
-      // Add AI response with sources
+      // Add AI response with sources and actions
       setMessages(prev => [
         ...prev,
         { 
           role: 'assistant', 
           content: data.answer,
           sources: data.sources || [],
+          actions: data.actions || [],
           timestamp: new Date() 
         }
       ]);
@@ -317,6 +323,28 @@ const AIChatWidget = () => {
                                 </Badge>
                               </div>
                             )}
+                          </div>
+                        )}
+
+                        {msg.actions && msg.actions.length > 0 && (
+                          <div className="mt-3 pt-3 border-t border-border/50">
+                            <div className="flex flex-wrap gap-2">
+                              {msg.actions.map((action, idx) => (
+                                <Button
+                                  key={idx}
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={() => window.location.href = action.url}
+                                  className="text-xs hover:bg-primary/10"
+                                >
+                                  {action.icon === 'calculator' && <Calculator className="w-3 h-3 mr-1" />}
+                                  {action.icon === 'contact' && <Send className="w-3 h-3 mr-1" />}
+                                  {action.icon === 'material' && <Layers className="w-3 h-3 mr-1" />}
+                                  {action.icon === 'external' && <ExternalLink className="w-3 h-3 mr-1" />}
+                                  {action.label}
+                                </Button>
+                              ))}
+                            </div>
                           </div>
                         )}
                       </div>

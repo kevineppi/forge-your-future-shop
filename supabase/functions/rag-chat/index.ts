@@ -102,51 +102,35 @@ serve(async (req) => {
     }
 
     // Step 4: Generate response using Lovable AI with context
-    const systemPrompt = `Sie sind ein professioneller 3D-Druck Berater für ekdruck.at, einen führenden österreichischen 3D-Druckservice.
+    const systemPrompt = `Sie sind ein professioneller 3D-Druck Berater für ekdruck.at.
 
-KOMMUNIKATIONSSTANDARDS:
-- Professioneller, höflicher Ton mit Sie-Form
-- Präzise und technisch fundierte Aussagen
-- Klare, gut strukturierte Antworten in 2-4 Sätzen
-- Keine umgangssprachlichen Formulierungen oder unvollständige Sätze
+KRITISCHE ANFORDERUNGEN:
+1. MAXIMALE KÜRZE: Antworten in 1-2 kurzen Sätzen (max. 120 Zeichen wenn möglich)
+2. KEINE Links im Text erwähnen - stattdessen strukturierte Actions zurückgeben
+3. Professioneller Sie-Ton, präzise Aussagen
 
-PREISKALKULATION (WICHTIG):
-Bei Preisfragen verwenden Sie folgende Formeln aus unserem Kostenrechner:
+PREISKALKULATION (bei Bedarf):
+- Volumen = L×B×H / 1.000.000
+- Material: PLA 0,20€/g | PETG 0,32€/g | ASA 0,28€/g | PA12 1,00€/g
+- Komplexität: Einfach ×1,0 | Mittel ×1,2 | Komplex ×1,4 | Überhänge ×1,5
+- Beispiel 25×25×10cm PETG: ~200€
 
-Basis-Kalkulation:
-- Volumen (cm³) = Länge × Breite × Höhe / 1.000.000
-- Materialkosten: PLA 0,20€/g | PETG 0,32€/g | ASA 0,28€/g | PA12 1,00€/g
-- Komplexität: Einfach ×1,0 | Mittel ×1,2 | Komplex ×1,4 | Überhänge ×1,5 | Sehr komplex ×2,0
-- Basispreis = Volumen × Materialpreis × Komplexitätsfaktor × 100
+ANTWORT-FORMAT (JSON):
+{
+  "answer": "Kurze präzise Antwort in 1-2 Sätzen",
+  "actions": [
+    {"label": "Kostenrechner nutzen", "url": "/kostenrechner", "icon": "calculator"},
+    {"label": "Angebot anfordern", "url": "/", "icon": "contact"}
+  ]
+}
 
-Zusatzkosten:
-- Druckzeit: 1,50€/h (<250mm) oder 4,00€/h (250-350mm)
-- Express 24h: +50% Aufpreis + 20€ Versand
-- Nachbearbeitung: 15-45€
-- Support-Entfernung: +8€
+ACTIONS-REGELN:
+- Immer wenn Preisfragen: Kostenrechner-Button
+- Immer wenn individuelle Details fehlen: Kontakt-Button
+- Bei Materialfragen: Material-Guide-Button
+- Max. 2 Actions pro Antwort
 
-Mengenrabatte:
-- Ab 5 Stück: 5% | Ab 10 Stück: 10% | Ab 20 Stück: 15% | Ab 50 Stück: 20%
-
-Beispiel-Kalkulation für 25×25×10cm Teil:
-- Volumen: 6.250 cm³
-- PETG: 6.250 × 0,32€/g × 1,0 (einfach) × 100 = ca. 200€ Basis
-- Mit Express +50%: ca. 300€ + 20€ Versand = 320€
-
-MATERIALEMPFEHLUNGEN:
-- PLA: Prototypen, Innenanwendungen (nur bis 60°C!)
-- PETG: Mechanische Teile, mittlere Temperaturen bis 70°C
-- ASA: Außenanwendungen, UV-beständig, bis 90°C
-- PA12: Hochbelastbare Funktionsteile
-
-VERLINKUNG:
-Verweisen Sie nur auf relevante Seiten, wenn diese DIREKT zur Frage passen:
-- /ratgeber/kosten-guide → Bei Preisfragen
-- /ratgeber/material-guide → Bei Materialfragen
-- /kostenrechner → Für genaue Kalkulation
-- Kontaktformular → Für individuelle Angebote
-
-${context ? `\n=== KNOWLEDGE BASE VON EKDRUCK.AT ===\n${context}\n=== ENDE KNOWLEDGE BASE ===\n` : '\nKEINE KB-INFORMATIONEN: Nutzen Sie Ihr Fachwissen, weisen Sie auf fehlende spezifische Details hin.\n'}`;
+${context ? `\n=== KB ===\n${context}\n=== ENDE ===\n` : ''}`;
 
     console.log('Generating AI response...');
 
@@ -162,8 +146,9 @@ ${context ? `\n=== KNOWLEDGE BASE VON EKDRUCK.AT ===\n${context}\n=== ENDE KNOWL
           { role: 'system', content: systemPrompt },
           { role: 'user', content: message }
         ],
-        temperature: 0.2,
-        max_tokens: 400,
+        temperature: 0.1,
+        max_tokens: 250,
+        response_format: { type: 'json_object' }
       }),
     });
 
@@ -188,14 +173,28 @@ ${context ? `\n=== KNOWLEDGE BASE VON EKDRUCK.AT ===\n${context}\n=== ENDE KNOWL
     }
 
     const aiData = await aiResponse.json();
-    const answer = aiData.choices[0].message.content;
+    const rawContent = aiData.choices[0].message.content;
 
     console.log('Successfully generated response');
 
+    // Parse JSON response
+    let parsedResponse;
+    try {
+      parsedResponse = JSON.parse(rawContent);
+    } catch (e) {
+      // Fallback if JSON parsing fails
+      console.warn('Failed to parse JSON response, using raw content');
+      parsedResponse = {
+        answer: rawContent,
+        actions: []
+      };
+    }
+
     return new Response(
       JSON.stringify({ 
-        answer,
-        sources: sources.slice(0, 3), // Top 3 sources
+        answer: parsedResponse.answer || rawContent,
+        actions: parsedResponse.actions || [],
+        sources: sources.slice(0, 3),
         hasContext: matches && matches.length > 0
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
