@@ -14,7 +14,7 @@ const Salzburg3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Salzburg: Nachhaltig & innovativ | ekdruck"
+        title="3D-Druck Salzburg | FDM 3D-Druck Service | ekdruck"
         description="Nachhaltiger FDM 3D-Druck für Salzburg & Umgebung. 100% österreichisches Material, CO2-neutral, innovative Lösungen. Beratung & Lieferung inklusive!"
         keywords="3d-druck salzburg, 3d drucker salzburg, fdm druck salzburg, rapid prototyping salzburg, 3d-druck service salzburg, prototypen salzburg"
         path="/3d-druck-salzburg"
@@ -71,7 +71,7 @@ const Salzburg3DDruck = () => {
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
                 Professioneller FDM 3D-Druck Service für <strong className="text-foreground">Salzburg</strong> Stadt und Land. 
-                Schnelle Lieferung nach <strong className="text-foreground">Salzburg</strong>, nachhaltige Materialien und faire Preise.
+                <strong className="text-foreground">Innovative</strong> und nachhaltige Lösungen für Ihre Projekte. Schnelle Lieferung nach <strong className="text-foreground">Salzburg</strong>, faire Preise.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>

@@ -13,7 +13,7 @@ const Wels3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Wels: Nur 15km - Abholung heute | ekdruck"
+        title="3D-Druck Wels | FDM 3D-Druck Service | ekdruck"
         description="Express für Wels! Nur 15km von Gunskirchen – Same-Day Abholung möglich. Industriestadt-Service für technische Bauteile & Prototypen!"
         keywords="3d-druck wels, 3d drucker wels, fdm druck wels, rapid prototyping wels, 3d-druck service wels, prototypen wels"
         path="/3d-druck-wels"
@@ -40,7 +40,8 @@ const Wels3DDruck = () => {
                 3D-Druck Service in <span className="text-gradient">Wels</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Ihr lokaler Partner für professionellen FDM 3D-Druck in Wels. Kurze Lieferwege innerhalb von Oberösterreich – Same-Day Lieferung möglich.
+                Ihr lokaler Partner für professionellen FDM 3D-Druck in <strong className="text-foreground">Wels</strong>. 
+                Nur <strong className="text-foreground">15km</strong> entfernt – <strong className="text-foreground">Abholung</strong> in Gunskirchen möglich. Kurze Lieferwege innerhalb von Oberösterreich – Same-Day Lieferung verfügbar.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>

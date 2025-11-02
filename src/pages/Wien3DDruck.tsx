@@ -15,7 +15,7 @@ const Wien3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Wien: 48h Lieferung ab €50 gratis | ekdruck"
+        title="3D-Druck Wien | FDM 3D-Druck Service | ekdruck"
         description="Professioneller FDM 3D-Druck für Wien. Versand innerhalb 48h, gratis ab €50. Direkt aus Oberösterreich. Prototypen & Serien – Angebot anfordern!"
         keywords="3d-druck wien, 3d drucker wien, fdm druck wien, rapid prototyping wien, 3d-druck service wien, prototypen wien"
         path="/3d-druck-wien"
@@ -95,7 +95,8 @@ const Wien3DDruck = () => {
                 3D-Druck Service in <span className="text-gradient">Wien</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Ihr lokaler Partner für professionellen FDM 3D-Druck in Wien. Schnelle Lieferung, nachhaltige österreichische Materialien und faire Preise.
+                Ihr lokaler Partner für professionellen FDM 3D-Druck in <strong className="text-foreground">Wien</strong>. 
+                Schnelle Lieferung innerhalb von 48h, <strong className="text-foreground">gratis Versand ab €50</strong>. Nachhaltige österreichische Materialien und faire Preise.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>

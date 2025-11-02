@@ -13,7 +13,7 @@ const Villach3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Villach: Kärnten Süd schnell beliefert | ekdruck"
+        title="3D-Druck Villach | FDM 3D-Druck Service | ekdruck"
         description="Zuverlässiger FDM 3D-Druck Service für Villacher Industrie & Gewerbe. Technische Bauteile, Werkzeuge, Vorrichtungen. Beratung & Express verfügbar!"
         keywords="3d-druck villach, 3d drucker villach, fdm druck villach, rapid prototyping villach, 3d-druck service villach, prototypen villach"
         path="/3d-druck-villach"
@@ -40,7 +40,8 @@ const Villach3DDruck = () => {
                 3D-Druck Service in <span className="text-gradient">Villach</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Professioneller FDM 3D-Druck für Villach und ganz Kärnten. Schnelle Lieferung, hochwertige Materialien und faire Preise für Ihre Projekte.
+                Professioneller FDM 3D-Druck für <strong className="text-foreground">Villach</strong> und ganz <strong className="text-foreground">Kärnten Süd</strong>. 
+                Wir <strong className="text-foreground">beliefern</strong> zuverlässig die gesamte Region mit schneller Lieferung, hochwertigen Materialien und fairen Preisen für Ihre Projekte.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>

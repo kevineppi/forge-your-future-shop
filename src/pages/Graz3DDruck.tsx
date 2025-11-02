@@ -13,7 +13,7 @@ const Graz3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Graz & Steiermark | Experten | ekdruck"
+        title="3D-Druck Graz & Steiermark | FDM Service | ekdruck"
         description="Hochpräziser FDM 3D-Druck für Grazer Industrie & Forschung. Technische Prototypen, Funktionsteile, Engineering-Support. Kostenlose Beratung in Graz!"
         keywords="3d-druck graz, 3d drucker graz, fdm druck graz, rapid prototyping graz, 3d-druck steiermark, prototypen graz"
         path="/3d-druck-graz"
@@ -42,7 +42,7 @@ const Graz3DDruck = () => {
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
                 Ihr lokaler Partner für professionellen FDM 3D-Druck in <strong className="text-foreground">Graz</strong> und der Steiermark. 
-                Schnelle Lieferung nach <strong className="text-foreground">Graz</strong>, nachhaltige österreichische Materialien und faire Preise.
+                Unsere <strong className="text-foreground">Experten</strong> beraten Sie kompetent bei der Material- und Verfahrenswahl. Schnelle Lieferung nach <strong className="text-foreground">Graz</strong>, nachhaltige österreichische Materialien und faire Preise.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>

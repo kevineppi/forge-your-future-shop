@@ -21,7 +21,7 @@ const Linz3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Linz: Same-Day Abholung | ekdruck"
+        title="3D-Druck Linz | FDM 3D-Druck Service | ekdruck"
         description="Same-Day Service für Linz! Nur 30km von Gunskirchen, Abholung möglich, Express in 24h. Regional aus Oberösterreich – jetzt anfragen!"
         keywords="3d-druck linz, 3d drucker linz, fdm druck linz, rapid prototyping linz, 3d-druck oberösterreich, prototypen linz"
         path="/3d-druck-linz"
@@ -57,7 +57,7 @@ const Linz3DDruck = () => {
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
                 Ihr lokaler Partner für professionellen FDM 3D-Druck in <strong className="text-foreground">Linz</strong> und ganz Oberösterreich. 
-                Schnelle Lieferung innerhalb 24h nach <strong className="text-foreground">Linz</strong>, nachhaltige österreichische Materialien und persönliche Beratung für Ihr Projekt.
+                Schnelle Lieferung innerhalb 24h nach <strong className="text-foreground">Linz</strong>, <strong className="text-foreground">Abholung</strong> in Gunskirchen (30km) möglich. Nachhaltige österreichische Materialien und persönliche Beratung für Ihr Projekt.
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-12">

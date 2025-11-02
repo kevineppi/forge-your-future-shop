@@ -13,7 +13,7 @@ const Innsbruck3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Innsbruck & Tirol | Alpine Innovation aus OÖ | ekdruck"
+        title="3D-Druck Innsbruck & Tirol | FDM Service | ekdruck"
         description="Präzisions-3D-Druck für Tiroler Sportartikel & Technik. Robuste Materialien für alpine Bedingungen. Express-Versand nach Innsbruck verfügbar!"
         keywords="3d-druck innsbruck, 3d drucker innsbruck, fdm druck innsbruck, rapid prototyping innsbruck, 3d-druck tirol, prototypen innsbruck"
         path="/3d-druck-innsbruck"
@@ -41,7 +41,8 @@ const Innsbruck3DDruck = () => {
                 3D-Druck Service in <span className="text-gradient">Innsbruck</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Ihr lokaler Partner für professionellen FDM 3D-Druck in Innsbruck. Schnelle Lieferung, nachhaltige österreichische Materialien und faire Preise.
+                Professioneller FDM 3D-Druck Service für <strong className="text-foreground">Innsbruck</strong> und ganz <strong className="text-foreground">Tirol</strong>. 
+                <strong className="text-foreground">Alpine Innovation</strong> trifft auf österreichische Qualität – perfekt für die Anforderungen der Alpenregion. Schnelle Lieferung, hochwertige Materialien und faire Preise.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
