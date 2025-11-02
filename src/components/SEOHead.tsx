@@ -256,6 +256,26 @@ const SEOHead = ({
           "manufacturer": {
             "@type": "Organization",
             "name": "ekdruck e.U."
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": `https://www.ek-druck.at${path}`,
+            "priceCurrency": "EUR",
+            "price": "1.50",
+            "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": {
+              "@type": "Organization",
+              "name": "ekdruck e.U."
+            }
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "bestRating": "5",
+            "worstRating": "1",
+            "reviewCount": "21"
           }
         };
       
