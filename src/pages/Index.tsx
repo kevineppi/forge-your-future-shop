@@ -13,6 +13,7 @@ import SEOHead from "@/components/SEOHead";
 import StickyCTA from "@/components/StickyCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
+import PrototypingChatWidget from "@/components/PrototypingChatWidget";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
@@ -589,6 +590,7 @@ const Index = () => {
       {/* Sticky Elements - Quick Wins */}
       <StickyCTA />
       <ExitIntentPopup />
+      <PrototypingChatWidget />
       </div>
     </>;
 };
