@@ -114,7 +114,7 @@ KRITISCHE ANFORDERUNGEN:
 
 PREISKALKULATION (bei Bedarf):
 - Volumen = L×B×H / 1.000.000
-- Material: PLA 0,20€/g | PETG 0,32€/g | ASA 0,28€/g | PA12 1,00€/g
+- Material: PLA 0,20€/g | PETG 0,32€/g | ASA 0,28€/g | ABS 0,28€/g | PA12 0,56€/g | PA6 0,56€/g | PA12-CF 0,56€/g
 - Komplexität: Einfach ×1,0 | Mittel ×1,2 | Komplex ×1,4 | Überhänge ×1,5
 - Beispiel 25×25×10cm PETG: ~200€
 
