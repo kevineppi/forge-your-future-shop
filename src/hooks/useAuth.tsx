@@ -26,6 +26,34 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const checkAdminStatus = async (userId: string) => {
+    try {
+      console.log('Checking admin status for user:', userId);
+      
+      const { data, error } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', userId)
+        .eq('role', 'admin')
+        .maybeSingle();
+      
+      console.log('Admin check result:', { data, error });
+      
+      if (error) {
+        console.error('Error checking admin status:', error);
+        setIsAdmin(false);
+        return;
+      }
+      
+      const isUserAdmin = !!data;
+      console.log('Is user admin?', isUserAdmin);
+      setIsAdmin(isUserAdmin);
+    } catch (error) {
+      console.error('Unexpected error checking admin status:', error);
+      setIsAdmin(false);
+    }
+  };
+
   useEffect(() => {
     // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -63,34 +91,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     return () => subscription.unsubscribe();
   }, []);
-
-  const checkAdminStatus = async (userId: string) => {
-    try {
-      console.log('Checking admin status for user:', userId);
-      
-      const { data, error } = await supabase
-        .from('user_roles')
-        .select('role')
-        .eq('user_id', userId)
-        .eq('role', 'admin')
-        .maybeSingle();
-      
-      console.log('Admin check result:', { data, error });
-      
-      if (error) {
-        console.error('Error checking admin status:', error);
-        setIsAdmin(false);
-        return;
-      }
-      
-      const isUserAdmin = !!data;
-      console.log('Is user admin?', isUserAdmin);
-      setIsAdmin(isUserAdmin);
-    } catch (error) {
-      console.error('Unexpected error checking admin status:', error);
-      setIsAdmin(false);
-    }
-  };
 
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
