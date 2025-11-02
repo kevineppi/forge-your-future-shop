@@ -26,7 +26,6 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li><a href="/fdm-3d-druck" className="hover:text-primary transition-colors">FDM 3D-Druck</a></li>
-              <li><a href="/prototypen" className="hover:text-primary transition-colors">Prototypen</a></li>
               <li><a href="/rapid-prototyping" className="hover:text-primary transition-colors">Rapid Prototyping</a></li>
               <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">3D-Druck Materialien</a></li>
               <li><a href="/einzelanfertigungen" className="hover:text-primary transition-colors">Einzelanfertigungen</a></li>

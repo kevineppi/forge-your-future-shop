@@ -16,7 +16,7 @@ const Hero = () => {
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Professioneller <a href="/fdm-3d-druck" className="text-primary font-semibold hover:underline">FDM 3D-Druck</a> aus Oberösterreich mit 100% österreichischem Filament. 
-            Von <a href="/prototypen" className="text-primary font-semibold hover:underline">Prototypen</a> über{" "}
+            Von <a href="/rapid-prototyping" className="text-primary font-semibold hover:underline">Rapid Prototyping</a> über{" "}
             <a href="/einzelanfertigungen" className="text-primary font-semibold hover:underline">Einzelanfertigungen</a> bis zur{" "}
             <a href="/serienfertigung" className="text-primary font-semibold hover:underline">Serienfertigung</a> – regional, schnell und umweltfreundlich.
           </p>

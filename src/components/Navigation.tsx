@@ -41,12 +41,12 @@ const Navigation = () => {
                     </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="p-0">
-                    <a href="/prototypen" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                    <a href="/rapid-prototyping" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
                       <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                         <TestTube className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <div className="font-medium text-foreground">Prototypen</div>
+                        <div className="font-medium text-foreground">Rapid Prototyping</div>
                         <div className="text-sm text-muted-foreground">Funktions- & Designprototypen</div>
                       </div>
                     </a>
@@ -163,12 +163,12 @@ const Navigation = () => {
                 FDM 3D-Druck
               </a>
               <a 
-                href="/prototypen" 
+                href="/rapid-prototyping" 
                 className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
                 onClick={() => setIsOpen(false)}
               >
                 <TestTube className="h-4 w-4 text-primary" />
-                Prototypen
+                Rapid Prototyping
               </a>
               <a 
                 href="/rapid-prototyping" 

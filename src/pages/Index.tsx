@@ -74,8 +74,8 @@ const Index = () => {
                  </p>
                  <p className="text-muted-foreground mb-4 leading-relaxed">
                    Unser Service deckt alle Bereiche ab: von{" "}
-                   <a href="/prototypen" className="text-primary hover:underline font-semibold">Prototypenbau</a> und{" "}
-                   <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">schnellem Rapid Prototyping</a> über{" "}
+                   <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> und{" "}
+                   <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Prototypenbau</a> über{" "}
                    <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Fertigungen</a> bis zur{" "}
                    <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung von Kleinserien</a>.
                  </p>
