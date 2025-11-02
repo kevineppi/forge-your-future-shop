@@ -35,14 +35,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         
         // Check admin status when user changes
         if (session?.user) {
-          setTimeout(() => {
-            checkAdminStatus(session.user.id);
+          // Use setTimeout to defer the async call
+          setTimeout(async () => {
+            await checkAdminStatus(session.user.id);
+            setLoading(false);
           }, 0);
         } else {
           setIsAdmin(false);
+          setLoading(false);
         }
-        
-        setLoading(false);
       }
     );
 
@@ -52,10 +53,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(session?.user ?? null);
       
       if (session?.user) {
-        checkAdminStatus(session.user.id);
+        checkAdminStatus(session.user.id).then(() => {
+          setLoading(false);
+        });
+      } else {
+        setLoading(false);
       }
-      
-      setLoading(false);
     });
 
     return () => subscription.unsubscribe();
