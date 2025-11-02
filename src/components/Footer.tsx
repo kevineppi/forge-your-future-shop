@@ -15,8 +15,10 @@ const Footer = () => {
               individuelle Fertigungslösungen aus Oberösterreich. Nachhaltig und regional.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon">
-                <Instagram className="h-5 w-5" />
+              <Button variant="ghost" size="icon" asChild>
+                <a href="https://instagram.com/ekdruck" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="h-5 w-5" />
+                </a>
               </Button>
             </div>
           </div>
