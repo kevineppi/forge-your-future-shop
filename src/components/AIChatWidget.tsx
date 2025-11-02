@@ -46,10 +46,21 @@ const AIChatWidget = () => {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when new messages are added
+  // Auto-scroll to the latest assistant message (scroll to top of new message)
   useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (messages.length > 0) {
+      // Find the last assistant message
+      const lastAssistantIndex = [...messages].reverse().findIndex(m => m.role === 'assistant');
+      if (lastAssistantIndex !== -1) {
+        // Scroll with a slight delay to ensure DOM is updated
+        setTimeout(() => {
+          const messageElements = document.querySelectorAll('[data-message-role="assistant"]');
+          const lastAssistantElement = messageElements[messageElements.length - 1];
+          if (lastAssistantElement) {
+            lastAssistantElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
     }
   }, [messages]);
 
@@ -265,6 +276,7 @@ const AIChatWidget = () => {
                   <div
                     key={idx}
                     className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    data-message-role={msg.role}
                   >
                     <div className={`max-w-[85%] ${msg.role === 'user' ? 'order-2' : 'order-1'}`}>
                       {msg.role === 'assistant' && (
@@ -288,62 +300,7 @@ const AIChatWidget = () => {
                           {msg.content}
                         </p>
                         
-                        {msg.sources && msg.sources.length > 0 && (
-                          <div className="mt-3 pt-3 border-t border-border/50">
-                            <p className="text-xs font-semibold text-muted-foreground mb-2">Quellen:</p>
-                            <div className="space-y-1">
-                              {msg.sources.map((source, idx) => (
-                                <div key={idx} className="flex items-center gap-2">
-                                  <Badge variant="outline" className="text-xs">
-                                    {source.category}
-                                  </Badge>
-                                  {source.url ? (
-                                    <a 
-                                      href={source.url} 
-                                      target="_blank" 
-                                      rel="noopener noreferrer"
-                                      className="text-xs text-primary hover:underline flex items-center gap-1"
-                                    >
-                                      {source.title}
-                                      <ExternalLink className="w-3 h-3" />
-                                    </a>
-                                  ) : (
-                                    <span className="text-xs text-muted-foreground">{source.title}</span>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {msg.recommendations && (
-                          <div className="mt-3 pt-3 border-t border-border/50 space-y-2">
-                            {msg.recommendations.material && (
-                              <div className="flex items-center gap-2">
-                                <Badge variant="secondary" className="text-xs">
-                                  <Layers className="w-3 h-3 mr-1" />
-                                  {msg.recommendations.material}
-                                </Badge>
-                              </div>
-                            )}
-                            {msg.recommendations.estimatedCost && (
-                              <div className="flex items-center gap-2">
-                                <Badge variant="secondary" className="text-xs">
-                                  <Euro className="w-3 h-3 mr-1" />
-                                  {msg.recommendations.estimatedCost}
-                                </Badge>
-                              </div>
-                            )}
-                            {msg.recommendations.deliveryTime && (
-                              <div className="flex items-center gap-2">
-                                <Badge variant="secondary" className="text-xs">
-                                  <Clock className="w-3 h-3 mr-1" />
-                                  {msg.recommendations.deliveryTime}
-                                </Badge>
-                              </div>
-                            )}
-                          </div>
-                        )}
+                        {/* Removed sources display for better clarity */}
 
                         {msg.actions && msg.actions.length > 0 && (
                           <div className="mt-3 pt-3 border-t border-border/50">
@@ -378,7 +335,6 @@ const AIChatWidget = () => {
                     </div>
                   </div>
                 ))}
-                <div ref={messagesEndRef} />
               </div>
             </ScrollArea>
 
