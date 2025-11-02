@@ -32,7 +32,12 @@ const Salzburg3DDruck = () => {
         ]}
       />
 
-      <LocalBusinessSchema city="Salzburg" />
+      <LocalBusinessSchema 
+        city="Salzburg"
+        region="Salzburg"
+        latitude="47.8095"
+        longitude="13.0550"
+      />
 
       <HowToSchema
         name="3D-Druck Anfrage in Salzburg aufgeben"
