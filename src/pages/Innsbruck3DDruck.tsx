@@ -8,28 +8,18 @@ import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle, Zap, Shield, Leaf, TrendingUp, Mountain, Heart, Wrench, GraduationCap } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AnimatedSection from "@/components/AnimatedSection";
-
 const Innsbruck3DDruck = () => {
-
-  return (
-    <>
-      <SEOHead 
-        title="3D-Druck Innsbruck & Tirol | Präziser FDM-Service | ekdruck"
-        description="Professioneller 3D-Druckservice für Innsbruck und Tirol! Alpine Innovation, robuste Materialien für Outdoor-Anforderungen. Express 24-48h. Jetzt anfragen!"
-        keywords="3d-druck innsbruck, 3d-druckservice tirol, fdm-druck innsbruck, rapid prototyping innsbruck, 3d druck alpen"
-        path="/3d-druck-innsbruck"
-      />
-      <BreadcrumbSchema items={[
-        {name: "Home", url: "/"},
-        {name: "3D-Druck Innsbruck", url: "/3d-druck-innsbruck"}
-      ]} />
+  return <>
+      <SEOHead title="3D-Druck Innsbruck & Tirol | Präziser FDM-Service | ekdruck" description="Professioneller 3D-Druckservice für Innsbruck und Tirol! Alpine Innovation, robuste Materialien für Outdoor-Anforderungen. Express 24-48h. Jetzt anfragen!" keywords="3d-druck innsbruck, 3d-druckservice tirol, fdm-druck innsbruck, rapid prototyping innsbruck, 3d druck alpen" path="/3d-druck-innsbruck" />
+      <BreadcrumbSchema items={[{
+      name: "Home",
+      url: "/"
+    }, {
+      name: "3D-Druck Innsbruck",
+      url: "/3d-druck-innsbruck"
+    }]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
       <StructuredData type="faq" />
@@ -62,7 +52,9 @@ const Innsbruck3DDruck = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-12">
-                <Button size="lg" className="group" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" className="group" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth'
+              })}>
                   Kostenloses Angebot
                   <TrendingUp className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -683,7 +675,7 @@ const Innsbruck3DDruck = () => {
         </section>
 
         {/* Reviews Widget */}
-        <section className="py-12 bg-muted/30">
+        <section className="bg-muted/30 py-[48px]">
           <div className="container mx-auto px-4">
             <AnimatedSection>
               <ReviewsWidget />
@@ -692,18 +684,10 @@ const Innsbruck3DDruck = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-background">
+        <section id="contact" className="bg-background py-[8px]">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <AnimatedSection>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-                  Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in Tirol
-                </h2>
-                <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-lg">
-                  Kontaktieren Sie uns für ein kostenloses Angebot. 
-                  Wir beraten Sie gerne persönlich zu Ihrem Projekt in Innsbruck!
-                </p>
-              </AnimatedSection>
+              
               
               <AnimatedSection delay={0.1}>
                 <Contact />
@@ -715,8 +699,6 @@ const Innsbruck3DDruck = () => {
         <AIChatWidget />
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default Innsbruck3DDruck;
