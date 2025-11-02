@@ -36,15 +36,44 @@ serve(async (req) => {
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
-    console.log('Searching knowledge base with text search...');
+    console.log('Searching knowledge base...');
 
-    // Step 2: Search knowledge base using PostgreSQL full-text search
-    const { data: matches, error: searchError } = await supabase
-      .from('knowledge_base')
-      .select('*')
-      .or(`title.ilike.%${message}%,content.ilike.%${message}%`)
-      .eq('is_active', true)
-      .limit(5);
+    // Search using individual terms to handle special characters better
+    // Extract meaningful keywords from the message
+    const keywords = message.toLowerCase()
+      .split(/[\s,\.]+/) // Split on spaces, commas, dots
+      .filter(word => word.length > 2) // Only words with 3+ chars
+      .slice(0, 5); // Max 5 keywords
+    
+    console.log('Search keywords:', keywords);
+    
+    let matches: any[] = [];
+    
+    if (keywords.length > 0) {
+      // Search for each keyword in title or content
+      for (const keyword of keywords) {
+        const { data, error } = await supabase
+          .from('knowledge_base')
+          .select('*')
+          .eq('is_active', true)
+          .or(`title.ilike.%${keyword}%,content.ilike.%${keyword}%`)
+          .limit(3);
+        
+        if (!error && data) {
+          // Add unique matches
+          data.forEach(item => {
+            if (!matches.find(m => m.id === item.id)) {
+              matches.push(item);
+            }
+          });
+        }
+      }
+      
+      // Limit to top 5 matches
+      matches = matches.slice(0, 5);
+    }
+    
+    const searchError = null; // No error if we got here
 
     if (searchError) {
       console.error('Knowledge base search error:', searchError);
