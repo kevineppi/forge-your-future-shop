@@ -46,6 +46,31 @@ const AIChatWidget = () => {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Load messages from sessionStorage on mount
+  useEffect(() => {
+    const savedMessages = sessionStorage.getItem('chatMessages');
+    if (savedMessages) {
+      try {
+        const parsed = JSON.parse(savedMessages);
+        // Convert timestamp strings back to Date objects
+        const messagesWithDates = parsed.map((msg: any) => ({
+          ...msg,
+          timestamp: msg.timestamp ? new Date(msg.timestamp) : undefined
+        }));
+        setMessages(messagesWithDates);
+      } catch (e) {
+        console.error('Failed to load chat messages:', e);
+      }
+    }
+  }, []);
+
+  // Save messages to sessionStorage whenever they change
+  useEffect(() => {
+    if (messages.length > 0) {
+      sessionStorage.setItem('chatMessages', JSON.stringify(messages));
+    }
+  }, [messages]);
+
   // Auto-scroll to the latest assistant message (scroll to top of new message)
   useEffect(() => {
     if (messages.length > 0) {
