@@ -14,3 +14,6 @@ verify_jwt = false
 
 [functions.seed-knowledge-base]
 verify_jwt = false
+
+[functions.seed-knowledge-base-bulk]
+verify_jwt = false

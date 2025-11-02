@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import AdminDashboard from "@/components/AdminDashboard";
 import KnowledgeBaseManager from "@/components/KnowledgeBaseManager";
+import { SeedKnowledgeButton } from "@/components/SeedKnowledgeButton";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/hooks/useAuth";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -41,6 +42,9 @@ const Admin = () => {
             <AdminDashboard />
           </TabsContent>
           <TabsContent value="knowledge" className="mt-6">
+            <div className="mb-4">
+              <SeedKnowledgeButton />
+            </div>
             <KnowledgeBaseManager />
           </TabsContent>
         </Tabs>
