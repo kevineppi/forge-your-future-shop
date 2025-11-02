@@ -327,7 +327,7 @@ const Glossar = () => {
     <>
       <SEOHead
         title="3D-Druck Glossar | 60+ Fachbegriffe & Definitionen | ekdruck"
-        description="Umfassendes 3D-Druck Glossar mit 60+ Fachbegriffen: FDM, Ghosting, Pressure Advance, Input Shaping, Firmware und mehr. Von Basics bis Advanced - verständlich erklärt."
+        description="50+ 3D-Druck Fachbegriffe erklärt: FDM, Materialien, Druckparameter & mehr. Wissenschaftlich fundiert für Einsteiger & Profis – Ihr Glossar!"
         keywords="3d-druck glossar, 3d-druck fachbegriffe, fdm begriffe, additive fertigung lexikon, ghosting, ringing, pressure advance, input shaping, klipper, marlin"
         path="/glossar"
         schemaType="article"

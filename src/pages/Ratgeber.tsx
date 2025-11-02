@@ -168,7 +168,13 @@ const Ratgeber = () => {
                   </CardHeader>
                   <CardContent>
                     <Button asChild className="w-full md:w-auto">
-                      <a href={article.link}>Artikel lesen</a>
+                      <a href={article.link}>
+                        {article.link === '/rapid-prototyping' && 'Rapid Prototyping Guide lesen'}
+                        {article.link === '/ratgeber/kosten-guide' && '3D-Druck Kosten-Guide lesen'}
+                        {article.link === '/ratgeber/verfahrens-vergleich' && 'Verfahrens-Vergleich lesen'}
+                        {article.link === '/ratgeber/material-guide' && 'Material-Guide lesen'}
+                        {article.link === '/ratgeber/maschinenbau' && 'Maschinenbau-Guide lesen'}
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>

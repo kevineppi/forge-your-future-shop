@@ -18,7 +18,7 @@ const Kostenrechner = () => {
     <>
       <SEOHead 
         title="3D-Druck Kostenrechner | Preis sofort berechnen | ekdruck"
-        description="💰 Berechnen Sie den Preis für Ihr 3D-Druck Projekt ✓ Kostenrechner für FDM 3D-Druck ✓ Alle Materialien ✓ Express-Service ✓ Mengenrabatt → Jetzt kostenlos berechnen!"
+        description="Berechnen Sie Ihren 3D-Druck Preis sofort ✓ FDM Kostenrechner ✓ Alle Materialien ✓ Express-Service ✓ Mengenrabatt – jetzt kalkulieren!"
         keywords="3d-druck kostenrechner, 3d-druck preis berechnen, kosten 3d-druck, 3d-druck preisrechner, fdm druck kosten"
         path="/kostenrechner"
       />

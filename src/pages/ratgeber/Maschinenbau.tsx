@@ -150,7 +150,7 @@ const Maschinenbau = () => {
     <>
       <SEOHead
         title="3D-Druck Maschinenbau: Prototypen & Teile | ekdruck"
-        description="Wissenschaftlich fundierter Guide zu 3D-Druck im Maschinenbau ✓ Funktionsprototypen ✓ Ersatzteile ✓ Materialien ✓ Toleranzen ✓ Kostenvergleich ✓ Praxisbeispiele aus Österreich"
+        description="3D-Druck im Maschinenbau: Fundierter Guide zu Funktionsprototypen, Ersatzteilen & Materialien. Mit Toleranzen, Kostenvergleich & Praxisbeispielen."
         keywords="3d-druck maschinenbau, funktionsprototypen, ersatzteile 3d-druck, maschinenbau prototyping, technische bauteile"
         path="/ratgeber/maschinenbau"
         schemaType="article"

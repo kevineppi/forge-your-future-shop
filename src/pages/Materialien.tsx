@@ -58,8 +58,9 @@ const Materialien = () => {
                 <span className="block text-2xl lg:text-3xl mt-2 text-accent font-normal">Nachhaltig. Regional. Hochwertig.</span>
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-                Premium 3D-Druck Materialien aus österreichischer Produktion. Hergestellt aus recycelten 
-                Industrieabfällen für höchste Qualität und Nachhaltigkeit.
+                <strong className="text-foreground">Nachhaltiges AT-Filament</strong> – Premium 3D-Druck Materialien aus österreichischer Produktion. 
+                Unser <strong className="text-foreground">österreichisches Filament</strong> wird aus recycelten Industrieabfällen hergestellt 
+                für höchste Qualität und Nachhaltigkeit.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>

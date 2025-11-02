@@ -89,7 +89,7 @@ const KostenGuide = () => {
               </div>
 
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                3D-Druck Kosten in Österreich: Der ultimative Preisguide 2025
+                <span className="text-primary">3D-Druck Kosten</span> in Österreich: Der ultimative Preisguide 2025
               </h1>
 
               <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8">
@@ -99,7 +99,7 @@ const KostenGuide = () => {
               </div>
 
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Sie möchten ein 3D-Druck Projekt umsetzen, aber wissen nicht, mit welchen Kosten Sie rechnen müssen? In diesem umfassenden Guide erklären wir Ihnen alle Kostenfaktoren, zeigen Ihnen reale Preisbeispiele und geben Ihnen praktische Spartipps an die Hand.
+                Sie möchten ein 3D-Druck Projekt umsetzen, aber wissen nicht, mit welchen <strong className="text-foreground">3D-Druck Kosten</strong> Sie rechnen müssen? In diesem umfassenden Guide erklären wir Ihnen alle Kostenfaktoren, zeigen Ihnen reale Preisbeispiele und geben Ihnen praktische Spartipps an die Hand.
               </p>
             </div>
 

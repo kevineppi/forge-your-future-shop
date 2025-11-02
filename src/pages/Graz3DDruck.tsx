@@ -41,7 +41,8 @@ const Graz3DDruck = () => {
                 3D-Druck Service in <span className="text-gradient">Graz</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Ihr lokaler Partner für professionellen FDM 3D-Druck in Graz. Schnelle Lieferung, nachhaltige österreichische Materialien und faire Preise.
+                Ihr lokaler Partner für professionellen FDM 3D-Druck in <strong className="text-foreground">Graz</strong> und der Steiermark. 
+                Schnelle Lieferung nach <strong className="text-foreground">Graz</strong>, nachhaltige österreichische Materialien und faire Preise.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>

@@ -41,7 +41,8 @@ const Klagenfurt3DDruck = () => {
                 3D-Druck Service in <span className="text-gradient">Klagenfurt</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Professioneller FDM 3D-Druck für Klagenfurt und ganz Kärnten. Schnelle Lieferung, nachhaltige Materialien und faire Preise für Ihre Projekte am Wörthersee.
+                Professioneller FDM 3D-Druck für <strong className="text-foreground">Klagenfurt</strong> und ganz Kärnten. 
+                Schnelle Lieferung nach <strong className="text-foreground">Klagenfurt</strong>, nachhaltige Materialien und faire Preise für Ihre Projekte am Wörthersee.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>

@@ -56,8 +56,8 @@ const Linz3DDruck = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-                Ihr lokaler Partner für professionellen FDM 3D-Druck in Linz. Schnelle Lieferung innerhalb 24h, 
-                nachhaltige österreichische Materialien und persönliche Beratung für Ihr Projekt.
+                Ihr lokaler Partner für professionellen FDM 3D-Druck in <strong className="text-foreground">Linz</strong> und ganz Oberösterreich. 
+                Schnelle Lieferung innerhalb 24h nach <strong className="text-foreground">Linz</strong>, nachhaltige österreichische Materialien und persönliche Beratung für Ihr Projekt.
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-12">

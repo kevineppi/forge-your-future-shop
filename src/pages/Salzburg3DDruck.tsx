@@ -70,7 +70,8 @@ const Salzburg3DDruck = () => {
                 3D-Druck Service in <span className="text-gradient">Salzburg</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Professioneller FDM 3D-Druck Service für Salzburg Stadt und Land. Schnelle Lieferung, nachhaltige Materialien und faire Preise.
+                Professioneller FDM 3D-Druck Service für <strong className="text-foreground">Salzburg</strong> Stadt und Land. 
+                Schnelle Lieferung nach <strong className="text-foreground">Salzburg</strong>, nachhaltige Materialien und faire Preise.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
