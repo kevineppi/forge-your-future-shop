@@ -490,149 +490,120 @@ const Graz3DDruck = () => {
           </section>
         </AnimatedSection>
 
-        {/* Materials Section */}
+        {/* Materials Section - Enhanced */}
         <AnimatedSection animation="fade-in" delay={200}>
           <section className="py-24">
             <div className="container mx-auto px-4">
               <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-16">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <AnimatedSection>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
                     <span className="text-gradient">Materialien</span> für Ihr Projekt in Graz
                   </h2>
-                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Hochwertige Filamente aus österreichischer Produktion
+                  <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                    Wir setzen ausschließlich auf hochwertige Filamente aus österreichischer Produktion. 
+                    Nachhaltig, qualitativ und perfekt für Ihre Anforderungen.
                   </p>
+                </AnimatedSection>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <AnimatedSection delay={0.1}>
+                    <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="font-bold text-xl">PLA</h3>
+                        <span className="px-3 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">Bio</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                        Nachhaltiger Biokunststoff, ideal für Prototypen, Designmodelle und Visualisierungen. 
+                        100% biologisch abbaubar.
+                      </p>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <span>Umweltfreundlich</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <span>Hohe Detailgenauigkeit</span>
+                        </div>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection delay={0.2}>
+                    <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="font-bold text-xl">PETG</h3>
+                        <span className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs font-semibold">Robust</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                        Schlagfest und chemikalienbeständig. Perfekt für funktionale Bauteile und 
+                        Endverbrauchsteile mit hoher Belastung.
+                      </p>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <span>Hohe Festigkeit</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <span>Witterungsbeständig</span>
+                        </div>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection delay={0.3}>
+                    <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="font-bold text-xl">ABS</h3>
+                        <span className="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-semibold">Technisch</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                        Hitzebeständig bis 100°C. Ideal für technische Anwendungen, 
+                        Industriekomponenten und Gehäuse mit hohen Temperaturanforderungen.
+                      </p>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <span>Temperaturbeständig</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <span>Industriequalität</span>
+                        </div>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection delay={0.4}>
+                    <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="font-bold text-xl">PA12 Nylon</h3>
+                        <span className="px-3 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">Premium</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                        Höchste Festigkeit und Flexibilität. Für anspruchsvolle 
+                        mechanische Anwendungen und Sonderanfertigungen.
+                      </p>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <span>Extrem belastbar</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <span>Flexibel & stark</span>
+                        </div>
+                      </div>
+                    </div>
+                  </AnimatedSection>
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card className="border-2 hover:border-primary/50 transition-all">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <CardTitle className="text-2xl mb-2">PLA Engineering-Grade</CardTitle>
-                          <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
-                            Automotive-geeignet
-                          </div>
-                        </div>
-                        <Shield className="w-8 h-8 text-primary" />
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4">
-                        Verstärktes PLA für technische Anwendungen mit verbesserter Schlagzähigkeit. 
-                        Ideal für funktionale Prototypen und Vorrichtungen.
-                      </p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Zugfestigkeit:</span>
-                          <span className="font-semibold">bis 50 MPa</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Temperaturbeständig:</span>
-                          <span className="font-semibold">bis 60°C</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-2 hover:border-primary/50 transition-all">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <CardTitle className="text-2xl mb-2">PETG Transparent</CardTitle>
-                          <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
-                            Med-Tech ready
-                          </div>
-                        </div>
-                        <Shield className="w-8 h-8 text-primary" />
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4">
-                        Kristallklares PETG für Sichtfenster und technische Bauteile. 
-                        FDA-konform für Lebensmittelkontakt.
-                      </p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Zugfestigkeit:</span>
-                          <span className="font-semibold">bis 53 MPa</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Temperaturbeständig:</span>
-                          <span className="font-semibold">bis 70°C</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-2 hover:border-primary/50 transition-all">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <CardTitle className="text-2xl mb-2">ABS-Plus</CardTitle>
-                          <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
-                            Produktions-tauglich
-                          </div>
-                        </div>
-                        <Shield className="w-8 h-8 text-primary" />
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4">
-                        Verbessertes ABS mit minimaler Verzugs-Neigung. Ideal für große 
-                        Bauteile und Gehäuse.
-                      </p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Zugfestigkeit:</span>
-                          <span className="font-semibold">bis 45 MPa</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Temperaturbeständig:</span>
-                          <span className="font-semibold">bis 85°C</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-2 hover:border-primary/50 transition-all">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <CardTitle className="text-2xl mb-2">PA12-GF30</CardTitle>
-                          <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
-                            Industrie-Standard
-                          </div>
-                        </div>
-                        <Shield className="w-8 h-8 text-primary" />
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4">
-                        Glasfaser-verstärktes Nylon für maximale Steifigkeit und 
-                        Hitzebeständigkeit. Premium-Material für anspruchsvolle Anwendungen.
-                      </p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Zugfestigkeit:</span>
-                          <span className="font-semibold">bis 95 MPa</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Temperaturbeständig:</span>
-                          <span className="font-semibold">bis 120°C</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                <div className="mt-12 text-center">
-                  <Button size="lg" variant="outline" asChild>
-                    <a href="/3d-druck-materialien">
-                      Alle Materialien ansehen
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </a>
-                  </Button>
+                
+                <div className="text-center mt-10">
+                  <a href="/3d-druck-materialien" className="inline-flex items-center gap-2 text-primary hover:underline font-semibold text-lg">
+                    Alle Materialien im Detail ansehen
+                    <TrendingUp className="w-5 h-5" />
+                  </a>
                 </div>
               </div>
             </div>

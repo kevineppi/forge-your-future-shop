@@ -473,108 +473,120 @@ const Innsbruck3DDruck = () => {
           </div>
         </section>
 
-        {/* Materials Section */}
+        {/* Materials Section - Enhanced */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <AnimatedSection>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-                  Robuste <span className="text-gradient">3D-Druck Materialien</span>
+                  <span className="text-gradient">Materialien</span> für Ihr Projekt in Innsbruck
                 </h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
-                  Ausschließlich hochwertige Filamente aus österreichischer Produktion. 
-                  Perfekt für alpine Anforderungen und extreme Bedingungen.
+                  Wir setzen ausschließlich auf hochwertige Filamente aus österreichischer Produktion. 
+                  Nachhaltig, qualitativ und perfekt für Ihre Anforderungen.
                 </p>
               </AnimatedSection>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <AnimatedSection delay={0.1}>
-                  <div className="bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
-                    <h3 className="text-xl font-bold mb-3">PLA</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Biokunststoff – nachhaltig und vielseitig für Indoor-Anwendungen
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">PLA</h3>
+                      <span className="px-3 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">Bio</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Nachhaltiger Biokunststoff, ideal für Prototypen, Designmodelle und Visualisierungen. 
+                      100% biologisch abbaubar.
                     </p>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <p className="font-semibold text-foreground">Eigenschaften:</p>
-                      <ul className="space-y-1 ml-4">
-                        <li>• Biologisch abbaubar</li>
-                        <li>• Präzise Details</li>
-                        <li>• Einfach zu verarbeiten</li>
-                      </ul>
-                      <p className="font-semibold text-foreground mt-3">Ideal für:</p>
-                      <p>Prototypen, Modelle, Anschauungsobjekte</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Umweltfreundlich</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Hohe Detailgenauigkeit</span>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>
                 
                 <AnimatedSection delay={0.2}>
-                  <div className="bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
-                    <h3 className="text-xl font-bold mb-3">PETG</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Robust und wetterfest – perfekt für Outdoor-Einsatz
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">PETG</h3>
+                      <span className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs font-semibold">Robust</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Schlagfest und chemikalienbeständig. Perfekt für funktionale Bauteile und 
+                      Endverbrauchsteile mit hoher Belastung.
                     </p>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <p className="font-semibold text-foreground">Eigenschaften:</p>
-                      <ul className="space-y-1 ml-4">
-                        <li>• UV-beständig</li>
-                        <li>• Schlagfest</li>
-                        <li>• Chemikalienresistent</li>
-                      </ul>
-                      <p className="font-semibold text-foreground mt-3">Ideal für:</p>
-                      <p>Outdoor-Teile, Gehäuse, alpine Ausrüstung</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Hohe Festigkeit</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Witterungsbeständig</span>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>
                 
                 <AnimatedSection delay={0.3}>
-                  <div className="bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
-                    <h3 className="text-xl font-bold mb-3">ABS</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Technisch – hitzebeständig für anspruchsvolle Anwendungen
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">ABS</h3>
+                      <span className="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-semibold">Technisch</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Hitzebeständig bis 100°C. Ideal für technische Anwendungen, 
+                      Industriekomponenten und Gehäuse mit hohen Temperaturanforderungen.
                     </p>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <p className="font-semibold text-foreground">Eigenschaften:</p>
-                      <ul className="space-y-1 ml-4">
-                        <li>• Bis 100°C stabil</li>
-                        <li>• Nachbearbeitbar</li>
-                        <li>• Mechanisch belastbar</li>
-                      </ul>
-                      <p className="font-semibold text-foreground mt-3">Ideal für:</p>
-                      <p>Technische Teile, KFZ-Komponenten</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Temperaturbeständig</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Industriequalität</span>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>
                 
                 <AnimatedSection delay={0.4}>
-                  <div className="bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
-                    <h3 className="text-xl font-bold mb-3">PA12 Nylon</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Premium – höchste Festigkeit für extreme Belastung
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">PA12 Nylon</h3>
+                      <span className="px-3 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">Premium</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Höchste Festigkeit und Flexibilität. Für anspruchsvolle 
+                      mechanische Anwendungen und Sonderanfertigungen.
                     </p>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <p className="font-semibold text-foreground">Eigenschaften:</p>
-                      <ul className="space-y-1 ml-4">
-                        <li>• Extrem abriebfest</li>
-                        <li>• Flexibel</li>
-                        <li>• Chemikalienresistent</li>
-                      </ul>
-                      <p className="font-semibold text-foreground mt-3">Ideal für:</p>
-                      <p>Mechanik, Gelenke, Verschleißteile</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Extrem belastbar</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Flexibel & stark</span>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>
               </div>
               
-              <AnimatedSection delay={0.5}>
-                <div className="mt-12 text-center">
-                  <p className="text-muted-foreground mb-4">
-                    Unsicher welches Material? Wir beraten Sie gerne persönlich!
-                  </p>
-                  <Button asChild>
-                    <a href="#contact">Kostenlose Materialberatung</a>
-                  </Button>
-                </div>
-              </AnimatedSection>
+              <div className="text-center mt-10">
+                <a href="/3d-druck-materialien" className="inline-flex items-center gap-2 text-primary hover:underline font-semibold text-lg">
+                  Alle Materialien im Detail ansehen
+                  <TrendingUp className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
         </section>

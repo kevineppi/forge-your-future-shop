@@ -464,108 +464,204 @@ const Salzburg3DDruck = () => {
           </div>
         </section>
 
-        {/* Materials Section */}
+        {/* Materials Section - Enhanced */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <AnimatedSection>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-                  Premium <span className="text-gradient">3D-Druck Materialien</span>
+                  <span className="text-gradient">Materialien</span> für Ihr Projekt in Salzburg
                 </h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
-                  Ausschließlich hochwertige Filamente aus österreichischer Produktion für Ihr Projekt in Salzburg. 
-                  Wir beraten Sie gerne bei der optimalen Materialauswahl.
+                  Wir setzen ausschließlich auf hochwertige Filamente aus österreichischer Produktion. 
+                  Nachhaltig, qualitativ und perfekt für Ihre Anforderungen.
                 </p>
               </AnimatedSection>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <AnimatedSection delay={0.1}>
-                  <div className="bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
-                    <h3 className="text-xl font-bold mb-3">PLA</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Biokunststoff aus Maisstärke – nachhaltig und vielseitig einsetzbar
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">PLA</h3>
+                      <span className="px-3 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">Bio</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Nachhaltiger Biokunststoff, ideal für Prototypen, Designmodelle und Visualisierungen. 
+                      100% biologisch abbaubar.
                     </p>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <p className="font-semibold text-foreground">Eigenschaften:</p>
-                      <ul className="space-y-1 ml-4">
-                        <li>• Biologisch abbaubar</li>
-                        <li>• Einfach zu drucken</li>
-                        <li>• Hohe Detailgenauigkeit</li>
-                      </ul>
-                      <p className="font-semibold text-foreground mt-3">Ideal für:</p>
-                      <p>Prototypen, Anschauungsmodelle, Designobjekte</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Umweltfreundlich</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Hohe Detailgenauigkeit</span>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>
                 
                 <AnimatedSection delay={0.2}>
-                  <div className="bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
-                    <h3 className="text-xl font-bold mb-3">PETG</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Robuster Allrounder – schlagfest und chemikalienbeständig
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">PETG</h3>
+                      <span className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs font-semibold">Robust</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Schlagfest und chemikalienbeständig. Perfekt für funktionale Bauteile und 
+                      Endverbrauchsteile mit hoher Belastung.
                     </p>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <p className="font-semibold text-foreground">Eigenschaften:</p>
-                      <ul className="space-y-1 ml-4">
-                        <li>• Hohe Schlagfestigkeit</li>
-                        <li>• UV-beständig</li>
-                        <li>• Lebensmittelecht</li>
-                      </ul>
-                      <p className="font-semibold text-foreground mt-3">Ideal für:</p>
-                      <p>Funktionsteile, Gehäuse, Outdoor-Anwendungen</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Hohe Festigkeit</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Witterungsbeständig</span>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>
                 
                 <AnimatedSection delay={0.3}>
-                  <div className="bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
-                    <h3 className="text-xl font-bold mb-3">ABS</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Technisches Material – hitzebeständig und nachbearbeitbar
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">ABS</h3>
+                      <span className="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-semibold">Technisch</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Hitzebeständig bis 100°C. Ideal für technische Anwendungen, 
+                      Industriekomponenten und Gehäuse mit hohen Temperaturanforderungen.
                     </p>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <p className="font-semibold text-foreground">Eigenschaften:</p>
-                      <ul className="space-y-1 ml-4">
-                        <li>• Bis 100°C hitzebeständig</li>
-                        <li>• Aceton-glättbar</li>
-                        <li>• Mechanisch belastbar</li>
-                      </ul>
-                      <p className="font-semibold text-foreground mt-3">Ideal für:</p>
-                      <p>Technische Teile, KFZ-Komponenten, Gehäuse</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Temperaturbeständig</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Industriequalität</span>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>
                 
                 <AnimatedSection delay={0.4}>
-                  <div className="bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
-                    <h3 className="text-xl font-bold mb-3">PA12 Nylon</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Premium-Material – höchste Festigkeit und Flexibilität
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">PA12 Nylon</h3>
+                      <span className="px-3 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">Premium</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Höchste Festigkeit und Flexibilität. Für anspruchsvolle 
+                      mechanische Anwendungen und Sonderanfertigungen.
                     </p>
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <p className="font-semibold text-foreground">Eigenschaften:</p>
-                      <ul className="space-y-1 ml-4">
-                        <li>• Extrem abriebfest</li>
-                        <li>• Hohe Flexibilität</li>
-                        <li>• Chemikalienresistent</li>
-                      </ul>
-                      <p className="font-semibold text-foreground mt-3">Ideal für:</p>
-                      <p>Mechanische Teile, Gelenke, Verschleißteile</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Extrem belastbar</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Flexibel & stark</span>
+                      </div>
                     </div>
                   </div>
                 </AnimatedSection>
               </div>
               
-              <AnimatedSection delay={0.5}>
-                <div className="mt-12 text-center">
-                  <p className="text-muted-foreground mb-4">
-                    Benötigen Sie Hilfe bei der Materialwahl? Unsere Experten beraten Sie gerne!
-                  </p>
-                  <Button asChild>
-                    <a href="#contact">Kostenlose Beratung anfragen</a>
-                  </Button>
-                </div>
+              <div className="text-center mt-10">
+                <a href="/3d-druck-materialien" className="inline-flex items-center gap-2 text-primary hover:underline font-semibold text-lg">
+                  Alle Materialien im Detail ansehen
+                  <TrendingUp className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section - Enhanced */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  So einfach geht <span className="text-gradient">3D-Druck in Salzburg</span>
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Von der ersten Anfrage bis zur Lieferung – unser transparenter Prozess macht 3D-Druck einfach und planbar.
+                </p>
               </AnimatedSection>
+              
+              <div className="relative">
+                {/* Connection Line */}
+                <div className="hidden md:block absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary"></div>
+                
+                <div className="space-y-8">
+                  <AnimatedSection delay={0.1}>
+                    <div className="flex gap-6 items-start relative">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 relative z-10">
+                        1
+                      </div>
+                      <div className="flex-1 bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                        <h3 className="font-bold text-xl mb-3">Anfrage senden</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Senden Sie uns Ihre CAD-Datei (STL, OBJ, STEP, etc.) per E-Mail oder nutzen Sie unseren 
+                          Online-Kostenrechner für eine erste Schätzung. Wir prüfen Ihre Datei auf Druckbarkeit und 
+                          optimieren sie bei Bedarf kostenlos.
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection delay={0.2}>
+                    <div className="flex gap-6 items-start relative">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 relative z-10">
+                        2
+                      </div>
+                      <div className="flex-1 bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                        <h3 className="font-bold text-xl mb-3">Angebot & Beratung</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot mit Preis, Lieferzeit und 
+                          Materialempfehlung. Bei komplexen Projekten beraten wir Sie persönlich zur optimalen Umsetzung.
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection delay={0.3}>
+                    <div className="flex gap-6 items-start relative">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 relative z-10">
+                        3
+                      </div>
+                      <div className="flex-1 bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                        <h3 className="font-bold text-xl mb-3">Produktion startet</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Nach Ihrer Freigabe starten wir sofort mit dem 3D-Druck auf unseren modernsten FDM-Druckern. 
+                          Sie werden über den Fortschritt informiert und können bei größeren Projekten Zwischenstände anfordern.
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection delay={0.4}>
+                    <div className="flex gap-6 items-start relative">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 relative z-10">
+                        4
+                      </div>
+                      <div className="flex-1 bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                        <h3 className="font-bold text-xl mb-3">Qualitätsprüfung & Lieferung</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Jedes Teil wird sorgfältig geprüft und nachbearbeitet. Express-Versand innerhalb von 24-48h direkt 
+                          zu Ihnen nach Salzburg. Standard-Lieferung österreichweit in 2-3 Werktagen. Tracking-Nummer inklusive.
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                </div>
+              </div>
             </div>
           </div>
         </section>
