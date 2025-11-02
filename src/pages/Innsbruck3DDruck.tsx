@@ -238,35 +238,6 @@ const Innsbruck3DDruck = () => {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-12 text-center">
-                Häufig gestellte <span className="text-gradient">Fragen</span> zum 3D-Druck in Innsbruck
-              </h2>
-              <div className="space-y-6">
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie schnell kann ich mein 3D-Druck-Teil in Innsbruck erhalten?</h3>
-                  <p className="text-muted-foreground">Mit unserem Express-Service liefern wir innerhalb von 24 Stunden nach Innsbruck. Standard-Lieferungen dauern 2-3 Werktage.</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate werden akzeptiert?</h3>
-                  <p className="text-muted-foreground">Wir akzeptieren STL, OBJ, STEP und viele weitere gängige CAD-Formate. Bei Fragen zu Ihrem Format kontaktieren Sie uns gerne.</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie werden die Kosten für 3D-Druck in Innsbruck berechnet?</h3>
-                  <p className="text-muted-foreground">Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren Online-Kostenrechner für eine sofortige Schätzung.</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Bieten Sie auch Nachbearbeitung an?</h3>
-                  <p className="text-muted-foreground">Ja, wir bieten Schleifen, Lackieren und weitere Finishing-Optionen für Ihre 3D-gedruckten Teile in Innsbruck an.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Reviews Widget */}
         <ReviewsWidget />
 
