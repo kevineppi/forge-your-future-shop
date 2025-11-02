@@ -8,28 +8,18 @@ import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
 import { Box, Clock, MapPin, Phone, Mail, CheckCircle, Zap, Shield, Leaf, TrendingUp, Factory, Building2, Palette, FlaskConical } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AnimatedSection from "@/components/AnimatedSection";
-
 const Salzburg3DDruck = () => {
-
-  return (
-    <>
-      <SEOHead 
-        title="3D-Druckservice Salzburg | Professioneller FDM-Druck | ekdruck"
-        description="Ihr regionaler Partner für hochwertigen 3D-Druck in Salzburg! Express-Lieferung 24-48h, österreichische Premium-Materialien, persönliche Beratung. Jetzt anfragen!"
-        keywords="3d-druckservice salzburg, 3d druck salzburg stadt, fdm-druck salzburg, rapid prototyping salzburg, 3d-druck dienstleister salzburg"
-        path="/3d-druck-salzburg"
-      />
-      <BreadcrumbSchema items={[
-        {name: "Home", url: "/"},
-        {name: "3D-Druck Salzburg", url: "/3d-druck-salzburg"}
-      ]} />
+  return <>
+      <SEOHead title="3D-Druckservice Salzburg | Professioneller FDM-Druck | ekdruck" description="Ihr regionaler Partner für hochwertigen 3D-Druck in Salzburg! Express-Lieferung 24-48h, österreichische Premium-Materialien, persönliche Beratung. Jetzt anfragen!" keywords="3d-druckservice salzburg, 3d druck salzburg stadt, fdm-druck salzburg, rapid prototyping salzburg, 3d-druck dienstleister salzburg" path="/3d-druck-salzburg" />
+      <BreadcrumbSchema items={[{
+      name: "Home",
+      url: "/"
+    }, {
+      name: "3D-Druck Salzburg",
+      url: "/3d-druck-salzburg"
+    }]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
       <StructuredData type="faq" />
@@ -62,7 +52,9 @@ const Salzburg3DDruck = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-12">
-                <Button size="lg" className="group" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button size="lg" className="group" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth'
+              })}>
                   Jetzt Angebot erhalten
                   <TrendingUp className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -679,18 +671,10 @@ const Salzburg3DDruck = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-background">
+        <section id="contact" className="bg-background py-[8px]">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <AnimatedSection>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-                  Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in Salzburg
-                </h2>
-                <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-lg">
-                  Kontaktieren Sie uns für ein kostenloses und unverbindliches Angebot. 
-                  Wir beraten Sie gerne persönlich zu Ihrem Projekt!
-                </p>
-              </AnimatedSection>
+              
               
               <AnimatedSection delay={0.1}>
                 <Contact />
@@ -702,8 +686,6 @@ const Salzburg3DDruck = () => {
         <AIChatWidget />
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default Salzburg3DDruck;
