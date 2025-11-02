@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      chat_logs: {
+        Row: {
+          actions: Json | null
+          assistant_message: string
+          created_at: string
+          had_context: boolean | null
+          id: string
+          message_timestamp: string
+          session_id: string
+          sources: Json | null
+          user_agent: string | null
+          user_ip: string | null
+          user_message: string
+        }
+        Insert: {
+          actions?: Json | null
+          assistant_message: string
+          created_at?: string
+          had_context?: boolean | null
+          id?: string
+          message_timestamp?: string
+          session_id: string
+          sources?: Json | null
+          user_agent?: string | null
+          user_ip?: string | null
+          user_message: string
+        }
+        Update: {
+          actions?: Json | null
+          assistant_message?: string
+          created_at?: string
+          had_context?: boolean | null
+          id?: string
+          message_timestamp?: string
+          session_id?: string
+          sources?: Json | null
+          user_agent?: string | null
+          user_ip?: string | null
+          user_message?: string
+        }
+        Relationships: []
+      }
       contact_inquiries: {
         Row: {
           created_at: string
@@ -247,7 +289,15 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      chat_analytics: {
+        Row: {
+          different_answers: string[] | null
+          last_asked: string | null
+          question_count: number | null
+          user_message: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       has_role: {

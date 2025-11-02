@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { message, conversationHistory } = await req.json();
+    const { message, conversationHistory, sessionId } = await req.json();
 
     if (!message) {
       console.error('No message provided');
@@ -207,6 +207,28 @@ ${context ? `\n=== KB ===\n${context}\n=== ENDE ===\n` : ''}`;
         answer: rawContent,
         actions: []
       };
+    }
+
+    // Save chat log to database
+    try {
+      const { error: logError } = await supabase
+        .from('chat_logs')
+        .insert({
+          session_id: sessionId || 'unknown',
+          user_message: message,
+          assistant_message: parsedResponse.answer || rawContent,
+          had_context: matches && matches.length > 0,
+          sources: sources.slice(0, 3),
+          actions: parsedResponse.actions || [],
+          user_agent: req.headers.get('user-agent') || 'unknown'
+        });
+      
+      if (logError) {
+        console.error('Failed to save chat log:', logError);
+        // Don't fail the request if logging fails
+      }
+    } catch (logErr) {
+      console.error('Error saving chat log:', logErr);
     }
 
     return new Response(
