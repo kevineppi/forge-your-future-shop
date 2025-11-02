@@ -9,36 +9,17 @@ import Contact from "@/components/Contact";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  Box, 
-  Clock, 
-  MapPin, 
-  CheckCircle, 
-  Factory,
-  Recycle,
-  Users,
-  ArrowRight,
-  Sparkles,
-  Settings,
-  Zap,
-  Shield,
-  TrendingUp,
-  Package
-} from "lucide-react";
-
+import { Box, Clock, MapPin, CheckCircle, Factory, Recycle, Users, ArrowRight, Sparkles, Settings, Zap, Shield, TrendingUp, Package } from "lucide-react";
 const Graz3DDruck = () => {
-  return (
-    <>
-      <SEOHead 
-        title="3D-Druck Graz & Steiermark | FDM Service | ekdruck"
-        description="Hochpräziser FDM 3D-Druck für Grazer Industrie & Forschung. Technische Prototypen, Funktionsteile, Engineering-Support. Kostenlose Beratung in Graz!"
-        keywords="3d-druck graz, 3d drucker graz, fdm druck graz, rapid prototyping graz, 3d-druck steiermark, prototypen graz"
-        path="/3d-druck-graz"
-      />
-      <BreadcrumbSchema items={[
-        {name: "Home", url: "/"},
-        {name: "3D-Druck Graz", url: "/3d-druck-graz"}
-      ]} />
+  return <>
+      <SEOHead title="3D-Druck Graz & Steiermark | FDM Service | ekdruck" description="Hochpräziser FDM 3D-Druck für Grazer Industrie & Forschung. Technische Prototypen, Funktionsteile, Engineering-Support. Kostenlose Beratung in Graz!" keywords="3d-druck graz, 3d drucker graz, fdm druck graz, rapid prototyping graz, 3d-druck steiermark, prototypen graz" path="/3d-druck-graz" />
+      <BreadcrumbSchema items={[{
+      name: "Home",
+      url: "/"
+    }, {
+      name: "3D-Druck Graz",
+      url: "/3d-druck-graz"
+    }]} />
       <StructuredData type="organization" />
       <StructuredData type="service" />
       <StructuredData type="faq" />
@@ -64,7 +45,9 @@ const Graz3DDruck = () => {
                   Schnelle Lieferung, nachhaltige österreichische Materialien und faire Preise für Ihre technischen Anforderungen.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center mb-12">
-                  <Button size="lg" className="text-lg h-14 px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <Button size="lg" className="text-lg h-14 px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                  behavior: 'smooth'
+                })}>
                     <Sparkles className="mr-2 h-5 w-5" />
                     Jetzt Angebot erhalten
                   </Button>
@@ -671,29 +654,23 @@ const Graz3DDruck = () => {
                 </div>
 
                 <div className="space-y-8">
-                  {[
-                    {
-                      number: 1,
-                      title: "Anfrage senden",
-                      description: "Laden Sie Ihre CAD-Datei hoch oder nutzen Sie unseren Kostenrechner für eine erste Schätzung. Wir unterstützen alle gängigen Formate."
-                    },
-                    {
-                      number: 2,
-                      title: "Angebot erhalten",
-                      description: "Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot mit Preis, Lieferzeit und Materialempfehlung."
-                    },
-                    {
-                      number: 3,
-                      title: "Produktion",
-                      description: "Nach Ihrer Freigabe starten wir sofort mit dem 3D-Druck. Sie erhalten Updates zum Produktionsfortschritt."
-                    },
-                    {
-                      number: 4,
-                      title: "Lieferung nach Graz",
-                      description: "Express-Versand innerhalb von 24-48h direkt zu Ihnen nach Graz. Versichert und nachverfolgbar."
-                    }
-                  ].map((step, index) => (
-                    <div key={index} className="flex gap-6 items-start group">
+                  {[{
+                  number: 1,
+                  title: "Anfrage senden",
+                  description: "Laden Sie Ihre CAD-Datei hoch oder nutzen Sie unseren Kostenrechner für eine erste Schätzung. Wir unterstützen alle gängigen Formate."
+                }, {
+                  number: 2,
+                  title: "Angebot erhalten",
+                  description: "Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot mit Preis, Lieferzeit und Materialempfehlung."
+                }, {
+                  number: 3,
+                  title: "Produktion",
+                  description: "Nach Ihrer Freigabe starten wir sofort mit dem 3D-Druck. Sie erhalten Updates zum Produktionsfortschritt."
+                }, {
+                  number: 4,
+                  title: "Lieferung nach Graz",
+                  description: "Express-Versand innerhalb von 24-48h direkt zu Ihnen nach Graz. Versichert und nachverfolgbar."
+                }].map((step, index) => <div key={index} className="flex gap-6 items-start group">
                       <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary font-bold text-2xl group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                         {step.number}
                       </div>
@@ -701,12 +678,13 @@ const Graz3DDruck = () => {
                         <h3 className="font-bold text-2xl mb-3">{step.title}</h3>
                         <p className="text-lg text-muted-foreground">{step.description}</p>
                       </div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
 
                 <div className="mt-12 text-center">
-                  <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({
+                  behavior: 'smooth'
+                })}>
                     <Sparkles className="mr-2 h-5 w-5" />
                     Jetzt starten
                   </Button>
@@ -870,16 +848,12 @@ const Graz3DDruck = () => {
 
         {/* Contact Section */}
         <AnimatedSection animation="fade-in">
-          <section id="contact" className="py-24">
+          <section id="contact" className="py-0">
             <div className="container mx-auto px-4">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                    Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in Graz
-                  </h2>
-                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Kontaktieren Sie uns für ein kostenloses Angebot und persönliche Beratung
-                  </p>
+                  
+                  
                 </div>
                 <Contact />
               </div>
@@ -890,8 +864,6 @@ const Graz3DDruck = () => {
         <AIChatWidget />
         <Footer />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default Graz3DDruck;
