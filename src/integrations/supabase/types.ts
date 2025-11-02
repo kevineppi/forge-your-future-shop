@@ -53,6 +53,69 @@ export type Database = {
         }
         Relationships: []
       }
+      knowledge_base: {
+        Row: {
+          category: string
+          content: string
+          created_at: string
+          embedding: string | null
+          id: string
+          is_active: boolean
+          metadata: Json | null
+          page_url: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          content: string
+          created_at?: string
+          embedding?: string | null
+          id?: string
+          is_active?: boolean
+          metadata?: Json | null
+          page_url?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string
+          embedding?: string | null
+          id?: string
+          is_active?: boolean
+          metadata?: Json | null
+          page_url?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      newsletter_subscribers: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          name: string
+          source: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          source?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          source?: string | null
+        }
+        Relationships: []
+      }
       projects: {
         Row: {
           complexity_level: number | null
@@ -194,9 +257,21 @@ export type Database = {
         }
         Returns: boolean
       }
-      is_admin: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
+      is_admin: { Args: never; Returns: boolean }
+      search_knowledge_base: {
+        Args: {
+          match_count?: number
+          match_threshold?: number
+          query_embedding: string
+        }
+        Returns: {
+          category: string
+          content: string
+          id: string
+          page_url: string
+          similarity: number
+          title: string
+        }[]
       }
     }
     Enums: {
