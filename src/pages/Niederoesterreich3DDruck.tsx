@@ -6,8 +6,16 @@ import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ReviewsWidget from "@/components/ReviewsWidget";
+import Contact from "@/components/Contact";
+import TrustBadges from "@/components/TrustBadges";
+import LiveCounter from "@/components/LiveCounter";
+import StickyCTA from "@/components/StickyCTA";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Phone, Mail, ArrowRight, CheckCircle2, Factory, Wrench, Package, BookOpen, Lightbulb, TrendingUp } from "lucide-react";
 
 const Niederoesterreich3DDruck = () => {
   useEffect(() => {
@@ -89,18 +97,61 @@ const Niederoesterreich3DDruck = () => {
           </div>
         </section>
 
-        {/* City Links */}
+        {/* Trust Badges */}
+        <section className="py-12 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <AnimatedSection animation="fade-in">
+              <TrustBadges />
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Live Counter */}
+        <section className="py-8 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <AnimatedSection animation="scale-in">
+              <LiveCounter />
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Target Industries */}
         <section className="py-16 px-4 bg-primary/5">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold mb-8 text-center">3D-Druck Service in Niederösterreich</h2>
-            <p className="text-center text-muted-foreground mb-8">
-              Wir liefern schnell und zuverlässig in alle niederösterreichischen Städte
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="outline" asChild>
-                <a href="/3d-druck-st-poelten">3D-Druck St. Pölten</a>
-              </Button>
-            </div>
+            <AnimatedSection animation="fade-in">
+              <h2 className="text-3xl font-bold mb-12 text-center">
+                Branchen in <span className="text-gradient">Niederösterreich</span>
+              </h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="gradient-card border-0 hover:shadow-card transition-all">
+                  <CardContent className="p-6">
+                    <Factory className="h-12 w-12 text-primary mb-4" />
+                    <h3 className="text-xl font-semibold mb-3">Maschinenbau</h3>
+                    <p className="text-muted-foreground">
+                      Funktionsprototypen, Ersatzteile und Betriebsmittel für die niederösterreichische Industrie.
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card className="gradient-card border-0 hover:shadow-card transition-all">
+                  <CardContent className="p-6">
+                    <Wrench className="h-12 w-12 text-primary mb-4" />
+                    <h3 className="text-xl font-semibold mb-3">Handwerk & Gewerbe</h3>
+                    <p className="text-muted-foreground">
+                      Individuelle Lösungen für Handwerksbetriebe und KMUs in der Region.
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card className="gradient-card border-0 hover:shadow-card transition-all">
+                  <CardContent className="p-6">
+                    <Package className="h-12 w-12 text-primary mb-4" />
+                    <h3 className="text-xl font-semibold mb-3">Prototypenbau</h3>
+                    <p className="text-muted-foreground">
+                      Schnelle Iteration und Validierung für Start-ups und Entwicklungsteams.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
 
@@ -141,36 +192,115 @@ const Niederoesterreich3DDruck = () => {
           </div>
         </section>
 
-        {/* Reviews */}
-        <section className="py-16 px-4 bg-primary/5">
+        {/* Related Guides */}
+        <section className="py-16 px-4">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold mb-12 text-center">Kundenstimmen aus Niederösterreich</h2>
-            <ReviewsWidget />
+            <AnimatedSection animation="fade-in">
+              <h2 className="text-3xl font-bold mb-12 text-center">
+                Hilfreiche <span className="text-gradient">Ressourcen</span>
+              </h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="gradient-card border-0 hover:shadow-card transition-all group">
+                  <CardContent className="p-6">
+                    <BookOpen className="h-10 w-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                    <h3 className="text-xl font-semibold mb-3">Material-Guide</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Welches Material eignet sich für Ihr Projekt? Unser Guide hilft bei der Auswahl.
+                    </p>
+                    <Button variant="link" asChild className="p-0">
+                      <a href="/ratgeber/material-guide">Mehr erfahren →</a>
+                    </Button>
+                  </CardContent>
+                </Card>
+                <Card className="gradient-card border-0 hover:shadow-card transition-all group">
+                  <CardContent className="p-6">
+                    <Lightbulb className="h-10 w-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                    <h3 className="text-xl font-semibold mb-3">Prototyping-Guide</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Best Practices für erfolgreichen Prototypenbau mit 3D-Druck.
+                    </p>
+                    <Button variant="link" asChild className="p-0">
+                      <a href="/ratgeber/prototyping-guide">Mehr erfahren →</a>
+                    </Button>
+                  </CardContent>
+                </Card>
+                <Card className="gradient-card border-0 hover:shadow-card transition-all group">
+                  <CardContent className="p-6">
+                    <TrendingUp className="h-10 w-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                    <h3 className="text-xl font-semibold mb-3">Kosten-Guide</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Transparente Informationen zu Preisen und Kalkulationsfaktoren.
+                    </p>
+                    <Button variant="link" asChild className="p-0">
+                      <a href="/ratgeber/kosten-guide">Mehr erfahren →</a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
 
-        {/* Contact CTA */}
-        <section id="contact" className="py-16 px-4">
-          <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold mb-6">Jetzt 3D-Druck Service in Niederösterreich nutzen</h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Kontaktieren Sie uns für ein kostenloses Angebot
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <a href="tel:+436641337778" className="flex items-center justify-center gap-2 text-lg hover:text-primary transition-colors">
-                <Phone className="h-5 w-5" />
-                +43 664 1337778
-              </a>
-              <a href="mailto:office@ek-druck.at" className="flex items-center justify-center gap-2 text-lg hover:text-primary transition-colors">
-                <Mail className="h-5 w-5" />
-                office@ek-druck.at
-              </a>
-            </div>
-            <Button size="lg" onClick={() => window.location.href = '/#contact'}>
-              Kontaktformular
-            </Button>
+        {/* FAQ Section */}
+        <section className="py-16 px-4 bg-primary/5">
+          <div className="container mx-auto max-w-4xl">
+            <AnimatedSection animation="fade-in">
+              <h2 className="text-3xl font-bold mb-12 text-center">
+                Häufige Fragen zum <span className="text-gradient">3D-Druck in Niederösterreich</span>
+              </h2>
+              <Accordion type="single" collapsible className="space-y-4">
+                {[
+                  {
+                    question: "Wie schnell können Sie nach Niederösterreich liefern?",
+                    answer: "Standardlieferungen erreichen Sie innerhalb von 2-3 Werktagen. Für dringende Projekte bieten wir einen Express-Service mit Lieferung innerhalb von 24-48 Stunden nach St. Pölten und die umliegenden Regionen."
+                  },
+                  {
+                    question: "Welche Materialien verwenden Sie?",
+                    answer: "Wir arbeiten ausschließlich mit hochwertigen Filamenten aus österreichischer Produktion. Unser Portfolio umfasst PLA, PETG, ASA und technische Materialien für anspruchsvolle Anwendungen."
+                  },
+                  {
+                    question: "Bieten Sie auch Beratung für 3D-Druck-Projekte?",
+                    answer: "Ja, wir beraten Sie gerne bei der Materialauswahl, Designoptimierung und Fertigungsplanung. Kontaktieren Sie uns für ein kostenloses Beratungsgespräch."
+                  },
+                  {
+                    question: "Können Sie auch Großserien fertigen?",
+                    answer: "Ja, wir realisieren auch Serienfertigung mit FDM-Technologie. Sprechen Sie uns an für ein individuelles Angebot für Ihr Projekt."
+                  }
+                ].map((faq, index) => 
+                  <AccordionItem key={index} value={`item-${index}`} className="gradient-card border-0 px-6">
+                    <AccordionTrigger className="text-left font-semibold hover:text-primary transition-colors">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>)}
+              </Accordion>
+            </AnimatedSection>
           </div>
         </section>
+
+        {/* Reviews */}
+        <section className="py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
+          <div className="container mx-auto max-w-6xl">
+            <AnimatedSection animation="scale-in" delay={200}>
+              <ReviewsWidget />
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Contact Form */}
+        <section id="contact" className="py-16 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <AnimatedSection animation="fade-in">
+              <Contact />
+            </AnimatedSection>
+          </div>
+        </section>
+
+        <StickyCTA />
+        <WhatsAppButton />
+        <AIChatWidget />
 
         <AIChatWidget />
         <Footer />
