@@ -435,21 +435,6 @@ const Oberoesterreich3DDruck = () => {
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection animation="slide-up" delay={200}>
-                <div className="flex gap-4 p-6 rounded-xl border border-border/50 bg-card hover-scale">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Users className="h-6 w-6 text-primary" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Persönliche Beratung vor Ort</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      Auf Wunsch kommen wir zu Ihnen nach Linz, Wels, Steyr oder besuchen Sie uns in Gunskirchen.
-                    </p>
-                  </div>
-                </div>
-              </AnimatedSection>
 
               <AnimatedSection animation="slide-up" delay={250}>
                 <div className="flex gap-4 p-6 rounded-xl border border-border/50 bg-card hover-scale">
