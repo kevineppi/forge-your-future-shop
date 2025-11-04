@@ -500,12 +500,7 @@ const Oberoesterreich3DDruck = () => {
         <section className="py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
           <div className="container mx-auto max-w-6xl">
             <AnimatedSection animation="fade-in">
-              <div className="text-center mb-12">
-                <Badge variant="outline" className="mb-4">Kundenstimmen</Badge>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                  Das sagen unsere Kunden aus OÖ
-                </h2>
-              </div>
+              
             </AnimatedSection>
             <AnimatedSection animation="scale-in" delay={200}>
               <ReviewsWidget />
