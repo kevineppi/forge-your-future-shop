@@ -41,7 +41,13 @@ const ReviewsWidget = () => {
     <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Das sagen unsere <span className="text-gradient">Kunden</span>
+          </h2>
+          <p className="text-muted-foreground mb-4">
+            Über 50+ zufriedene Kunden vertrauen auf unseren 3D-Druck Service
+          </p>
+          <div className="flex items-center justify-center gap-2">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-6 h-6 fill-primary text-primary" />
@@ -49,12 +55,6 @@ const ReviewsWidget = () => {
             </div>
             <span className="text-2xl font-bold">5.0</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            Das sagen unsere <span className="text-gradient">Kunden</span>
-          </h2>
-          <p className="text-muted-foreground">
-            Über 50+ zufriedene Kunden vertrauen auf unseren 3D-Druck Service
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">

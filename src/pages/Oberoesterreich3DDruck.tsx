@@ -499,9 +499,6 @@ const Oberoesterreich3DDruck = () => {
         {/* Reviews */}
         <section className="py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
           <div className="container mx-auto max-w-6xl">
-            <AnimatedSection animation="fade-in">
-              
-            </AnimatedSection>
             <AnimatedSection animation="scale-in" delay={200}>
               <ReviewsWidget />
             </AnimatedSection>
