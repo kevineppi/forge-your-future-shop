@@ -1,12 +1,20 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import AIChatWidget from "@/components/AIChatWidget";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
+import Contact from "@/components/Contact";
+import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
-import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
+import { Box, Clock, MapPin, Phone, Mail, CheckCircle, Zap, Shield, Leaf, TrendingUp, Factory, Building2, Palette, FlaskConical } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const Villach3DDruck = () => {
 
@@ -29,194 +37,624 @@ const Villach3DDruck = () => {
       <div className="min-h-screen">
         <Navigation />
         
-        <section className="pt-32 pb-16 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <MapPin className="w-6 h-6 text-primary" />
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-20 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 relative">
+            <AnimatedSection className="max-w-5xl mx-auto text-center">
+              <div className="inline-flex items-center justify-center gap-2 mb-6 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+                <MapPin className="w-5 h-5 text-primary" />
                 <span className="text-primary font-semibold">Villach</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 3D-Druck Service in <span className="text-gradient">Villach</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Professioneller FDM 3D-Druck für <strong className="text-foreground">Villach</strong> und ganz <strong className="text-foreground">Kärnten Süd</strong>. 
-                Wir <strong className="text-foreground">beliefern</strong> zuverlässig die gesamte Region mit schneller Lieferung, hochwertigen Materialien und fairen Preisen für Ihre Projekte.
+              
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+                Ihr lokaler Partner für professionellen FDM 3D-Druck in <strong className="text-foreground">Villach</strong> und ganz Kärnten Süd. 
+                Schnelle Lieferung nach <strong className="text-foreground">Villach</strong>, nachhaltige Materialien und faire Preise für Ihre Projekte.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              
+              <div className="flex flex-wrap gap-4 justify-center mb-12">
+                <Button size="lg" className="group" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Jetzt Angebot erhalten
+                  <TrendingUp className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="/kostenrechner">Kosten berechnen</a>
                 </Button>
               </div>
+              
+              {/* USPs */}
+              <div className="grid md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div className="flex items-center justify-center gap-2 p-4 bg-card/50 backdrop-blur-sm rounded-lg border">
+                  <Zap className="w-5 h-5 text-primary" />
+                  <span className="font-semibold text-sm">24h Express</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-4 bg-card/50 backdrop-blur-sm rounded-lg border">
+                  <Leaf className="w-5 h-5 text-primary" />
+                  <span className="font-semibold text-sm">Nachhaltig</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-4 bg-card/50 backdrop-blur-sm rounded-lg border">
+                  <Shield className="w-5 h-5 text-primary" />
+                  <span className="font-semibold text-sm">Made in Austria</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-4 bg-card/50 backdrop-blur-sm rounded-lg border">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <span className="font-semibold text-sm">Top Qualität</span>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <AnimatedSection>
+              <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+                Unsere <span className="text-gradient">Services in Villach</span>
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Von schnellem <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> bis zur Serienfertigung – wir bieten professionelle 3D-Druck-Lösungen für Ihr Projekt in Villach.
+              </p>
+            </AnimatedSection>
+            
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <AnimatedSection delay={0.1}>
+                <div className="group gradient-card p-8 rounded-2xl hover-scale border-2 border-transparent hover:border-primary/20 transition-all duration-300">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Box className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">FDM 3D-Druck</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Professioneller FDM 3D-Druck für Prototypen, Einzelteile und Kleinserien. 
+                    Schichtauflösung bis 0,1mm für höchste Präzision in Villach.
+                  </p>
+                  <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold inline-flex items-center gap-2 group">
+                    Mehr erfahren 
+                    <TrendingUp className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </AnimatedSection>
+              
+              <AnimatedSection delay={0.2}>
+                <div className="group gradient-card p-8 rounded-2xl hover-scale border-2 border-transparent hover:border-primary/20 transition-all duration-300">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Clock className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Express Service 24h</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Benötigen Sie Ihr Teil schnell? Wir liefern innerhalb von 24-48 Stunden nach ganz Villach. 
+                    Perfekt für dringende Projekte und Deadlines.
+                  </p>
+                  <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold inline-flex items-center gap-2 group">
+                    Mehr erfahren 
+                    <TrendingUp className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </AnimatedSection>
+              
+              <AnimatedSection delay={0.3}>
+                <div className="group gradient-card p-8 rounded-2xl hover-scale border-2 border-transparent hover:border-primary/20 transition-all duration-300">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Leaf className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Nachhaltige Materialien</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Wir verwenden ausschließlich hochwertige Filamente aus österreichischer Produktion. 
+                    PLA, PETG, ABS, Nylon – alle aus nachhaltiger Herstellung.
+                  </p>
+                  <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold inline-flex items-center gap-2 group">
+                    Mehr erfahren 
+                    <TrendingUp className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </AnimatedSection>
             </div>
           </div>
         </section>
 
-        <section className="py-16">
+        {/* Why ekdruck Section */}
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-12">
-              Unsere <span className="text-gradient">Services in Villach</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="gradient-card p-6 rounded-xl">
-                <Box className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">FDM 3D-Druck</h3>
-                <p className="text-muted-foreground mb-4">
-                  Professioneller FDM 3D-Druck für Prototypen und Fertigung in Villach.
+            <div className="max-w-5xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  Warum ekdruck für <span className="text-gradient">3D-Druck in Villach</span>?
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Als österreichischer 3D-Druck-Spezialist bieten wir Ihnen lokale Expertise, 
+                  schnelle Lieferzeiten und persönliche Betreuung für Ihr Projekt in Villach.
                 </p>
-                <a href="/fdm-3d-druck" className="text-primary hover:underline">Mehr erfahren →</a>
+              </AnimatedSection>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <AnimatedSection delay={0.1}>
+                  <div className="flex gap-4 p-6 bg-card rounded-xl border hover:border-primary/50 transition-colors">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">Schnelle Lieferung nach Villach</h3>
+                      <p className="text-muted-foreground">Express-Versand innerhalb von 24-48h direkt zu Ihnen nach Villach. Standard-Lieferung in 2-3 Werktagen österreichweit.</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.2}>
+                  <div className="flex gap-4 p-6 bg-card rounded-xl border hover:border-primary/50 transition-colors">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">Lokaler österreichischer Anbieter</h3>
+                      <p className="text-muted-foreground">Keine langen Lieferwege aus dem Ausland. Direkt aus Österreich mit kurzen Kommunikationswegen und persönlichem Kontakt.</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.3}>
+                  <div className="flex gap-4 p-6 bg-card rounded-xl border hover:border-primary/50 transition-colors">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">Persönliche Beratung auf Deutsch</h3>
+                      <p className="text-muted-foreground">Kompetente Unterstützung bei der Material- und Verfahrenswahl. Wir optimieren Ihre CAD-Dateien für beste Druckergebnisse.</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.4}>
+                  <div className="flex gap-4 p-6 bg-card rounded-xl border hover:border-primary/50 transition-colors">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">Faire Preise & transparente Kosten</h3>
+                      <p className="text-muted-foreground">Nutzen Sie unseren Kostenrechner für eine sofortige Preisschätzung. Keine versteckten Kosten, faire Konditionen.</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Villach Industry Section */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  3D-Druck für <span className="text-gradient">Villacher Unternehmen</span>
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Villach ist ein bedeutender Industriestandort in Kärnten. Als lokaler 3D-Druck Dienstleister 
+                  unterstützen wir die innovative Wirtschaft der zweitgrößten Stadt Kärntens.
+                </p>
+              </AnimatedSection>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <AnimatedSection delay={0.1}>
+                  <div className="bg-card p-8 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <Factory className="w-12 h-12 text-primary mb-4" />
+                    <h3 className="text-2xl font-bold mb-4">Industrie & Fertigung</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Villach ist ein wichtiger Technologie- und Industriestandort. 
+                      Unser <strong className="text-primary">3D-Druck Service</strong> unterstützt Unternehmen mit:
+                    </p>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Funktionsprototypen für Produktentwicklungen</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Ersatzteile und Komponenten on-demand</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Vorrichtungen und Betriebsmittel</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Kleinserien für Spezialprojekte</span>
+                      </li>
+                    </ul>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.2}>
+                  <div className="bg-card p-8 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <FlaskConical className="w-12 h-12 text-primary mb-4" />
+                    <h3 className="text-2xl font-bold mb-4">Forschung & Entwicklung</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Mit der FH Kärnten und zahlreichen F&E-Einrichtungen profitiert Villach von innovativen 3D-Druck-Lösungen. 
+                      Wir bieten spezialisierte Services für:
+                    </p>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Wissenschaftliche Modelle und Anschauungsobjekte</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Forschungsprototypen mit kurzen Iterationszyklen</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Spezialanfertigungen für Laborausstattung</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Bildungsmaterialien für Lehre und Ausbildung</span>
+                      </li>
+                    </ul>
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Applications Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  Anwendungsbereiche für <span className="text-gradient">3D-Druck in Villach</span>
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Von der Industrie über Architektur bis zur Forschung – 3D-Druck bietet vielseitige Möglichkeiten 
+                  für Unternehmen und Privatpersonen in Villach und Umgebung.
+                </p>
+              </AnimatedSection>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <AnimatedSection delay={0.1}>
+                  <div className="bg-card p-6 rounded-2xl border-2 border-transparent hover:border-primary/30 transition-all hover-scale">
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <Factory className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-xl mb-3">Industrie & Fertigung</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Funktionale Prototypen, Ersatzteile und Vorrichtungen für Villacher Industrieunternehmen.
+                    </p>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.2}>
+                  <div className="bg-card p-6 rounded-2xl border-2 border-transparent hover:border-primary/30 transition-all hover-scale">
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <Building2 className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-xl mb-3">Architektur & Bau</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Architekturmodelle und Präsentationsmodelle für Villacher Architekten und Planer.
+                    </p>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.3}>
+                  <div className="bg-card p-6 rounded-2xl border-2 border-transparent hover:border-primary/30 transition-all hover-scale">
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <Palette className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-xl mb-3">Design & Kunst</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Kunstobjekte, Designprototypen und individuelle Einzelstücke für Villacher Kreativschaffende.
+                    </p>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.4}>
+                  <div className="bg-card p-6 rounded-2xl border-2 border-transparent hover:border-primary/30 transition-all hover-scale">
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <FlaskConical className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-xl mb-3">Forschung & Entwicklung</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Rapid Prototyping für FH Kärnten und Forschungseinrichtungen in Villach.
+                    </p>
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Materials Section */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  <span className="text-gradient">Materialien</span> für Ihr Projekt in Villach
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Wir setzen ausschließlich auf hochwertige Filamente aus österreichischer Produktion. 
+                  Nachhaltig, qualitativ und perfekt für Ihre Anforderungen.
+                </p>
+              </AnimatedSection>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <AnimatedSection delay={0.1}>
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">PLA</h3>
+                      <span className="px-3 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">Bio</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Nachhaltiger Biokunststoff, ideal für Prototypen, Designmodelle und Visualisierungen. 
+                      100% biologisch abbaubar.
+                    </p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Umweltfreundlich</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Hohe Detailgenauigkeit</span>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.2}>
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">PETG</h3>
+                      <span className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs font-semibold">Robust</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Schlagfest und chemikalienbeständig. Perfekt für funktionale Bauteile und Endverbrauchsteile mit hoher Belastung.
+                    </p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Hohe Festigkeit</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Witterungsbeständig</span>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.3}>
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">ABS</h3>
+                      <span className="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-semibold">Technisch</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Hitzebeständig bis 100°C. Ideal für technische Anwendungen, Industriekomponenten und Gehäuse.
+                    </p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Temperaturbeständig</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Industriequalität</span>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+                
+                <AnimatedSection delay={0.4}>
+                  <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-xl">PA12 Nylon</h3>
+                      <span className="px-3 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">Premium</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      Höchste Festigkeit und Flexibilität. Für anspruchsvolle mechanische Anwendungen und Sonderanfertigungen.
+                    </p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Extrem belastbar</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span>Flexibel & stark</span>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>
               </div>
               
-              <div className="gradient-card p-6 rounded-xl">
-                <Clock className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Express Service</h3>
-                <p className="text-muted-foreground mb-4">
-                  24-48h Lieferung nach Villach für dringende Projekte.
-                </p>
-                <a href="/rapid-prototyping" className="text-primary hover:underline">Mehr erfahren →</a>
+              <div className="text-center mt-10">
+                <a href="/3d-druck-materialien" className="inline-flex items-center gap-2 text-primary hover:underline font-semibold text-lg">
+                  Alle Materialien im Detail ansehen
+                  <TrendingUp className="w-5 h-5" />
+                </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  So einfach geht <span className="text-gradient">3D-Druck in Villach</span>
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Von der ersten Anfrage bis zur Lieferung – unser transparenter Prozess macht 3D-Druck einfach und planbar.
+                </p>
+              </AnimatedSection>
               
-              <div className="gradient-card p-6 rounded-xl">
-                <CheckCircle className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold mb-3">Premium Qualität</h3>
-                <p className="text-muted-foreground mb-4">
-                  Hochwertige Filamente aus österreichischer Produktion.
+              <div className="relative">
+                {/* Connection Line */}
+                <div className="hidden md:block absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary"></div>
+                
+                <div className="space-y-8">
+                  <AnimatedSection delay={0.1}>
+                    <div className="flex gap-6 items-start relative">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 relative z-10">
+                        1
+                      </div>
+                      <div className="flex-1 bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                        <h3 className="font-bold text-xl mb-3">Anfrage senden</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Senden Sie uns Ihre CAD-Datei (STL, OBJ, STEP, etc.) per E-Mail oder nutzen Sie unseren 
+                          Online-Kostenrechner für eine erste Schätzung. Wir prüfen Ihre Datei auf Druckbarkeit und 
+                          optimieren sie bei Bedarf kostenlos.
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection delay={0.2}>
+                    <div className="flex gap-6 items-start relative">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 relative z-10">
+                        2
+                      </div>
+                      <div className="flex-1 bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                        <h3 className="font-bold text-xl mb-3">Angebot & Beratung</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Innerhalb von 24 Stunden erhalten Sie ein detailliertes Angebot mit Preis, Lieferzeit und 
+                          Materialempfehlung. Bei komplexen Projekten beraten wir Sie persönlich zur optimalen Umsetzung.
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection delay={0.3}>
+                    <div className="flex gap-6 items-start relative">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 relative z-10">
+                        3
+                      </div>
+                      <div className="flex-1 bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                        <h3 className="font-bold text-xl mb-3">Produktion startet</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Nach Ihrer Freigabe starten wir sofort mit dem 3D-Druck auf unseren modernsten FDM-Druckern. 
+                          Sie werden über den Fortschritt informiert und können bei größeren Projekten Zwischenstände anfordern.
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                  
+                  <AnimatedSection delay={0.4}>
+                    <div className="flex gap-6 items-start relative">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 relative z-10">
+                        4
+                      </div>
+                      <div className="flex-1 bg-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                        <h3 className="font-bold text-xl mb-3">Qualitätsprüfung & Lieferung</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Jedes Teil wird sorgfältig geprüft und nachbearbeitet. Express-Versand innerhalb von 24-48h direkt 
+                          zu Ihnen nach Villach. Standard-Lieferung österreichweit in 2-3 Werktagen. Tracking-Nummer inklusive.
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <AnimatedSection>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+                  Häufig gestellte <span className="text-gradient">Fragen</span> zum 3D-Druck in Villach
+                </h2>
+                <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
+                  Hier finden Sie Antworten auf die wichtigsten Fragen rund um unseren 3D-Druck Service in Villach.
                 </p>
-                <a href="/3d-druck-materialien" className="text-primary hover:underline">Mehr erfahren →</a>
-              </div>
-            </div>
-          </div>
-        </section>
+              </AnimatedSection>
+              
+              <AnimatedSection delay={0.2}>
+                <Accordion type="single" collapsible className="space-y-4">
+                  <AccordionItem value="item-1" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Wie schnell kann ich mein 3D-Druck-Teil in Villach erhalten?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                      Mit unserem Express-Service liefern wir innerhalb von 24-48 Stunden nach Villach. Standard-Lieferungen dauern 2-3 Werktage. 
+                      Für besonders dringende Projekte können wir auch schnellere Lösungen anbieten – kontaktieren Sie uns direkt.
+                    </AccordionContent>
+                  </AccordionItem>
 
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-8 text-center">
-                Warum ekdruck für <span className="text-gradient">Villach</span>?
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold mb-2">Schnelle Lieferung nach Villach</h3>
-                    <p className="text-muted-foreground">Express-Versand innerhalb von 24-48h direkt zu Ihnen</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold mb-2">Österreichischer Anbieter</h3>
-                    <p className="text-muted-foreground">Lokale Produktion aus Oberösterreich</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold mb-2">Persönliche Beratung</h3>
-                    <p className="text-muted-foreground">Kompetente Unterstützung bei Material- und Verfahrenswahl</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold mb-2">Transparente Preise</h3>
-                    <p className="text-muted-foreground">Kostenrechner für sofortige Preisschätzung</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+                  <AccordionItem value="item-2" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Welche Dateiformate werden akzeptiert?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                      Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und viele mehr. Bei Fragen zu Ihrem Format 
+                      kontaktieren Sie uns gerne. Wir können auch aus 2D-Zeichnungen oder Skizzen 3D-Modelle erstellen.
+                    </AccordionContent>
+                  </AccordionItem>
 
-        {/* Materials */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-8 text-center">
-                <span className="text-gradient">Materialien</span> für Villach
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
-                  <p className="text-muted-foreground mb-2">Nachhaltig, ideal für Prototypen</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
-                  <p className="text-muted-foreground mb-2">Schlagfest für funktionale Bauteile</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
-                  <p className="text-muted-foreground mb-2">Hitzebeständig, industrietauglich</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PA12 Nylon</h3>
-                  <p className="text-muted-foreground mb-2">Premium-Festigkeit</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+                  <AccordionItem value="item-3" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Wie werden die Kosten für 3D-Druck in Villach berechnet?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                      Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren{" "}
+                      <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Online-Kostenrechner</a> für eine 
+                      sofortige Schätzung. Kleine Teile starten bereits ab €5, größere Projekte nach individuellem Angebot.
+                    </AccordionContent>
+                  </AccordionItem>
 
-        {/* FAQ */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-12 text-center">
-                Häufig gestellte <span className="text-gradient">Fragen</span>
-              </h2>
-              <div className="space-y-6">
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie schnell liefern Sie nach Villach?</h3>
-                  <p className="text-muted-foreground">Express-Service innerhalb von 24-48 Stunden. Standard 2-3 Werktage.</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Welche Dateiformate akzeptieren Sie?</h3>
-                  <p className="text-muted-foreground">STL, OBJ, STEP und weitere gängige CAD-Formate.</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">Wie berechnen sich die Kosten?</h3>
-                  <p className="text-muted-foreground">Nach Material, Größe und Druckdauer. Nutzen Sie unseren Kostenrechner.</p>
-                </div>
-              </div>
+                  <AccordionItem value="item-4" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Bieten Sie auch Nachbearbeitung an?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                      Ja, wir bieten professionelle Nachbearbeitung: Schleifen, Lackieren, Grundieren, Glattieren und weitere 
+                      Finishing-Optionen für Ihre 3D-gedruckten Teile in Villach. So erhalten Sie produktionsreife Bauteile direkt einsatzbereit.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-5" className="bg-card border rounded-xl px-6">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Welche Materialien eignen sich für technische Anwendungen?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                      Für technische Anwendungen empfehlen wir ABS, ASA oder PA12 Nylon. Diese Materialien bieten hohe Festigkeit, 
+                      Hitzebeständigkeit und sind ideal für mechanisch belastete Bauteile in Villacher Industrieunternehmen.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </AnimatedSection>
             </div>
           </div>
         </section>
 
         <ReviewsWidget />
 
-        <section id="contact" className="py-16">
+        {/* Contact Section */}
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center gradient-card p-12 rounded-2xl">
-              <h2 className="text-4xl font-bold mb-6">
+            <AnimatedSection>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
                 Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in Villach
               </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Kontaktieren Sie uns noch heute für ein kostenloses Angebot
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-lg">
+                Kontaktieren Sie uns noch heute für ein kostenloses Angebot oder eine persönliche Beratung.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-primary" />
-                  <a href="tel:+436765517197" className="text-lg hover:text-primary transition-colors">
-                    +43 676 5517197
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <a href="mailto:office@ekdruck.at" className="text-lg hover:text-primary transition-colors">
-                    office@ekdruck.at
-                  </a>
-                </div>
-              </div>
-              <Button size="lg" asChild>
-                <a href="/#contact">Kontaktformular</a>
-              </Button>
-            </div>
+            </AnimatedSection>
+            
+            <Contact />
           </div>
         </section>
 
