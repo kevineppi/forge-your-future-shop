@@ -11,10 +11,15 @@ import HowToSchema from "@/components/HowToSchema";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import AnimatedSection from "@/components/AnimatedSection";
 import Contact from "@/components/Contact";
+import TrustBadges from "@/components/TrustBadges";
+import StickyCTA from "@/components/StickyCTA";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import LiveCounter from "@/components/LiveCounter";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { Phone, Mail, ArrowRight, CheckCircle2, Zap, Shield, Clock, Users, Factory, Cog, Box, Leaf, Sparkles } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Phone, Mail, ArrowRight, CheckCircle2, Zap, Shield, Clock, Users, Factory, Cog, Box, Leaf, Sparkles, Building2, Wrench, FlaskConical, Home, Briefcase, BookOpen } from "lucide-react";
 const Oberoesterreich3DDruck = () => {
   useEffect(() => {
     document.title = "3D-Druck Oberösterreich | Premium FDM Service | ekdruck e.U.";
@@ -496,8 +501,215 @@ const Oberoesterreich3DDruck = () => {
           </div>
         </section>
 
-        {/* Reviews */}
+        {/* Trust Badges Section */}
+        <section className="py-12 px-4 bg-muted/30">
+          <div className="container mx-auto max-w-6xl">
+            <TrustBadges />
+          </div>
+        </section>
+
+        {/* Target Industries Section */}
+        <section className="py-20 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <AnimatedSection animation="fade-in">
+              <div className="text-center mb-16">
+                <Badge variant="outline" className="mb-4">Unsere Kunden</Badge>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                  Für wen wir fertigen
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Branchen und Unternehmen aus ganz Oberösterreich vertrauen auf unsere Expertise
+                </p>
+              </div>
+            </AnimatedSection>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <AnimatedSection animation="slide-up" delay={100}>
+                <Card className="hover-scale border-border/50">
+                  <CardContent className="p-6">
+                    <Factory className="w-10 h-10 text-primary mb-4" />
+                    <h3 className="text-xl font-bold mb-2">Maschinenbau</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Funktionsteile, Vorrichtungen, Ersatzteile für Produktionsmaschinen und Sonderanlagen
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="slide-up" delay={150}>
+                <Card className="hover-scale border-border/50">
+                  <CardContent className="p-6">
+                    <Wrench className="w-10 h-10 text-primary mb-4" />
+                    <h3 className="text-xl font-bold mb-2">Automotive</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Prototypen, Innenraumkomponenten, Befestigungsteile und KFZ-Werkstattlösungen
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="slide-up" delay={200}>
+                <Card className="hover-scale border-border/50">
+                  <CardContent className="p-6">
+                    <FlaskConical className="w-10 h-10 text-primary mb-4" />
+                    <h3 className="text-xl font-bold mb-2">Forschung & Entwicklung</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Rapid Prototyping, Funktionsmuster, Versuchsaufbauten für F&E-Projekte
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="slide-up" delay={250}>
+                <Card className="hover-scale border-border/50">
+                  <CardContent className="p-6">
+                    <Home className="w-10 h-10 text-primary mb-4" />
+                    <h3 className="text-xl font-bold mb-2">Architektur</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Architekturmodelle, Präsentationsmodelle, Visualisierungen für Bauprojekte
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="slide-up" delay={300}>
+                <Card className="hover-scale border-border/50">
+                  <CardContent className="p-6">
+                    <Building2 className="w-10 h-10 text-primary mb-4" />
+                    <h3 className="text-xl font-bold mb-2">Medizintechnik</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Medizinische Hilfsmittel, Prothesen-Prototypen, Gehäuse für med. Geräte
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="slide-up" delay={350}>
+                <Card className="hover-scale border-border/50">
+                  <CardContent className="p-6">
+                    <Briefcase className="w-10 h-10 text-primary mb-4" />
+                    <h3 className="text-xl font-bold mb-2">KMU & Handwerk</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Individuelle Betriebsmittel, Halterungen, Werkzeuge und Sonderlösungen
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Guides Section */}
         <section className="py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
+          <div className="container mx-auto max-w-6xl">
+            <AnimatedSection animation="fade-in">
+              <div className="text-center mb-16">
+                <Badge variant="outline" className="mb-4">
+                  <BookOpen className="w-4 h-4 mr-2 inline" />
+                  Wissenswertes
+                </Badge>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                  Hilfreiche Ratgeber
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Vertiefen Sie Ihr Wissen über 3D-Druck mit unseren Expertenguides
+                </p>
+              </div>
+            </AnimatedSection>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <AnimatedSection animation="scale-in" delay={100}>
+                <Card className="hover-scale border-border/50 h-full">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <Cog className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold mb-2">Material-Guide</h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Welches Material für welchen Zweck?
+                    </p>
+                    <Button variant="link" asChild className="p-0 h-auto text-sm">
+                      <a href="/ratgeber/material-guide">
+                        Zum Guide <ArrowRight className="ml-1 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="scale-in" delay={150}>
+                <Card className="hover-scale border-border/50 h-full">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <Sparkles className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold mb-2">Prototyping-Guide</h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Von der Idee zum Prototyp
+                    </p>
+                    <Button variant="link" asChild className="p-0 h-auto text-sm">
+                      <a href="/ratgeber/prototyping-guide">
+                        Zum Guide <ArrowRight className="ml-1 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="scale-in" delay={200}>
+                <Card className="hover-scale border-border/50 h-full">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <Factory className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold mb-2">Kosten-Guide</h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Preise verstehen & optimieren
+                    </p>
+                    <Button variant="link" asChild className="p-0 h-auto text-sm">
+                      <a href="/ratgeber/kosten-guide">
+                        Zum Guide <ArrowRight className="ml-1 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              <AnimatedSection animation="scale-in" delay={250}>
+                <Card className="hover-scale border-border/50 h-full">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <Wrench className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold mb-2">Maschinenbau-Guide</h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      3D-Druck im Maschinenbau
+                    </p>
+                    <Button variant="link" asChild className="p-0 h-auto text-sm">
+                      <a href="/ratgeber/maschinenbau">
+                        Zum Guide <ArrowRight className="ml-1 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        {/* Social Proof with Live Counter */}
+        <section className="py-12 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <AnimatedSection animation="fade-in">
+              <div className="text-center">
+                <LiveCounter />
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Reviews */}
+        <section className="py-20 px-4 bg-gradient-to-b from-background to-primary/5">
           <div className="container mx-auto max-w-6xl">
             <AnimatedSection animation="fade-in">
               <div className="text-center mb-12">
@@ -516,6 +728,12 @@ const Oberoesterreich3DDruck = () => {
         {/* Contact Form */}
         <Contact />
 
+        <StickyCTA 
+          text="Jetzt Angebot für OÖ anfordern" 
+          buttonText="Anfrage senden"
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        />
+        <WhatsAppButton />
         <AIChatWidget />
         <Footer />
       </div>
