@@ -642,21 +642,7 @@ const Villach3DDruck = () => {
 
         <ReviewsWidget />
 
-        {/* Contact Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <AnimatedSection>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-                Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in Villach
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-lg">
-                Kontaktieren Sie uns noch heute für ein kostenloses Angebot oder eine persönliche Beratung.
-              </p>
-            </AnimatedSection>
-            
-            <Contact />
-          </div>
-        </section>
+        <Contact />
 
         <AIChatWidget />
         <Footer />

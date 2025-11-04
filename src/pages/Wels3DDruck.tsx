@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AIChatWidget from "@/components/AIChatWidget";
+import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
@@ -218,35 +219,7 @@ const Wels3DDruck = () => {
 
         <ReviewsWidget />
 
-        <section id="contact" className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center gradient-card p-12 rounded-2xl">
-              <h2 className="text-4xl font-bold mb-6">
-                Starten Sie Ihr <span className="text-gradient">3D-Druck Projekt</span> in Wels
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Kontaktieren Sie uns noch heute für ein kostenloses Angebot
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-primary" />
-                  <a href="tel:+436765517197" className="text-lg hover:text-primary transition-colors">
-                    +43 676 5517197
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <a href="mailto:office@ekdruck.at" className="text-lg hover:text-primary transition-colors">
-                    office@ekdruck.at
-                  </a>
-                </div>
-              </div>
-              <Button size="lg" asChild>
-                <a href="/#contact">Kontaktformular</a>
-              </Button>
-            </div>
-          </div>
-        </section>
+        <Contact />
 
         <AIChatWidget />
         <Footer />
