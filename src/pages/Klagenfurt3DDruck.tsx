@@ -6,7 +6,10 @@ import StructuredData from "@/components/StructuredData";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
-import { Box, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Box, Clock, MapPin, Phone, Mail, CheckCircle, Upload, Search, Printer, Truck, Star } from "lucide-react";
 
 const Klagenfurt3DDruck = () => {
 
@@ -166,30 +169,371 @@ const Klagenfurt3DDruck = () => {
           </div>
         </section>
 
+        {/* How It Works */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold mb-4 text-center">
+                So einfach geht <span className="text-gradient">3D-Druck</span> in Klagenfurt
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Von der Idee bis zum fertigen Teil in nur 4 einfachen Schritten
+              </p>
+              
+              <div className="grid md:grid-cols-4 gap-8">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 hover-scale">
+                    <Upload className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="text-3xl font-bold text-primary mb-2">1</div>
+                  <h3 className="font-bold text-lg mb-2">Datei hochladen</h3>
+                  <p className="text-muted-foreground text-sm">
+                    STL, OBJ oder STEP - Ihre 3D-Datei einfach hochladen
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 hover-scale">
+                    <Search className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="text-3xl font-bold text-primary mb-2">2</div>
+                  <h3 className="font-bold text-lg mb-2">Angebot erhalten</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Innerhalb von 24h erhalten Sie ein detailliertes Angebot
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 hover-scale">
+                    <Printer className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="text-3xl font-bold text-primary mb-2">3</div>
+                  <h3 className="font-bold text-lg mb-2">Produktion</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Professioneller Druck mit modernster FDM-Technologie
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 hover-scale">
+                    <Truck className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="text-3xl font-bold text-primary mb-2">4</div>
+                  <h3 className="font-bold text-lg mb-2">Schnelle Lieferung</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Express nach Klagenfurt in 24-48h möglich
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Materials */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-8 text-center">
-                <span className="text-gradient">Materialien</span> für Klagenfurt
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold mb-4 text-center">
+                Premium <span className="text-gradient">Materialien</span> für Klagenfurt
               </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PLA - Biokunststoff</h3>
-                  <p className="text-muted-foreground mb-2">Nachhaltig, vielseitig einsetzbar, ideal für Prototypen</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PETG - Robust</h3>
-                  <p className="text-muted-foreground mb-2">Schlagfest, chemikalienbeständig, für funktionale Bauteile</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">ABS - Technisch</h3>
-                  <p className="text-muted-foreground mb-2">Hitzebeständig, stabil, für technische Anwendungen</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl">
-                  <h3 className="font-bold text-lg mb-3">PA12 Nylon</h3>
-                  <p className="text-muted-foreground mb-2">Höchste Festigkeit, flexibel</p>
-                </div>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Hochwertige Filamente aus österreichischer Produktion für beste Qualität
+              </p>
+              
+              <Tabs defaultValue="standard" className="w-full">
+                <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 gap-2 mb-8 h-auto p-2">
+                  <TabsTrigger value="standard" className="text-sm px-4 py-3">
+                    Standard Materialien
+                  </TabsTrigger>
+                  <TabsTrigger value="technical" className="text-sm px-4 py-3">
+                    Technische Materialien
+                  </TabsTrigger>
+                  <TabsTrigger value="special" className="text-sm px-4 py-3">
+                    Spezielle Materialien
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="standard" className="space-y-6">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <Card className="border-0 shadow-card">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl">PLA</CardTitle>
+                          <Badge><Star className="h-3 w-3 mr-1" />Bestseller</Badge>
+                        </div>
+                        <CardDescription>Biokunststoff für Prototypen</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Drucktemp.</div>
+                              <div className="text-primary font-semibold">190-220°C</div>
+                            </div>
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Bett-Temp.</div>
+                              <div className="text-primary font-semibold">0-60°C</div>
+                            </div>
+                          </div>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            <li>• Biologisch abbaubar</li>
+                            <li>• Hohe Detailgenauigkeit</li>
+                            <li>• 20+ Farben verfügbar</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-card">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl">PETG</CardTitle>
+                          <Badge variant="outline">Robust</Badge>
+                        </div>
+                        <CardDescription>Schlagfest & transparent</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Drucktemp.</div>
+                              <div className="text-primary font-semibold">230-250°C</div>
+                            </div>
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Bett-Temp.</div>
+                              <div className="text-primary font-semibold">70-80°C</div>
+                            </div>
+                          </div>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            <li>• Lebensmittelecht</li>
+                            <li>• Chemikalienbeständig</li>
+                            <li>• Kristallklar möglich</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-card">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl">PLA+</CardTitle>
+                          <Badge variant="secondary">Verstärkt</Badge>
+                        </div>
+                        <CardDescription>Enhanced PLA mit mehr Festigkeit</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Drucktemp.</div>
+                              <div className="text-primary font-semibold">200-230°C</div>
+                            </div>
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Bett-Temp.</div>
+                              <div className="text-primary font-semibold">0-60°C</div>
+                            </div>
+                          </div>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            <li>• 30% höhere Festigkeit</li>
+                            <li>• Reduzierte Verformung</li>
+                            <li>• Glänzende Oberfläche</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="technical" className="space-y-6">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <Card className="border-0 shadow-card">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl">ABS</CardTitle>
+                          <Badge variant="outline">Industrial</Badge>
+                        </div>
+                        <CardDescription>Hitzebeständig & robust</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Drucktemp.</div>
+                              <div className="text-primary font-semibold">240-260°C</div>
+                            </div>
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Bett-Temp.</div>
+                              <div className="text-primary font-semibold">80-100°C</div>
+                            </div>
+                          </div>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            <li>• Hitzebeständig bis 80°C</li>
+                            <li>• Schlagfest und zäh</li>
+                            <li>• Aceton-glättbar</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-card">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl">ASA</CardTitle>
+                          <Badge variant="secondary">UV-stabil</Badge>
+                        </div>
+                        <CardDescription>Für Außenanwendungen</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Drucktemp.</div>
+                              <div className="text-primary font-semibold">240-260°C</div>
+                            </div>
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Bett-Temp.</div>
+                              <div className="text-primary font-semibold">80-100°C</div>
+                            </div>
+                          </div>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            <li>• UV-beständig</li>
+                            <li>• Witterungsbeständig</li>
+                            <li>• Chemikalienresistent</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-card">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl">PA12 Nylon</CardTitle>
+                          <Badge>Premium</Badge>
+                        </div>
+                        <CardDescription>Höchste Festigkeit</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Drucktemp.</div>
+                              <div className="text-primary font-semibold">240-260°C</div>
+                            </div>
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Bett-Temp.</div>
+                              <div className="text-primary font-semibold">80-90°C</div>
+                            </div>
+                          </div>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            <li>• Extrem belastbar</li>
+                            <li>• Flexibel & zäh</li>
+                            <li>• Verschleißfest</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="special" className="space-y-6">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <Card className="border-0 shadow-card">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl">TPU</CardTitle>
+                          <Badge variant="outline">Flexibel</Badge>
+                        </div>
+                        <CardDescription>Gummiartiges Material</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Drucktemp.</div>
+                              <div className="text-primary font-semibold">220-240°C</div>
+                            </div>
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Shore-Härte</div>
+                              <div className="text-primary font-semibold">85A-95A</div>
+                            </div>
+                          </div>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            <li>• Elastisch & flexibel</li>
+                            <li>• Abriebfest</li>
+                            <li>• Dämpfende Eigenschaften</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-card">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl">Carbon-PLA</CardTitle>
+                          <Badge variant="secondary">Premium</Badge>
+                        </div>
+                        <CardDescription>Mit Karbonfasern verstärkt</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Drucktemp.</div>
+                              <div className="text-primary font-semibold">200-220°C</div>
+                            </div>
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Bett-Temp.</div>
+                              <div className="text-primary font-semibold">50-70°C</div>
+                            </div>
+                          </div>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            <li>• Höhere Steifigkeit</li>
+                            <li>• Matt-schwarze Optik</li>
+                            <li>• Geringeres Gewicht</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="border-0 shadow-card">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl">Wood-PLA</CardTitle>
+                          <Badge>Holzoptik</Badge>
+                        </div>
+                        <CardDescription>Mit echten Holzfasern</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Drucktemp.</div>
+                              <div className="text-primary font-semibold">190-220°C</div>
+                            </div>
+                            <div className="bg-muted/50 p-2 rounded">
+                              <div className="font-medium text-xs">Bett-Temp.</div>
+                              <div className="text-primary font-semibold">0-60°C</div>
+                            </div>
+                          </div>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            <li>• Natürliche Holzoptik</li>
+                            <li>• Angenehmer Geruch</li>
+                            <li>• Nachschleifbar</li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </TabsContent>
+              </Tabs>
+
+              <div className="mt-8 text-center">
+                <p className="text-muted-foreground mb-4">
+                  Alle Materialien aus nachhaltiger österreichischer Produktion
+                </p>
+                <Button variant="outline" asChild>
+                  <a href="/3d-druck-materialien">Alle Materialien ansehen →</a>
+                </Button>
               </div>
             </div>
           </div>
