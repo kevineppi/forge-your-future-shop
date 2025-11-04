@@ -15,61 +15,93 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, ArrowRight, CheckCircle2, Zap, Shield, Clock, Users, Factory, Cog, Box, Leaf, Sparkles } from "lucide-react";
+
 const Oberoesterreich3DDruck = () => {
   useEffect(() => {
     document.title = "3D-Druck Oberösterreich | Premium FDM Service | ekdruck e.U.";
   }, []);
-  const faqs = [{
-    question: "Welche Lieferzeiten sind in Oberösterreich möglich?",
-    answer: "Standardlieferung erfolgt innerhalb von 3-5 Werktagen nach Linz, Wels, Steyr und ganz Oberösterreich. Mit unserem Express-Service realisieren wir dringende Aufträge bereits in 24-48 Stunden. Für Großraum Linz und Wels bieten wir bei Bedarf auch Same-Day-Abholung an."
-  }, {
-    question: "Welche Materialien nutzen Sie für 3D-Druck in Oberösterreich?",
-    answer: "Wir arbeiten hauptsächlich mit österreichischem Premium-Filament: PLA, PETG, ABS, TPU und spezialisierte Materialien wie Carbon-verstärktes Filament. Alle Materialien sind zertifiziert und eignen sich sowohl für Prototypen als auch für funktionale Endprodukte."
-  }, {
-    question: "Können Sie auch größere Serien für Unternehmen in OÖ fertigen?",
-    answer: "Ja, wir sind auf Klein- und Mittelserien spezialisiert. Von 10 bis 10.000+ Stück fertigen wir wirtschaftlich und mit konstanter Qualität. Viele Industriebetriebe aus Linz, Steyr und Wels vertrauen auf unsere Serienfertigung."
-  }, {
-    question: "Wie hoch sind die Kosten für 3D-Druck in Oberösterreich?",
-    answer: "Die Kosten hängen von Material, Größe, Komplexität und Stückzahl ab. Nutzen Sie unseren Online-Kostenrechner für eine erste Einschätzung. Kleinteile starten bereits ab wenigen Euro. Für umfangreiche Projekte erstellen wir gerne individuelle Angebote."
-  }, {
-    question: "Bieten Sie Beratung für Konstruktion und Design in OÖ an?",
-    answer: "Absolut! Wir unterstützen Sie bei der 3D-Druck-gerechten Konstruktion, Materialauswahl und Optimierung. Auf Wunsch auch vor Ort in Linz, Wels oder Ihrer Firma. Unser Ziel: Das beste Ergebnis für Ihr Projekt."
-  }, {
-    question: "Welche Branchen beliefern Sie in Oberösterreich?",
-    answer: "Unsere Kunden kommen aus Maschinenbau, Automotive, Medizintechnik, Architektur, Modellbau, Forschung & Entwicklung sowie Sondermaschinenbau. Wir haben Erfahrung mit höchsten Qualitätsanforderungen und komplexen technischen Bauteilen."
-  }, {
-    question: "Ist eine Abholung in Oberösterreich möglich?",
-    answer: "Ja, nach Terminvereinbarung können Sie Ihre Teile im Raum Wels abholen. Das spart Versandkosten und Zeit. Viele Kunden aus Linz, Wels und Steyr nutzen diese Option gerne."
-  }, {
-    question: "Wie nachhaltig ist Ihr 3D-Druck Service in OÖ?",
-    answer: "Sehr nachhaltig: Wir verwenden österreichisches Filament, produzieren On-Demand (keine Lagerhaltung), nutzen recycelbare Materialien und optimieren Bauteile auf minimalen Materialverbrauch. Regional produziert, kurze Transportwege."
-  }];
-  const howToSteps = [{
-    name: "Anfrage & Beratung",
-    text: "Senden Sie uns Ihre 3D-Datei (STL, STEP, OBJ) oder beschreiben Sie Ihr Projekt. Wir beraten Sie zu Material, Machbarkeit und Optimierungen."
-  }, {
-    name: "Angebot & Auftrag",
-    text: "Sie erhalten ein transparentes Festpreisangebot inkl. Lieferzeit. Nach Ihrer Freigabe starten wir sofort mit der Produktion."
-  }, {
-    name: "Produktion & Qualitätskontrolle",
-    text: "Ihr Bauteil wird mit modernster FDM-Technologie gefertigt und durchläuft unsere strenge Qualitätsprüfung."
-  }, {
-    name: "Lieferung nach Oberösterreich",
-    text: "Versicherter Expressversand nach Linz, Wels, Steyr und ganz OÖ oder Abholung nach Vereinbarung."
-  }];
-  return <>
-      <SEOHead title="3D-Druck Oberösterreich | Premium FDM Service | ekdruck e.U." description="Premium FDM 3D-Druck für Linz, Wels, Steyr & ganz Oberösterreich ➤ Express 24-48h ➤ Österreichisches Filament ➤ Industrie & Mittelstand ➤ Jetzt anfragen!" keywords="3d-druck oberösterreich, 3d druck linz, 3d druck wels, fdm 3d-druck oö, rapid prototyping oberösterreich, serienfertigung 3d-druck" path="/3d-druck-oberoesterreich" />
-      <BreadcrumbSchema items={[{
-      name: "Home",
-      url: "/"
-    }, {
-      name: "3D-Druck Oberösterreich",
-      url: "/3d-druck-oberoesterreich"
-    }]} />
+
+  const faqs = [
+    {
+      question: "Welche Lieferzeiten sind in Oberösterreich möglich?",
+      answer: "Standardlieferung erfolgt innerhalb von 3-5 Werktagen nach Linz, Wels, Steyr und ganz Oberösterreich. Mit unserem Express-Service realisieren wir dringende Aufträge bereits in 24-48 Stunden. Für Großraum Linz und Wels bieten wir bei Bedarf auch Same-Day-Abholung an."
+    },
+    {
+      question: "Welche Materialien nutzen Sie für 3D-Druck in Oberösterreich?",
+      answer: "Wir arbeiten hauptsächlich mit österreichischem Premium-Filament: PLA, PETG, ABS, TPU und spezialisierte Materialien wie Carbon-verstärktes Filament. Alle Materialien sind zertifiziert und eignen sich sowohl für Prototypen als auch für funktionale Endprodukte."
+    },
+    {
+      question: "Können Sie auch größere Serien für Unternehmen in OÖ fertigen?",
+      answer: "Ja, wir sind auf Klein- und Mittelserien spezialisiert. Von 10 bis 10.000+ Stück fertigen wir wirtschaftlich und mit konstanter Qualität. Viele Industriebetriebe aus Linz, Steyr und Wels vertrauen auf unsere Serienfertigung."
+    },
+    {
+      question: "Wie hoch sind die Kosten für 3D-Druck in Oberösterreich?",
+      answer: "Die Kosten hängen von Material, Größe, Komplexität und Stückzahl ab. Nutzen Sie unseren Online-Kostenrechner für eine erste Einschätzung. Kleinteile starten bereits ab wenigen Euro. Für umfangreiche Projekte erstellen wir gerne individuelle Angebote."
+    },
+    {
+      question: "Bieten Sie Beratung für Konstruktion und Design in OÖ an?",
+      answer: "Absolut! Wir unterstützen Sie bei der 3D-Druck-gerechten Konstruktion, Materialauswahl und Optimierung. Auf Wunsch auch vor Ort in Linz, Wels oder Ihrer Firma. Unser Ziel: Das beste Ergebnis für Ihr Projekt."
+    },
+    {
+      question: "Welche Branchen beliefern Sie in Oberösterreich?",
+      answer: "Unsere Kunden kommen aus Maschinenbau, Automotive, Medizintechnik, Architektur, Modellbau, Forschung & Entwicklung sowie Sondermaschinenbau. Wir haben Erfahrung mit höchsten Qualitätsanforderungen und komplexen technischen Bauteilen."
+    },
+    {
+      question: "Ist eine Abholung in Oberösterreich möglich?",
+      answer: "Ja, nach Terminvereinbarung können Sie Ihre Teile im Raum Wels abholen. Das spart Versandkosten und Zeit. Viele Kunden aus Linz, Wels und Steyr nutzen diese Option gerne."
+    },
+    {
+      question: "Wie nachhaltig ist Ihr 3D-Druck Service in OÖ?",
+      answer: "Sehr nachhaltig: Wir verwenden österreichisches Filament, produzieren On-Demand (keine Lagerhaltung), nutzen recycelbare Materialien und optimieren Bauteile auf minimalen Materialverbrauch. Regional produziert, kurze Transportwege."
+    }
+  ];
+
+  const howToSteps = [
+    {
+      name: "Anfrage & Beratung",
+      text: "Senden Sie uns Ihre 3D-Datei (STL, STEP, OBJ) oder beschreiben Sie Ihr Projekt. Wir beraten Sie zu Material, Machbarkeit und Optimierungen."
+    },
+    {
+      name: "Angebot & Auftrag",
+      text: "Sie erhalten ein transparentes Festpreisangebot inkl. Lieferzeit. Nach Ihrer Freigabe starten wir sofort mit der Produktion."
+    },
+    {
+      name: "Produktion & Qualitätskontrolle",
+      text: "Ihr Bauteil wird mit modernster FDM-Technologie gefertigt und durchläuft unsere strenge Qualitätsprüfung."
+    },
+    {
+      name: "Lieferung nach Oberösterreich",
+      text: "Versicherter Expressversand nach Linz, Wels, Steyr und ganz OÖ oder Abholung nach Vereinbarung."
+    }
+  ];
+
+  return (
+    <>
+      <SEOHead 
+        title="3D-Druck Oberösterreich | Premium FDM Service | ekdruck e.U."
+        description="Premium FDM 3D-Druck für Linz, Wels, Steyr & ganz Oberösterreich ➤ Express 24-48h ➤ Österreichisches Filament ➤ Industrie & Mittelstand ➤ Jetzt anfragen!"
+        keywords="3d-druck oberösterreich, 3d druck linz, 3d druck wels, fdm 3d-druck oö, rapid prototyping oberösterreich, serienfertigung 3d-druck"
+        path="/3d-druck-oberoesterreich"
+      />
+      <BreadcrumbSchema items={[
+        {name: "Home", url: "/"},
+        {name: "3D-Druck Oberösterreich", url: "/3d-druck-oberoesterreich"}
+      ]} />
       <StructuredData type="service" />
-      <LocalBusinessSchema city="Oberösterreich" region="Oberösterreich" latitude="48.3069" longitude="14.2858" deliveryTime="24-48h Express möglich" />
+      <LocalBusinessSchema 
+        city="Oberösterreich"
+        region="Oberösterreich"
+        latitude="48.3069"
+        longitude="14.2858"
+        deliveryTime="24-48h Express möglich"
+      />
       <FAQSchema faqs={faqs} city="Oberösterreich" />
-      <HowToSchema name="3D-Druck Auftrag in Oberösterreich" description="So einfach beauftragen Sie professionellen 3D-Druck in Oberösterreich" totalTime="PT24H" steps={howToSteps} />
+      <HowToSchema 
+        name="3D-Druck Auftrag in Oberösterreich"
+        description="So einfach beauftragen Sie professionellen 3D-Druck in Oberösterreich"
+        totalTime="PT24H"
+        steps={howToSteps}
+      />
       
       <div className="min-h-screen bg-background">
         <Navigation />
@@ -96,15 +128,15 @@ const Oberoesterreich3DDruck = () => {
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-4">
                   Premium FDM 3D-Druck für Industrie, Mittelstand & Innovation in Linz, Wels, Steyr und ganz Oberösterreich
                 </p>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">Österreichisches Filament • Express 24-48h • Serienfertigung bis 10.000+ Stück </p>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+                  Österreichisches Filament • Express 24-48h • Serienfertigung bis 10.000+ Stück • Persönliche Beratung vor Ort
+                </p>
               </div>
             </AnimatedSection>
 
             <AnimatedSection animation="scale-in" delay={200}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({
-                behavior: 'smooth'
-              })}>
+                <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   <Zap className="mr-2 h-5 w-5" />
                   Jetzt Angebot anfordern
                 </Button>
@@ -332,7 +364,8 @@ const Oberoesterreich3DDruck = () => {
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {howToSteps.map((step, index) => <AnimatedSection key={index} animation="slide-up" delay={index * 100}>
+              {howToSteps.map((step, index) => (
+                <AnimatedSection key={index} animation="slide-up" delay={index * 100}>
                   <div className="relative">
                     <div className="gradient-card p-6 rounded-xl border border-border/50 h-full">
                       <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mb-4">
@@ -343,9 +376,12 @@ const Oberoesterreich3DDruck = () => {
                         {step.text}
                       </p>
                     </div>
-                    {index < 3 && <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-primary to-transparent" />}
+                    {index < 3 && (
+                      <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-primary to-transparent" />
+                    )}
                   </div>
-                </AnimatedSection>)}
+                </AnimatedSection>
+              ))}
             </div>
           </div>
         </section>
@@ -468,14 +504,20 @@ const Oberoesterreich3DDruck = () => {
 
             <AnimatedSection animation="slide-up" delay={200}>
               <Accordion type="single" collapsible className="w-full space-y-4">
-                {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="border border-border/50 rounded-lg px-6 bg-card hover:border-primary/50 transition-colors">
+                {faqs.map((faq, index) => (
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`}
+                    className="border border-border/50 rounded-lg px-6 bg-card hover:border-primary/50 transition-colors"
+                  >
                     <AccordionTrigger className="text-left font-semibold hover:text-primary hover:no-underline">
                       {faq.question}
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground leading-relaxed">
                       {faq.answer}
                     </AccordionContent>
-                  </AccordionItem>)}
+                  </AccordionItem>
+                ))}
               </Accordion>
             </AnimatedSection>
           </div>
@@ -504,6 +546,8 @@ const Oberoesterreich3DDruck = () => {
         <AIChatWidget />
         <Footer />
       </div>
-    </>;
+    </>
+  );
 };
+
 export default Oberoesterreich3DDruck;
