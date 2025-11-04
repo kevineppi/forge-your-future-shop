@@ -10,6 +10,7 @@ import FAQSchema from "@/components/FAQSchema";
 import HowToSchema from "@/components/HowToSchema";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import AnimatedSection from "@/components/AnimatedSection";
+import Contact from "@/components/Contact";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
@@ -385,47 +386,6 @@ const Oberoesterreich3DDruck = () => {
           </div>
         </section>
 
-        {/* Regional Coverage */}
-        <section className="py-20 px-4">
-          <div className="container mx-auto max-w-6xl">
-            <AnimatedSection animation="fade-in">
-              <div className="text-center mb-12">
-                <Badge variant="outline" className="mb-4">Regionale Nähe</Badge>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                  3D-Druck in ganz Oberösterreich
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                  Schnelle Lieferung nach Linz, Wels, Steyr und alle Städte & Gemeinden in OÖ
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection animation="scale-in" delay={200}>
-              <div className="flex flex-wrap justify-center gap-3 mb-8">
-                <Button variant="outline" asChild className="hover-scale">
-                  <a href="/3d-druck-linz">Linz</a>
-                </Button>
-                <Button variant="outline" asChild className="hover-scale">
-                  <a href="/3d-druck-wels">Wels</a>
-                </Button>
-                <Button variant="outline" asChild className="hover-scale">
-                  <a href="/3d-druck-steyr">Steyr</a>
-                </Button>
-                <Button variant="outline" className="hover-scale">Traun</Button>
-                <Button variant="outline" className="hover-scale">Enns</Button>
-                <Button variant="outline" className="hover-scale">Leonding</Button>
-                <Button variant="outline" className="hover-scale">Marchtrenk</Button>
-                <Button variant="outline" className="hover-scale">Gmunden</Button>
-                <Button variant="outline" className="hover-scale">Vöcklabruck</Button>
-                <Button variant="outline" className="hover-scale">Braunau</Button>
-                <Button variant="outline" className="hover-scale">Ried</Button>
-                <Button variant="outline" className="hover-scale">Kirchdorf</Button>
-                <Button variant="outline" className="hover-scale">Perg</Button>
-                <Button variant="outline" className="hover-scale">Eferding</Button>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
 
         {/* Why Choose Us */}
         <section className="py-20 px-4 bg-gradient-to-b from-background to-primary/5">
@@ -595,62 +555,8 @@ const Oberoesterreich3DDruck = () => {
           </div>
         </section>
 
-        {/* Contact CTA */}
-        <section id="contact" className="py-20 px-4">
-          <div className="container mx-auto max-w-4xl">
-            <AnimatedSection animation="scale-in">
-              <div className="gradient-card p-12 rounded-3xl border border-border/50 text-center">
-                <Badge variant="secondary" className="mb-6">Kontakt</Badge>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  Starten Sie Ihr 3D-Druck Projekt
-                </h2>
-                <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Kostenlose Beratung, transparente Angebote, schnelle Lieferung nach ganz Oberösterreich
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                  <a 
-                    href="tel:+436641337778" 
-                    className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors group"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <Phone className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-sm text-muted-foreground">Anrufen</div>
-                      <div className="font-semibold">+43 664 1337778</div>
-                    </div>
-                  </a>
-                  <a 
-                    href="mailto:office@ek-druck.at" 
-                    className="flex items-center justify-center gap-3 text-lg hover:text-primary transition-colors group"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <Mail className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-sm text-muted-foreground">E-Mail</div>
-                      <div className="font-semibold">office@ek-druck.at</div>
-                    </div>
-                  </a>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" onClick={() => window.location.href = '/#contact'}>
-                    <ArrowRight className="mr-2 h-5 w-5" />
-                    Zum Kontaktformular
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <a href="/kostenrechner">
-                      <Cog className="mr-2 h-5 w-5" />
-                      Kosten berechnen
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
+        {/* Contact Form */}
+        <Contact />
 
         <AIChatWidget />
         <Footer />
