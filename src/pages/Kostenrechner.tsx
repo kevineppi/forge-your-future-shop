@@ -11,14 +11,14 @@ import { Check, TrendingDown, Clock, Award } from "lucide-react";
 
 const Kostenrechner = () => {
   useEffect(() => {
-    document.title = "3D-Druck Kostenrechner | Sofort Preis berechnen | ekdruck e.U.";
+    document.title = "3D-Druck Kostenrechner Online | Kostenlos & Sofort | ekdruck e.U.";
   }, []);
 
   return (
     <>
       <SEOHead 
-        title="3D-Druck Kostenrechner | Preis sofort berechnen | ekdruck"
-        description="Berechnen Sie Ihren 3D-Druck Preis sofort ✓ FDM Kostenrechner ✓ Alle Materialien ✓ Express-Service ✓ Mengenrabatt – jetzt kalkulieren!"
+        title="3D-Druck Kostenrechner Online | Kostenlos & Sofort | ekdruck e.U."
+        description="Berechnen Sie 3D-Druck Kosten kostenlos online! Sofortige Preiskalkulation für alle Materialien (PLA, PETG, ABS, Nylon). Transparent, schnell & unverbindlich – jetzt kalkulieren!"
         keywords="3d-druck kostenrechner, 3d-druck preis berechnen, kosten 3d-druck, 3d-druck preisrechner, fdm druck kosten"
         path="/kostenrechner"
       />
