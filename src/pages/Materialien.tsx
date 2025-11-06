@@ -16,7 +16,7 @@ const Materialien = () => {
     <>
       <SEOHead 
         title="Nachhaltiges AT-Filament | PLA, PETG, ABS | ekdruck e.U."
-        description="Nachhaltige 3D-Druck Materialien aus österreichischen Industrieabfällen. PLA, PETG, ABS – regional produziert & umweltfreundlich. Gratis Proben!"
+        description="Nachhaltigkeit ohne Kompromisse: Hochwertige Materialien aus österreichischen Industrieabfällen für beste Druckergebnisse. Von biobasiertem PLA bis hitzebeständigem ABS. Kostenlose Materialproben anfordern!"
         keywords="3d-druck materialien österreich, nachhaltiges filament österreich, österreichisches filament oberösterreich, pla petg abs österreich, recyceltes filament oberösterreich, bio-basierte kunststoffe, thermoplastisches filament, additive fertigungsmaterialien"
         path="/3d-druck-materialien"
         breadcrumbs={[

@@ -79,7 +79,7 @@ const Gunskirchen3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Gunskirchen | Lokaler Premium FDM Service | ekdruck e.U."
-        description="Ihr lokaler 3D-Druck Partner in Gunskirchen ➤ Persönliche Beratung vor Ort ➤ Abholung möglich ➤ Express 24-48h ➤ Österreichisches Filament ➤ Jetzt Termin vereinbaren!"
+        description="Direkt vor Ihrer Haustür: Besuchen Sie uns in Gunskirchen für persönliche Beratung, Materialauswahl und sofortige Abholung. Ihr lokaler 3D-Druck Spezialist mit Herz. Termin für Vor-Ort-Beratung vereinbaren!"
         keywords="3d-druck gunskirchen, 3d druck gunskirchen lokal, fdm 3d-druck gunskirchen, rapid prototyping gunskirchen, 3d-druck service wels"
         path="/3d-druck-gunskirchen"
       />

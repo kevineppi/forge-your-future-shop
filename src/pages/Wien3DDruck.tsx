@@ -24,7 +24,7 @@ const Wien3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Wien | FDM 3D-Druck Service | ekdruck e.U."
-        description="Professioneller FDM 3D-Druck für Wien. Versand innerhalb 48h, gratis ab €50. Direkt aus Oberösterreich. Prototypen & Serien – Angebot anfordern!"
+        description="Wiener Start-ups & TU-Projekte vertrauen uns: 24h Express-Lieferung direkt in alle 23 Bezirke. Von Prototyp bis Kleinserie – perfekt für Ihre Innovation in der Hauptstadt. Heute bestellen, morgen testen!"
         keywords="3d-druck wien, 3d drucker wien, fdm druck wien, rapid prototyping wien, 3d-druck service wien, prototypen wien"
         path="/3d-druck-wien"
       />
