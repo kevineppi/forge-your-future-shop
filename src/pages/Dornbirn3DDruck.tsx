@@ -24,7 +24,7 @@ const Dornbirn3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Dornbirn & Vorarlberg | FDM 3D-Druck Service | ekdruck e.U."
-        description="Vorarlbergs Textil- & Design-Branche setzt auf uns: Kreative Prototypen für innovative Produkte. Express 24-48h ins Ländle. Von Funktionstest bis Designmuster. Textil-Innovation jetzt umsetzen!"
+        description="FDM 3D-Druck für Vorarlbergs Textil-, Design- & Industriebranche. Express 24-48h nach Dornbirn. Kreative Prototypen, funktionale Werkzeuge, nachhaltig!"
         keywords="3d-druck dornbirn, 3d drucker dornbirn, fdm druck dornbirn, rapid prototyping vorarlberg, 3d-druck service dornbirn, prototypen vorarlberg"
         path="/3d-druck-dornbirn"
       />

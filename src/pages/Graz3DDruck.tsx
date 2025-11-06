@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Box, Clock, MapPin, CheckCircle, Factory, Recycle, Users, ArrowRight, Sparkles, Settings, Zap, Shield, TrendingUp, Package } from "lucide-react";
 const Graz3DDruck = () => {
   return <>
-      <SEOHead title="3D-Druck Graz & Steiermark | FDM Service | ekdruck e.U." description="Grazer Industrie & Forschungseinrichtungen profitieren von unserer Expertise: Hochpräzise Funktionsteile, technische Beratung inklusive. Express 24-48h in die grüne Mark. Engineering-Support für Ihr Projekt sichern!" keywords="3d-druck graz, 3d drucker graz, fdm druck graz, rapid prototyping graz, 3d-druck steiermark, prototypen graz" path="/3d-druck-graz" />
+      <SEOHead title="3D-Druck Graz & Steiermark | FDM Service | ekdruck e.U." description="Hochpräziser FDM 3D-Druck für Grazer Industrie & Forschung. Technische Prototypen, Funktionsteile, Engineering-Support. Kostenlose Beratung in Graz!" keywords="3d-druck graz, 3d drucker graz, fdm druck graz, rapid prototyping graz, 3d-druck steiermark, prototypen graz" path="/3d-druck-graz" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

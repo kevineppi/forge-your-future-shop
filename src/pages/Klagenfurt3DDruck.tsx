@@ -22,7 +22,7 @@ const Klagenfurt3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Klagenfurt & Kärnten | ekdruck e.U."
-        description="Klagenfurt am Wörthersee: Technische Prototypen für Industrie & innovative Handwerksbetriebe. Schneller Versand nach Kärnten, persönliche Beratung zu Material & Machbarkeit. Seeprojekt starten!"
+        description="FDM 3D-Druck am Wörthersee – schneller Versand nach Klagenfurt & Kärnten. Technische Beratung inklusive. Prototypen für Industrie & Handwerk!"
         keywords="3d-druck klagenfurt, 3d drucker klagenfurt, fdm druck klagenfurt, rapid prototyping kärnten, 3d-druck service klagenfurt, prototypen klagenfurt"
         path="/3d-druck-klagenfurt"
       />

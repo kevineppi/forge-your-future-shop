@@ -58,7 +58,7 @@ const Oberoesterreich3DDruck = () => {
     text: "Versicherter Expressversand nach Linz, Wels, Steyr und ganz OÖ oder Abholung nach Vereinbarung."
   }];
   return <>
-      <SEOHead title="3D-Druck Oberösterreich | Premium FDM Service | ekdruck e.U." description="Ihr lokaler Partner im Industrieherz Österreichs: Von Linz bis Steyr – professionelle 3D-Drucke für OÖs Mittelstand. Persönliche Beratung, Express-Service. Heimvorteil jetzt nutzen!" keywords="3d-druck oberösterreich, 3d druck linz, 3d druck wels, fdm 3d-druck oö, rapid prototyping oberösterreich, serienfertigung 3d-druck" path="/3d-druck-oberoesterreich" />
+      <SEOHead title="3D-Druck Oberösterreich | Premium FDM Service | ekdruck e.U." description="Premium FDM 3D-Druck für Linz, Wels, Steyr & ganz Oberösterreich ➤ Express 24-48h ➤ Österreichisches Filament ➤ Industrie & Mittelstand ➤ Jetzt anfragen!" keywords="3d-druck oberösterreich, 3d druck linz, 3d druck wels, fdm 3d-druck oö, rapid prototyping oberösterreich, serienfertigung 3d-druck" path="/3d-druck-oberoesterreich" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"
