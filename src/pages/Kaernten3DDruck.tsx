@@ -79,7 +79,7 @@ const Kaernten3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Kärnten | Premium FDM Service | ekdruck e.U."
-        description="Premium FDM 3D-Druck für Klagenfurt, Villach, Wolfsberg & ganz Kärnten ➤ Express 24-48h ➤ Österreichisches Filament ➤ Industrie & Mittelstand ➤ Jetzt anfragen!"
+        description="Sonnenseite Österreichs trifft High-Tech: Klagenfurt, Villach & Wolfsberg mit 24-48h Express. Tourismus-Innovation & Industrie vertrauen uns. Jetzt Beratung sichern!"
         keywords="3d-druck kärnten, 3d druck klagenfurt, 3d druck villach, fdm 3d-druck kärnten, rapid prototyping kärnten, serienfertigung 3d-druck"
         path="/3d-druck-kaernten"
       />

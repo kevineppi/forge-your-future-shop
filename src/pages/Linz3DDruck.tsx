@@ -22,7 +22,7 @@ const Linz3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Linz | FDM 3D-Druck Service | ekdruck e.U."
-        description="Same-Day Service für Linz! Nur 30km von Gunskirchen, Abholung möglich, Express in 24h. Regional aus Oberösterreich – jetzt anfragen!"
+        description="Nur 30km von Linz! Same-Day Abholung in Gunskirchen möglich. Express-Lieferung 24h nach Linz. Regional aus OÖ – Ihr lokaler 3D-Druck Partner wartet auf Sie!"
         keywords="3d-druck linz, 3d drucker linz, fdm druck linz, rapid prototyping linz, 3d-druck oberösterreich, prototypen linz"
         path="/3d-druck-linz"
       />

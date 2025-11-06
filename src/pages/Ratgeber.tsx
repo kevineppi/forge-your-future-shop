@@ -78,7 +78,7 @@ const Ratgeber = () => {
     <>
       <SEOHead
         title="3D-Druck Ratgeber Österreich | Expert:innen Wissen | ekdruck e.U."
-        description="Expertenwissen zum Thema 3D-Druck in Österreich ✓ Kosten-Guides ✓ Technologie-Vergleiche ✓ Best Practices ✓ Material-Tipps ✓ Kostenlose Beratung vom Profi"
+        description="Von Praktikern für Praktiker: Wissenschaftlich fundierte Guides zu 3D-Druck-Kosten, Verfahrensvergleichen und Materialwahl. Ersparen Sie sich teure Fehler – Wissen kostenlos!"
         keywords="3d-druck ratgeber, 3d-druck kosten, fdm verfahren, 3d-druck tipps österreich, 3d-druck guide, rapid prototyping guide"
         path="/ratgeber"
         schemaType="article"

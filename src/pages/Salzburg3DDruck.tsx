@@ -12,7 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import AnimatedSection from "@/components/AnimatedSection";
 const Salzburg3DDruck = () => {
   return <>
-      <SEOHead title="3D-Druckservice Salzburg | Professioneller FDM-Druck | ekdruck e.U." description="Ihr regionaler Partner für hochwertigen 3D-Druck in Salzburg! Express-Lieferung 24-48h, österreichische Premium-Materialien, persönliche Beratung. Jetzt anfragen!" keywords="3d-druckservice salzburg, 3d druck salzburg stadt, fdm-druck salzburg, rapid prototyping salzburg, 3d-druck dienstleister salzburg" path="/3d-druck-salzburg" />
+      <SEOHead title="3D-Druckservice Salzburg | Professioneller FDM-Druck | ekdruck e.U." description="Mozart-Stadt trifft Innovation: Kulturschaffende & Unternehmen erhalten 24-48h Express-Service. Vom Requisit bis zum Funktionsbauteil. Salzburg vertraut auf uns!" keywords="3d-druckservice salzburg, 3d druck salzburg stadt, fdm-druck salzburg, rapid prototyping salzburg, 3d-druck dienstleister salzburg" path="/3d-druck-salzburg" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

@@ -22,7 +22,7 @@ const Villach3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Villach | FDM 3D-Druck Service | ekdruck e.U."
-        description="Zuverlässiger FDM 3D-Druck Service für Villacher Industrie & Gewerbe. Technische Bauteile, Werkzeuge, Vorrichtungen. Beratung & Express verfügbar!"
+        description="Kärntens Industriestadt setzt auf Qualität: Technische Bauteile für Automotive & Elektronik. 24-48h Express nach Villach. Engineering-Support inklusive!"
         keywords="3d-druck villach, 3d drucker villach, fdm druck villach, rapid prototyping villach, 3d-druck service villach, prototypen villach"
         path="/3d-druck-villach"
       />

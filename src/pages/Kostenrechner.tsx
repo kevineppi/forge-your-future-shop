@@ -18,7 +18,7 @@ const Kostenrechner = () => {
     <>
       <SEOHead 
         title="3D-Druck Kostenrechner Online | Kostenlos & Sofort | ekdruck e.U."
-        description="Berechnen Sie 3D-Druck Kosten kostenlos online! Sofortige Preiskalkulation für alle Materialien (PLA, PETG, ABS, Nylon). Transparent, schnell & unverbindlich – jetzt kalkulieren!"
+        description="Keine bösen Überraschungen: Berechnen Sie 3D-Druck Kosten transparent in Echtzeit. Alle Materialien, alle Größen. 100% kostenlos & unverbindlich – Jetzt testen!"
         keywords="3d-druck kostenrechner, 3d-druck preis berechnen, kosten 3d-druck, 3d-druck preisrechner, fdm druck kosten"
         path="/kostenrechner"
       />

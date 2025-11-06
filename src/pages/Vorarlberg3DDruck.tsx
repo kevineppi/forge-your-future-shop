@@ -79,7 +79,7 @@ const Vorarlberg3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Vorarlberg | Premium FDM Service | ekdruck e.U."
-        description="Premium FDM 3D-Druck für Dornbirn, Bregenz, Feldkirch & ganz Vorarlberg ➤ Express 24-48h ➤ Österreichisches Filament ➤ Industrie & Mittelstand ➤ Jetzt anfragen!"
+        description="Ländle-Qualität trifft Präzision: Dornbirn, Bregenz & Feldkirch mit 24-48h Express. Textil-Industrie & Design-Branche setzen auf uns. Innovation vom Bodensee!"
         keywords="3d-druck vorarlberg, 3d druck dornbirn, 3d druck bregenz, fdm 3d-druck vorarlberg, rapid prototyping vorarlberg, serienfertigung 3d-druck"
         path="/3d-druck-vorarlberg"
       />

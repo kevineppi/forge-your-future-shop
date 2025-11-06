@@ -24,7 +24,7 @@ const Wels3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Wels | Same-Day Service in 15 Min | ekdruck e.U."
-        description="Schnellster 3D-Druck für Wels! Nur 15 Minuten entfernt – Same-Day Abholung in Gunskirchen möglich. Express-Lieferung für Industriestadt Wels. Jetzt anfragen!"
+        description="Nur 15 Fahrminuten von Wels! Same-Day Abholung für eilige Projekte. Industriestadt Wels vertraut auf lokale Qualität. Heute bestellen, morgen produzieren!"
         keywords="3d-druck wels, 3d drucker wels, fdm druck wels, rapid prototyping wels, 3d-druck service wels, prototypen wels, schnelle lieferung wels"
         path="/3d-druck-wels"
       />
