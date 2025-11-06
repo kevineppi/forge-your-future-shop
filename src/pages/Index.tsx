@@ -11,6 +11,7 @@ import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import FAQSchema from "@/components/FAQSchema";
+import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import SEOHead from "@/components/SEOHead";
 import StickyCTA from "@/components/StickyCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
@@ -31,6 +32,12 @@ const Index = () => {
       <OrganizationSchema />
       <StructuredData type="organization" />
       <StructuredData type="service" />
+      <AggregateRatingSchema 
+        ratingValue={5.0}
+        ratingCount={5}
+        bestRating={5}
+        worstRating={5}
+      />
       <FAQSchema 
         faqs={[
           {
