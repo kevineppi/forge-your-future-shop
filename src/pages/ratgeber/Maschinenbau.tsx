@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 import AnimatedSection from "@/components/AnimatedSection";
 import AIChatWidget from "@/components/AIChatWidget";
 
@@ -160,6 +161,30 @@ const Maschinenbau = () => {
           { name: "Home", url: "/" },
           { name: "Ratgeber", url: "/ratgeber" },
           { name: "Maschinenbau", url: "/ratgeber/maschinenbau" }
+        ]}
+      />
+      <FAQSchema 
+        faqs={[
+          {
+            question: "Sind 3D-gedruckte Teile für den Maschinenbau ausreichend belastbar?",
+            answer: "Ja, bei richtiger Materialwahl und Bauteilorientierung. Moderne FDM-Materialien wie PA12 oder Carbon-Composite erreichen Zugfestigkeiten von 45-80 MPa. Die Anisotropie (Richtungsabhängigkeit) muss jedoch berücksichtigt werden: Belastungen parallel zur Schichtrichtung können das Bauteil um 30-50% schwächen."
+          },
+          {
+            question: "Welche Toleranzen sind mit FDM-Druck erreichbar?",
+            answer: "FDM erreicht typischerweise ±0,2-0,5mm abhängig von Bauteilgröße, Material und Drucker-Kalibrierung. Für Passungen (z.B. ISO H7/h6) ist meist eine mechanische Nachbearbeitung notwendig. SLA/SLS erreichen höhere Genauigkeiten (±0,1mm)."
+          },
+          {
+            question: "Wie verhält sich die Festigkeit zu traditionellen Fertigungsverfahren?",
+            answer: "Bei optimaler Orientierung erreichen 3D-Drucke 80-90% der Festigkeit von spritzgegossenen Teilen. CNC-gefräste Teile aus Vollmaterial bleiben überlegen, aber 3D-Druck ermöglicht Gewichtsoptimierungen durch Gitterstrukturen, die das Festigkeit-Gewicht-Verhältnis verbessern."
+          },
+          {
+            question: "Wann lohnt sich 3D-Druck wirtschaftlich im Maschinenbau?",
+            answer: "Break-Even liegt typischerweise bei 50-500 Stück (abhängig von Komplexität). Für Prototypen und Stückzahlen <100 ist FDM fast immer günstiger. Bei >1000 Stück wird Spritzguss wirtschaftlicher. Ausnahme: Hochkomplexe Geometrien oder häufige Designänderungen."
+          },
+          {
+            question: "Können 3D-gedruckte Teile in der Produktion dauerhaft eingesetzt werden?",
+            answer: "Ja, aber mit Einschränkungen. UV-Exposition erfordert ASA/ABS. Temperaturen >80°C erfordern Spezial-Filamente. Verschleißteile haben begrenzte Lebensdauer. Für permanente Betriebsmittel sind PA12, PC oder Carbon-Composite empfohlen. Regelmäßige Inspektion notwendig."
+          }
         ]}
       />
 

@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AIChatWidget from "@/components/AIChatWidget";
 const KostenGuide = () => {
@@ -67,6 +68,30 @@ const KostenGuide = () => {
       name: "Kosten Guide",
       url: "/ratgeber/kosten-guide"
     }]} />
+      <FAQSchema 
+        faqs={[
+          {
+            question: "Warum ist 3D-Druck günstiger als traditionelle Fertigung?",
+            answer: "3D-Druck benötigt keine teuren Werkzeuge, Formen oder Vorrichtungen. Sie zahlen nur für Material und Druckzeit. Bei Prototypen und Kleinserien (1-100 Stück) ist FDM 3D-Druck oft 50-80% günstiger als CNC-Fräsen oder Spritzguss."
+          },
+          {
+            question: "Gibt es Mengenrabatte?",
+            answer: "Ja! Ab 5 identischen Teilen gewähren wir 10% Rabatt, ab 20 Teilen 15% und ab 50 Teilen 20%. Für Großserien (100+ Teile) erstellen wir individuelle Angebote."
+          },
+          {
+            question: "Was kostet der Versand innerhalb Österreichs?",
+            answer: "Der Standardversand (2-3 Werktage) ist bei Bestellungen ab 50€ kostenlos. Darunter berechnen wir 4,90€. Express-Versand (24h) kostet zusätzlich 12,90€."
+          },
+          {
+            question: "Kann ich vor der Bestellung einen Kostenvoranschlag erhalten?",
+            answer: "Absolut! Nutzen Sie unseren kostenlosen Online-Kostenrechner oder senden Sie uns Ihre 3D-Datei zu. Innerhalb von 24 Stunden erhalten Sie ein unverbindliches Angebot."
+          },
+          {
+            question: "Was ist der Unterschied zwischen PLA, PETG und ASA?",
+            answer: "PLA (3-5€/100g) ist ideal für Prototypen und Anschauungsmodelle. PETG (5-7€/100g) ist mechanisch belastbarer und für Funktionsteile geeignet. ASA (7-10€/100g) ist UV- und witterungsbeständig, perfekt für Außenanwendungen."
+          }
+        ]}
+      />
 
       <div className="min-h-screen bg-background">
         <Navigation />
