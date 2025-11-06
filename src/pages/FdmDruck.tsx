@@ -15,7 +15,7 @@ const FdmDruck = () => {
   return (
     <>
       <SEOHead 
-        title="FDM 3D-Druck: Kosteneffizient & präzise bis 0,1mm | ekdruck"
+        title="FDM 3D-Druck: Kosteneffizient & präzise bis 0,1mm | ekdruck e.U."
         description="FDM 3D-Druck aus Österreich – beste Kosten-Nutzen-Balance für technische Teile. Große Materialauswahl, robust, präzise. Jetzt Projekt anfragen!"
         keywords="fdm 3d-druck österreich, fused deposition modeling oberösterreich, fdm verfahren österreich, 3d-druck fdm oberösterreich, fdm drucker service österreich, schichtauflösung 0.1mm, thermoplastisches filament, material-extrusion"
         path="/fdm-3d-druck"

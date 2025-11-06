@@ -12,7 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import AnimatedSection from "@/components/AnimatedSection";
 const Innsbruck3DDruck = () => {
   return <>
-      <SEOHead title="3D-Druck Innsbruck & Tirol | Präziser FDM-Service | ekdruck" description="Professioneller 3D-Druckservice für Innsbruck und Tirol! Alpine Innovation, robuste Materialien für Outdoor-Anforderungen. Express 24-48h. Jetzt anfragen!" keywords="3d-druck innsbruck, 3d-druckservice tirol, fdm-druck innsbruck, rapid prototyping innsbruck, 3d druck alpen" path="/3d-druck-innsbruck" />
+      <SEOHead title="3D-Druck Innsbruck & Tirol | Präziser FDM-Service | ekdruck e.U." description="Professioneller 3D-Druckservice für Innsbruck und Tirol! Alpine Innovation, robuste Materialien für Outdoor-Anforderungen. Express 24-48h. Jetzt anfragen!" keywords="3d-druck innsbruck, 3d-druckservice tirol, fdm-druck innsbruck, rapid prototyping innsbruck, 3d druck alpen" path="/3d-druck-innsbruck" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

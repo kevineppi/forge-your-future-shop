@@ -147,7 +147,7 @@ const Gunskirchen3DDruck = () => {
                   Jetzt Termin vereinbaren
                 </Button>
                 <Button size="lg" variant="outline" className="text-lg px-8" asChild>
-                  <a href="tel:+436641337778">
+                  <a href="tel:+436765517197">
                     <Phone className="mr-2 h-5 w-5" />
                     Direkt anrufen
                   </a>

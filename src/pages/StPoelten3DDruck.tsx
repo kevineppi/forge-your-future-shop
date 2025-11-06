@@ -23,7 +23,7 @@ const StPoelten3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck St. Pölten | FDM 3D-Druck Service | ekdruck"
+        title="3D-Druck St. Pölten | FDM 3D-Druck Service | ekdruck e.U."
         description="Professioneller FDM 3D-Druck für St. Pölten & Niederösterreich. Express-Lieferung 24-48h. Verwaltung, Bildung, Industrie – präzise Prototypen & Bauteile!"
         keywords="3d-druck st pölten, 3d drucker st pölten, fdm druck st pölten, rapid prototyping niederösterreich, 3d-druck service st pölten, prototypen niederösterreich"
         path="/3d-druck-st-poelten"

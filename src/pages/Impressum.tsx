@@ -49,8 +49,8 @@ const Impressum = () => {
                   <p>Rechtsform: eingetragenes Einzelunternehmen</p>
                   <p>Firmenbuchnummer: FN639499s</p>
                   <p>Firmenbuchgericht: Landesgericht Wels</p>
-                  <p>Telefon: +43 57 60121</p>
-                  <p>Fax: +43 57 60121 41188</p>
+                  <p>Telefon: +43 676 5517197</p>
+                  <p>E-Mail: office@ek-druck.at</p>
                   <p>Maria-Theresia-Straße 12</p>
                   <p>4600 Wels</p>
                 </div>
