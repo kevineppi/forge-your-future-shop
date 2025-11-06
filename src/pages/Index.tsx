@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
+import FAQSchema from "@/components/FAQSchema";
 import SEOHead from "@/components/SEOHead";
 import StickyCTA from "@/components/StickyCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
@@ -30,6 +31,34 @@ const Index = () => {
       <OrganizationSchema />
       <StructuredData type="organization" />
       <StructuredData type="service" />
+      <FAQSchema 
+        faqs={[
+          {
+            question: "Was kostet 3D-Druck bei ekdruck?",
+            answer: "Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren Kostenrechner für eine sofortige Schätzung. Kleine Prototypen ab €5, größere Projekte nach individuellem Angebot."
+          },
+          {
+            question: "Wie schnell erhalte ich mein 3D-gedrucktes Teil?",
+            answer: "Standard-Lieferung 3-5 Werktage österreichweit. Mit unserem Express-Service erhalten Sie Ihre Teile bereits in 24-48 Stunden."
+          },
+          {
+            question: "Welche Dateiformate werden akzeptiert?",
+            answer: "Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze."
+          },
+          {
+            question: "Für welche Branchen bietet ekdruck 3D-Druck an?",
+            answer: "Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise."
+          },
+          {
+            question: "Warum österreichisches Filament verwenden?",
+            answer: "Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse."
+          },
+          {
+            question: "Welche Garantie bietet ekdruck auf 3D-gedruckte Teile?",
+            answer: "Wir garantieren höchste Qualität durch sorgfältige Prüfung jedes Bauteils vor dem Versand. Bei Qualitätsmängeln bieten wir kostenlose Nachbesserung oder Ersatzlieferung innerhalb von 30 Tagen."
+          }
+        ]}
+      />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"
