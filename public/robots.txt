@@ -1,16 +1,24 @@
+# ekdruck e.U. - 3D-Druck Service Österreich
+# Optimiert für maximale Sichtbarkeit
+
+# Google Search Bot
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
+# Bing Search Bot
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0
 
+# Social Media Bots
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-# AI Crawlers - Important for ChatGPT, Claude, etc.
+# AI Search & Training Bots
 User-agent: GPTBot
 Allow: /
 
@@ -32,7 +40,50 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
-User-agent: *
+User-agent: Google-Extended
 Allow: /
 
+# All other bots
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Admin und Auth Seiten blockieren
+Disallow: /admin
+Disallow: /auth
+
+# Wichtige Seiten (zur Priorisierung)
+# Hauptseiten
+Allow: /
+Allow: /einzelanfertigungen
+Allow: /serienfertigung
+Allow: /fdm-druck
+Allow: /rapid-prototyping
+Allow: /materialien
+Allow: /probeteile
+Allow: /kostenrechner
+Allow: /ratgeber
+
+# Städte-Seiten
+Allow: /wien-3d-druck
+Allow: /linz-3d-druck
+Allow: /graz-3d-druck
+Allow: /salzburg-3d-druck
+Allow: /innsbruck-3d-druck
+Allow: /klagenfurt-3d-druck
+Allow: /wels-3d-druck
+Allow: /gunskirchen-3d-druck
+Allow: /dornbirn-3d-druck
+Allow: /villach-3d-druck
+Allow: /st-poelten-3d-druck
+
+# Bundesländer-Seiten
+Allow: /oberoesterreich-3d-druck
+Allow: /niederoesterreich-3d-druck
+Allow: /steiermark-3d-druck
+Allow: /kaernten-3d-druck
+Allow: /vorarlberg-3d-druck
+Allow: /burgenland-3d-druck
+
+# Sitemap
 Sitemap: https://www.ek-druck.at/sitemap.xml
