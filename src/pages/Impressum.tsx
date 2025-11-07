@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const Impressum = () => {
@@ -20,8 +19,8 @@ const Impressum = () => {
         description="Impressum der ekdruck e.U. aus Gunskirchen, Oberösterreich. Rechtliche Informationen zum 3D-Druck Service in Austria."
         keywords="ekdruck impressum, 3d-druck österreich kontakt, ekdruck kontaktdaten"
         path="/impressum"
+        type="website"
       />
-      <StructuredData type="organization" />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},
         {name: "Impressum", url: "/impressum"}
