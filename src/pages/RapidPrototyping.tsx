@@ -38,9 +38,9 @@ const RapidPrototyping = () => {
   return (
     <>
       <SEOHead 
-        title="Rapid Prototyping Österreich | 24h Service | ekdruck e.U."
-        description="Ihre Konkurrenz schläft nicht! Iterieren Sie 3-5x schneller mit 24h Express-Service. 85% Zeitersparnis wissenschaftlich belegt. Erste Iteration morgen testen!"
-        keywords="rapid prototyping österreich, rapid prototyping guide, express 3d-druck, prototypen 24h, fdm prototyping, schnelle produktentwicklung"
+        title="3D-Druck Prototypen in 24h ab €50 | Österreich | ekdruck"
+        description="Prototypen in 24-48h geliefert! Ab €50, kostenlose Designberatung, österreichisches Material. Anfrage heute stellen, morgen testen - Jetzt Express-Service nutzen!"
+        keywords="rapid prototyping österreich, prototypen 3d-druck, 3d-druck prototypen, express 3d-druck, prototypen 24h, fdm prototyping, schnelle produktentwicklung"
         path="/rapid-prototyping"
         type="article"
         breadcrumbs={[
@@ -156,11 +156,11 @@ const RapidPrototyping = () => {
                 <Rocket className="h-10 w-10 text-primary" />
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground">
-                <span className="text-gradient">Rapid Prototyping Österreich</span>
-                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Wissenschaftlicher Guide + 24h Express-Service</span>
+                <span className="text-gradient">3D-Druck Prototypen in 24-48h</span>
+                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Rapid Prototyping ab €50 - Express-Service Österreich</span>
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-                85% schneller als traditionelle Methoden: Erfahren Sie, wie <strong className="text-foreground">Rapid Prototyping mit FDM 3D-Druck</strong> Ihre Produktentwicklung revolutioniert – wissenschaftlich fundiert und praxiserprobt in Österreich.
+                Von der Idee zum fertigen Prototyp in 24-48h! Kostenlose Designberatung, österreichisches Filament und Express-Fertigung. Perfekt für <strong className="text-foreground">schnelle Produktentwicklung und Funktionsprototypen</strong>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
