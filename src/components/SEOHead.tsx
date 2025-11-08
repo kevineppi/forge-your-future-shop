@@ -14,7 +14,7 @@ interface SEOHeadProps {
 
 const SEOHead = ({ 
   title = "3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U.",
-  description = "3D-Druck Service für ganz Österreich ✓ FDM 3D-Druck ✓ Rapid Prototyping ✓ Nachhaltiger 3D-Druck Dienstleister ✓ Österreichisches Filament ✓ Express Service",
+  description = "Ihr 3D-Druck Partner in Österreich für FDM-Druck, Rapid Prototyping und Serienfertigung. Nachhaltig mit österreichischem Filament und Express-Service in 24-48 Stunden.",
   keywords = "3d-druck österreich, 3d-druck dienstleister, fdm 3d-druck, rapid prototyping österreich, 3d drucker kaufen österreich, 3d-druck firma, 3d-druck shop österreich, additives fertigungsverfahren",
   path = "",
   image = "",
