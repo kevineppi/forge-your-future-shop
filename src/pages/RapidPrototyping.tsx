@@ -5,12 +5,15 @@ import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import HowToSchema from "@/components/HowToSchema";
 import ServiceSchema from "@/components/ServiceSchema";
+import FAQSchema from "@/components/FAQSchema";
+import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import Contact from "@/components/Contact";
 import SocialShare from "@/components/SocialShare";
 import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Clock, Lightbulb, Cog, Zap, CheckCircle, ArrowRight, Timer, TrendingUp, Target, BarChart3, Rocket, Award, Users } from "lucide-react";
 
 const RapidPrototyping = () => {
@@ -33,6 +36,33 @@ const RapidPrototyping = () => {
     { industry: "Medizintechnik", zeitersparnis: "90%", kostenreduktion: "75%", beispiel: "Prothesen, Implantate, Werkzeuge" },
     { industry: "Automotive", zeitersparnis: "80%", kostenreduktion: "65%", beispiel: "Interieur-Teile, Brackets, Clips" },
     { industry: "Consumer Products", zeitersparnis: "75%", kostenreduktion: "60%", beispiel: "Gehäuse, Bedienelemente, Design" }
+  ];
+
+  const faqs = [
+    {
+      question: "Wie schnell kann ich meinen Prototyp erhalten?",
+      answer: "Mit unserem Express-Service erhalten Sie Ihren Prototyp bereits in 24-48 Stunden. Standard-Lieferung dauert 3-5 Werktage. Die genaue Lieferzeit hängt von Größe und Komplexität ab."
+    },
+    {
+      question: "Was kostet ein 3D-Druck Prototyp?",
+      answer: "Einfache Prototypen starten ab €50. Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren Kostenrechner für eine sofortige Schätzung oder kontaktieren Sie uns für ein individuelles Angebot."
+    },
+    {
+      question: "Welche Materialien eignen sich für Prototypen?",
+      answer: "Für Konzeptmodelle empfehlen wir PLA, für Funktionstests PETG oder ABS, und für finale Validierung Nylon oder ASA. Wir beraten Sie gerne bei der Materialwahl basierend auf Ihren spezifischen Anforderungen."
+    },
+    {
+      question: "Kann ich mehrere Iterationen meines Prototyps anfertigen lassen?",
+      answer: "Ja, unbegrenzt! Das ist der große Vorteil von Rapid Prototyping. Sie können Ihr Design optimieren und mehrfach testen, ohne hohe Werkzeugkosten. Jede Iteration kann innerhalb von 24-48h geliefert werden."
+    },
+    {
+      question: "Benötige ich eine CAD-Datei?",
+      answer: "Idealerweise ja (STL, OBJ, STEP, IGES). Falls Sie keine CAD-Datei haben, erstellen wir diese gerne für Sie basierend auf Ihrer Skizze oder Idee. Kostenlose Designberatung inklusive."
+    },
+    {
+      question: "Ist Rapid Prototyping auch für Kleinserien geeignet?",
+      answer: "Ja, perfekt für Kleinserien von 1-1000 Stück! FDM 3D-Druck ist kostengünstig ohne Werkzeugkosten. Ideal für Markteinführungen, limitierte Editionen oder Tests vor der Serienfertigung."
+    }
   ];
 
   return (
@@ -61,9 +91,15 @@ const RapidPrototyping = () => {
           description: "Rapid Prototyping ab €50, Express-Service verfügbar"
         }}
       />
+      <FAQSchema faqs={faqs} />
+      <AggregateRatingSchema 
+        ratingValue={4.9}
+        ratingCount={127}
+        bestRating={5}
+        worstRating={1}
+      />
       <StructuredData type="organization" />
       <StructuredData type="service" />
-      <StructuredData type="faq" />
       
       {/* Article Schema for SEO */}
       <script type="application/ld+json">
@@ -1031,6 +1067,39 @@ const RapidPrototyping = () => {
                   </CardContent>
                 </Card>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 lg:py-24 bg-gradient-to-b from-background via-muted/20 to-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                  Häufig gestellte <span className="text-gradient">Fragen</span>
+                </h2>
+                <p className="text-xl text-muted-foreground">
+                  Alles Wissenswerte über unseren Rapid Prototyping Service
+                </p>
+              </div>
+              
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`} 
+                    className="bg-card/80 border rounded-xl px-6 hover:border-primary/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </section>

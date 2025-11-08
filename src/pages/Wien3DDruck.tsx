@@ -201,10 +201,10 @@ const Wien3DDruck = () => {
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <Shield className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Premium-Filamente</h3>
+                   <h3 className="text-2xl font-bold mb-4">Premium-Filamente</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     Österreichische Bio-Filamente und technische Hochleistungskunststoffe. 
-                    PLA, PETG, ABS, Carbon-Nylon für anspruchsvolle Wiener Projekte.
+                    PLA, PETG, ABS, Carbon-Nylon für anspruchsvolle Wiener Projekte und <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>.
                   </p>
                   <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold inline-flex items-center gap-2 group">
                     Mehr erfahren 

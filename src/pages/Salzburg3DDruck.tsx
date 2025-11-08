@@ -47,7 +47,7 @@ const Salzburg3DDruck = () => {
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
                 Ihr verlässlicher Partner für hochwertigen FDM-3D-Druck in der <strong className="text-foreground">Mozartstadt</strong>. 
-                Express-Lieferung innerhalb 24-48h nach <strong className="text-foreground">Salzburg Stadt</strong> und Land. Österreichische Premium-Materialien 
+                Express-Lieferung innerhalb 24-48h nach <strong className="text-foreground">Salzburg Stadt</strong> und Land. <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>, österreichische Premium-Materialien 
                 und persönliche Fachberatung für Ihre Projekte.
               </p>
               

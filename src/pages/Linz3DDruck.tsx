@@ -57,7 +57,7 @@ const Linz3DDruck = () => {
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
                 Ihr lokaler Partner für professionellen FDM 3D-Druck in <strong className="text-foreground">Linz</strong> und ganz Oberösterreich. 
-                Schnelle Lieferung innerhalb 24h nach <strong className="text-foreground">Linz</strong>, <strong className="text-foreground">Abholung</strong> in Gunskirchen (30km) möglich. Nachhaltige österreichische Materialien und persönliche Beratung für Ihr Projekt.
+                Schnelle Lieferung innerhalb 24h nach <strong className="text-foreground">Linz</strong>, <strong className="text-foreground">Abholung</strong> in Gunskirchen (30km) möglich. Nachhaltige österreichische Materialien und persönliche Beratung für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Prototypen</a> und Serienteile.
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-12">

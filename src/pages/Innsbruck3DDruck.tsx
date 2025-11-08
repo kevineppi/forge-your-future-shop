@@ -47,7 +47,7 @@ const Innsbruck3DDruck = () => {
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
                 Ihr Partner für professionellen FDM-3D-Druck in der <strong className="text-foreground">Alpenmetropole</strong>. 
-                Robuste Materialien für <strong className="text-foreground">alpine Anforderungen</strong>, Express-Lieferung 24-48h nach Innsbruck. 
+                <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> mit robusten Materialien für <strong className="text-foreground">alpine Anforderungen</strong>, Express-Lieferung 24-48h nach Innsbruck. 
                 Österreichische Qualität für Outdoor-, Sport- und Medizintechnik-Projekte.
               </p>
               

@@ -201,7 +201,7 @@ const Oberoesterreich3DDruck = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Einzelanfertigungen</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Maßgeschneiderte Unikate und Spezialanfertigungen. Sondermaschinen-Komponenten, Vorrichtungen, Halterungen – präzise nach Ihren Anforderungen gefertigt.
+                    Maßgeschneiderte Unikate und Spezialanfertigungen. Sondermaschinen-Komponenten, Vorrichtungen, Halterungen, <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Prototypen</a> – präzise nach Ihren Anforderungen gefertigt.
                   </p>
                   <Button variant="link" asChild className="p-0 h-auto font-semibold">
                     <a href="/einzelanfertigungen-3d-druck">

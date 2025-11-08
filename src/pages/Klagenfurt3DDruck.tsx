@@ -56,7 +56,7 @@ const Klagenfurt3DDruck = () => {
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
                 Ihr lokaler Partner für professionellen FDM 3D-Druck in <strong className="text-foreground">Klagenfurt</strong> und ganz Kärnten. 
-                Schnelle Lieferung nach <strong className="text-foreground">Klagenfurt</strong>, nachhaltige Materialien und faire Preise für Ihre Projekte am Wörthersee.
+                Schnelle Lieferung nach <strong className="text-foreground">Klagenfurt</strong>, <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>, nachhaltige Materialien und faire Preise für Ihre Projekte am Wörthersee.
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center mb-12">
