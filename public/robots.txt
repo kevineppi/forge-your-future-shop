@@ -52,38 +52,17 @@ Crawl-delay: 1
 Disallow: /admin
 Disallow: /auth
 
-# Wichtige Seiten (zur Priorisierung)
-# Hauptseiten
+# Wichtige Seiten
 Allow: /
 Allow: /einzelanfertigungen
 Allow: /serienfertigung
-Allow: /fdm-druck
+Allow: /fdm-3d-druck
 Allow: /rapid-prototyping
-Allow: /materialien
+Allow: /3d-druck-materialien
 Allow: /probeteile
 Allow: /kostenrechner
 Allow: /ratgeber
-
-# Städte-Seiten
-Allow: /wien-3d-druck
-Allow: /linz-3d-druck
-Allow: /graz-3d-druck
-Allow: /salzburg-3d-druck
-Allow: /innsbruck-3d-druck
-Allow: /klagenfurt-3d-druck
-Allow: /wels-3d-druck
-Allow: /gunskirchen-3d-druck
-Allow: /dornbirn-3d-druck
-Allow: /villach-3d-druck
-Allow: /st-poelten-3d-druck
-
-# Bundesländer-Seiten
-Allow: /oberoesterreich-3d-druck
-Allow: /niederoesterreich-3d-druck
-Allow: /steiermark-3d-druck
-Allow: /kaernten-3d-druck
-Allow: /vorarlberg-3d-druck
-Allow: /burgenland-3d-druck
+Allow: /glossar
 
 # Sitemap
 Sitemap: https://www.ek-druck.at/sitemap.xml

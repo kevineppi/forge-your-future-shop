@@ -91,7 +91,8 @@ const Index = () => {
                 Professioneller <span className="text-gradient">FDM 3D-Druck</span> aus Oberösterreich
               </p>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Modernste Technologie trifft auf österreichische Qualität – Ihr 3D-Druck Partner für Innovation und Nachhaltigkeit
+                Modernste Technologie trifft auf österreichische Qualität – Ihr 3D-Druck Partner für Innovation und Nachhaltigkeit. 
+                Entdecken Sie unsere <a href="/ratgeber" className="text-primary hover:underline font-semibold">Ratgeber</a> für detaillierte Informationen.
               </p>
             </div>
             
@@ -255,7 +256,8 @@ const Index = () => {
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
                       Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. 
-                      Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze.
+                      Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze. 
+                      Mehr zu unserem <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungs-Service</a>.
                     </AccordionContent>
                   </AccordionItem>
 
@@ -270,7 +272,8 @@ const Index = () => {
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
                       Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, 
-                      Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise.
+                      Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise. 
+                      Lesen Sie mehr in unserem <a href="/ratgeber/maschinenbau" className="text-primary hover:underline font-semibold">Maschinenbau-Ratgeber</a>.
                     </AccordionContent>
                   </AccordionItem>
 
@@ -285,7 +288,8 @@ const Index = () => {
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
                       Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und 
-                      Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse.
+                      Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse. 
+                      Entdecken Sie unseren <a href="/ratgeber/material-guide" className="text-primary hover:underline font-semibold">Material-Guide</a>.
                     </AccordionContent>
                   </AccordionItem>
 
@@ -300,7 +304,8 @@ const Index = () => {
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
                       Ja! Wir bieten Schleifen, Lackieren, Grundieren, Glattieren und weitere Finishing-Optionen. 
-                      So erhalten Sie produktionsreife Bauteile direkt einsatzbereit.
+                      So erhalten Sie produktionsreife Bauteile direkt einsatzbereit. 
+                      Mehr zu unseren <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung-Optionen</a>.
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
@@ -550,9 +555,10 @@ const Index = () => {
                        <div>
                          <p className="font-bold text-lg mb-2">Faire Preise</p>
                          <p className="text-muted-foreground text-sm leading-relaxed">
-                          Transparente Preisgestaltung ohne versteckte Kosten. Nutzen Sie unseren 
-                          Kostenrechner für eine sofortige Preisindikation oder fordern Sie ein individuelles Angebot an.
-                        </p>
+                           Transparente Preisgestaltung ohne versteckte Kosten. Nutzen Sie unseren{" "}
+                           <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für eine sofortige Preisindikation oder fordern Sie ein individuelles Angebot an. 
+                           Mehr dazu im <a href="/ratgeber/kosten-guide" className="text-primary hover:underline font-semibold">Kosten-Guide</a>.
+                         </p>
                       </div>
                     </div>
                   </div>
@@ -566,10 +572,11 @@ const Index = () => {
                       </div>
                       <div>
                         <h4 className="font-bold text-lg mb-2">Für alle Branchen</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Von Einzelpersonen bis zu Großunternehmen - wir bedienen alle Branchen. 
-                          Industrie, Architektur, Medizintechnik, Design, Bildung und viele mehr.
-                        </p>
+                         <p className="text-muted-foreground text-sm leading-relaxed">
+                           Von Einzelpersonen bis zu Großunternehmen - wir bedienen alle Branchen. 
+                           Industrie, Architektur, Medizintechnik, Design, Bildung und viele mehr. 
+                           Vergleichen Sie <a href="/ratgeber/verfahrens-vergleich" className="text-primary hover:underline font-semibold">3D-Druck Verfahren</a>.
+                         </p>
                       </div>
                     </div>
                   </div>
@@ -600,10 +607,11 @@ const Index = () => {
                       </div>
                       <div>
                         <h4 className="font-bold text-lg mb-2">Komplettservice</h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Sie haben keine CAD-Datei? Kein Problem! Wir erstellen 3D-Modelle nach Ihren 
-                          Vorgaben, Skizzen oder Fotos. Von der Idee bis zum fertigen Produkt.
-                        </p>
+                         <p className="text-muted-foreground text-sm leading-relaxed">
+                           Sie haben keine CAD-Datei? Kein Problem! Wir erstellen 3D-Modelle nach Ihren 
+                           Vorgaben, Skizzen oder Fotos. Von der Idee bis zum fertigen Produkt. 
+                           Siehe unsere <a href="/probeteile" className="text-primary hover:underline font-semibold">kostenlosen Probeteile</a>.
+                         </p>
                       </div>
                     </div>
                   </div>
