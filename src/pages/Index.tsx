@@ -99,13 +99,8 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               {/* Technologie Sektion */}
               <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                 <div className="flex items-center gap-3 mb-6">
-                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                     <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                     </svg>
-                   </div>
-                    <p className="text-2xl md:text-3xl font-bold">Modernste FDM 3D-Druck Technologie</p>
+                 <div className="mb-6">
+                   <p className="text-lg font-semibold text-primary mb-3">Modernste FDM Technologie</p>
                   </div>
                  <p className="text-muted-foreground mb-4 leading-relaxed">
                    Als Dienstleister aus Oberösterreich setzen wir auf modernste{" "}
@@ -113,39 +108,29 @@ const Index = () => {
                    Diese additive Fertigungsmethode ermöglicht die präzise Herstellung komplexer Geometrien mit außergewöhnlich hoher Qualität.
                  </p>
                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                   Unser Service deckt alle Bereiche ab: von{" "}
-                   <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> und{" "}
-                   <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Prototypenbau</a> über{" "}
-                   <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Fertigungen</a> bis zur{" "}
-                   <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung von Kleinserien</a>.
+                 Unser Service deckt alle Bereiche ab: von{" "}
+                 <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> und{" "}
+                 <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">schnellem Prototypenbau</a> über{" "}
+                 <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelteile</a> bis zur{" "}
+                 <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Kleinserienproduktion</a>.
                  </p>
                  <p className="text-muted-foreground leading-relaxed">
                    Mit Schichtauflösungen bis 0,1mm garantieren wir höchste Präzision. Wir verwenden ausschließlich{" "}
-                   <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">hochwertige österreichische Filamente</a>.
-                   Das bedeutet kurze Transportwege und umweltfreundliche Produktion.
+                 <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">hochwertige Materialien aus Österreich</a>.
+                 Das bedeutet kurze Transportwege und umweltfreundliche Produktion.
                  </p>
               </div>
               
               {/* Prozess Sektion */}
               <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                 <div className="flex items-center gap-3 mb-6">
-                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                     <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                     </svg>
-                   </div>
-                    <p className="text-2xl md:text-3xl font-bold">Unser Produktionsprozess</p>
+                 <div className="mb-6">
+                   <p className="text-lg font-semibold text-primary mb-3">Unser Ablauf</p>
                   </div>
                  <div className="space-y-6">
                    <div className="flex gap-4">
                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">1</div>
-                     <div>
-                        <p className="font-bold mb-2 flex items-center gap-2">
-                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                          </svg>
-                          Anfrage & Beratung
-                        </p>
+                      <div>
+                        <p className="font-semibold mb-2">Anfrage & Beratung</p>
                         <p className="text-sm text-muted-foreground">
                           Kostenlose Beratung zu Material, Technologie und Machbarkeit. Wir finden die beste Lösung für Ihr Projekt.
                         </p>
@@ -153,45 +138,30 @@ const Index = () => {
                    </div>
                    <div className="flex gap-4">
                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">2</div>
-                     <div>
-                        <p className="font-bold mb-2 flex items-center gap-2">
-                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                          Angebot & Design-Optimierung
-                        </p>
+                      <div>
+                        <p className="font-semibold mb-2">Angebot & Design-Optimierung</p>
                         <p className="text-sm text-muted-foreground">
                           Detailliertes Angebot mit transparentem Preis und realistischer Lieferzeit. Wir optimieren Ihre CAD-Dateien für beste Druckergebnisse.
                         </p>
-                     </div>
+                      </div>
                    </div>
                    <div className="flex gap-4">
                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">3</div>
-                     <div>
-                        <p className="font-bold mb-2 flex items-center gap-2">
-                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                          </svg>
-                          Produktion mit FDM-Technologie
-                        </p>
+                      <div>
+                        <p className="font-semibold mb-2">Produktion mit FDM-Technologie</p>
                         <p className="text-sm text-muted-foreground">
                           Fertigung mit modernsten FDM-Druckern und nachhaltigen österreichischen Materialien. Höchste Qualität bei minimaler Umweltbelastung.
                         </p>
-                     </div>
+                      </div>
                    </div>
                    <div className="flex gap-4">
                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold shadow-lg">4</div>
-                     <div>
-                        <p className="font-bold mb-2 flex items-center gap-2">
-                          <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                          </svg>
-                          Qualitätskontrolle & Versand
-                        </p>
+                      <div>
+                        <p className="font-semibold mb-2">Qualitätskontrolle & Versand</p>
                         <p className="text-sm text-muted-foreground">
                           Sorgfältige Prüfung jedes Bauteils vor dem Versand. Express-Service liefert in 24-48 Stunden österreichweit.
                         </p>
-                     </div>
+                      </div>
                    </div>
                  </div>
               </div>
@@ -239,9 +209,9 @@ const Index = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                      Standard-Lieferung 3-5 Werktage österreichweit. Mit unserem{" "}
-                      <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Service</a> erhalten Sie 
-                      Ihre Teile bereits in 24-48 Stunden.
+                     Standard-Lieferung 3-5 Werktage österreichweit. Mit unserem{" "}
+                     <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Fertigung</a> erhalten Sie 
+                     Ihre Teile bereits in 24-48 Stunden.
                     </AccordionContent>
                   </AccordionItem>
 
@@ -255,9 +225,9 @@ const Index = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                      Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. 
-                      Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze. 
-                      Mehr zu unserem <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungs-Service</a>.
+                     Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. 
+                     Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze. 
+                     Mehr zu unserem <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuellen Fertigungsservice</a>.
                     </AccordionContent>
                   </AccordionItem>
 
@@ -271,9 +241,9 @@ const Index = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                      Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, 
-                      Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise. 
-                      Lesen Sie mehr in unserem <a href="/ratgeber/maschinenbau" className="text-primary hover:underline font-semibold">Maschinenbau-Ratgeber</a>.
+                     Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, 
+                     Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise. 
+                     Lesen Sie mehr in unserem <a href="/ratgeber/maschinenbau" className="text-primary hover:underline font-semibold">Industrie-Guide</a>.
                     </AccordionContent>
                   </AccordionItem>
 
@@ -287,9 +257,9 @@ const Index = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                      Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und 
-                      Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse. 
-                      Entdecken Sie unseren <a href="/ratgeber/material-guide" className="text-primary hover:underline font-semibold">Material-Guide</a>.
+                     Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und 
+                     Unterstützung der lokalen Wirtschaft. Made in Austria für beste Ergebnisse. 
+                     Entdecken Sie unseren <a href="/ratgeber/material-guide" className="text-primary hover:underline font-semibold">Materialien-Ratgeber</a>.
                     </AccordionContent>
                   </AccordionItem>
 
@@ -303,9 +273,9 @@ const Index = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                      Ja! Wir bieten Schleifen, Lackieren, Grundieren, Glattieren und weitere Finishing-Optionen. 
-                      So erhalten Sie produktionsreife Bauteile direkt einsatzbereit. 
-                      Mehr zu unseren <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Serienfertigung-Optionen</a>.
+                     Ja! Wir bieten Schleifen, Lackieren, Grundieren, Glattieren und weitere Finishing-Optionen. 
+                     So erhalten Sie produktionsreife Bauteile direkt einsatzbereit. 
+                     Mehr zu unseren <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Produktions-Möglichkeiten</a>.
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
@@ -340,38 +310,33 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               {/* Materials */}
               <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold">Premium 3D-Druck Materialien</h3>
-                </div>
+                 <div className="mb-6">
+                   <p className="text-lg font-semibold text-primary mb-3">Premium Materialien</p>
+                 </div>
                  <div className="space-y-6">
                    <div className="border-l-4 border-primary pl-4">
-                     <p className="font-bold text-lg mb-2">PLA (Polylactic Acid)</p>
+                     <p className="font-semibold mb-2">PLA (Polylactic Acid)</p>
                      <p className="text-muted-foreground text-sm">
                        Biologisch abbaubares Material aus nachwachsenden Rohstoffen. Ideal für Prototypen und Modelle.
                        Temperaturbeständig bis 60°C. In vielen Farben verfügbar.
                      </p>
                    </div>
                    <div className="border-l-4 border-primary pl-4">
-                     <p className="font-bold text-lg mb-2">PETG (Polyethylenterephthalat)</p>
+                     <p className="font-semibold mb-2">PETG (Polyethylenterephthalat)</p>
                      <p className="text-muted-foreground text-sm">
                        Robustes Material mit guter chemischer Beständigkeit. Temperaturbeständig bis 80°C.
                        Lebensmittelecht und UV-beständig. Perfekt für funktionale Bauteile.
                      </p>
                    </div>
                    <div className="border-l-4 border-primary pl-4">
-                     <p className="font-bold text-lg mb-2">ABS (Acrylnitril-Butadien-Styrol)</p>
+                     <p className="font-semibold mb-2">ABS (Acrylnitril-Butadien-Styrol)</p>
                      <p className="text-muted-foreground text-sm">
                        Hochfestes technisches Material. Temperaturbeständigkeit bis 100°C.
                        Ideal für mechanisch belastbare Teile und Gehäuse. Nachbearbeitbar durch Schleifen und Lackieren.
                      </p>
                    </div>
                    <div className="border-l-4 border-primary pl-4">
-                     <p className="font-bold text-lg mb-2">TPU (Thermoplastisches Polyurethan)</p>
+                     <p className="font-semibold mb-2">TPU (Thermoplastisches Polyurethan)</p>
                      <p className="text-muted-foreground text-sm">
                        Flexibles Material mit hoher Abriebfestigkeit. Shore-Härte 95A, dehnbar bis 500%.
                        Optimal für Dichtungen und flexible Verbindungen.
@@ -383,38 +348,33 @@ const Index = () => {
 
               {/* Applications */}
               <div className="gradient-card p-8 rounded-2xl border-2 border-primary/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold">Vielseitige Anwendungsbereiche</h3>
-                </div>
+                 <div className="mb-6">
+                   <p className="text-lg font-semibold text-primary mb-3">Anwendungsbereiche</p>
+                 </div>
                  <div className="space-y-6">
                    <div className="border-l-4 border-secondary pl-4">
-                     <p className="font-bold text-lg mb-2">Industrie & Maschinenbau</p>
+                     <p className="font-semibold mb-2">Industrie & Maschinenbau</p>
                      <p className="text-muted-foreground text-sm">
                        Funktionsprototypen, Ersatzteile, Betriebsmittel und Halterungen.
                        Schnelle Iterationen und kosteneffiziente Kleinserien.
                      </p>
                    </div>
                    <div className="border-l-4 border-secondary pl-4">
-                     <p className="font-bold text-lg mb-2">Architektur & Bauwesen</p>
+                     <p className="font-semibold mb-2">Architektur & Bauwesen</p>
                      <p className="text-muted-foreground text-sm">
                        Architekturmodelle und Gebäudevisualisierungen.
                        Maßstabsgetreue Modelle für Präsentationen.
                      </p>
                    </div>
                    <div className="border-l-4 border-secondary pl-4">
-                     <p className="font-bold text-lg mb-2">Bildung & Forschung</p>
+                     <p className="font-semibold mb-2">Bildung & Forschung</p>
                      <p className="text-muted-foreground text-sm">
                        Lehrmittel und wissenschaftliche Modelle.
                        Anschauungsobjekte für Universitäten und Schulen.
                      </p>
                    </div>
                    <div className="border-l-4 border-secondary pl-4">
-                     <p className="font-bold text-lg mb-2">Design & Kunst</p>
+                     <p className="font-semibold mb-2">Design & Kunst</p>
                      <p className="text-muted-foreground text-sm">
                        Kunstobjekte, Skulpturen und Schmuck-Prototypen.
                        Vielfältige Materialien für kreative Projekte.
@@ -447,7 +407,7 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                 <p className="text-xl font-bold mb-4">Sorgfältige Qualitätskontrolle</p>
+                <p className="font-semibold mb-3">Sorgfältige Qualitätskontrolle</p>
                  <p className="text-muted-foreground leading-relaxed">
                    Jedes Bauteil wird visuell geprüft und auf Maßhaltigkeit kontrolliert.
                    Reproduzierbare Qualität durch kalibrierte Drucker.
@@ -460,7 +420,7 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                 <p className="text-xl font-bold mb-4">Schnelle Lieferzeiten</p>
+                 <p className="font-semibold mb-3">Schnelle Lieferzeiten</p>
                  <p className="text-muted-foreground leading-relaxed">
                    Standard in 3-5 Werktagen österreichweit. Express-Service in 24-48 Stunden verfügbar.
                  </p>
@@ -472,7 +432,7 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                 <p className="text-xl font-bold mb-4">Nachhaltige Materialien</p>
+                 <p className="font-semibold mb-3">Nachhaltige Materialien</p>
                  <p className="text-muted-foreground leading-relaxed">
                    Ausschließlich österreichische Filamente aus recycelten Industrieabfällen.
                    Umweltfreundliche Produktion mit Ökostrom.
@@ -485,7 +445,7 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 </div>
-                 <p className="text-xl font-bold mb-4">Persönliche Beratung</p>
+                 <p className="font-semibold mb-3">Persönliche Beratung</p>
                  <p className="text-muted-foreground leading-relaxed">
                    Von der Idee bis zum Produkt. Beratung zu Material, Design und Machbarkeit.
                  </p>
@@ -519,7 +479,7 @@ const Index = () => {
                         </svg>
                       </div>
                        <div>
-                         <p className="font-bold text-lg mb-2">Präzise Fertigung</p>
+                         <p className="font-semibold mb-2">Präzise Fertigung</p>
                          <p className="text-muted-foreground text-sm leading-relaxed">
                            FDM-Drucker mit Schichtauflösungen von 0,1mm bis 0,3mm.
                            Gleichbleibende Qualität durch regelmäßige Kalibrierung.
@@ -536,7 +496,7 @@ const Index = () => {
                         </svg>
                       </div>
                        <div>
-                         <p className="font-bold text-lg mb-2">Design-Optimierung</p>
+                         <p className="font-semibold mb-2">Design-Optimierung</p>
                          <p className="text-muted-foreground text-sm leading-relaxed">
                            Analyse und Optimierung Ihrer CAD-Dateien.
                            Kostenlose Beratung zu Wandstärken und Druckorientierung.
@@ -553,11 +513,11 @@ const Index = () => {
                         </svg>
                       </div>
                        <div>
-                         <p className="font-bold text-lg mb-2">Faire Preise</p>
+                         <p className="font-semibold mb-2">Faire Preise</p>
                          <p className="text-muted-foreground text-sm leading-relaxed">
                            Transparente Preisgestaltung ohne versteckte Kosten. Nutzen Sie unseren{" "}
-                           <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für eine sofortige Preisindikation oder fordern Sie ein individuelles Angebot an. 
-                           Mehr dazu im <a href="/ratgeber/kosten-guide" className="text-primary hover:underline font-semibold">Kosten-Guide</a>.
+                           <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Online-Kalkulator</a> für eine sofortige Preisindikation oder fordern Sie ein individuelles Angebot an. 
+                           Mehr dazu im <a href="/ratgeber/kosten-guide" className="text-primary hover:underline font-semibold">Preis-Ratgeber</a>.
                          </p>
                       </div>
                     </div>
@@ -571,11 +531,11 @@ const Index = () => {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="font-bold text-lg mb-2">Für alle Branchen</h4>
+                        <p className="font-semibold mb-2">Für alle Branchen</p>
                          <p className="text-muted-foreground text-sm leading-relaxed">
                            Von Einzelpersonen bis zu Großunternehmen - wir bedienen alle Branchen. 
                            Industrie, Architektur, Medizintechnik, Design, Bildung und viele mehr. 
-                           Vergleichen Sie <a href="/ratgeber/verfahrens-vergleich" className="text-primary hover:underline font-semibold">3D-Druck Verfahren</a>.
+                           Vergleichen Sie <a href="/ratgeber/verfahrens-vergleich" className="text-primary hover:underline font-semibold">verschiedene Druckverfahren</a>.
                          </p>
                       </div>
                     </div>
@@ -589,7 +549,7 @@ const Index = () => {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="font-bold text-lg mb-2">Finishing-Optionen</h4>
+                        <p className="font-semibold mb-2">Finishing-Optionen</p>
                         <p className="text-muted-foreground text-sm leading-relaxed">
                           Nachbearbeitung für produktionsreife Teile: Schleifen, Grundieren, Lackieren, 
                           Glattieren mit Aceton-Dampf und weitere Veredelungsmöglichkeiten.
@@ -606,11 +566,11 @@ const Index = () => {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="font-bold text-lg mb-2">Komplettservice</h4>
+                        <p className="font-semibold mb-2">Komplettservice</p>
                          <p className="text-muted-foreground text-sm leading-relaxed">
                            Sie haben keine CAD-Datei? Kein Problem! Wir erstellen 3D-Modelle nach Ihren 
                            Vorgaben, Skizzen oder Fotos. Von der Idee bis zum fertigen Produkt. 
-                           Siehe unsere <a href="/probeteile" className="text-primary hover:underline font-semibold">kostenlosen Probeteile</a>.
+                           Siehe unsere <a href="/probeteile" className="text-primary hover:underline font-semibold">Testdruck-Möglichkeiten</a>.
                          </p>
                       </div>
                     </div>
