@@ -68,7 +68,7 @@ const Logo3D = ({ width, height, depth, material, text }: { width: number; heigh
   );
 };
 
-const FloorTexture = () => {
+const OfficeRoom = () => {
   // Create high-resolution realistic floor texture
   const floorTexture = useMemo(() => {
     const canvas = document.createElement('canvas');
@@ -106,10 +106,6 @@ const FloorTexture = () => {
     return texture;
   }, []);
   
-  return floorTexture;
-};
-
-const WallTexture = () => {
   // Create high-resolution matte white rough wall texture
   const wallTexture = useMemo(() => {
     const canvas = document.createElement('canvas');
@@ -146,13 +142,6 @@ const WallTexture = () => {
     texture.repeat.set(2, 2);
     return texture;
   }, []);
-  
-  return wallTexture;
-};
-
-const OfficeRoom = () => {
-  const floorTexture = FloorTexture();
-  const wallTexture = WallTexture();
   
   return (
     <group>
