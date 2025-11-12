@@ -41,6 +41,7 @@ import PrototypingGuide from "./pages/ratgeber/PrototypingGuide";
 import Maschinenbau from "./pages/ratgeber/Maschinenbau";
 import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
+import Wandlogos from "./pages/Wandlogos";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +70,7 @@ const App = () => (
             <Route path="/ratgeber/prototyping-guide" element={<PrototypingGuide />} />
             <Route path="/ratgeber/maschinenbau" element={<Maschinenbau />} />
             <Route path="/glossar" element={<Glossar />} />
+            <Route path="/wandlogos" element={<Wandlogos />} />
             <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
             <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
             <Route path="/3d-druck-graz" element={<Graz3DDruck />} />
