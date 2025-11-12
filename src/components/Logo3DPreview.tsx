@@ -44,7 +44,7 @@ const Logo3D = ({ width, height, depth, material, text }: { width: number; heigh
   const displayText = text && text.trim() !== "" ? text : "Text";
 
   return (
-    <Center position={[0, 0, -2.8]}>
+    <Center position={[0, 1.2, -2.15]}>
       <Text3D
         font="/fonts/helvetiker_regular.typeface.json"
         size={textSize}
@@ -69,40 +69,51 @@ const Logo3D = ({ width, height, depth, material, text }: { width: number; heigh
 };
 
 const OfficeRoom = () => {
-  // Create high-resolution realistic floor texture
+  // Create high-resolution wooden floor texture (parquet)
   const floorTexture = useMemo(() => {
     const canvas = document.createElement('canvas');
     canvas.width = 2048;
     canvas.height = 2048;
     const ctx = canvas.getContext('2d')!;
     
-    // Base concrete/smooth floor color
-    ctx.fillStyle = '#e8e8e8';
+    // Base wood color - oak/light wood
+    ctx.fillStyle = '#C19A6B';
     ctx.fillRect(0, 0, 2048, 2048);
     
-    // Add realistic concrete texture variation
-    for (let i = 0; i < 3000; i++) {
-      const x = Math.random() * 2048;
-      const y = Math.random() * 2048;
-      const size = Math.random() * 2 + 0.5;
-      const opacity = Math.random() * 0.03;
-      ctx.fillStyle = `rgba(160, 160, 160, ${opacity})`;
-      ctx.fillRect(x, y, size, size);
-    }
+    // Create wood planks pattern
+    const plankWidth = 150;
+    const plankHeight = 1200;
     
-    // Add subtle grain
-    for (let i = 0; i < 5000; i++) {
-      const x = Math.random() * 2048;
-      const y = Math.random() * 2048;
-      const brightness = Math.random() > 0.5 ? 255 : 0;
-      ctx.fillStyle = `rgba(${brightness}, ${brightness}, ${brightness}, 0.01)`;
-      ctx.fillRect(x, y, 1, 1);
+    for (let y = 0; y < 2048; y += plankHeight) {
+      for (let x = 0; x < 2048; x += plankWidth) {
+        // Wood grain variation
+        const woodShade = 180 + Math.random() * 75;
+        ctx.fillStyle = `rgb(${woodShade}, ${woodShade * 0.65}, ${woodShade * 0.35})`;
+        ctx.fillRect(x, y, plankWidth - 2, plankHeight - 2);
+        
+        // Wood grain lines
+        for (let i = 0; i < 50; i++) {
+          const grainY = y + Math.random() * plankHeight;
+          const grainOpacity = Math.random() * 0.15;
+          ctx.strokeStyle = `rgba(100, 60, 30, ${grainOpacity})`;
+          ctx.lineWidth = Math.random() * 2;
+          ctx.beginPath();
+          ctx.moveTo(x, grainY);
+          ctx.lineTo(x + plankWidth, grainY + (Math.random() - 0.5) * 20);
+          ctx.stroke();
+        }
+        
+        // Plank borders
+        ctx.strokeStyle = 'rgba(80, 50, 30, 0.4)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x, y, plankWidth - 2, plankHeight - 2);
+      }
     }
     
     const texture = new THREE.CanvasTexture(canvas);
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(3, 3);
+    texture.repeat.set(2, 2);
     return texture;
   }, []);
   
@@ -145,9 +156,9 @@ const OfficeRoom = () => {
   
   return (
     <group>
-      {/* Back Wall - Matte white rough wall with realistic texture */}
-      <mesh position={[0, 2.1, -3.1]} receiveShadow>
-        <planeGeometry args={[10, 10]} />
+      {/* Back Wall - Matte white rough wall (smaller room) */}
+      <mesh position={[0, 1.2, -2.2]} receiveShadow>
+        <planeGeometry args={[6, 5]} />
         <meshStandardMaterial 
           map={wallTexture}
           roughness={0.98}
@@ -155,19 +166,19 @@ const OfficeRoom = () => {
         />
       </mesh>
       
-      {/* Floor - High resolution realistic surface */}
-      <mesh position={[0, -1.8, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <planeGeometry args={[12, 12]} />
+      {/* Floor - Wooden parquet */}
+      <mesh position={[0, -1.3, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <planeGeometry args={[8, 8]} />
         <meshStandardMaterial 
           map={floorTexture}
-          roughness={0.9}
+          roughness={0.7}
           metalness={0.0}
         />
       </mesh>
       
       {/* Ceiling - Matte white */}
-      <mesh position={[0, 6, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[12, 12]} />
+      <mesh position={[0, 3.7, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[8, 8]} />
         <meshStandardMaterial 
           map={wallTexture}
           roughness={0.98} 
@@ -176,8 +187,8 @@ const OfficeRoom = () => {
       </mesh>
       
       {/* Left Wall - Matte white rough */}
-      <mesh position={[-5, 2.1, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
-        <planeGeometry args={[12, 10]} />
+      <mesh position={[-3, 1.2, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
+        <planeGeometry args={[8, 5]} />
         <meshStandardMaterial 
           map={wallTexture}
           roughness={0.98} 
@@ -186,8 +197,8 @@ const OfficeRoom = () => {
       </mesh>
       
       {/* Right Wall - Matte white rough */}
-      <mesh position={[5, 2.1, 0]} rotation={[0, -Math.PI / 2, 0]} receiveShadow>
-        <planeGeometry args={[12, 10]} />
+      <mesh position={[3, 1.2, 0]} rotation={[0, -Math.PI / 2, 0]} receiveShadow>
+        <planeGeometry args={[8, 5]} />
         <meshStandardMaterial 
           map={wallTexture}
           roughness={0.98} 
@@ -202,7 +213,7 @@ export const Logo3DPreview = ({ text, width, height, depth, material, font }: Lo
   return (
     <div className="w-full h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 border border-border/50 relative shadow-lg">
       <Canvas
-        camera={{ position: [0, 0.5, 3.5], fov: 60 }}
+        camera={{ position: [0, 1.2, 2.5], fov: 50 }}
         shadows
         dpr={[1, 2]}
         gl={{ 
@@ -245,13 +256,13 @@ export const Logo3DPreview = ({ text, width, height, depth, material, font }: Lo
           <OrbitControls 
             enableZoom={true}
             enablePan={false}
-            minDistance={2.5}
-            maxDistance={6}
+            minDistance={1.8}
+            maxDistance={4}
             maxPolarAngle={Math.PI / 2.1}
             minPolarAngle={Math.PI / 9}
             minAzimuthAngle={-Math.PI / 3}
             maxAzimuthAngle={Math.PI / 3}
-            target={[0, 0, -2.8]}
+            target={[0, 1.2, -2.15]}
             enableDamping
             dampingFactor={0.08}
             rotateSpeed={0.5}
