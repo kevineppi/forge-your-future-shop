@@ -13,6 +13,7 @@ import wandlogosHero from "@/assets/fokuskonzept-wandlogo.jpg";
 import wandlogosShowcase from "@/assets/wandlogos-showcase.jpg";
 
 const Wandlogos = () => {
+  const [inputType, setInputType] = useState<"photo" | "text" | null>(null);
   const [logoText, setLogoText] = useState("LOGO");
   const [currentStep, setCurrentStep] = useState(1);
   const [width, setWidth] = useState([100]);
@@ -103,162 +104,225 @@ const Wandlogos = () => {
             </Card>
 
             {/* Right: Configuration Sidebar */}
-            <Card className="p-6 border shadow-lg bg-white">
+            <Card className="p-6 border shadow-lg bg-background">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold">Kennmal zum Kleben</h2>
-                <Button className="bg-green-600 hover:bg-green-700 text-white rounded-full px-4 py-1 text-sm">
-                  Preis anfragen
-                </Button>
+                <h2 className="text-2xl font-bold">3D Wandlogo Konfigurator</h2>
+                <Badge className="bg-primary text-primary-foreground rounded-full px-4 py-1">
+                  <Sparkles className="w-3 h-3 mr-1" />
+                  Live
+                </Badge>
               </div>
 
               <div className="space-y-6">
-                {/* Grafikupload */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Label className="font-bold text-base">Grafikupload</Label>
-                    <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">
-                      ?
-                    </div>
-                  </div>
-                  <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-center cursor-pointer hover:bg-gray-100 transition-colors">
-                    <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                    <p className="text-sm text-gray-600">
-                      Klicke oder nutze Drag & Drop, um deine Grafik hochzuladen
-                    </p>
-                  </div>
-                </div>
-
-                {/* Text Input */}
-                <div>
-                  <Label className="font-bold text-base mb-3 block">Ihr Text</Label>
-                  <Input
-                    value={logoText}
-                    onChange={(e) => setLogoText(e.target.value)}
-                    placeholder="FIRMENNAME"
-                    className="text-base"
-                    maxLength={20}
-                  />
-                </div>
-
-                {/* Aufstellort */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Label className="font-bold text-base">Aufstellort</Label>
-                    <span className="text-sm text-gray-500">(optional)</span>
-                    <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">
-                      ?
-                    </div>
-                  </div>
-                  <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-center cursor-pointer hover:bg-gray-100 transition-colors">
-                    <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                    <p className="text-sm text-gray-600">
-                      Klicke oder nutze Drag & Drop, um deinen Aufstellort hochzuladen
-                    </p>
-                  </div>
-                </div>
-
-                {/* Breite und Farben */}
-                <div className="grid grid-cols-2 gap-4">
+                {/* Step 1: Choose Input Type */}
+                {!inputType && (
                   <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Label className="font-bold text-base">Breite</Label>
-                      <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">
-                        ?
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Input
-                        type="number"
-                        value={width[0]}
-                        onChange={(e) => setWidth([parseInt(e.target.value) || 100])}
-                        className="text-base"
-                        min={10}
-                        max={300}
-                      />
-                      <span className="text-sm font-medium">cm</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Label className="font-bold text-base">Farben</Label>
-                      <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">
-                        ?
-                      </div>
-                    </div>
-                    <Button variant="outline" className="w-full text-sm">
-                      Farben nach Grafik
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Höhe und Tiefe */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label className="font-bold text-base mb-3 block">Höhe</Label>
-                    <div className="flex items-center gap-2">
-                      <Input
-                        type="number"
-                        value={height[0]}
-                        onChange={(e) => setHeight([parseInt(e.target.value) || 20])}
-                        className="text-base"
-                        min={5}
-                        max={100}
-                      />
-                      <span className="text-sm font-medium">cm</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label className="font-bold text-base mb-3 block">Tiefe</Label>
-                    <div className="flex items-center gap-2">
-                      <Input
-                        type="number"
-                        value={depth[0]}
-                        onChange={(e) => setDepth([parseFloat(e.target.value) || 3])}
-                        className="text-base"
-                        min={1}
-                        max={10}
-                        step={0.5}
-                      />
-                      <span className="text-sm font-medium">cm</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Material */}
-                <div>
-                  <Label className="font-bold text-base mb-3 block">Material</Label>
-                  <div className="grid grid-cols-2 gap-2">
-                    {materials.map((material) => (
-                      <Button
-                        key={material.id}
-                        variant={selectedMaterial === material.id ? "default" : "outline"}
-                        className={`text-sm ${
-                          selectedMaterial === material.id
-                            ? "bg-green-600 hover:bg-green-700"
-                            : ""
-                        }`}
-                        onClick={() => setSelectedMaterial(material.id)}
+                    <Label className="font-bold text-lg mb-4 block">Wie möchten Sie Ihr Logo gestalten?</Label>
+                    <div className="grid grid-cols-2 gap-4">
+                      <Card 
+                        className="p-6 cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+                        onClick={() => setInputType("photo")}
                       >
-                        {material.name}
+                        <Upload className="w-12 h-12 text-primary mx-auto mb-3" />
+                        <p className="text-center font-semibold">Foto hochladen</p>
+                        <p className="text-xs text-muted-foreground text-center mt-1">
+                          Logo oder Grafik
+                        </p>
+                      </Card>
+                      <Card 
+                        className="p-6 cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+                        onClick={() => setInputType("text")}
+                      >
+                        <Type className="w-12 h-12 text-primary mx-auto mb-3" />
+                        <p className="text-center font-semibold">Text eingeben</p>
+                        <p className="text-xs text-muted-foreground text-center mt-1">
+                          Firmenname oder Schriftzug
+                        </p>
+                      </Card>
+                    </div>
+                  </div>
+                )}
+
+                {/* Grafikupload - only if photo selected */}
+                {inputType === "photo" && (
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <Label className="font-bold text-base">Grafikupload</Label>
+                        <Badge variant="outline" className="text-xs">
+                          ?
+                        </Badge>
+                      </div>
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => setInputType(null)}
+                      >
+                        Ändern
                       </Button>
-                    ))}
+                    </div>
+                    <div className="p-6 border-2 border-dashed border-primary/30 rounded-lg bg-primary/5 text-center cursor-pointer hover:bg-primary/10 transition-colors">
+                      <Upload className="w-8 h-8 text-primary mx-auto mb-2" />
+                      <p className="text-sm text-foreground">
+                        Klicke oder nutze Drag & Drop, um deine Grafik hochzuladen
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        PNG, SVG, JPG bis 10MB
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
 
-                {/* Price Display */}
-                <div className="pt-4 border-t">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-sm text-gray-600">Geschätzter Preis:</span>
-                    <span className="text-2xl font-bold text-green-600">€{calculatePrice()}</span>
+                {/* Text Input - only if text selected */}
+                {inputType === "text" && (
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <Label className="font-bold text-base">Ihr Text</Label>
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => setInputType(null)}
+                      >
+                        Ändern
+                      </Button>
+                    </div>
+                    <Input
+                      value={logoText}
+                      onChange={(e) => setLogoText(e.target.value)}
+                      placeholder="FIRMENNAME"
+                      className="text-base"
+                      maxLength={20}
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Max. 20 Zeichen
+                    </p>
                   </div>
-                </div>
+                )}
 
-                {/* Submit Button */}
-                <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-6 text-base font-semibold">
-                  → Anfrage abschließen
-                </Button>
+                {/* Aufstellort - only show if input type is selected */}
+                {inputType && (
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Label className="font-bold text-base">Aufstellort</Label>
+                      <span className="text-sm text-muted-foreground">(optional)</span>
+                      <Badge variant="outline" className="text-xs">
+                        ?
+                      </Badge>
+                    </div>
+                    <div className="p-6 border-2 border-dashed border-muted rounded-lg bg-muted/30 text-center cursor-pointer hover:bg-muted/50 transition-colors">
+                      <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+                      <p className="text-sm text-foreground">
+                        Klicke oder nutze Drag & Drop, um deinen Aufstellort hochzuladen
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Breite und Farben - only show if input type is selected */}
+                {inputType && (
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Label className="font-bold text-base">Breite</Label>
+                        <Badge variant="outline" className="text-xs">
+                          ?
+                        </Badge>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Input
+                          type="number"
+                          value={width[0]}
+                          onChange={(e) => setWidth([parseInt(e.target.value) || 100])}
+                          className="text-base"
+                          min={10}
+                          max={300}
+                        />
+                        <span className="text-sm font-medium">cm</span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Label className="font-bold text-base">Farben</Label>
+                        <Badge variant="outline" className="text-xs">
+                          ?
+                        </Badge>
+                      </div>
+                      <Button variant="outline" className="w-full text-sm">
+                        Farben nach Grafik
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Höhe und Tiefe - only show if input type is selected */}
+                {inputType && (
+                  <>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Label className="font-bold text-base mb-3 block">Höhe</Label>
+                        <div className="flex items-center gap-2">
+                          <Input
+                            type="number"
+                            value={height[0]}
+                            onChange={(e) => setHeight([parseInt(e.target.value) || 20])}
+                            className="text-base"
+                            min={5}
+                            max={100}
+                          />
+                          <span className="text-sm font-medium">cm</span>
+                        </div>
+                      </div>
+
+                      <div>
+                        <Label className="font-bold text-base mb-3 block">Tiefe</Label>
+                        <div className="flex items-center gap-2">
+                          <Input
+                            type="number"
+                            value={depth[0]}
+                            onChange={(e) => setDepth([parseFloat(e.target.value) || 3])}
+                            className="text-base"
+                            min={1}
+                            max={10}
+                            step={0.5}
+                          />
+                          <span className="text-sm font-medium">cm</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Material */}
+                    <div>
+                      <Label className="font-bold text-base mb-3 block">Material</Label>
+                      <div className="grid grid-cols-2 gap-2">
+                        {materials.map((material) => (
+                          <Button
+                            key={material.id}
+                            variant={selectedMaterial === material.id ? "default" : "outline"}
+                            className="text-sm"
+                            onClick={() => setSelectedMaterial(material.id)}
+                          >
+                            {material.name}
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Price Display */}
+                    <div className="pt-4 border-t">
+                      <div className="flex justify-between items-center mb-4">
+                        <span className="text-sm text-muted-foreground">Geschätzter Preis:</span>
+                        <span className="text-2xl font-bold text-primary">€{calculatePrice()}</span>
+                      </div>
+                    </div>
+
+                    {/* Submit Button */}
+                    <Button className="w-full py-6 text-base font-semibold">
+                      <ArrowRight className="mr-2 w-5 h-5" />
+                      Anfrage abschließen
+                    </Button>
+                  </>
+                )}
               </div>
             </Card>
           </div>
