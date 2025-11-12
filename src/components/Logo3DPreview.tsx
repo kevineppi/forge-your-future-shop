@@ -24,42 +24,100 @@ const Logo3D = ({ width, height, depth, material }: { width: number; height: num
     }
   };
 
-  const scaleWidth = width / 100;
-  const scaleHeight = height / 20;
-  const scaleDepth = depth / 3;
+  const baseScale = width / 50;
+  const logoDepth = depth / 10;
+  const logoHeight = height / 10;
 
-  // ekdruck Logo - simplified version
+  // ekdruck Logo - proper geometric version based on actual logo
   return (
-    <group position={[0, 0.2, -2.85]}>
-      {/* "ek" part - green/primary color */}
-      <mesh castShadow position={[-scaleWidth * 0.5, 0, scaleDepth * 0.16]}>
-        <boxGeometry args={[scaleWidth * 0.4, scaleHeight * 0.6, scaleDepth * 0.3]} />
-        <meshStandardMaterial 
-          color="#10b981"
-          metalness={material === 'petg' ? 0.3 : 0.1}
-          roughness={material === 'petg' ? 0.4 : 0.8}
-        />
-      </mesh>
+    <group position={[0, 0, -2.8]}>
+      {/* "E" - Left part with horizontal bars */}
+      <group position={[-baseScale * 1.2, 0, 0]}>
+        {/* Top horizontal bar */}
+        <mesh castShadow position={[0, logoHeight * 0.35, 0]}>
+          <boxGeometry args={[baseScale * 0.8, logoHeight * 0.15, logoDepth]} />
+          <meshStandardMaterial 
+            color="#000000"
+            metalness={material === 'petg' ? 0.3 : 0.1}
+            roughness={material === 'petg' ? 0.4 : 0.7}
+          />
+        </mesh>
+        
+        {/* Middle horizontal bar */}
+        <mesh castShadow position={[0, 0, 0]}>
+          <boxGeometry args={[baseScale * 0.8, logoHeight * 0.15, logoDepth]} />
+          <meshStandardMaterial 
+            color="#000000"
+            metalness={material === 'petg' ? 0.3 : 0.1}
+            roughness={material === 'petg' ? 0.4 : 0.7}
+          />
+        </mesh>
+        
+        {/* Bottom horizontal bar */}
+        <mesh castShadow position={[0, -logoHeight * 0.35, 0]}>
+          <boxGeometry args={[baseScale * 0.8, logoHeight * 0.15, logoDepth]} />
+          <meshStandardMaterial 
+            color="#000000"
+            metalness={material === 'petg' ? 0.3 : 0.1}
+            roughness={material === 'petg' ? 0.4 : 0.7}
+          />
+        </mesh>
+        
+        {/* Left vertical bar */}
+        <mesh castShadow position={[-baseScale * 0.35, 0, 0]}>
+          <boxGeometry args={[baseScale * 0.1, logoHeight, logoDepth]} />
+          <meshStandardMaterial 
+            color="#000000"
+            metalness={material === 'petg' ? 0.3 : 0.1}
+            roughness={material === 'petg' ? 0.4 : 0.7}
+          />
+        </mesh>
+      </group>
       
-      {/* "druck" part - dark gray/black */}
-      <mesh castShadow position={[scaleWidth * 0.2, 0, scaleDepth * 0.16]}>
-        <boxGeometry args={[scaleWidth * 0.8, scaleHeight * 0.6, scaleDepth * 0.3]} />
-        <meshStandardMaterial 
-          color={getMaterialColor(material)}
-          metalness={material === 'petg' ? 0.3 : 0.1}
-          roughness={material === 'petg' ? 0.4 : 0.8}
-        />
-      </mesh>
+      {/* "K" - Right part with diagonal */}
+      <group position={[baseScale * 0.8, 0, 0]}>
+        {/* Vertical bar */}
+        <mesh castShadow position={[-baseScale * 0.3, 0, 0]}>
+          <boxGeometry args={[baseScale * 0.1, logoHeight, logoDepth]} />
+          <meshStandardMaterial 
+            color="#000000"
+            metalness={material === 'petg' ? 0.3 : 0.1}
+            roughness={material === 'petg' ? 0.4 : 0.7}
+          />
+        </mesh>
+        
+        {/* Upper diagonal */}
+        <mesh castShadow position={[baseScale * 0.15, logoHeight * 0.25, 0]} rotation={[0, 0, -0.6]}>
+          <boxGeometry args={[baseScale * 0.12, logoHeight * 0.6, logoDepth]} />
+          <meshStandardMaterial 
+            color="#000000"
+            metalness={material === 'petg' ? 0.3 : 0.1}
+            roughness={material === 'petg' ? 0.4 : 0.7}
+          />
+        </mesh>
+        
+        {/* Lower diagonal */}
+        <mesh castShadow position={[baseScale * 0.15, -logoHeight * 0.25, 0]} rotation={[0, 0, 0.6]}>
+          <boxGeometry args={[baseScale * 0.12, logoHeight * 0.6, logoDepth]} />
+          <meshStandardMaterial 
+            color="#000000"
+            metalness={material === 'petg' ? 0.3 : 0.1}
+            roughness={material === 'petg' ? 0.4 : 0.7}
+          />
+        </mesh>
+      </group>
       
-      {/* Additional depth layers for more 3D effect */}
-      <mesh castShadow position={[-scaleWidth * 0.5, 0, scaleDepth * 0.01]}>
-        <boxGeometry args={[scaleWidth * 0.4, scaleHeight * 0.6, scaleDepth * 0.05]} />
-        <meshStandardMaterial 
-          color="#10b981"
-          metalness={material === 'petg' ? 0.3 : 0.1}
-          roughness={material === 'petg' ? 0.4 : 0.8}
-        />
-      </mesh>
+      {/* "DRUCK" text below - simplified as bars */}
+      <group position={[0, -logoHeight * 0.9, 0]}>
+        <mesh castShadow>
+          <boxGeometry args={[baseScale * 2.5, logoHeight * 0.25, logoDepth * 0.8]} />
+          <meshStandardMaterial 
+            color="#000000"
+            metalness={material === 'petg' ? 0.3 : 0.1}
+            roughness={material === 'petg' ? 0.4 : 0.7}
+          />
+        </mesh>
+      </group>
     </group>
   );
 };
@@ -67,95 +125,92 @@ const Logo3D = ({ width, height, depth, material }: { width: number; height: num
 const OfficeRoom = () => {
   return (
     <group>
-      {/* Back Wall - White with subtle texture */}
+      {/* Back Wall - Clean white */}
       <mesh position={[0, 0, -3]} receiveShadow>
-        <planeGeometry args={[15, 8]} />
+        <planeGeometry args={[12, 7]} />
         <meshStandardMaterial 
-          color="#fafafa" 
-          roughness={0.95}
-          metalness={0.05}
-        />
-      </mesh>
-      
-      {/* Floor - Realistic wood texture */}
-      <mesh position={[0, -4, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <planeGeometry args={[15, 10]} />
-        <meshStandardMaterial 
-          color="#6B5840"
-          roughness={0.85}
-          metalness={0.1}
-        />
-      </mesh>
-      
-      {/* Wood grain effect on floor - darker stripes */}
-      <mesh position={[0, -3.98, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[15, 10]} />
-        <meshStandardMaterial 
-          color="#5a4a35"
-          transparent
-          opacity={0.2}
+          color="#ffffff" 
           roughness={0.9}
+          metalness={0.0}
         />
       </mesh>
       
-      {/* Ceiling - Light gray */}
-      <mesh position={[0, 4, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[15, 10]} />
-        <meshStandardMaterial color="#e8e8e8" roughness={0.9} />
+      {/* Floor - Subtle light wood */}
+      <mesh position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <planeGeometry args={[12, 10]} />
+        <meshStandardMaterial 
+          color="#D4C4B0"
+          roughness={0.8}
+          metalness={0.0}
+        />
+      </mesh>
+      
+      {/* Ceiling - White */}
+      <mesh position={[0, 5, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[12, 10]} />
+        <meshStandardMaterial color="#f5f5f5" roughness={0.9} />
       </mesh>
       
       {/* Left Wall */}
-      <mesh position={[-7.5, 0, 2]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[10, 8]} />
-        <meshStandardMaterial color="#f5f5f5" roughness={0.9} />
+      <mesh position={[-6, 1.5, 0]} rotation={[0, Math.PI / 2, 0]}>
+        <planeGeometry args={[10, 7]} />
+        <meshStandardMaterial color="#fafafa" roughness={0.9} />
       </mesh>
       
-      {/* Acoustic Panels - Wood texture on left wall */}
-      {/* Panel 1 */}
-      <mesh position={[-7.45, 1, -1]} rotation={[0, Math.PI / 2, 0]}>
-        <boxGeometry args={[1.5, 1.5, 0.15]} />
-        <meshStandardMaterial 
-          color="#8B6F47"
-          roughness={0.7}
-          metalness={0.1}
-        />
+      {/* Right Wall */}
+      <mesh position={[6, 1.5, 0]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[10, 7]} />
+        <meshStandardMaterial color="#fafafa" roughness={0.9} />
       </mesh>
       
-      {/* Panel 2 */}
-      <mesh position={[-7.45, 1, 1]} rotation={[0, Math.PI / 2, 0]}>
-        <boxGeometry args={[1.5, 1.5, 0.15]} />
-        <meshStandardMaterial 
-          color="#8B6F47"
-          roughness={0.7}
-          metalness={0.1}
-        />
-      </mesh>
+      {/* Acoustic Panels - Realistic wooden slat design on left wall */}
+      {/* Panel Row 1 */}
+      {[0, 1, 2, 3].map((i) => (
+        <mesh key={`left-top-${i}`} position={[-5.95, 2.5, -1.5 + i * 0.4]} rotation={[0, Math.PI / 2, 0]}>
+          <boxGeometry args={[0.3, 0.8, 0.05]} />
+          <meshStandardMaterial 
+            color="#A0826D"
+            roughness={0.6}
+            metalness={0.0}
+          />
+        </mesh>
+      ))}
       
-      {/* Panel 3 */}
-      <mesh position={[-7.45, -1.5, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <boxGeometry args={[2, 1.5, 0.15]} />
-        <meshStandardMaterial 
-          color="#8B6F47"
-          roughness={0.7}
-          metalness={0.1}
-        />
-      </mesh>
+      {/* Panel Row 2 */}
+      {[0, 1, 2, 3].map((i) => (
+        <mesh key={`left-mid-${i}`} position={[-5.95, 1, -1.5 + i * 0.4]} rotation={[0, Math.PI / 2, 0]}>
+          <boxGeometry args={[0.3, 0.8, 0.05]} />
+          <meshStandardMaterial 
+            color="#A0826D"
+            roughness={0.6}
+            metalness={0.0}
+          />
+        </mesh>
+      ))}
       
-      {/* Right Wall with acoustic panels */}
-      <mesh position={[7.5, 0, 2]} rotation={[0, -Math.PI / 2, 0]}>
-        <planeGeometry args={[10, 8]} />
-        <meshStandardMaterial color="#f5f5f5" roughness={0.9} />
-      </mesh>
+      {/* Panel Row 3 */}
+      {[0, 1, 2, 3].map((i) => (
+        <mesh key={`left-bot-${i}`} position={[-5.95, -0.5, -1.5 + i * 0.4]} rotation={[0, Math.PI / 2, 0]}>
+          <boxGeometry args={[0.3, 0.8, 0.05]} />
+          <meshStandardMaterial 
+            color="#A0826D"
+            roughness={0.6}
+            metalness={0.0}
+          />
+        </mesh>
+      ))}
       
-      {/* Acoustic Panel on right wall */}
-      <mesh position={[7.45, 1, 0]} rotation={[0, -Math.PI / 2, 0]}>
-        <boxGeometry args={[2, 1.5, 0.15]} />
-        <meshStandardMaterial 
-          color="#8B6F47"
-          roughness={0.7}
-          metalness={0.1}
-        />
-      </mesh>
+      {/* Acoustic Panels on right wall */}
+      {[0, 1, 2, 3].map((i) => (
+        <mesh key={`right-${i}`} position={[5.95, 2, 0.5 + i * 0.4]} rotation={[0, -Math.PI / 2, 0]}>
+          <boxGeometry args={[0.3, 1, 0.05]} />
+          <meshStandardMaterial 
+            color="#A0826D"
+            roughness={0.6}
+            metalness={0.0}
+          />
+        </mesh>
+      ))}
     </group>
   );
 };
@@ -164,55 +219,55 @@ export const Logo3DPreview = ({ text, width, height, depth, material, font }: Lo
   return (
     <div className="w-full h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 border relative">
       <Canvas
-        camera={{ position: [0, 0.8, 5.5], fov: 50 }}
+        camera={{ position: [0, 0.5, 4], fov: 55 }}
         shadows
-        style={{ background: 'linear-gradient(180deg, #2a2a2a, #1a1a1a)' }}
+        style={{ background: 'linear-gradient(180deg, #e8e8e8, #d0d0d0)' }}
       >
         <Suspense fallback={null}>
-          {/* Ambient light for overall illumination */}
-          <ambientLight intensity={0.5} />
+          {/* Ambient light for base illumination */}
+          <ambientLight intensity={0.6} />
           
-          {/* Main directional light from top-right (simulating window light) */}
+          {/* Main key light from front-right (natural office lighting) */}
           <directionalLight 
-            position={[8, 6, 4]} 
-            intensity={1.5} 
+            position={[5, 4, 3]} 
+            intensity={1.8} 
             castShadow
             shadow-mapSize-width={2048}
             shadow-mapSize-height={2048}
-            shadow-camera-far={50}
-            shadow-camera-left={-10}
-            shadow-camera-right={10}
-            shadow-camera-top={10}
-            shadow-camera-bottom={-10}
+            shadow-camera-far={30}
+            shadow-camera-left={-8}
+            shadow-camera-right={8}
+            shadow-camera-top={8}
+            shadow-camera-bottom={-8}
           />
           
-          {/* Ceiling spotlight directly above logo */}
+          {/* Spotlight on logo from ceiling */}
           <spotLight 
-            position={[0, 5, -2.5]} 
-            angle={0.5} 
+            position={[0, 4, -2]} 
+            angle={0.4} 
             penumbra={0.5} 
-            intensity={1.2}
+            intensity={1.5}
             castShadow
             target-position={[0, 0, -2.8]}
           />
           
-          {/* Accent light from left side */}
-          <pointLight position={[-6, 2, -1]} intensity={0.4} color="#10b981" />
+          {/* Soft fill light from left */}
+          <pointLight position={[-4, 2, 0]} intensity={0.5} color="#ffffff" />
           
-          {/* Wall washer light on acoustic panels */}
+          {/* Accent light on acoustic panels */}
           <spotLight 
-            position={[-5, 3, 0]} 
-            angle={0.6} 
-            penumbra={0.8} 
-            intensity={0.5}
-            color="#ffa500"
+            position={[-4, 3, -1]} 
+            angle={0.5} 
+            penumbra={0.7} 
+            intensity={0.4}
+            color="#ffd1a3"
           />
           
-          {/* Right side fill light */}
-          <pointLight position={[5, 2, 2]} intensity={0.3} color="#ffffff" />
+          {/* Right side fill */}
+          <pointLight position={[4, 2, 1]} intensity={0.4} color="#ffffff" />
           
-          {/* Subtle backlight for depth */}
-          <pointLight position={[0, 1, -4]} intensity={0.2} color="#60a5fa" />
+          {/* Backlight for depth */}
+          <pointLight position={[0, 1.5, -3.5]} intensity={0.3} color="#e0e0e0" />
           
           <OfficeRoom />
           <Logo3D width={width} height={height} depth={depth} material={material} />
@@ -220,13 +275,13 @@ export const Logo3DPreview = ({ text, width, height, depth, material, font }: Lo
           <OrbitControls 
             enableZoom={true}
             enablePan={false}
-            minDistance={3}
-            maxDistance={10}
-            maxPolarAngle={Math.PI / 2.2}
-            minPolarAngle={Math.PI / 4}
-            target={[0, 0, -2.5]}
+            minDistance={2.5}
+            maxDistance={8}
+            maxPolarAngle={Math.PI / 2.1}
+            minPolarAngle={Math.PI / 6}
+            target={[0, 0, -2.8]}
             enableDamping
-            dampingFactor={0.05}
+            dampingFactor={0.08}
           />
         </Suspense>
       </Canvas>
