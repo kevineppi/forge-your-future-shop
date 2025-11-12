@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Environment } from '@react-three/drei';
 import { Suspense } from 'react';
+import * as THREE from 'three';
 
 interface Logo3DPreviewProps {
   text: string;
@@ -27,9 +28,9 @@ const Logo3D = ({ width, height, depth, material }: { width: number; height: num
   const scaleDepth = depth / 3;
 
   return (
-    <group>
+    <group position={[0, 0, -2.8]}>
       {/* Main logo body */}
-      <mesh position={[0, 0, 0]}>
+      <mesh castShadow>
         <boxGeometry args={[scaleWidth * 2, scaleHeight * 0.6, scaleDepth * 0.3]} />
         <meshStandardMaterial 
           color={getMaterialColor(material)} 
@@ -37,8 +38,8 @@ const Logo3D = ({ width, height, depth, material }: { width: number; height: num
           roughness={material === 'petg' ? 0.4 : 0.8}
         />
       </mesh>
-      {/* Letter shapes representation */}
-      <mesh position={[-scaleWidth * 0.5, 0, scaleDepth * 0.16]}>
+      {/* Letter shapes */}
+      <mesh castShadow position={[-scaleWidth * 0.5, 0, scaleDepth * 0.16]}>
         <boxGeometry args={[scaleWidth * 0.3, scaleHeight * 0.5, scaleDepth * 0.3]} />
         <meshStandardMaterial 
           color={getMaterialColor(material)}
@@ -46,7 +47,7 @@ const Logo3D = ({ width, height, depth, material }: { width: number; height: num
           roughness={material === 'petg' ? 0.4 : 0.8}
         />
       </mesh>
-      <mesh position={[0, 0, scaleDepth * 0.16]}>
+      <mesh castShadow position={[0, 0, scaleDepth * 0.16]}>
         <boxGeometry args={[scaleWidth * 0.25, scaleHeight * 0.5, scaleDepth * 0.3]} />
         <meshStandardMaterial 
           color={getMaterialColor(material)}
@@ -54,7 +55,7 @@ const Logo3D = ({ width, height, depth, material }: { width: number; height: num
           roughness={material === 'petg' ? 0.4 : 0.8}
         />
       </mesh>
-      <mesh position={[scaleWidth * 0.5, 0, scaleDepth * 0.16]}>
+      <mesh castShadow position={[scaleWidth * 0.5, 0, scaleDepth * 0.16]}>
         <boxGeometry args={[scaleWidth * 0.3, scaleHeight * 0.5, scaleDepth * 0.3]} />
         <meshStandardMaterial 
           color={getMaterialColor(material)}
@@ -66,34 +67,102 @@ const Logo3D = ({ width, height, depth, material }: { width: number; height: num
   );
 };
 
+const OfficeRoom = () => {
+  return (
+    <group>
+      {/* Back Wall - White */}
+      <mesh position={[0, 0, -3]} receiveShadow>
+        <planeGeometry args={[15, 8]} />
+        <meshStandardMaterial color="#f5f5f5" roughness={0.9} />
+      </mesh>
+      
+      {/* Floor - Wood texture */}
+      <mesh position={[0, -4, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <planeGeometry args={[15, 10]} />
+        <meshStandardMaterial color="#8B6F47" roughness={0.8} />
+      </mesh>
+      
+      {/* Ceiling */}
+      <mesh position={[0, 4, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[15, 10]} />
+        <meshStandardMaterial color="#e0e0e0" roughness={0.9} />
+      </mesh>
+      
+      {/* Left Wall */}
+      <mesh position={[-7.5, 0, 2]} rotation={[0, Math.PI / 2, 0]}>
+        <planeGeometry args={[10, 8]} />
+        <meshStandardMaterial color="#e8e8e8" roughness={0.9} />
+      </mesh>
+      
+      {/* Right Wall */}
+      <mesh position={[7.5, 0, 2]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[10, 8]} />
+        <meshStandardMaterial color="#e8e8e8" roughness={0.9} />
+      </mesh>
+    </group>
+  );
+};
+
 export const Logo3DPreview = ({ text, width, height, depth, material, font }: Logo3DPreviewProps) => {
   return (
-    <div className="w-full h-full min-h-[400px] rounded-lg overflow-hidden bg-gradient-to-br from-muted/50 to-background border relative">
+    <div className="w-full h-full min-h-[400px] rounded-lg overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 border relative">
       <Canvas
-        camera={{ position: [0, 1, 6], fov: 50 }}
-        style={{ background: 'linear-gradient(135deg, hsl(var(--muted) / 0.3), hsl(var(--background)))' }}
+        camera={{ position: [0, 0.5, 5], fov: 50 }}
+        shadows
+        style={{ background: 'linear-gradient(180deg, #1a1a1a, #2d2d2d)' }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.6} />
-          <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
-          <directionalLight position={[-5, -5, -5]} intensity={0.3} />
-          <pointLight position={[0, 5, 5]} intensity={0.5} />
-          <spotLight position={[0, 10, 0]} intensity={0.3} angle={0.3} />
+          {/* Ambient light for overall illumination */}
+          <ambientLight intensity={0.4} />
           
+          {/* Main directional light from top-left (simulating office lighting) */}
+          <directionalLight 
+            position={[5, 8, 5]} 
+            intensity={1.2} 
+            castShadow
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
+            shadow-camera-far={50}
+            shadow-camera-left={-10}
+            shadow-camera-right={10}
+            shadow-camera-top={10}
+            shadow-camera-bottom={-10}
+          />
+          
+          {/* Spotlight from ceiling */}
+          <spotLight 
+            position={[0, 6, -1]} 
+            angle={0.4} 
+            penumbra={0.5} 
+            intensity={0.8}
+            castShadow
+          />
+          
+          {/* Fill light from right */}
+          <pointLight position={[5, 2, 3]} intensity={0.3} />
+          
+          {/* Subtle backlight */}
+          <pointLight position={[-3, 1, -4]} intensity={0.2} color="#ffffff" />
+          
+          <OfficeRoom />
           <Logo3D width={width} height={height} depth={depth} material={material} />
           
           <OrbitControls 
             enableZoom={true}
             enablePan={false}
             minDistance={3}
-            maxDistance={12}
-            autoRotate
-            autoRotateSpeed={1}
+            maxDistance={10}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 4}
+            target={[0, 0, -2.5]}
           />
         </Suspense>
       </Canvas>
-      <div className="absolute bottom-4 left-4 text-xs text-muted-foreground bg-background/80 px-3 py-1 rounded-full backdrop-blur-sm">
-        Drehen: Ziehen • Zoom: Scrollen
+      <div className="absolute bottom-4 left-4 text-xs text-white/80 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm">
+        💡 Ziehen zum Drehen • Scrollen zum Zoomen
+      </div>
+      <div className="absolute top-4 left-4 text-xs text-white/60 bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm">
+        Live-Vorschau
       </div>
     </div>
   );
