@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
 import { Upload, Type, Ruler, Layers, Sparkles, Check, ArrowRight } from "lucide-react";
-import wandlogosHero from "@/assets/wandlogos-hero.jpg";
+import wandlogosHero from "@/assets/fokuskonzept-wandlogo.jpg";
 import wandlogosShowcase from "@/assets/wandlogos-showcase.jpg";
 
 const Wandlogos = () => {
@@ -59,25 +59,26 @@ const Wandlogos = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20" />
+        <div className="absolute inset-0 bg-background/80" />
         <img 
           src={wandlogosHero} 
-          alt="3D Druck Wandlogos" 
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          alt="3D Wandlogos - Professionelle dimensionale Buchstaben und Firmenlogos" 
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-20"
+          style={{ objectPosition: "50% 45%", transform: "scale(1.3)" }}
         />
         <div className="container relative z-10 text-center px-4 py-20">
           <Badge className="mb-6 text-lg px-6 py-2 bg-primary/90 backdrop-blur-sm">
             <Sparkles className="w-4 h-4 mr-2" />
-            Premium Wandlogos & 3D-Buchstaben
+            Premium 3D Wandlogos & Dimensional-Buchstaben
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text-white animate-fade-in">
-            Ihre Marke
+            3D Wandlogos
             <br />
-            <span className="text-primary">in 3D</span>
+            <span className="text-primary">für Ihr Unternehmen</span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/90 max-w-3xl mx-auto mb-8 animate-fade-in">
-            Individuelle Wandlogos, Schriftzüge und 3D-Buchstaben für Ihr Unternehmen. 
-            Hochwertig, präzise und beeindruckend.
+            Professionelle 3D Wandlogos, dimensionale Schriftzüge und Firmenbuchstaben. 
+            Hochwertige Wandbeschriftung für eindrucksvolle Unternehmensauftritte.
           </p>
           <div className="flex flex-wrap gap-4 justify-center animate-fade-in">
             <Button size="lg" className="text-lg px-8">
@@ -95,12 +96,12 @@ const Wandlogos = () => {
       <section className="py-20 bg-gradient-to-br from-background via-primary/5 to-background">
         <div className="container px-4">
           <div className="text-center mb-12">
-            <Badge className="mb-4 text-base px-4 py-2">Live-Kalkulator</Badge>
+            <Badge className="mb-4 text-base px-4 py-2">3D Wandlogo Kalkulator</Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Ihr Preis in <span className="text-primary">Echtzeit</span>
+              Ihr 3D Wandlogo <span className="text-primary">in Echtzeit kalkuliert</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Konfigurieren Sie Ihr Wandlogo und sehen Sie sofort den Preis
+              Konfigurieren Sie Ihre dimensionalen Buchstaben und erhalten Sie sofort den Preis
             </p>
           </div>
 
@@ -282,7 +283,7 @@ const Wandlogos = () => {
                     €{calculatePrice()}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    inkl. Material, Druck & Setup
+                    inkl. Material, Fertigung & Setup
                   </div>
                 </div>
 
@@ -310,7 +311,7 @@ const Wandlogos = () => {
         <div className="container px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Ihre <span className="text-primary">Vorteile</span>
+              Warum unsere <span className="text-primary">3D Wandlogos</span>?
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -332,9 +333,9 @@ const Wandlogos = () => {
       <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
         <div className="container px-4">
           <div className="text-center mb-12">
-            <Badge className="mb-4 text-base px-4 py-2">Referenzen</Badge>
+            <Badge className="mb-4 text-base px-4 py-2">3D Wandlogo Projekte</Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Erfolgreiche <span className="text-primary">Projekte</span>
+              Realisierte <span className="text-primary">3D Wandlogos</span>
             </h2>
           </div>
           
@@ -370,11 +371,11 @@ const Wandlogos = () => {
           <Card className="max-w-4xl mx-auto p-12 shadow-glow text-center">
             <Sparkles className="w-16 h-16 text-primary mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Bereit für Ihr <span className="text-primary">Wandlogo</span>?
+              Bereit für Ihr <span className="text-primary">3D Wandlogo</span>?
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Lassen Sie uns gemeinsam Ihre Vision verwirklichen. 
-              Kostenlose Beratung und unverbindliches Angebot.
+              Lassen Sie uns Ihr dimensionales Logo realisieren. 
+              Kostenlose Beratung und unverbindliches Angebot für Ihr 3D Wandlogo.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg" className="text-lg px-8">
