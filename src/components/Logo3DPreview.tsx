@@ -30,17 +30,20 @@ export const Logo3DPreview = ({ text, width, height, depth, material, font }: Lo
   const displayText = text && text.trim() !== "" ? text : "Text";
   const materialColor = getMaterialColor(material);
   
-  // Calculate scale maintaining aspect ratio - height scales with width
-  const maxDisplayWidth = 400;
-  const scale = maxDisplayWidth / width;
+  // Dynamic scaling based on width - everything scales proportionally
+  const maxDisplayWidth = 450;
+  const scale = Math.min(maxDisplayWidth / width, 300 / height);
   const displayWidth = width * scale;
   const displayHeight = height * scale;
+  
+  // Text size scales proportionally with display size
+  const textSize = Math.min(displayWidth, displayHeight) * 0.35;
   
   return (
     <div className="w-full h-[500px] bg-white relative flex items-center justify-center">
       {/* Logo with measurements - centered */}
       <div className="relative flex items-center justify-center">
-        {/* Width measurement - top */}
+        {/* Width measurement - top - scales with displayWidth */}
         <div 
           className="absolute text-sm font-semibold text-foreground/80"
           style={{
@@ -61,7 +64,7 @@ export const Logo3DPreview = ({ text, width, height, depth, material, font }: Lo
           </div>
         </div>
         
-        {/* Height measurement - right */}
+        {/* Height measurement - right - scales with displayHeight */}
         <div 
           className="absolute text-sm font-semibold text-foreground/80"
           style={{
@@ -80,16 +83,16 @@ export const Logo3DPreview = ({ text, width, height, depth, material, font }: Lo
           </div>
         </div>
         
-        {/* Pure text - no background box */}
+        {/* Pure text - scales automatically with dimensions */}
         <div 
           className="font-bold select-none"
           style={{
-            fontSize: `${displayWidth * 0.4}px`,
+            fontSize: `${textSize}px`,
             color: materialColor,
             textShadow: `
-              ${depth * 0.8}px ${depth * 0.8}px ${depth * 1.5}px rgba(0,0,0,0.3),
-              ${depth * 0.4}px ${depth * 0.4}px ${depth * 0.8}px rgba(0,0,0,0.2),
-              ${depth * 0.2}px ${depth * 0.2}px ${depth * 0.4}px rgba(0,0,0,0.1)
+              ${depth * scale * 0.3}px ${depth * scale * 0.3}px ${depth * scale * 0.6}px rgba(0,0,0,0.3),
+              ${depth * scale * 0.15}px ${depth * scale * 0.15}px ${depth * scale * 0.3}px rgba(0,0,0,0.2),
+              ${depth * scale * 0.08}px ${depth * scale * 0.08}px ${depth * scale * 0.15}px rgba(0,0,0,0.1)
             `,
             letterSpacing: '0.02em',
             lineHeight: 1
