@@ -235,10 +235,10 @@ const Wandlogos = () => {
                         <Input
                           type="number"
                           value={width[0]}
-                          onChange={(e) => setWidth([parseInt(e.target.value) || 100])}
+                          onChange={(e) => setWidth([Math.min(parseInt(e.target.value) || 100, 200)])}
                           className="text-base"
                           min={10}
-                          max={300}
+                          max={200}
                         />
                         <span className="text-sm font-medium">cm</span>
                       </div>
