@@ -17,10 +17,12 @@ const Wandlogos = () => {
   const [logoText, setLogoText] = useState("Text");
   const [currentStep, setCurrentStep] = useState(1);
   const [width, setWidth] = useState([100]);
-  const [height, setHeight] = useState([20]);
   const [depth, setDepth] = useState([3]);
   const [selectedFont, setSelectedFont] = useState("modern");
   const [selectedMaterial, setSelectedMaterial] = useState("pla");
+  
+  // Automatically calculate height proportionally (20% of width)
+  const calculatedHeight = width[0] * 0.2;
 
   const fonts = [
     { id: "modern", name: "Modern Sans", preview: "AaBbCc", style: "font-sans font-bold" },
@@ -52,7 +54,7 @@ const Wandlogos = () => {
   ];
 
   const calculatePrice = () => {
-    const volume = (width[0] * height[0] * depth[0]) / 1000;
+    const volume = (width[0] * calculatedHeight * depth[0]) / 1000;
     const materialCost = materials.find(m => m.id === selectedMaterial)?.price || 45;
     const basePrice = volume * materialCost;
     const setupFee = 50;
@@ -96,7 +98,7 @@ const Wandlogos = () => {
               <Logo3DPreview
                 text={logoText}
                 width={width[0]}
-                height={height[0]}
+                height={calculatedHeight}
                 depth={depth[0]}
                 material={selectedMaterial}
                 font={selectedFont}
