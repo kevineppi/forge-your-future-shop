@@ -105,7 +105,7 @@ const OfficeRoom = () => {
 
 export const Logo3DPreview = ({ text, width, height, depth, material, font }: Logo3DPreviewProps) => {
   return (
-    <div className="w-full h-full min-h-[400px] rounded-lg overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 border relative">
+    <div className="w-full h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 border relative">
       <Canvas
         camera={{ position: [0, 0.5, 5], fov: 50 }}
         shadows
@@ -155,13 +155,15 @@ export const Logo3DPreview = ({ text, width, height, depth, material, font }: Lo
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 4}
             target={[0, 0, -2.5]}
+            enableDamping
+            dampingFactor={0.05}
           />
         </Suspense>
       </Canvas>
-      <div className="absolute bottom-4 left-4 text-xs text-white/80 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm">
+      <div className="absolute bottom-3 left-3 text-xs text-white/80 bg-black/40 px-2.5 py-1 rounded-full backdrop-blur-sm">
         💡 Ziehen zum Drehen • Scrollen zum Zoomen
       </div>
-      <div className="absolute top-4 left-4 text-xs text-white/60 bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm">
+      <div className="absolute top-3 left-3 text-xs text-white/60 bg-black/30 px-2.5 py-1 rounded-full backdrop-blur-sm">
         Live-Vorschau
       </div>
     </div>
