@@ -30,25 +30,35 @@ const Logo3D = ({ width, height, depth, material, text }: { width: number; heigh
   };
 
   const materialProps = getMaterialProps(material);
-  const scaleSize = Math.min(width / 30, 0.8);
-  const extrudeDepth = depth / 20;
+  
+  // Correct proportional scaling: 10cm should be 1/10 of 100cm
+  // Base size reference: 100cm width = 1.0 unit in 3D space
+  const widthScale = width / 100; // 100cm = 1.0, 10cm = 0.1
+  const heightScale = height / 100; // Proportional to width
+  const depthScale = depth / 10; // 10cm depth = 0.1 unit
+  
+  // Text size should scale with width for readability
+  const textSize = widthScale * 0.5;
+  const extrudeDepth = depthScale * 0.8;
+
+  const displayText = text && text.trim() !== "" ? text : "Text";
 
   return (
     <Center position={[0, 0, -2.8]}>
       <Text3D
         font="/fonts/helvetiker_regular.typeface.json"
-        size={scaleSize}
+        size={textSize}
         height={extrudeDepth}
-        curveSegments={12}
+        curveSegments={16}
         bevelEnabled
-        bevelThickness={0.01}
-        bevelSize={0.01}
+        bevelThickness={0.008}
+        bevelSize={0.008}
         bevelOffset={0}
         bevelSegments={5}
         castShadow
         receiveShadow
       >
-        {text || "ekdruck"}
+        {displayText}
         <meshStandardMaterial 
           {...materialProps}
           envMapIntensity={0.8}
@@ -59,51 +69,67 @@ const Logo3D = ({ width, height, depth, material, text }: { width: number; heigh
 };
 
 const FloorTexture = () => {
-  // Create procedural wood floor texture
+  // Create realistic oak parquet floor texture based on reference image
   const floorTexture = useMemo(() => {
     const canvas = document.createElement('canvas');
     canvas.width = 2048;
     canvas.height = 2048;
     const ctx = canvas.getContext('2d')!;
     
-    // Base wood color
-    ctx.fillStyle = '#E5D5C5';
+    // Base oak color - warmer and more natural
+    ctx.fillStyle = '#C9A86A';
     ctx.fillRect(0, 0, 2048, 2048);
     
-    // Draw wood planks
-    const plankWidth = 200;
-    const plankHeight = 2048;
+    // Draw realistic wood planks with variation
+    const plankWidth = 180;
+    const plankLength = 1200;
     
-    for (let x = 0; x < 2048; x += plankWidth) {
-      // Alternate plank colors slightly
-      const variation = Math.random() * 20 - 10;
-      const r = 229 + variation;
-      const g = 213 + variation;
-      const b = 197 + variation;
-      
-      ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
-      ctx.fillRect(x, 0, plankWidth - 4, plankHeight);
-      
-      // Add wood grain effect
-      for (let i = 0; i < 5; i++) {
-        const grainY = Math.random() * plankHeight;
-        ctx.strokeStyle = `rgba(210, 190, 170, ${0.1 + Math.random() * 0.2})`;
-        ctx.lineWidth = 1 + Math.random() * 2;
-        ctx.beginPath();
-        ctx.moveTo(x, grainY);
-        ctx.lineTo(x + plankWidth - 4, grainY + (Math.random() - 0.5) * 100);
-        ctx.stroke();
+    for (let y = 0; y < 2048; y += 20) {
+      for (let x = 0; x < 2048; x += plankWidth) {
+        // Color variation for each plank
+        const hue = 35 + Math.random() * 10;
+        const sat = 35 + Math.random() * 15;
+        const light = 52 + Math.random() * 8;
+        
+        ctx.fillStyle = `hsl(${hue}, ${sat}%, ${light}%)`;
+        ctx.fillRect(x, y, plankWidth - 2, 18);
+        
+        // Wood grain - multiple subtle lines
+        for (let i = 0; i < 8; i++) {
+          const grainY = y + Math.random() * 18;
+          const grainDark = Math.random() * 0.15 + 0.05;
+          ctx.strokeStyle = `rgba(100, 70, 40, ${grainDark})`;
+          ctx.lineWidth = 0.5 + Math.random() * 0.5;
+          ctx.beginPath();
+          ctx.moveTo(x + 2, grainY);
+          ctx.lineTo(x + plankWidth - 4, grainY + (Math.random() - 0.5) * 8);
+          ctx.stroke();
+        }
+        
+        // Knots occasionally
+        if (Math.random() > 0.85) {
+          const knotX = x + Math.random() * plankWidth;
+          const knotY = y + Math.random() * 18;
+          ctx.fillStyle = `rgba(80, 50, 30, ${0.3 + Math.random() * 0.2})`;
+          ctx.beginPath();
+          ctx.ellipse(knotX, knotY, 3 + Math.random() * 2, 2 + Math.random(), 0, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        
+        // Plank separation - dark gaps
+        ctx.fillStyle = 'rgba(90, 60, 40, 0.4)';
+        ctx.fillRect(x + plankWidth - 2, y, 2, 18);
       }
-      
-      // Plank gaps
-      ctx.fillStyle = '#c5b5a5';
-      ctx.fillRect(x + plankWidth - 4, 0, 4, plankHeight);
+      // Horizontal gaps between rows
+      ctx.fillStyle = 'rgba(90, 60, 40, 0.3)';
+      ctx.fillRect(0, y + 18, 2048, 2);
     }
     
     const texture = new THREE.CanvasTexture(canvas);
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(4, 4);
+    texture.repeat.set(3, 3);
+    texture.anisotropy = 16;
     return texture;
   }, []);
   
@@ -115,9 +141,9 @@ const OfficeRoom = () => {
   
   return (
     <group>
-      {/* Back Wall - Clean white with subtle roughness variation */}
-      <mesh position={[0, 0, -3.1]} receiveShadow castShadow>
-        <planeGeometry args={[10, 6]} />
+      {/* Back Wall - Extended to full ceiling height */}
+      <mesh position={[0, 1.1, -3.1]} receiveShadow castShadow>
+        <planeGeometry args={[10, 8]} />
         <meshStandardMaterial 
           color="#f8f8f8" 
           roughness={0.92}
@@ -126,19 +152,19 @@ const OfficeRoom = () => {
         />
       </mesh>
       
-      {/* Floor - Realistic wood with procedural texture */}
+      {/* Floor - Realistic oak parquet with texture */}
       <mesh position={[0, -1.8, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[12, 12]} />
         <meshStandardMaterial 
           map={floorTexture}
-          roughness={0.7}
+          roughness={0.65}
           metalness={0.0}
-          envMapIntensity={0.2}
+          envMapIntensity={0.25}
         />
       </mesh>
       
       {/* Ceiling - Soft white */}
-      <mesh position={[0, 4, 0]} rotation={[Math.PI / 2, 0, 0]}>
+      <mesh position={[0, 5.2, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <planeGeometry args={[12, 12]} />
         <meshStandardMaterial 
           color="#fafafa" 
@@ -148,9 +174,9 @@ const OfficeRoom = () => {
         />
       </mesh>
       
-      {/* Left Wall */}
-      <mesh position={[-5, 1.1, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
-        <planeGeometry args={[12, 6]} />
+      {/* Left Wall - Full height */}
+      <mesh position={[-5, 1.7, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
+        <planeGeometry args={[12, 9]} />
         <meshStandardMaterial 
           color="#f5f5f5" 
           roughness={0.9} 
@@ -159,9 +185,9 @@ const OfficeRoom = () => {
         />
       </mesh>
       
-      {/* Right Wall */}
-      <mesh position={[5, 1.1, 0]} rotation={[0, -Math.PI / 2, 0]} receiveShadow>
-        <planeGeometry args={[12, 6]} />
+      {/* Right Wall - Full height */}
+      <mesh position={[5, 1.7, 0]} rotation={[0, -Math.PI / 2, 0]} receiveShadow>
+        <planeGeometry args={[12, 9]} />
         <meshStandardMaterial 
           color="#f5f5f5" 
           roughness={0.9} 
@@ -170,37 +196,38 @@ const OfficeRoom = () => {
         />
       </mesh>
       
-      {/* Acoustic Panels - Natural wood slats with realistic depth */}
-      {[0, 1, 2, 3].map((i) => (
-        <group key={`panel-group-${i}`}>
-          <mesh position={[-4.95, 2.2, -1.8 + i * 0.5]} rotation={[0, Math.PI / 2, 0]} castShadow receiveShadow>
-            <boxGeometry args={[0.35, 0.9, 0.06]} />
-            <meshStandardMaterial 
-              color="#B8956A"
-              roughness={0.6}
-              metalness={0.0}
-              envMapIntensity={0.4}
-            />
-          </mesh>
-          <mesh position={[-4.95, 0.8, -1.8 + i * 0.5]} rotation={[0, Math.PI / 2, 0]} castShadow receiveShadow>
-            <boxGeometry args={[0.35, 0.9, 0.06]} />
-            <meshStandardMaterial 
-              color="#B8956A"
-              roughness={0.6}
-              metalness={0.0}
-              envMapIntensity={0.4}
-            />
-          </mesh>
-        </group>
+      {/* Vertical Acoustic Panels on Left Wall - Like reference image */}
+      {Array.from({ length: 30 }).map((_, i) => (
+        <mesh 
+          key={`left-slat-${i}`} 
+          position={[-4.95, 1.5, -2.5 + i * 0.12]} 
+          rotation={[0, Math.PI / 2, 0]} 
+          castShadow 
+          receiveShadow
+        >
+          <boxGeometry args={[0.08, 4.5, 0.03]} />
+          <meshStandardMaterial 
+            color={i % 2 === 0 ? "#C9A86A" : "#3a2f25"}
+            roughness={0.55}
+            metalness={0.0}
+            envMapIntensity={0.4}
+          />
+        </mesh>
       ))}
       
-      {/* Acoustic Panels on right wall */}
-      {[0, 1, 2].map((i) => (
-        <mesh key={`right-panel-${i}`} position={[4.95, 1.8, 0.2 + i * 0.6]} rotation={[0, -Math.PI / 2, 0]} castShadow receiveShadow>
-          <boxGeometry args={[0.4, 1.2, 0.06]} />
+      {/* Vertical Acoustic Panels on Right Wall */}
+      {Array.from({ length: 20 }).map((_, i) => (
+        <mesh 
+          key={`right-slat-${i}`} 
+          position={[4.95, 1.5, -1.2 + i * 0.12]} 
+          rotation={[0, -Math.PI / 2, 0]} 
+          castShadow 
+          receiveShadow
+        >
+          <boxGeometry args={[0.08, 4.5, 0.03]} />
           <meshStandardMaterial 
-            color="#B8956A"
-            roughness={0.6}
+            color={i % 2 === 0 ? "#C9A86A" : "#3a2f25"}
+            roughness={0.55}
             metalness={0.0}
             envMapIntensity={0.4}
           />

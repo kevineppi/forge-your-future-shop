@@ -14,7 +14,7 @@ import wandlogosShowcase from "@/assets/wandlogos-showcase.jpg";
 
 const Wandlogos = () => {
   const [inputType, setInputType] = useState<"photo" | "text" | null>(null);
-  const [logoText, setLogoText] = useState("LOGO");
+  const [logoText, setLogoText] = useState("Text");
   const [currentStep, setCurrentStep] = useState(1);
   const [width, setWidth] = useState([100]);
   const [height, setHeight] = useState([20]);
@@ -188,8 +188,11 @@ const Wandlogos = () => {
                     </div>
                     <Input
                       value={logoText}
-                      onChange={(e) => setLogoText(e.target.value)}
-                      placeholder="FIRMENNAME"
+                      onChange={(e) => {
+                        const newValue = e.target.value;
+                        setLogoText(newValue === "" ? "Text" : newValue);
+                      }}
+                      placeholder="Text"
                       className="text-base"
                       maxLength={20}
                     />
