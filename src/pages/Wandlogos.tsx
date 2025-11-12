@@ -235,13 +235,16 @@ const Wandlogos = () => {
                         <Input
                           type="number"
                           value={width[0]}
-                          onChange={(e) => setWidth([Math.min(parseInt(e.target.value) || 100, 200)])}
+                          onChange={(e) => setWidth([Math.min(Math.max(parseInt(e.target.value) || 30, 30), 200)])}
                           className="text-base"
-                          min={10}
+                          min={30}
                           max={200}
                         />
                         <span className="text-sm font-medium">cm</span>
                       </div>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Mindestgröße: 30cm
+                      </p>
                     </div>
 
                     <div>
@@ -258,38 +261,25 @@ const Wandlogos = () => {
                   </div>
                 )}
 
-                {/* Höhe und Tiefe - only show if input type is selected */}
+                {/* Tiefe - only show if input type is selected */}
                 {inputType && (
                   <>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <Label className="font-bold text-base mb-3 block">Höhe</Label>
-                        <div className="flex items-center gap-2">
-                          <Input
-                            type="number"
-                            value={height[0]}
-                            onChange={(e) => setHeight([parseInt(e.target.value) || 20])}
-                            className="text-base"
-                            min={5}
-                            max={100}
-                          />
-                          <span className="text-sm font-medium">cm</span>
-                        </div>
-                      </div>
-
-                      <div>
-                        <Label className="font-bold text-base mb-3 block">Tiefe</Label>
-                        <div className="flex items-center gap-2">
-                          <Input
-                            type="number"
-                            value={depth[0]}
-                            onChange={(e) => setDepth([parseFloat(e.target.value) || 3])}
-                            className="text-base"
-                            min={1}
-                            max={10}
-                            step={0.5}
-                          />
-                          <span className="text-sm font-medium">cm</span>
+                    <div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <Label className="font-bold text-base mb-3 block">Tiefe</Label>
+                          <div className="flex items-center gap-2">
+                            <Input
+                              type="number"
+                              value={depth[0]}
+                              onChange={(e) => setDepth([parseFloat(e.target.value) || 3])}
+                              className="text-base"
+                              min={1}
+                              max={10}
+                              step={0.5}
+                            />
+                            <span className="text-sm font-medium">cm</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -323,11 +313,11 @@ const Wandlogos = () => {
                     <Button className="w-full py-6 text-base font-semibold">
                       <ArrowRight className="mr-2 w-5 h-5" />
                       Anfrage abschließen
-                    </Button>
-                  </>
-                )}
-              </div>
-            </Card>
+                     </Button>
+                   </>
+                 )}
+               </div>
+             </Card>
           </div>
         </div>
       </section>
