@@ -17,15 +17,15 @@ const Logo3D = ({ width, height, depth, material, text }: { width: number; heigh
   const getMaterialProps = (mat: string) => {
     switch (mat) {
       case 'pla':
-        return { color: '#1a1a1a', metalness: 0.1, roughness: 0.6 };
+        return { color: '#1a1a1a', metalness: 0.0, roughness: 0.9 };
       case 'petg':
-        return { color: '#2a2a2a', metalness: 0.4, roughness: 0.3 };
+        return { color: '#2a2a2a', metalness: 0.0, roughness: 0.85 };
       case 'abs':
-        return { color: '#3a3a3a', metalness: 0.2, roughness: 0.5 };
+        return { color: '#3a3a3a', metalness: 0.0, roughness: 0.9 };
       case 'wood':
-        return { color: '#8B4513', metalness: 0.0, roughness: 0.8 };
+        return { color: '#8B4513', metalness: 0.0, roughness: 0.95 };
       default:
-        return { color: '#1a1a1a', metalness: 0.1, roughness: 0.6 };
+        return { color: '#1a1a1a', metalness: 0.0, roughness: 0.9 };
     }
   };
 
@@ -61,7 +61,7 @@ const Logo3D = ({ width, height, depth, material, text }: { width: number; heigh
         {displayText}
         <meshStandardMaterial 
           {...materialProps}
-          envMapIntensity={0.8}
+          envMapIntensity={0.2}
         />
       </Text3D>
     </Center>
@@ -69,24 +69,75 @@ const Logo3D = ({ width, height, depth, material, text }: { width: number; heigh
 };
 
 const FloorTexture = () => {
-  // Create simple, clean floor texture - smooth and minimal
+  // Create high-resolution realistic floor texture
   const floorTexture = useMemo(() => {
     const canvas = document.createElement('canvas');
-    canvas.width = 1024;
-    canvas.height = 1024;
+    canvas.width = 2048;
+    canvas.height = 2048;
     const ctx = canvas.getContext('2d')!;
     
-    // Simple smooth gray floor
-    ctx.fillStyle = '#d4d4d4';
-    ctx.fillRect(0, 0, 1024, 1024);
+    // Base concrete/smooth floor color
+    ctx.fillStyle = '#e8e8e8';
+    ctx.fillRect(0, 0, 2048, 2048);
     
-    // Very subtle texture variation
-    for (let i = 0; i < 100; i++) {
-      const x = Math.random() * 1024;
-      const y = Math.random() * 1024;
-      const size = Math.random() * 3;
-      ctx.fillStyle = `rgba(200, 200, 200, ${Math.random() * 0.05})`;
+    // Add realistic concrete texture variation
+    for (let i = 0; i < 3000; i++) {
+      const x = Math.random() * 2048;
+      const y = Math.random() * 2048;
+      const size = Math.random() * 2 + 0.5;
+      const opacity = Math.random() * 0.03;
+      ctx.fillStyle = `rgba(160, 160, 160, ${opacity})`;
       ctx.fillRect(x, y, size, size);
+    }
+    
+    // Add subtle grain
+    for (let i = 0; i < 5000; i++) {
+      const x = Math.random() * 2048;
+      const y = Math.random() * 2048;
+      const brightness = Math.random() > 0.5 ? 255 : 0;
+      ctx.fillStyle = `rgba(${brightness}, ${brightness}, ${brightness}, 0.01)`;
+      ctx.fillRect(x, y, 1, 1);
+    }
+    
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(3, 3);
+    return texture;
+  }, []);
+  
+  return floorTexture;
+};
+
+const WallTexture = () => {
+  // Create high-resolution matte white rough wall texture
+  const wallTexture = useMemo(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 2048;
+    canvas.height = 2048;
+    const ctx = canvas.getContext('2d')!;
+    
+    // Base matte white
+    ctx.fillStyle = '#fafafa';
+    ctx.fillRect(0, 0, 2048, 2048);
+    
+    // Add realistic wall texture - subtle variations
+    for (let i = 0; i < 8000; i++) {
+      const x = Math.random() * 2048;
+      const y = Math.random() * 2048;
+      const size = Math.random() * 1.5 + 0.5;
+      const opacity = Math.random() * 0.02;
+      ctx.fillStyle = `rgba(230, 230, 230, ${opacity})`;
+      ctx.fillRect(x, y, size, size);
+    }
+    
+    // Add fine grain for rough surface
+    for (let i = 0; i < 10000; i++) {
+      const x = Math.random() * 2048;
+      const y = Math.random() * 2048;
+      const brightness = 240 + Math.random() * 15;
+      ctx.fillStyle = `rgba(${brightness}, ${brightness}, ${brightness}, 0.015)`;
+      ctx.fillRect(x, y, 1, 1);
     }
     
     const texture = new THREE.CanvasTexture(canvas);
@@ -96,60 +147,61 @@ const FloorTexture = () => {
     return texture;
   }, []);
   
-  return floorTexture;
+  return wallTexture;
 };
 
 const OfficeRoom = () => {
   const floorTexture = FloorTexture();
+  const wallTexture = WallTexture();
   
   return (
     <group>
-      {/* Back Wall - Clean white, full height */}
-      <mesh position={[0, 1.5, -3.1]} receiveShadow>
-        <planeGeometry args={[10, 9]} />
+      {/* Back Wall - Matte white rough wall with realistic texture */}
+      <mesh position={[0, 2.1, -3.1]} receiveShadow>
+        <planeGeometry args={[10, 10]} />
         <meshStandardMaterial 
-          color="#fafafa" 
-          roughness={0.95}
+          map={wallTexture}
+          roughness={0.98}
           metalness={0.0}
         />
       </mesh>
       
-      {/* Floor - Simple smooth surface */}
+      {/* Floor - High resolution realistic surface */}
       <mesh position={[0, -1.8, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[12, 12]} />
         <meshStandardMaterial 
           map={floorTexture}
-          roughness={0.85}
+          roughness={0.9}
           metalness={0.0}
         />
       </mesh>
       
-      {/* Ceiling - Soft white */}
+      {/* Ceiling - Matte white */}
       <mesh position={[0, 6, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <planeGeometry args={[12, 12]} />
         <meshStandardMaterial 
-          color="#fafafa" 
-          roughness={0.95} 
+          map={wallTexture}
+          roughness={0.98} 
           metalness={0.0}
         />
       </mesh>
       
-      {/* Left Wall */}
+      {/* Left Wall - Matte white rough */}
       <mesh position={[-5, 2.1, 0]} rotation={[0, Math.PI / 2, 0]} receiveShadow>
         <planeGeometry args={[12, 10]} />
         <meshStandardMaterial 
-          color="#f5f5f5" 
-          roughness={0.92} 
+          map={wallTexture}
+          roughness={0.98} 
           metalness={0.0}
         />
       </mesh>
       
-      {/* Right Wall */}
+      {/* Right Wall - Matte white rough */}
       <mesh position={[5, 2.1, 0]} rotation={[0, -Math.PI / 2, 0]} receiveShadow>
         <planeGeometry args={[12, 10]} />
         <meshStandardMaterial 
-          color="#f5f5f5" 
-          roughness={0.92} 
+          map={wallTexture}
+          roughness={0.98} 
           metalness={0.0}
         />
       </mesh>
@@ -173,30 +225,30 @@ export const Logo3DPreview = ({ text, width, height, depth, material, font }: Lo
         }}
       >
         <Suspense fallback={null}>
-          {/* Simplified lighting for softer shadows */}
-          <ambientLight intensity={0.7} />
+          {/* Soft ambient lighting */}
+          <ambientLight intensity={0.8} />
           
-          {/* Main soft key light */}
+          {/* Main diffuse light - no harsh specular highlights */}
           <directionalLight 
-            position={[3, 4, 2]} 
-            intensity={0.5} 
+            position={[3, 5, 2]} 
+            intensity={0.4} 
             castShadow
-            shadow-mapSize={[1024, 1024]}
+            shadow-mapSize={[2048, 2048]}
             shadow-camera-far={15}
             shadow-camera-left={-5}
             shadow-camera-right={5}
             shadow-camera-top={5}
             shadow-camera-bottom={-5}
-            shadow-bias={-0.001}
-            shadow-radius={4}
+            shadow-bias={-0.0005}
+            shadow-radius={6}
           />
           
-          {/* Soft fill light */}
-          <pointLight position={[-2, 2, 1]} intensity={0.3} />
-          <pointLight position={[2, 2, 1]} intensity={0.3} />
+          {/* Soft fill lights from sides */}
+          <pointLight position={[-3, 3, 1]} intensity={0.2} />
+          <pointLight position={[3, 3, 1]} intensity={0.2} />
           
-          {/* Very subtle backlight */}
-          <pointLight position={[0, 1, -3]} intensity={0.15} />
+          {/* Subtle top light */}
+          <pointLight position={[0, 4, -2]} intensity={0.15} />
           
           <OfficeRoom />
           <Logo3D width={width} height={height} depth={depth} material={material} text={text} />
