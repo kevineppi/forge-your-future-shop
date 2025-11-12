@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StructuredData from "@/components/StructuredData";
+import ServiceSchema from "@/components/ServiceSchema";
 import ReviewsWidget from "@/components/ReviewsWidget";
 import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
@@ -30,6 +31,17 @@ const Linz3DDruck = () => {
         {name: "Home", url: "/"},
         {name: "3D-Druck Linz", url: "/3d-druck-linz"}
       ]} />
+      <ServiceSchema 
+        serviceName="Rapid Prototyping 24h Express-Service Linz"
+        description="Professioneller Rapid Prototyping Service für Linz mit FDM 3D-Druck. Express-Fertigung in 24-48h mit Lieferung nach Linz oder Same-Day Abholung in Gunskirchen (30km). Ideal für Start-ups, Industrie und Forschung."
+        serviceType="Service"
+        offers={{
+          price: "50.00",
+          priceCurrency: "EUR",
+          description: "Rapid Prototyping ab €50, Express-Service nach Linz verfügbar"
+        }}
+        areaServed={["Linz", "Gunskirchen", "Oberösterreich"]}
+      />
       <StructuredData type="organization" />
       <StructuredData type="service" />
       <StructuredData type="faq" />
@@ -223,6 +235,187 @@ const Linz3DDruck = () => {
                   </div>
                 </AnimatedSection>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Rapid Prototyping Section - Lokalisiert für Linz */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection>
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center justify-center gap-2 mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+                    <Clock className="w-5 h-5 text-primary" />
+                    <span className="text-primary font-semibold">Express-Service für Linz</span>
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                    <span className="text-gradient">Rapid Prototyping</span> für Linz
+                  </h2>
+                  <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto text-lg">
+                    Von der Idee zum fertigen Prototyp in 24-48h! Perfekt für innovative Unternehmen, Start-ups und 
+                    Forschungseinrichtungen in Linz. Express-Lieferung direkt zu Ihnen oder Abholung in Gunskirchen (30km).
+                  </p>
+                  <div className="flex flex-wrap gap-4 justify-center">
+                    <Button size="lg" className="group" asChild>
+                      <a href="/rapid-prototyping">
+                        Mehr zu Rapid Prototyping
+                        <TrendingUp className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </Button>
+                    <Button size="lg" variant="outline" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                      Express-Prototyp anfragen
+                    </Button>
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              {/* Key Benefits für Linz */}
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <AnimatedSection delay={0.1}>
+                  <div className="bg-gradient-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Clock className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">24-48h Lieferung nach Linz</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Express-Fertigung für dringende Projekte. Same-Day Abholung in Gunskirchen (nur 30km von Linz) möglich.
+                    </p>
+                  </div>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.2}>
+                  <div className="bg-gradient-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Zap className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">Schnelle Iterationen</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Testen und optimieren Sie Ihr Design mehrfach - ohne lange Wartezeiten oder hohe Werkzeugkosten.
+                    </p>
+                  </div>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.3}>
+                  <div className="bg-gradient-card p-6 rounded-xl border-2 hover:border-primary/30 transition-all">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <CheckCircle className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">Kostenlose Beratung</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Persönliche Designberatung und CAD-Optimierung auf Deutsch - direkt von unserem Team in OÖ.
+                    </p>
+                  </div>
+                </AnimatedSection>
+              </div>
+
+              {/* Anwendungsbeispiele für Linzer Unternehmen */}
+              <AnimatedSection delay={0.4}>
+                <div className="bg-muted/30 p-8 rounded-2xl">
+                  <h3 className="text-2xl font-bold mb-6 text-center">Perfekt für Linzer Unternehmen</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="flex gap-3">
+                      <Building2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold mb-2">Produktentwicklung & Start-ups</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Testen Sie Ihre Produktidee schnell und kostengünstig - perfekt für die Linzer Start-up-Szene 
+                          und Tech-Hubs wie der Tabakfabrik.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <Factory className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold mb-2">Industrie & Maschinenbau</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Funktionsprototypen für Maschinenteile, Vorrichtungen oder Betriebsmittel - ideal für die 
+                          Linzer Industriebetriebe.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <FlaskConical className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold mb-2">Forschung & Universität</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Wissenschaftliche Prototypen für JKU, FH Oberösterreich oder andere Forschungseinrichtungen 
+                          in Linz und Umgebung.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <Palette className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold mb-2">Design & Architektur</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Architekturmodelle, Designstudien oder Präsentationsmodelle - für kreative Professionals 
+                          in Linz.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              {/* FAQ für Rapid Prototyping in Linz */}
+              <AnimatedSection delay={0.5}>
+                <div className="mt-12">
+                  <h3 className="text-2xl font-bold mb-6 text-center">Häufige Fragen zu Rapid Prototyping in Linz</h3>
+                  <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger className="text-left">
+                        Wie schnell erhalte ich meinen Prototyp in Linz?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Mit unserem Express-Service können wir Prototypen innerhalb von 24-48 Stunden nach Linz liefern. 
+                        Alternativ bieten wir Same-Day Abholung in Gunskirchen (nur 30km von Linz) an. 
+                        Standard-Lieferungen dauern 3-5 Werktage.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger className="text-left">
+                        Was kostet ein Prototyp für mein Linzer Projekt?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Einfache Prototypen starten ab €50. Die genauen Kosten hängen von Größe, Material und 
+                        Druckdauer ab. Nutzen Sie unseren <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für 
+                        eine sofortige Schätzung oder kontaktieren Sie uns für ein individuelles Angebot.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger className="text-left">
+                        Welche Materialien eignen sich für Prototypen?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Für Konzeptmodelle empfehlen wir <strong>PLA</strong>, für Funktionstests <strong>PETG oder ABS</strong>, 
+                        und für finale Validierungen <strong>Nylon oder ASA</strong>. Alle Materialien stammen aus 
+                        österreichischer Produktion. Wir beraten Sie gerne bei der optimalen Materialwahl für Ihr Linzer Projekt.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-4">
+                      <AccordionTrigger className="text-left">
+                        Kann ich mehrere Iterationen meines Prototyps anfertigen lassen?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Ja, unbegrenzt! Das ist der große Vorteil von <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>. 
+                        Sie können Ihr Design optimieren und mehrfach testen, ohne hohe Werkzeugkosten. 
+                        Jede Iteration kann innerhalb von 24-48h nach Linz geliefert werden.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-5">
+                      <AccordionTrigger className="text-left">
+                        Unterstützen Sie Linzer Start-ups und Universitäten?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Ja! Wir bieten spezielle Konditionen für Start-ups aus der Linzer Gründerszene (z.B. Tabakfabrik) 
+                        und Forschungsprojekte der JKU, FH Oberösterreich und anderen Bildungseinrichtungen. 
+                        Kontaktieren Sie uns für maßgeschneiderte Lösungen.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+              </AnimatedSection>
             </div>
           </div>
         </section>
