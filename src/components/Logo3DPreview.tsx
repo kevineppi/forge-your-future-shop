@@ -69,89 +69,112 @@ const Logo3D = ({ width, height, depth, material, text }: { width: number; heigh
 };
 
 const OfficeRoom = () => {
-  // Create ultra high-resolution wooden floor texture (parquet)
+  // Create ultra-realistic wooden floor with offset planks and natural variation
   const floorTexture = useMemo(() => {
     const canvas = document.createElement('canvas');
     canvas.width = 4096;
     canvas.height = 4096;
     const ctx = canvas.getContext('2d')!;
     
-    // Base wood color - natural oak
-    const baseR = 193;
-    const baseG = 154;
-    const baseB = 107;
+    // Fill background
+    ctx.fillStyle = '#C8A882';
+    ctx.fillRect(0, 0, 4096, 4096);
     
-    // Create smooth wooden planks
-    const plankWidth = 200;
-    const plankLength = 1600;
+    const plankWidth = 180;
+    const plankLengths = [800, 1000, 1200, 1400]; // Variable plank lengths
     
-    for (let row = 0; row < Math.ceil(4096 / plankLength); row++) {
-      for (let col = 0; col < Math.ceil(4096 / plankWidth); col++) {
-        const x = col * plankWidth;
-        const y = row * plankLength;
+    let yOffset = 0;
+    let rowOffset = 0;
+    
+    while (yOffset < 4096) {
+      let xOffset = rowOffset;
+      
+      while (xOffset < 4096) {
+        const plankLength = plankLengths[Math.floor(Math.random() * plankLengths.length)];
         
-        // Random wood shade variation per plank
-        const shadeVar = 0.85 + Math.random() * 0.3;
-        const r = Math.floor(baseR * shadeVar);
-        const g = Math.floor(baseG * shadeVar);
-        const b = Math.floor(baseB * shadeVar);
+        // Individual plank color variation - more realistic
+        const hue = 30 + Math.random() * 10;
+        const sat = 35 + Math.random() * 15;
+        const light = 45 + Math.random() * 20;
         
-        // Fill plank base
+        // Convert HSL to RGB for better wood tones
+        const c = (1 - Math.abs(2 * light / 100 - 1)) * sat / 100;
+        const x = c * (1 - Math.abs((hue / 60) % 2 - 1));
+        const m = light / 100 - c / 2;
+        
+        let r, g, b;
+        if (hue < 60) {
+          r = c; g = x; b = 0;
+        } else {
+          r = x; g = c; b = 0;
+        }
+        
+        r = Math.floor((r + m) * 255);
+        g = Math.floor((g + m) * 255);
+        b = Math.floor((b + m) * 255);
+        
+        // Fill plank
         ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
-        ctx.fillRect(x, y, plankWidth - 3, plankLength - 3);
+        ctx.fillRect(xOffset, yOffset, plankLength - 4, plankWidth - 4);
         
-        // Add smooth wood grain (many fine lines)
-        for (let i = 0; i < 200; i++) {
-          const grainY = y + (i / 200) * plankLength;
-          const grainOpacity = 0.03 + Math.random() * 0.08;
-          const grainDarkness = 0.6 + Math.random() * 0.2;
+        // Natural wood grain - horizontal flowing lines
+        const grainCount = 80 + Math.floor(Math.random() * 40);
+        for (let i = 0; i < grainCount; i++) {
+          const grainX = xOffset + Math.random() * plankLength;
+          const grainY = yOffset + (i / grainCount) * plankWidth;
+          const grainLength = 40 + Math.random() * 80;
+          const grainOpacity = 0.02 + Math.random() * 0.06;
           
-          ctx.strokeStyle = `rgba(${r * grainDarkness}, ${g * grainDarkness}, ${b * grainDarkness}, ${grainOpacity})`;
-          ctx.lineWidth = 0.5 + Math.random() * 1.5;
+          ctx.strokeStyle = `rgba(${r * 0.5}, ${g * 0.5}, ${b * 0.5}, ${grainOpacity})`;
+          ctx.lineWidth = 0.5 + Math.random();
           ctx.beginPath();
-          ctx.moveTo(x, grainY);
-          
-          // Smooth wavy grain
-          const waviness = (Math.random() - 0.5) * 8;
-          ctx.lineTo(x + plankWidth, grainY + waviness);
+          ctx.moveTo(grainX, grainY);
+          ctx.lineTo(grainX + grainLength, grainY + (Math.random() - 0.5) * 4);
           ctx.stroke();
         }
         
-        // Add subtle knots and details
-        if (Math.random() > 0.7) {
-          const knotX = x + Math.random() * plankWidth;
-          const knotY = y + Math.random() * plankLength;
-          const knotSize = 10 + Math.random() * 20;
+        // Add occasional knots
+        if (Math.random() > 0.8) {
+          const knotX = xOffset + Math.random() * plankLength;
+          const knotY = yOffset + Math.random() * plankWidth;
+          const knotRadius = 8 + Math.random() * 12;
           
-          const gradient = ctx.createRadialGradient(knotX, knotY, 0, knotX, knotY, knotSize);
-          gradient.addColorStop(0, `rgba(${r * 0.4}, ${g * 0.4}, ${b * 0.4}, 0.3)`);
+          const gradient = ctx.createRadialGradient(knotX, knotY, 0, knotX, knotY, knotRadius);
+          gradient.addColorStop(0, `rgba(${r * 0.3}, ${g * 0.3}, ${b * 0.3}, 0.4)`);
+          gradient.addColorStop(0.7, `rgba(${r * 0.6}, ${g * 0.6}, ${b * 0.6}, 0.2)`);
           gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
           ctx.fillStyle = gradient;
-          ctx.fillRect(knotX - knotSize, knotY - knotSize, knotSize * 2, knotSize * 2);
+          ctx.beginPath();
+          ctx.arc(knotX, knotY, knotRadius, 0, Math.PI * 2);
+          ctx.fill();
         }
         
-        // Plank separation - subtle shadow
-        ctx.strokeStyle = `rgba(${r * 0.3}, ${g * 0.3}, ${b * 0.3}, 0.5)`;
-        ctx.lineWidth = 3;
-        ctx.strokeRect(x, y, plankWidth - 3, plankLength - 3);
+        // Plank edges - natural shadow
+        ctx.strokeStyle = `rgba(${r * 0.4}, ${g * 0.4}, ${b * 0.4}, 0.6)`;
+        ctx.lineWidth = 4;
+        ctx.strokeRect(xOffset, yOffset, plankLength - 4, plankWidth - 4);
+        
+        // Add subtle highlight on top edge
+        ctx.strokeStyle = `rgba(255, 255, 255, 0.03)`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(xOffset, yOffset + 2);
+        ctx.lineTo(xOffset + plankLength - 4, yOffset + 2);
+        ctx.stroke();
+        
+        xOffset += plankLength;
       }
-    }
-    
-    // Add overall subtle noise for realism
-    for (let i = 0; i < 15000; i++) {
-      const nx = Math.random() * 4096;
-      const ny = Math.random() * 4096;
-      const brightness = Math.random() > 0.5 ? 255 : 0;
-      const opacity = Math.random() * 0.02;
-      ctx.fillStyle = `rgba(${brightness}, ${brightness}, ${brightness}, ${opacity})`;
-      ctx.fillRect(nx, ny, 1, 1);
+      
+      // Offset next row for realistic staggered pattern
+      rowOffset = (rowOffset + 600) % 1400;
+      yOffset += plankWidth;
     }
     
     const texture = new THREE.CanvasTexture(canvas);
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(1.5, 1.5);
-    texture.anisotropy = 16; // Maximum anisotropic filtering for sharp textures
+    texture.repeat.set(2, 2);
+    texture.anisotropy = 16;
     return texture;
   }, []);
   
