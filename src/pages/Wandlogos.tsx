@@ -89,162 +89,179 @@ const Wandlogos = () => {
       <section className="py-12 bg-muted/30">
         <div className="container px-4 max-w-7xl mx-auto">
           {/* Calculator Content - Side by Side */}
-          <Card className="p-0 border overflow-hidden">
-            <div className="grid lg:grid-cols-[1.2fr,1fr] gap-0">
-              {/* Left: 3D Preview */}
-              <div className="relative bg-gradient-to-br from-muted/30 to-background p-6">
-                <Logo3DPreview
-                  text={logoText}
-                  width={width[0]}
-                  height={height[0]}
-                  depth={depth[0]}
-                  material={selectedMaterial}
-                  font={selectedFont}
-                />
-                <div className="mt-4 text-center">
-                  <Badge variant="outline" className="text-xs">
-                    Live 3D-Vorschau
-                  </Badge>
-                </div>
+          <div className="grid lg:grid-cols-[1.4fr,1fr] gap-6">
+            {/* Left: 3D Preview Card */}
+            <Card className="p-0 border overflow-hidden shadow-lg">
+              <Logo3DPreview
+                text={logoText}
+                width={width[0]}
+                height={height[0]}
+                depth={depth[0]}
+                material={selectedMaterial}
+                font={selectedFont}
+              />
+            </Card>
+
+            {/* Right: Configuration Sidebar */}
+            <Card className="p-6 border shadow-lg bg-white">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold">Kennmal zum Kleben</h2>
+                <Button className="bg-green-600 hover:bg-green-700 text-white rounded-full px-4 py-1 text-sm">
+                  Preis anfragen
+                </Button>
               </div>
 
-              {/* Right: Configuration */}
-              <div className="p-6 bg-background border-l">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold mb-2">3D Wandlogo konfigurieren</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Gestalten Sie Ihr individuelles Logo
-                  </p>
-                </div>
-
-                <div className="space-y-6">
-                  {/* Text Input */}
-                  <div>
-                    <Label htmlFor="logoText" className="text-sm font-semibold mb-2 block">
-                      Ihr Text / Logo-Name
-                    </Label>
-                    <Input
-                      id="logoText"
-                      value={logoText}
-                      onChange={(e) => setLogoText(e.target.value)}
-                      placeholder="FIRMENNAME"
-                      className="text-lg"
-                      maxLength={20}
-                    />
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Max. 20 Zeichen
+              <div className="space-y-6">
+                {/* Grafikupload */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Label className="font-bold text-base">Grafikupload</Label>
+                    <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">
+                      ?
+                    </div>
+                  </div>
+                  <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-center cursor-pointer hover:bg-gray-100 transition-colors">
+                    <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                    <p className="text-sm text-gray-600">
+                      Klicke oder nutze Drag & Drop, um deine Grafik hochzuladen
                     </p>
                   </div>
+                </div>
 
-                  {/* Upload Option */}
-                  <div className="p-4 border-2 border-dashed rounded-lg hover:border-primary/60 transition-all cursor-pointer bg-muted/30">
-                    <div className="text-center">
-                      <Upload className="w-8 h-8 text-primary mx-auto mb-2" />
-                      <p className="font-semibold text-sm mb-1">
-                        Oder Logo hochladen
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        PNG, SVG, JPG
-                      </p>
+                {/* Text Input */}
+                <div>
+                  <Label className="font-bold text-base mb-3 block">Ihr Text</Label>
+                  <Input
+                    value={logoText}
+                    onChange={(e) => setLogoText(e.target.value)}
+                    placeholder="FIRMENNAME"
+                    className="text-base"
+                    maxLength={20}
+                  />
+                </div>
+
+                {/* Aufstellort */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Label className="font-bold text-base">Aufstellort</Label>
+                    <span className="text-sm text-gray-500">(optional)</span>
+                    <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">
+                      ?
                     </div>
                   </div>
-
-                  {/* Dimensions */}
-                  <div className="space-y-4 pt-4 border-t">
-                    <h4 className="font-semibold text-sm">Abmessungen</h4>
-                    
-                    <div>
-                      <Label className="flex items-center justify-between mb-2 text-xs">
-                        <span className="flex items-center gap-2">
-                          <Ruler className="w-4 h-4 text-primary" />
-                          Breite
-                        </span>
-                        <span className="font-bold">{width[0]} cm</span>
-                      </Label>
-                      <Slider value={width} onValueChange={setWidth} min={10} max={300} step={5} />
-                    </div>
-
-                    <div>
-                      <Label className="flex items-center justify-between mb-2 text-xs">
-                        <span className="flex items-center gap-2">
-                          <Ruler className="w-4 h-4 text-primary" />
-                          Höhe
-                        </span>
-                        <span className="font-bold">{height[0]} cm</span>
-                      </Label>
-                      <Slider value={height} onValueChange={setHeight} min={5} max={100} step={5} />
-                    </div>
-
-                    <div>
-                      <Label className="flex items-center justify-between mb-2 text-xs">
-                        <span className="flex items-center gap-2">
-                          <Layers className="w-4 h-4 text-primary" />
-                          Tiefe
-                        </span>
-                        <span className="font-bold">{depth[0]} cm</span>
-                      </Label>
-                      <Slider value={depth} onValueChange={setDepth} min={1} max={10} step={0.5} />
-                    </div>
+                  <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-center cursor-pointer hover:bg-gray-100 transition-colors">
+                    <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                    <p className="text-sm text-gray-600">
+                      Klicke oder nutze Drag & Drop, um deinen Aufstellort hochzuladen
+                    </p>
                   </div>
+                </div>
 
-                  {/* Material Selection */}
-                  <div className="pt-4 border-t">
-                    <Label className="font-semibold text-sm mb-3 block">Material</Label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {materials.map((material) => (
-                        <div
-                          key={material.id}
-                          className={`p-3 border rounded-lg cursor-pointer transition-all text-sm ${
-                            selectedMaterial === material.id
-                              ? "border-primary bg-primary/5 ring-1 ring-primary"
-                              : "hover:border-primary/50"
-                          }`}
-                          onClick={() => setSelectedMaterial(material.id)}
-                        >
-                          <div className="font-semibold">{material.name}</div>
-                          <div className="text-xs text-muted-foreground">{material.finish}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Price Display */}
-                  <div className="pt-4 border-t">
-                    <div className="bg-primary/10 rounded-lg p-4 border border-primary/20">
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <div className="text-xs text-muted-foreground mb-1">
-                            Geschätzter Preis
-                          </div>
-                          <div className="text-3xl font-bold text-primary">
-                            €{calculatePrice()}
-                          </div>
-                        </div>
-                        <Badge className="bg-primary text-primary-foreground">
-                          <Sparkles className="w-3 h-3 mr-1" />
-                          Live
-                        </Badge>
-                      </div>
-                      <div className="text-xs text-muted-foreground mt-2">
-                        inkl. Material & Setup
+                {/* Breite und Farben */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Label className="font-bold text-base">Breite</Label>
+                      <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">
+                        ?
                       </div>
                     </div>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        type="number"
+                        value={width[0]}
+                        onChange={(e) => setWidth([parseInt(e.target.value) || 100])}
+                        className="text-base"
+                        min={10}
+                        max={300}
+                      />
+                      <span className="text-sm font-medium">cm</span>
+                    </div>
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="space-y-2 pt-2">
-                    <Button className="w-full" size="lg">
-                      Angebot anfordern
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                    <Button variant="outline" className="w-full">
-                      Beratung vereinbaren
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Label className="font-bold text-base">Farben</Label>
+                      <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">
+                        ?
+                      </div>
+                    </div>
+                    <Button variant="outline" className="w-full text-sm">
+                      Farben nach Grafik
                     </Button>
                   </div>
                 </div>
+
+                {/* Höhe und Tiefe */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label className="font-bold text-base mb-3 block">Höhe</Label>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        type="number"
+                        value={height[0]}
+                        onChange={(e) => setHeight([parseInt(e.target.value) || 20])}
+                        className="text-base"
+                        min={5}
+                        max={100}
+                      />
+                      <span className="text-sm font-medium">cm</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label className="font-bold text-base mb-3 block">Tiefe</Label>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        type="number"
+                        value={depth[0]}
+                        onChange={(e) => setDepth([parseFloat(e.target.value) || 3])}
+                        className="text-base"
+                        min={1}
+                        max={10}
+                        step={0.5}
+                      />
+                      <span className="text-sm font-medium">cm</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Material */}
+                <div>
+                  <Label className="font-bold text-base mb-3 block">Material</Label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {materials.map((material) => (
+                      <Button
+                        key={material.id}
+                        variant={selectedMaterial === material.id ? "default" : "outline"}
+                        className={`text-sm ${
+                          selectedMaterial === material.id
+                            ? "bg-green-600 hover:bg-green-700"
+                            : ""
+                        }`}
+                        onClick={() => setSelectedMaterial(material.id)}
+                      >
+                        {material.name}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Price Display */}
+                <div className="pt-4 border-t">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-sm text-gray-600">Geschätzter Preis:</span>
+                    <span className="text-2xl font-bold text-green-600">€{calculatePrice()}</span>
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-6 text-base font-semibold">
+                  → Anfrage abschließen
+                </Button>
               </div>
-            </div>
-          </Card>
+            </Card>
+          </div>
         </div>
       </section>
 
