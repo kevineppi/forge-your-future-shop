@@ -7,7 +7,6 @@
     <loc>https://www.ek-druck.at/</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png</image:loc>
       <image:title>ekdruck e.U. - 3D-Druck Oberösterreich Logo</image:title>
@@ -19,19 +18,16 @@
     <loc>https://www.ek-druck.at/einzelanfertigungen</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/serienfertigung</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/rapid-prototyping</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
   </url>
   
   <!-- Core Services -->
@@ -39,25 +35,21 @@
     <loc>https://www.ek-druck.at/fdm-3d-druck</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/kostenrechner</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/3d-druck-materialien</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/probeteile</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
   
   <!-- Informationsseiten -->
@@ -65,13 +57,11 @@
     <loc>https://www.ek-druck.at/ratgeber</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/glossar</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
   
   <!-- Ratgeber-Unterseiten -->
@@ -79,25 +69,21 @@
     <loc>https://www.ek-druck.at/ratgeber/kosten-guide</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/ratgeber/material-guide</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/ratgeber/verfahrens-vergleich</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.ek-druck.at/ratgeber/maschinenbau</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
   </url>
   
   <!-- Legal -->
@@ -105,7 +91,6 @@
     <loc>https://www.ek-druck.at/impressum</loc>
     <lastmod>2025-02-11</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
   </url>
   
 </urlset>
