@@ -15,6 +15,17 @@
   RewriteCond %{HTTP_HOST} !^localhost [NC]
   RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
 
+  # Redirects für alte/nicht-existierende URLs
+  RewriteRule ^angebot/?$ / [R=301,L]
+  RewriteRule ^3d-druck-angebot/?$ / [R=301,L]
+  RewriteRule ^kontakt/?$ /#contact [R=301,L,NE]
+  RewriteRule ^info/?$ / [R=301,L]
+  RewriteRule ^leistungen/?$ / [R=301,L]
+  
+  # Alte Shop-URLs auf 404 (oder Homepage)
+  RewriteRule ^product-page/ - [R=410,L]
+  RewriteRule ^category/all-products/?$ - [R=410,L]
+
   # Handle React Router - Redirect all requests to index.html
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

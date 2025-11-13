@@ -86,6 +86,100 @@
     <changefreq>weekly</changefreq>
   </url>
   
+  <!-- Prototypen -->
+  <url>
+    <loc>https://www.ek-druck.at/prototypen</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <!-- Stadt-Seiten -->
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-wien</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-linz</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-graz</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-salzburg</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-innsbruck</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-klagenfurt</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-villach</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-wels</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-st-poelten</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-dornbirn</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-burgenland</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-steiermark</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-oberoesterreich</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-niederoesterreich</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-vorarlberg</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-kaernten</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ek-druck.at/3d-druck-gunskirchen</loc>
+    <lastmod>2025-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  
   <!-- Legal -->
   <url>
     <loc>https://www.ek-druck.at/impressum</loc>
