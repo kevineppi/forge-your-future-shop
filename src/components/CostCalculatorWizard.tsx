@@ -541,6 +541,10 @@ const CostCalculatorWizard = () => {
                         min={0}
                         step={1}
                       />
+                      <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                        <span>Druckkosten: {Math.max(length, width, height) > 250 ? "4.00€" : "1.50€"}/Stunde</span>
+                        <span>{printDuration === 0 ? "Automatische Berechnung" : `${printDuration}h × ${Math.max(length, width, height) > 250 ? "4.00€" : "1.50€"} = ${(printDuration * (Math.max(length, width, height) > 250 ? 4 : 1.5)).toFixed(2)}€`}</span>
+                      </div>
                     </div>
 
                     <div className="flex gap-3">
