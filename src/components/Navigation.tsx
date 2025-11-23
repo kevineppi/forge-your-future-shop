@@ -130,25 +130,21 @@ const Navigation = () => {
                   Mein Konto
                   <ChevronDown className="w-3 h-3" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56 p-2 bg-background border border-border/50 shadow-xl">
-                  <DropdownMenuItem asChild className="p-0">
-                    <a href="/meine-bestellungen" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group cursor-pointer">
-                      <div className="flex-shrink-0 w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                        <Package className="w-4 h-4 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="font-medium text-foreground text-sm">Meine Bestellungen</div>
-                      </div>
+                <DropdownMenuContent align="end" className="w-64 p-1 bg-card border border-border shadow-2xl">
+                  <div className="px-3 py-2 border-b border-border/50">
+                    <p className="text-xs font-medium text-muted-foreground">Angemeldet als</p>
+                    <p className="text-sm font-semibold text-foreground truncate">{user.email}</p>
+                  </div>
+                  <DropdownMenuItem asChild className="p-0 mt-1">
+                    <a href="/meine-bestellungen" className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-accent transition-colors group cursor-pointer">
+                      <Package className="w-4 h-4 text-primary" />
+                      <span className="font-medium text-sm">Meine Bestellungen</span>
                     </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={handleSignOut} className="p-0">
-                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group cursor-pointer w-full">
-                      <div className="flex-shrink-0 w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                        <LogOut className="w-4 h-4 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="font-medium text-foreground text-sm">Abmelden</div>
-                      </div>
+                    <div className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-accent transition-colors group cursor-pointer w-full">
+                      <LogOut className="w-4 h-4 text-destructive" />
+                      <span className="font-medium text-sm text-destructive">Abmelden</span>
                     </div>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
