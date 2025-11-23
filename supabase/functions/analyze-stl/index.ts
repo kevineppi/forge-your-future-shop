@@ -359,62 +359,40 @@ serve(async (req) => {
         z: max.z - min.z,
       };
       
-      // Sample ein paar Dreiecke für bessere Volumen-Schätzung
-      const sampleSize = Math.min(1000, triangleCount);
-      const sampleStep = Math.floor(triangleCount / sampleSize);
-      let sampledVolume = 0;
-      let sampledSurfaceArea = 0;
-      let sampledOffset = 84;
+      // Berechne Volumen durch Streaming aller Triangles (Signed Volume Method)
+      console.log('Streaming volume calculation for', triangleCount, 'triangles');
+      let totalVolume = 0;
+      let streamOffset = 84; // Nach Header + Triangle Count
       
-      for (let i = 0; i < sampleSize; i++) {
-        // Springe zum Sample-Triangle
-        sampledOffset = 84 + (i * sampleStep * 50); // 50 bytes pro Triangle
-        
-        if (sampledOffset + 50 > arrayBuffer.byteLength) break;
-        
+      for (let i = 0; i < triangleCount; i++) {
         // Skip Normal (12 bytes)
-        sampledOffset += 12;
+        streamOffset += 12;
         
-        // Lese 3 Vertices
-        const v1 = {
-          x: view.getFloat32(sampledOffset, true),
-          y: view.getFloat32(sampledOffset + 4, true),
-          z: view.getFloat32(sampledOffset + 8, true),
-        };
-        const v2 = {
-          x: view.getFloat32(sampledOffset + 12, true),
-          y: view.getFloat32(sampledOffset + 16, true),
-          z: view.getFloat32(sampledOffset + 20, true),
-        };
-        const v3 = {
-          x: view.getFloat32(sampledOffset + 24, true),
-          y: view.getFloat32(sampledOffset + 28, true),
-          z: view.getFloat32(sampledOffset + 32, true),
-        };
+        // Lese 3 Vertices für Volumen-Berechnung
+        const v1x = view.getFloat32(streamOffset, true);
+        const v1y = view.getFloat32(streamOffset + 4, true);
+        const v1z = view.getFloat32(streamOffset + 8, true);
         
-        // Volumen des Dreiecks (Signed Volume Method)
-        const triangleVolume = Math.abs(
-          (v1.x * v2.y * v3.z + v2.x * v3.y * v1.z + v3.x * v1.y * v2.z -
-           v3.x * v2.y * v1.z - v2.x * v1.y * v3.z - v1.x * v3.y * v2.z) / 6.0
-        );
-        sampledVolume += triangleVolume;
+        const v2x = view.getFloat32(streamOffset + 12, true);
+        const v2y = view.getFloat32(streamOffset + 16, true);
+        const v2z = view.getFloat32(streamOffset + 20, true);
         
-        // Oberfläche des Dreiecks
-        const ab = { x: v2.x - v1.x, y: v2.y - v1.y, z: v2.z - v1.z };
-        const ac = { x: v3.x - v1.x, y: v3.y - v1.y, z: v3.z - v1.z };
-        const cross = {
-          x: ab.y * ac.z - ab.z * ac.y,
-          y: ab.z * ac.x - ab.x * ac.z,
-          z: ab.x * ac.y - ab.y * ac.x,
-        };
-        const area = Math.sqrt(cross.x ** 2 + cross.y ** 2 + cross.z ** 2) / 2;
-        sampledSurfaceArea += area;
+        const v3x = view.getFloat32(streamOffset + 24, true);
+        const v3y = view.getFloat32(streamOffset + 28, true);
+        const v3z = view.getFloat32(streamOffset + 32, true);
+        
+        streamOffset += 36; // 3 Vertices à 12 bytes
+        streamOffset += 2;  // Skip Attribute Byte Count
+        
+        // Signed Volume Method
+        totalVolume += (v1x * v2y * v3z + v2x * v3y * v1z + v3x * v1y * v2z -
+                       v3x * v2y * v1z - v2x * v1y * v3z - v1x * v3y * v2z) / 6.0;
       }
       
-      // Hochrechnen auf alle Dreiecke
-      const volumeScaleFactor = triangleCount / sampleSize;
-      const estimatedVolume = Math.abs(sampledVolume * volumeScaleFactor);
-      const estimatedSurfaceArea = sampledSurfaceArea * volumeScaleFactor;
+      const estimatedVolume = Math.abs(totalVolume);
+      const estimatedSurfaceArea = estimatedVolume * 2.5; // Grobe Schätzung für Surface Area
+      
+      console.log('Calculated volume:', estimatedVolume.toFixed(2), 'mm³');
       
       console.log('Real dimensions from large file:', dimensions);
       
