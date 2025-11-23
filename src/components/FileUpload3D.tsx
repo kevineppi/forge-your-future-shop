@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
-import { Upload, X, AlertTriangle, Info, ZoomIn, ZoomOut, Maximize2 } from "lucide-react";
+import { Upload } from "lucide-react";
 import { toast } from "sonner";
 import * as THREE from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
@@ -17,26 +17,14 @@ interface AnalysisResult {
 }
 
 interface FileUpload3DProps {
-  onDimensionsCalculated: (dimensions: {
+  onDimensionsCalculated: (fileData: {
+    geometry: THREE.BufferGeometry;
+    fileName: string;
     length: number;
     width: number;
     height: number;
     volume: number;
-  }) => void;
-  geometry: THREE.BufferGeometry | null;
-  setGeometry: (geometry: THREE.BufferGeometry | null) => void;
-  fileName: string;
-  setFileName: (name: string) => void;
-  analysisResults: AnalysisResult[];
-  setAnalysisResults: (results: AnalysisResult[]) => void;
-}
-
-interface FileUpload3DProps {
-  onDimensionsCalculated: (dimensions: {
-    length: number;
-    width: number;
-    height: number;
-    volume: number;
+    analysisResults: AnalysisResult[];
   }) => void;
 }
 
@@ -49,16 +37,12 @@ const Model = ({ geometry }: { geometry: THREE.BufferGeometry }) => {
 };
 
 export const FileUpload3D = ({ 
-  onDimensionsCalculated, 
-  geometry, 
-  setGeometry, 
-  fileName, 
-  setFileName,
-  analysisResults,
-  setAnalysisResults 
+  onDimensionsCalculated
 }: FileUpload3DProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const multiFileInputRef = useRef<HTMLInputElement>(null);
+  const folderInputRef = useRef<HTMLInputElement>(null);
 
   const calculateVolume = (geometry: THREE.BufferGeometry): number => {
     const position = geometry.attributes.position;
@@ -195,18 +179,12 @@ export const FileUpload3D = ({
     return results;
   };
 
-  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
+  const processFile = async (file: File) => {
     const fileExtension = file.name.split(".").pop()?.toLowerCase();
     if (fileExtension !== "stl" && fileExtension !== "stp" && fileExtension !== "step") {
-      toast.error("Bitte laden Sie eine STL oder STP/STEP Datei hoch");
+      toast.error(`${file.name}: Ungültiges Format`);
       return;
     }
-
-    setIsLoading(true);
-    setFileName(file.name);
 
     try {
       const arrayBuffer = await file.arrayBuffer();
@@ -237,40 +215,46 @@ export const FileUpload3D = ({
           
           // Analyze geometry for printability issues
           const analysis = analyzeGeometry(geometry);
-          setAnalysisResults(analysis);
-          
-          setGeometry(geometry);
           
           onDimensionsCalculated({
+            geometry,
+            fileName: file.name,
             length: Math.max(5, Math.min(350, length)),
             width: Math.max(5, Math.min(350, width)),
             height: Math.max(5, Math.min(350, height)),
-            volume: volumeCm3
+            volume: volumeCm3,
+            analysisResults: analysis
           });
 
-          toast.success(`Datei geladen: ${length}×${width}×${height}mm, ${volumeCm3.toFixed(1)}cm³`);
+          toast.success(`${file.name}: ${length}×${width}×${height}mm, ${volumeCm3.toFixed(1)}cm³`);
         }
       } else {
-        // For STP/STEP files, we would need a different loader
-        // For now, show a message that STP support is coming
-        toast.info("STP/STEP Dateien werden derzeit verarbeitet. Bitte verwenden Sie vorerst STL-Dateien.");
+        toast.info(`${file.name}: STP/STEP Dateien werden derzeit verarbeitet. Bitte verwenden Sie vorerst STL-Dateien.`);
       }
     } catch (error) {
       console.error("Error loading file:", error);
-      toast.error("Fehler beim Laden der Datei");
-    } finally {
-      setIsLoading(false);
+      toast.error(`Fehler beim Laden: ${file.name}`);
     }
   };
 
-  const handleClear = () => {
-    setGeometry(null);
-    setFileName("");
-    setAnalysisResults([]);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+
+    setIsLoading(true);
+
+    for (let i = 0; i < files.length; i++) {
+      await processFile(files[i]);
+    }
+
+    setIsLoading(false);
+    
+    // Reset input
+    if (event.target) {
+      event.target.value = "";
     }
   };
+
 
   return (
     <div className="space-y-4">
@@ -280,112 +264,52 @@ export const FileUpload3D = ({
         accept=".stl,.stp,.step"
         onChange={handleFileChange}
         className="hidden"
-        id="file-upload-3d"
-        multiple
+        id="file-upload-single"
       />
       <input
-        ref={fileInputRef}
+        ref={multiFileInputRef}
         type="file"
         accept=".stl,.stp,.step"
         onChange={handleFileChange}
         className="hidden"
-        id="folder-upload-3d"
+        id="file-upload-multi"
+        multiple
+      />
+      <input
+        ref={folderInputRef}
+        type="file"
+        accept=".stl,.stp,.step"
+        onChange={handleFileChange}
+        className="hidden"
+        id="folder-upload"
         {...({ webkitdirectory: "", directory: "" } as any)}
       />
 
-      {!geometry ? (
-        <div className="space-y-3">
-          <label
-            htmlFor="file-upload-3d"
-            className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
-          >
-            <div className="flex flex-col items-center justify-center pt-5 pb-6">
-              <Upload className="w-10 h-10 mb-3 text-muted-foreground" />
-              <p className="mb-2 text-sm text-foreground font-medium">
-                Dateien hochladen
-              </p>
-              <p className="text-xs text-muted-foreground">
-                STL oder STP/STEP (mehrere möglich)
-              </p>
-            </div>
-          </label>
-          
-          <label
-            htmlFor="folder-upload-3d"
-            className="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
-          >
-            <div className="flex flex-col items-center justify-center py-4">
-              <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
-              <p className="text-sm text-foreground font-medium">
-                Ordner hochladen
-              </p>
-            </div>
-          </label>
-        </div>
-      ) : (
-        <div className="flex items-center gap-2 p-3 bg-primary/10 rounded-lg">
-          <div className="flex-1">
-            <p className="text-sm font-medium text-foreground">{fileName}</p>
-            <p className="text-xs text-muted-foreground">
-              Datei geladen
-            </p>
-          </div>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleClear}
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <X className="w-4 h-4" />
-          </Button>
-        </div>
-      )}
-
-      {analysisResults.length > 0 && (
-        <div className="space-y-2">
-          <h4 className="text-sm font-semibold text-foreground">Analyse:</h4>
-          {analysisResults.map((result, index) => (
-            <div
-              key={index}
-              className={`flex gap-3 p-3 rounded-lg ${
-                result.type === "error"
-                  ? "bg-red-500/10 border border-red-500/20"
-                  : result.type === "warning"
-                  ? "bg-yellow-500/10 border border-yellow-500/20"
-                  : "bg-blue-500/10 border border-blue-500/20"
-              }`}
-            >
-              <div className="flex-shrink-0 mt-0.5">
-                {result.type === "error" ? (
-                  <AlertTriangle className="w-5 h-5 text-red-500" />
-                ) : result.type === "warning" ? (
-                  <AlertTriangle className="w-5 h-5 text-yellow-500" />
-                ) : (
-                  <Info className="w-5 h-5 text-blue-500" />
-                )}
-              </div>
-              <div className="flex-1 min-w-0">
-                <p
-                  className={`text-sm font-medium ${
-                    result.type === "error"
-                      ? "text-red-600"
-                      : result.type === "warning"
-                      ? "text-yellow-600"
-                      : "text-blue-600"
-                  }`}
-                >
-                  {result.message}
-                </p>
-                {result.detail && (
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {result.detail}
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="grid grid-cols-3 gap-3">
+        <label
+          htmlFor="file-upload-single"
+          className="flex flex-col items-center justify-center h-32 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
+        >
+          <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
+          <p className="text-sm font-medium">1 Datei</p>
+        </label>
+        
+        <label
+          htmlFor="file-upload-multi"
+          className="flex flex-col items-center justify-center h-32 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
+        >
+          <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
+          <p className="text-sm font-medium">Mehrere Dateien</p>
+        </label>
+        
+        <label
+          htmlFor="folder-upload"
+          className="flex flex-col items-center justify-center h-32 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
+        >
+          <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
+          <p className="text-sm font-medium">Ordner</p>
+        </label>
+      </div>
 
       {isLoading && (
         <div className="flex items-center justify-center p-4">

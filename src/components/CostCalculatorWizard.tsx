@@ -6,7 +6,7 @@ import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye } from "lucide-react";
+import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X } from "lucide-react";
 import { FileUpload3D } from "./FileUpload3D";
 import { Model3DViewer } from "./Model3DViewer";
 import * as THREE from "three";
@@ -17,18 +17,34 @@ interface AnalysisResult {
   detail?: string;
 }
 
+interface UploadedFile {
+  id: string;
+  geometry: THREE.BufferGeometry;
+  fileName: string;
+  volume: number;
+  length: number;
+  width: number;
+  height: number;
+  analysisResults: AnalysisResult[];
+}
+
 const CostCalculatorWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [inputMethod, setInputMethod] = useState<"file" | "manual">("manual");
   const [isClient, setIsClient] = useState(false);
   const [showViewer, setShowViewer] = useState(false);
   
-  // 3D File state
-  const [geometry, setGeometry] = useState<THREE.BufferGeometry | null>(null);
-  const [fileName, setFileName] = useState("");
-  const [analysisResults, setAnalysisResults] = useState<AnalysisResult[]>([]);
-  const [actualFileVolume, setActualFileVolume] = useState<number | null>(null);
+  // 3D File state - Multi-file support
+  const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
+  const [activeFileId, setActiveFileId] = useState<string | null>(null);
   const [scale, setScale] = useState(1); // Scale factor for 3D model
+  
+  // Active file computed values
+  const activeFile = uploadedFiles.find(f => f.id === activeFileId);
+  const geometry = activeFile?.geometry || null;
+  const fileName = activeFile?.fileName || "";
+  const analysisResults = activeFile?.analysisResults || [];
+  const actualFileVolume = activeFile?.volume || null;
   
   // State
   const [material, setMaterial] = useState("pla");
@@ -69,17 +85,32 @@ const CostCalculatorWizard = () => {
     premium: { name: "Premium Finish", price: 45 }
   };
 
-  const handleFileUpload = useCallback((dimensions: {
+  const handleFileUpload = useCallback((fileData: {
+    geometry: THREE.BufferGeometry;
+    fileName: string;
     length: number;
     width: number;
     height: number;
     volume: number;
+    analysisResults: AnalysisResult[];
   }) => {
-    setLength(dimensions.length);
-    setWidth(dimensions.width);
-    setHeight(dimensions.height);
-    setActualFileVolume(dimensions.volume); // Store actual file volume in cm³
-    const estimatedHours = Math.ceil((dimensions.volume / 1000) * 2);
+    const newFile: UploadedFile = {
+      id: `file-${Date.now()}-${Math.random()}`,
+      geometry: fileData.geometry,
+      fileName: fileData.fileName,
+      volume: fileData.volume,
+      length: fileData.length,
+      width: fileData.width,
+      height: fileData.height,
+      analysisResults: fileData.analysisResults
+    };
+    
+    setUploadedFiles(prev => [...prev, newFile]);
+    setActiveFileId(newFile.id);
+    setLength(fileData.length);
+    setWidth(fileData.width);
+    setHeight(fileData.height);
+    const estimatedHours = Math.ceil((fileData.volume / 1000) * 2);
     setPrintDuration(Math.min(72, estimatedHours));
     setShowViewer(true); // Show viewer instead of going to step 2
   }, []);
@@ -338,13 +369,58 @@ const CostCalculatorWizard = () => {
                       <TabsContent value="file" className="mt-6 space-y-4">
                         <FileUpload3D 
                           onDimensionsCalculated={handleFileUpload}
-                          geometry={geometry}
-                          setGeometry={setGeometry}
-                          fileName={fileName}
-                          setFileName={setFileName}
-                          analysisResults={analysisResults}
-                          setAnalysisResults={setAnalysisResults}
                         />
+                        
+                        {uploadedFiles.length > 0 && (
+                          <div className="space-y-2">
+                            <h4 className="text-sm font-semibold">Hochgeladene Dateien ({uploadedFiles.length}):</h4>
+                            <div className="space-y-2 max-h-48 overflow-y-auto">
+                              {uploadedFiles.map((file) => (
+                                <button
+                                  key={file.id}
+                                  onClick={() => {
+                                    setActiveFileId(file.id);
+                                    setLength(file.length);
+                                    setWidth(file.width);
+                                    setHeight(file.height);
+                                  }}
+                                  className={`w-full flex items-center justify-between p-3 rounded-lg border-2 transition-colors ${
+                                    activeFileId === file.id
+                                      ? "border-primary bg-primary/10"
+                                      : "border-border bg-muted/30 hover:bg-muted/50"
+                                  }`}
+                                >
+                                  <div className="flex-1 text-left">
+                                    <p className="text-sm font-medium truncate">{file.fileName}</p>
+                                    <p className="text-xs text-muted-foreground">
+                                      {file.length}×{file.width}×{file.height}mm • {file.volume.toFixed(1)}cm³
+                                    </p>
+                                  </div>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setUploadedFiles(prev => prev.filter(f => f.id !== file.id));
+                                      if (activeFileId === file.id) {
+                                        const remaining = uploadedFiles.filter(f => f.id !== file.id);
+                                        if (remaining.length > 0) {
+                                          setActiveFileId(remaining[0].id);
+                                        } else {
+                                          setActiveFileId(null);
+                                        }
+                                      }
+                                    }}
+                                    className="ml-2"
+                                  >
+                                    <X className="w-4 h-4" />
+                                  </Button>
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        
                         {geometry && fileName && (
                           <div className="flex items-center justify-between p-3 bg-muted/30 rounded-lg">
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
