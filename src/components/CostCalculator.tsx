@@ -493,40 +493,6 @@ const CostCalculator = () => {
               </CardHeader>
               <CardContent className="space-y-4 lg:space-y-6 p-4 lg:p-6">
                 <div className="space-y-3 lg:space-y-4">
-                  {/* Cost Breakdown */}
-                  <div className="space-y-2 p-4 bg-muted/30 rounded-lg">
-                    <h4 className="font-semibold text-sm mb-3">Kostenaufschlüsselung:</h4>
-                    <div className="flex justify-between text-sm">
-                      <span>Materialkosten (inkl. 30%):</span>
-                      <span className="font-medium">€{pricing.materialCost.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Energiekosten (€0.20/h + 30%):</span>
-                      <span className="font-medium">€{pricing.energyCost.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Arbeitsaufwand:</span>
-                      <span className="font-medium">€{pricing.laborCost.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Druckkosten ({pricing.maxDimension > 250 ? '€4/h' : '€1.50/h'}):</span>
-                      <span className="font-medium">€{pricing.printCost.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Druckerabnutzung (€0.20/h):</span>
-                      <span className="font-medium">€{pricing.depreciationCost.toFixed(2)}</span>
-                    </div>
-                    {pricing.dryingCost > 0 && (
-                      <div className="flex justify-between text-sm">
-                        <span>Trocknungskosten:</span>
-                        <span className="font-medium">€{pricing.dryingCost.toFixed(2)}</span>
-                      </div>
-                    )}
-                    <div className="flex justify-between text-sm text-muted-foreground pt-2 border-t">
-                      <span>Materialgewicht: ~{pricing.materialWeight.toFixed(0)}g</span>
-                    </div>
-                  </div>
-
                   {pricing.additionalServices > 0 && (
                     <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg">
                       <span className="font-medium flex items-center gap-1">
