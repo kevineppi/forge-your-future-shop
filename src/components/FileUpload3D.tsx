@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
-import { Upload } from "lucide-react";
+import { Upload, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import * as THREE from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
+import { supabase } from "@/integrations/supabase/client";
 
 interface AnalysisResult {
   type: "error" | "warning" | "info";
@@ -41,6 +42,7 @@ export const FileUpload3D = ({
   onDimensionsCalculated
 }: FileUpload3DProps) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const calculateVolume = (geometry: THREE.BufferGeometry): number => {
@@ -264,6 +266,8 @@ export const FileUpload3D = ({
       return;
     }
 
+    setIsAnalyzing(true);
+
     try {
       const arrayBuffer = await file.arrayBuffer();
 
@@ -278,44 +282,150 @@ export const FileUpload3D = ({
         // Center the geometry
         geometry.center();
 
-        const boundingBox = geometry.boundingBox;
-        if (boundingBox) {
-          const size = new THREE.Vector3();
-          boundingBox.getSize(size);
-          
-          // Convert from Three.js units to mm (assuming the model is in mm)
-          const length = Math.round(Math.abs(size.x));
-          const width = Math.round(Math.abs(size.y));
-          const height = Math.round(Math.abs(size.z));
-          
-          // Calculate volume in cm³
-          const volumeCm3 = calculateVolume(geometry) / 1000; // Convert mm³ to cm³
-          
-          // Analyze geometry for printability issues
-          const analysis = analyzeGeometry(geometry);
-          
-          // Calculate estimated print time
-          const estimatedTime = calculateEstimatedPrintTime(length, width, height, volumeCm3 * 1000);
-          
-          onDimensionsCalculated({
-            geometry,
-            fileName: file.name,
-            length: Math.max(5, Math.min(350, length)),
-            width: Math.max(5, Math.min(350, width)),
-            height: Math.max(5, Math.min(350, height)),
-            volume: volumeCm3,
-            analysisResults: analysis,
-            estimatedPrintTimeHours: estimatedTime
-          });
+        // Call advanced STL analysis Edge Function
+        console.log('Calling analyze-stl edge function for:', file.name);
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        const { data: analysisData, error: analysisError } = await supabase.functions.invoke('analyze-stl', {
+          body: formData,
+        });
 
-          toast.success(`${file.name}: ${length}×${width}×${height}mm, ${volumeCm3.toFixed(1)}cm³`);
+        if (analysisError) {
+          console.error('Analysis error:', analysisError);
+          // Fallback to basic analysis if edge function fails
+          const boundingBox = geometry.boundingBox;
+          if (boundingBox) {
+            const size = new THREE.Vector3();
+            boundingBox.getSize(size);
+            
+            const length = Math.round(Math.abs(size.x));
+            const width = Math.round(Math.abs(size.y));
+            const height = Math.round(Math.abs(size.z));
+            const volumeCm3 = calculateVolume(geometry) / 1000;
+            const analysis = analyzeGeometry(geometry);
+            const estimatedTime = calculateEstimatedPrintTime(length, width, height, volumeCm3 * 1000);
+            
+            onDimensionsCalculated({
+              geometry,
+              fileName: file.name,
+              length: Math.max(5, Math.min(350, length)),
+              width: Math.max(5, Math.min(350, width)),
+              height: Math.max(5, Math.min(350, height)),
+              volume: volumeCm3,
+              analysisResults: analysis,
+              estimatedPrintTimeHours: estimatedTime
+            });
+
+            toast.success(`${file.name}: ${length}×${width}×${height}mm`);
+          }
+          return;
         }
+
+        console.log('Advanced analysis complete:', analysisData);
+
+        const { volume, boundingBox, overhangs, complexity, estimates } = analysisData;
+
+        const length = Math.round(boundingBox.dimensions.x);
+        const width = Math.round(boundingBox.dimensions.y);
+        const height = Math.round(boundingBox.dimensions.z);
+
+        const analysisResults: AnalysisResult[] = [];
+
+        // Size warnings
+        if (length > 300 || width > 300 || height > 300) {
+          analysisResults.push({
+            type: "warning",
+            message: "Modell überschreitet Druckbereich",
+            detail: `Maximum: 300mm. Aktuell: ${length}×${width}×${height}mm - Skalierung erforderlich`
+          });
+        }
+
+        // Overhang warnings
+        if (overhangs.severity === 'high') {
+          analysisResults.push({
+            type: "warning",
+            message: "⚠️ Starke Überhänge erkannt",
+            detail: `${overhangs.percentage.toFixed(1)}% der Fläche benötigt Support (${estimates.supportMaterialGrams.toFixed(1)}g)`
+          });
+        } else if (overhangs.severity === 'medium') {
+          analysisResults.push({
+            type: "info",
+            message: "Moderate Überhänge",
+            detail: `${overhangs.percentage.toFixed(1)}% Support erforderlich`
+          });
+        } else if (overhangs.severity === 'low') {
+          analysisResults.push({
+            type: "info",
+            message: "✓ Minimale Supports nötig",
+            detail: `Nur ${overhangs.percentage.toFixed(1)}% Support`
+          });
+        }
+
+        // Complexity info
+        if (complexity.level === 'very_complex') {
+          analysisResults.push({
+            type: "warning",
+            message: "⚙️ Sehr komplexes Modell",
+            detail: `${complexity.triangleCount.toLocaleString()} Dreiecke - Erhöhte Druckzeit & Detailgenauigkeit nötig`
+          });
+        } else if (complexity.level === 'complex') {
+          analysisResults.push({
+            type: "info",
+            message: "Komplexes Modell",
+            detail: `${complexity.triangleCount.toLocaleString()} Dreiecke - Hohe Qualitätseinstellungen empfohlen`
+          });
+        }
+
+        // Small model warning
+        if (volume < 1000) {
+          analysisResults.push({
+            type: "info",
+            message: "Kleines Modell",
+            detail: "Layer-Höhe 0.1-0.15mm für beste Details"
+          });
+        }
+
+        // Layer info
+        analysisResults.push({
+          type: "info",
+          message: `📊 ${estimates.layerCount} Layer`,
+          detail: `Geschätzte Druckzeit: ${estimates.printTimeHours.toFixed(1)}h`
+        });
+
+        if (analysisResults.length === 0) {
+          analysisResults.push({
+            type: "info",
+            message: "✓ Optimales Modell!",
+            detail: "Bereit für den Druck mit Standardeinstellungen"
+          });
+        }
+
+        onDimensionsCalculated({
+          geometry,
+          fileName: file.name,
+          length: Math.max(5, Math.min(350, length)),
+          width: Math.max(5, Math.min(350, width)),
+          height: Math.max(5, Math.min(350, height)),
+          volume: volume / 1000, // mm³ to cm³
+          analysisResults,
+          estimatedPrintTimeHours: estimates.printTimeHours
+        });
+
+        toast.success(
+          `${file.name}: ${length}×${width}×${height}mm | ` +
+          `${(volume / 1000).toFixed(1)}cm³ | ` +
+          `${estimates.printTimeHours.toFixed(1)}h | ` +
+          `${estimates.materialGrams.toFixed(0)}g`
+        );
       } else {
         toast.info(`${file.name}: STP/STEP Dateien werden derzeit verarbeitet. Bitte verwenden Sie vorerst STL-Dateien.`);
       }
     } catch (error) {
       console.error("Error loading file:", error);
       toast.error(`Fehler beim Laden: ${file.name}`);
+    } finally {
+      setIsAnalyzing(false);
     }
   };
 
@@ -352,17 +462,35 @@ export const FileUpload3D = ({
 
       <label
         htmlFor="file-upload-3d"
-        className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
+        className={`flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-border rounded-lg cursor-pointer transition-colors ${
+          isAnalyzing 
+            ? 'bg-primary/10 border-primary cursor-wait' 
+            : 'bg-muted/30 hover:bg-muted/50'
+        }`}
       >
         <div className="flex flex-col items-center justify-center py-8">
-          <Upload className="w-12 h-12 mb-4 text-muted-foreground" />
-          <p className="mb-2 text-base text-foreground font-medium">
-            Dateien hochladen
-          </p>
-          <p className="text-sm text-muted-foreground text-center px-4">
-            STL oder STP/STEP<br />
-            Einzelne oder mehrere Dateien auswählen
-          </p>
+          {isAnalyzing ? (
+            <>
+              <Loader2 className="w-12 h-12 mb-4 text-primary animate-spin" />
+              <p className="mb-2 text-base text-foreground font-medium">
+                Analysiere STL-Datei...
+              </p>
+              <p className="text-sm text-muted-foreground text-center px-4">
+                Berechne Volumen, Überhänge und Komplexität
+              </p>
+            </>
+          ) : (
+            <>
+              <Upload className="w-12 h-12 mb-4 text-muted-foreground" />
+              <p className="mb-2 text-base text-foreground font-medium">
+                Dateien hochladen
+              </p>
+              <p className="text-sm text-muted-foreground text-center px-4">
+                STL oder STP/STEP<br />
+                Einzelne oder mehrere Dateien auswählen
+              </p>
+            </>
+          )}
         </div>
       </label>
 

@@ -481,15 +481,6 @@ const CostCalculatorWizard = () => {
         totalDepreciationCost += depreciationCost;
         totalDryingCost += dryingCost;
         totalLaborCost += laborCost;
-        
-        console.log('File Calculation:', {
-          fileName: file.fileName,
-          quantity: fileQuantity,
-          pricePerPiece: pricePerPiece.toFixed(2),
-          discount,
-          fileTotalPrice: fileTotalPrice.toFixed(2),
-          roundedFilePrice: roundedFilePrice.toFixed(2)
-        });
       });
       
       let expressShipping = 0;
@@ -505,14 +496,6 @@ const CostCalculatorWizard = () => {
       if (totalWithQuantities < 15) {
         totalWithQuantities = 15;
       }
-      
-      console.log('Total Calculation Summary:', {
-        filesCount: uploadedFiles.length,
-        totalQuantity,
-        totalWithQuantities: totalWithQuantities.toFixed(2),
-        expressShipping,
-        kleinteilpauschaleApplied: totalWithQuantities === 15
-      });
       
       return {
         perPiece: Math.max(5, roundTo5Cents(totalPerPiece / uploadedFiles.length)),
