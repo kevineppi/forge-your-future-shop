@@ -41,8 +41,6 @@ export const FileUpload3D = ({
 }: FileUpload3DProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const multiFileInputRef = useRef<HTMLInputElement>(null);
-  const folderInputRef = useRef<HTMLInputElement>(null);
 
   const calculateVolume = (geometry: THREE.BufferGeometry): number => {
     const position = geometry.attributes.position;
@@ -264,52 +262,26 @@ export const FileUpload3D = ({
         accept=".stl,.stp,.step"
         onChange={handleFileChange}
         className="hidden"
-        id="file-upload-single"
-      />
-      <input
-        ref={multiFileInputRef}
-        type="file"
-        accept=".stl,.stp,.step"
-        onChange={handleFileChange}
-        className="hidden"
-        id="file-upload-multi"
+        id="file-upload-3d"
         multiple
-      />
-      <input
-        ref={folderInputRef}
-        type="file"
-        accept=".stl,.stp,.step"
-        onChange={handleFileChange}
-        className="hidden"
-        id="folder-upload"
         {...({ webkitdirectory: "", directory: "" } as any)}
       />
 
-      <div className="grid grid-cols-3 gap-3">
-        <label
-          htmlFor="file-upload-single"
-          className="flex flex-col items-center justify-center h-32 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
-        >
-          <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
-          <p className="text-sm font-medium">1 Datei</p>
-        </label>
-        
-        <label
-          htmlFor="file-upload-multi"
-          className="flex flex-col items-center justify-center h-32 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
-        >
-          <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
-          <p className="text-sm font-medium">Mehrere Dateien</p>
-        </label>
-        
-        <label
-          htmlFor="folder-upload"
-          className="flex flex-col items-center justify-center h-32 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
-        >
-          <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
-          <p className="text-sm font-medium">Ordner</p>
-        </label>
-      </div>
+      <label
+        htmlFor="file-upload-3d"
+        className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
+      >
+        <div className="flex flex-col items-center justify-center py-8">
+          <Upload className="w-12 h-12 mb-4 text-muted-foreground" />
+          <p className="mb-2 text-base text-foreground font-medium">
+            Dateien hochladen
+          </p>
+          <p className="text-sm text-muted-foreground text-center px-4">
+            STL oder STP/STEP<br />
+            Einzelne Datei, mehrere Dateien oder Ordner
+          </p>
+        </div>
+      </label>
 
       {isLoading && (
         <div className="flex items-center justify-center p-4">
