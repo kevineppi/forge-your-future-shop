@@ -6,6 +6,7 @@ import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X } from "lucide-react";
 import { FileUpload3D } from "./FileUpload3D";
 import { Model3DViewer } from "./Model3DViewer";
@@ -359,7 +360,20 @@ const CostCalculatorWizard = () => {
                         
                         {uploadedFiles.length > 0 && (
                           <div className="space-y-2">
-                            <h4 className="text-sm font-semibold">Hochgeladene Dateien ({uploadedFiles.length}):</h4>
+                            <div className="flex items-center justify-between">
+                              <h4 className="text-sm font-semibold">Hochgeladene Dateien ({uploadedFiles.length}):</h4>
+                              {geometry && (
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={() => setShowViewer(true)}
+                                  className="gap-2"
+                                >
+                                  <Eye className="w-4 h-4" />
+                                  3D-Vorschau
+                                </Button>
+                              )}
+                            </div>
                             <div className="space-y-2 max-h-48 overflow-y-auto">
                               {uploadedFiles.map((file) => (
                                 <button
@@ -642,19 +656,8 @@ const CostCalculatorWizard = () => {
               )}
             </div>
 
-            {/* Right Panel - Live Preview & 3D Viewer (50% width) */}
+            {/* Right Panel - Live Preview (50% width) */}
             <div className="lg:sticky lg:top-8 h-fit space-y-6 min-h-[600px]">
-              {/* 3D Viewer */}
-              {geometry && (
-                <Model3DViewer 
-                  geometry={geometry} 
-                  fileName={fileName}
-                  scale={scale}
-                  onScaleChange={setScale}
-                  pricing={pricing}
-                />
-              )}
-              
               {/* Price Preview */}
               <Card className="gradient-card border-0">
                 <CardHeader>
@@ -748,6 +751,25 @@ const CostCalculatorWizard = () => {
             </div>
           </div>
         </div>
+        
+        {/* 3D Viewer Modal */}
+        <Dialog open={showViewer} onOpenChange={setShowViewer}>
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle className="flex items-center gap-2">
+                <Eye className="w-5 h-5" />
+                3D-Vorschau mit Skalierung
+              </DialogTitle>
+            </DialogHeader>
+            <Model3DViewer 
+              geometry={geometry} 
+              fileName={fileName}
+              scale={scale}
+              onScaleChange={setScale}
+              pricing={pricing}
+            />
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );
