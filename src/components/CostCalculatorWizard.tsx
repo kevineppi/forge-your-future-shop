@@ -45,7 +45,6 @@ const CostCalculatorWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [inputMethod, setInputMethod] = useState<"file" | "manual">("manual");
   const [isClient, setIsClient] = useState(false);
-  const [showViewer, setShowViewer] = useState(false);
   const [editingFileId, setEditingFileId] = useState<string | null>(null);
   
   // 3D File state - Multi-file support
@@ -724,17 +723,6 @@ const CostCalculatorWizard = () => {
                           <div className="space-y-2">
                             <div className="flex items-center justify-between">
                               <h4 className="text-sm font-semibold">Hochgeladene Dateien ({uploadedFiles.length}):</h4>
-                              {geometry && (
-                                <Button
-                                  variant="outline"
-                                  size="sm"
-                                  onClick={() => setShowViewer(true)}
-                                  className="gap-2"
-                                >
-                                  <Eye className="w-4 h-4" />
-                                  3D-Vorschau
-                                </Button>
-                              )}
                             </div>
                             <div className="space-y-2 max-h-48 overflow-y-auto">
                               {uploadedFiles.map((file) => (
@@ -1204,172 +1192,178 @@ const CostCalculatorWizard = () => {
           </div>
         </div>
         
-        {/* File Edit Dialog */}
+        {/* File Edit Dialog with 3D Viewer */}
         <Dialog open={!!editingFileId} onOpenChange={(open) => !open && setEditingFileId(null)}>
-          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle className="flex items-center gap-2">
                 <Edit2 className="w-5 h-5 text-primary" />
-                Datei bearbeiten
+                Datei bearbeiten & 3D-Vorschau
               </DialogTitle>
             </DialogHeader>
             {editingFileId && (() => {
               const editingFile = uploadedFiles.find(f => f.id === editingFileId);
               if (!editingFile) return null;
               
+              const scaledLength = editingFile.length * (editingFile.scale || 1);
+              const scaledWidth = editingFile.width * (editingFile.scale || 1);
+              const scaledHeight = editingFile.height * (editingFile.scale || 1);
+              const scaledVolume = editingFile.volume * Math.pow(editingFile.scale || 1, 3);
+              const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
+              
+              // Calculate pricing for this file
+              const fileMaterial = materials[editingFile.material as keyof typeof materials] || materials.pla;
+              const materialWeightGrams = scaledVolume * 1.24;
+              const effectivePrintTime = (editingFile.estimatedPrintTimeHours || (scaledVolume / 10)) * Math.pow(editingFile.scale || 1, 3);
+              
+              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+              const estimatedPrice = (materialWeightGrams / 1000) * fileMaterial.pricePerKg + effectivePrintTime * printCostPerHour;
+              
               return (
-                <div className="space-y-6 py-4">
-                  <div>
-                    <p className="text-sm font-medium mb-2">{editingFile.fileName}</p>
-                    <p className="text-xs text-muted-foreground">
-                      {editingFile.length}×{editingFile.width}×{editingFile.height}mm • {editingFile.volume.toFixed(1)}cm³
-                    </p>
-                  </div>
-
-                  {/* Color Selection */}
-                  <div>
-                    <label className="text-sm font-medium mb-3 block flex items-center gap-2">
-                      <Palette className="w-4 h-4" />
-                      Farbe wählen
-                    </label>
-                    <div className="grid grid-cols-6 gap-3">
-                      {colorOptions.map((color) => (
-                        <button
-                          key={color.hex}
-                          onClick={() => {
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4">
+                  {/* Left: 3D Viewer */}
+                  <div className="space-y-4">
+                    <div className="aspect-square bg-muted/30 rounded-lg overflow-hidden">
+                      {editingFile.geometry && (
+                        <Model3DViewer 
+                          geometry={editingFile.geometry} 
+                          fileName={editingFile.fileName}
+                          scale={editingFile.scale || 1}
+                          onScaleChange={(newScale) => {
                             setUploadedFiles(prev => prev.map(f => 
-                              f.id === editingFileId ? { ...f, color: color.hex } : f
+                              f.id === editingFileId ? { ...f, scale: newScale } : f
                             ));
                           }}
-                          className={`group relative aspect-square rounded-lg border-2 transition-all hover:scale-110 ${
-                            editingFile.color === color.hex
-                              ? "border-primary ring-2 ring-primary ring-offset-2"
-                              : "border-border hover:border-primary/50"
-                          }`}
-                          style={{ backgroundColor: color.hex }}
-                          title={color.name}
-                        >
-                          {editingFile.color === color.hex && (
-                            <Check className="w-4 h-4 absolute inset-0 m-auto text-white drop-shadow-lg" />
-                          )}
-                        </button>
-                      ))}
+                          estimatedPrintTimeHours={effectivePrintTime}
+                          pricing={{
+                            perPiece: estimatedPrice,
+                            total: estimatedPrice,
+                            materialWeight: materialWeightGrams
+                          }}
+                        />
+                      )}
+                    </div>
+                    
+                    <div className="p-4 bg-muted/30 rounded-lg space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Skalierte Maße:</span>
+                        <span className="font-medium">
+                          {Math.round(scaledLength)}×{Math.round(scaledWidth)}×{Math.round(scaledHeight)}mm
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Skaliertes Volumen:</span>
+                        <span className="font-medium">{scaledVolume.toFixed(1)} cm³</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Druckzeit:</span>
+                        <span className="font-medium">{effectivePrintTime.toFixed(1)}h</span>
+                      </div>
+                      <div className="flex justify-between items-center pt-2 border-t border-border">
+                        <span className="text-muted-foreground">Preis/Stk:</span>
+                        <span className="font-bold text-lg text-primary">€{estimatedPrice.toFixed(2)}</span>
+                      </div>
+                      {maxDimension > 250 && (
+                        <div className="pt-2 text-xs text-yellow-600 dark:text-yellow-500">
+                          ⚠️ Großformat-Zuschlag: €4/h statt €1.50/h (Seite über 250mm)
+                        </div>
+                      )}
                     </div>
                   </div>
 
-                  {/* Scale Control */}
-                  <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
-                    <label className="text-sm font-medium mb-3 block flex items-center gap-2">
-                      <Ruler className="w-4 h-4 text-primary" />
-                      Skalierung: {((editingFile.scale || 1) * 100).toFixed(0)}%
-                    </label>
-                    <Slider
-                      value={[editingFile.scale || 1]}
-                      onValueChange={(v) => {
-                        const newScale = Math.max(0.1, Math.min(5, v[0]));
-                        setUploadedFiles(prev => prev.map(f => 
-                          f.id === editingFileId ? { ...f, scale: newScale } : f
-                        ));
-                        // Update scale state if editing active file
-                        if (editingFileId === activeFileId) {
-                          setScale(newScale);
-                        }
-                      }}
-                      max={5}
-                      min={0.1}
-                      step={0.1}
-                    />
-                    <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                      <span>10%</span>
-                      <span className="font-medium text-primary">
-                        {Math.round(editingFile.length * (editingFile.scale || 1))}×
-                        {Math.round(editingFile.width * (editingFile.scale || 1))}×
-                        {Math.round(editingFile.height * (editingFile.scale || 1))}mm
-                      </span>
-                      <span>500%</span>
+                  {/* Right: Settings */}
+                  <div className="space-y-6">
+                    <div>
+                      <p className="text-sm font-medium mb-2">{editingFile.fileName}</p>
+                      <p className="text-xs text-muted-foreground">
+                        Original: {editingFile.length}×{editingFile.width}×{editingFile.height}mm • {editingFile.volume.toFixed(1)}cm³
+                      </p>
                     </div>
-                  </div>
 
-                  {/* Material Selection */}
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">Material</label>
-                    <Select 
-                      value={editingFile.material || "pla"}
-                      onValueChange={(value) => {
-                        setUploadedFiles(prev => prev.map(f => 
-                          f.id === editingFileId ? { ...f, material: value } : f
-                        ));
-                        // Update material state if editing active file
-                        if (editingFileId === activeFileId) {
-                          setMaterial(value);
-                        }
-                      }}
-                    >
-                      <SelectTrigger className="w-full h-12">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="pla">PLA - €20/kg</SelectItem>
-                        <SelectItem value="petg">PETG - €20/kg</SelectItem>
-                        <SelectItem value="abs">ABS - €20/kg</SelectItem>
-                        <SelectItem value="pa12">PA12 Nylon - €100/kg</SelectItem>
-                        <SelectItem value="pa6">PA6 Nylon - €100/kg</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Complexity */}
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">
-                      Komplexität: {complexityLevels[editingFile.complexity || 0]}
-                    </label>
-                    <Slider
-                      value={[editingFile.complexity || 0]}
-                      onValueChange={(v) => {
-                        setUploadedFiles(prev => prev.map(f => 
-                          f.id === editingFileId ? { ...f, complexity: Math.round(v[0]) } : f
-                        ));
-                        // Update complexity state if editing active file
-                        if (editingFileId === activeFileId) {
-                          setComplexity(Math.round(v[0]));
-                        }
-                      }}
-                      max={4}
-                      min={0}
-                      step={1}
-                    />
-                    <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                      <span>Einfach</span>
-                      <span>Sehr komplex</span>
+                    {/* Color Selection */}
+                    <div>
+                      <label className="text-sm font-medium mb-3 block flex items-center gap-2">
+                        <Palette className="w-4 h-4" />
+                        Farbe wählen
+                      </label>
+                      <div className="grid grid-cols-6 gap-3">
+                        {colorOptions.map((color) => (
+                          <button
+                            key={color.hex}
+                            onClick={() => {
+                              setUploadedFiles(prev => prev.map(f => 
+                                f.id === editingFileId ? { ...f, color: color.hex } : f
+                              ));
+                            }}
+                            className={`group relative aspect-square rounded-lg border-2 transition-all hover:scale-110 ${
+                              editingFile.color === color.hex
+                                ? "border-primary ring-2 ring-primary ring-offset-2"
+                                : "border-border hover:border-primary/50"
+                            }`}
+                            style={{ backgroundColor: color.hex }}
+                            title={color.name}
+                          >
+                            {editingFile.color === color.hex && (
+                              <Check className="w-4 h-4 absolute inset-0 m-auto text-white drop-shadow-lg" />
+                            )}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  <Button onClick={() => setEditingFileId(null)} className="w-full">
-                    Fertig
-                  </Button>
+                    {/* Material Selection */}
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">Material</label>
+                      <Select 
+                        value={editingFile.material || "pla"}
+                        onValueChange={(value) => {
+                          setUploadedFiles(prev => prev.map(f => 
+                            f.id === editingFileId ? { ...f, material: value } : f
+                          ));
+                        }}
+                      >
+                        <SelectTrigger className="w-full h-12">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="pla">PLA - €20/kg</SelectItem>
+                          <SelectItem value="petg">PETG - €20/kg</SelectItem>
+                          <SelectItem value="abs">ABS - €20/kg</SelectItem>
+                          <SelectItem value="pa12">PA12 Nylon - €100/kg</SelectItem>
+                          <SelectItem value="pa6">PA6 Nylon - €100/kg</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    {/* Complexity */}
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">
+                        Komplexität: {complexityLevels[editingFile.complexity || 0]}
+                      </label>
+                      <Slider
+                        value={[editingFile.complexity || 0]}
+                        onValueChange={(v) => {
+                          setUploadedFiles(prev => prev.map(f => 
+                            f.id === editingFileId ? { ...f, complexity: Math.round(v[0]) } : f
+                          ));
+                        }}
+                        max={4}
+                        min={0}
+                        step={1}
+                      />
+                      <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                        <span>Einfach</span>
+                        <span>Sehr komplex</span>
+                      </div>
+                    </div>
+
+                    <Button onClick={() => setEditingFileId(null)} className="w-full">
+                      Fertig
+                    </Button>
+                  </div>
                 </div>
               );
             })()}
-          </DialogContent>
-        </Dialog>
-        
-        {/* 3D Viewer Modal */}
-        <Dialog open={showViewer} onOpenChange={setShowViewer}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle className="flex items-center gap-2">
-                <Eye className="w-5 h-5" />
-                3D-Vorschau mit Skalierung
-              </DialogTitle>
-            </DialogHeader>
-            <Model3DViewer 
-              geometry={geometry} 
-              fileName={fileName}
-              scale={scale}
-              onScaleChange={setScale}
-              estimatedPrintTimeHours={estimatedPrintDuration}
-              pricing={pricing}
-            />
           </DialogContent>
         </Dialog>
       </div>
