@@ -10,6 +10,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X } from "lucide-react";
 import { FileUpload3D } from "./FileUpload3D";
 import { Model3DViewer } from "./Model3DViewer";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import * as THREE from "three";
 
 interface AnalysisResult {
@@ -55,9 +57,14 @@ const CostCalculatorWizard = () => {
   const [width, setWidth] = useState(100);
   const [height, setHeight] = useState(100);
   const [printDuration, setPrintDuration] = useState(0);
+  const [estimatedPrintDuration, setEstimatedPrintDuration] = useState<number | null>(null);
+  const [slicingJobId, setSlicingJobId] = useState<string | null>(null);
+  const [calculatedPrintDuration, setCalculatedPrintDuration] = useState<number | null>(null);
   const [isExpressService, setIsExpressService] = useState(false);
   const [postProcessing, setPostProcessing] = useState("none");
   const [supportRemoval, setSupportRemoval] = useState(false);
+
+  const { toast } = useToast();
 
   useEffect(() => {
     setIsClient(true);
@@ -116,6 +123,10 @@ const CostCalculatorWizard = () => {
     // Use heuristic calculation if provided
     if (fileData.estimatedPrintTimeHours) {
       setPrintDuration(fileData.estimatedPrintTimeHours);
+      setEstimatedPrintDuration(fileData.estimatedPrintTimeHours);
+      
+      // Start background slicing job for accurate calculation
+      // startBackgroundSlicing(fileData);
     } else {
       // Fallback: Realistic FDM print speed: ~10 cm³/h (0.2mm layer height, 50mm/s speed)
       const estimatedHours = Math.ceil(fileData.volume / 10);
@@ -123,6 +134,65 @@ const CostCalculatorWizard = () => {
     }
     // Stay on step 1, don't auto-advance
   }, []);
+
+  // Start background slicing for accurate print time (placeholder for future microservice)
+  const startBackgroundSlicing = async (fileData: {
+    fileName: string;
+    volume: number;
+  }) => {
+    try {
+      // Create slicing job record
+      const { data: jobData, error: jobError } = await supabase
+        .from('slicing_jobs')
+        .insert({
+          file_name: fileData.fileName,
+          file_url: 'temp', // Will be updated after file upload to storage
+          estimated_time_hours: estimatedPrintDuration,
+          material: material || 'PLA',
+          status: 'pending'
+        })
+        .select()
+        .single();
+      
+      if (jobError) throw jobError;
+      
+      setSlicingJobId(jobData.id);
+      
+      // Subscribe to realtime updates for this job
+      const channel = supabase
+        .channel(`slicing_job_${jobData.id}`)
+        .on(
+          'postgres_changes',
+          {
+            event: 'UPDATE',
+            schema: 'public',
+            table: 'slicing_jobs',
+            filter: `id=eq.${jobData.id}`
+          },
+          (payload) => {
+            const updatedJob = payload.new as any;
+            if (updatedJob.status === 'completed' && updatedJob.calculated_time_hours) {
+              setCalculatedPrintDuration(updatedJob.calculated_time_hours);
+              toast({
+                title: "Genaue Berechnung verfügbar!",
+                description: `Präzise Druckzeit: ${updatedJob.calculated_time_hours}h`,
+              });
+            } else if (updatedJob.status === 'failed') {
+              console.log('Slicing failed:', updatedJob.error_message);
+            }
+          }
+        )
+        .subscribe();
+      
+      // Cleanup on unmount
+      return () => {
+        supabase.removeChannel(channel);
+      };
+      
+    } catch (error) {
+      console.error('Error starting slicing job:', error);
+    }
+  };
 
   const calculatePrice = useCallback(() => {
     try {
