@@ -42,6 +42,7 @@ import Maschinenbau from "./pages/ratgeber/Maschinenbau";
 import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
 import MeineBestellungen from "./pages/MeineBestellungen";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 
 const queryClient = new QueryClient();
 
@@ -95,6 +96,7 @@ const App = () => (
             <Route path="/admin" element={<Admin />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/meine-bestellungen" element={<MeineBestellungen />} />
+            <Route path="/checkout-success" element={<CheckoutSuccess />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
