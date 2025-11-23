@@ -1251,6 +1251,10 @@ const CostCalculatorWizard = () => {
                         setUploadedFiles(prev => prev.map(f => 
                           f.id === editingFileId ? { ...f, scale: newScale } : f
                         ));
+                        // Update scale state if editing active file
+                        if (editingFileId === activeFileId) {
+                          setScale(newScale);
+                        }
                       }}
                       max={5}
                       min={0.1}
@@ -1276,6 +1280,10 @@ const CostCalculatorWizard = () => {
                         setUploadedFiles(prev => prev.map(f => 
                           f.id === editingFileId ? { ...f, material: value } : f
                         ));
+                        // Update material state if editing active file
+                        if (editingFileId === activeFileId) {
+                          setMaterial(value);
+                        }
                       }}
                     >
                       <SelectTrigger className="w-full h-12">
@@ -1302,6 +1310,10 @@ const CostCalculatorWizard = () => {
                         setUploadedFiles(prev => prev.map(f => 
                           f.id === editingFileId ? { ...f, complexity: Math.round(v[0]) } : f
                         ));
+                        // Update complexity state if editing active file
+                        if (editingFileId === activeFileId) {
+                          setComplexity(Math.round(v[0]));
+                        }
                       }}
                       max={4}
                       min={0}
