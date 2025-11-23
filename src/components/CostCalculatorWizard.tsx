@@ -422,7 +422,8 @@ const CostCalculatorWizard = () => {
         const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
         
         const materialDensity = 1.24;
-        const materialWeightGrams = scaledVolume * materialDensity;
+        // Volume from STL analysis is in mm³, convert to cm³ before calculating weight
+        const materialWeightGrams = (scaledVolume / 1000) * materialDensity;
         
         const objectArea = scaledLength * scaledWidth;
         const plateArea = 150 * 150;
@@ -431,7 +432,14 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        let effectivePrintTime = scaledVolume / 30; // Volumen / 30 für Druckdauer
+        // Use estimated print time from STL analysis if available, otherwise calculate
+        let effectivePrintTime: number;
+        if (file.estimatedPrintTimeHours) {
+          effectivePrintTime = file.estimatedPrintTimeHours;
+        } else {
+          // Fallback: Volume in mm³, convert to cm³ then divide by 30
+          effectivePrintTime = (scaledVolume / 1000) / 30;
+        }
         effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
         
         const energyCostPerHour = 0.20;
