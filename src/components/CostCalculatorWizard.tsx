@@ -112,7 +112,7 @@ const CostCalculatorWizard = () => {
     setHeight(fileData.height);
     const estimatedHours = Math.ceil((fileData.volume / 1000) * 2);
     setPrintDuration(Math.min(72, estimatedHours));
-    setShowViewer(true); // Show viewer instead of going to step 2
+    setCurrentStep(2); // Go to step 2 instead of showing viewer
   }, []);
 
   const calculatePrice = useCallback(() => {
@@ -329,22 +329,8 @@ const CostCalculatorWizard = () => {
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Panel - Settings or 3D Viewer (50% width) */}
+            {/* Left Panel - Wizard Steps (50% width) */}
             <div className="space-y-6 min-h-[600px]">
-              {showViewer ? (
-                <Model3DViewer 
-                  geometry={geometry} 
-                  fileName={fileName}
-                  onBack={() => setShowViewer(false)}
-                  currentStep={currentStep}
-                  onNavigate={(step) => setCurrentStep(step)}
-                  scale={scale}
-                  onScaleChange={setScale}
-                  pricing={pricing}
-                />
-              ) : (
-                <>
-              {/* Step 1: Input Method */}
               {/* Step 1: Input Method */}
               {currentStep === 1 && (
                 <Card className="gradient-card border-0 animate-fade-in">
@@ -418,24 +404,6 @@ const CostCalculatorWizard = () => {
                                 </button>
                               ))}
                             </div>
-                          </div>
-                        )}
-                        
-                        {geometry && fileName && (
-                          <div className="flex items-center justify-between p-3 bg-muted/30 rounded-lg">
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Upload className="w-4 h-4" />
-                              <span>Datei geladen: {fileName}</span>
-                            </div>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => setShowViewer(true)}
-                              className="gap-2"
-                            >
-                              <Eye className="w-4 h-4" />
-                              3D-Vorschau
-                            </Button>
                           </div>
                         )}
                       </TabsContent>
@@ -672,12 +640,21 @@ const CostCalculatorWizard = () => {
                   </CardContent>
                 </Card>
               )}
-              </>
-              )}
             </div>
 
             {/* Right Panel - Live Preview & 3D Viewer (50% width) */}
             <div className="lg:sticky lg:top-8 h-fit space-y-6 min-h-[600px]">
+              {/* 3D Viewer */}
+              {geometry && (
+                <Model3DViewer 
+                  geometry={geometry} 
+                  fileName={fileName}
+                  scale={scale}
+                  onScaleChange={setScale}
+                  pricing={pricing}
+                />
+              )}
+              
               {/* Price Preview */}
               <Card className="gradient-card border-0">
                 <CardHeader>
