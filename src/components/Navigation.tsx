@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube, Calculator, BookOpen, Book } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube, Calculator, BookOpen, Book, Package, LogOut, User } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+    window.location.href = "/";
+  };
 
   return (
     <nav className="fixed top-0 w-full z-[100] bg-background/95 backdrop-blur-lg border-b border-border/50">
@@ -115,6 +122,33 @@ const Navigation = () => {
               Kostenrechner
             </a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</a>
+            
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
+                  <User className="w-4 h-4" />
+                  Mein Konto
+                  <ChevronDown className="w-3 h-3" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem asChild>
+                    <a href="/meine-bestellungen" className="flex items-center gap-2 cursor-pointer">
+                      <Package className="w-4 h-4" />
+                      Meine Bestellungen
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleSignOut} className="flex items-center gap-2 cursor-pointer">
+                    <LogOut className="w-4 h-4" />
+                    Abmelden
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <a href="/auth" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
+                Anmelden
+              </a>
+            )}
+            
             <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
           </div>
 
@@ -209,6 +243,48 @@ const Navigation = () => {
               <BookOpen className="h-4 w-4 text-primary" />
               Ratgeber
             </a>
+            <a 
+              href="/kostenrechner" 
+              className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+              onClick={() => setIsOpen(false)}
+            >
+              <Calculator className="h-4 w-4 text-primary" />
+              Kostenrechner
+            </a>
+            
+            <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Mein Konto</div>
+            {user ? (
+              <>
+                <a 
+                  href="/meine-bestellungen" 
+                  className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Package className="h-4 w-4 text-primary" />
+                  Meine Bestellungen
+                </a>
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    handleSignOut();
+                  }}
+                  className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10 w-full text-left"
+                >
+                  <LogOut className="h-4 w-4 text-primary" />
+                  Abmelden
+                </button>
+              </>
+            ) : (
+              <a 
+                href="/auth" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <User className="h-4 w-4 text-primary" />
+                Anmelden
+              </a>
+            )}
+            
             <Button
               variant="hero" 
               size="sm" 

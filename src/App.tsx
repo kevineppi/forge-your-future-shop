@@ -41,6 +41,7 @@ import PrototypingGuide from "./pages/ratgeber/PrototypingGuide";
 import Maschinenbau from "./pages/ratgeber/Maschinenbau";
 import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
+import MeineBestellungen from "./pages/MeineBestellungen";
 
 const queryClient = new QueryClient();
 
@@ -93,6 +94,7 @@ const App = () => (
             <Route path="/3d-druck-gunskirchen" element={<Gunskirchen3DDruck />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/meine-bestellungen" element={<MeineBestellungen />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
