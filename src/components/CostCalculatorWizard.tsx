@@ -517,14 +517,10 @@ const CostCalculatorWizard = () => {
       const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
       const totalQuantity = uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0);
       
-      // Kleinteilpauschale: Wenn Gesamtpreis unter 15€, dann auf 15€ setzen
-      if (totalWithQuantities < 15) {
-        totalWithQuantities = 15;
-      }
-      
+      // Gesamtpreis ist einfach die Summe aller Live-Preise der einzelnen Dateien
       return {
         perPiece: Math.max(5, roundTo5Cents(totalPerPiece / uploadedFiles.length)),
-        total: Math.max(5, totalWithQuantities), // Don't round again, it's already the sum of rounded prices
+        total: totalWithQuantities, // Einfach die Summe aller Live-Preise
         savings: totalSavings,
         materialCost: totalMaterialCost,
         energyCost: totalEnergyCost,
@@ -535,9 +531,9 @@ const CostCalculatorWizard = () => {
         additionalServices: totalAdditionalServices,
         expressCharge: totalExpressCharge,
         expressShipping: expressShipping,
-        volume: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3), 0) * 1000,
+        volume: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3), 0),
         maxDimension: Math.max(...uploadedFiles.map(f => Math.max(f.length, f.width, f.height) * (f.scale || 1))),
-        materialWeight: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3) * 1.24, 0),
+        materialWeight: uploadedFiles.reduce((sum, f) => sum + (f.volume / 1000) * Math.pow(f.scale || 1, 3) * 1.24, 0),
         objectsPerPlate: 1
       };
     } catch (error) {
