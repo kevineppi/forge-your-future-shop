@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import CostCalculator from "@/components/CostCalculator";
+import CostCalculatorWizard from "@/components/CostCalculatorWizard";
 import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
@@ -75,7 +75,7 @@ const Kostenrechner = () => {
             </div>
           </div>
           
-          <CostCalculator />
+          <CostCalculatorWizard />
           
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-4xl mx-auto space-y-12">
