@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X, Edit2, Palette } from "lucide-react";
+import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X, Edit2, Palette, Plus, Minus } from "lucide-react";
 import { FileUpload3D } from "./FileUpload3D";
 import { Model3DViewer } from "./Model3DViewer";
 import { supabase } from "@/integrations/supabase/client";
@@ -256,28 +256,32 @@ const CostCalculatorWizard = () => {
 
   const calculatePrice = useCallback(() => {
     try {
-      const baseMaterial = materials[material as keyof typeof materials];
-      if (!baseMaterial) return { 
-        perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0, 
-        printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
-        additionalServices: 0, expressCharge: 0, expressShipping: 0, 
-        volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
-      };
+      // Calculate total for all files
+      let totalPerPiece = 0;
+      let totalWithQuantities = 0;
+      let totalSavings = 0;
+      let totalAdditionalServices = 0;
+      let totalExpressCharge = 0;
+      let totalMaterialCost = 0;
+      let totalEnergyCost = 0;
+      let totalPrintCost = 0;
+      let totalDepreciationCost = 0;
+      let totalDryingCost = 0;
+      let totalLaborCost = 0;
       
-      const maxDimension = Math.max(length, width, height);
-      const materialDensity = 1.24; // g/cm³
-      
-      let materialWeightGrams: number;
-      let actualVolume: number;
-      
-      if (actualFileVolume !== null) {
-        // For uploaded files: Use actual STL volume (already solid volume) with scale factor
-        const scaledVolume = actualFileVolume * Math.pow(scale, 3); // Scale³ for volume
-        actualVolume = scaledVolume; // in cm³
-        materialWeightGrams = actualVolume * materialDensity;
-      } else {
-        // For manual input: Calculate with infill factor
-        actualVolume = (length * width * height) / 1000; // Convert mm³ to cm³
+      if (uploadedFiles.length === 0) {
+        // Fallback for manual input
+        const baseMaterial = materials[material as keyof typeof materials];
+        if (!baseMaterial) return { 
+          perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0, 
+          printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
+          additionalServices: 0, expressCharge: 0, expressShipping: 0, 
+          volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
+        };
+        
+        const maxDimension = Math.max(length, width, height);
+        const materialDensity = 1.24;
+        const actualVolume = (length * width * height) / 1000;
         
         let infillFactor = 0.20;
         if (complexity === 1) infillFactor = 0.25;
@@ -285,105 +289,215 @@ const CostCalculatorWizard = () => {
         else if (complexity === 3) infillFactor = 0.40;
         else if (complexity === 4) infillFactor = 0.50;
         
-        materialWeightGrams = actualVolume * materialDensity * infillFactor;
+        const materialWeightGrams = actualVolume * materialDensity * infillFactor;
+        const objectArea = length * width;
+        const plateArea = 150 * 150;
+        const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+        
+        const materialCostBase = (materialWeightGrams / 1000) * baseMaterial.pricePerKg;
+        const materialCostWithMarkup = materialCostBase * 1.30;
+        
+        let effectivePrintTime = printDuration;
+        if (effectivePrintTime === 0) {
+          effectivePrintTime = actualVolume / 10;
+          effectivePrintTime = Math.max(1, Math.ceil(effectivePrintTime * (1 + complexity * 0.3)));
+        } else {
+          effectivePrintTime = printDuration * (1 + complexity * 0.3);
+        }
+        
+        const energyCostPerHour = 0.20;
+        const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
+        const energyCostWithMarkup = energyCostBase * 1.30;
+        
+        const laborCost = 5.00;
+        
+        let printCostPerHour = 1.5;
+        if (maxDimension > 250) {
+          printCostPerHour = 4.0;
+        }
+        printCostPerHour = printCostPerHour * (1 + complexity * 0.25);
+        const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+        
+        const complexitySurcharge = complexity * 2.5;
+        const depreciationPerHour = 0.20;
+        const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
+        const dryingCostPerHour = 0.50;
+        const dryingCost = baseMaterial.dryingHours * dryingCostPerHour;
+        
+        let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
+                       printCost + depreciationCost + dryingCost + complexitySurcharge;
+        
+        let additionalServices = 0;
+        const postProcessingCost = postProcessingOptions[postProcessing as keyof typeof postProcessingOptions]?.price || 0;
+        additionalServices += postProcessingCost;
+        
+        if (supportRemoval && complexity >= 3) {
+          additionalServices += 8;
+        }
+        
+        subtotal += additionalServices;
+        const profit = subtotal * 0.30;
+        subtotal += profit;
+        
+        let expressCharge = 0;
+        let expressShipping = 0;
+        
+        if (isExpressService) {
+          expressCharge = subtotal * 0.50;
+          expressShipping = 20;
+          subtotal += expressCharge + expressShipping;
+        }
+        
+        const tax = subtotal * 0.20;
+        const pricePerPiece = subtotal + tax;
+        
+        let discount = 1.0;
+        if (quantity >= 50) discount = 0.80;
+        else if (quantity >= 20) discount = 0.85;
+        else if (quantity >= 10) discount = 0.90;
+        else if (quantity >= 5) discount = 0.95;
+        
+        const totalPrice = pricePerPiece * quantity * discount;
+        const savings = quantity > 4 ? (pricePerPiece * quantity - totalPrice) : 0;
+        
+        const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
+        
+        return {
+          perPiece: Math.max(5, roundTo5Cents(pricePerPiece)),
+          total: Math.max(5 * quantity, roundTo5Cents(totalPrice)),
+          savings,
+          materialCost: materialCostWithMarkup,
+          energyCost: energyCostWithMarkup,
+          printCost,
+          depreciationCost,
+          dryingCost,
+          laborCost,
+          additionalServices,
+          expressCharge: isExpressService ? expressCharge : 0,
+          expressShipping: isExpressService ? expressShipping : 0,
+          volume: actualVolume * 1000,
+          maxDimension,
+          materialWeight: materialWeightGrams,
+          objectsPerPlate
+        };
       }
       
-      const objectArea = length * width;
-      const plateArea = 150 * 150;
-      const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+      // Calculate for all uploaded files
+      uploadedFiles.forEach(file => {
+        const fileQuantity = file.quantity || 1;
+        const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
+        const fileComplexity = file.complexity || 0;
+        const fileScale = file.scale || 1;
+        const filePostProcessing = file.postProcessing || "none";
+        const fileSupportRemoval = file.supportRemoval || false;
+        
+        const scaledVolume = file.volume * Math.pow(fileScale, 3);
+        const scaledLength = file.length * fileScale;
+        const scaledWidth = file.width * fileScale;
+        const scaledHeight = file.height * fileScale;
+        const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
+        
+        const materialDensity = 1.24;
+        const materialWeightGrams = scaledVolume * materialDensity;
+        
+        const objectArea = scaledLength * scaledWidth;
+        const plateArea = 150 * 150;
+        const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+        
+        const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
+        const materialCostWithMarkup = materialCostBase * 1.30;
+        
+        let effectivePrintTime = file.estimatedPrintTimeHours || (scaledVolume / 10);
+        effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
+        
+        const energyCostPerHour = 0.20;
+        const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
+        const energyCostWithMarkup = energyCostBase * 1.30;
+        
+        const laborCost = 5.00;
+        
+        let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+        printCostPerHour = printCostPerHour * (1 + fileComplexity * 0.25);
+        const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+        
+        const complexitySurcharge = fileComplexity * 2.5;
+        const depreciationPerHour = 0.20;
+        const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
+        const dryingCostPerHour = 0.50;
+        const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
+        
+        let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
+                       printCost + depreciationCost + dryingCost + complexitySurcharge;
+        
+        let additionalServices = 0;
+        const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
+        additionalServices += postProcessingCost;
+        
+        if (fileSupportRemoval && fileComplexity >= 3) {
+          additionalServices += 8;
+        }
+        
+        subtotal += additionalServices;
+        const profit = subtotal * 0.30;
+        subtotal += profit;
+        
+        let expressCharge = 0;
+        if (isExpressService) {
+          expressCharge = subtotal * 0.50;
+          subtotal += expressCharge;
+        }
+        
+        const tax = subtotal * 0.20;
+        const pricePerPiece = subtotal + tax;
+        
+        let discount = 1.0;
+        if (fileQuantity >= 50) discount = 0.80;
+        else if (fileQuantity >= 20) discount = 0.85;
+        else if (fileQuantity >= 10) discount = 0.90;
+        else if (fileQuantity >= 5) discount = 0.95;
+        
+        const fileTotalPrice = pricePerPiece * fileQuantity * discount;
+        const fileSavings = fileQuantity > 4 ? (pricePerPiece * fileQuantity - fileTotalPrice) : 0;
+        
+        totalPerPiece += pricePerPiece;
+        totalWithQuantities += fileTotalPrice;
+        totalSavings += fileSavings;
+        totalAdditionalServices += additionalServices;
+        totalExpressCharge += expressCharge;
+        totalMaterialCost += materialCostWithMarkup;
+        totalEnergyCost += energyCostWithMarkup;
+        totalPrintCost += printCost;
+        totalDepreciationCost += depreciationCost;
+        totalDryingCost += dryingCost;
+        totalLaborCost += laborCost;
+      });
       
-      const materialCostBase = (materialWeightGrams / 1000) * baseMaterial.pricePerKg;
-      const materialCostWithMarkup = materialCostBase * 1.30;
-      
-      let effectivePrintTime = printDuration;
-      if (effectivePrintTime === 0) {
-        // Realistic FDM print speed: ~10 cm³/h
-        effectivePrintTime = actualVolume / 10;
-        effectivePrintTime = Math.max(1, Math.ceil(effectivePrintTime * (1 + complexity * 0.3)));
-      } else {
-        // Apply complexity multiplier to uploaded file duration as well
-        effectivePrintTime = printDuration * (1 + complexity * 0.3);
-      }
-      
-      const energyCostPerHour = 0.20;
-      const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
-      const energyCostWithMarkup = energyCostBase * 1.30;
-      
-      const laborCost = 5.00;
-      
-      let printCostPerHour = 1.5;
-      if (maxDimension > 250) {
-        printCostPerHour = 4.0;
-      }
-      // Increase print cost per hour based on complexity
-      printCostPerHour = printCostPerHour * (1 + complexity * 0.25);
-      const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
-      
-      // Add direct complexity surcharge
-      const complexitySurcharge = complexity * 2.5;
-      
-      const depreciationPerHour = 0.20;
-      const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
-      
-      const dryingCostPerHour = 0.50;
-      const dryingCost = baseMaterial.dryingHours * dryingCostPerHour;
-      
-      let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                     printCost + depreciationCost + dryingCost + complexitySurcharge;
-      
-      let additionalServices = 0;
-      const postProcessingCost = postProcessingOptions[postProcessing as keyof typeof postProcessingOptions]?.price || 0;
-      additionalServices += postProcessingCost;
-      
-      if (supportRemoval && complexity >= 3) {
-        additionalServices += 8;
-      }
-      
-      subtotal += additionalServices;
-      
-      const profit = subtotal * 0.30;
-      subtotal += profit;
-      
-      let expressCharge = 0;
       let expressShipping = 0;
-      
       if (isExpressService) {
-        expressCharge = subtotal * 0.50;
         expressShipping = 20;
-        subtotal += expressCharge + expressShipping;
+        totalWithQuantities += expressShipping;
       }
-      
-      const tax = subtotal * 0.20;
-      const pricePerPiece = subtotal + tax;
-      
-      let discount = 1.0;
-      if (quantity >= 50) discount = 0.80;
-      else if (quantity >= 20) discount = 0.85;
-      else if (quantity >= 10) discount = 0.90;
-      else if (quantity >= 5) discount = 0.95;
-      
-      const totalPrice = pricePerPiece * quantity * discount;
-      const savings = quantity > 4 ? (pricePerPiece * quantity - totalPrice) : 0;
       
       const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
+      const totalQuantity = uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0);
       
       return {
-        perPiece: Math.max(5, roundTo5Cents(pricePerPiece)),
-        total: Math.max(5 * quantity, roundTo5Cents(totalPrice)),
-        savings,
-        materialCost: materialCostWithMarkup,
-        energyCost: energyCostWithMarkup,
-        printCost,
-        depreciationCost,
-        dryingCost,
-        laborCost,
-        additionalServices,
-        expressCharge: isExpressService ? expressCharge : 0,
-        expressShipping: isExpressService ? expressShipping : 0,
-        volume: actualVolume * 1000, // Convert back to mm³ for display
-        maxDimension,
-        materialWeight: materialWeightGrams,
-        objectsPerPlate
+        perPiece: Math.max(5, roundTo5Cents(totalPerPiece / uploadedFiles.length)),
+        total: Math.max(5, roundTo5Cents(totalWithQuantities)),
+        savings: totalSavings,
+        materialCost: totalMaterialCost,
+        energyCost: totalEnergyCost,
+        printCost: totalPrintCost,
+        depreciationCost: totalDepreciationCost,
+        dryingCost: totalDryingCost,
+        laborCost: totalLaborCost,
+        additionalServices: totalAdditionalServices,
+        expressCharge: totalExpressCharge,
+        expressShipping: expressShipping,
+        volume: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3), 0) * 1000,
+        maxDimension: Math.max(...uploadedFiles.map(f => Math.max(f.length, f.width, f.height) * (f.scale || 1))),
+        materialWeight: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3) * 1.24, 0),
+        objectsPerPlate: 1
       };
     } catch (error) {
       console.error('Error calculating price:', error);
@@ -394,7 +508,7 @@ const CostCalculatorWizard = () => {
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
     }
-  }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval, actualFileVolume, scale]);
+  }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval, actualFileVolume, scale, uploadedFiles]);
 
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
@@ -668,34 +782,76 @@ const CostCalculatorWizard = () => {
 
                     {/* Quantity settings for each file */}
                     <div className="space-y-4 max-h-96 overflow-y-auto">
-                      {uploadedFiles.map((file) => (
-                        <div key={file.id} className="p-4 border-2 border-border rounded-lg space-y-3">
-                          <div className="flex items-start justify-between">
-                            <div>
-                              <p className="font-medium text-sm">{file.fileName}</p>
-                              <p className="text-xs text-muted-foreground">
-                                {file.length}×{file.width}×{file.height}mm
-                              </p>
+                      {uploadedFiles.map((file) => {
+                        const fileQuantity = file.quantity || 1;
+                        
+                        return (
+                          <div key={file.id} className="p-4 border-2 border-border rounded-lg space-y-3">
+                            <div className="flex items-start justify-between">
+                              <div className="flex-1">
+                                <p className="font-medium text-sm">{file.fileName}</p>
+                                <p className="text-xs text-muted-foreground">
+                                  {file.length}×{file.width}×{file.height}mm
+                                </p>
+                              </div>
+                            </div>
+                            
+                            <div className="space-y-2">
+                              <label className="text-sm font-medium block">
+                                Stückzahl
+                              </label>
+                              <div className="flex items-center gap-3">
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="icon"
+                                  className="h-10 w-10 shrink-0"
+                                  onClick={() => {
+                                    if (fileQuantity > 1) {
+                                      setUploadedFiles(prev => prev.map(f => 
+                                        f.id === file.id ? { ...f, quantity: fileQuantity - 1 } : f
+                                      ));
+                                    }
+                                  }}
+                                >
+                                  <Minus className="h-4 w-4" />
+                                </Button>
+                                
+                                <input
+                                  type="number"
+                                  min="1"
+                                  max="100"
+                                  value={fileQuantity}
+                                  onChange={(e) => {
+                                    const val = parseInt(e.target.value) || 1;
+                                    const clampedVal = Math.max(1, Math.min(100, val));
+                                    setUploadedFiles(prev => prev.map(f => 
+                                      f.id === file.id ? { ...f, quantity: clampedVal } : f
+                                    ));
+                                  }}
+                                  className="flex-1 h-10 text-center border-2 border-border rounded-lg bg-background focus:border-primary focus:outline-none font-medium text-lg"
+                                />
+                                
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="icon"
+                                  className="h-10 w-10 shrink-0"
+                                  onClick={() => {
+                                    if (fileQuantity < 100) {
+                                      setUploadedFiles(prev => prev.map(f => 
+                                        f.id === file.id ? { ...f, quantity: fileQuantity + 1 } : f
+                                      ));
+                                    }
+                                  }}
+                                >
+                                  <Plus className="h-4 w-4" />
+                                </Button>
+                              </div>
                             </div>
                           </div>
-                          <div>
-                            <label className="text-sm font-medium mb-2 block">
-                              Stückzahl: {file.quantity || 1}
-                            </label>
-                            <Slider
-                              value={[file.quantity || 1]}
-                              onValueChange={(v) => {
-                                setUploadedFiles(prev => prev.map(f => 
-                                  f.id === file.id ? { ...f, quantity: v[0] } : f
-                                ));
-                              }}
-                              max={100}
-                              min={1}
-                              step={1}
-                            />
-                          </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
 
                     {/* Notes field */}
@@ -896,12 +1052,14 @@ const CostCalculatorWizard = () => {
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-center p-4 bg-primary/20 rounded-lg">
-                    <span className="font-medium">Gesamtpreis ({quantity} Stück):</span>
-                    <span className="text-3xl font-bold text-primary">
-                      €{pricing.total.toFixed(2)}
-                    </span>
-                  </div>
+                    <div className="flex justify-between items-center p-4 bg-primary/20 rounded-lg">
+                      <span className="font-medium">
+                        Gesamtpreis ({uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0)} Stück insgesamt):
+                      </span>
+                      <span className="text-3xl font-bold text-primary">
+                        €{pricing.total.toFixed(2)}
+                      </span>
+                    </div>
 
                   {pricing.savings > 0 && (
                     <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border border-green-500/20">
@@ -912,11 +1070,11 @@ const CostCalculatorWizard = () => {
                     </div>
                   )}
 
-                  {quantity >= 5 && (
-                    <Badge className="w-full justify-center bg-green-500/10 text-green-600 border-green-500/20">
-                      🎉 {quantity >= 50 ? "Mega-Rabatt" : quantity >= 20 ? "Großkunden-Rabatt" : quantity >= 10 ? "Volumen-Rabatt" : "Mengen-Rabatt"} aktiv!
-                    </Badge>
-                  )}
+                    {uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0) >= 5 && (
+                      <Badge className="w-full justify-center bg-green-500/10 text-green-600 border-green-500/20">
+                        🎉 {uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0) >= 50 ? "Mega-Rabatt" : uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0) >= 20 ? "Großkunden-Rabatt" : uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0) >= 10 ? "Volumen-Rabatt" : "Mengen-Rabatt"} aktiv!
+                      </Badge>
+                    )}
 
                   {isExpressService && (
                     <Badge className="w-full justify-center bg-yellow-500/10 text-yellow-600 border-yellow-500/20">
