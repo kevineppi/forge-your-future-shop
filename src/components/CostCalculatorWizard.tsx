@@ -30,6 +30,11 @@ interface UploadedFile {
   height: number;
   analysisResults: AnalysisResult[];
   estimatedPrintTimeHours?: number;
+  // File-specific settings
+  material?: string;
+  complexity?: number;
+  postProcessing?: string;
+  supportRemoval?: boolean;
 }
 
 const CostCalculatorWizard = () => {
@@ -113,7 +118,12 @@ const CostCalculatorWizard = () => {
       width: fileData.width,
       height: fileData.height,
       analysisResults: fileData.analysisResults,
-      estimatedPrintTimeHours: fileData.estimatedPrintTimeHours
+      estimatedPrintTimeHours: fileData.estimatedPrintTimeHours,
+      // Initialize with current settings or defaults
+      material: material || "pla",
+      complexity: complexity || 0,
+      postProcessing: postProcessing || "none",
+      supportRemoval: supportRemoval || false
     };
     
     setUploadedFiles(prev => [...prev, newFile]);
@@ -137,7 +147,29 @@ const CostCalculatorWizard = () => {
       setEstimatedPrintDuration(calculatedHours);
     }
     // Stay on step 1, don't auto-advance
-  }, []);
+  }, [material, complexity, postProcessing, supportRemoval]);
+
+  // Save current settings to active file
+  const saveSettingsToActiveFile = useCallback(() => {
+    if (activeFileId) {
+      setUploadedFiles(prev => prev.map(file => 
+        file.id === activeFileId
+          ? {
+              ...file,
+              material,
+              complexity,
+              postProcessing,
+              supportRemoval
+            }
+          : file
+      ));
+    }
+  }, [activeFileId, material, complexity, postProcessing, supportRemoval]);
+
+  // Auto-save settings when they change
+  useEffect(() => {
+    saveSettingsToActiveFile();
+  }, [material, complexity, postProcessing, supportRemoval, saveSettingsToActiveFile]);
 
   // Start background slicing for accurate print time (placeholder for future microservice)
   const startBackgroundSlicing = async (fileData: {
@@ -477,6 +509,11 @@ const CostCalculatorWizard = () => {
                                     setLength(file.length);
                                     setWidth(file.width);
                                     setHeight(file.height);
+                                    // Load file-specific settings
+                                    setMaterial(file.material || "pla");
+                                    setComplexity(file.complexity || 0);
+                                    setPostProcessing(file.postProcessing || "none");
+                                    setSupportRemoval(file.supportRemoval || false);
                                     // Set the estimated print duration for this specific file
                                     if (file.estimatedPrintTimeHours) {
                                       setPrintDuration(file.estimatedPrintTimeHours);
@@ -500,9 +537,8 @@ const CostCalculatorWizard = () => {
                                       {file.length}×{file.width}×{file.height}mm • {file.volume.toFixed(1)}cm³
                                     </p>
                                   </div>
-                                  <Button
-                                    variant="ghost"
-                                    size="sm"
+                                  <button
+                                    type="button"
                                     onClick={(e) => {
                                       e.stopPropagation();
                                       setUploadedFiles(prev => prev.filter(f => f.id !== file.id));
@@ -515,10 +551,10 @@ const CostCalculatorWizard = () => {
                                         }
                                       }
                                     }}
-                                    className="ml-2"
+                                    className="ml-2 p-1 hover:bg-destructive/10 rounded transition-colors"
                                   >
                                     <X className="w-4 h-4" />
-                                  </Button>
+                                  </button>
                                 </button>
                               ))}
                             </div>
