@@ -31,11 +31,11 @@ const CostCalculator = () => {
   }, []);
 
   const materials = {
-    pla: { name: "PLA", price: 0.20, factor: 1.0 },
-    petg: { name: "PETG", price: 0.32, factor: 1.2 },
-    abs: { name: "ABS", price: 0.28, factor: 1.1 },
-    pa12: { name: "PA12 Nylon", price: 1.00, factor: 1.6 },
-    pa6: { name: "PA6 Nylon", price: 1.00, factor: 1.6 }
+    pla: { name: "PLA", pricePerKg: 20, dryingHours: 0 },
+    petg: { name: "PETG", pricePerKg: 20, dryingHours: 0 },
+    abs: { name: "ABS", pricePerKg: 20, dryingHours: 0 },
+    pa12: { name: "PA12 Nylon", pricePerKg: 100, dryingHours: 4 },
+    pa6: { name: "PA6 Nylon", pricePerKg: 100, dryingHours: 4 }
   };
 
   const complexityLevels = [
@@ -105,22 +105,71 @@ const CostCalculator = () => {
   const calculatePrice = useCallback(() => {
     try {
       const baseMaterial = materials[material as keyof typeof materials];
-      if (!baseMaterial) return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, additionalServices: 0, expressCharge: 0, expressShipping: 0, volume: 125000, maxDimension: 50 };
+      if (!baseMaterial) return { 
+        perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0, 
+        printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
+        additionalServices: 0, expressCharge: 0, expressShipping: 0, 
+        volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
+      };
       
       const actualVolume = (length * width * height) / 1000000;
       const maxDimension = Math.max(length, width, height);
       
-      // Updated complexity multipliers with new margins
-      let complexityMultiplier = 1.0;
-      if (complexity === 0) complexityMultiplier = 1.0;
-      else if (complexity === 1) complexityMultiplier = 1.2;
-      else if (complexity === 2) complexityMultiplier = 1.4;
-      else if (complexity === 3) complexityMultiplier = 1.5; // Überhänge: 150%
-      else if (complexity === 4) complexityMultiplier = 2.0; // Mehrfärbig/Sehr komplex: 200%
+      // Estimate material weight based on volume and infill/complexity
+      // Assuming 20% infill for simple, up to 50% for complex
+      let infillFactor = 0.20;
+      if (complexity === 1) infillFactor = 0.25;
+      else if (complexity === 2) infillFactor = 0.35;
+      else if (complexity === 3) infillFactor = 0.40;
+      else if (complexity === 4) infillFactor = 0.50;
       
-      const basePrice = actualVolume * baseMaterial.price * complexityMultiplier * baseMaterial.factor * 100;
+      // PLA density ~1.24 g/cm³
+      const materialDensity = 1.24;
+      const materialWeightGrams = actualVolume * 1000 * materialDensity * infillFactor;
       
-      // Additional services
+      // Calculate objects per plate (simplified - larger objects = fewer per plate)
+      const objectArea = (length * width) / 1000; // in cm²
+      const plateArea = 22500; // 150mm x 150mm = 22500 cm²
+      const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+      
+      // 1. MATERIALKOSTEN (Material costs)
+      const materialCostBase = (materialWeightGrams / 1000) * baseMaterial.pricePerKg;
+      const materialCostWithMarkup = materialCostBase * 1.30; // +30% markup
+      
+      // 2. ENERGIEKOSTEN (Energy costs)
+      // Use printDuration if provided, otherwise estimate based on volume and complexity
+      let effectivePrintTime = printDuration;
+      if (effectivePrintTime === 0) {
+        // Rough estimate: 1 hour per 50cm³ for simple parts
+        effectivePrintTime = (actualVolume * 1000 / 50) * (1 + complexity * 0.3);
+        effectivePrintTime = Math.max(1, Math.ceil(effectivePrintTime));
+      }
+      
+      const powerConsumptionKW = 0.3; // 300W
+      const energyCostPerKWh = 0.20; // 0.20€/kWh
+      const energyCostBase = effectivePrintTime * powerConsumptionKW * energyCostPerKWh / objectsPerPlate;
+      const energyCostWithMarkup = energyCostBase * 1.30; // +30% markup
+      
+      // 3. ARBEITSAUFWAND (Labor cost) - fixed
+      const laborCost = 5.00;
+      
+      // 4. DRUCKKOSTEN (Print costs) - based on print time
+      const printCostPerHour = 4.17; // €25 / 6h from Excel
+      const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+      
+      // 5. DRUCKERABNUTZUNG (Printer depreciation)
+      const depreciationPerHour = 0.10;
+      const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
+      
+      // 6. TROCKNUNGSKOSTEN (Drying costs)
+      const dryingCostPerHour = 0.50;
+      const dryingCost = baseMaterial.dryingHours * dryingCostPerHour;
+      
+      // SUBTOTAL before additional services
+      let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
+                     printCost + depreciationCost + dryingCost;
+      
+      // 7. ADDITIONAL SERVICES
       let additionalServices = 0;
       
       // Post-processing costs
@@ -129,58 +178,70 @@ const CostCalculator = () => {
       
       // Support removal (if complexity >= 3)
       if (supportRemoval && complexity >= 3) {
-        additionalServices += 8; // €8 for support removal
+        additionalServices += 8;
       }
       
-      let printDurationCost = 0;
-      if (printDuration > 0) {
-        let hourlyRate = 1.5;
-        if (maxDimension > 250 && maxDimension <= 350) {
-          hourlyRate = 4.0;
-        }
-        printDurationCost = printDuration * hourlyRate;
-      }
+      subtotal += additionalServices;
       
-      // Base price before express
-      const basePriceBeforeExpress = basePrice + printDurationCost + additionalServices;
+      // 8. GEWINN (Profit margin 30%)
+      const profit = subtotal * 0.30;
+      subtotal += profit;
       
-      // Express service (24h delivery)
+      // 9. EXPRESS SERVICE (before tax)
       let expressCharge = 0;
       let expressShipping = 0;
       
       if (isExpressService) {
-        expressCharge = basePriceBeforeExpress * 0.5; // 50% surcharge for express
-        expressShipping = 20; // Additional €20 for express shipping
+        expressCharge = subtotal * 0.50; // 50% surcharge
+        expressShipping = 20;
+        subtotal += expressCharge + expressShipping;
       }
       
-      const totalBasePrice = basePriceBeforeExpress + expressCharge + expressShipping;
+      // 10. STEUERN (Tax 20% VAT)
+      const tax = subtotal * 0.20;
       
-      // Enhanced quantity discounts
+      // FINAL PRICE PER PIECE
+      const pricePerPiece = subtotal + tax;
+      
+      // Quantity discounts
       let discount = 1.0;
-      if (quantity >= 50) discount = 0.8;
-      else if (quantity >= 20) discount = 0.85;
-      else if (quantity >= 10) discount = 0.9;
-      else if (quantity >= 5) discount = 0.95;
+      if (quantity >= 50) discount = 0.80; // 20% off
+      else if (quantity >= 20) discount = 0.85; // 15% off
+      else if (quantity >= 10) discount = 0.90; // 10% off
+      else if (quantity >= 5) discount = 0.95; // 5% off
       
-      const totalPrice = totalBasePrice * quantity * discount;
+      const totalPrice = pricePerPiece * quantity * discount;
+      const savings = quantity > 4 ? (pricePerPiece * quantity - totalPrice) : 0;
       
-      // Round to 5 cents (0.05)
+      // Round to 5 cents
       const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
       
       return {
-        perPiece: Math.max(5, roundTo5Cents(totalBasePrice)),
+        perPiece: Math.max(5, roundTo5Cents(pricePerPiece)),
         total: Math.max(5 * quantity, roundTo5Cents(totalPrice)),
-        savings: quantity > 4 ? (totalBasePrice * quantity - totalPrice) : 0,
-        printDurationCost,
+        savings,
+        materialCost: materialCostWithMarkup,
+        energyCost: energyCostWithMarkup,
+        printCost,
+        depreciationCost,
+        dryingCost,
+        laborCost,
         additionalServices,
         expressCharge: isExpressService ? expressCharge : 0,
         expressShipping: isExpressService ? expressShipping : 0,
         volume: actualVolume * 1000000,
-        maxDimension
+        maxDimension,
+        materialWeight: materialWeightGrams,
+        objectsPerPlate
       };
     } catch (error) {
       console.error('Error calculating price:', error);
-      return { perPiece: 5, total: 5, savings: 0, printDurationCost: 0, additionalServices: 0, expressCharge: 0, expressShipping: 0, volume: 125000, maxDimension: 50 };
+      return { 
+        perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0,
+        printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
+        additionalServices: 0, expressCharge: 0, expressShipping: 0,
+        volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
+      };
     }
   }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval]);
 
@@ -233,11 +294,11 @@ const CostCalculator = () => {
                       <SelectValue placeholder="Material auswählen" />
                     </SelectTrigger>
                     <SelectContent className="bg-background border border-border z-50">
-                      <SelectItem value="pla">PLA - €0.20/g</SelectItem>
-                      <SelectItem value="petg">PETG - €0.32/g</SelectItem>
-                      <SelectItem value="abs">ABS - €0.28/g</SelectItem>
-                      <SelectItem value="pa12">PA12 Nylon - €1.00/g</SelectItem>
-                      <SelectItem value="pa6">PA6 Nylon - €1.00/g</SelectItem>
+                      <SelectItem value="pla">PLA - €20/kg</SelectItem>
+                      <SelectItem value="petg">PETG - €20/kg</SelectItem>
+                      <SelectItem value="abs">ABS - €20/kg</SelectItem>
+                      <SelectItem value="pa12">PA12 Nylon - €100/kg</SelectItem>
+                      <SelectItem value="pa6">PA6 Nylon - €100/kg</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -430,11 +491,39 @@ const CostCalculator = () => {
               </CardHeader>
               <CardContent className="space-y-4 lg:space-y-6 p-4 lg:p-6">
                 <div className="space-y-3 lg:space-y-4">
-                  <div className="flex justify-between items-center p-4 bg-muted/50 rounded-lg">
-                    <span className="font-medium">Basis-Preis pro Stück:</span>
-                    <span className="text-xl font-bold text-primary">
-                      €{(pricing.perPiece - pricing.additionalServices - pricing.expressCharge).toFixed(2)}
-                    </span>
+                  {/* Cost Breakdown */}
+                  <div className="space-y-2 p-4 bg-muted/30 rounded-lg">
+                    <h4 className="font-semibold text-sm mb-3">Kostenaufschlüsselung:</h4>
+                    <div className="flex justify-between text-sm">
+                      <span>Materialkosten (inkl. 30%):</span>
+                      <span className="font-medium">€{pricing.materialCost.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Energiekosten (inkl. 30%):</span>
+                      <span className="font-medium">€{pricing.energyCost.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Arbeitsaufwand:</span>
+                      <span className="font-medium">€{pricing.laborCost.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Druckkosten:</span>
+                      <span className="font-medium">€{pricing.printCost.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Druckerabnutzung:</span>
+                      <span className="font-medium">€{pricing.depreciationCost.toFixed(2)}</span>
+                    </div>
+                    {pricing.dryingCost > 0 && (
+                      <div className="flex justify-between text-sm">
+                        <span>Trocknungskosten:</span>
+                        <span className="font-medium">€{pricing.dryingCost.toFixed(2)}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between text-sm text-muted-foreground pt-2 border-t">
+                      <span>Gewichtung: ~{pricing.materialWeight.toFixed(0)}g Material</span>
+                      <span>{pricing.objectsPerPlate} Objekt(e)/Platte</span>
+                    </div>
                   </div>
 
                   {pricing.additionalServices > 0 && (
@@ -473,17 +562,15 @@ const CostCalculator = () => {
                     </div>
                   )}
 
-                  {pricing.printDurationCost > 0 && (
-                    <div className="flex justify-between items-center p-4 bg-muted/30 rounded-lg">
-                      <span className="font-medium">Druckzeit-Kosten:</span>
-                      <span className="text-lg font-semibold">
-                        €{pricing.printDurationCost.toFixed(2)}
-                      </span>
-                    </div>
-                  )}
-
                   <div className="flex justify-between items-center p-4 bg-primary/10 rounded-lg">
-                    <span className="font-medium">Gesamtpreis:</span>
+                    <span className="font-medium">Stückpreis (inkl. 20% MwSt):</span>
+                    <span className="text-2xl font-bold text-primary">
+                      €{pricing.perPiece.toFixed(2)}
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between items-center p-4 bg-primary/20 rounded-lg">
+                    <span className="font-medium">Gesamtpreis ({quantity} Stück):</span>
                     <span className="text-2xl font-bold text-primary">
                       €{pricing.total.toFixed(2)}
                     </span>
