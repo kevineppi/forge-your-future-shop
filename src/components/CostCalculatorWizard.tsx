@@ -29,6 +29,7 @@ interface UploadedFile {
   width: number;
   height: number;
   analysisResults: AnalysisResult[];
+  estimatedPrintTimeHours?: number;
 }
 
 const CostCalculatorWizard = () => {
@@ -111,7 +112,8 @@ const CostCalculatorWizard = () => {
       length: fileData.length,
       width: fileData.width,
       height: fileData.height,
-      analysisResults: fileData.analysisResults
+      analysisResults: fileData.analysisResults,
+      estimatedPrintTimeHours: fileData.estimatedPrintTimeHours
     };
     
     setUploadedFiles(prev => [...prev, newFile]);
@@ -130,7 +132,9 @@ const CostCalculatorWizard = () => {
     } else {
       // Fallback: Realistic FDM print speed: ~10 cm³/h (0.2mm layer height, 50mm/s speed)
       const estimatedHours = Math.ceil(fileData.volume / 10);
-      setPrintDuration(Math.min(72, Math.max(1, estimatedHours)));
+      const calculatedHours = Math.min(72, Math.max(1, estimatedHours));
+      setPrintDuration(calculatedHours);
+      setEstimatedPrintDuration(calculatedHours);
     }
     // Stay on step 1, don't auto-advance
   }, []);
@@ -473,6 +477,16 @@ const CostCalculatorWizard = () => {
                                     setLength(file.length);
                                     setWidth(file.width);
                                     setHeight(file.height);
+                                    // Set the estimated print duration for this specific file
+                                    if (file.estimatedPrintTimeHours) {
+                                      setPrintDuration(file.estimatedPrintTimeHours);
+                                      setEstimatedPrintDuration(file.estimatedPrintTimeHours);
+                                    } else {
+                                      const estimatedHours = Math.ceil(file.volume / 10);
+                                      const calculatedHours = Math.min(72, Math.max(1, estimatedHours));
+                                      setPrintDuration(calculatedHours);
+                                      setEstimatedPrintDuration(calculatedHours);
+                                    }
                                   }}
                                   className={`w-full flex items-center justify-between p-3 rounded-lg border-2 transition-colors ${
                                     activeFileId === file.id
