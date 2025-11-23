@@ -153,8 +153,11 @@ const CostCalculator = () => {
       // 3. ARBEITSAUFWAND (Labor cost) - fixed
       const laborCost = 5.00;
       
-      // 4. DRUCKKOSTEN (Print costs) - based on print time
-      const printCostPerHour = 4.17; // €25 / 6h from Excel
+      // 4. DRUCKKOSTEN (Print costs) - based on print time and size
+      let printCostPerHour = 1.5; // Default for parts <= 250mm
+      if (maxDimension > 250) {
+        printCostPerHour = 4.0; // For parts > 250mm
+      }
       const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
       
       // 5. DRUCKERABNUTZUNG (Printer depreciation)
