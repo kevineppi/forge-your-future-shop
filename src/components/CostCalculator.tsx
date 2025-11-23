@@ -293,11 +293,6 @@ const CostCalculator = () => {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          {/* 3D File Upload Section */}
-          <div className="mb-8">
-            <FileUpload3D onDimensionsCalculated={handleFileUpload} />
-          </div>
-
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
             {/* Calculator Form */}
             <Card className="gradient-card border-0 animate-fade-in">

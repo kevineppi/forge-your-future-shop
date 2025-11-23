@@ -4,7 +4,8 @@ import { OrbitControls, Stage } from "@react-three/drei";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Upload, X, AlertTriangle, CheckCircle2, Info } from "lucide-react";
+import { Slider } from "@/components/ui/slider";
+import { Upload, X, AlertTriangle, Info, ZoomIn, ZoomOut, Maximize2 } from "lucide-react";
 import { toast } from "sonner";
 import * as THREE from "three";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
@@ -13,6 +14,21 @@ interface AnalysisResult {
   type: "error" | "warning" | "info";
   message: string;
   detail?: string;
+}
+
+interface FileUpload3DProps {
+  onDimensionsCalculated: (dimensions: {
+    length: number;
+    width: number;
+    height: number;
+    volume: number;
+  }) => void;
+  geometry: THREE.BufferGeometry | null;
+  setGeometry: (geometry: THREE.BufferGeometry | null) => void;
+  fileName: string;
+  setFileName: (name: string) => void;
+  analysisResults: AnalysisResult[];
+  setAnalysisResults: (results: AnalysisResult[]) => void;
 }
 
 interface FileUpload3DProps {
@@ -32,11 +48,16 @@ const Model = ({ geometry }: { geometry: THREE.BufferGeometry }) => {
   );
 };
 
-export const FileUpload3D = ({ onDimensionsCalculated }: FileUpload3DProps) => {
-  const [geometry, setGeometry] = useState<THREE.BufferGeometry | null>(null);
-  const [fileName, setFileName] = useState<string>("");
+export const FileUpload3D = ({ 
+  onDimensionsCalculated, 
+  geometry, 
+  setGeometry, 
+  fileName, 
+  setFileName,
+  analysisResults,
+  setAnalysisResults 
+}: FileUpload3DProps) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [analysisResults, setAnalysisResults] = useState<AnalysisResult[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const calculateVolume = (geometry: THREE.BufferGeometry): number => {
@@ -252,129 +273,101 @@ export const FileUpload3D = ({ onDimensionsCalculated }: FileUpload3DProps) => {
   };
 
   return (
-    <Card className="gradient-card border-0 p-6">
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold">3D Datei hochladen</h3>
-          {fileName && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleClear}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <X className="w-4 h-4 mr-1" />
-              Zurücksetzen
-            </Button>
-          )}
-        </div>
+    <div className="space-y-4">
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".stl,.stp,.step"
+        onChange={handleFileChange}
+        className="hidden"
+        id="file-upload-3d"
+      />
 
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept=".stl,.stp,.step"
-          onChange={handleFileChange}
-          className="hidden"
-          id="file-upload-3d"
-        />
-
-        {!geometry ? (
-          <label
-            htmlFor="file-upload-3d"
-            className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
+      {!geometry ? (
+        <label
+          htmlFor="file-upload-3d"
+          className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
+        >
+          <div className="flex flex-col items-center justify-center pt-5 pb-6">
+            <Upload className="w-10 h-10 mb-3 text-muted-foreground" />
+            <p className="mb-2 text-sm text-foreground font-medium">
+              Klicken zum Hochladen
+            </p>
+            <p className="text-xs text-muted-foreground">
+              STL oder STP/STEP (max. 50MB)
+            </p>
+          </div>
+        </label>
+      ) : (
+        <div className="flex items-center gap-2 p-3 bg-primary/10 rounded-lg">
+          <div className="flex-1">
+            <p className="text-sm font-medium text-foreground">{fileName}</p>
+            <p className="text-xs text-muted-foreground">
+              Datei geladen
+            </p>
+          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleClear}
+            className="text-muted-foreground hover:text-foreground"
           >
-            <div className="flex flex-col items-center justify-center pt-5 pb-6">
-              <Upload className="w-12 h-12 mb-3 text-muted-foreground" />
-              <p className="mb-2 text-sm text-foreground font-medium">
-                Klicken zum Hochladen
-              </p>
-              <p className="text-xs text-muted-foreground">
-                STL oder STP/STEP Dateien (max. 50MB)
-              </p>
-            </div>
-          </label>
-        ) : (
-          <div className="w-full h-96 bg-background rounded-lg overflow-hidden border border-border">
-            <Canvas camera={{ position: [0, 0, 100], fov: 50 }}>
-              <ambientLight intensity={0.5} />
-              <directionalLight position={[10, 10, 5]} intensity={1} />
-              <Stage environment="city" intensity={0.6}>
-                <Model geometry={geometry} />
-              </Stage>
-              <OrbitControls 
-                enableZoom={true}
-                enablePan={true}
-                enableRotate={true}
-              />
-            </Canvas>
-          </div>
-        )}
+            <X className="w-4 h-4" />
+          </Button>
+        </div>
+      )}
 
-        {fileName && (
-          <div className="space-y-3">
-            <div className="flex items-center gap-2 p-3 bg-primary/10 rounded-lg">
-              <div className="flex-1">
-                <p className="text-sm font-medium text-foreground">{fileName}</p>
-                <p className="text-xs text-muted-foreground">
-                  Datei geladen - Maße wurden automatisch berechnet
+      {analysisResults.length > 0 && (
+        <div className="space-y-2">
+          <h4 className="text-sm font-semibold text-foreground">Analyse:</h4>
+          {analysisResults.map((result, index) => (
+            <div
+              key={index}
+              className={`flex gap-3 p-3 rounded-lg ${
+                result.type === "error"
+                  ? "bg-red-500/10 border border-red-500/20"
+                  : result.type === "warning"
+                  ? "bg-yellow-500/10 border border-yellow-500/20"
+                  : "bg-blue-500/10 border border-blue-500/20"
+              }`}
+            >
+              <div className="flex-shrink-0 mt-0.5">
+                {result.type === "error" ? (
+                  <AlertTriangle className="w-5 h-5 text-red-500" />
+                ) : result.type === "warning" ? (
+                  <AlertTriangle className="w-5 h-5 text-yellow-500" />
+                ) : (
+                  <Info className="w-5 h-5 text-blue-500" />
+                )}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p
+                  className={`text-sm font-medium ${
+                    result.type === "error"
+                      ? "text-red-600"
+                      : result.type === "warning"
+                      ? "text-yellow-600"
+                      : "text-blue-600"
+                  }`}
+                >
+                  {result.message}
                 </p>
+                {result.detail && (
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {result.detail}
+                  </p>
+                )}
               </div>
             </div>
+          ))}
+        </div>
+      )}
 
-            {analysisResults.length > 0 && (
-              <div className="space-y-2">
-                <h4 className="text-sm font-semibold text-foreground">Druckbarkeits-Analyse:</h4>
-                {analysisResults.map((result, index) => (
-                  <div
-                    key={index}
-                    className={`flex gap-3 p-3 rounded-lg ${
-                      result.type === "error"
-                        ? "bg-red-500/10 border border-red-500/20"
-                        : result.type === "warning"
-                        ? "bg-yellow-500/10 border border-yellow-500/20"
-                        : "bg-blue-500/10 border border-blue-500/20"
-                    }`}
-                  >
-                    <div className="flex-shrink-0 mt-0.5">
-                      {result.type === "error" ? (
-                        <AlertTriangle className="w-5 h-5 text-red-500" />
-                      ) : result.type === "warning" ? (
-                        <AlertTriangle className="w-5 h-5 text-yellow-500" />
-                      ) : (
-                        <Info className="w-5 h-5 text-blue-500" />
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p
-                        className={`text-sm font-medium ${
-                          result.type === "error"
-                            ? "text-red-600"
-                            : result.type === "warning"
-                            ? "text-yellow-600"
-                            : "text-blue-600"
-                        }`}
-                      >
-                        {result.message}
-                      </p>
-                      {result.detail && (
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {result.detail}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
-        {isLoading && (
-          <div className="flex items-center justify-center p-4">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-          </div>
-        )}
-      </div>
-    </Card>
+      {isLoading && (
+        <div className="flex items-center justify-center p-4">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>
+      )}
+    </div>
   );
 };

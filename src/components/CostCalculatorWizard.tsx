@@ -8,11 +8,24 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check } from "lucide-react";
 import { FileUpload3D } from "./FileUpload3D";
+import { Model3DViewer } from "./Model3DViewer";
+import * as THREE from "three";
+
+interface AnalysisResult {
+  type: "error" | "warning" | "info";
+  message: string;
+  detail?: string;
+}
 
 const CostCalculatorWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [inputMethod, setInputMethod] = useState<"file" | "manual">("manual");
   const [isClient, setIsClient] = useState(false);
+  
+  // 3D File state
+  const [geometry, setGeometry] = useState<THREE.BufferGeometry | null>(null);
+  const [fileName, setFileName] = useState("");
+  const [analysisResults, setAnalysisResults] = useState<AnalysisResult[]>([]);
   
   // State
   const [material, setMaterial] = useState("pla");
@@ -261,8 +274,9 @@ const CostCalculatorWizard = () => {
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Panel - Settings */}
-            <div className="space-y-6">
+            {/* Left Panel - Settings (50% width) */}
+            <div className="space-y-6 min-h-[600px]">
+              {/* Step 1: Input Method */}
               {/* Step 1: Input Method */}
               {currentStep === 1 && (
                 <Card className="gradient-card border-0 animate-fade-in">
@@ -285,7 +299,15 @@ const CostCalculatorWizard = () => {
                         </TabsTrigger>
                       </TabsList>
                       <TabsContent value="file" className="mt-6">
-                        <FileUpload3D onDimensionsCalculated={handleFileUpload} />
+                        <FileUpload3D 
+                          onDimensionsCalculated={handleFileUpload}
+                          geometry={geometry}
+                          setGeometry={setGeometry}
+                          fileName={fileName}
+                          setFileName={setFileName}
+                          analysisResults={analysisResults}
+                          setAnalysisResults={setAnalysisResults}
+                        />
                       </TabsContent>
                       <TabsContent value="manual" className="mt-6 space-y-4">
                         <div>
@@ -522,8 +544,12 @@ const CostCalculatorWizard = () => {
               )}
             </div>
 
-            {/* Right Panel - Live Preview */}
-            <div className="lg:sticky lg:top-8 h-fit">
+            {/* Right Panel - Live Preview & 3D Viewer (50% width) */}
+            <div className="lg:sticky lg:top-8 h-fit space-y-6 min-h-[600px]">
+              {/* 3D Viewer */}
+              <Model3DViewer geometry={geometry} fileName={fileName} />
+
+              {/* Price Preview */}
               <Card className="gradient-card border-0">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
