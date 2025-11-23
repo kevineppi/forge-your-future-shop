@@ -1367,6 +1367,7 @@ const CostCalculatorWizard = () => {
               fileName={fileName}
               scale={scale}
               onScaleChange={setScale}
+              estimatedPrintTimeHours={estimatedPrintDuration}
               pricing={pricing}
             />
           </DialogContent>
