@@ -43,7 +43,6 @@ interface UploadedFile {
 
 const CostCalculatorWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [inputMethod, setInputMethod] = useState<"file" | "manual">("manual");
   const [isClient, setIsClient] = useState(false);
   const [editingFileId, setEditingFileId] = useState<string | null>(null);
   
@@ -62,11 +61,6 @@ const CostCalculatorWizard = () => {
   // State
   const [material, setMaterial] = useState("pla");
   const [complexity, setComplexity] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-  const [length, setLength] = useState(100);
-  const [width, setWidth] = useState(100);
-  const [height, setHeight] = useState(100);
-  const [printDuration, setPrintDuration] = useState(0);
   const [estimatedPrintDuration, setEstimatedPrintDuration] = useState<number | null>(null);
   const [slicingJobId, setSlicingJobId] = useState<string | null>(null);
   const [calculatedPrintDuration, setCalculatedPrintDuration] = useState<number | null>(null);
@@ -160,9 +154,6 @@ const CostCalculatorWizard = () => {
     
     setUploadedFiles(prev => [...prev, newFile]);
     setActiveFileId(newFile.id);
-    setLength(fileData.length);
-    setWidth(fileData.width);
-    setHeight(fileData.height);
     
     // Auto-set complexity from edge function analysis
     if (fileData.complexityScore !== undefined) {
@@ -172,19 +163,8 @@ const CostCalculatorWizard = () => {
     
     // Use heuristic calculation if provided
     if (fileData.estimatedPrintTimeHours) {
-      setPrintDuration(fileData.estimatedPrintTimeHours);
       setEstimatedPrintDuration(fileData.estimatedPrintTimeHours);
-      
-      // Start background slicing job for accurate calculation
-      // startBackgroundSlicing(fileData);
-    } else {
-      // Fallback: Realistic FDM print speed: ~10 cm³/h (0.2mm layer height, 50mm/s speed)
-      const estimatedHours = Math.ceil(fileData.volume / 10);
-      const calculatedHours = Math.min(72, Math.max(1, estimatedHours));
-      setPrintDuration(calculatedHours);
-      setEstimatedPrintDuration(calculatedHours);
     }
-    // Stay on step 1, don't auto-advance
   }, [material, complexity, postProcessing, supportRemoval]);
 
   // Save current settings to active file
@@ -270,126 +250,13 @@ const CostCalculatorWizard = () => {
 
   const calculatePrice = useCallback(() => {
     try {
-      // Return 0 if no files uploaded in file mode
+      // Return 0 if no files uploaded
       if (uploadedFiles.length === 0) {
-        if (inputMethod === "file") {
-          return { 
-            perPiece: 0, total: 0, savings: 0, materialCost: 0, energyCost: 0,
-            printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
-            additionalServices: 0, expressCharge: 0, expressShipping: 0,
-            volume: 0, maxDimension: 0, materialWeight: 0, objectsPerPlate: 1
-          };
-        }
-        
-        // Fallback for manual input
-        const baseMaterial = materials[material as keyof typeof materials];
-        if (!baseMaterial) return {
-          perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0, 
+        return { 
+          perPiece: 0, total: 0, savings: 0, materialCost: 0, energyCost: 0,
           printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
-          additionalServices: 0, expressCharge: 0, expressShipping: 0, 
-          volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
-        };
-        
-        const maxDimension = Math.max(length, width, height);
-        const materialDensity = 1.24;
-        const actualVolume = (length * width * height) / 1000;
-        
-        let infillFactor = 0.20;
-        if (complexity === 1) infillFactor = 0.25;
-        else if (complexity === 2) infillFactor = 0.35;
-        else if (complexity === 3) infillFactor = 0.40;
-        else if (complexity === 4) infillFactor = 0.50;
-        
-        const materialWeightGrams = actualVolume * materialDensity * infillFactor;
-        const objectArea = length * width;
-        const plateArea = 150 * 150;
-        const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
-        
-        const materialCostBase = (materialWeightGrams / 1000) * baseMaterial.pricePerKg;
-        const materialCostWithMarkup = materialCostBase * 1.30;
-        
-        let effectivePrintTime = printDuration;
-        if (effectivePrintTime === 0) {
-          effectivePrintTime = actualVolume / 10;
-          effectivePrintTime = Math.max(1, Math.ceil(effectivePrintTime * (1 + complexity * 0.3)));
-        } else {
-          effectivePrintTime = printDuration * (1 + complexity * 0.3);
-        }
-        
-        const energyCostPerHour = 0.20;
-        const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
-        const energyCostWithMarkup = energyCostBase * 1.30;
-        
-        const laborCost = 5.00;
-        
-        let printCostPerHour = 1.5;
-        if (maxDimension > 250) {
-          printCostPerHour = 4.0;
-        }
-        printCostPerHour = printCostPerHour * (1 + complexity * 0.25);
-        const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
-        
-        const complexitySurcharge = complexity * 2.5;
-        const depreciationPerHour = 0.20;
-        const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
-        const dryingCostPerHour = 0.50;
-        const dryingCost = baseMaterial.dryingHours * dryingCostPerHour;
-        
-        let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                       printCost + depreciationCost + dryingCost + complexitySurcharge;
-        
-        let additionalServices = 0;
-        const postProcessingCost = postProcessingOptions[postProcessing as keyof typeof postProcessingOptions]?.price || 0;
-        additionalServices += postProcessingCost;
-        
-        if (supportRemoval && complexity >= 3) {
-          additionalServices += 8;
-        }
-        
-        subtotal += additionalServices;
-        const profit = subtotal * 0.30;
-        subtotal += profit;
-        
-        let expressCharge = 0;
-        let expressShipping = 0;
-        
-        if (isExpressService) {
-          expressCharge = subtotal * 0.50;
-          expressShipping = 20;
-          subtotal += expressCharge + expressShipping;
-        }
-        
-        const tax = subtotal * 0.20;
-        let pricePerPiece = subtotal + tax;
-        
-        let discount = 1.0;
-        if (quantity >= 50) discount = 0.80;
-        else if (quantity >= 20) discount = 0.85;
-        else if (quantity >= 10) discount = 0.90;
-        else if (quantity >= 5) discount = 0.95;
-        
-        const totalPrice = pricePerPiece * quantity * discount;
-        const savings = quantity > 4 ? (pricePerPiece * quantity - totalPrice) : 0;
-        
-        const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
-        
-        return {
-          perPiece: Math.max(5, roundTo5Cents(pricePerPiece)),
-          total: Math.max(5 * quantity, roundTo5Cents(totalPrice)),
-          savings,
-          materialCost: materialCostWithMarkup,
-          energyCost: energyCostWithMarkup,
-          printCost,
-          depreciationCost,
-          dryingCost,
-          laborCost,
-          additionalServices,
-          expressCharge: isExpressService ? expressCharge : 0,
-          expressShipping: isExpressService ? expressShipping : 0,
-          volume: actualVolume * 1000,
-          maxDimension,
-          materialWeight: materialWeightGrams,
-          objectsPerPlate
+          additionalServices: 0, expressCharge: 0, expressShipping: 0,
+          volume: 0, maxDimension: 0, materialWeight: 0, objectsPerPlate: 1
         };
       }
       
@@ -464,7 +331,7 @@ const CostCalculatorWizard = () => {
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
     }
-  }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval, actualFileVolume, scale, uploadedFiles]);
+  }, [material, complexity, isExpressService, postProcessing, supportRemoval, uploadedFiles]);
 
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
@@ -637,162 +504,91 @@ const CostCalculatorWizard = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <Tabs value={inputMethod} onValueChange={(v) => setInputMethod(v as "file" | "manual")}>
-                      <TabsList className="grid w-full grid-cols-2">
-                        <TabsTrigger value="file" className="gap-2">
-                          <Upload className="w-4 h-4" />
-                          3D-Datei
-                        </TabsTrigger>
-                        <TabsTrigger value="manual" className="gap-2">
-                          <Ruler className="w-4 h-4" />
-                          Manuell
-                        </TabsTrigger>
-                      </TabsList>
-                      <TabsContent value="file" className="mt-6 space-y-4">
-                        {uploadedFiles.length > 0 && (
-                          <Button 
-                            onClick={() => setCurrentStep(2)} 
-                            className="w-full" 
-                            size="lg"
-                          >
-                            Weiter zu Stückzahlen
-                            <ChevronRight className="w-4 h-4 ml-2" />
-                          </Button>
-                        )}
-                        
-                        <FileUpload3D 
-                          onDimensionsCalculated={handleFileUpload}
-                        />
-                        
-                        {uploadedFiles.length > 0 && (
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between">
-                              <h4 className="text-sm font-semibold">Hochgeladene Dateien ({uploadedFiles.length}):</h4>
-                            </div>
-                            <div className="space-y-2 max-h-48 overflow-y-auto">
-                              {uploadedFiles.map((file) => (
+                    {uploadedFiles.length > 0 && (
+                      <Button 
+                        onClick={() => setCurrentStep(2)} 
+                        className="w-full" 
+                        size="lg"
+                      >
+                        Weiter zu Stückzahlen
+                        <ChevronRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    )}
+                    
+                    <FileUpload3D 
+                      onDimensionsCalculated={handleFileUpload}
+                    />
+                    
+                    {uploadedFiles.length > 0 && (
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-sm font-semibold">Hochgeladene Dateien ({uploadedFiles.length}):</h4>
+                        </div>
+                        <div className="space-y-2 max-h-48 overflow-y-auto">
+                          {uploadedFiles.map((file) => (
+                            <button
+                              key={file.id}
+                              onClick={() => {
+                                setActiveFileId(file.id);
+                                // Load file-specific settings
+                                setMaterial(file.material || "pla");
+                                setComplexity(file.complexity || 0);
+                                setPostProcessing(file.postProcessing || "none");
+                                setSupportRemoval(file.supportRemoval || false);
+                                // Set the estimated print duration for this specific file
+                                if (file.estimatedPrintTimeHours) {
+                                  setEstimatedPrintDuration(file.estimatedPrintTimeHours);
+                                }
+                              }}
+                              className={`w-full flex items-center justify-between p-3 rounded-lg border-2 transition-colors ${
+                                activeFileId === file.id
+                                  ? "border-primary bg-primary/10"
+                                  : "border-border bg-muted/30 hover:bg-muted/50"
+                              }`}
+                            >
+                              <div className="flex-1 text-left">
+                                <p className="text-sm font-medium truncate">{file.fileName}</p>
+                                <p className="text-xs text-muted-foreground">
+                                  {file.length}×{file.width}×{file.height}mm • {file.volume.toFixed(1)}cm³
+                                </p>
+                              </div>
+                              <div className="flex items-center gap-1">
                                 <button
-                                  key={file.id}
-                                  onClick={() => {
-                                    setActiveFileId(file.id);
-                                    setLength(file.length);
-                                    setWidth(file.width);
-                                    setHeight(file.height);
-                                    // Load file-specific settings
-                                    setMaterial(file.material || "pla");
-                                    setComplexity(file.complexity || 0);
-                                    setPostProcessing(file.postProcessing || "none");
-                                    setSupportRemoval(file.supportRemoval || false);
-                                    // Set the estimated print duration for this specific file
-                                    if (file.estimatedPrintTimeHours) {
-                                      setPrintDuration(file.estimatedPrintTimeHours);
-                                      setEstimatedPrintDuration(file.estimatedPrintTimeHours);
-                                    } else {
-                                      const estimatedHours = Math.ceil(file.volume / 10);
-                                      const calculatedHours = Math.min(72, Math.max(1, estimatedHours));
-                                      setPrintDuration(calculatedHours);
-                                      setEstimatedPrintDuration(calculatedHours);
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setEditingFileId(file.id);
+                                  }}
+                                  className="p-1.5 hover:bg-primary/10 rounded transition-colors text-primary"
+                                  title="Bearbeiten"
+                                >
+                                  <Edit2 className="w-4 h-4" />
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setUploadedFiles(prev => prev.filter(f => f.id !== file.id));
+                                    if (activeFileId === file.id) {
+                                      const remaining = uploadedFiles.filter(f => f.id !== file.id);
+                                      if (remaining.length > 0) {
+                                        setActiveFileId(remaining[0].id);
+                                      } else {
+                                        setActiveFileId(null);
+                                      }
                                     }
                                   }}
-                                  className={`w-full flex items-center justify-between p-3 rounded-lg border-2 transition-colors ${
-                                    activeFileId === file.id
-                                      ? "border-primary bg-primary/10"
-                                      : "border-border bg-muted/30 hover:bg-muted/50"
-                                  }`}
+                                  className="p-1.5 hover:bg-destructive/10 rounded transition-colors text-destructive"
+                                  title="Löschen"
                                 >
-                                  <div className="flex-1 text-left">
-                                    <p className="text-sm font-medium truncate">{file.fileName}</p>
-                                    <p className="text-xs text-muted-foreground">
-                                      {file.length}×{file.width}×{file.height}mm • {file.volume.toFixed(1)}cm³
-                                    </p>
-                                  </div>
-                                  <div className="flex items-center gap-1">
-                                    <button
-                                      type="button"
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        setEditingFileId(file.id);
-                                      }}
-                                      className="p-1.5 hover:bg-primary/10 rounded transition-colors text-primary"
-                                      title="Bearbeiten"
-                                    >
-                                      <Edit2 className="w-4 h-4" />
-                                    </button>
-                                    <button
-                                      type="button"
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        setUploadedFiles(prev => prev.filter(f => f.id !== file.id));
-                                        if (activeFileId === file.id) {
-                                          const remaining = uploadedFiles.filter(f => f.id !== file.id);
-                                          if (remaining.length > 0) {
-                                            setActiveFileId(remaining[0].id);
-                                          } else {
-                                            setActiveFileId(null);
-                                          }
-                                        }
-                                      }}
-                                      className="p-1.5 hover:bg-destructive/10 rounded transition-colors text-destructive"
-                                      title="Löschen"
-                                    >
-                                      <X className="w-4 h-4" />
-                                    </button>
-                                  </div>
+                                  <X className="w-4 h-4" />
                                 </button>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </TabsContent>
-                      <TabsContent value="manual" className="mt-6 space-y-4">
-                        <div>
-                          <label className="text-sm font-medium mb-2 block">
-                            Länge: {length}mm
-                          </label>
-                          <Slider
-                            value={[length]}
-                            onValueChange={(v) => setLength(Math.max(5, Math.min(350, Math.round(v[0] / 5) * 5)))}
-                            max={350}
-                            min={5}
-                            step={5}
-                          />
+                              </div>
+                            </button>
+                          ))}
                         </div>
-                        <div>
-                          <label className="text-sm font-medium mb-2 block">
-                            Breite: {width}mm
-                          </label>
-                          <Slider
-                            value={[width]}
-                            onValueChange={(v) => setWidth(Math.max(5, Math.min(350, Math.round(v[0] / 5) * 5)))}
-                            max={350}
-                            min={5}
-                            step={5}
-                          />
-                        </div>
-                        <div>
-                          <label className="text-sm font-medium mb-2 block">
-                            Höhe: {height}mm
-                          </label>
-                          <Slider
-                            value={[height]}
-                            onValueChange={(v) => setHeight(Math.max(5, Math.min(350, Math.round(v[0] / 5) * 5)))}
-                            max={350}
-                            min={5}
-                            step={5}
-                          />
-                        </div>
-                        <div className="p-3 bg-muted/30 rounded-lg text-sm">
-                          <div className="flex justify-between">
-                            <span>Volumen:</span>
-                            <span className="font-medium">{(pricing.volume / 1000).toFixed(1)} cm³</span>
-                          </div>
-                        </div>
-                        <Button onClick={() => setCurrentStep(2)} className="w-full" size="lg">
-                          Weiter zu Stückzahlen
-                          <ChevronRight className="w-4 h-4 ml-2" />
-                        </Button>
-                      </TabsContent>
-                    </Tabs>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               )}
@@ -1009,7 +805,7 @@ const CostCalculatorWizard = () => {
                 </Card>
               )}
 
-              {/* Step 4: Summary (visible on all steps for context) */}
+              {/* Step 4: Summary */}
               {currentStep === 4 && (
                 <Card className="gradient-card border-0 animate-fade-in">
                   <CardHeader>
@@ -1019,23 +815,18 @@ const CostCalculatorWizard = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Maße:</span>
-                        <span className="font-medium">{length}×{width}×{height}mm</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Material:</span>
-                        <span className="font-medium">{materials[material as keyof typeof materials].name}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Komplexität:</span>
-                        <span className="font-medium">{complexityLevels[complexity]}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Stückzahl:</span>
-                        <span className="font-medium">{quantity}</span>
-                      </div>
+                    <div className="space-y-3">
+                      {uploadedFiles.map((file) => (
+                        <div key={file.id} className="p-3 bg-muted/30 rounded-lg space-y-2 text-sm">
+                          <p className="font-medium">{file.fileName}</p>
+                          <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
+                            <div>Maße: {file.length}×{file.width}×{file.height}mm</div>
+                            <div>Menge: {file.quantity || 1} Stück</div>
+                            <div>Material: {materials[file.material as keyof typeof materials]?.name || "PLA"}</div>
+                            <div>Volumen: {file.volume.toFixed(1)}cm³</div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
 
                     <Button onClick={() => setCurrentStep(1)} variant="outline" className="w-full">
@@ -1095,7 +886,7 @@ const CostCalculatorWizard = () => {
 
                   <div className="flex justify-between items-center p-4 bg-primary/20 rounded-lg">
                     <span className="font-medium">
-                      Gesamtpreis ({uploadedFiles.length > 0 ? uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0) : quantity} Stück insgesamt):
+                      Gesamtpreis ({uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0)} Stück insgesamt):
                     </span>
                     <span className="text-3xl font-bold text-primary">
                       €{pricing.total.toFixed(2)}
