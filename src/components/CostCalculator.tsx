@@ -128,8 +128,8 @@ const CostCalculator = () => {
       const materialWeightGrams = actualVolume * 1000 * materialDensity * infillFactor;
       
       // Calculate objects per plate (simplified - larger objects = fewer per plate)
-      const objectArea = (length * width) / 1000; // in cm²
-      const plateArea = 22500; // 150mm x 150mm = 22500 cm²
+      const objectArea = length * width; // in mm²
+      const plateArea = 150 * 150; // 150mm x 150mm = 22500 mm²
       const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
       
       // 1. MATERIALKOSTEN (Material costs)
