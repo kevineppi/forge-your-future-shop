@@ -6,6 +6,7 @@ import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Calculator, Info, Sparkles, Zap, Wrench } from "lucide-react";
+import { FileUpload3D } from "./FileUpload3D";
 
 const CostCalculator = () => {
   // Add loading state to prevent early rendering issues
@@ -100,6 +101,20 @@ const CostCalculator = () => {
     if (value && typeof value === 'string' && materials[value as keyof typeof materials]) {
       setMaterial(value);
     }
+  }, []);
+
+  const handleFileUpload = useCallback((dimensions: {
+    length: number;
+    width: number;
+    height: number;
+    volume: number;
+  }) => {
+    setLength(dimensions.length);
+    setWidth(dimensions.width);
+    setHeight(dimensions.height);
+    // Optionally estimate print duration based on volume
+    const estimatedHours = Math.ceil((dimensions.volume / 1000) * 2); // Rough estimate
+    setPrintDuration(Math.min(72, estimatedHours));
   }, []);
 
   const calculatePrice = useCallback(() => {
@@ -278,6 +293,11 @@ const CostCalculator = () => {
         </div>
 
         <div className="max-w-6xl mx-auto">
+          {/* 3D File Upload Section */}
+          <div className="mb-8">
+            <FileUpload3D onDimensionsCalculated={handleFileUpload} />
+          </div>
+
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
             {/* Calculator Form */}
             <Card className="gradient-card border-0 animate-fade-in">
