@@ -42,8 +42,48 @@ serve(async (req) => {
 
     // Parse metadata
     const metadata = session.metadata!;
-    const orderItems = JSON.parse(metadata.order_items);
-    const postProcessing = metadata.post_processing ? JSON.parse(metadata.post_processing) : [];
+    
+    // Get order items from line items with full metadata
+    const lineItems = await stripe.checkout.sessions.listLineItems(sessionId, { 
+      limit: 100,
+      expand: ['data.price.product']
+    });
+    
+    const orderItems = await Promise.all(
+      lineItems.data
+        .filter(item => item.description !== "Standardversand" && item.description !== "Express-Versand")
+        .map(async (item) => {
+          // Get full product details to access metadata
+          const productId = typeof item.price?.product === 'string' 
+            ? item.price.product 
+            : item.price?.product?.id;
+          
+          let productMetadata: any = {};
+          if (productId) {
+            try {
+              const product = await stripe.products.retrieve(productId);
+              productMetadata = product.metadata || {};
+            } catch (e) {
+              console.error("Error fetching product:", e);
+            }
+          }
+          
+          return {
+            file_name: item.description || "Unknown",
+            file_url: productMetadata.file_url || "pending",
+            material: productMetadata.material || "PLA",
+            color: productMetadata.color || "#4f46e5",
+            quality: productMetadata.quality || "Standard",
+            dimensions: productMetadata.dimensions ? JSON.parse(productMetadata.dimensions) : { length: 0, width: 0, height: 0 },
+            volume: parseFloat(productMetadata.volume || "0"),
+            print_time: parseFloat(productMetadata.print_time || "0"),
+            infill: parseInt(productMetadata.infill || "20"),
+            quantity: item.quantity || 1,
+            unit_price: (item.amount_total || 0) / 100 / (item.quantity || 1),
+            total_price: (item.amount_total || 0) / 100,
+          };
+        })
+    );
 
     // Create order
     const { data: order, error: orderError } = await supabaseClient
@@ -56,7 +96,7 @@ serve(async (req) => {
         status: "paid",
         express_service: metadata.express_service === "true",
         notes: metadata.notes || null,
-        post_processing: postProcessing.length > 0 ? postProcessing : null,
+        post_processing: null, // Post processing info stored in order items
         stripe_checkout_session_id: sessionId,
         stripe_payment_intent_id: session.payment_intent as string,
       })
