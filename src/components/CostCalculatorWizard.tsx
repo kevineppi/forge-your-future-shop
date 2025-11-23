@@ -81,6 +81,14 @@ const CostCalculatorWizard = () => {
     setIsClient(true);
   }, []);
 
+  // Scroll to calculator section when step changes
+  useEffect(() => {
+    const element = document.getElementById('cost-calculator');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [currentStep]);
+
   const materials = {
     pla: { name: "PLA", pricePerKg: 20, dryingHours: 0 },
     petg: { name: "PETG", pricePerKg: 20, dryingHours: 0 },
