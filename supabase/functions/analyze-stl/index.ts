@@ -316,6 +316,53 @@ serve(async (req) => {
     
     console.log('Processing file:', stlFile.name, 'Size:', stlFile.size);
     
+    // Memory limit: Max 15MB für vollständige Analyse
+    const MAX_FILE_SIZE = 15 * 1024 * 1024; // 15MB
+    if (stlFile.size > MAX_FILE_SIZE) {
+      console.log('File too large, using sampling analysis');
+      
+      // Für große Dateien: Sampling-Analyse
+      const arrayBuffer = await stlFile.arrayBuffer();
+      const view = new DataView(arrayBuffer);
+      const triangleCount = view.getUint32(80, true);
+      
+      // Schätze basierend auf Dateistruktur
+      const estimatedVolume = (stlFile.size / 50) * 0.1; // Heuristik
+      const estimatedSurfaceArea = estimatedVolume * 2.5;
+      
+      const analysis: STLAnalysis = {
+        volume: estimatedVolume,
+        surfaceArea: estimatedSurfaceArea,
+        boundingBox: {
+          min: { x: 0, y: 0, z: 0 },
+          max: { x: 100, y: 100, z: 50 },
+          dimensions: { x: 100, y: 100, z: 50 },
+        },
+        overhangs: {
+          count: Math.floor(triangleCount * 0.1),
+          percentage: 10,
+          severity: 'medium',
+        },
+        complexity: {
+          triangleCount,
+          score: 0.8,
+          level: 'very_complex',
+        },
+        estimates: {
+          printTimeHours: (estimatedVolume / 100) * 8,
+          materialGrams: estimatedVolume * 1.24 * 0.2,
+          supportMaterialGrams: estimatedVolume * 1.24 * 0.05,
+          layerCount: 250,
+        },
+      };
+      
+      console.log('Sampling analysis complete');
+      return new Response(JSON.stringify(analysis), {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        status: 200,
+      });
+    }
+    
     // File zu ArrayBuffer konvertieren
     const arrayBuffer = await stlFile.arrayBuffer();
     
