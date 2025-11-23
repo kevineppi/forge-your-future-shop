@@ -523,8 +523,7 @@ const CostCalculator = () => {
                       </div>
                     )}
                     <div className="flex justify-between text-sm text-muted-foreground pt-2 border-t">
-                      <span>Gewichtung: ~{pricing.materialWeight.toFixed(0)}g Material</span>
-                      <span>{pricing.objectsPerPlate} Objekt(e)/Platte</span>
+                      <span>Materialgewicht: ~{pricing.materialWeight.toFixed(0)}g</span>
                     </div>
                   </div>
 
