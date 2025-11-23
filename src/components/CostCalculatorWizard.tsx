@@ -1220,7 +1220,7 @@ const CostCalculatorWizard = () => {
               const estimatedPrice = (materialWeightGrams / 1000) * fileMaterial.pricePerKg + effectivePrintTime * printCostPerHour;
               
               return (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 py-4">
                   {/* Left: 3D Viewer */}
                   <div className="space-y-4">
                     <div className="aspect-square bg-muted/30 rounded-lg overflow-hidden">
@@ -1241,6 +1241,22 @@ const CostCalculatorWizard = () => {
                             materialWeight: materialWeightGrams
                           }}
                         />
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Center: Live Price */}
+                  <div className="flex items-center justify-center">
+                    <div className="p-6 bg-primary/5 border border-primary/20 rounded-lg text-center">
+                      <p className="text-sm text-muted-foreground mb-2">Live-Preis</p>
+                      <p className="text-4xl font-bold text-primary mb-2">€{estimatedPrice.toFixed(2)}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {effectivePrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
+                      </p>
+                      {maxDimension > 250 && (
+                        <p className="text-xs text-yellow-600 dark:text-yellow-500 mt-2">
+                          ⚠️ Großformat-Zuschlag
+                        </p>
                       )}
                     </div>
                   </div>
@@ -1360,19 +1376,10 @@ const CostCalculatorWizard = () => {
                       </div>
                     </div>
 
-                    {/* Live Price & Done Button */}
-                    <div className="flex items-center justify-between gap-4 p-4 bg-primary/5 border border-primary/20 rounded-lg">
-                      <div>
-                        <p className="text-sm text-muted-foreground mb-1">Live-Preis</p>
-                        <p className="text-2xl font-bold text-primary">€{estimatedPrice.toFixed(2)}</p>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {effectivePrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
-                        </p>
-                      </div>
-                      <Button onClick={() => setEditingFileId(null)} size="lg">
-                        Fertig
-                      </Button>
-                    </div>
+                    {/* Done Button */}
+                    <Button onClick={() => setEditingFileId(null)} size="lg" className="w-full">
+                      Fertig
+                    </Button>
                   </div>
                 </div>
               );

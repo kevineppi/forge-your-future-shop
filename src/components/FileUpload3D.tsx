@@ -72,97 +72,18 @@ export const FileUpload3D = ({
     return Math.abs(volume);
   };
 
-  // Calculate estimated print time using Bambu Lab Standard 0.20mm PLA profile
+  // Calculate estimated print time using simplified formula
   const calculateEstimatedPrintTime = (
     length: number,
     width: number,
     height: number,
     volume: number
   ): number => {
-    // Bambu Lab Standard Profile Settings
-    const layerHeight = 0.2; // mm
-    const lineWidth = 0.42; // mm
-    const nozzleDiameter = 0.4; // mm
+    // Simple formula: Volume in cm³ / 50 = Print time in hours
+    const printTimeHours = volume / 50;
     
-    // Speeds (mm/s) from Bambu profile
-    const outerWallSpeed = 200;
-    const innerWallSpeed = 300;
-    const infillSpeed = 270;
-    const solidInfillSpeed = 250;
-    const topSurfaceSpeed = 200;
-    const travelSpeed = 300;
-    const firstLayerSpeed = 50; // conservative for first layer
-    
-    // Material settings
-    const maxVolumetricSpeed = 21; // mm³/s for Bambu PLA Basic
-    const infillPercent = 20; // %
-    
-    // Wall settings
-    const wallCount = 3;
-    const wallThickness = wallCount * lineWidth; // ~1.26mm total
-    
-    // Calculate number of layers
-    const numLayers = Math.ceil(height / layerHeight);
-    
-    // Estimate surface area per layer (assuming roughly rectangular)
-    const avgPerimeter = 2 * (length + width); // mm
-    const layerArea = length * width; // mm²
-    
-    // Calculate wall extrusion per layer
-    // Outer wall: 1 perimeter at outerWallSpeed
-    // Inner walls: 2 perimeters at innerWallSpeed
-    const outerWallLength = avgPerimeter;
-    const innerWallLength = avgPerimeter * 2;
-    
-    // Calculate infill area (layer area minus wall area)
-    const wallArea = avgPerimeter * wallThickness;
-    const infillArea = Math.max(0, layerArea - wallArea) * (infillPercent / 100);
-    
-    // Estimate infill line length (gyroid pattern, roughly 1.5x the area coverage)
-    const infillLineLength = (infillArea / lineWidth) * 1.5;
-    
-    // Top/bottom layers (5 top + 4 bottom)
-    const topBottomLayers = 5 + 4;
-    const solidLayerArea = layerArea * topBottomLayers;
-    const solidInfillLength = solidLayerArea / lineWidth;
-    
-    // Calculate extrusion volume per feature
-    const crossSectionArea = layerHeight * lineWidth; // mm²
-    
-    // Time calculations for typical layers
-    const outerWallTime = (outerWallLength / outerWallSpeed) * (numLayers - topBottomLayers);
-    const innerWallTime = (innerWallLength / innerWallSpeed) * (numLayers - topBottomLayers);
-    const infillTime = (infillLineLength / infillSpeed) * (numLayers - topBottomLayers);
-    
-    // Time for solid top/bottom layers
-    const solidTopBottomTime = (solidInfillLength / solidInfillSpeed);
-    
-    // First layer is slower
-    const firstLayerTime = (outerWallLength + innerWallLength + infillLineLength) / firstLayerSpeed;
-    
-    // Travel time (estimated as 20% of print time)
-    const printTimeSeconds = outerWallTime + innerWallTime + infillTime + solidTopBottomTime + firstLayerTime;
-    const travelTimeSeconds = printTimeSeconds * 0.2;
-    
-    // Check volumetric speed limit
-    // If flow rate exceeds max volumetric speed, scale up time
-    const avgFlowRate = (volume / printTimeSeconds) / 60; // mm³/s
-    let volumetricSpeedFactor = 1.0;
-    if (avgFlowRate > maxVolumetricSpeed) {
-      volumetricSpeedFactor = avgFlowRate / maxVolumetricSpeed;
-    }
-    
-    // Total time with overhead
-    const totalTimeSeconds = (printTimeSeconds + travelTimeSeconds) * volumetricSpeedFactor;
-    
-    // Add 15% overhead for acceleration, deceleration, retractions, cooling
-    const totalWithOverhead = totalTimeSeconds * 1.15;
-    
-    // Convert to hours
-    const hours = totalWithOverhead / 3600;
-    
-    // Return with 0.1 hour precision, minimum 0.5h
-    return Math.max(0.5, Math.round(hours * 10) / 10);
+    // Minimum print time of 0.5 hours
+    return Math.max(0.5, printTimeHours);
   };
 
   const analyzeGeometry = (geometry: THREE.BufferGeometry): AnalysisResult[] => {
