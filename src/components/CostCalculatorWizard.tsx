@@ -410,7 +410,7 @@ const CostCalculatorWizard = () => {
         
         // EXACT SAME calculation as Live-Preis (lines 1242-1260)
         const materialWeightGrams = scaledVolume * 1.24;
-        const effectivePrintTime = scaledVolume / 30;
+        const effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
         
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
@@ -496,7 +496,7 @@ const CostCalculatorWizard = () => {
       const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
       const materialCostWithMarkup = materialCostBase * 1.30;
       
-      let effectivePrintTime = scaledVolume / 30; // Volumen / 30 für Druckdauer
+      let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
       effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
       
       const energyCostPerHour = 0.20;
@@ -1159,7 +1159,7 @@ const CostCalculatorWizard = () => {
               // Calculate pricing for this file
               const fileMaterial = materials[editingFile.material as keyof typeof materials] || materials.pla;
               const materialWeightGrams = scaledVolume * 1.24;
-              const effectivePrintTime = scaledVolume / 30; // Volumen in cm³ / 30 = Druckdauer in Stunden
+              const effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
               
               // Simplified pricing for live preview
               const fileComplexity = editingFile.complexity || 0;
