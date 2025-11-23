@@ -12,6 +12,7 @@ import { FileUpload3D } from "./FileUpload3D";
 import { Model3DViewer } from "./Model3DViewer";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
 import * as THREE from "three";
 
 interface AnalysisResult {
@@ -45,6 +46,7 @@ const CostCalculatorWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isClient, setIsClient] = useState(false);
   const [editingFileId, setEditingFileId] = useState<string | null>(null);
+  const { user } = useAuth();
   
   // 3D File state - Multi-file support
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
@@ -839,12 +841,102 @@ const CostCalculatorWizard = () => {
 
                     <div className="space-y-3 pt-4 border-t">
                       <Button 
-                        onClick={() => {
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                          toast({
-                            title: "Bestellung wird vorbereitet...",
-                            description: "Die Stripe Checkout Integration wird in Kürze implementiert.",
-                          });
+                        onClick={async () => {
+                          if (!user) {
+                            toast({
+                              title: "Anmeldung erforderlich",
+                              description: "Bitte melden Sie sich an, um eine Bestellung aufzugeben.",
+                              variant: "destructive",
+                            });
+                            window.location.href = "/auth";
+                            return;
+                          }
+
+                          try {
+                            toast({
+                              title: "Bestellung wird vorbereitet...",
+                              description: "Sie werden zu Stripe Checkout weitergeleitet.",
+                            });
+
+                            // Calculate file prices
+                            const items = uploadedFiles.map(file => {
+                              const fileQuantity = file.quantity || 1;
+                              const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
+                              const fileComplexity = file.complexity || 0;
+                              const fileScale = file.scale || 1;
+                              
+                              const scaledVolume = file.volume * Math.pow(fileScale, 3);
+                              const scaledLength = file.length * fileScale;
+                              const scaledWidth = file.width * fileScale;
+                              const scaledHeight = file.height * fileScale;
+                              const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
+                              
+                              const materialWeightGrams = scaledVolume * 1.24;
+                              const effectivePrintTime = scaledVolume / 50;
+                              
+                              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
+                              const materialCostWithMarkup = materialCostBase * 1.30;
+                              
+                              const complexityFactor = 1 + (fileComplexity * 0.15);
+                              const adjustedPrintTime = effectivePrintTime * complexityFactor;
+                              
+                              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+                              const printCost = adjustedPrintTime * printCostPerHour;
+                              const laborCost = 5.00;
+                              
+                              let pricePerPiece = materialCostWithMarkup + printCost + laborCost;
+                              pricePerPiece = pricePerPiece * 1.30;
+                              pricePerPiece = pricePerPiece * 1.20;
+                              
+                              return {
+                                file_name: file.fileName,
+                                file_url: "pending", // Will be updated after upload
+                                material: fileMaterial.name,
+                                color: file.color || "Indigo",
+                                quality: complexityLevels[fileComplexity],
+                                dimensions: {
+                                  length: file.length,
+                                  width: file.width,
+                                  height: file.height,
+                                },
+                                volume: file.volume,
+                                print_time: adjustedPrintTime,
+                                infill: 20,
+                                quantity: fileQuantity,
+                                unit_price: pricePerPiece,
+                                total_price: pricePerPiece * fileQuantity,
+                              };
+                            });
+
+                            const postProcessingNames = postProcessing !== "none" 
+                              ? [postProcessingOptions[postProcessing as keyof typeof postProcessingOptions]?.name || "Keine"]
+                              : [];
+
+                            const orderData = {
+                              items,
+                              express_service: isExpressService,
+                              notes: uploadedFiles[0]?.notes || "",
+                              post_processing: postProcessingNames,
+                              shippingCost: pricing.shippingCost,
+                            };
+
+                            const { data, error } = await supabase.functions.invoke("create-checkout-session", {
+                              body: { orderData },
+                            });
+
+                            if (error) throw error;
+
+                            if (data?.url) {
+                              window.location.href = data.url;
+                            }
+                          } catch (error) {
+                            console.error("Error creating checkout:", error);
+                            toast({
+                              title: "Fehler",
+                              description: "Die Bestellung konnte nicht erstellt werden. Bitte versuchen Sie es erneut.",
+                              variant: "destructive",
+                            });
+                          }
                         }}
                         variant="hero" 
                         className="w-full" 
