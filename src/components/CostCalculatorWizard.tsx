@@ -459,8 +459,12 @@ const CostCalculatorWizard = () => {
         const fileTotalPrice = pricePerPiece * fileQuantity * discount;
         const fileSavings = fileQuantity > 4 ? (pricePerPiece * fileQuantity - fileTotalPrice) : 0;
         
+        // Round individual file price before adding to total
+        const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
+        const roundedFilePrice = roundTo5Cents(fileTotalPrice);
+        
         totalPerPiece += pricePerPiece;
-        totalWithQuantities += fileTotalPrice;
+        totalWithQuantities += roundedFilePrice; // Use rounded price
         totalSavings += fileSavings;
         totalAdditionalServices += additionalServices;
         totalExpressCharge += expressCharge;
@@ -483,7 +487,7 @@ const CostCalculatorWizard = () => {
       
       return {
         perPiece: Math.max(5, roundTo5Cents(totalPerPiece / uploadedFiles.length)),
-        total: Math.max(5, roundTo5Cents(totalWithQuantities)),
+        total: Math.max(5, totalWithQuantities), // Don't round again, it's already the sum of rounded prices
         savings: totalSavings,
         materialCost: totalMaterialCost,
         energyCost: totalEnergyCost,
