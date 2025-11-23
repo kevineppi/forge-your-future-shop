@@ -112,8 +112,11 @@ const CostCalculatorWizard = () => {
       
       let effectivePrintTime = printDuration;
       if (effectivePrintTime === 0) {
-        effectivePrintTime = (actualVolume * 1000 / 50) * (1 + complexity * 0.3);
+        effectivePrintTime = (actualVolume * 1000 / 50) * (1 + complexity * 0.5);
         effectivePrintTime = Math.max(1, Math.ceil(effectivePrintTime));
+      } else {
+        // Apply complexity multiplier to uploaded file duration as well
+        effectivePrintTime = printDuration * (1 + complexity * 0.3);
       }
       
       const energyCostPerHour = 0.20;
@@ -126,7 +129,12 @@ const CostCalculatorWizard = () => {
       if (maxDimension > 250) {
         printCostPerHour = 4.0;
       }
+      // Increase print cost per hour based on complexity
+      printCostPerHour = printCostPerHour * (1 + complexity * 0.25);
       const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+      
+      // Add direct complexity surcharge
+      const complexitySurcharge = complexity * 2.5;
       
       const depreciationPerHour = 0.20;
       const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
@@ -135,7 +143,7 @@ const CostCalculatorWizard = () => {
       const dryingCost = baseMaterial.dryingHours * dryingCostPerHour;
       
       let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                     printCost + depreciationCost + dryingCost;
+                     printCost + depreciationCost + dryingCost + complexitySurcharge;
       
       let additionalServices = 0;
       const postProcessingCost = postProcessingOptions[postProcessing as keyof typeof postProcessingOptions]?.price || 0;
