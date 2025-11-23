@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X, Edit2, Palette, Plus, Minus } from "lucide-react";
+import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X, Edit2, Palette, Plus, Minus, ShoppingCart } from "lucide-react";
 import { FileUpload3D } from "./FileUpload3D";
 import { Model3DViewer } from "./Model3DViewer";
 import { supabase } from "@/integrations/supabase/client";
@@ -829,9 +829,29 @@ const CostCalculatorWizard = () => {
                       ))}
                     </div>
 
-                    <Button onClick={() => setCurrentStep(1)} variant="outline" className="w-full">
-                      Neu berechnen
-                    </Button>
+                    <div className="space-y-3 pt-4 border-t">
+                      <Button 
+                        onClick={() => {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                          toast({
+                            title: "Bestellung wird vorbereitet...",
+                            description: "Die Stripe Checkout Integration wird in Kürze implementiert.",
+                          });
+                        }}
+                        variant="hero" 
+                        className="w-full" 
+                        size="lg"
+                      >
+                        <ShoppingCart className="w-5 h-5 mr-2" />
+                        Jetzt bestellen - €{pricing.total.toFixed(2)}
+                      </Button>
+                      <Button onClick={() => setCurrentStep(1)} variant="outline" className="w-full">
+                        Neu berechnen
+                      </Button>
+                      <p className="text-xs text-muted-foreground text-center">
+                        🔒 Sichere Bezahlung über Stripe • 📦 Versandkostenfrei ab 100€
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
               )}

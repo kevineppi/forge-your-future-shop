@@ -130,16 +130,26 @@ const Navigation = () => {
                   Mein Konto
                   <ChevronDown className="w-3 h-3" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-48">
-                  <DropdownMenuItem asChild>
-                    <a href="/meine-bestellungen" className="flex items-center gap-2 cursor-pointer">
-                      <Package className="w-4 h-4" />
-                      Meine Bestellungen
+                <DropdownMenuContent align="end" className="w-56 p-2 bg-background border border-border/50 shadow-xl">
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/meine-bestellungen" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group cursor-pointer">
+                      <div className="flex-shrink-0 w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Package className="w-4 h-4 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground text-sm">Meine Bestellungen</div>
+                      </div>
                     </a>
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleSignOut} className="flex items-center gap-2 cursor-pointer">
-                    <LogOut className="w-4 h-4" />
-                    Abmelden
+                  <DropdownMenuItem onClick={handleSignOut} className="p-0">
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group cursor-pointer w-full">
+                      <div className="flex-shrink-0 w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <LogOut className="w-4 h-4 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground text-sm">Abmelden</div>
+                      </div>
+                    </div>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
