@@ -784,6 +784,80 @@ const CostCalculatorWizard = () => {
                     <div className="space-y-4 max-h-96 overflow-y-auto">
                       {uploadedFiles.map((file) => {
                         const fileQuantity = file.quantity || 1;
+                        const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
+                        const fileComplexity = file.complexity || 0;
+                        const fileScale = file.scale || 1;
+                        const filePostProcessing = file.postProcessing || "none";
+                        const fileSupportRemoval = file.supportRemoval || false;
+                        
+                        // Calculate price for this file
+                        const scaledVolume = file.volume * Math.pow(fileScale, 3);
+                        const scaledLength = file.length * fileScale;
+                        const scaledWidth = file.width * fileScale;
+                        const scaledHeight = file.height * fileScale;
+                        const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
+                        
+                        const materialDensity = 1.24;
+                        const materialWeightGrams = scaledVolume * materialDensity;
+                        
+                        const objectArea = scaledLength * scaledWidth;
+                        const plateArea = 150 * 150;
+                        const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+                        
+                        const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
+                        const materialCostWithMarkup = materialCostBase * 1.30;
+                        
+                        let effectivePrintTime = file.estimatedPrintTimeHours || (scaledVolume / 10);
+                        effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
+                        
+                        const energyCostPerHour = 0.20;
+                        const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
+                        const energyCostWithMarkup = energyCostBase * 1.30;
+                        
+                        const laborCost = 5.00;
+                        
+                        let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+                        printCostPerHour = printCostPerHour * (1 + fileComplexity * 0.25);
+                        const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+                        
+                        const complexitySurcharge = fileComplexity * 2.5;
+                        const depreciationPerHour = 0.20;
+                        const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
+                        const dryingCostPerHour = 0.50;
+                        const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
+                        
+                        let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
+                                       printCost + depreciationCost + dryingCost + complexitySurcharge;
+                        
+                        let additionalServices = 0;
+                        const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
+                        additionalServices += postProcessingCost;
+                        
+                        if (fileSupportRemoval && fileComplexity >= 3) {
+                          additionalServices += 8;
+                        }
+                        
+                        subtotal += additionalServices;
+                        const profit = subtotal * 0.30;
+                        subtotal += profit;
+                        
+                        let expressCharge = 0;
+                        if (isExpressService) {
+                          expressCharge = subtotal * 0.50;
+                          subtotal += expressCharge;
+                        }
+                        
+                        const tax = subtotal * 0.20;
+                        const pricePerPiece = subtotal + tax;
+                        
+                        let discount = 1.0;
+                        if (fileQuantity >= 50) discount = 0.80;
+                        else if (fileQuantity >= 20) discount = 0.85;
+                        else if (fileQuantity >= 10) discount = 0.90;
+                        else if (fileQuantity >= 5) discount = 0.95;
+                        
+                        const fileTotalPrice = pricePerPiece * fileQuantity * discount;
+                        const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
                         
                         return (
                           <div key={file.id} className="p-4 border-2 border-border rounded-lg space-y-3">
@@ -848,6 +922,21 @@ const CostCalculatorWizard = () => {
                                   <Plus className="h-4 w-4" />
                                 </Button>
                               </div>
+                            </div>
+                            
+                            {/* Live Price Display */}
+                            <div className="pt-3 border-t border-border">
+                              <div className="flex items-center justify-between">
+                                <span className="text-sm text-muted-foreground">Preis für diese Datei:</span>
+                                <span className="text-lg font-bold text-primary">
+                                  €{roundTo5Cents(fileTotalPrice).toFixed(2)}
+                                </span>
+                              </div>
+                              {fileQuantity >= 5 && (
+                                <p className="text-xs text-green-600 mt-1">
+                                  🎉 Mengenrabatt aktiv ({((1 - discount) * 100).toFixed(0)}% Ersparnis)
+                                </p>
+                              )}
                             </div>
                           </div>
                         );
@@ -1045,21 +1134,14 @@ const CostCalculatorWizard = () => {
                     </div>
                   )}
 
-                  <div className="flex justify-between items-center p-4 bg-primary/10 rounded-lg">
-                    <span className="font-medium">Stückpreis (inkl. 20% MwSt):</span>
-                    <span className="text-2xl font-bold text-primary">
-                      €{pricing.perPiece.toFixed(2)}
+                  <div className="flex justify-between items-center p-4 bg-primary/20 rounded-lg">
+                    <span className="font-medium">
+                      Gesamtpreis ({uploadedFiles.length > 0 ? uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0) : quantity} Stück insgesamt):
+                    </span>
+                    <span className="text-3xl font-bold text-primary">
+                      €{pricing.total.toFixed(2)}
                     </span>
                   </div>
-
-                    <div className="flex justify-between items-center p-4 bg-primary/20 rounded-lg">
-                      <span className="font-medium">
-                        Gesamtpreis ({uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0)} Stück insgesamt):
-                      </span>
-                      <span className="text-3xl font-bold text-primary">
-                        €{pricing.total.toFixed(2)}
-                      </span>
-                    </div>
 
                   {pricing.savings > 0 && (
                     <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border border-green-500/20">
