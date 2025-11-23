@@ -110,12 +110,15 @@ const Auth = () => {
           setError("Diese E-Mail-Adresse ist bereits registriert. Versuchen Sie sich anzumelden.");
         } else if (error.message.includes("User already registered")) {
           setError("Diese E-Mail-Adresse ist bereits registriert. Versuchen Sie sich anzumelden.");
+        } else if (error.message.includes("signature")) {
+          setError("Authentifizierungsfehler. Bitte kontaktieren Sie den Administrator.");
+          console.error("Signature error - check Supabase JWT secret configuration:", error);
         } else {
           setError(error.message);
         }
       } else {
         toast.success("Registrierung erfolgreich!", {
-          description: "Prüfen Sie Ihre E-Mails für den Bestätigungslink.",
+          description: "Prüfen Sie Ihre E-Mails für den Bestätigungslink. Falls Sie keine Email erhalten, wurde Ihr Account möglicherweise direkt aktiviert.",
         });
         registerForm.reset();
       }
