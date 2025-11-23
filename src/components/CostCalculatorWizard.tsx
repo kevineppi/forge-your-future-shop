@@ -290,6 +290,8 @@ const CostCalculatorWizard = () => {
                   geometry={geometry} 
                   fileName={fileName}
                   onBack={() => setShowViewer(false)}
+                  currentStep={currentStep}
+                  onNavigate={(step) => setCurrentStep(step)}
                 />
               ) : (
                 <>

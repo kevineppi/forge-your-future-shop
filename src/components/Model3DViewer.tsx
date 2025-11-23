@@ -4,13 +4,15 @@ import { OrbitControls, Stage } from "@react-three/drei";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Box, RotateCw, ArrowLeft } from "lucide-react";
+import { Box, RotateCw, ArrowLeft, Package, Settings, Calculator } from "lucide-react";
 import * as THREE from "three";
 
 interface Model3DViewerProps {
   geometry: THREE.BufferGeometry | null;
   fileName: string;
   onBack?: () => void;
+  currentStep?: number;
+  onNavigate?: (step: number) => void;
 }
 
 const Model = ({ geometry, scale }: { geometry: THREE.BufferGeometry; scale: number }) => {
@@ -21,7 +23,7 @@ const Model = ({ geometry, scale }: { geometry: THREE.BufferGeometry; scale: num
   );
 };
 
-export const Model3DViewer = ({ geometry, fileName, onBack }: Model3DViewerProps) => {
+export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavigate }: Model3DViewerProps) => {
   const [scale, setScale] = useState(1);
   const [resetTrigger, setResetTrigger] = useState(0);
 
@@ -116,13 +118,60 @@ export const Model3DViewer = ({ geometry, fileName, onBack }: Model3DViewerProps
         </div>
 
         {fileName && (
-          <div className="p-3 bg-muted/30 rounded-lg">
+          <div className="p-3 bg-muted/30 rounded-lg space-y-3">
             <p className="text-xs text-muted-foreground">
               <strong className="text-foreground">Datei:</strong> {fileName}
             </p>
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="text-xs text-muted-foreground">
               💡 Ziehen zum Drehen • Scrollen zum Zoomen
             </p>
+            
+            {onNavigate && currentStep && (
+              <div className="pt-2 border-t border-border/50">
+                <p className="text-xs font-medium mb-2">Weiter zu:</p>
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      onNavigate(2);
+                      onBack?.();
+                    }}
+                    disabled={currentStep === 2}
+                    className="flex-1 gap-1.5"
+                  >
+                    <Package className="w-3.5 h-3.5" />
+                    Material
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      onNavigate(3);
+                      onBack?.();
+                    }}
+                    disabled={currentStep === 3}
+                    className="flex-1 gap-1.5"
+                  >
+                    <Settings className="w-3.5 h-3.5" />
+                    Details
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      onNavigate(4);
+                      onBack?.();
+                    }}
+                    disabled={currentStep === 4}
+                    className="flex-1 gap-1.5"
+                  >
+                    <Calculator className="w-3.5 h-3.5" />
+                    Ergebnis
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </CardContent>
