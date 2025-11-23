@@ -25,6 +25,7 @@ interface FileUpload3DProps {
     height: number;
     volume: number;
     analysisResults: AnalysisResult[];
+    estimatedPrintTimeHours?: number;
   }) => void;
 }
 
@@ -71,106 +72,140 @@ export const FileUpload3D = ({
     return Math.abs(volume);
   };
 
+  // Calculate estimated print time using heuristics
+  const calculateEstimatedPrintTime = (
+    length: number,
+    width: number,
+    height: number,
+    volume: number
+  ): number => {
+    // Print settings
+    const layerHeight = 0.2; // mm
+    const printSpeed = 60; // mm/s
+    const infillPercent = 20; // %
+    const wallThickness = 1.2; // mm (3 perimeters x 0.4mm nozzle)
+    const travelSpeed = 150; // mm/s
+    
+    // Calculate number of layers
+    const numLayers = Math.ceil(height / layerHeight);
+    
+    // Estimate perimeter length per layer (assuming roughly rectangular cross-section)
+    const avgPerimeter = 2 * (length + width);
+    
+    // Calculate wall volume (perimeter * wallThickness * height)
+    const wallVolume = avgPerimeter * wallThickness * height;
+    
+    // Calculate infill volume (total volume - wall volume) * infill percentage
+    const infillVolume = Math.max(0, (volume - wallVolume) * (infillPercent / 100));
+    
+    // Estimate total extrusion length
+    // Assuming 0.4mm nozzle, 0.2mm layer height = 0.08mm² cross-section per mm
+    const filamentCrossSectionArea = 0.08; // mm²
+    const totalExtrusionLength = (wallVolume + infillVolume) / filamentCrossSectionArea;
+    
+    // Calculate print time
+    // Time = (extrusion length / print speed) + (travel moves / travel speed)
+    // Rough estimate: 30% of total moves are travel
+    const extrusionTime = totalExtrusionLength / printSpeed; // seconds
+    const travelTime = extrusionTime * 0.3 * (printSpeed / travelSpeed); // seconds
+    const totalTimeSeconds = extrusionTime + travelTime;
+    
+    // Add overhead for layer changes, retractions, etc. (about 10%)
+    const totalWithOverhead = totalTimeSeconds * 1.1;
+    
+    // Convert to hours
+    const hours = totalWithOverhead / 3600;
+    
+    // Round to 0.5 hour increments and ensure minimum 0.5h
+    return Math.max(0.5, Math.round(hours * 2) / 2);
+  };
+
   const analyzeGeometry = (geometry: THREE.BufferGeometry): AnalysisResult[] => {
     const results: AnalysisResult[] = [];
-    const position = geometry.attributes.position;
-    const normal = geometry.attributes.normal;
-
-    // Check 1: Overhang detection (>45° from vertical)
-    let overhangCount = 0;
-    const overhangThreshold = Math.cos(45 * Math.PI / 180); // 45 degrees
-
-    for (let i = 0; i < normal.count; i += 3) {
-      const nx = normal.getX(i);
-      const ny = normal.getY(i);
-      const nz = normal.getZ(i);
-      
-      // Check if normal points downward (negative Z)
-      const dotProduct = nz; // Dot product with up vector (0,0,1)
-      
-      if (dotProduct < -overhangThreshold) {
-        overhangCount++;
-      }
-    }
-
-    const overhangPercentage = (overhangCount / (normal.count / 3)) * 100;
+    const positions = geometry.attributes.position;
     
-    if (overhangPercentage > 20) {
-      results.push({
-        type: "warning",
-        message: "Kritische Überhänge erkannt",
-        detail: `${overhangPercentage.toFixed(1)}% der Flächen haben Überhänge >45°. Support-Strukturen erforderlich.`
-      });
-    } else if (overhangPercentage > 5) {
-      results.push({
-        type: "info",
-        message: "Moderate Überhänge vorhanden",
-        detail: `${overhangPercentage.toFixed(1)}% der Flächen benötigen möglicherweise Support.`
-      });
-    }
+    if (!positions) return results;
 
-    // Check 2: Small feature detection
-    const boundingBox = geometry.boundingBox;
-    if (boundingBox) {
-      const size = new THREE.Vector3();
-      boundingBox.getSize(size);
-      const minDimension = Math.min(size.x, size.y, size.z);
-      
-      if (minDimension < 1) {
-        results.push({
-          type: "warning",
-          message: "Sehr kleine Details erkannt",
-          detail: `Minimale Dimension: ${minDimension.toFixed(2)}mm. Details unter 1mm können schwer zu drucken sein.`
-        });
-      }
-    }
-
-    // Check 3: Triangle count (complexity)
-    const triangleCount = position.count / 3;
+    // Check triangle count
+    const triangleCount = positions.count / 3;
     if (triangleCount > 100000) {
       results.push({
-        type: "info",
-        message: "Sehr hochauflösendes Modell",
-        detail: `${(triangleCount / 1000).toFixed(0)}k Dreiecke. Druckzeit könnte länger sein.`
+        type: 'warning',
+        message: 'Sehr hohe Anzahl an Dreiecken',
+        detail: `${triangleCount.toLocaleString()} Dreiecke könnten die Verarbeitung verlangsamen.`
       });
     }
 
-    // Check 4: Non-manifold edges detection (simplified)
-    // In a real implementation, this would be more sophisticated
-    const edgeMap = new Map<string, number>();
-    for (let i = 0; i < position.count; i += 3) {
-      // Check each edge of the triangle
-      for (let j = 0; j < 3; j++) {
-        const i1 = i + j;
-        const i2 = i + ((j + 1) % 3);
-        
-        const v1 = `${position.getX(i1).toFixed(3)},${position.getY(i1).toFixed(3)},${position.getZ(i1).toFixed(3)}`;
-        const v2 = `${position.getX(i2).toFixed(3)},${position.getY(i2).toFixed(3)},${position.getZ(i2).toFixed(3)}`;
-        
-        const edgeKey = v1 < v2 ? `${v1}-${v2}` : `${v2}-${v1}`;
-        edgeMap.set(edgeKey, (edgeMap.get(edgeKey) || 0) + 1);
+    // Check for potential overhangs (simplified check)
+    let potentialOverhangs = 0;
+    for (let i = 0; i < positions.count; i += 3) {
+      const z1 = positions.getZ(i);
+      const z2 = positions.getZ(i + 1);
+      const z3 = positions.getZ(i + 2);
+      
+      // Simple overhang detection: if triangle is roughly horizontal and facing down
+      const avgZ = (z1 + z2 + z3) / 3;
+      if (avgZ > 0 && Math.abs(z1 - z2) < 1 && Math.abs(z2 - z3) < 1) {
+        potentialOverhangs++;
       }
     }
 
-    let nonManifoldEdges = 0;
-    edgeMap.forEach(count => {
-      if (count !== 2) nonManifoldEdges++;
-    });
-
-    if (nonManifoldEdges > position.count * 0.01) {
+    if (potentialOverhangs > triangleCount * 0.1) {
       results.push({
-        type: "error",
-        message: "Geometriefehler erkannt",
-        detail: "Das Modell enthält nicht-geschlossene Kanten. Bitte reparieren Sie die Geometrie."
+        type: 'info',
+        message: 'Mögliche Überhänge erkannt',
+        detail: 'Stützstrukturen könnten erforderlich sein.'
       });
     }
 
-    // Success message if no issues
-    if (results.length === 0) {
+    // Check for very small details
+    const vertices = [];
+    for (let i = 0; i < positions.count; i++) {
+      vertices.push(new THREE.Vector3(
+        positions.getX(i),
+        positions.getY(i),
+        positions.getZ(i)
+      ));
+    }
+
+    let tinyDetails = 0;
+    for (let i = 0; i < vertices.length - 1; i++) {
+      const distance = vertices[i].distanceTo(vertices[i + 1]);
+      if (distance < 0.5) {
+        tinyDetails++;
+      }
+    }
+
+    if (tinyDetails > vertices.length * 0.05) {
       results.push({
-        type: "info",
-        message: "✓ Modell druckbereit",
-        detail: "Keine kritischen Probleme erkannt. Das Modell ist für den 3D-Druck geeignet."
+        type: 'warning',
+        message: 'Sehr feine Details vorhanden',
+        detail: 'Details unter 0.5mm könnten schwer zu drucken sein.'
+      });
+    }
+
+    // Check for non-manifold edges (simplified)
+    const edges = new Map<string, number>();
+    for (let i = 0; i < positions.count; i += 3) {
+      const v1 = `${positions.getX(i)},${positions.getY(i)},${positions.getZ(i)}`;
+      const v2 = `${positions.getX(i + 1)},${positions.getY(i + 1)},${positions.getZ(i + 1)}`;
+      const v3 = `${positions.getX(i + 2)},${positions.getY(i + 2)},${positions.getZ(i + 2)}`;
+      
+      [
+        [v1, v2].sort().join('-'),
+        [v2, v3].sort().join('-'),
+        [v3, v1].sort().join('-')
+      ].forEach(edge => {
+        edges.set(edge, (edges.get(edge) || 0) + 1);
+      });
+    }
+
+    const nonManifoldEdges = Array.from(edges.values()).filter(count => count !== 2).length;
+    if (nonManifoldEdges > 0) {
+      results.push({
+        type: 'error',
+        message: 'Nicht-manifolde Kanten gefunden',
+        detail: `${nonManifoldEdges} Kanten könnten zu Druckfehlern führen. Modell reparieren empfohlen.`
       });
     }
 
@@ -214,6 +249,9 @@ export const FileUpload3D = ({
           // Analyze geometry for printability issues
           const analysis = analyzeGeometry(geometry);
           
+          // Calculate estimated print time
+          const estimatedTime = calculateEstimatedPrintTime(length, width, height, volumeCm3 * 1000);
+          
           onDimensionsCalculated({
             geometry,
             fileName: file.name,
@@ -221,7 +259,8 @@ export const FileUpload3D = ({
             width: Math.max(5, Math.min(350, width)),
             height: Math.max(5, Math.min(350, height)),
             volume: volumeCm3,
-            analysisResults: analysis
+            analysisResults: analysis,
+            estimatedPrintTimeHours: estimatedTime
           });
 
           toast.success(`${file.name}: ${length}×${width}×${height}mm, ${volumeCm3.toFixed(1)}cm³`);
