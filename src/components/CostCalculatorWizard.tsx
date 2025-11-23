@@ -1243,32 +1243,6 @@ const CostCalculatorWizard = () => {
                         />
                       )}
                     </div>
-                    
-                    <div className="p-4 bg-muted/30 rounded-lg space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Skalierte Maße:</span>
-                        <span className="font-medium">
-                          {Math.round(scaledLength)}×{Math.round(scaledWidth)}×{Math.round(scaledHeight)}mm
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Skaliertes Volumen:</span>
-                        <span className="font-medium">{scaledVolume.toFixed(1)} cm³</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Druckzeit:</span>
-                        <span className="font-medium">{effectivePrintTime.toFixed(1)}h</span>
-                      </div>
-                      <div className="flex justify-between items-center pt-2 border-t border-border">
-                        <span className="text-muted-foreground">Preis/Stk:</span>
-                        <span className="font-bold text-lg text-primary">€{estimatedPrice.toFixed(2)}</span>
-                      </div>
-                      {maxDimension > 250 && (
-                        <div className="pt-2 text-xs text-yellow-600 dark:text-yellow-500">
-                          ⚠️ Großformat-Zuschlag: €4/h statt €1.50/h (Seite über 250mm)
-                        </div>
-                      )}
-                    </div>
                   </div>
 
                   {/* Right: Settings */}
@@ -1333,6 +1307,35 @@ const CostCalculatorWizard = () => {
                           <SelectItem value="pa6">PA6 Nylon - €100/kg</SelectItem>
                         </SelectContent>
                       </Select>
+                    </div>
+
+                    {/* Scale Control */}
+                    <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
+                      <label className="text-sm font-medium mb-3 block flex items-center gap-2">
+                        <Ruler className="w-4 h-4 text-primary" />
+                        Skalierung: {((editingFile.scale || 1) * 100).toFixed(0)}%
+                      </label>
+                      <Slider
+                        value={[editingFile.scale || 1]}
+                        onValueChange={(v) => {
+                          const newScale = Math.max(0.1, Math.min(5, v[0]));
+                          setUploadedFiles(prev => prev.map(f => 
+                            f.id === editingFileId ? { ...f, scale: newScale } : f
+                          ));
+                        }}
+                        max={5}
+                        min={0.1}
+                        step={0.1}
+                      />
+                      <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                        <span>10%</span>
+                        <span className="font-medium text-primary">
+                          {Math.round(editingFile.length * (editingFile.scale || 1))}×
+                          {Math.round(editingFile.width * (editingFile.scale || 1))}×
+                          {Math.round(editingFile.height * (editingFile.scale || 1))}mm
+                        </span>
+                        <span>500%</span>
+                      </div>
                     </div>
 
                     {/* Complexity */}
