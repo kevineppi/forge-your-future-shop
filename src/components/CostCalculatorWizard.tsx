@@ -590,6 +590,42 @@ const CostCalculatorWizard = () => {
                       </Select>
                     </div>
 
+                    {/* Scale Control - only show for uploaded files */}
+                    {inputMethod === "file" && uploadedFiles.length > 0 && (
+                      <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
+                        <label className="text-sm font-medium mb-2 block flex items-center gap-2">
+                          <Ruler className="w-4 h-4 text-primary" />
+                          Skalierung: {(scale * 100).toFixed(0)}%
+                        </label>
+                        <Slider
+                          value={[scale]}
+                          onValueChange={(v) => {
+                            const newScale = Math.max(0.1, Math.min(5, v[0]));
+                            setScale(newScale);
+                            // Update dimensions based on scale
+                            if (activeFile) {
+                              setLength(Math.round(activeFile.length * newScale));
+                              setWidth(Math.round(activeFile.width * newScale));
+                              setHeight(Math.round(activeFile.height * newScale));
+                            }
+                          }}
+                          max={5}
+                          min={0.1}
+                          step={0.1}
+                        />
+                        <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                          <span>10%</span>
+                          <span className="font-medium text-primary">
+                            {length}×{width}×{height}mm
+                          </span>
+                          <span>500%</span>
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-2">
+                          Skalieren Sie das Modell ohne die Datei erneut hochzuladen
+                        </p>
+                      </div>
+                    )}
+
                     <div>
                       <label className="text-sm font-medium mb-2 block">
                         Komplexität: {complexityLevels[complexity]}
