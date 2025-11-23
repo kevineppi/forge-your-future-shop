@@ -113,7 +113,7 @@ const CostCalculatorWizard = () => {
     setHeight(fileData.height);
     const estimatedHours = Math.ceil((fileData.volume / 1000) * 2);
     setPrintDuration(Math.min(72, estimatedHours));
-    setCurrentStep(2); // Go to step 2 instead of showing viewer
+    // Stay on step 1, don't auto-advance
   }, []);
 
   const calculatePrice = useCallback(() => {
@@ -354,6 +354,17 @@ const CostCalculatorWizard = () => {
                         </TabsTrigger>
                       </TabsList>
                       <TabsContent value="file" className="mt-6 space-y-4">
+                        {uploadedFiles.length > 0 && (
+                          <Button 
+                            onClick={() => setCurrentStep(2)} 
+                            className="w-full" 
+                            size="lg"
+                          >
+                            Weiter zu Material & Einstellungen
+                            <ChevronRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        )}
+                        
                         <FileUpload3D 
                           onDimensionsCalculated={handleFileUpload}
                         />
