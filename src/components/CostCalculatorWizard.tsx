@@ -111,8 +111,9 @@ const CostCalculatorWizard = () => {
     setLength(fileData.length);
     setWidth(fileData.width);
     setHeight(fileData.height);
-    const estimatedHours = Math.ceil((fileData.volume / 1000) * 2);
-    setPrintDuration(Math.min(72, estimatedHours));
+    // Realistic FDM print speed: ~10 cm³/h (0.2mm layer height, 50mm/s speed)
+    const estimatedHours = Math.ceil(fileData.volume / 10);
+    setPrintDuration(Math.min(72, Math.max(1, estimatedHours)));
     // Stay on step 1, don't auto-advance
   }, []);
 
@@ -159,8 +160,9 @@ const CostCalculatorWizard = () => {
       
       let effectivePrintTime = printDuration;
       if (effectivePrintTime === 0) {
-        effectivePrintTime = (actualVolume * 1000 / 50) * (1 + complexity * 0.5);
-        effectivePrintTime = Math.max(1, Math.ceil(effectivePrintTime));
+        // Realistic FDM print speed: ~10 cm³/h
+        effectivePrintTime = actualVolume / 10;
+        effectivePrintTime = Math.max(1, Math.ceil(effectivePrintTime * (1 + complexity * 0.3)));
       } else {
         // Apply complexity multiplier to uploaded file duration as well
         effectivePrintTime = printDuration * (1 + complexity * 0.3);
