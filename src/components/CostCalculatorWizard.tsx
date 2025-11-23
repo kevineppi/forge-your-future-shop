@@ -1234,7 +1234,6 @@ const CostCalculatorWizard = () => {
                               f.id === editingFileId ? { ...f, scale: newScale } : f
                             ));
                           }}
-                          onBack={() => setEditingFileId(null)}
                           estimatedPrintTimeHours={effectivePrintTime}
                           pricing={{
                             perPiece: estimatedPrice,
@@ -1359,6 +1358,20 @@ const CostCalculatorWizard = () => {
                         <span>Einfach</span>
                         <span>Sehr komplex</span>
                       </div>
+                    </div>
+
+                    {/* Live Price & Done Button */}
+                    <div className="flex items-center justify-between gap-4 p-4 bg-primary/5 border border-primary/20 rounded-lg">
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">Live-Preis</p>
+                        <p className="text-2xl font-bold text-primary">€{estimatedPrice.toFixed(2)}</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {effectivePrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
+                        </p>
+                      </div>
+                      <Button onClick={() => setEditingFileId(null)} size="lg">
+                        Fertig
+                      </Button>
                     </div>
                   </div>
                 </div>
