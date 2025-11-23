@@ -359,9 +359,62 @@ serve(async (req) => {
         z: max.z - min.z,
       };
       
-      // Schätze Volumen basierend auf Bounding Box (grobe Näherung)
-      const estimatedVolume = (dimensions.x * dimensions.y * dimensions.z) * 0.2; // Annahme: 20% Füllung
-      const estimatedSurfaceArea = estimatedVolume * 2.5;
+      // Sample ein paar Dreiecke für bessere Volumen-Schätzung
+      const sampleSize = Math.min(1000, triangleCount);
+      const sampleStep = Math.floor(triangleCount / sampleSize);
+      let sampledVolume = 0;
+      let sampledSurfaceArea = 0;
+      let sampledOffset = 84;
+      
+      for (let i = 0; i < sampleSize; i++) {
+        // Springe zum Sample-Triangle
+        sampledOffset = 84 + (i * sampleStep * 50); // 50 bytes pro Triangle
+        
+        if (sampledOffset + 50 > arrayBuffer.byteLength) break;
+        
+        // Skip Normal (12 bytes)
+        sampledOffset += 12;
+        
+        // Lese 3 Vertices
+        const v1 = {
+          x: view.getFloat32(sampledOffset, true),
+          y: view.getFloat32(sampledOffset + 4, true),
+          z: view.getFloat32(sampledOffset + 8, true),
+        };
+        const v2 = {
+          x: view.getFloat32(sampledOffset + 12, true),
+          y: view.getFloat32(sampledOffset + 16, true),
+          z: view.getFloat32(sampledOffset + 20, true),
+        };
+        const v3 = {
+          x: view.getFloat32(sampledOffset + 24, true),
+          y: view.getFloat32(sampledOffset + 28, true),
+          z: view.getFloat32(sampledOffset + 32, true),
+        };
+        
+        // Volumen des Dreiecks (Signed Volume Method)
+        const triangleVolume = Math.abs(
+          (v1.x * v2.y * v3.z + v2.x * v3.y * v1.z + v3.x * v1.y * v2.z -
+           v3.x * v2.y * v1.z - v2.x * v1.y * v3.z - v1.x * v3.y * v2.z) / 6.0
+        );
+        sampledVolume += triangleVolume;
+        
+        // Oberfläche des Dreiecks
+        const ab = { x: v2.x - v1.x, y: v2.y - v1.y, z: v2.z - v1.z };
+        const ac = { x: v3.x - v1.x, y: v3.y - v1.y, z: v3.z - v1.z };
+        const cross = {
+          x: ab.y * ac.z - ab.z * ac.y,
+          y: ab.z * ac.x - ab.x * ac.z,
+          z: ab.x * ac.y - ab.y * ac.x,
+        };
+        const area = Math.sqrt(cross.x ** 2 + cross.y ** 2 + cross.z ** 2) / 2;
+        sampledSurfaceArea += area;
+      }
+      
+      // Hochrechnen auf alle Dreiecke
+      const volumeScaleFactor = triangleCount / sampleSize;
+      const estimatedVolume = Math.abs(sampledVolume * volumeScaleFactor);
+      const estimatedSurfaceArea = sampledSurfaceArea * volumeScaleFactor;
       
       console.log('Real dimensions from large file:', dimensions);
       
