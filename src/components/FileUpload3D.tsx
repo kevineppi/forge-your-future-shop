@@ -72,52 +72,97 @@ export const FileUpload3D = ({
     return Math.abs(volume);
   };
 
-  // Calculate estimated print time using heuristics
+  // Calculate estimated print time using Bambu Lab Standard 0.20mm PLA profile
   const calculateEstimatedPrintTime = (
     length: number,
     width: number,
     height: number,
     volume: number
   ): number => {
-    // Print settings
+    // Bambu Lab Standard Profile Settings
     const layerHeight = 0.2; // mm
-    const printSpeed = 60; // mm/s
+    const lineWidth = 0.42; // mm
+    const nozzleDiameter = 0.4; // mm
+    
+    // Speeds (mm/s) from Bambu profile
+    const outerWallSpeed = 200;
+    const innerWallSpeed = 300;
+    const infillSpeed = 270;
+    const solidInfillSpeed = 250;
+    const topSurfaceSpeed = 200;
+    const travelSpeed = 300;
+    const firstLayerSpeed = 50; // conservative for first layer
+    
+    // Material settings
+    const maxVolumetricSpeed = 21; // mm³/s for Bambu PLA Basic
     const infillPercent = 20; // %
-    const wallThickness = 1.2; // mm (3 perimeters x 0.4mm nozzle)
-    const travelSpeed = 150; // mm/s
+    
+    // Wall settings
+    const wallCount = 3;
+    const wallThickness = wallCount * lineWidth; // ~1.26mm total
     
     // Calculate number of layers
     const numLayers = Math.ceil(height / layerHeight);
     
-    // Estimate perimeter length per layer (assuming roughly rectangular cross-section)
-    const avgPerimeter = 2 * (length + width);
+    // Estimate surface area per layer (assuming roughly rectangular)
+    const avgPerimeter = 2 * (length + width); // mm
+    const layerArea = length * width; // mm²
     
-    // Calculate wall volume (perimeter * wallThickness * height)
-    const wallVolume = avgPerimeter * wallThickness * height;
+    // Calculate wall extrusion per layer
+    // Outer wall: 1 perimeter at outerWallSpeed
+    // Inner walls: 2 perimeters at innerWallSpeed
+    const outerWallLength = avgPerimeter;
+    const innerWallLength = avgPerimeter * 2;
     
-    // Calculate infill volume (total volume - wall volume) * infill percentage
-    const infillVolume = Math.max(0, (volume - wallVolume) * (infillPercent / 100));
+    // Calculate infill area (layer area minus wall area)
+    const wallArea = avgPerimeter * wallThickness;
+    const infillArea = Math.max(0, layerArea - wallArea) * (infillPercent / 100);
     
-    // Estimate total extrusion length
-    // Assuming 0.4mm nozzle, 0.2mm layer height = 0.08mm² cross-section per mm
-    const filamentCrossSectionArea = 0.08; // mm²
-    const totalExtrusionLength = (wallVolume + infillVolume) / filamentCrossSectionArea;
+    // Estimate infill line length (gyroid pattern, roughly 1.5x the area coverage)
+    const infillLineLength = (infillArea / lineWidth) * 1.5;
     
-    // Calculate print time
-    // Time = (extrusion length / print speed) + (travel moves / travel speed)
-    // Rough estimate: 30% of total moves are travel
-    const extrusionTime = totalExtrusionLength / printSpeed; // seconds
-    const travelTime = extrusionTime * 0.3 * (printSpeed / travelSpeed); // seconds
-    const totalTimeSeconds = extrusionTime + travelTime;
+    // Top/bottom layers (5 top + 4 bottom)
+    const topBottomLayers = 5 + 4;
+    const solidLayerArea = layerArea * topBottomLayers;
+    const solidInfillLength = solidLayerArea / lineWidth;
     
-    // Add overhead for layer changes, retractions, etc. (about 10%)
-    const totalWithOverhead = totalTimeSeconds * 1.1;
+    // Calculate extrusion volume per feature
+    const crossSectionArea = layerHeight * lineWidth; // mm²
+    
+    // Time calculations for typical layers
+    const outerWallTime = (outerWallLength / outerWallSpeed) * (numLayers - topBottomLayers);
+    const innerWallTime = (innerWallLength / innerWallSpeed) * (numLayers - topBottomLayers);
+    const infillTime = (infillLineLength / infillSpeed) * (numLayers - topBottomLayers);
+    
+    // Time for solid top/bottom layers
+    const solidTopBottomTime = (solidInfillLength / solidInfillSpeed);
+    
+    // First layer is slower
+    const firstLayerTime = (outerWallLength + innerWallLength + infillLineLength) / firstLayerSpeed;
+    
+    // Travel time (estimated as 20% of print time)
+    const printTimeSeconds = outerWallTime + innerWallTime + infillTime + solidTopBottomTime + firstLayerTime;
+    const travelTimeSeconds = printTimeSeconds * 0.2;
+    
+    // Check volumetric speed limit
+    // If flow rate exceeds max volumetric speed, scale up time
+    const avgFlowRate = (volume / printTimeSeconds) / 60; // mm³/s
+    let volumetricSpeedFactor = 1.0;
+    if (avgFlowRate > maxVolumetricSpeed) {
+      volumetricSpeedFactor = avgFlowRate / maxVolumetricSpeed;
+    }
+    
+    // Total time with overhead
+    const totalTimeSeconds = (printTimeSeconds + travelTimeSeconds) * volumetricSpeedFactor;
+    
+    // Add 15% overhead for acceleration, deceleration, retractions, cooling
+    const totalWithOverhead = totalTimeSeconds * 1.15;
     
     // Convert to hours
     const hours = totalWithOverhead / 3600;
     
-    // Round to 0.5 hour increments and ensure minimum 0.5h
-    return Math.max(0.5, Math.round(hours * 2) / 2);
+    // Return with 0.1 hour precision, minimum 0.5h
+    return Math.max(0.5, Math.round(hours * 10) / 10);
   };
 
   const analyzeGeometry = (geometry: THREE.BufferGeometry): AnalysisResult[] => {
