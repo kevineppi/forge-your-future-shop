@@ -13,6 +13,13 @@ interface Model3DViewerProps {
   onBack?: () => void;
   currentStep?: number;
   onNavigate?: (step: number) => void;
+  scale?: number;
+  onScaleChange?: (scale: number) => void;
+  pricing?: {
+    perPiece: number;
+    total: number;
+    materialWeight: number;
+  };
 }
 
 const Model = ({ geometry, scale }: { geometry: THREE.BufferGeometry; scale: number }) => {
@@ -23,9 +30,13 @@ const Model = ({ geometry, scale }: { geometry: THREE.BufferGeometry; scale: num
   );
 };
 
-export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavigate }: Model3DViewerProps) => {
-  const [scale, setScale] = useState(1);
+export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavigate, scale: externalScale, onScaleChange, pricing }: Model3DViewerProps) => {
+  const [internalScale, setInternalScale] = useState(1);
   const [resetTrigger, setResetTrigger] = useState(0);
+  
+  // Use external scale if provided, otherwise internal
+  const scale = externalScale !== undefined ? externalScale : internalScale;
+  const setScale = onScaleChange || setInternalScale;
 
   if (!geometry) {
     return (
@@ -115,6 +126,25 @@ export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavig
             <span>10%</span>
             <span>300%</span>
           </div>
+          
+          {pricing && (
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium">Live-Preis:</span>
+                <span className="text-lg font-bold text-primary">€{pricing.perPiece.toFixed(2)}</span>
+              </div>
+              <div className="text-xs text-muted-foreground space-y-1">
+                <div className="flex justify-between">
+                  <span>Materialgewicht:</span>
+                  <span>{pricing.materialWeight.toFixed(1)}g</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Skalierungsfaktor:</span>
+                  <span>{(scale * 100).toFixed(0)}%</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {fileName && (

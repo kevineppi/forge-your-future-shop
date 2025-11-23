@@ -281,23 +281,47 @@ export const FileUpload3D = ({
         onChange={handleFileChange}
         className="hidden"
         id="file-upload-3d"
+        multiple
+      />
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".stl,.stp,.step"
+        onChange={handleFileChange}
+        className="hidden"
+        id="folder-upload-3d"
+        {...({ webkitdirectory: "", directory: "" } as any)}
       />
 
       {!geometry ? (
-        <label
-          htmlFor="file-upload-3d"
-          className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
-        >
-          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-            <Upload className="w-10 h-10 mb-3 text-muted-foreground" />
-            <p className="mb-2 text-sm text-foreground font-medium">
-              Klicken zum Hochladen
-            </p>
-            <p className="text-xs text-muted-foreground">
-              STL oder STP/STEP (max. 50MB)
-            </p>
-          </div>
-        </label>
+        <div className="space-y-3">
+          <label
+            htmlFor="file-upload-3d"
+            className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
+          >
+            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+              <Upload className="w-10 h-10 mb-3 text-muted-foreground" />
+              <p className="mb-2 text-sm text-foreground font-medium">
+                Dateien hochladen
+              </p>
+              <p className="text-xs text-muted-foreground">
+                STL oder STP/STEP (mehrere möglich)
+              </p>
+            </div>
+          </label>
+          
+          <label
+            htmlFor="folder-upload-3d"
+            className="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/30 hover:bg-muted/50 transition-colors"
+          >
+            <div className="flex flex-col items-center justify-center py-4">
+              <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
+              <p className="text-sm text-foreground font-medium">
+                Ordner hochladen
+              </p>
+            </div>
+          </label>
+        </div>
       ) : (
         <div className="flex items-center gap-2 p-3 bg-primary/10 rounded-lg">
           <div className="flex-1">
