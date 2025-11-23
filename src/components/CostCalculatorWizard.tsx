@@ -1234,6 +1234,7 @@ const CostCalculatorWizard = () => {
                               f.id === editingFileId ? { ...f, scale: newScale } : f
                             ));
                           }}
+                          onBack={() => setEditingFileId(null)}
                           estimatedPrintTimeHours={effectivePrintTime}
                           pricing={{
                             perPiece: estimatedPrice,

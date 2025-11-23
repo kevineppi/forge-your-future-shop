@@ -102,6 +102,20 @@ export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavig
             />
           </Canvas>
         </div>
+        
+        {pricing && (
+          <div className="flex items-center justify-between gap-4 p-4 bg-primary/5 border border-primary/20 rounded-lg">
+            <div>
+              <p className="text-sm text-muted-foreground mb-1">Live-Preis</p>
+              <p className="text-2xl font-bold text-primary">€{pricing.perPiece.toFixed(2)}</p>
+            </div>
+            {onBack && (
+              <Button onClick={onBack} size="lg">
+                Fertig
+              </Button>
+            )}
+          </div>
+        )}
       </CardContent>
     </Card>
   );
