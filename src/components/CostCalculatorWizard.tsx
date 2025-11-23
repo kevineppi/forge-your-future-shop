@@ -270,21 +270,8 @@ const CostCalculatorWizard = () => {
 
   const calculatePrice = useCallback(() => {
     try {
-      // Calculate total for all files
-      let totalPerPiece = 0;
-      let totalWithQuantities = 0;
-      let totalSavings = 0;
-      let totalAdditionalServices = 0;
-      let totalExpressCharge = 0;
-      let totalMaterialCost = 0;
-      let totalEnergyCost = 0;
-      let totalPrintCost = 0;
-      let totalDepreciationCost = 0;
-      let totalDryingCost = 0;
-      let totalLaborCost = 0;
-      
+      // Return 0 if no files uploaded in file mode
       if (uploadedFiles.length === 0) {
-        // Return 0 if no files uploaded in file mode
         if (inputMethod === "file") {
           return { 
             perPiece: 0, total: 0, savings: 0, materialCost: 0, energyCost: 0,
@@ -406,14 +393,14 @@ const CostCalculatorWizard = () => {
         };
       }
       
-      // Calculate for all uploaded files
+      // Calculate total for all uploaded files using SAME LOGIC as Live-Preis
+      let totalWithQuantities = 0;
+      
       uploadedFiles.forEach(file => {
         const fileQuantity = file.quantity || 1;
         const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
         const fileComplexity = file.complexity || 0;
         const fileScale = file.scale || 1;
-        const filePostProcessing = file.postProcessing || "none";
-        const fileSupportRemoval = file.supportRemoval || false;
         
         const scaledVolume = file.volume * Math.pow(fileScale, 3);
         const scaledLength = file.length * fileScale;
@@ -421,91 +408,26 @@ const CostCalculatorWizard = () => {
         const scaledHeight = file.height * fileScale;
         const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
         
-        const materialDensity = 1.24;
-        // Volume from STL analysis is in mm³, convert to cm³ before calculating weight
-        const materialWeightGrams = (scaledVolume / 1000) * materialDensity;
-        
-        const objectArea = scaledLength * scaledWidth;
-        const plateArea = 150 * 150;
-        const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+        // EXACT SAME calculation as Live-Preis (lines 1242-1260)
+        const materialWeightGrams = scaledVolume * 1.24;
+        const effectivePrintTime = scaledVolume / 30;
         
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        // Use estimated print time from STL analysis if available, otherwise calculate
-        let effectivePrintTime: number;
-        if (file.estimatedPrintTimeHours) {
-          effectivePrintTime = file.estimatedPrintTimeHours;
-        } else {
-          // Fallback: Volume in mm³, convert to cm³ then divide by 30
-          effectivePrintTime = (scaledVolume / 1000) / 30;
-        }
-        effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
-        
-        const energyCostPerHour = 0.20;
-        const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
-        const energyCostWithMarkup = energyCostBase * 1.30;
-        
-        const laborCost = 5.00;
+        const complexityFactor = 1 + (fileComplexity * 0.15);
+        const adjustedPrintTime = effectivePrintTime * complexityFactor;
         
         let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-        printCostPerHour = printCostPerHour * (1 + fileComplexity * 0.25);
-        const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+        const printCost = adjustedPrintTime * printCostPerHour;
+        const laborCost = 5.00;
         
-        const complexitySurcharge = fileComplexity * 2.5;
-        const depreciationPerHour = 0.20;
-        const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
-        const dryingCostPerHour = 0.50;
-        const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
+        let pricePerPiece = materialCostWithMarkup + printCost + laborCost;
+        pricePerPiece = pricePerPiece * 1.30; // Profit margin
+        pricePerPiece = pricePerPiece * 1.20; // Tax
         
-        let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                       printCost + depreciationCost + dryingCost + complexitySurcharge;
-        
-        let additionalServices = 0;
-        const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
-        additionalServices += postProcessingCost;
-        
-        if (fileSupportRemoval && fileComplexity >= 3) {
-          additionalServices += 8;
-        }
-        
-        subtotal += additionalServices;
-        const profit = subtotal * 0.30;
-        subtotal += profit;
-        
-        let expressCharge = 0;
-        if (isExpressService) {
-          expressCharge = subtotal * 0.50;
-          subtotal += expressCharge;
-        }
-        
-        const tax = subtotal * 0.20;
-        let pricePerPiece = subtotal + tax;
-        
-        let discount = 1.0;
-        if (fileQuantity >= 50) discount = 0.80;
-        else if (fileQuantity >= 20) discount = 0.85;
-        else if (fileQuantity >= 10) discount = 0.90;
-        else if (fileQuantity >= 5) discount = 0.95;
-        
-        const fileTotalPrice = pricePerPiece * fileQuantity * discount;
-        const fileSavings = fileQuantity > 4 ? (pricePerPiece * fileQuantity - fileTotalPrice) : 0;
-        
-        // Round individual file price before adding to total
-        const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
-        const roundedFilePrice = roundTo5Cents(fileTotalPrice);
-        
-        totalPerPiece += pricePerPiece;
-        totalWithQuantities += roundedFilePrice; // Use rounded price
-        totalSavings += fileSavings;
-        totalAdditionalServices += additionalServices;
-        totalExpressCharge += expressCharge;
-        totalMaterialCost += materialCostWithMarkup;
-        totalEnergyCost += energyCostWithMarkup;
-        totalPrintCost += printCost;
-        totalDepreciationCost += depreciationCost;
-        totalDryingCost += dryingCost;
-        totalLaborCost += laborCost;
+        const fileTotalPrice = pricePerPiece * fileQuantity;
+        totalWithQuantities += fileTotalPrice;
       });
       
       let expressShipping = 0;
@@ -514,26 +436,23 @@ const CostCalculatorWizard = () => {
         totalWithQuantities += expressShipping;
       }
       
-      const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
-      const totalQuantity = uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0);
-      
-      // Gesamtpreis ist einfach die Summe aller Live-Preise der einzelnen Dateien
+      // Gesamtpreis ist einfach die Summe aller Live-Preise
       return {
-        perPiece: Math.max(5, roundTo5Cents(totalPerPiece / uploadedFiles.length)),
-        total: totalWithQuantities, // Einfach die Summe aller Live-Preise
-        savings: totalSavings,
-        materialCost: totalMaterialCost,
-        energyCost: totalEnergyCost,
-        printCost: totalPrintCost,
-        depreciationCost: totalDepreciationCost,
-        dryingCost: totalDryingCost,
-        laborCost: totalLaborCost,
-        additionalServices: totalAdditionalServices,
-        expressCharge: totalExpressCharge,
+        perPiece: 0,
+        total: totalWithQuantities,
+        savings: 0,
+        materialCost: 0,
+        energyCost: 0,
+        printCost: 0,
+        depreciationCost: 0,
+        dryingCost: 0,
+        laborCost: 0,
+        additionalServices: 0,
+        expressCharge: 0,
         expressShipping: expressShipping,
         volume: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3), 0),
         maxDimension: Math.max(...uploadedFiles.map(f => Math.max(f.length, f.width, f.height) * (f.scale || 1))),
-        materialWeight: uploadedFiles.reduce((sum, f) => sum + (f.volume / 1000) * Math.pow(f.scale || 1, 3) * 1.24, 0),
+        materialWeight: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3) * 1.24, 0),
         objectsPerPlate: 1
       };
     } catch (error) {
