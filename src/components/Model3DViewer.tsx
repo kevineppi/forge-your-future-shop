@@ -4,12 +4,13 @@ import { OrbitControls, Stage } from "@react-three/drei";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Box, RotateCw } from "lucide-react";
+import { Box, RotateCw, ArrowLeft } from "lucide-react";
 import * as THREE from "three";
 
 interface Model3DViewerProps {
   geometry: THREE.BufferGeometry | null;
   fileName: string;
+  onBack?: () => void;
 }
 
 const Model = ({ geometry, scale }: { geometry: THREE.BufferGeometry; scale: number }) => {
@@ -20,7 +21,7 @@ const Model = ({ geometry, scale }: { geometry: THREE.BufferGeometry; scale: num
   );
 };
 
-export const Model3DViewer = ({ geometry, fileName }: Model3DViewerProps) => {
+export const Model3DViewer = ({ geometry, fileName, onBack }: Model3DViewerProps) => {
   const [scale, setScale] = useState(1);
   const [resetTrigger, setResetTrigger] = useState(0);
 
@@ -28,9 +29,17 @@ export const Model3DViewer = ({ geometry, fileName }: Model3DViewerProps) => {
     return (
       <Card className="gradient-card border-0 h-full">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Box className="w-5 h-5 text-primary" />
-            3D-Vorschau
+          <CardTitle className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Box className="w-5 h-5 text-primary" />
+              3D-Vorschau
+            </div>
+            {onBack && (
+              <Button variant="outline" size="sm" onClick={onBack}>
+                <ArrowLeft className="w-4 h-4 mr-1" />
+                Zurück
+              </Button>
+            )}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -48,9 +57,17 @@ export const Model3DViewer = ({ geometry, fileName }: Model3DViewerProps) => {
   return (
     <Card className="gradient-card border-0 h-full">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Box className="w-5 h-5 text-primary" />
-          3D-Vorschau
+        <CardTitle className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Box className="w-5 h-5 text-primary" />
+            3D-Vorschau
+          </div>
+          {onBack && (
+            <Button variant="outline" size="sm" onClick={onBack}>
+              <ArrowLeft className="w-4 h-4 mr-1" />
+              Zurück
+            </Button>
+          )}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">

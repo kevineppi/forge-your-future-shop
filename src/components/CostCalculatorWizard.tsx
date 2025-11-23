@@ -6,7 +6,7 @@ import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check } from "lucide-react";
+import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye } from "lucide-react";
 import { FileUpload3D } from "./FileUpload3D";
 import { Model3DViewer } from "./Model3DViewer";
 import * as THREE from "three";
@@ -21,6 +21,7 @@ const CostCalculatorWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [inputMethod, setInputMethod] = useState<"file" | "manual">("manual");
   const [isClient, setIsClient] = useState(false);
+  const [showViewer, setShowViewer] = useState(false);
   
   // 3D File state
   const [geometry, setGeometry] = useState<THREE.BufferGeometry | null>(null);
@@ -274,8 +275,16 @@ const CostCalculatorWizard = () => {
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Panel - Settings (50% width) */}
+            {/* Left Panel - Settings or 3D Viewer (50% width) */}
             <div className="space-y-6 min-h-[600px]">
+              {showViewer ? (
+                <Model3DViewer 
+                  geometry={geometry} 
+                  fileName={fileName}
+                  onBack={() => setShowViewer(false)}
+                />
+              ) : (
+                <>
               {/* Step 1: Input Method */}
               {/* Step 1: Input Method */}
               {currentStep === 1 && (
@@ -298,7 +307,7 @@ const CostCalculatorWizard = () => {
                           Manuell
                         </TabsTrigger>
                       </TabsList>
-                      <TabsContent value="file" className="mt-6">
+                      <TabsContent value="file" className="mt-6 space-y-4">
                         <FileUpload3D 
                           onDimensionsCalculated={handleFileUpload}
                           geometry={geometry}
@@ -308,6 +317,23 @@ const CostCalculatorWizard = () => {
                           analysisResults={analysisResults}
                           setAnalysisResults={setAnalysisResults}
                         />
+                        {geometry && fileName && (
+                          <div className="flex items-center justify-between p-3 bg-muted/30 rounded-lg">
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <Upload className="w-4 h-4" />
+                              <span>Datei geladen: {fileName}</span>
+                            </div>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => setShowViewer(true)}
+                              className="gap-2"
+                            >
+                              <Eye className="w-4 h-4" />
+                              3D-Vorschau
+                            </Button>
+                          </div>
+                        )}
                       </TabsContent>
                       <TabsContent value="manual" className="mt-6 space-y-4">
                         <div>
@@ -542,13 +568,12 @@ const CostCalculatorWizard = () => {
                   </CardContent>
                 </Card>
               )}
+              </>
+              )}
             </div>
 
             {/* Right Panel - Live Preview & 3D Viewer (50% width) */}
             <div className="lg:sticky lg:top-8 h-fit space-y-6 min-h-[600px]">
-              {/* 3D Viewer */}
-              <Model3DViewer geometry={geometry} fileName={fileName} />
-
               {/* Price Preview */}
               <Card className="gradient-card border-0">
                 <CardHeader>
