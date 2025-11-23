@@ -358,11 +358,6 @@ const CostCalculatorWizard = () => {
         const tax = subtotal * 0.20;
         let pricePerPiece = subtotal + tax;
         
-        // Kleinteilpauschale bei Teilen unter 15€
-        if (pricePerPiece < 15) {
-          pricePerPiece = 15;
-        }
-        
         let discount = 1.0;
         if (quantity >= 50) discount = 0.80;
         else if (quantity >= 20) discount = 0.85;
@@ -462,11 +457,6 @@ const CostCalculatorWizard = () => {
         const tax = subtotal * 0.20;
         let pricePerPiece = subtotal + tax;
         
-        // Kleinteilpauschale bei Teilen unter 15€
-        if (pricePerPiece < 15) {
-          pricePerPiece = 15;
-        }
-        
         let discount = 1.0;
         if (fileQuantity >= 50) discount = 0.80;
         else if (fileQuantity >= 20) discount = 0.85;
@@ -511,11 +501,17 @@ const CostCalculatorWizard = () => {
       const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
       const totalQuantity = uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0);
       
+      // Kleinteilpauschale: Wenn Gesamtpreis unter 15€, dann auf 15€ setzen
+      if (totalWithQuantities < 15) {
+        totalWithQuantities = 15;
+      }
+      
       console.log('Total Calculation Summary:', {
         filesCount: uploadedFiles.length,
         totalQuantity,
         totalWithQuantities: totalWithQuantities.toFixed(2),
-        expressShipping
+        expressShipping,
+        kleinteilpauschaleApplied: totalWithQuantities === 15
       });
       
       return {
@@ -619,11 +615,6 @@ const CostCalculatorWizard = () => {
       
       const tax = subtotal * 0.20;
       let pricePerPiece = subtotal + tax;
-      
-      // Kleinteilpauschale bei Teilen unter 15€
-      if (pricePerPiece < 15) {
-        pricePerPiece = 15;
-      }
       
       let discount = 1.0;
       if (fileQuantity >= 50) discount = 0.80;
@@ -1257,11 +1248,6 @@ const CostCalculatorWizard = () => {
               let estimatedPrice = materialCostWithMarkup + printCost + laborCost;
               estimatedPrice = estimatedPrice * 1.30; // Profit margin
               estimatedPrice = estimatedPrice * 1.20; // Tax
-              
-              // Kleinteilpauschale bei Teilen unter 15€
-              if (estimatedPrice < 15) {
-                estimatedPrice = 15;
-              }
               
               return (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4">
