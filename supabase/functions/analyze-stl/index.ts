@@ -458,10 +458,10 @@ serve(async (req) => {
           level: 'very_complex',
         },
         estimates: {
-          printTimeHours: (estimatedVolume / 100) * 8,
-          materialGrams: estimatedVolume * 1.24 * 0.2,
-          supportMaterialGrams: estimatedVolume * 1.24 * 0.05,
-          layerCount: 250,
+          printTimeHours: (estimatedMaterialVolume / 1000 / 100) * 8,
+          materialGrams: (estimatedMaterialVolume / 1000) * 1.24,
+          supportMaterialGrams: (estimatedMaterialVolume / 1000) * 1.24 * 0.15,
+          layerCount: Math.ceil(dimensions.z / 0.2),
         },
       };
       
