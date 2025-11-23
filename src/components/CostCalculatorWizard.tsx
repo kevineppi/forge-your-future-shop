@@ -861,12 +861,22 @@ const CostCalculatorWizard = () => {
                         
                         return (
                           <div key={file.id} className="p-4 border-2 border-border rounded-lg space-y-3">
-                            <div className="flex items-start justify-between">
+                            <div className="flex items-start justify-between gap-4">
                               <div className="flex-1">
                                 <p className="font-medium text-sm">{file.fileName}</p>
                                 <p className="text-xs text-muted-foreground">
                                   {file.length}×{file.width}×{file.height}mm
                                 </p>
+                              </div>
+                              <div className="text-right">
+                                <p className="text-lg font-bold text-primary">
+                                  €{roundTo5Cents(fileTotalPrice).toFixed(2)}
+                                </p>
+                                {fileQuantity >= 5 && (
+                                  <p className="text-xs text-green-600">
+                                    -{((1 - discount) * 100).toFixed(0)}%
+                                  </p>
+                                )}
                               </div>
                             </div>
                             
@@ -922,21 +932,6 @@ const CostCalculatorWizard = () => {
                                   <Plus className="h-4 w-4" />
                                 </Button>
                               </div>
-                            </div>
-                            
-                            {/* Live Price Display */}
-                            <div className="pt-3 border-t border-border">
-                              <div className="flex items-center justify-between">
-                                <span className="text-sm text-muted-foreground">Preis für diese Datei:</span>
-                                <span className="text-lg font-bold text-primary">
-                                  €{roundTo5Cents(fileTotalPrice).toFixed(2)}
-                                </span>
-                              </div>
-                              {fileQuantity >= 5 && (
-                                <p className="text-xs text-green-600 mt-1">
-                                  🎉 Mengenrabatt aktiv ({((1 - discount) * 100).toFixed(0)}% Ersparnis)
-                                </p>
-                              )}
                             </div>
                           </div>
                         );
