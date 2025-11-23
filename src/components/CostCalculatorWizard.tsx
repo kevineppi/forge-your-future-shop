@@ -1214,14 +1214,14 @@ const CostCalculatorWizard = () => {
               // Calculate pricing for this file
               const fileMaterial = materials[editingFile.material as keyof typeof materials] || materials.pla;
               const materialWeightGrams = scaledVolume * 1.24;
-              const effectivePrintTime = (editingFile.estimatedPrintTimeHours || (scaledVolume / 10)) * Math.pow(editingFile.scale || 1, 3);
+              const effectivePrintTime = scaledVolume / 50; // Volumen in cm³ / 50 = Druckdauer in Stunden
               
               let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
               const estimatedPrice = (materialWeightGrams / 1000) * fileMaterial.pricePerKg + effectivePrintTime * printCostPerHour;
               
               return (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4">
-                  {/* Left: 3D Viewer */}
+                  {/* Left: 3D Viewer + Price */}
                   <div className="space-y-4">
                     <div className="aspect-square bg-muted/30 rounded-lg overflow-hidden">
                       {editingFile.geometry && (
@@ -1242,6 +1242,20 @@ const CostCalculatorWizard = () => {
                           }}
                         />
                       )}
+                    </div>
+                    
+                    {/* Live Price & Done Button */}
+                    <div className="flex items-center justify-between gap-4 p-4 bg-primary/5 border border-primary/20 rounded-lg">
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">Live-Preis</p>
+                        <p className="text-2xl font-bold text-primary">€{estimatedPrice.toFixed(2)}</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {effectivePrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
+                        </p>
+                      </div>
+                      <Button onClick={() => setEditingFileId(null)} size="lg">
+                        Fertig
+                      </Button>
                     </div>
                   </div>
 
@@ -1358,20 +1372,6 @@ const CostCalculatorWizard = () => {
                         <span>Einfach</span>
                         <span>Sehr komplex</span>
                       </div>
-                    </div>
-
-                    {/* Live Price & Done Button */}
-                    <div className="flex items-center justify-between gap-4 p-4 bg-primary/5 border border-primary/20 rounded-lg">
-                      <div>
-                        <p className="text-sm text-muted-foreground mb-1">Live-Preis</p>
-                        <p className="text-2xl font-bold text-primary">€{estimatedPrice.toFixed(2)}</p>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {effectivePrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
-                        </p>
-                      </div>
-                      <Button onClick={() => setEditingFileId(null)} size="lg">
-                        Fertig
-                      </Button>
                     </div>
                   </div>
                 </div>
