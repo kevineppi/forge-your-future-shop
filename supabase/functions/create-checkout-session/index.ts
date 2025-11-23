@@ -54,6 +54,9 @@ serve(async (req) => {
             volume: item.volume.toString(),
             print_time: item.print_time.toString(),
             infill: item.infill.toString(),
+            material: item.material,
+            color: item.color,
+            quality: item.quality,
           }
         },
         unit_amount: Math.round(item.unit_price * 100), // Convert to cents
@@ -76,6 +79,8 @@ serve(async (req) => {
       });
     }
 
+    // Store order data separately to avoid Stripe metadata size limits
+    // Metadata in Stripe has a 500 character limit per field
     const session = await stripe.checkout.sessions.create({
       customer: customerId,
       customer_email: customerId ? undefined : user.email,
@@ -86,9 +91,9 @@ serve(async (req) => {
       metadata: {
         user_id: user.id,
         express_service: orderData.express_service.toString(),
-        notes: orderData.notes || "",
-        post_processing: JSON.stringify(orderData.post_processing || []),
-        order_items: JSON.stringify(orderData.items),
+        notes: (orderData.notes || "").substring(0, 400), // Limit to avoid size issues
+        item_count: orderData.items.length.toString(),
+        total_amount: (orderData.items.reduce((sum: number, item: any) => sum + item.total_price, 0) + (orderData.shippingCost || 0)).toFixed(2),
       },
     });
 
