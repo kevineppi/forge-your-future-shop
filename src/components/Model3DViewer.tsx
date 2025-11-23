@@ -15,6 +15,7 @@ interface Model3DViewerProps {
   onNavigate?: (step: number) => void;
   scale?: number;
   onScaleChange?: (scale: number) => void;
+  estimatedPrintTimeHours?: number | null;
   pricing?: {
     perPiece: number;
     total: number;
@@ -30,7 +31,7 @@ const Model = ({ geometry, scale }: { geometry: THREE.BufferGeometry; scale: num
   );
 };
 
-export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavigate, scale: externalScale, onScaleChange, pricing }: Model3DViewerProps) => {
+export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavigate, scale: externalScale, onScaleChange, estimatedPrintTimeHours, pricing }: Model3DViewerProps) => {
   const [internalScale, setInternalScale] = useState(1);
   const [resetTrigger, setResetTrigger] = useState(0);
   
@@ -142,6 +143,12 @@ export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavig
                   <span>Skalierungsfaktor:</span>
                   <span>{(scale * 100).toFixed(0)}%</span>
                 </div>
+                {estimatedPrintTimeHours && (
+                  <div className="flex justify-between">
+                    <span>Geschätzte Druckdauer:</span>
+                    <span>{estimatedPrintTimeHours.toFixed(1)}h</span>
+                  </div>
+                )}
               </div>
             </div>
           )}
