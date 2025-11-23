@@ -417,15 +417,25 @@ export const FileUpload3D = ({
           });
         }
 
+        // Calculate print time and material weight using same logic as CostCalculatorWizard
+        const volumeCm3 = volume / 1000; // mm³ to cm³
+        const materialDensity = 1.24; // g/cm³
+        const materialWeightGrams = volumeCm3 * materialDensity;
+        
+        // Use complexity from edge function for time calculation
+        const fileComplexity = Math.round(complexity.score * 5); // 0-1 → 0-5
+        let effectivePrintTime = volumeCm3 / 50; // 50 cm³/h base speed
+        effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
+
         onDimensionsCalculated({
           geometry,
           fileName: file.name,
           length: Math.max(5, Math.min(350, length)),
           width: Math.max(5, Math.min(350, width)),
           height: Math.max(5, Math.min(350, height)),
-          volume: volume / 1000, // mm³ to cm³
+          volume: volumeCm3,
           analysisResults,
-          estimatedPrintTimeHours: estimates.printTimeHours,
+          estimatedPrintTimeHours: effectivePrintTime,
           complexityScore: complexity.score // 0-1
         });
 
@@ -434,9 +444,9 @@ export const FileUpload3D = ({
         
         toast.success(
           `${file.name}: ${length}×${width}×${height}mm | ` +
-          `${(volume / 1000).toFixed(1)}cm³ | ` +
-          `${estimates.printTimeHours.toFixed(1)}h | ` +
-          `${estimates.materialGrams.toFixed(0)}g`
+          `${volumeCm3.toFixed(1)}cm³ | ` +
+          `${effectivePrintTime.toFixed(1)}h | ` +
+          `${materialWeightGrams.toFixed(0)}g`
         );
       } else {
         toast.info(`${file.name}: STP/STEP Dateien werden derzeit verarbeitet. Bitte verwenden Sie vorerst STL-Dateien.`);
