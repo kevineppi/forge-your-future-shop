@@ -264,7 +264,6 @@ export const FileUpload3D = ({
         className="hidden"
         id="file-upload-3d"
         multiple
-        {...({ webkitdirectory: "", directory: "" } as any)}
       />
 
       <label
@@ -278,7 +277,7 @@ export const FileUpload3D = ({
           </p>
           <p className="text-sm text-muted-foreground text-center px-4">
             STL oder STP/STEP<br />
-            Einzelne Datei, mehrere Dateien oder Ordner
+            Einzelne oder mehrere Dateien auswählen
           </p>
         </div>
       </label>
