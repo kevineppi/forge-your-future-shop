@@ -136,7 +136,7 @@ const CostCalculator = () => {
       const materialCostBase = (materialWeightGrams / 1000) * baseMaterial.pricePerKg;
       const materialCostWithMarkup = materialCostBase * 1.30; // +30% markup
       
-      // 2. ENERGIEKOSTEN (Energy costs)
+      // 2. ENERGIEKOSTEN (Energy costs) - simplified to flat rate
       // Use printDuration if provided, otherwise estimate based on volume and complexity
       let effectivePrintTime = printDuration;
       if (effectivePrintTime === 0) {
@@ -145,9 +145,8 @@ const CostCalculator = () => {
         effectivePrintTime = Math.max(1, Math.ceil(effectivePrintTime));
       }
       
-      const powerConsumptionKW = 0.3; // 300W
-      const energyCostPerKWh = 0.20; // 0.20€/kWh
-      const energyCostBase = effectivePrintTime * powerConsumptionKW * energyCostPerKWh / objectsPerPlate;
+      const energyCostPerHour = 0.20; // 0.20€/h flat rate
+      const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
       const energyCostWithMarkup = energyCostBase * 1.30; // +30% markup
       
       // 3. ARBEITSAUFWAND (Labor cost) - fixed
@@ -161,7 +160,7 @@ const CostCalculator = () => {
       const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
       
       // 5. DRUCKERABNUTZUNG (Printer depreciation)
-      const depreciationPerHour = 0.10;
+      const depreciationPerHour = 0.20; // 0.20€/h
       const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
       
       // 6. TROCKNUNGSKOSTEN (Drying costs)
@@ -502,7 +501,7 @@ const CostCalculator = () => {
                       <span className="font-medium">€{pricing.materialCost.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span>Energiekosten (inkl. 30%):</span>
+                      <span>Energiekosten (€0.20/h + 30%):</span>
                       <span className="font-medium">€{pricing.energyCost.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-sm">
@@ -510,11 +509,11 @@ const CostCalculator = () => {
                       <span className="font-medium">€{pricing.laborCost.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span>Druckkosten:</span>
+                      <span>Druckkosten ({pricing.maxDimension > 250 ? '€4/h' : '€1.50/h'}):</span>
                       <span className="font-medium">€{pricing.printCost.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span>Druckerabnutzung:</span>
+                      <span>Druckerabnutzung (€0.20/h):</span>
                       <span className="font-medium">€{pricing.depreciationCost.toFixed(2)}</span>
                     </div>
                     {pricing.dryingCost > 0 && (
