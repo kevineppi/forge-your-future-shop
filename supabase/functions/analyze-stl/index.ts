@@ -45,14 +45,32 @@ interface STLAnalysis {
 // STL Parser für Binary Format
 function parseBinarySTL(buffer: ArrayBuffer): Triangle[] {
   const view = new DataView(buffer);
+  
+  // Validate minimum file size
+  if (buffer.byteLength < 84) {
+    throw new Error('Invalid STL file: too small');
+  }
+  
   let offset = 80; // Skip header
   
   const triangleCount = view.getUint32(offset, true);
   offset += 4;
   
+  // Validate expected file size
+  const expectedSize = 84 + (triangleCount * 50); // 50 bytes per triangle
+  if (buffer.byteLength < expectedSize) {
+    throw new Error(`Invalid STL file: expected ${expectedSize} bytes but got ${buffer.byteLength}`);
+  }
+  
   const triangles: Triangle[] = [];
   
   for (let i = 0; i < triangleCount; i++) {
+    // Additional safety check
+    if (offset + 50 > buffer.byteLength) {
+      console.log(`Warning: Truncated STL file at triangle ${i}/${triangleCount}`);
+      break;
+    }
+    
     const normal: Vector3 = {
       x: view.getFloat32(offset, true),
       y: view.getFloat32(offset + 4, true),
