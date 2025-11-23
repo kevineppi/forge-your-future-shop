@@ -28,6 +28,7 @@ const CostCalculatorWizard = () => {
   const [fileName, setFileName] = useState("");
   const [analysisResults, setAnalysisResults] = useState<AnalysisResult[]>([]);
   const [actualFileVolume, setActualFileVolume] = useState<number | null>(null);
+  const [scale, setScale] = useState(1); // Scale factor for 3D model
   
   // State
   const [material, setMaterial] = useState("pla");
@@ -80,7 +81,7 @@ const CostCalculatorWizard = () => {
     setActualFileVolume(dimensions.volume); // Store actual file volume in cm³
     const estimatedHours = Math.ceil((dimensions.volume / 1000) * 2);
     setPrintDuration(Math.min(72, estimatedHours));
-    setCurrentStep(2);
+    setShowViewer(true); // Show viewer instead of going to step 2
   }, []);
 
   const calculatePrice = useCallback(() => {
@@ -100,8 +101,9 @@ const CostCalculatorWizard = () => {
       let actualVolume: number;
       
       if (actualFileVolume !== null) {
-        // For uploaded files: Use actual STL volume (already solid volume)
-        actualVolume = actualFileVolume; // in cm³
+        // For uploaded files: Use actual STL volume (already solid volume) with scale factor
+        const scaledVolume = actualFileVolume * Math.pow(scale, 3); // Scale³ for volume
+        actualVolume = scaledVolume; // in cm³
         materialWeightGrams = actualVolume * materialDensity;
       } else {
         // For manual input: Calculate with infill factor
@@ -221,7 +223,7 @@ const CostCalculatorWizard = () => {
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
     }
-  }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval, actualFileVolume]);
+  }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval, actualFileVolume, scale]);
 
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
@@ -305,6 +307,9 @@ const CostCalculatorWizard = () => {
                   onBack={() => setShowViewer(false)}
                   currentStep={currentStep}
                   onNavigate={(step) => setCurrentStep(step)}
+                  scale={scale}
+                  onScaleChange={setScale}
+                  pricing={pricing}
                 />
               ) : (
                 <>
