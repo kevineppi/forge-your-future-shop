@@ -266,6 +266,48 @@ export type Database = {
         }
         Relationships: []
       }
+      slicing_jobs: {
+        Row: {
+          calculated_time_hours: number | null
+          created_at: string
+          error_message: string | null
+          estimated_time_hours: number | null
+          file_name: string
+          file_url: string
+          id: string
+          material: string | null
+          metadata: Json | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          calculated_time_hours?: number | null
+          created_at?: string
+          error_message?: string | null
+          estimated_time_hours?: number | null
+          file_name: string
+          file_url: string
+          id?: string
+          material?: string | null
+          metadata?: Json | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          calculated_time_hours?: number | null
+          created_at?: string
+          error_message?: string | null
+          estimated_time_hours?: number | null
+          file_name?: string
+          file_url?: string
+          id?: string
+          material?: string | null
+          metadata?: Json | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

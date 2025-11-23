@@ -94,6 +94,7 @@ const CostCalculatorWizard = () => {
     height: number;
     volume: number;
     analysisResults: AnalysisResult[];
+    estimatedPrintTimeHours?: number;
   }) => {
     const newFile: UploadedFile = {
       id: `file-${Date.now()}-${Math.random()}`,
@@ -111,9 +112,15 @@ const CostCalculatorWizard = () => {
     setLength(fileData.length);
     setWidth(fileData.width);
     setHeight(fileData.height);
-    // Realistic FDM print speed: ~10 cm³/h (0.2mm layer height, 50mm/s speed)
-    const estimatedHours = Math.ceil(fileData.volume / 10);
-    setPrintDuration(Math.min(72, Math.max(1, estimatedHours)));
+    
+    // Use heuristic calculation if provided
+    if (fileData.estimatedPrintTimeHours) {
+      setPrintDuration(fileData.estimatedPrintTimeHours);
+    } else {
+      // Fallback: Realistic FDM print speed: ~10 cm³/h (0.2mm layer height, 50mm/s speed)
+      const estimatedHours = Math.ceil(fileData.volume / 10);
+      setPrintDuration(Math.min(72, Math.max(1, estimatedHours)));
+    }
     // Stay on step 1, don't auto-advance
   }, []);
 
@@ -541,9 +548,28 @@ const CostCalculatorWizard = () => {
                         min={0}
                         step={1}
                       />
-                      <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                        <span>Druckkosten: {Math.max(length, width, height) > 250 ? "4.00€" : "1.50€"}/Stunde</span>
-                        <span>{printDuration === 0 ? "Automatische Berechnung" : `${printDuration}h × ${Math.max(length, width, height) > 250 ? "4.00€" : "1.50€"} = ${(printDuration * (Math.max(length, width, height) > 250 ? 4 : 1.5)).toFixed(2)}€`}</span>
+                      <div className="flex flex-col gap-2 mt-2">
+                        <div className="flex justify-between text-xs text-muted-foreground">
+                          <span>Druckkosten: {Math.max(length, width, height) > 250 ? "4.00€" : "1.50€"}/Stunde</span>
+                          <span>{printDuration === 0 ? "Automatische Berechnung" : `${printDuration}h × ${Math.max(length, width, height) > 250 ? "4.00€" : "1.50€"} = ${(printDuration * (Math.max(length, width, height) > 250 ? 4 : 1.5)).toFixed(2)}€`}</span>
+                        </div>
+                        {estimatedPrintDuration && (
+                          <div className="flex items-center gap-2 text-xs">
+                            <span className="px-2 py-1 bg-primary/10 text-primary rounded-md">
+                              ⚡ Geschätzt: {estimatedPrintDuration}h
+                            </span>
+                            {calculatedPrintDuration && (
+                              <span className="px-2 py-1 bg-success/10 text-success rounded-md">
+                                ✓ Genau: {calculatedPrintDuration}h
+                              </span>
+                            )}
+                            {slicingJobId && !calculatedPrintDuration && (
+                              <span className="px-2 py-1 bg-muted text-muted-foreground rounded-md animate-pulse">
+                                ⏳ Genaue Berechnung läuft...
+                              </span>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
 
