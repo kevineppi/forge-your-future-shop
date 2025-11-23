@@ -491,6 +491,15 @@ const CostCalculatorWizard = () => {
         totalDepreciationCost += depreciationCost;
         totalDryingCost += dryingCost;
         totalLaborCost += laborCost;
+        
+        console.log('File Calculation:', {
+          fileName: file.fileName,
+          quantity: fileQuantity,
+          pricePerPiece: pricePerPiece.toFixed(2),
+          discount,
+          fileTotalPrice: fileTotalPrice.toFixed(2),
+          roundedFilePrice: roundedFilePrice.toFixed(2)
+        });
       });
       
       let expressShipping = 0;
@@ -501,6 +510,13 @@ const CostCalculatorWizard = () => {
       
       const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
       const totalQuantity = uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0);
+      
+      console.log('Total Calculation Summary:', {
+        filesCount: uploadedFiles.length,
+        totalQuantity,
+        totalWithQuantities: totalWithQuantities.toFixed(2),
+        expressShipping
+      });
       
       return {
         perPiece: Math.max(5, roundTo5Cents(totalPerPiece / uploadedFiles.length)),
@@ -1231,8 +1247,16 @@ const CostCalculatorWizard = () => {
               const materialWeightGrams = scaledVolume * 1.24;
               const effectivePrintTime = scaledVolume / 30; // Volumen in cm³ / 30 = Druckdauer in Stunden
               
+              // Simplified pricing for live preview
+              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
+              const materialCostWithMarkup = materialCostBase * 1.30;
               let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-              let estimatedPrice = (materialWeightGrams / 1000) * fileMaterial.pricePerKg + effectivePrintTime * printCostPerHour;
+              const printCost = effectivePrintTime * printCostPerHour;
+              const laborCost = 5.00;
+              
+              let estimatedPrice = materialCostWithMarkup + printCost + laborCost;
+              estimatedPrice = estimatedPrice * 1.30; // Profit margin
+              estimatedPrice = estimatedPrice * 1.20; // Tax
               
               // Kleinteilpauschale bei Teilen unter 15€
               if (estimatedPrice < 15) {
