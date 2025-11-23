@@ -158,6 +158,116 @@ export type Database = {
         }
         Relationships: []
       }
+      order_items: {
+        Row: {
+          color: string
+          created_at: string
+          dimensions: Json
+          file_name: string
+          file_url: string
+          id: string
+          infill: number
+          material: string
+          order_id: string
+          print_time: number
+          quality: string
+          quantity: number
+          total_price: number
+          unit_price: number
+          volume: number
+        }
+        Insert: {
+          color: string
+          created_at?: string
+          dimensions: Json
+          file_name: string
+          file_url: string
+          id?: string
+          infill: number
+          material: string
+          order_id: string
+          print_time: number
+          quality: string
+          quantity?: number
+          total_price: number
+          unit_price: number
+          volume: number
+        }
+        Update: {
+          color?: string
+          created_at?: string
+          dimensions?: Json
+          file_name?: string
+          file_url?: string
+          id?: string
+          infill?: number
+          material?: string
+          order_id?: string
+          print_time?: number
+          quality?: string
+          quantity?: number
+          total_price?: number
+          unit_price?: number
+          volume?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_items_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          created_at: string
+          customer_email: string | null
+          customer_name: string | null
+          express_service: boolean
+          id: string
+          notes: string | null
+          post_processing: Json | null
+          status: Database["public"]["Enums"]["order_status"]
+          stripe_checkout_session_id: string | null
+          stripe_payment_intent_id: string | null
+          total_price: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string | null
+          express_service?: boolean
+          id?: string
+          notes?: string | null
+          post_processing?: Json | null
+          status?: Database["public"]["Enums"]["order_status"]
+          stripe_checkout_session_id?: string | null
+          stripe_payment_intent_id?: string | null
+          total_price: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string | null
+          express_service?: boolean
+          id?: string
+          notes?: string | null
+          post_processing?: Json | null
+          status?: Database["public"]["Enums"]["order_status"]
+          stripe_checkout_session_id?: string | null
+          stripe_payment_intent_id?: string | null
+          total_price?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       projects: {
         Row: {
           complexity_level: number | null
@@ -368,6 +478,12 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
+      order_status:
+        | "pending"
+        | "paid"
+        | "processing"
+        | "completed"
+        | "cancelled"
       project_status:
         | "uploaded"
         | "analyzing"
@@ -505,6 +621,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "moderator", "user"],
+      order_status: ["pending", "paid", "processing", "completed", "cancelled"],
       project_status: [
         "uploaded",
         "analyzing",
