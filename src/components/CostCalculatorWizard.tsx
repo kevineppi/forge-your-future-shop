@@ -255,7 +255,7 @@ const CostCalculatorWizard = () => {
         return { 
           perPiece: 0, total: 0, savings: 0, materialCost: 0, energyCost: 0,
           printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
-          additionalServices: 0, expressCharge: 0, expressShipping: 0,
+          additionalServices: 0, expressCharge: 0, expressShipping: 0, shippingCost: 0,
           volume: 0, maxDimension: 0, materialWeight: 0, objectsPerPlate: 1
         };
       }
@@ -303,6 +303,13 @@ const CostCalculatorWizard = () => {
         totalWithQuantities += expressShipping;
       }
       
+      // Versandkosten hinzufügen wenn Warenwert unter 100€
+      let shippingCost = 0;
+      if (totalWithQuantities < 100) {
+        shippingCost = 7.50;
+        totalWithQuantities += shippingCost;
+      }
+      
       // Gesamtpreis ist einfach die Summe aller Live-Preise
       return {
         perPiece: 0,
@@ -317,6 +324,7 @@ const CostCalculatorWizard = () => {
         additionalServices: 0,
         expressCharge: 0,
         expressShipping: expressShipping,
+        shippingCost: shippingCost,
         volume: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3), 0),
         maxDimension: Math.max(...uploadedFiles.map(f => Math.max(f.length, f.width, f.height) * (f.scale || 1))),
         materialWeight: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3) * 1.24, 0),
@@ -327,7 +335,7 @@ const CostCalculatorWizard = () => {
       return { 
         perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0,
         printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
-        additionalServices: 0, expressCharge: 0, expressShipping: 0,
+        additionalServices: 0, expressCharge: 0, expressShipping: 0, shippingCost: 0,
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
     }
@@ -849,7 +857,7 @@ const CostCalculatorWizard = () => {
                         Neu berechnen
                       </Button>
                       <p className="text-xs text-muted-foreground text-center">
-                        🔒 Sichere Bezahlung über Stripe • 📦 Versandkostenfrei ab 100€
+                        🔒 Sichere Bezahlung über Stripe • 📦 Versandkostenfrei ab 100€ Warenwert
                       </p>
                     </div>
                   </CardContent>
@@ -888,6 +896,18 @@ const CostCalculatorWizard = () => {
                       </span>
                       <span className="text-lg font-semibold text-yellow-600">
                         +€{pricing.expressCharge.toFixed(2)}
+                      </span>
+                    </div>
+                  )}
+
+                  {pricing.shippingCost > 0 && (
+                    <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg border-2 border-blue-500/20">
+                      <span className="font-medium flex items-center gap-1">
+                        <Package className="w-4 h-4 text-blue-500" />
+                        Versandkosten:
+                      </span>
+                      <span className="text-lg font-semibold text-blue-600">
+                        +€{pricing.shippingCost.toFixed(2)}
                       </span>
                     </div>
                   )}
