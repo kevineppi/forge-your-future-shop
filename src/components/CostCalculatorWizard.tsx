@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X } from "lucide-react";
+import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X, Edit2, Palette } from "lucide-react";
 import { FileUpload3D } from "./FileUpload3D";
 import { Model3DViewer } from "./Model3DViewer";
 import { supabase } from "@/integrations/supabase/client";
@@ -35,6 +35,8 @@ interface UploadedFile {
   complexity?: number;
   postProcessing?: string;
   supportRemoval?: boolean;
+  color?: string;
+  scale?: number;
 }
 
 const CostCalculatorWizard = () => {
@@ -42,6 +44,7 @@ const CostCalculatorWizard = () => {
   const [inputMethod, setInputMethod] = useState<"file" | "manual">("manual");
   const [isClient, setIsClient] = useState(false);
   const [showViewer, setShowViewer] = useState(false);
+  const [editingFileId, setEditingFileId] = useState<string | null>(null);
   
   // 3D File state - Multi-file support
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
@@ -92,6 +95,21 @@ const CostCalculatorWizard = () => {
     "Mehrfärbig/Sehr komplex (+100%)"
   ];
 
+  const colorOptions = [
+    { name: "Indigo", hex: "#4f46e5" },
+    { name: "Rot", hex: "#ef4444" },
+    { name: "Blau", hex: "#3b82f6" },
+    { name: "Grün", hex: "#10b981" },
+    { name: "Gelb", hex: "#f59e0b" },
+    { name: "Lila", hex: "#8b5cf6" },
+    { name: "Rosa", hex: "#ec4899" },
+    { name: "Schwarz", hex: "#1f2937" },
+    { name: "Weiß", hex: "#f9fafb" },
+    { name: "Grau", hex: "#6b7280" },
+    { name: "Orange", hex: "#f97316" },
+    { name: "Türkis", hex: "#14b8a6" },
+  ];
+
   const postProcessingOptions = {
     none: { name: "Keine", price: 0 },
     sanding: { name: "Schleifen/Glätten", price: 15 },
@@ -123,7 +141,9 @@ const CostCalculatorWizard = () => {
       material: material || "pla",
       complexity: complexity || 0,
       postProcessing: postProcessing || "none",
-      supportRemoval: supportRemoval || false
+      supportRemoval: supportRemoval || false,
+      color: "#4f46e5", // Default Indigo
+      scale: 1
     };
     
     setUploadedFiles(prev => [...prev, newFile]);
@@ -537,24 +557,38 @@ const CostCalculatorWizard = () => {
                                       {file.length}×{file.width}×{file.height}mm • {file.volume.toFixed(1)}cm³
                                     </p>
                                   </div>
-                                  <button
-                                    type="button"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      setUploadedFiles(prev => prev.filter(f => f.id !== file.id));
-                                      if (activeFileId === file.id) {
-                                        const remaining = uploadedFiles.filter(f => f.id !== file.id);
-                                        if (remaining.length > 0) {
-                                          setActiveFileId(remaining[0].id);
-                                        } else {
-                                          setActiveFileId(null);
+                                  <div className="flex items-center gap-1">
+                                    <button
+                                      type="button"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        setEditingFileId(file.id);
+                                      }}
+                                      className="p-1.5 hover:bg-primary/10 rounded transition-colors text-primary"
+                                      title="Bearbeiten"
+                                    >
+                                      <Edit2 className="w-4 h-4" />
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        setUploadedFiles(prev => prev.filter(f => f.id !== file.id));
+                                        if (activeFileId === file.id) {
+                                          const remaining = uploadedFiles.filter(f => f.id !== file.id);
+                                          if (remaining.length > 0) {
+                                            setActiveFileId(remaining[0].id);
+                                          } else {
+                                            setActiveFileId(null);
+                                          }
                                         }
-                                      }
-                                    }}
-                                    className="ml-2 p-1 hover:bg-destructive/10 rounded transition-colors"
-                                  >
-                                    <X className="w-4 h-4" />
-                                  </button>
+                                      }}
+                                      className="p-1.5 hover:bg-destructive/10 rounded transition-colors text-destructive"
+                                      title="Löschen"
+                                    >
+                                      <X className="w-4 h-4" />
+                                    </button>
+                                  </div>
                                 </button>
                               ))}
                             </div>
@@ -614,120 +648,72 @@ const CostCalculatorWizard = () => {
                 </Card>
               )}
 
-              {/* Step 2: Material */}
+              {/* Step 2: Lieferoptionen */}
               {currentStep === 2 && (
                 <Card className="gradient-card border-0 animate-fade-in">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Package className="w-5 h-5 text-primary" />
-                      Material & Komplexität
+                      <Zap className="w-5 h-5 text-primary" />
+                      Lieferoptionen
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">Material</label>
-                      <Select value={material} onValueChange={setMaterial}>
-                        <SelectTrigger className="w-full h-12">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="pla">PLA - €20/kg</SelectItem>
-                          <SelectItem value="petg">PETG - €20/kg</SelectItem>
-                          <SelectItem value="abs">ABS - €20/kg</SelectItem>
-                          <SelectItem value="pa12">PA12 Nylon - €100/kg</SelectItem>
-                          <SelectItem value="pa6">PA6 Nylon - €100/kg</SelectItem>
-                        </SelectContent>
-                      </Select>
+                    <p className="text-sm text-muted-foreground">
+                      Wählen Sie Ihre gewünschte Liefergeschwindigkeit
+                    </p>
+
+                    {/* Delivery Options */}
+                    <div className="space-y-3">
+                      <button
+                        onClick={() => setIsExpressService(false)}
+                        className={`w-full p-4 rounded-lg border-2 transition-all text-left ${
+                          !isExpressService
+                            ? "border-primary bg-primary/10"
+                            : "border-border hover:border-primary/50"
+                        }`}
+                      >
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <p className="font-semibold mb-1">Standard-Lieferung</p>
+                            <p className="text-sm text-muted-foreground">5-7 Werktage • Kostenlos ab 100€</p>
+                          </div>
+                          {!isExpressService && (
+                            <Check className="w-5 h-5 text-primary" />
+                          )}
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() => setIsExpressService(true)}
+                        className={`w-full p-4 rounded-lg border-2 transition-all text-left ${
+                          isExpressService
+                            ? "border-yellow-500 bg-yellow-500/10"
+                            : "border-border hover:border-yellow-500/50"
+                        }`}
+                      >
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <p className="font-semibold mb-1 flex items-center gap-2">
+                              <Zap className="w-4 h-4 text-yellow-500" />
+                              Express-Lieferung
+                            </p>
+                            <p className="text-sm text-muted-foreground">24-48 Stunden • +50% Aufpreis + €20 Versand</p>
+                          </div>
+                          {isExpressService && (
+                            <Check className="w-5 h-5 text-yellow-500" />
+                          )}
+                        </div>
+                      </button>
                     </div>
 
-                    {/* Scale Control - only show for uploaded files */}
-                    {inputMethod === "file" && uploadedFiles.length > 0 && (
-                      <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
-                        <label className="text-sm font-medium mb-2 block flex items-center gap-2">
-                          <Ruler className="w-4 h-4 text-primary" />
-                          Skalierung: {(scale * 100).toFixed(0)}%
-                        </label>
-                        <Slider
-                          value={[scale]}
-                          onValueChange={(v) => {
-                            const newScale = Math.max(0.1, Math.min(5, v[0]));
-                            setScale(newScale);
-                            // Update dimensions based on scale
-                            if (activeFile) {
-                              setLength(Math.round(activeFile.length * newScale));
-                              setWidth(Math.round(activeFile.width * newScale));
-                              setHeight(Math.round(activeFile.height * newScale));
-                            }
-                          }}
-                          max={5}
-                          min={0.1}
-                          step={0.1}
-                        />
-                        <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                          <span>10%</span>
-                          <span className="font-medium text-primary">
-                            {length}×{width}×{height}mm
-                          </span>
-                          <span>500%</span>
-                        </div>
-                        <p className="text-xs text-muted-foreground mt-2">
-                          Skalieren Sie das Modell ohne die Datei erneut hochzuladen
+                    {uploadedFiles.length > 0 && (
+                      <div className="p-4 bg-muted/30 rounded-lg">
+                        <p className="text-sm font-medium mb-2">💡 Tipp:</p>
+                        <p className="text-sm text-muted-foreground">
+                          Sie können jede Datei einzeln über den Edit-Button ✏️ bearbeiten, um Material, Farbe und Skalierung anzupassen.
                         </p>
                       </div>
                     )}
-
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        Komplexität: {complexityLevels[complexity]}
-                      </label>
-                      <Slider
-                        value={[complexity]}
-                        onValueChange={(v) => setComplexity(Math.max(0, Math.min(4, Math.round(v[0]))))}
-                        max={4}
-                        min={0}
-                        step={1}
-                      />
-                      <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                        <span>Einfach</span>
-                        <span>Sehr komplex</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        Druckdauer: {printDuration === 0 ? "Auto" : `${printDuration}h`}
-                      </label>
-                      <Slider
-                        value={[printDuration]}
-                        onValueChange={(v) => setPrintDuration(Math.max(0, Math.min(72, Math.round(v[0]))))}
-                        max={72}
-                        min={0}
-                        step={1}
-                      />
-                      <div className="flex flex-col gap-2 mt-2">
-                        <div className="flex justify-between text-xs text-muted-foreground">
-                          <span>Druckkosten: {Math.max(length, width, height) > 250 ? "4.00€" : "1.50€"}/Stunde</span>
-                          <span>{printDuration === 0 ? "Automatische Berechnung" : `${printDuration}h × ${Math.max(length, width, height) > 250 ? "4.00€" : "1.50€"} = ${(printDuration * (Math.max(length, width, height) > 250 ? 4 : 1.5)).toFixed(2)}€`}</span>
-                        </div>
-                        {estimatedPrintDuration && (
-                          <div className="flex items-center gap-2 text-xs">
-                            <span className="px-2 py-1 bg-primary/10 text-primary rounded-md">
-                              ⚡ Geschätzt: {estimatedPrintDuration}h
-                            </span>
-                            {calculatedPrintDuration && (
-                              <span className="px-2 py-1 bg-success/10 text-success rounded-md">
-                                ✓ Genau: {calculatedPrintDuration}h
-                              </span>
-                            )}
-                            {slicingJobId && !calculatedPrintDuration && (
-                              <span className="px-2 py-1 bg-muted text-muted-foreground rounded-md animate-pulse">
-                                ⏳ Genaue Berechnung läuft...
-                              </span>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    </div>
 
                     <div className="flex gap-3">
                       <Button onClick={() => setCurrentStep(1)} variant="outline" className="flex-1">
@@ -950,6 +936,143 @@ const CostCalculatorWizard = () => {
             </div>
           </div>
         </div>
+        
+        {/* File Edit Dialog */}
+        <Dialog open={!!editingFileId} onOpenChange={(open) => !open && setEditingFileId(null)}>
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle className="flex items-center gap-2">
+                <Edit2 className="w-5 h-5 text-primary" />
+                Datei bearbeiten
+              </DialogTitle>
+            </DialogHeader>
+            {editingFileId && (() => {
+              const editingFile = uploadedFiles.find(f => f.id === editingFileId);
+              if (!editingFile) return null;
+              
+              return (
+                <div className="space-y-6 py-4">
+                  <div>
+                    <p className="text-sm font-medium mb-2">{editingFile.fileName}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {editingFile.length}×{editingFile.width}×{editingFile.height}mm • {editingFile.volume.toFixed(1)}cm³
+                    </p>
+                  </div>
+
+                  {/* Color Selection */}
+                  <div>
+                    <label className="text-sm font-medium mb-3 block flex items-center gap-2">
+                      <Palette className="w-4 h-4" />
+                      Farbe wählen
+                    </label>
+                    <div className="grid grid-cols-6 gap-3">
+                      {colorOptions.map((color) => (
+                        <button
+                          key={color.hex}
+                          onClick={() => {
+                            setUploadedFiles(prev => prev.map(f => 
+                              f.id === editingFileId ? { ...f, color: color.hex } : f
+                            ));
+                          }}
+                          className={`group relative aspect-square rounded-lg border-2 transition-all hover:scale-110 ${
+                            editingFile.color === color.hex
+                              ? "border-primary ring-2 ring-primary ring-offset-2"
+                              : "border-border hover:border-primary/50"
+                          }`}
+                          style={{ backgroundColor: color.hex }}
+                          title={color.name}
+                        >
+                          {editingFile.color === color.hex && (
+                            <Check className="w-4 h-4 absolute inset-0 m-auto text-white drop-shadow-lg" />
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Scale Control */}
+                  <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
+                    <label className="text-sm font-medium mb-3 block flex items-center gap-2">
+                      <Ruler className="w-4 h-4 text-primary" />
+                      Skalierung: {((editingFile.scale || 1) * 100).toFixed(0)}%
+                    </label>
+                    <Slider
+                      value={[editingFile.scale || 1]}
+                      onValueChange={(v) => {
+                        const newScale = Math.max(0.1, Math.min(5, v[0]));
+                        setUploadedFiles(prev => prev.map(f => 
+                          f.id === editingFileId ? { ...f, scale: newScale } : f
+                        ));
+                      }}
+                      max={5}
+                      min={0.1}
+                      step={0.1}
+                    />
+                    <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                      <span>10%</span>
+                      <span className="font-medium text-primary">
+                        {Math.round(editingFile.length * (editingFile.scale || 1))}×
+                        {Math.round(editingFile.width * (editingFile.scale || 1))}×
+                        {Math.round(editingFile.height * (editingFile.scale || 1))}mm
+                      </span>
+                      <span>500%</span>
+                    </div>
+                  </div>
+
+                  {/* Material Selection */}
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Material</label>
+                    <Select 
+                      value={editingFile.material || "pla"}
+                      onValueChange={(value) => {
+                        setUploadedFiles(prev => prev.map(f => 
+                          f.id === editingFileId ? { ...f, material: value } : f
+                        ));
+                      }}
+                    >
+                      <SelectTrigger className="w-full h-12">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="pla">PLA - €20/kg</SelectItem>
+                        <SelectItem value="petg">PETG - €20/kg</SelectItem>
+                        <SelectItem value="abs">ABS - €20/kg</SelectItem>
+                        <SelectItem value="pa12">PA12 Nylon - €100/kg</SelectItem>
+                        <SelectItem value="pa6">PA6 Nylon - €100/kg</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Complexity */}
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">
+                      Komplexität: {complexityLevels[editingFile.complexity || 0]}
+                    </label>
+                    <Slider
+                      value={[editingFile.complexity || 0]}
+                      onValueChange={(v) => {
+                        setUploadedFiles(prev => prev.map(f => 
+                          f.id === editingFileId ? { ...f, complexity: Math.round(v[0]) } : f
+                        ));
+                      }}
+                      max={4}
+                      min={0}
+                      step={1}
+                    />
+                    <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                      <span>Einfach</span>
+                      <span>Sehr komplex</span>
+                    </div>
+                  </div>
+
+                  <Button onClick={() => setEditingFileId(null)} className="w-full">
+                    Fertig
+                  </Button>
+                </div>
+              );
+            })()}
+          </DialogContent>
+        </Dialog>
         
         {/* 3D Viewer Modal */}
         <Dialog open={showViewer} onOpenChange={setShowViewer}>
