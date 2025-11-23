@@ -321,22 +321,57 @@ serve(async (req) => {
     if (stlFile.size > MAX_FILE_SIZE) {
       console.log('File too large, using sampling analysis');
       
-      // Für große Dateien: Sampling-Analyse
+      // Für große Dateien: Bounding Box direkt aus STL lesen (ohne alles im Speicher zu halten)
       const arrayBuffer = await stlFile.arrayBuffer();
       const view = new DataView(arrayBuffer);
       const triangleCount = view.getUint32(80, true);
       
-      // Schätze basierend auf Dateistruktur
-      const estimatedVolume = (stlFile.size / 50) * 0.1; // Heuristik
+      // Berechne echte Bounding Box durch Streaming der Vertices
+      const min: Vector3 = { x: Infinity, y: Infinity, z: Infinity };
+      const max: Vector3 = { x: -Infinity, y: -Infinity, z: -Infinity };
+      let offset = 84; // Nach Header (80) + Triangle Count (4)
+      
+      for (let i = 0; i < triangleCount; i++) {
+        offset += 12; // Skip Normal
+        
+        // Lese 3 Vertices
+        for (let v = 0; v < 3; v++) {
+          const x = view.getFloat32(offset, true);
+          const y = view.getFloat32(offset + 4, true);
+          const z = view.getFloat32(offset + 8, true);
+          
+          min.x = Math.min(min.x, x);
+          min.y = Math.min(min.y, y);
+          min.z = Math.min(min.z, z);
+          max.x = Math.max(max.x, x);
+          max.y = Math.max(max.y, y);
+          max.z = Math.max(max.z, z);
+          
+          offset += 12;
+        }
+        
+        offset += 2; // Skip Attribute Byte Count
+      }
+      
+      const dimensions = {
+        x: max.x - min.x,
+        y: max.y - min.y,
+        z: max.z - min.z,
+      };
+      
+      // Schätze Volumen basierend auf Bounding Box (grobe Näherung)
+      const estimatedVolume = (dimensions.x * dimensions.y * dimensions.z) * 0.2; // Annahme: 20% Füllung
       const estimatedSurfaceArea = estimatedVolume * 2.5;
+      
+      console.log('Real dimensions from large file:', dimensions);
       
       const analysis: STLAnalysis = {
         volume: estimatedVolume,
         surfaceArea: estimatedSurfaceArea,
         boundingBox: {
-          min: { x: 0, y: 0, z: 0 },
-          max: { x: 100, y: 100, z: 50 },
-          dimensions: { x: 100, y: 100, z: 50 },
+          min,
+          max,
+          dimensions,
         },
         overhangs: {
           count: Math.floor(triangleCount * 0.1),
