@@ -356,7 +356,12 @@ const CostCalculatorWizard = () => {
         }
         
         const tax = subtotal * 0.20;
-        const pricePerPiece = subtotal + tax;
+        let pricePerPiece = subtotal + tax;
+        
+        // Kleinteilpauschale bei Teilen unter 15€
+        if (pricePerPiece < 15) {
+          pricePerPiece = 15;
+        }
         
         let discount = 1.0;
         if (quantity >= 50) discount = 0.80;
@@ -414,7 +419,7 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        let effectivePrintTime = file.estimatedPrintTimeHours || (scaledVolume / 10);
+        let effectivePrintTime = scaledVolume / 30; // Volumen / 30 für Druckdauer
         effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
         
         const energyCostPerHour = 0.20;
@@ -455,7 +460,12 @@ const CostCalculatorWizard = () => {
         }
         
         const tax = subtotal * 0.20;
-        const pricePerPiece = subtotal + tax;
+        let pricePerPiece = subtotal + tax;
+        
+        // Kleinteilpauschale bei Teilen unter 15€
+        if (pricePerPiece < 15) {
+          pricePerPiece = 15;
+        }
         
         let discount = 1.0;
         if (fileQuantity >= 50) discount = 0.80;
@@ -1214,7 +1224,7 @@ const CostCalculatorWizard = () => {
               // Calculate pricing for this file
               const fileMaterial = materials[editingFile.material as keyof typeof materials] || materials.pla;
               const materialWeightGrams = scaledVolume * 1.24;
-              const effectivePrintTime = scaledVolume / 50; // Volumen in cm³ / 50 = Druckdauer in Stunden
+              const effectivePrintTime = scaledVolume / 30; // Volumen in cm³ / 30 = Druckdauer in Stunden
               
               let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
               const estimatedPrice = (materialWeightGrams / 1000) * fileMaterial.pricePerKg + effectivePrintTime * printCostPerHour;
