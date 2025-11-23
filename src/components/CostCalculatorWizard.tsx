@@ -27,6 +27,7 @@ const CostCalculatorWizard = () => {
   const [geometry, setGeometry] = useState<THREE.BufferGeometry | null>(null);
   const [fileName, setFileName] = useState("");
   const [analysisResults, setAnalysisResults] = useState<AnalysisResult[]>([]);
+  const [actualFileVolume, setActualFileVolume] = useState<number | null>(null);
   
   // State
   const [material, setMaterial] = useState("pla");
@@ -76,6 +77,7 @@ const CostCalculatorWizard = () => {
     setLength(dimensions.length);
     setWidth(dimensions.width);
     setHeight(dimensions.height);
+    setActualFileVolume(dimensions.volume); // Store actual file volume in cm³
     const estimatedHours = Math.ceil((dimensions.volume / 1000) * 2);
     setPrintDuration(Math.min(72, estimatedHours));
     setCurrentStep(2);
@@ -91,17 +93,28 @@ const CostCalculatorWizard = () => {
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
       
-      const actualVolume = (length * width * height) / 1000000;
       const maxDimension = Math.max(length, width, height);
+      const materialDensity = 1.24; // g/cm³
       
-      let infillFactor = 0.20;
-      if (complexity === 1) infillFactor = 0.25;
-      else if (complexity === 2) infillFactor = 0.35;
-      else if (complexity === 3) infillFactor = 0.40;
-      else if (complexity === 4) infillFactor = 0.50;
+      let materialWeightGrams: number;
+      let actualVolume: number;
       
-      const materialDensity = 1.24;
-      const materialWeightGrams = actualVolume * 1000 * materialDensity * infillFactor;
+      if (actualFileVolume !== null) {
+        // For uploaded files: Use actual STL volume (already solid volume)
+        actualVolume = actualFileVolume; // in cm³
+        materialWeightGrams = actualVolume * materialDensity;
+      } else {
+        // For manual input: Calculate with infill factor
+        actualVolume = (length * width * height) / 1000; // Convert mm³ to cm³
+        
+        let infillFactor = 0.20;
+        if (complexity === 1) infillFactor = 0.25;
+        else if (complexity === 2) infillFactor = 0.35;
+        else if (complexity === 3) infillFactor = 0.40;
+        else if (complexity === 4) infillFactor = 0.50;
+        
+        materialWeightGrams = actualVolume * materialDensity * infillFactor;
+      }
       
       const objectArea = length * width;
       const plateArea = 150 * 150;
@@ -194,7 +207,7 @@ const CostCalculatorWizard = () => {
         additionalServices,
         expressCharge: isExpressService ? expressCharge : 0,
         expressShipping: isExpressService ? expressShipping : 0,
-        volume: actualVolume * 1000000,
+        volume: actualVolume * 1000, // Convert back to mm³ for display
         maxDimension,
         materialWeight: materialWeightGrams,
         objectsPerPlate
@@ -208,7 +221,7 @@ const CostCalculatorWizard = () => {
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
     }
-  }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval]);
+  }, [material, length, width, height, complexity, quantity, printDuration, isExpressService, postProcessing, supportRemoval, actualFileVolume]);
 
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
