@@ -284,9 +284,19 @@ const CostCalculatorWizard = () => {
       let totalLaborCost = 0;
       
       if (uploadedFiles.length === 0) {
+        // Return 0 if no files uploaded in file mode
+        if (inputMethod === "file") {
+          return { 
+            perPiece: 0, total: 0, savings: 0, materialCost: 0, energyCost: 0,
+            printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
+            additionalServices: 0, expressCharge: 0, expressShipping: 0,
+            volume: 0, maxDimension: 0, materialWeight: 0, objectsPerPlate: 1
+          };
+        }
+        
         // Fallback for manual input
         const baseMaterial = materials[material as keyof typeof materials];
-        if (!baseMaterial) return { 
+        if (!baseMaterial) return {
           perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0, 
           printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
           additionalServices: 0, expressCharge: 0, expressShipping: 0, 
