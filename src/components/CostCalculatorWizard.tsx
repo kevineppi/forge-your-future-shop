@@ -37,6 +37,8 @@ interface UploadedFile {
   supportRemoval?: boolean;
   color?: string;
   scale?: number;
+  quantity?: number;
+  notes?: string;
 }
 
 const CostCalculatorWizard = () => {
@@ -143,7 +145,9 @@ const CostCalculatorWizard = () => {
       postProcessing: postProcessing || "none",
       supportRemoval: supportRemoval || false,
       color: "#4f46e5", // Default Indigo
-      scale: 1
+      scale: 1,
+      quantity: 1,
+      notes: ""
     };
     
     setUploadedFiles(prev => [...prev, newFile]);
@@ -396,8 +400,8 @@ const CostCalculatorWizard = () => {
 
   const steps = [
     { number: 1, title: "Eingabe", icon: Upload, completed: currentStep > 1 },
-    { number: 2, title: "Material", icon: Package, completed: currentStep > 2 },
-    { number: 3, title: "Details", icon: Settings, completed: currentStep > 3 },
+    { number: 2, title: "Stückzahlen", icon: Package, completed: currentStep > 2 },
+    { number: 3, title: "Lieferoptionen", icon: Settings, completed: currentStep > 3 },
     { number: 4, title: "Ergebnis", icon: Calculator, completed: false }
   ];
 
@@ -495,7 +499,7 @@ const CostCalculatorWizard = () => {
                             className="w-full" 
                             size="lg"
                           >
-                            Weiter zu Material & Einstellungen
+                            Weiter zu Stückzahlen
                             <ChevronRight className="w-4 h-4 ml-2" />
                           </Button>
                         )}
@@ -639,7 +643,7 @@ const CostCalculatorWizard = () => {
                           </div>
                         </div>
                         <Button onClick={() => setCurrentStep(2)} className="w-full" size="lg">
-                          Weiter zu Material
+                          Weiter zu Stückzahlen
                           <ChevronRight className="w-4 h-4 ml-2" />
                         </Button>
                       </TabsContent>
@@ -648,8 +652,90 @@ const CostCalculatorWizard = () => {
                 </Card>
               )}
 
-              {/* Step 2: Lieferoptionen */}
+              {/* Step 2: Stückzahlen */}
               {currentStep === 2 && (
+                <Card className="gradient-card border-0 animate-fade-in">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Package className="w-5 h-5 text-primary" />
+                      Stückzahlen festlegen
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <p className="text-sm text-muted-foreground">
+                      Legen Sie für jedes Teil die gewünschte Stückzahl fest (Standard: 1 Stück)
+                    </p>
+
+                    {/* Quantity settings for each file */}
+                    <div className="space-y-4 max-h-96 overflow-y-auto">
+                      {uploadedFiles.map((file) => (
+                        <div key={file.id} className="p-4 border-2 border-border rounded-lg space-y-3">
+                          <div className="flex items-start justify-between">
+                            <div>
+                              <p className="font-medium text-sm">{file.fileName}</p>
+                              <p className="text-xs text-muted-foreground">
+                                {file.length}×{file.width}×{file.height}mm
+                              </p>
+                            </div>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium mb-2 block">
+                              Stückzahl: {file.quantity || 1}
+                            </label>
+                            <Slider
+                              value={[file.quantity || 1]}
+                              onValueChange={(v) => {
+                                setUploadedFiles(prev => prev.map(f => 
+                                  f.id === file.id ? { ...f, quantity: v[0] } : f
+                                ));
+                              }}
+                              max={100}
+                              min={1}
+                              step={1}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Notes field */}
+                    <div>
+                      <label className="text-sm font-medium mb-2 block">
+                        Bemerkungen (optional)
+                      </label>
+                      <textarea
+                        className="w-full min-h-[100px] p-3 rounded-lg border-2 border-border bg-background focus:border-primary focus:outline-none resize-none"
+                        placeholder="Weitere Anmerkungen zu Ihrer Bestellung..."
+                        value={uploadedFiles[0]?.notes || ""}
+                        onChange={(e) => {
+                          const notes = e.target.value;
+                          setUploadedFiles(prev => prev.map(f => ({ ...f, notes })));
+                        }}
+                      />
+                    </div>
+
+                    <div className="p-4 bg-muted/30 rounded-lg">
+                      <p className="text-sm font-medium mb-2">💡 Tipp:</p>
+                      <p className="text-sm text-muted-foreground">
+                        Sie können jede Datei einzeln über den Edit-Button ✏️ bei Schritt 1 bearbeiten, um Material, Farbe und Skalierung anzupassen.
+                      </p>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <Button onClick={() => setCurrentStep(1)} variant="outline" className="flex-1">
+                        Zurück
+                      </Button>
+                      <Button onClick={() => setCurrentStep(3)} className="flex-1">
+                        Weiter zu Lieferoptionen
+                        <ChevronRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Step 3: Lieferoptionen */}
+              {currentStep === 3 && (
                 <Card className="gradient-card border-0 animate-fade-in">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
@@ -704,91 +790,6 @@ const CostCalculatorWizard = () => {
                           )}
                         </div>
                       </button>
-                    </div>
-
-                    {uploadedFiles.length > 0 && (
-                      <div className="p-4 bg-muted/30 rounded-lg">
-                        <p className="text-sm font-medium mb-2">💡 Tipp:</p>
-                        <p className="text-sm text-muted-foreground">
-                          Sie können jede Datei einzeln über den Edit-Button ✏️ bearbeiten, um Material, Farbe und Skalierung anzupassen.
-                        </p>
-                      </div>
-                    )}
-
-                    <div className="flex gap-3">
-                      <Button onClick={() => setCurrentStep(1)} variant="outline" className="flex-1">
-                        Zurück
-                      </Button>
-                      <Button onClick={() => setCurrentStep(3)} className="flex-1">
-                        Weiter
-                        <ChevronRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
-
-              {/* Step 3: Additional Options */}
-              {currentStep === 3 && (
-                <Card className="gradient-card border-0 animate-fade-in">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Settings className="w-5 h-5 text-primary" />
-                      Zusatzoptionen
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        Stückzahl: {quantity}
-                      </label>
-                      <Slider
-                        value={[quantity]}
-                        onValueChange={(v) => setQuantity(Math.max(1, Math.min(100, Math.round(v[0]))))}
-                        max={100}
-                        min={1}
-                        step={1}
-                      />
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">Nachbearbeitung</label>
-                      <Select value={postProcessing} onValueChange={setPostProcessing}>
-                        <SelectTrigger className="w-full h-12">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="none">Keine</SelectItem>
-                          <SelectItem value="sanding">Schleifen/Glätten (+€15)</SelectItem>
-                          <SelectItem value="painting">Grundierung + Lackierung (+€25)</SelectItem>
-                          <SelectItem value="premium">Premium Finish (+€45)</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    {complexity >= 3 && (
-                      <div className="flex items-center space-x-2">
-                        <Checkbox
-                          id="support-removal"
-                          checked={supportRemoval}
-                          onCheckedChange={(checked) => setSupportRemoval(checked === true)}
-                        />
-                        <label htmlFor="support-removal" className="text-sm font-medium cursor-pointer">
-                          Support-Entfernung (+€8)
-                        </label>
-                      </div>
-                    )}
-
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id="express-service"
-                        checked={isExpressService}
-                        onCheckedChange={(checked) => setIsExpressService(checked === true)}
-                      />
-                      <label htmlFor="express-service" className="text-sm font-medium cursor-pointer flex items-center gap-1">
-                        <Zap className="w-4 h-4 text-yellow-500" />
-                        Express-Service 24h (+50%)
-                      </label>
                     </div>
 
                     <div className="flex gap-3">
