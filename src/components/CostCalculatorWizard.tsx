@@ -561,7 +561,7 @@ const CostCalculatorWizard = () => {
       const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
       const materialCostWithMarkup = materialCostBase * 1.30;
       
-      let effectivePrintTime = file.estimatedPrintTimeHours || (scaledVolume / 10);
+      let effectivePrintTime = scaledVolume / 30; // Volumen / 30 für Druckdauer
       effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
       
       const energyCostPerHour = 0.20;
@@ -602,7 +602,12 @@ const CostCalculatorWizard = () => {
       }
       
       const tax = subtotal * 0.20;
-      const pricePerPiece = subtotal + tax;
+      let pricePerPiece = subtotal + tax;
+      
+      // Kleinteilpauschale bei Teilen unter 15€
+      if (pricePerPiece < 15) {
+        pricePerPiece = 15;
+      }
       
       let discount = 1.0;
       if (fileQuantity >= 50) discount = 0.80;
@@ -1227,7 +1232,12 @@ const CostCalculatorWizard = () => {
               const effectivePrintTime = scaledVolume / 30; // Volumen in cm³ / 30 = Druckdauer in Stunden
               
               let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-              const estimatedPrice = (materialWeightGrams / 1000) * fileMaterial.pricePerKg + effectivePrintTime * printCostPerHour;
+              let estimatedPrice = (materialWeightGrams / 1000) * fileMaterial.pricePerKg + effectivePrintTime * printCostPerHour;
+              
+              // Kleinteilpauschale bei Teilen unter 15€
+              if (estimatedPrice < 15) {
+                estimatedPrice = 15;
+              }
               
               return (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4">
