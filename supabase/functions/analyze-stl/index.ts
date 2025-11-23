@@ -389,15 +389,58 @@ serve(async (req) => {
                        v3x * v2y * v1z - v2x * v1y * v3z - v1x * v3y * v2z) / 6.0;
       }
       
-      const estimatedVolume = Math.abs(totalVolume);
-      const estimatedSurfaceArea = estimatedVolume * 2.5; // Grobe Schätzung für Surface Area
+      const geometricVolume = Math.abs(totalVolume);
       
-      console.log('Calculated volume:', estimatedVolume.toFixed(2), 'mm³');
+      // Berechne Surface Area durch Sampling
+      let sampledSurfaceArea = 0;
+      const surfaceSampleSize = Math.min(5000, triangleCount);
+      const surfaceSampleStep = Math.floor(triangleCount / surfaceSampleSize);
+      let surfaceOffset = 84;
+      
+      for (let i = 0; i < surfaceSampleSize; i++) {
+        surfaceOffset = 84 + (i * surfaceSampleStep * 50);
+        if (surfaceOffset + 50 > arrayBuffer.byteLength) break;
+        
+        surfaceOffset += 12; // Skip Normal
+        
+        const v1x = view.getFloat32(surfaceOffset, true);
+        const v1y = view.getFloat32(surfaceOffset + 4, true);
+        const v1z = view.getFloat32(surfaceOffset + 8, true);
+        const v2x = view.getFloat32(surfaceOffset + 12, true);
+        const v2y = view.getFloat32(surfaceOffset + 16, true);
+        const v2z = view.getFloat32(surfaceOffset + 20, true);
+        const v3x = view.getFloat32(surfaceOffset + 24, true);
+        const v3y = view.getFloat32(surfaceOffset + 28, true);
+        const v3z = view.getFloat32(surfaceOffset + 32, true);
+        
+        // Kreuzprodukt für Flächenberechnung
+        const abx = v2x - v1x, aby = v2y - v1y, abz = v2z - v1z;
+        const acx = v3x - v1x, acy = v3y - v1y, acz = v3z - v1z;
+        const crossX = aby * acz - abz * acy;
+        const crossY = abz * acx - abx * acz;
+        const crossZ = abx * acy - aby * acx;
+        const area = Math.sqrt(crossX ** 2 + crossY ** 2 + crossZ ** 2) / 2;
+        sampledSurfaceArea += area;
+      }
+      
+      const estimatedSurfaceArea = sampledSurfaceArea * (triangleCount / surfaceSampleSize);
+      
+      // Schätze Material-Volumen (wie in Slicer)
+      // Typische Parameter: 2 Perimeter à 0.4mm, 20% Infill, 4 Top/Bottom Layers
+      const shellThickness = 0.8; // 2 Perimeter × 0.4mm
+      const shellVolume = estimatedSurfaceArea * shellThickness;
+      const infillPercentage = 0.20;
+      const infillVolume = geometricVolume * infillPercentage;
+      const estimatedMaterialVolume = shellVolume + infillVolume;
+      
+      console.log('Geometric volume:', geometricVolume.toFixed(2), 'mm³');
+      console.log('Surface area:', estimatedSurfaceArea.toFixed(2), 'mm²');
+      console.log('Estimated material volume:', estimatedMaterialVolume.toFixed(2), 'mm³');
       
       console.log('Real dimensions from large file:', dimensions);
       
       const analysis: STLAnalysis = {
-        volume: estimatedVolume,
+        volume: estimatedMaterialVolume, // Material-Volumen statt geometrisches
         surfaceArea: estimatedSurfaceArea,
         boundingBox: {
           min,
