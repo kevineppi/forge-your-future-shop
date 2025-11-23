@@ -27,6 +27,7 @@ interface FileUpload3DProps {
     volume: number;
     analysisResults: AnalysisResult[];
     estimatedPrintTimeHours?: number;
+    complexityScore?: number; // 0-1 from edge function
   }) => void;
 }
 
@@ -43,6 +44,8 @@ export const FileUpload3D = ({
 }: FileUpload3DProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [analysisProgress, setAnalysisProgress] = useState(0);
+  const [analysisStage, setAnalysisStage] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const calculateVolume = (geometry: THREE.BufferGeometry): number => {
@@ -267,29 +270,42 @@ export const FileUpload3D = ({
     }
 
     setIsAnalyzing(true);
+    setAnalysisProgress(0);
+    setAnalysisStage("Datei wird geladen...");
 
     try {
+      setAnalysisProgress(20);
       const arrayBuffer = await file.arrayBuffer();
+      setAnalysisProgress(30);
+      setAnalysisStage("Geometrie wird analysiert...");
 
       if (fileExtension === "stl") {
         const loader = new STLLoader();
         const geometry = loader.parse(arrayBuffer);
+        setAnalysisProgress(50);
         
         // Compute bounding box and other properties
         geometry.computeBoundingBox();
         geometry.computeVertexNormals();
+        setAnalysisProgress(60);
         
         // Center the geometry
         geometry.center();
 
         // Call advanced STL analysis Edge Function
         console.log('Calling analyze-stl edge function for:', file.name);
+        setAnalysisStage("Detaillierte Analyse läuft...");
+        setAnalysisProgress(70);
+        
         const formData = new FormData();
         formData.append('file', file);
         
         const { data: analysisData, error: analysisError } = await supabase.functions.invoke('analyze-stl', {
           body: formData,
         });
+
+        setAnalysisProgress(90);
+        setAnalysisStage("Ergebnisse werden verarbeitet...");
 
         if (analysisError) {
           console.error('Analysis error:', analysisError);
@@ -409,9 +425,13 @@ export const FileUpload3D = ({
           height: Math.max(5, Math.min(350, height)),
           volume: volume / 1000, // mm³ to cm³
           analysisResults,
-          estimatedPrintTimeHours: estimates.printTimeHours
+          estimatedPrintTimeHours: estimates.printTimeHours,
+          complexityScore: complexity.score // 0-1
         });
 
+        setAnalysisProgress(100);
+        setAnalysisStage("Fertig!");
+        
         toast.success(
           `${file.name}: ${length}×${width}×${height}mm | ` +
           `${(volume / 1000).toFixed(1)}cm³ | ` +
@@ -426,6 +446,8 @@ export const FileUpload3D = ({
       toast.error(`Fehler beim Laden: ${file.name}`);
     } finally {
       setIsAnalyzing(false);
+      setAnalysisProgress(0);
+      setAnalysisStage("");
     }
   };
 
@@ -470,15 +492,21 @@ export const FileUpload3D = ({
       >
         <div className="flex flex-col items-center justify-center py-8">
           {isAnalyzing ? (
-            <>
-              <Loader2 className="w-12 h-12 mb-4 text-primary animate-spin" />
-              <p className="mb-2 text-base text-foreground font-medium">
-                Analysiere STL-Datei...
+            <div className="w-full px-8">
+              <Loader2 className="w-12 h-12 mb-4 text-primary animate-spin mx-auto" />
+              <p className="mb-2 text-base text-foreground font-medium text-center">
+                {analysisStage}
               </p>
-              <p className="text-sm text-muted-foreground text-center px-4">
-                Berechne Volumen, Überhänge und Komplexität
+              <div className="w-full bg-muted rounded-full h-2 mb-2">
+                <div 
+                  className="bg-primary h-2 rounded-full transition-all duration-300"
+                  style={{ width: `${analysisProgress}%` }}
+                />
+              </div>
+              <p className="text-sm text-muted-foreground text-center">
+                {analysisProgress}% abgeschlossen
               </p>
-            </>
+            </div>
           ) : (
             <>
               <Upload className="w-12 h-12 mb-4 text-muted-foreground" />

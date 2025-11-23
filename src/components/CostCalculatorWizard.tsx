@@ -135,6 +135,7 @@ const CostCalculatorWizard = () => {
     volume: number;
     analysisResults: AnalysisResult[];
     estimatedPrintTimeHours?: number;
+    complexityScore?: number;
   }) => {
     const newFile: UploadedFile = {
       id: `file-${Date.now()}-${Math.random()}`,
@@ -148,7 +149,7 @@ const CostCalculatorWizard = () => {
       estimatedPrintTimeHours: fileData.estimatedPrintTimeHours,
       // Initialize with current settings or defaults
       material: material || "pla",
-      complexity: complexity || 0,
+      complexity: fileData.complexityScore ? Math.round(fileData.complexityScore * 5) : (complexity || 0), // Map 0-1 to 0-5
       postProcessing: postProcessing || "none",
       supportRemoval: supportRemoval || false,
       color: "#4f46e5", // Default Indigo
@@ -162,6 +163,12 @@ const CostCalculatorWizard = () => {
     setLength(fileData.length);
     setWidth(fileData.width);
     setHeight(fileData.height);
+    
+    // Auto-set complexity from edge function analysis
+    if (fileData.complexityScore !== undefined) {
+      const mappedComplexity = Math.round(fileData.complexityScore * 5); // 0-1 → 0-5
+      setComplexity(mappedComplexity);
+    }
     
     // Use heuristic calculation if provided
     if (fileData.estimatedPrintTimeHours) {
@@ -1222,10 +1229,16 @@ const CostCalculatorWizard = () => {
               const effectivePrintTime = scaledVolume / 30; // Volumen in cm³ / 30 = Druckdauer in Stunden
               
               // Simplified pricing for live preview
+              const fileComplexity = editingFile.complexity || 0;
               const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
               const materialCostWithMarkup = materialCostBase * 1.30;
+              
+              // Complexity factor affects print time and cost
+              const complexityFactor = 1 + (fileComplexity * 0.15); // +15% per complexity level
+              const adjustedPrintTime = effectivePrintTime * complexityFactor;
+              
               let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-              const printCost = effectivePrintTime * printCostPerHour;
+              const printCost = adjustedPrintTime * printCostPerHour;
               const laborCost = 5.00;
               
               let estimatedPrice = materialCostWithMarkup + printCost + laborCost;
@@ -1377,7 +1390,7 @@ const CostCalculatorWizard = () => {
                             f.id === editingFileId ? { ...f, complexity: Math.round(v[0]) } : f
                           ));
                         }}
-                        max={4}
+                        max={5}
                         min={0}
                         step={1}
                       />
