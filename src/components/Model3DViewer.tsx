@@ -105,7 +105,6 @@ export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavig
 
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-medium">Skalierung: {(scale * 100).toFixed(0)}%</span>
             <Button
               variant="outline"
               size="sm"
@@ -117,6 +116,7 @@ export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavig
               <RotateCw className="w-4 h-4 mr-1" />
               Zurücksetzen
             </Button>
+            <span className="text-sm font-medium">Skalierung: {(scale * 100).toFixed(0)}%</span>
           </div>
           <Slider
             value={[scale]}

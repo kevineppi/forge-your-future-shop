@@ -1356,10 +1356,6 @@ const CostCalculatorWizard = () => {
                         <span>Sehr komplex</span>
                       </div>
                     </div>
-
-                    <Button onClick={() => setEditingFileId(null)} className="w-full">
-                      Fertig
-                    </Button>
                   </div>
                 </div>
               );
