@@ -39,6 +39,9 @@ export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavig
   const scale = externalScale !== undefined ? externalScale : internalScale;
   const setScale = onScaleChange || setInternalScale;
 
+  // Calculate scaled print time based on volume change
+  const scaledPrintTime = estimatedPrintTimeHours ? estimatedPrintTimeHours * Math.pow(scale, 3) : null;
+
   if (!geometry) {
     return (
       <Card className="gradient-card border-0 h-full">
@@ -143,10 +146,10 @@ export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavig
                   <span>Skalierungsfaktor:</span>
                   <span>{(scale * 100).toFixed(0)}%</span>
                 </div>
-                {estimatedPrintTimeHours && (
+                {estimatedPrintTimeHours && scaledPrintTime && (
                   <div className="flex justify-between">
                     <span>Geschätzte Druckdauer:</span>
-                    <span>{estimatedPrintTimeHours.toFixed(1)}h</span>
+                    <span className="font-medium">{scaledPrintTime.toFixed(1)}h</span>
                   </div>
                 )}
               </div>
