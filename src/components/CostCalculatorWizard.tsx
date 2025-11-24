@@ -85,11 +85,13 @@ const CostCalculatorWizard = () => {
   }, [currentStep]);
 
   const materials = {
-    pla: { name: "PLA", pricePerKg: 20, dryingHours: 0 },
-    petg: { name: "PETG", pricePerKg: 20, dryingHours: 0 },
-    abs: { name: "ABS", pricePerKg: 20, dryingHours: 0 },
-    pa12: { name: "PA12 Nylon", pricePerKg: 100, dryingHours: 4 },
-    pa6: { name: "PA6 Nylon", pricePerKg: 100, dryingHours: 4 }
+    pla: { name: "PLA", pricePerKg: 19.99, dryingHours: 0 },
+    petg: { name: "PETG", pricePerKg: 19.99, dryingHours: 0 },
+    abs: { name: "ABS", pricePerKg: 29.99, dryingHours: 0 },
+    asa: { name: "ASA", pricePerKg: 29.99, dryingHours: 0 },
+    tpu: { name: "TPU", pricePerKg: 24.99, dryingHours: 0 },
+    pa12: { name: "PA12 Nylon", pricePerKg: 99.99, dryingHours: 4 },
+    pa6: { name: "PA6 Nylon", pricePerKg: 99.99, dryingHours: 4 }
   };
 
   const complexityLevels = [
@@ -159,7 +161,8 @@ const CostCalculatorWizard = () => {
     
     // Auto-set complexity from edge function analysis
     if (fileData.complexityScore !== undefined) {
-      const mappedComplexity = Math.round(fileData.complexityScore * 5); // 0-1 → 0-5
+      // Map 0-1 score to 0-4 range, adding 1 to start at "Mittel" for most models
+      const mappedComplexity = Math.min(4, Math.round(fileData.complexityScore * 4) + 1);
       setComplexity(mappedComplexity);
     }
     
@@ -279,7 +282,12 @@ const CostCalculatorWizard = () => {
         
         // EXACT SAME calculation as Live-Preis (lines 1242-1260)
         const materialWeightGrams = scaledVolume * 1.24;
-        const effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+        let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+        
+        // Verdreifache Druckzeit für PA12 und PA6
+        if (file.material === 'pa12' || file.material === 'pa6') {
+          effectivePrintTime = effectivePrintTime * 3;
+        }
         
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
@@ -374,7 +382,12 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        const effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+        let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+        
+        // Verdreifache Druckzeit für PA12 und PA6
+        if (file.material === 'pa12' || file.material === 'pa6') {
+          effectivePrintTime = effectivePrintTime * 3;
+        }
         
         const energyCostPerHour = 0.20;
         const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
@@ -874,7 +887,12 @@ const CostCalculatorWizard = () => {
                               const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
                               
                               const materialWeightGrams = scaledVolume * 1.24;
-                              const effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+                              let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+                              
+                              // Verdreifache Druckzeit für PA12 und PA6
+                              if (file.material === 'pa12' || file.material === 'pa6') {
+                                effectivePrintTime = effectivePrintTime * 3;
+                              }
                               
               const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
               const materialCostWithMarkup = materialCostBase * 1.30;
@@ -1089,11 +1107,18 @@ const CostCalculatorWizard = () => {
               
               // Simplified pricing for live preview
               const fileComplexity = editingFile.complexity || 0;
+              
+              // Verdreifache Druckzeit für PA12 und PA6
+              let adjustedPrintTime = effectivePrintTime;
+              if (editingFile.material === 'pa12' || editingFile.material === 'pa6') {
+                adjustedPrintTime = effectivePrintTime * 3;
+              }
+              
               const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
               const materialCostWithMarkup = materialCostBase * 1.30;
               
               let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-              const printCost = effectivePrintTime * printCostPerHour;
+              const printCost = adjustedPrintTime * printCostPerHour;
               const laborCost = 5.00;
               
               let estimatedPrice = materialCostWithMarkup + printCost + laborCost;
@@ -1134,9 +1159,9 @@ const CostCalculatorWizard = () => {
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">Live-Preis</p>
                         <p className="text-2xl font-bold text-primary">€{estimatedPrice.toFixed(2)}</p>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {effectivePrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
-                        </p>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            {adjustedPrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
+                          </p>
                       </div>
                       <Button onClick={() => setEditingFileId(null)} size="lg">
                         Fertig
@@ -1199,11 +1224,13 @@ const CostCalculatorWizard = () => {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="pla">PLA - €20/kg</SelectItem>
-                          <SelectItem value="petg">PETG - €20/kg</SelectItem>
-                          <SelectItem value="abs">ABS - €20/kg</SelectItem>
-                          <SelectItem value="pa12">PA12 Nylon - €100/kg</SelectItem>
-                          <SelectItem value="pa6">PA6 Nylon - €100/kg</SelectItem>
+                          <SelectItem value="pla">PLA - €19.99/kg</SelectItem>
+                          <SelectItem value="petg">PETG - €19.99/kg</SelectItem>
+                          <SelectItem value="abs">ABS - €29.99/kg</SelectItem>
+                          <SelectItem value="asa">ASA - €29.99/kg</SelectItem>
+                          <SelectItem value="tpu">TPU - €24.99/kg</SelectItem>
+                          <SelectItem value="pa12">PA12 Nylon - €99.99/kg</SelectItem>
+                          <SelectItem value="pa6">PA6 Nylon - €99.99/kg</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
