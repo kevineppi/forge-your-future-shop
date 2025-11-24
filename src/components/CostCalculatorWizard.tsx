@@ -1251,34 +1251,61 @@ const CostCalculatorWizard = () => {
               const scaledVolume = editingFile.volume * Math.pow(editingFile.scale || 1, 3);
               const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
               
-              // Calculate pricing for this file
+              // Calculate pricing for this file - SAME LOGIC AS filePrices
               const fileMaterial = materials[editingFile.material as keyof typeof materials] || materials.pla;
               const materialWeightGrams = scaledVolume * 1.24;
-              const effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
               
-              // Simplified pricing for live preview
-              const fileComplexity = editingFile.complexity || 0;
+              // Calculate objects per plate
+              const objectArea = scaledLength * scaledWidth;
+              const plateArea = 150 * 150;
+              const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+              
+              let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
               
               // Verdreifache Druckzeit für PA12 und PA6
-              let adjustedPrintTime = effectivePrintTime;
               if (editingFile.material === 'pa12' || editingFile.material === 'pa6') {
-                adjustedPrintTime = effectivePrintTime * 3;
+                effectivePrintTime = effectivePrintTime * 3;
               }
               
               const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
               const materialCostWithMarkup = materialCostBase * 1.30;
               
-              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-              const printCost = adjustedPrintTime * printCostPerHour;
+              const energyCostPerHour = 0.20;
+              const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
+              const energyCostWithMarkup = energyCostBase * 1.30;
+              
               const laborCost = 5.00;
               
-              let estimatedPrice = materialCostWithMarkup + printCost + laborCost;
-              estimatedPrice = estimatedPrice * 1.30; // Profit margin
-              estimatedPrice = estimatedPrice * 1.20; // Tax
+              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+              const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+              
+              const depreciationPerHour = 0.20;
+              const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
+              const dryingCostPerHour = 0.50;
+              const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
+              
+              let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
+                             printCost + depreciationCost + dryingCost;
+              
+              const fileComplexity = editingFile.complexity || 0;
+              const filePostProcessing = editingFile.postProcessing || "none";
+              const fileSupportRemoval = editingFile.supportRemoval || false;
+              
+              let additionalServices = 0;
+              const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
+              additionalServices += postProcessingCost;
+              
+              if (fileSupportRemoval && fileComplexity >= 3) {
+                additionalServices += 8;
+              }
+              
+              subtotal += additionalServices;
+              subtotal = subtotal * 1.30; // Profit margin
+              subtotal = subtotal * 1.20; // Tax
               
               // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
               const complexityMultiplier = 1 + (fileComplexity * 0.5);
-              estimatedPrice = estimatedPrice * complexityMultiplier;
+              let estimatedPrice = subtotal * complexityMultiplier;
               
               return (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4">
@@ -1312,7 +1339,7 @@ const CostCalculatorWizard = () => {
                         <p className="text-sm text-muted-foreground mb-1">Live-Preis</p>
                         <p className="text-2xl font-bold text-primary">€{estimatedPrice.toFixed(2)}</p>
                           <p className="text-xs text-muted-foreground mt-1">
-                            {adjustedPrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
+                            {effectivePrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
                           </p>
                       </div>
                       <Button onClick={() => setEditingFileId(null)} size="lg">
