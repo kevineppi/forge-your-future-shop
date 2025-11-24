@@ -94,6 +94,10 @@ serve(async (req) => {
         notes: (orderData.notes || "").substring(0, 400), // Limit to avoid size issues
         item_count: orderData.items.length.toString(),
         total_amount: (orderData.items.reduce((sum: number, item: any) => sum + item.total_price, 0) + (orderData.shippingCost || 0)).toFixed(2),
+        shipping_street: (orderData.shippingAddress?.street || "").substring(0, 200),
+        shipping_postal_code: (orderData.shippingAddress?.postalCode || "").substring(0, 20),
+        shipping_city: (orderData.shippingAddress?.city || "").substring(0, 100),
+        shipping_country: (orderData.shippingAddress?.country || "").substring(0, 100),
       },
     });
 

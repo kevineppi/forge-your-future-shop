@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
+import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -69,6 +70,14 @@ const CostCalculatorWizard = () => {
   const [isExpressService, setIsExpressService] = useState(false);
   const [postProcessing, setPostProcessing] = useState("none");
   const [supportRemoval, setSupportRemoval] = useState(false);
+  
+  // Address state
+  const [shippingAddress, setShippingAddress] = useState({
+    street: "",
+    postalCode: "",
+    city: "",
+    country: "Österreich"
+  });
 
   const { toast } = useToast();
 
@@ -308,20 +317,17 @@ const CostCalculatorWizard = () => {
         totalWithQuantities += fileTotalPrice;
       });
       
+      // Versandkosten: Fixe 7.50€ immer addieren
+      const shippingCost = 7.50;
+      totalWithQuantities += shippingCost;
+      
       let expressShipping = 0;
       if (isExpressService) {
         expressShipping = 20;
         totalWithQuantities += expressShipping;
       }
       
-      // Versandkosten hinzufügen wenn Warenwert unter 100€
-      let shippingCost = 0;
-      if (totalWithQuantities < 100) {
-        shippingCost = 7.50;
-        totalWithQuantities += shippingCost;
-      }
-      
-      // Gesamtpreis ist einfach die Summe aller Live-Preise
+      // Gesamtpreis ist einfach die Summe aller Live-Preise + Versand
       return {
         perPiece: 0,
         total: totalWithQuantities,
@@ -450,7 +456,8 @@ const CostCalculatorWizard = () => {
     { number: 1, title: "Eingabe", icon: Upload, completed: currentStep > 1 },
     { number: 2, title: "Stückzahlen", icon: Package, completed: currentStep > 2 },
     { number: 3, title: "Lieferoptionen", icon: Settings, completed: currentStep > 3 },
-    { number: 4, title: "Ergebnis", icon: Calculator, completed: false }
+    { number: 4, title: "Adresse", icon: Wrench, completed: currentStep > 4 },
+    { number: 5, title: "Ergebnis", icon: Calculator, completed: false }
   ];
 
   if (!isClient) {
@@ -822,6 +829,97 @@ const CostCalculatorWizard = () => {
                         Zurück
                       </Button>
                       <Button onClick={() => setCurrentStep(4)} className="flex-1">
+                        Weiter zu Adresse
+                        <ChevronRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Step 4: Adresse */}
+              {currentStep === 4 && (
+                <Card className="gradient-card border-0 animate-fade-in">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Wrench className="w-5 h-5 text-primary" />
+                      Lieferadresse
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <p className="text-sm text-muted-foreground">
+                      Bitte geben Sie Ihre Lieferadresse ein
+                    </p>
+
+                    <div className="space-y-4">
+                      <div>
+                        <label className="text-sm font-medium mb-2 block">
+                          Straße und Hausnummer *
+                        </label>
+                        <Input
+                          placeholder="z.B. Hauptstraße 123"
+                          value={shippingAddress.street}
+                          onChange={(e) => setShippingAddress({ ...shippingAddress, street: e.target.value })}
+                          required
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="text-sm font-medium mb-2 block">
+                            Postleitzahl *
+                          </label>
+                          <Input
+                            placeholder="z.B. 1010"
+                            value={shippingAddress.postalCode}
+                            onChange={(e) => setShippingAddress({ ...shippingAddress, postalCode: e.target.value })}
+                            required
+                          />
+                        </div>
+
+                        <div>
+                          <label className="text-sm font-medium mb-2 block">
+                            Stadt *
+                          </label>
+                          <Input
+                            placeholder="z.B. Wien"
+                            value={shippingAddress.city}
+                            onChange={(e) => setShippingAddress({ ...shippingAddress, city: e.target.value })}
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="text-sm font-medium mb-2 block">
+                          Land *
+                        </label>
+                        <Input
+                          value={shippingAddress.country}
+                          onChange={(e) => setShippingAddress({ ...shippingAddress, country: e.target.value })}
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <Button onClick={() => setCurrentStep(3)} variant="outline" className="flex-1">
+                        Zurück
+                      </Button>
+                      <Button 
+                        onClick={() => {
+                          if (!shippingAddress.street || !shippingAddress.postalCode || !shippingAddress.city) {
+                            toast({
+                              title: "Fehlende Adressdaten",
+                              description: "Bitte füllen Sie alle Pflichtfelder aus.",
+                              variant: "destructive",
+                            });
+                            return;
+                          }
+                          setCurrentStep(5);
+                        }}
+                        className="flex-1"
+                      >
                         Zum Ergebnis
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -830,8 +928,8 @@ const CostCalculatorWizard = () => {
                 </Card>
               )}
 
-              {/* Step 4: Summary */}
-              {currentStep === 4 && (
+              {/* Step 5: Summary */}
+              {currentStep === 5 && (
                 <Card className="gradient-card border-0 animate-fade-in">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
@@ -938,7 +1036,8 @@ const CostCalculatorWizard = () => {
                               express_service: isExpressService,
                               notes: uploadedFiles[0]?.notes || "",
                               post_processing: postProcessingNames,
-                              shippingCost: pricing.shippingCost,
+                              shippingCost: 7.50,
+                              shippingAddress: shippingAddress,
                             };
 
                             const { data, error } = await supabase.functions.invoke("create-checkout-session", {
