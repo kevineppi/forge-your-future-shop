@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ShoppingCart, Play } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -20,8 +20,8 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="hero" size="lg" className="group" onClick={() => window.location.href = '/kostenrechner'}>
+                <ShoppingCart className="mr-2 h-5 w-5 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-300" />
                 Jetzt bestellen
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
               <Button variant="outline" size="lg" className="group border-primary text-primary hover:bg-primary hover:text-white" onClick={() => document.getElementById('services')?.scrollIntoView({

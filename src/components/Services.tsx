@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Cpu, Wrench, Palette, Zap, PenTool, Clock, ArrowRight } from "lucide-react";
+import { Cpu, Wrench, Palette, Zap, PenTool, Clock, Settings } from "lucide-react";
 const Services = () => {
   const services = [{
     icon: Cpu,
@@ -80,9 +80,9 @@ const Services = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button variant="hero" size="lg" className="shadow-lg" onClick={() => window.location.href = '/kostenrechner'}>
+          <Button variant="hero" size="lg" className="shadow-lg group" onClick={() => window.location.href = '/kostenrechner'}>
+            <Settings className="mr-2 h-5 w-5 group-hover:rotate-90 transition-transform duration-500" />
             Teil konfigurieren & bestellen
-            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           
           {/* KI Chat Hinweis */}
