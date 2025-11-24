@@ -42,6 +42,62 @@ interface STLAnalysis {
   };
 }
 
+// Helper function to validate coordinates
+function isValidCoordinate(v: Vector3): boolean {
+  const MAX_COORD = 10000; // Max 10 meters in any direction
+  return !isNaN(v.x) && !isNaN(v.y) && !isNaN(v.z) &&
+         isFinite(v.x) && isFinite(v.y) && isFinite(v.z) &&
+         Math.abs(v.x) < MAX_COORD && Math.abs(v.y) < MAX_COORD && Math.abs(v.z) < MAX_COORD;
+}
+
+// Check if file is ASCII STL
+function isAsciiSTL(buffer: ArrayBuffer): boolean {
+  const text = new TextDecoder().decode(buffer.slice(0, 80));
+  return text.toLowerCase().includes('solid');
+}
+
+// Parse ASCII STL
+function parseAsciiSTL(text: string): Triangle[] {
+  const triangles: Triangle[] = [];
+  const lines = text.split('\n');
+  
+  let currentTriangle: Partial<Triangle> | null = null;
+  let vertices: Vector3[] = [];
+  
+  for (const line of lines) {
+    const trimmed = line.trim().toLowerCase();
+    
+    if (trimmed.startsWith('facet normal')) {
+      const parts = trimmed.split(/\s+/);
+      currentTriangle = {
+        normal: {
+          x: parseFloat(parts[2]),
+          y: parseFloat(parts[3]),
+          z: parseFloat(parts[4]),
+        },
+        vertices: [] as any,
+      };
+      vertices = [];
+    } else if (trimmed.startsWith('vertex')) {
+      const parts = trimmed.split(/\s+/);
+      vertices.push({
+        x: parseFloat(parts[1]),
+        y: parseFloat(parts[2]),
+        z: parseFloat(parts[3]),
+      });
+    } else if (trimmed.startsWith('endfacet')) {
+      if (currentTriangle && vertices.length === 3) {
+        currentTriangle.vertices = vertices as [Vector3, Vector3, Vector3];
+        triangles.push(currentTriangle as Triangle);
+      }
+      currentTriangle = null;
+      vertices = [];
+    }
+  }
+  
+  return triangles;
+}
+
 // STL Parser für Binary Format
 function parseBinarySTL(buffer: ArrayBuffer): Triangle[] {
   const view = new DataView(buffer);
@@ -107,10 +163,36 @@ function parseBinarySTL(buffer: ArrayBuffer): Triangle[] {
     
     offset += 2; // Skip attribute byte count
     
+    // Validate coordinates
+    if (!isValidCoordinate(v1) || !isValidCoordinate(v2) || !isValidCoordinate(v3)) {
+      throw new Error(`Invalid coordinates detected at triangle ${i}. File may be corrupted or in wrong format.`);
+    }
+    
     triangles.push({ normal, vertices: [v1, v2, v3] });
   }
   
   return triangles;
+}
+
+// Main STL parser that detects format
+function parseSTL(buffer: ArrayBuffer): Triangle[] {
+  // Check if it's ASCII format
+  if (isAsciiSTL(buffer)) {
+    console.log('Detected ASCII STL format');
+    const text = new TextDecoder().decode(buffer);
+    return parseAsciiSTL(text);
+  }
+  
+  // Try binary format
+  console.log('Parsing as binary STL format');
+  try {
+    return parseBinarySTL(buffer);
+  } catch (error) {
+    // If binary parsing fails, try ASCII as fallback
+    console.log('Binary parsing failed, trying ASCII format:', error);
+    const text = new TextDecoder().decode(buffer);
+    return parseAsciiSTL(text);
+  }
 }
 
 // Berechne Volumen mit Signed Volume Method
@@ -579,8 +661,8 @@ serve(async (req) => {
     // File zu ArrayBuffer konvertieren
     const arrayBuffer = await stlFile.arrayBuffer();
     
-    // STL parsen (Binary Format)
-    const triangles = parseBinarySTL(arrayBuffer);
+    // STL parsen (Auto-detect ASCII oder Binary Format)
+    const triangles = parseSTL(arrayBuffer);
     console.log('Parsed triangles:', triangles.length);
     
     // Geometrie analysieren
