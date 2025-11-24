@@ -14,7 +14,7 @@ const StickyCTA = () => {
       size="lg"
     >
       <Calculator className="w-5 h-5 mr-2" />
-      Zum Kostenrechner
+      Direkt bestellen
     </Button>
   );
 };
