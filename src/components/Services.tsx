@@ -81,7 +81,7 @@ const Services = () => {
 
         <div className="text-center mt-16">
           <Button variant="hero" size="lg" className="shadow-lg" onClick={() => window.location.href = '/kostenrechner'}>
-            Direkt bestellen im Kostenrechner
+            Teil konfigurieren & bestellen
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           
