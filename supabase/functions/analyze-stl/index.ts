@@ -53,13 +53,19 @@ function parseBinarySTL(buffer: ArrayBuffer): Triangle[] {
   
   let offset = 80; // Skip header
   
-  const triangleCount = view.getUint32(offset, true);
+  const triangleCountFromHeader = view.getUint32(offset, true);
   offset += 4;
   
-  // Validate expected file size
-  const expectedSize = 84 + (triangleCount * 50); // 50 bytes per triangle
-  if (buffer.byteLength < expectedSize) {
-    throw new Error(`Invalid STL file: expected ${expectedSize} bytes but got ${buffer.byteLength}`);
+  // Calculate actual triangle count based on file size (more reliable)
+  const actualDataSize = buffer.byteLength - 84; // Minus header and count
+  const calculatedTriangleCount = Math.floor(actualDataSize / 50);
+  
+  // Use the smaller of the two to be safe (handles corrupt headers)
+  const triangleCount = Math.min(triangleCountFromHeader, calculatedTriangleCount);
+  
+  // Log if there's a mismatch
+  if (triangleCountFromHeader !== calculatedTriangleCount) {
+    console.log(`Triangle count mismatch: Header says ${triangleCountFromHeader}, file size suggests ${calculatedTriangleCount}. Using ${triangleCount}.`);
   }
   
   const triangles: Triangle[] = [];
