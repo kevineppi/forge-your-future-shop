@@ -124,6 +124,7 @@ const CostCalculator = () => {
         perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0, 
         printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
         additionalServices: 0, expressCharge: 0, expressShipping: 0, 
+        standardShipping: 0, freeShipping: false,
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
       
@@ -230,12 +231,18 @@ const CostCalculator = () => {
       const totalPrice = pricePerPiece * quantity * discount;
       const savings = quantity > 4 ? (pricePerPiece * quantity - totalPrice) : 0;
       
+      // 11. STANDARD SHIPPING (only if not express service)
+      const standardShippingCost = 7.00;
+      const freeShipping = totalPrice >= 100;
+      const shippingToAdd = (!isExpressService && !freeShipping) ? standardShippingCost : 0;
+      const finalTotal = totalPrice + shippingToAdd;
+      
       // Round to 5 cents
       const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
       
       return {
         perPiece: Math.max(5, roundTo5Cents(pricePerPiece)),
-        total: Math.max(5 * quantity, roundTo5Cents(totalPrice)),
+        total: Math.max(5 * quantity, roundTo5Cents(finalTotal)),
         savings,
         materialCost: materialCostWithMarkup,
         energyCost: energyCostWithMarkup,
@@ -246,6 +253,8 @@ const CostCalculator = () => {
         additionalServices,
         expressCharge: isExpressService ? expressCharge : 0,
         expressShipping: isExpressService ? expressShipping : 0,
+        standardShipping: shippingToAdd,
+        freeShipping,
         volume: actualVolume * 1000000,
         maxDimension,
         materialWeight: materialWeightGrams,
@@ -257,6 +266,7 @@ const CostCalculator = () => {
         perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0,
         printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
         additionalServices: 0, expressCharge: 0, expressShipping: 0,
+        standardShipping: 0, freeShipping: false,
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
     }
@@ -544,6 +554,24 @@ const CostCalculator = () => {
                     </div>
                   )}
 
+                  {/* Standard Shipping */}
+                  {!isExpressService && (
+                    <div className={`flex justify-between items-center p-4 rounded-lg ${
+                      pricing.freeShipping 
+                        ? 'bg-green-500/10 border border-green-500/20' 
+                        : 'bg-muted/30'
+                    }`}>
+                      <span className="font-medium flex items-center gap-1">
+                        {pricing.freeShipping ? '🎉' : '📦'} Versand:
+                      </span>
+                      <span className={`text-lg font-semibold ${
+                        pricing.freeShipping ? 'text-green-600' : 'text-foreground'
+                      }`}>
+                        {pricing.freeShipping ? 'Kostenlos!' : `+€${pricing.standardShipping.toFixed(2)}`}
+                      </span>
+                    </div>
+                  )}
+
                   <div className="flex justify-between items-center p-4 bg-primary/10 rounded-lg">
                     <span className="font-medium">Stückpreis (inkl. 20% MwSt):</span>
                     <span className="text-2xl font-bold text-primary">
@@ -576,6 +604,18 @@ const CostCalculator = () => {
                   {isExpressService && (
                     <Badge className="w-full justify-center bg-yellow-500/10 text-yellow-600 border-yellow-500/20">
                       ⚡ Express-Lieferung in 24h
+                    </Badge>
+                  )}
+
+                  {!isExpressService && pricing.freeShipping && (
+                    <Badge className="w-full justify-center bg-green-500/10 text-green-600 border-green-500/20 hover:scale-105 transition-transform duration-300">
+                      🎉 Kostenloser Versand ab €100
+                    </Badge>
+                  )}
+
+                  {!isExpressService && !pricing.freeShipping && (pricing.total - pricing.standardShipping) > 70 && (
+                    <Badge className="w-full justify-center bg-blue-500/10 text-blue-600 border-blue-500/20">
+                      Noch €{(100 - (pricing.total - pricing.standardShipping)).toFixed(2)} bis kostenloser Versand!
                     </Badge>
                   )}
                 </div>
