@@ -1139,6 +1139,7 @@ const CostCalculatorWizard = () => {
                           geometry={editingFile.geometry} 
                           fileName={editingFile.fileName}
                           scale={editingFile.scale || 1}
+                          color={editingFile.color || "#4f46e5"}
                           onScaleChange={(newScale) => {
                             setUploadedFiles(prev => prev.map(f => 
                               f.id === editingFileId ? { ...f, scale: newScale } : f
