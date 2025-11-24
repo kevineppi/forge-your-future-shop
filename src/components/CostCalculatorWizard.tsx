@@ -298,7 +298,7 @@ const CostCalculatorWizard = () => {
         };
       }
       
-      // Calculate total for all uploaded files using SAME LOGIC as Live-Preis
+      // Calculate total for all uploaded files using EXACT SAME LOGIC as filePrices
       let totalWithQuantities = 0;
       
       uploadedFiles.forEach(file => {
@@ -306,6 +306,8 @@ const CostCalculatorWizard = () => {
         const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
         const fileComplexity = file.complexity || 0;
         const fileScale = file.scale || 1;
+        const filePostProcessing = file.postProcessing || "none";
+        const fileSupportRemoval = file.supportRemoval || false;
         
         const scaledVolume = file.volume * Math.pow(fileScale, 3);
         const scaledLength = file.length * fileScale;
@@ -313,8 +315,16 @@ const CostCalculatorWizard = () => {
         const scaledHeight = file.height * fileScale;
         const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
         
-        // EXACT SAME calculation as Live-Preis (lines 1242-1260)
-        const materialWeightGrams = scaledVolume * 1.24;
+        const materialDensity = 1.24;
+        const materialWeightGrams = scaledVolume * materialDensity;
+        
+        const objectArea = scaledLength * scaledWidth;
+        const plateArea = 150 * 150;
+        const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+        
+        const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
+        const materialCostWithMarkup = materialCostBase * 1.30;
+        
         let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
         
         // Verdreifache Druckzeit für PA12 und PA6
@@ -322,20 +332,38 @@ const CostCalculatorWizard = () => {
           effectivePrintTime = effectivePrintTime * 3;
         }
         
-        const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
-        const materialCostWithMarkup = materialCostBase * 1.30;
+        const energyCostPerHour = 0.20;
+        const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
+        const energyCostWithMarkup = energyCostBase * 1.30;
         
-        let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-        const printCost = effectivePrintTime * printCostPerHour;
         const laborCost = 5.00;
         
-        let pricePerPiece = materialCostWithMarkup + printCost + laborCost;
-        pricePerPiece = pricePerPiece * 1.30; // Profit margin
-        pricePerPiece = pricePerPiece * 1.20; // Tax
+        let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+        const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+        
+        const depreciationPerHour = 0.20;
+        const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
+        const dryingCostPerHour = 0.50;
+        const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
+        
+        let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
+                       printCost + depreciationCost + dryingCost;
+        
+        let additionalServices = 0;
+        const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
+        additionalServices += postProcessingCost;
+        
+        if (fileSupportRemoval && fileComplexity >= 3) {
+          additionalServices += 8;
+        }
+        
+        subtotal += additionalServices;
+        subtotal = subtotal * 1.30; // Profit margin
+        subtotal = subtotal * 1.20; // Tax
         
         // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
         const complexityMultiplier = 1 + (fileComplexity * 0.5);
-        pricePerPiece = pricePerPiece * complexityMultiplier;
+        const pricePerPiece = subtotal * complexityMultiplier;
         
         const fileTotalPrice = pricePerPiece * fileQuantity;
         totalWithQuantities += fileTotalPrice;
