@@ -80,15 +80,8 @@ const Services = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button variant="hero" size="lg" className="shadow-lg" onClick={() => {
-          const contactElement = document.getElementById('contact');
-          if (contactElement) {
-            contactElement.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        }}>
-            Individuelles Angebot anfordern
+          <Button variant="hero" size="lg" className="shadow-lg" onClick={() => window.location.href = '/kostenrechner'}>
+            Direkt bestellen im Kostenrechner
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           

@@ -148,6 +148,52 @@ serve(async (req) => {
 
     console.log("Order items created successfully");
 
+    // Send order confirmation email
+    try {
+      const confirmationResponse = await fetch(
+        `${Deno.env.get("SUPABASE_URL")}/functions/v1/send-order-confirmation`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${Deno.env.get("SUPABASE_ANON_KEY")}`,
+          },
+          body: JSON.stringify({
+            customerEmail: session.customer_details?.email || user.email,
+            customerName: session.customer_details?.name || user.email,
+            orderId: order.id,
+            orderNumber: order.id.split('-')[0].toUpperCase(),
+            totalPrice: session.amount_total! / 100,
+            orderItems: orderItems.map((item: any) => ({
+              file_name: item.file_name,
+              material: item.material,
+              color: item.color,
+              quantity: item.quantity,
+              unit_price: item.unit_price,
+              total_price: item.total_price,
+              dimensions: item.dimensions,
+            })),
+            expressService: metadata.express_service === "true",
+            shippingAddress: {
+              street: metadata.shipping_street || null,
+              postalCode: metadata.shipping_postal_code || null,
+              city: metadata.shipping_city || null,
+              country: metadata.shipping_country || "Österreich",
+            },
+          }),
+        }
+      );
+
+      if (!confirmationResponse.ok) {
+        console.error("Failed to send order confirmation email");
+      } else {
+        console.log("Order confirmation email sent successfully");
+      }
+    } catch (emailError) {
+      console.error("Error sending confirmation email:", emailError);
+      // Don't fail the whole transaction if email fails
+    }
+
     return new Response(JSON.stringify({ 
       success: true, 
       orderId: order.id,
