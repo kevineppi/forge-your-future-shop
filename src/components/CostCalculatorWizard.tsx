@@ -361,12 +361,19 @@ const CostCalculatorWizard = () => {
         subtotal = subtotal * 1.30; // Profit margin
         subtotal = subtotal * 1.20; // Tax
         
-        // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
-        const complexityMultiplier = 1 + (fileComplexity * 0.5);
-        const pricePerPiece = subtotal * complexityMultiplier;
-        
-        const fileTotalPrice = pricePerPiece * fileQuantity;
-        totalWithQuantities += fileTotalPrice;
+      // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
+      const complexityMultiplier = 1 + (fileComplexity * 0.5);
+      const pricePerPiece = subtotal * complexityMultiplier;
+      
+      // Apply quantity discount
+      let discount = 1.0;
+      if (fileQuantity >= 50) discount = 0.80;
+      else if (fileQuantity >= 20) discount = 0.85;
+      else if (fileQuantity >= 10) discount = 0.90;
+      else if (fileQuantity >= 5) discount = 0.95;
+      
+      const fileTotalPrice = pricePerPiece * fileQuantity * discount;
+      totalWithQuantities += fileTotalPrice;
       });
       
       // Check if free shipping applies (>= 100€ without shipping and express)
