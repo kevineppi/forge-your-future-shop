@@ -5,14 +5,16 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 
 type ContactInquiry = Tables<'contact_inquiries'>;
 import { useToast } from "@/hooks/use-toast";
-import { Search, Filter, Download, RefreshCw, Eye, CheckCircle, Clock, Archive } from "lucide-react";
+import { Search, Filter, Download, RefreshCw, Eye, CheckCircle, Clock, Archive, ShoppingCart } from "lucide-react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
+import OrdersManagement from "./OrdersManagement";
 
 const AdminDashboard = () => {
   const [inquiries, setInquiries] = useState<ContactInquiry[]>([]);
@@ -21,6 +23,7 @@ const AdminDashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [selectedInquiry, setSelectedInquiry] = useState<ContactInquiry | null>(null);
+  const [activeTab, setActiveTab] = useState("inquiries");
   const { toast } = useToast();
 
   useEffect(() => {
@@ -181,24 +184,37 @@ const AdminDashboard = () => {
             Admin <span className="text-gradient">Dashboard</span>
           </h1>
           <p className="text-muted-foreground">
-            Verwaltung aller Kontaktanfragen und Kundenanfragen
+            Verwaltung aller Kontaktanfragen, Bestellungen und Kundenanfragen
           </p>
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
-                Neue Anfragen
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-destructive">
-                {inquiries.filter(i => i.status === 'new').length}
-              </div>
-            </CardContent>
-          </Card>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+          <TabsList className="grid w-full max-w-md grid-cols-2">
+            <TabsTrigger value="inquiries">
+              <Filter className="h-4 w-4 mr-2" />
+              Kontaktanfragen
+            </TabsTrigger>
+            <TabsTrigger value="orders">
+              <ShoppingCart className="h-4 w-4 mr-2" />
+              Bestellungen
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="inquiries" className="space-y-6">
+            {/* Stats Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">
+                    Neue Anfragen
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold text-destructive">
+                    {inquiries.filter(i => i.status === 'new').length}
+                  </div>
+                </CardContent>
+              </Card>
           
           <Card>
             <CardHeader className="pb-2">
@@ -460,6 +476,12 @@ const AdminDashboard = () => {
             </Card>
           </div>
         )}
+          </TabsContent>
+
+          <TabsContent value="orders" className="space-y-6">
+            <OrdersManagement />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );

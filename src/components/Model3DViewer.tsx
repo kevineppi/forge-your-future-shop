@@ -16,6 +16,7 @@ interface Model3DViewerProps {
   scale?: number;
   onScaleChange?: (scale: number) => void;
   estimatedPrintTimeHours?: number | null;
+  color?: string;
   pricing?: {
     perPiece: number;
     total: number;
@@ -23,21 +24,24 @@ interface Model3DViewerProps {
   };
 }
 
-const Model = ({ geometry, scale }: { geometry: THREE.BufferGeometry; scale: number }) => {
+const Model = ({ geometry, scale, color }: { geometry: THREE.BufferGeometry; scale: number; color: string }) => {
   return (
     <mesh geometry={geometry} scale={scale}>
-      <meshStandardMaterial color="#4f46e5" metalness={0.5} roughness={0.5} />
+      <meshStandardMaterial color={color} metalness={0.5} roughness={0.5} />
     </mesh>
   );
 };
 
-export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavigate, scale: externalScale, onScaleChange, estimatedPrintTimeHours, pricing }: Model3DViewerProps) => {
+export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavigate, scale: externalScale, onScaleChange, estimatedPrintTimeHours, color, pricing }: Model3DViewerProps) => {
   const [internalScale, setInternalScale] = useState(1);
   const [resetTrigger, setResetTrigger] = useState(0);
   
   // Use external scale if provided, otherwise internal
   const scale = externalScale !== undefined ? externalScale : internalScale;
   const setScale = onScaleChange || setInternalScale;
+  
+  // Use provided color or default to indigo
+  const modelColor = color || "#4f46e5";
 
   // Calculate scaled print time based on volume change
   const scaledPrintTime = estimatedPrintTimeHours ? estimatedPrintTimeHours * Math.pow(scale, 3) : null;
@@ -93,7 +97,7 @@ export const Model3DViewer = ({ geometry, fileName, onBack, currentStep, onNavig
             <ambientLight intensity={0.5} />
             <directionalLight position={[10, 10, 5]} intensity={1} />
             <Stage environment="city" intensity={0.6}>
-              <Model geometry={geometry} scale={scale} />
+              <Model geometry={geometry} scale={scale} color={modelColor} />
             </Stage>
             <OrbitControls 
               enableZoom={true}
