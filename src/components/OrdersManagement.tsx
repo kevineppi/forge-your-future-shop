@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { useToast } from "@/hooks/use-toast";
-import { Search, Filter, RefreshCw, Eye, FileText, Truck, Package, CheckCircle2, XCircle } from "lucide-react";
+import { Search, Filter, RefreshCw, Eye, FileText, Truck, Package, CheckCircle2, XCircle, MapPin } from "lucide-react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 
@@ -358,6 +358,23 @@ const OrdersManagement = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Shipping Address */}
+              {(selectedOrder.shipping_street || selectedOrder.shipping_city) && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      <MapPin className="h-5 w-5" />
+                      Lieferadresse
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <p>{selectedOrder.shipping_street}</p>
+                    <p>{selectedOrder.shipping_postal_code} {selectedOrder.shipping_city}</p>
+                    <p>{selectedOrder.shipping_country}</p>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Order Items */}
               <Card>

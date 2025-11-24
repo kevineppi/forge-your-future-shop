@@ -229,6 +229,10 @@ export type Database = {
           id: string
           notes: string | null
           post_processing: Json | null
+          shipping_city: string | null
+          shipping_country: string | null
+          shipping_postal_code: string | null
+          shipping_street: string | null
           status: Database["public"]["Enums"]["order_status"]
           stripe_checkout_session_id: string | null
           stripe_payment_intent_id: string | null
@@ -244,6 +248,10 @@ export type Database = {
           id?: string
           notes?: string | null
           post_processing?: Json | null
+          shipping_city?: string | null
+          shipping_country?: string | null
+          shipping_postal_code?: string | null
+          shipping_street?: string | null
           status?: Database["public"]["Enums"]["order_status"]
           stripe_checkout_session_id?: string | null
           stripe_payment_intent_id?: string | null
@@ -259,6 +267,10 @@ export type Database = {
           id?: string
           notes?: string | null
           post_processing?: Json | null
+          shipping_city?: string | null
+          shipping_country?: string | null
+          shipping_postal_code?: string | null
+          shipping_street?: string | null
           status?: Database["public"]["Enums"]["order_status"]
           stripe_checkout_session_id?: string | null
           stripe_payment_intent_id?: string | null
