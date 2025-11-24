@@ -94,10 +94,10 @@ const CostCalculatorWizard = () => {
 
   const complexityLevels = [
     "Einfach (Grundformen)",
-    "Mittel (Details)",
-    "Komplex (Feine Strukturen)",
-    "Überhänge/Support (+50%)",
-    "Mehrfärbig/Sehr komplex (+100%)"
+    "Mittel (Details) +50%",
+    "Komplex (Feine Strukturen) +100%",
+    "Überhänge/Support +150%",
+    "Mehrfärbig/Sehr komplex +200%"
   ];
 
   const colorOptions = [
@@ -284,16 +284,17 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        const complexityFactor = 1 + (fileComplexity * 0.15);
-        const adjustedPrintTime = effectivePrintTime * complexityFactor;
-        
         let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-        const printCost = adjustedPrintTime * printCostPerHour;
+        const printCost = effectivePrintTime * printCostPerHour;
         const laborCost = 5.00;
         
         let pricePerPiece = materialCostWithMarkup + printCost + laborCost;
         pricePerPiece = pricePerPiece * 1.30; // Profit margin
         pricePerPiece = pricePerPiece * 1.20; // Tax
+        
+        // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
+        const complexityMultiplier = 1 + (fileComplexity * 0.5);
+        pricePerPiece = pricePerPiece * complexityMultiplier;
         
         const fileTotalPrice = pricePerPiece * fileQuantity;
         totalWithQuantities += fileTotalPrice;
@@ -370,30 +371,27 @@ const CostCalculatorWizard = () => {
       const plateArea = 150 * 150;
       const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
       
-      const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
-      const materialCostWithMarkup = materialCostBase * 1.30;
-      
-      let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
-      effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
-      
-      const energyCostPerHour = 0.20;
-      const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
-      const energyCostWithMarkup = energyCostBase * 1.30;
-      
-      const laborCost = 5.00;
-      
-      let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-      printCostPerHour = printCostPerHour * (1 + fileComplexity * 0.25);
-      const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
-      
-      const complexitySurcharge = fileComplexity * 2.5;
-      const depreciationPerHour = 0.20;
-      const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
-      const dryingCostPerHour = 0.50;
-      const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
-      
-      let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                     printCost + depreciationCost + dryingCost + complexitySurcharge;
+        const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
+        const materialCostWithMarkup = materialCostBase * 1.30;
+        
+        const effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+        
+        const energyCostPerHour = 0.20;
+        const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
+        const energyCostWithMarkup = energyCostBase * 1.30;
+        
+        const laborCost = 5.00;
+        
+        let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+        const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+        
+        const depreciationPerHour = 0.20;
+        const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
+        const dryingCostPerHour = 0.50;
+        const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
+        
+        let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
+                       printCost + depreciationCost + dryingCost;
       
       let additionalServices = 0;
       const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
@@ -413,8 +411,12 @@ const CostCalculatorWizard = () => {
         subtotal += expressCharge;
       }
       
-      const tax = subtotal * 0.20;
-      let pricePerPiece = subtotal + tax;
+        const tax = subtotal * 0.20;
+        let pricePerPiece = subtotal + tax;
+        
+        // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
+        const complexityMultiplier = 1 + (fileComplexity * 0.5);
+        pricePerPiece = pricePerPiece * complexityMultiplier;
       
       let discount = 1.0;
       if (fileQuantity >= 50) discount = 0.80;
@@ -872,21 +874,22 @@ const CostCalculatorWizard = () => {
                               const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
                               
                               const materialWeightGrams = scaledVolume * 1.24;
-                              const effectivePrintTime = scaledVolume / 50;
+                              const effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
                               
-                              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
-                              const materialCostWithMarkup = materialCostBase * 1.30;
-                              
-                              const complexityFactor = 1 + (fileComplexity * 0.15);
-                              const adjustedPrintTime = effectivePrintTime * complexityFactor;
-                              
-                              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-                              const printCost = adjustedPrintTime * printCostPerHour;
-                              const laborCost = 5.00;
-                              
-                              let pricePerPiece = materialCostWithMarkup + printCost + laborCost;
-                              pricePerPiece = pricePerPiece * 1.30;
-                              pricePerPiece = pricePerPiece * 1.20;
+              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
+              const materialCostWithMarkup = materialCostBase * 1.30;
+              
+              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+              const printCost = effectivePrintTime * printCostPerHour;
+              const laborCost = 5.00;
+              
+              let pricePerPiece = materialCostWithMarkup + printCost + laborCost;
+              pricePerPiece = pricePerPiece * 1.30; // Profit margin
+              pricePerPiece = pricePerPiece * 1.20; // Tax
+              
+              // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
+              const complexityMultiplier = 1 + (fileComplexity * 0.5);
+              pricePerPiece = pricePerPiece * complexityMultiplier;
                               
                               return {
                                 file_name: file.fileName,
@@ -900,7 +903,7 @@ const CostCalculatorWizard = () => {
                                   height: file.height,
                                 },
                                 volume: file.volume,
-                                print_time: adjustedPrintTime,
+                                print_time: effectivePrintTime,
                                 infill: 20,
                                 quantity: fileQuantity,
                                 unit_price: pricePerPiece,
@@ -1089,17 +1092,17 @@ const CostCalculatorWizard = () => {
               const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
               const materialCostWithMarkup = materialCostBase * 1.30;
               
-              // Complexity factor affects print time and cost
-              const complexityFactor = 1 + (fileComplexity * 0.15); // +15% per complexity level
-              const adjustedPrintTime = effectivePrintTime * complexityFactor;
-              
               let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-              const printCost = adjustedPrintTime * printCostPerHour;
+              const printCost = effectivePrintTime * printCostPerHour;
               const laborCost = 5.00;
               
               let estimatedPrice = materialCostWithMarkup + printCost + laborCost;
               estimatedPrice = estimatedPrice * 1.30; // Profit margin
               estimatedPrice = estimatedPrice * 1.20; // Tax
+              
+              // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
+              const complexityMultiplier = 1 + (fileComplexity * 0.5);
+              estimatedPrice = estimatedPrice * complexityMultiplier;
               
               return (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4">
@@ -1246,7 +1249,7 @@ const CostCalculatorWizard = () => {
                             f.id === editingFileId ? { ...f, complexity: Math.round(v[0]) } : f
                           ));
                         }}
-                        max={5}
+                        max={4}
                         min={0}
                         step={1}
                       />
