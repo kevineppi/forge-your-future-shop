@@ -293,6 +293,7 @@ const CostCalculatorWizard = () => {
           perPiece: 0, total: 0, savings: 0, materialCost: 0, energyCost: 0,
           printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
           additionalServices: 0, expressCharge: 0, expressShipping: 0, shippingCost: 0,
+          freeShipping: false,
           volume: 0, maxDimension: 0, materialWeight: 0, objectsPerPlate: 1
         };
       }
@@ -340,8 +341,11 @@ const CostCalculatorWizard = () => {
         totalWithQuantities += fileTotalPrice;
       });
       
-      // Versandkosten: Fixe 7.50€ immer addieren
-      const shippingCost = 7.50;
+      // Check if free shipping applies (>= 100€ without shipping and express)
+      const freeShipping = totalWithQuantities >= 100 && !isExpressService;
+      
+      // Versandkosten: 7.50€ wenn nicht kostenlos oder express
+      const shippingCost = freeShipping ? 0 : 7.50;
       totalWithQuantities += shippingCost;
       
       let expressShipping = 0;
@@ -365,6 +369,7 @@ const CostCalculatorWizard = () => {
         expressCharge: 0,
         expressShipping: expressShipping,
         shippingCost: shippingCost,
+        freeShipping: freeShipping,
         volume: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3), 0),
         maxDimension: Math.max(...uploadedFiles.map(f => Math.max(f.length, f.width, f.height) * (f.scale || 1))),
         materialWeight: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3) * 1.24, 0),
@@ -376,6 +381,7 @@ const CostCalculatorWizard = () => {
         perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0,
         printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
         additionalServices: 0, expressCharge: 0, expressShipping: 0, shippingCost: 0,
+        freeShipping: false,
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
     }
@@ -1135,7 +1141,18 @@ const CostCalculatorWizard = () => {
                     </div>
                   )}
 
-                  {pricing.shippingCost > 0 && (
+                  {!isExpressService && pricing.shippingCost === 0 && pricing.freeShipping && (
+                    <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border-2 border-green-500/20">
+                      <span className="font-medium flex items-center gap-1">
+                        🎉 Versandkosten:
+                      </span>
+                      <span className="text-lg font-semibold text-green-600">
+                        Kostenlos!
+                      </span>
+                    </div>
+                  )}
+
+                  {!isExpressService && pricing.shippingCost > 0 && (
                     <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg border-2 border-blue-500/20">
                       <span className="font-medium flex items-center gap-1">
                         <Package className="w-4 h-4 text-blue-500" />
@@ -1186,6 +1203,18 @@ const CostCalculatorWizard = () => {
                   {isExpressService && (
                     <Badge className="w-full justify-center bg-yellow-500/10 text-yellow-600 border-yellow-500/20">
                       ⚡ Express-Lieferung in 24h
+                    </Badge>
+                  )}
+
+                  {!isExpressService && pricing.freeShipping && (
+                    <Badge className="w-full justify-center bg-green-500/10 text-green-600 border-green-500/20 hover:scale-105 transition-transform duration-300">
+                      🎉 Kostenloser Versand freigeschaltet!
+                    </Badge>
+                  )}
+
+                  {!isExpressService && !pricing.freeShipping && pricing.total > 70 && pricing.total < 100 && (
+                    <Badge className="w-full justify-center bg-blue-500/10 text-blue-600 border-blue-500/20">
+                      Noch €{(100 - (pricing.total - pricing.shippingCost - (pricing.expressShipping || 0))).toFixed(2)} bis kostenloser Versand!
                     </Badge>
                   )}
 
