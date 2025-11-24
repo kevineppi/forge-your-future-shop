@@ -144,6 +144,23 @@ const CostCalculatorWizard = () => {
     estimatedPrintTimeHours?: number;
     complexityScore?: number;
   }) => {
+    // Map complexity score to array index (0-4)
+    // complexityScore 0-1 -> 0-4 index
+    let detectedComplexity = 0;
+    if (fileData.complexityScore !== undefined) {
+      // Map 0-1 score directly to 0-4 range
+      // 0.0-0.2 = 0 (Einfach)
+      // 0.2-0.4 = 1 (Mittel)
+      // 0.4-0.65 = 2 (Komplex)
+      // 0.65-0.8 = 3 (Überhänge)
+      // 0.8-1.0 = 4 (Mehrfärbig/Sehr komplex)
+      if (fileData.complexityScore < 0.2) detectedComplexity = 0;
+      else if (fileData.complexityScore < 0.4) detectedComplexity = 1;
+      else if (fileData.complexityScore < 0.65) detectedComplexity = 2;
+      else if (fileData.complexityScore < 0.8) detectedComplexity = 3;
+      else detectedComplexity = 4;
+    }
+    
     const newFile: UploadedFile = {
       id: `file-${Date.now()}-${Math.random()}`,
       geometry: fileData.geometry,
@@ -154,9 +171,9 @@ const CostCalculatorWizard = () => {
       height: fileData.height,
       analysisResults: fileData.analysisResults,
       estimatedPrintTimeHours: fileData.estimatedPrintTimeHours,
-      // Initialize with current settings or defaults
+      // Initialize with detected complexity or current settings
       material: material || "pla",
-      complexity: fileData.complexityScore ? Math.round(fileData.complexityScore * 5) : (complexity || 0), // Map 0-1 to 0-5
+      complexity: detectedComplexity,
       postProcessing: postProcessing || "none",
       supportRemoval: supportRemoval || false,
       color: "#4f46e5", // Default Indigo
@@ -168,12 +185,8 @@ const CostCalculatorWizard = () => {
     setUploadedFiles(prev => [...prev, newFile]);
     setActiveFileId(newFile.id);
     
-    // Auto-set complexity from edge function analysis
-    if (fileData.complexityScore !== undefined) {
-      // Map 0-1 score to 0-4 range, adding 1 to start at "Mittel" for most models
-      const mappedComplexity = Math.min(4, Math.round(fileData.complexityScore * 4) + 1);
-      setComplexity(mappedComplexity);
-    }
+    // Auto-set global complexity state from edge function analysis
+    setComplexity(detectedComplexity);
     
     // Use heuristic calculation if provided
     if (fileData.estimatedPrintTimeHours) {
@@ -202,6 +215,16 @@ const CostCalculatorWizard = () => {
   useEffect(() => {
     saveSettingsToActiveFile();
   }, [material, complexity, postProcessing, supportRemoval, saveSettingsToActiveFile]);
+
+  // Load file settings when active file changes
+  useEffect(() => {
+    if (activeFileId && activeFile) {
+      setMaterial(activeFile.material || "pla");
+      setComplexity(activeFile.complexity || 0);
+      setPostProcessing(activeFile.postProcessing || "none");
+      setSupportRemoval(activeFile.supportRemoval || false);
+    }
+  }, [activeFileId]);
 
   // Start background slicing for accurate print time (placeholder for future microservice)
   const startBackgroundSlicing = async (fileData: {
