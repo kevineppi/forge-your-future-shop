@@ -105,6 +105,10 @@ serve(async (req) => {
         post_processing: null, // Post processing info stored in order items
         stripe_checkout_session_id: sessionId,
         stripe_payment_intent_id: session.payment_intent as string,
+        shipping_street: metadata.shipping_street || null,
+        shipping_postal_code: metadata.shipping_postal_code || null,
+        shipping_city: metadata.shipping_city || null,
+        shipping_country: metadata.shipping_country || "Österreich",
       })
       .select()
       .single();
