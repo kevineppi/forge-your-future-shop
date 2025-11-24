@@ -508,9 +508,8 @@ const CostCalculatorWizard = () => {
       else if (fileQuantity >= 5) discount = 0.95;
       
       const fileTotalPrice = pricePerPiece * fileQuantity * discount;
-      const roundTo5Cents = (price: number) => Math.ceil(price * 20) / 20;
       
-      prices[file.id] = roundTo5Cents(fileTotalPrice);
+      prices[file.id] = fileTotalPrice;
     });
     
     return prices;
@@ -1241,12 +1240,6 @@ const CostCalculatorWizard = () => {
                     </Badge>
                   )}
 
-                  {!isExpressService && pricing.freeShipping && (
-                    <Badge className="w-full justify-center bg-green-500/10 text-green-600 border-green-500/20 hover:scale-105 transition-transform duration-300">
-                      🎉 Kostenloser Versand freigeschaltet!
-                    </Badge>
-                  )}
-
                   {!isExpressService && !pricing.freeShipping && pricing.total > 70 && pricing.total < 100 && (
                     <Badge className="w-full justify-center bg-blue-500/10 text-blue-600 border-blue-500/20">
                       Noch €{(100 - (pricing.total - pricing.shippingCost - (pricing.expressShipping || 0))).toFixed(2)} bis kostenloser Versand!
@@ -1258,7 +1251,7 @@ const CostCalculatorWizard = () => {
                       Unverbindliches Angebot anfordern
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">
-                      📦 Kostenloser Versand ab 100€ • 🔒 Sichere Zahlung • ⭐ 5 Jahre Garantie
+                      📦 Kostenloser Versand ab 100€ • 🔒 Sichere Zahlung
                     </p>
                   </div>
                 </CardContent>
