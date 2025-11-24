@@ -220,27 +220,107 @@ function analyzeOverhangs(triangles: Triangle[]) {
   };
 }
 
-// Berechne Komplexität
+// Berechne Komplexität mit erweiterten Metriken
 function calculateComplexity(triangles: Triangle[], surfaceArea: number, volume: number) {
   const triangleCount = triangles.length;
   
-  // Surface-to-Volume Ratio (höher = komplexer)
+  // 1. Surface-to-Volume Ratio (höher = komplexer, mehr Details/Löcher)
   const svRatio = volume > 0 ? surfaceArea / volume : 0;
   
-  // Triangle Density (mehr Triangles pro Volumen = komplexer)
+  // 2. Triangle Density (mehr Triangles pro Volumen = feinere Details)
   const triangleDensity = volume > 0 ? triangleCount / volume : 0;
   
-  // Normalisierte Scores
-  const triangleScore = Math.min(triangleCount / 100000, 1); // 100k triangles = max
-  const svScore = Math.min(svRatio / 100, 1);
-  const densityScore = Math.min(triangleDensity / 1000, 1);
+  // 3. Triangle Size Variance (hohe Varianz = Mix aus groß und klein = komplexe Features)
+  let triangleAreas: number[] = [];
+  for (const triangle of triangles) {
+    const [v1, v2, v3] = triangle.vertices;
+    const ab = { x: v2.x - v1.x, y: v2.y - v1.y, z: v2.z - v1.z };
+    const ac = { x: v3.x - v1.x, y: v3.y - v1.y, z: v3.z - v1.z };
+    const cross = {
+      x: ab.y * ac.z - ab.z * ac.y,
+      y: ab.z * ac.x - ab.x * ac.z,
+      z: ab.x * ac.y - ab.y * ac.x,
+    };
+    const area = Math.sqrt(cross.x ** 2 + cross.y ** 2 + cross.z ** 2) / 2;
+    triangleAreas.push(area);
+  }
   
-  const complexityScore = (triangleScore * 0.4 + svScore * 0.3 + densityScore * 0.3);
+  const avgTriangleArea = triangleAreas.reduce((a, b) => a + b, 0) / triangleAreas.length;
+  const variance = triangleAreas.reduce((sum, area) => sum + Math.pow(area - avgTriangleArea, 2), 0) / triangleAreas.length;
+  const standardDeviation = Math.sqrt(variance);
+  const coefficientOfVariation = avgTriangleArea > 0 ? standardDeviation / avgTriangleArea : 0;
   
+  // 4. Normal Variance (wie stark variieren die Normalen = Oberflächenrauigkeit)
+  let normalVariance = 0;
+  if (triangles.length > 1) {
+    const avgNormal = { x: 0, y: 0, z: 0 };
+    for (const triangle of triangles) {
+      avgNormal.x += triangle.normal.x;
+      avgNormal.y += triangle.normal.y;
+      avgNormal.z += triangle.normal.z;
+    }
+    avgNormal.x /= triangles.length;
+    avgNormal.y /= triangles.length;
+    avgNormal.z /= triangles.length;
+    
+    for (const triangle of triangles) {
+      const dx = triangle.normal.x - avgNormal.x;
+      const dy = triangle.normal.y - avgNormal.y;
+      const dz = triangle.normal.z - avgNormal.z;
+      normalVariance += Math.sqrt(dx * dx + dy * dy + dz * dz);
+    }
+    normalVariance /= triangles.length;
+  }
+  
+  // 5. Edge Count Analysis (hohe unique edges = mehr Features)
+  const edgeMap = new Map<string, number>();
+  for (const triangle of triangles) {
+    const [v1, v2, v3] = triangle.vertices;
+    const edges = [
+      [v1, v2],
+      [v2, v3],
+      [v3, v1],
+    ];
+    for (const [a, b] of edges) {
+      const key = [
+        Math.round(a.x * 100) / 100,
+        Math.round(a.y * 100) / 100,
+        Math.round(a.z * 100) / 100,
+        Math.round(b.x * 100) / 100,
+        Math.round(b.y * 100) / 100,
+        Math.round(b.z * 100) / 100,
+      ].sort().join(',');
+      edgeMap.set(key, (edgeMap.get(key) || 0) + 1);
+    }
+  }
+  
+  const uniqueEdges = edgeMap.size;
+  const nonManifoldEdges = Array.from(edgeMap.values()).filter(count => count !== 2).length;
+  const manifoldRatio = uniqueEdges > 0 ? 1 - (nonManifoldEdges / uniqueEdges) : 1;
+  
+  // Normalisierte Scores mit verbesserten Schwellenwerten
+  const triangleScore = Math.min(triangleCount / 50000, 1); // 50k triangles = max (früher 100k)
+  const svScore = Math.min(svRatio / 50, 1); // Reduced threshold from 100
+  const densityScore = Math.min(triangleDensity / 500, 1); // Reduced from 1000
+  const varianceScore = Math.min(coefficientOfVariation * 2, 1); // High variance = complex
+  const normalScore = Math.min(normalVariance * 3, 1); // Surface roughness
+  const edgeComplexityScore = Math.min((uniqueEdges / triangleCount) * 2, 1);
+  
+  // Gewichtete Komplexität mit allen Faktoren
+  const complexityScore = (
+    triangleScore * 0.25 +      // Triangle count
+    svScore * 0.15 +             // Surface to volume
+    densityScore * 0.15 +        // Triangle density
+    varianceScore * 0.20 +       // Triangle size variance (wichtig!)
+    normalScore * 0.15 +         // Surface roughness
+    edgeComplexityScore * 0.10   // Edge complexity
+  );
+  
+  // Angepasste Schwellenwerte für realistischere Klassifizierung
   let level: 'simple' | 'moderate' | 'complex' | 'very_complex' = 'simple';
-  if (complexityScore > 0.75) level = 'very_complex';
-  else if (complexityScore > 0.5) level = 'complex';
-  else if (complexityScore > 0.25) level = 'moderate';
+  if (complexityScore > 0.65) level = 'very_complex';
+  else if (complexityScore > 0.40) level = 'complex';
+  else if (complexityScore > 0.20) level = 'moderate';
   
   return {
     triangleCount,
