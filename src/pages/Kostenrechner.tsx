@@ -4,6 +4,8 @@ import CostCalculatorWizard from "@/components/CostCalculatorWizard";
 import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import ProductSchema from "@/components/ProductSchema";
+import FAQSchema from "@/components/FAQSchema";
 import AIChatWidget from "@/components/AIChatWidget";
 import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
@@ -11,20 +13,56 @@ import { Check, TrendingDown, Clock, Award } from "lucide-react";
 
 const Kostenrechner = () => {
   useEffect(() => {
-    document.title = "3D-Druck Kostenrechner Online | Kostenlos & Sofort | ekdruck e.U.";
+    document.title = "3D-Druck Online Bestellen & Kosten Berechnen | Sofort-Preis | ekdruck";
   }, []);
 
   return (
     <>
       <SEOHead 
-        title="3D-Druck Kostenrechner Online | Kostenlos & Sofort | ekdruck e.U."
-        description="Keine bösen Überraschungen: Berechnen Sie 3D-Druck Kosten transparent in Echtzeit. Alle Materialien, alle Größen. 100% kostenlos & unverbindlich – Jetzt testen!"
-        keywords="3d-druck kostenrechner, 3d-druck preis berechnen, kosten 3d-druck, 3d-druck preisrechner, fdm druck kosten"
+        title="3D-Druck Online Bestellen & Kosten Berechnen | Sofort-Preis | ekdruck"
+        description="3D-Teile online konfigurieren und direkt bestellen. Sofortpreis für alle Materialien. Express-Service 24h. Kostenloser Versand ab 100€! STL hochladen & loslegen."
+        keywords="3d-druck online bestellen, 3d-teile drucken lassen, 3d-druck konfigurator, stl drucken lassen, 3d-druck shop österreich, 3d-druck kostenrechner, 3d-druck preis berechnen, kosten 3d-druck, fdm druck online, rapid prototyping bestellen"
         path="/kostenrechner"
       />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},
-        {name: "Kostenrechner", url: "/kostenrechner"}
+        {name: "3D-Druck Bestellen", url: "/kostenrechner"}
+      ]} />
+      <ProductSchema 
+        name="3D-Druck FDM Service Online"
+        description="Professioneller 3D-Druck Service für Prototypen, Einzelteile und Kleinserien. Alle Materialien (PLA, PETG, ABS, Nylon PA12), Express-Service in 24-48h verfügbar. Kostenloser Versand ab 100€."
+        offers={{
+          priceCurrency: "EUR",
+          price: "8.50",
+          availability: "https://schema.org/InStock"
+        }}
+        category="3D Printing Service"
+      />
+      <FAQSchema faqs={[
+        {
+          question: "Wie bestelle ich 3D-Druck online?",
+          answer: "Laden Sie Ihre STL-Datei hoch, wählen Sie Material und Einstellungen, sehen Sie den Sofortpreis und schließen Sie die Bestellung ab. Der gesamte Prozess dauert nur wenige Minuten."
+        },
+        {
+          question: "Wie schnell werden meine 3D-Teile geliefert?",
+          answer: "Standard-Lieferzeit beträgt 3-5 Werktage. Mit unserem Express-Service erhalten Sie Ihre Teile in 24-48 Stunden. Versand erfolgt innerhalb von 1-2 Werktagen nach Produktionsabschluss."
+        },
+        {
+          question: "Welche Dateiformate werden für 3D-Druck akzeptiert?",
+          answer: "Wir akzeptieren STL-Dateien für 3D-Druck. Diese können Sie direkt aus CAD-Programmen wie Fusion 360, SolidWorks, AutoCAD oder Blender exportieren."
+        },
+        {
+          question: "Was kostet 3D-Druck?",
+          answer: "Die Kosten beginnen ab €8,50 für kleine Teile. Der finale Preis hängt von Größe, Material, Komplexität und Stückzahl ab. Nutzen Sie unseren Kostenrechner für einen Sofortpreis."
+        },
+        {
+          question: "Welche 3D-Druck Materialien bieten Sie an?",
+          answer: "Wir bieten PLA, PETG, ABS, ASA, TPU und Hochleistungsmaterialien wie PA12 und PA6 Nylon an. Jedes Material hat unterschiedliche Eigenschaften für verschiedene Anwendungen."
+        },
+        {
+          question: "Kann ich auch ohne CAD-Kenntnisse 3D-Teile bestellen?",
+          answer: "Ja, Sie benötigen nur eine STL-Datei. Diese kann von einem Designer erstellt oder aus Online-Bibliotheken heruntergeladen werden. Alternativ unterstützen wir Sie bei der Umsetzung Ihrer Idee."
+        }
       ]} />
       
       <div className="min-h-screen">
@@ -36,9 +74,13 @@ const Kostenrechner = () => {
                 <h1 className="text-5xl md:text-6xl font-bold mb-6">
                   3D-Druck <span className="text-gradient">Kostenrechner</span>
                 </h1>
+                <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">
+                  3D-Teile Online Konfigurieren & Bestellen
+                </h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                  Berechnen Sie die Kosten für Ihr 3D-Druck Projekt in Echtzeit. Sofortige Preiskalkulation für Prototypen, 
-                  Einzelteile und Kleinserien – transparent, schnell und unverbindlich.
+                  Laden Sie Ihre STL-Datei hoch, wählen Sie Material und Einstellungen, erhalten Sie einen <strong>Sofortpreis</strong> und 
+                  bestellen Sie direkt online. 3D-Druck für Prototypen, Einzelteile und Kleinserien – transparent, schnell und ohne Wartezeit. 
+                  <strong>Express-Service</strong> verfügbar!
                 </p>
               </div>
 
