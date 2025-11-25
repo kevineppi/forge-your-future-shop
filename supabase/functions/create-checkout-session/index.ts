@@ -18,24 +18,36 @@ serve(async (req) => {
       Deno.env.get("SUPABASE_ANON_KEY") ?? ""
     );
 
-    const authHeader = req.headers.get("Authorization")!;
-    const token = authHeader.replace("Bearer ", "");
-    const { data } = await supabaseClient.auth.getUser(token);
-    const user = data.user;
+    // Try to get authenticated user, but allow guest checkout
+    let user = null;
+    let userEmail = null;
     
-    if (!user?.email) {
-      throw new Error("User not authenticated");
+    const authHeader = req.headers.get("Authorization");
+    if (authHeader) {
+      const token = authHeader.replace("Bearer ", "");
+      const { data } = await supabaseClient.auth.getUser(token);
+      user = data.user;
+      userEmail = user?.email;
     }
 
     const { orderData } = await req.json();
-    console.log("Creating checkout session for:", user.email, orderData);
+    
+    // Use guest email if user is not authenticated
+    if (!userEmail) {
+      userEmail = orderData.guestEmail;
+      if (!userEmail) {
+        throw new Error("Email address is required");
+      }
+    }
+    
+    console.log("Creating checkout session for:", userEmail, orderData);
 
     const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
       apiVersion: "2025-08-27.basil",
     });
 
     // Check if customer exists
-    const customers = await stripe.customers.list({ email: user.email, limit: 1 });
+    const customers = await stripe.customers.list({ email: userEmail, limit: 1 });
     let customerId;
     if (customers.data.length > 0) {
       customerId = customers.data[0].id;
@@ -83,13 +95,14 @@ serve(async (req) => {
     // Metadata in Stripe has a 500 character limit per field
     const session = await stripe.checkout.sessions.create({
       customer: customerId,
-      customer_email: customerId ? undefined : user.email,
+      customer_email: customerId ? undefined : userEmail,
       line_items: lineItems,
       mode: "payment",
       success_url: `${req.headers.get("origin")}/checkout-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.get("origin")}/kostenrechner?canceled=true`,
       metadata: {
-        user_id: user.id,
+        user_id: user?.id || "guest",
+        customer_email: userEmail,
         express_service: orderData.express_service.toString(),
         notes: (orderData.notes || "").substring(0, 400), // Limit to avoid size issues
         item_count: orderData.items.length.toString(),

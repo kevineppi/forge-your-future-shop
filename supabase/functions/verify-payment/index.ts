@@ -24,13 +24,13 @@ serve(async (req) => {
       }
     );
 
-    const authHeader = req.headers.get("Authorization")!;
-    const token = authHeader.replace("Bearer ", "");
-    const { data } = await supabaseClient.auth.getUser(token);
-    const user = data.user;
-    
-    if (!user) {
-      throw new Error("User not authenticated");
+    // Try to get authenticated user, but allow guest checkout
+    let user = null;
+    const authHeader = req.headers.get("Authorization");
+    if (authHeader) {
+      const token = authHeader.replace("Bearer ", "");
+      const { data } = await supabaseClient.auth.getUser(token);
+      user = data.user;
     }
 
     const { sessionId } = await req.json();
@@ -95,9 +95,9 @@ serve(async (req) => {
     const { data: order, error: orderError } = await supabaseClient
       .from("orders")
       .insert({
-        user_id: user.id,
-        customer_name: session.customer_details?.name || user.email,
-        customer_email: session.customer_details?.email || user.email,
+        user_id: user?.id || null,
+        customer_name: session.customer_details?.name || metadata.customer_email || "Guest",
+        customer_email: metadata.customer_email || session.customer_details?.email || user?.email || null,
         total_price: session.amount_total! / 100,
         status: "paid",
         express_service: metadata.express_service === "true",
@@ -159,8 +159,8 @@ serve(async (req) => {
             "Authorization": `Bearer ${Deno.env.get("SUPABASE_ANON_KEY")}`,
           },
           body: JSON.stringify({
-            customerEmail: session.customer_details?.email || user.email,
-            customerName: session.customer_details?.name || user.email,
+            customerEmail: metadata.customer_email || session.customer_details?.email || user?.email,
+            customerName: session.customer_details?.name || metadata.customer_email || "Kunde",
             orderId: order.id,
             orderNumber: order.id.split('-')[0].toUpperCase(),
             totalPrice: session.amount_total! / 100,
