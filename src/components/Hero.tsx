@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Play } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -24,11 +24,9 @@ const Hero = () => {
                 Jetzt bestellen
               </Button>
               
-              <Button variant="outline" size="lg" className="group border-primary text-primary hover:bg-primary hover:text-white" onClick={() => document.getElementById('services')?.scrollIntoView({
-              behavior: 'smooth'
-            })}>
-                <Play className="mr-2 h-5 w-5" />
-                Unsere Leistungen
+              <Button variant="outline" size="lg" className="group border-primary text-primary hover:bg-primary hover:text-white" onClick={() => window.location.href = '/kostenrechner'}>
+                <ShoppingCart className="mr-2 h-5 w-5 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-300" />
+                Jetzt bestellen
               </Button>
             </div>
 
