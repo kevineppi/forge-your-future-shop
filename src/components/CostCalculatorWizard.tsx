@@ -1154,12 +1154,16 @@ const CostCalculatorWizard = () => {
                                 throw new Error(`Upload fehlgeschlagen: ${uploadError.message}`);
                               }
 
-                              // Get public URL
-                              const { data: { publicUrl } } = supabase.storage
+                              // Get signed URL (valid for 1 year for orders)
+                              const { data: signedUrlData, error: signedUrlError } = await supabase.storage
                                 .from('project-files')
-                                .getPublicUrl(filePath);
+                                .createSignedUrl(filePath, 31536000); // 1 year in seconds
 
-                              uploadedFileUrls[file.id] = publicUrl;
+                              if (signedUrlError || !signedUrlData?.signedUrl) {
+                                throw new Error(`URL-Erstellung fehlgeschlagen: ${signedUrlError?.message || 'Keine URL erhalten'}`);
+                              }
+
+                              uploadedFileUrls[file.id] = signedUrlData.signedUrl;
                             }
 
                             toast({
