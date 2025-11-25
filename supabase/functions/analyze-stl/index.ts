@@ -296,10 +296,12 @@ function analyzeOverhangs(triangles: Triangle[]) {
   const percentage = (overhangCount / triangles.length) * 100;
   const severePercentage = (severeOverhangCount / triangles.length) * 100;
   
+  // Strengere Schwellenwerte: Nur echte Überhänge werden als solche erkannt
   let severity: 'none' | 'low' | 'medium' | 'high' = 'none';
-  if (severePercentage > 15) severity = 'high';
-  else if (percentage > 20) severity = 'medium';
-  else if (percentage > 5) severity = 'low';
+  if (severePercentage > 20) severity = 'high';      // >20% sehr steile Überhänge
+  else if (severePercentage > 10) severity = 'medium'; // 10-20% steile Überhänge
+  else if (percentage > 30) severity = 'medium';       // Oder >30% normale Überhänge
+  else if (percentage > 10) severity = 'low';          // 10-30% leichte Überhänge
   
   return {
     count: overhangCount,
@@ -386,29 +388,29 @@ function calculateComplexity(triangles: Triangle[], surfaceArea: number, volume:
   const nonManifoldEdges = Array.from(edgeMap.values()).filter(count => count !== 2).length;
   const manifoldRatio = uniqueEdges > 0 ? 1 - (nonManifoldEdges / uniqueEdges) : 1;
   
-  // Normalisierte Scores mit verbesserten Schwellenwerten
-  const triangleScore = Math.min(triangleCount / 50000, 1); // 50k triangles = max (früher 100k)
-  const svScore = Math.min(svRatio / 50, 1); // Reduced threshold from 100
-  const densityScore = Math.min(triangleDensity / 500, 1); // Reduced from 1000
-  const varianceScore = Math.min(coefficientOfVariation * 2, 1); // High variance = complex
-  const normalScore = Math.min(normalVariance * 3, 1); // Surface roughness
+  // Normalisierte Scores mit angepassten Schwellenwerten für realistische Erkennung
+  const triangleScore = Math.min(triangleCount / 80000, 1); // 80k triangles = max (weniger empfindlich)
+  const svScore = Math.min(svRatio / 80, 1); // Höhere Schwelle für Surface/Volume
+  const densityScore = Math.min(triangleDensity / 800, 1); // Höhere Schwelle
+  const varianceScore = Math.min(coefficientOfVariation * 1.5, 1); // Weniger Gewicht auf Variance
+  const normalScore = Math.min(normalVariance * 2, 1); // Weniger empfindlich auf Surface roughness
   const edgeComplexityScore = Math.min((uniqueEdges / triangleCount) * 2, 1);
   
-  // Gewichtete Komplexität mit allen Faktoren
+  // Gewichtete Komplexität mit reduzierten Gewichten für Variance/Normal
   const complexityScore = (
-    triangleScore * 0.25 +      // Triangle count
+    triangleScore * 0.30 +      // Triangle count (erhöht)
     svScore * 0.15 +             // Surface to volume
     densityScore * 0.15 +        // Triangle density
-    varianceScore * 0.20 +       // Triangle size variance (wichtig!)
-    normalScore * 0.15 +         // Surface roughness
-    edgeComplexityScore * 0.10   // Edge complexity
+    varianceScore * 0.15 +       // Triangle size variance (reduziert von 0.20)
+    normalScore * 0.10 +         // Surface roughness (reduziert von 0.15)
+    edgeComplexityScore * 0.15   // Edge complexity (erhöht von 0.10)
   );
   
-  // Angepasste Schwellenwerte für realistischere Klassifizierung
+  // Angepasste Schwellenwerte: Einfache Teile bleiben einfach!
   let level: 'simple' | 'moderate' | 'complex' | 'very_complex' = 'simple';
-  if (complexityScore > 0.65) level = 'very_complex';
-  else if (complexityScore > 0.40) level = 'complex';
-  else if (complexityScore > 0.20) level = 'moderate';
+  if (complexityScore > 0.70) level = 'very_complex';  // Nur wirklich sehr komplexe Teile
+  else if (complexityScore > 0.50) level = 'complex';   // Komplexe Teile
+  else if (complexityScore > 0.30) level = 'moderate';  // Mittlere Komplexität
   
   return {
     triangleCount,
