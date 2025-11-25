@@ -16,6 +16,63 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/useAuth";
 import * as THREE from "three";
 
+// Helper function to convert THREE.BufferGeometry to STL string
+const geometryToSTL = (geometry: THREE.BufferGeometry): string => {
+  const vertices = geometry.attributes.position;
+  const indices = geometry.index;
+  
+  let stl = 'solid model\n';
+  
+  if (indices) {
+    // Indexed geometry
+    for (let i = 0; i < indices.count; i += 3) {
+      const i1 = indices.getX(i);
+      const i2 = indices.getX(i + 1);
+      const i3 = indices.getX(i + 2);
+      
+      const v1 = new THREE.Vector3(vertices.getX(i1), vertices.getY(i1), vertices.getZ(i1));
+      const v2 = new THREE.Vector3(vertices.getX(i2), vertices.getY(i2), vertices.getZ(i2));
+      const v3 = new THREE.Vector3(vertices.getX(i3), vertices.getY(i3), vertices.getZ(i3));
+      
+      const normal = new THREE.Vector3().crossVectors(
+        new THREE.Vector3().subVectors(v2, v1),
+        new THREE.Vector3().subVectors(v3, v1)
+      ).normalize();
+      
+      stl += `  facet normal ${normal.x} ${normal.y} ${normal.z}\n`;
+      stl += `    outer loop\n`;
+      stl += `      vertex ${v1.x} ${v1.y} ${v1.z}\n`;
+      stl += `      vertex ${v2.x} ${v2.y} ${v2.z}\n`;
+      stl += `      vertex ${v3.x} ${v3.y} ${v3.z}\n`;
+      stl += `    endloop\n`;
+      stl += `  endfacet\n`;
+    }
+  } else {
+    // Non-indexed geometry
+    for (let i = 0; i < vertices.count; i += 3) {
+      const v1 = new THREE.Vector3(vertices.getX(i), vertices.getY(i), vertices.getZ(i));
+      const v2 = new THREE.Vector3(vertices.getX(i + 1), vertices.getY(i + 1), vertices.getZ(i + 1));
+      const v3 = new THREE.Vector3(vertices.getX(i + 2), vertices.getY(i + 2), vertices.getZ(i + 2));
+      
+      const normal = new THREE.Vector3().crossVectors(
+        new THREE.Vector3().subVectors(v2, v1),
+        new THREE.Vector3().subVectors(v3, v1)
+      ).normalize();
+      
+      stl += `  facet normal ${normal.x} ${normal.y} ${normal.z}\n`;
+      stl += `    outer loop\n`;
+      stl += `      vertex ${v1.x} ${v1.y} ${v1.z}\n`;
+      stl += `      vertex ${v2.x} ${v2.y} ${v2.z}\n`;
+      stl += `      vertex ${v3.x} ${v3.y} ${v3.z}\n`;
+      stl += `    endloop\n`;
+      stl += `  endfacet\n`;
+    }
+  }
+  
+  stl += 'endsolid model\n';
+  return stl;
+};
+
 interface AnalysisResult {
   type: "error" | "warning" | "info";
   message: string;
@@ -78,6 +135,9 @@ const CostCalculatorWizard = () => {
     city: "",
     country: "Österreich"
   });
+
+  // Guest email state
+  const [guestEmail, setGuestEmail] = useState("");
 
   const { toast } = useToast();
 
@@ -911,8 +971,28 @@ const CostCalculatorWizard = () => {
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <p className="text-sm text-muted-foreground">
-                      Bitte geben Sie Ihre Lieferadresse ein
+                      {user ? "Bitte geben Sie Ihre Lieferadresse ein" : "Geben Sie Ihre Kontakt- und Lieferadresse ein"}
                     </p>
+
+                    {/* Guest Email Field */}
+                    {!user && (
+                      <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
+                        <label className="text-sm font-medium mb-2 block">
+                          E-Mail-Adresse *
+                        </label>
+                        <Input
+                          type="email"
+                          placeholder="ihre@email.at"
+                          value={guestEmail}
+                          onChange={(e) => setGuestEmail(e.target.value)}
+                          required
+                          className="w-full"
+                        />
+                        <p className="text-xs text-muted-foreground mt-2">
+                          Für Bestellbestätigung und Updates
+                        </p>
+                      </div>
+                    )}
 
                     <div className="space-y-4">
                       <div>
@@ -1018,17 +1098,70 @@ const CostCalculatorWizard = () => {
                     <div className="space-y-3 pt-4 border-t">
                       <Button 
                         onClick={async () => {
-                          if (!user) {
+                          // Validate guest email if not logged in
+                          if (!user && !guestEmail.trim()) {
                             toast({
-                              title: "Anmeldung erforderlich",
-                              description: "Bitte melden Sie sich an, um eine Bestellung aufzugeben.",
+                              title: "E-Mail erforderlich",
+                              description: "Bitte geben Sie Ihre E-Mail-Adresse an.",
                               variant: "destructive",
                             });
-                            window.location.href = "/auth";
+                            return;
+                          }
+
+                          // Validate email format
+                          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                          if (!user && !emailRegex.test(guestEmail)) {
+                            toast({
+                              title: "Ungültige E-Mail",
+                              description: "Bitte geben Sie eine gültige E-Mail-Adresse an.",
+                              variant: "destructive",
+                            });
+                            return;
+                          }
+
+                          // Validate shipping address
+                          if (!shippingAddress.street || !shippingAddress.postalCode || !shippingAddress.city) {
+                            toast({
+                              title: "Versandadresse unvollständig",
+                              description: "Bitte geben Sie eine vollständige Versandadresse an.",
+                              variant: "destructive",
+                            });
                             return;
                           }
 
                           try {
+                            toast({
+                              title: "Dateien werden hochgeladen...",
+                              description: "Bitte warten Sie einen Moment.",
+                            });
+
+                            // Upload files to Supabase Storage
+                            const uploadedFileUrls: { [key: string]: string } = {};
+                            
+                            for (const file of uploadedFiles) {
+                              const fileName = `${Date.now()}-${file.fileName}`;
+                              const filePath = `orders/${fileName}`;
+                              
+                              // Convert geometry to STL blob
+                              const stlString = geometryToSTL(file.geometry);
+                              const blob = new Blob([stlString], { type: 'application/sla' });
+                              
+                              const { error: uploadError } = await supabase.storage
+                                .from('project-files')
+                                .upload(filePath, blob);
+
+                              if (uploadError) {
+                                throw new Error(`Upload fehlgeschlagen: ${uploadError.message}`);
+                              }
+
+                              // Get public URL
+                              const { data: { publicUrl } } = supabase.storage
+                                .from('project-files')
+                                .getPublicUrl(filePath);
+
+                              uploadedFileUrls[file.id] = publicUrl;
+                            }
+
                             toast({
                               title: "Bestellung wird vorbereitet...",
                               description: "Sie werden zu Stripe Checkout weitergeleitet.",
@@ -1048,31 +1181,38 @@ const CostCalculatorWizard = () => {
                               const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
                               
                               const materialWeightGrams = scaledVolume * 1.24;
-                              let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+                              let effectivePrintTime = scaledVolume / 50;
                               
-                              // Verdreifache Druckzeit für PA12 und PA6
                               if (file.material === 'pa12' || file.material === 'pa6') {
                                 effectivePrintTime = effectivePrintTime * 3;
                               }
                               
-              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
-              const materialCostWithMarkup = materialCostBase * 1.30;
-              
-              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-              const printCost = effectivePrintTime * printCostPerHour;
-              const laborCost = 5.00;
-              
-              let pricePerPiece = materialCostWithMarkup + printCost + laborCost;
-              pricePerPiece = pricePerPiece * 1.30; // Profit margin
-              pricePerPiece = pricePerPiece * 1.20; // Tax
-              
-              // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
-              const complexityMultiplier = 1 + (fileComplexity * 0.5);
-              pricePerPiece = pricePerPiece * complexityMultiplier;
+                              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
+                              const materialCostWithMarkup = materialCostBase * 1.30;
+                              
+                              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+                              const printCost = effectivePrintTime * printCostPerHour;
+                              const laborCost = 5.00;
+                              
+                              let pricePerPiece = materialCostWithMarkup + printCost + laborCost;
+                              pricePerPiece = pricePerPiece * 1.30;
+                              pricePerPiece = pricePerPiece * 1.20;
+                              
+                              const complexityMultiplier = 1 + (fileComplexity * 0.5);
+                              pricePerPiece = pricePerPiece * complexityMultiplier;
+
+                              // Apply quantity discount
+                              let discount = 1.0;
+                              if (fileQuantity >= 50) discount = 0.80;
+                              else if (fileQuantity >= 20) discount = 0.85;
+                              else if (fileQuantity >= 10) discount = 0.90;
+                              else if (fileQuantity >= 5) discount = 0.95;
+                              
+                              const totalPrice = pricePerPiece * fileQuantity * discount;
                               
                               return {
                                 file_name: file.fileName,
-                                file_url: "pending", // Will be updated after upload
+                                file_url: uploadedFileUrls[file.id],
                                 material: fileMaterial.name,
                                 color: file.color || "Indigo",
                                 quality: complexityLevels[fileComplexity],
@@ -1086,7 +1226,7 @@ const CostCalculatorWizard = () => {
                                 infill: 20,
                                 quantity: fileQuantity,
                                 unit_price: pricePerPiece,
-                                total_price: pricePerPiece * fileQuantity,
+                                total_price: totalPrice,
                               };
                             });
 
@@ -1099,8 +1239,9 @@ const CostCalculatorWizard = () => {
                               express_service: isExpressService,
                               notes: uploadedFiles[0]?.notes || "",
                               post_processing: postProcessingNames,
-                              shippingCost: 7.50,
+                              shippingCost: pricing.shippingCost,
                               shippingAddress: shippingAddress,
+                              guestEmail: user ? undefined : guestEmail,
                             };
 
                             const { data, error } = await supabase.functions.invoke("create-checkout-session", {
@@ -1110,13 +1251,13 @@ const CostCalculatorWizard = () => {
                             if (error) throw error;
 
                             if (data?.url) {
-                              window.location.href = data.url;
+                              window.open(data.url, '_blank');
                             }
                           } catch (error) {
                             console.error("Error creating checkout:", error);
                             toast({
                               title: "Fehler",
-                              description: "Die Bestellung konnte nicht erstellt werden. Bitte versuchen Sie es erneut.",
+                              description: error instanceof Error ? error.message : "Die Bestellung konnte nicht erstellt werden.",
                               variant: "destructive",
                             });
                           }
