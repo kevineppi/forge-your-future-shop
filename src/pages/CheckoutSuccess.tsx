@@ -10,7 +10,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, Loader2, Package, Mail, Truck, Factory, CheckCheck, Clock, HelpCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-
 const CheckoutSuccess = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -18,34 +17,25 @@ const CheckoutSuccess = () => {
   const [orderNumber, setOrderNumber] = useState("");
   const [error, setError] = useState(false);
   const sessionId = searchParams.get("session_id");
-
-  const faqs = [
-    {
-      question: "Wie lange dauert die Produktion meiner Teile?",
-      answer: "Standard-Bestellungen werden innerhalb von 5-7 Werktagen produziert und versandt. Mit unserem Express-Service (24-48 Stunden) erhalten Sie Ihre Teile deutlich schneller."
-    },
-    {
-      question: "Kann ich meine Bestellung noch ändern?",
-      answer: "Kleinere Änderungen sind innerhalb der ersten 24 Stunden nach Bestellung möglich. Kontaktieren Sie uns bitte umgehend per E-Mail oder WhatsApp mit Ihrer Bestellnummer."
-    },
-    {
-      question: "Wie wird meine Bestellung versendet?",
-      answer: "Wir versenden alle Bestellungen versichert mit DHL oder Post AT. Bei Bestellungen über 100€ ist der Versand kostenlos. Sie erhalten eine Tracking-Nummer per E-Mail."
-    },
-    {
-      question: "Erhalte ich eine Rechnung für meine Bestellung?",
-      answer: "Ja, eine detaillierte Rechnung wird automatisch per E-Mail versendet und ist auch in Ihrem Bestellbereich einsehbar."
-    },
-    {
-      question: "Was passiert, wenn ich mit den Teilen nicht zufrieden bin?",
-      answer: "Ihre Zufriedenheit ist uns wichtig. Bei Qualitätsproblemen oder Abweichungen von der Spezifikation kontaktieren Sie uns bitte innerhalb von 14 Tagen. Wir finden gemeinsam eine Lösung."
-    },
-    {
-      question: "Kann ich mehrere Bestellungen kombinieren lassen?",
-      answer: "Ja, wenn Sie mehrere Bestellungen kurz nacheinander aufgeben, können wir diese oft kombinieren und gemeinsam versenden. Kontaktieren Sie uns mit Ihren Bestellnummern."
-    }
-  ];
-
+  const faqs = [{
+    question: "Wie lange dauert die Produktion meiner Teile?",
+    answer: "Standard-Bestellungen werden innerhalb von 5-7 Werktagen produziert und versandt. Mit unserem Express-Service (24-48 Stunden) erhalten Sie Ihre Teile deutlich schneller."
+  }, {
+    question: "Kann ich meine Bestellung noch ändern?",
+    answer: "Kleinere Änderungen sind innerhalb der ersten 24 Stunden nach Bestellung möglich. Kontaktieren Sie uns bitte umgehend per E-Mail oder WhatsApp mit Ihrer Bestellnummer."
+  }, {
+    question: "Wie wird meine Bestellung versendet?",
+    answer: "Wir versenden alle Bestellungen versichert mit DHL oder Post AT. Bei Bestellungen über 100€ ist der Versand kostenlos. Sie erhalten eine Tracking-Nummer per E-Mail."
+  }, {
+    question: "Erhalte ich eine Rechnung für meine Bestellung?",
+    answer: "Ja, eine detaillierte Rechnung wird automatisch per E-Mail versendet und ist auch in Ihrem Bestellbereich einsehbar."
+  }, {
+    question: "Was passiert, wenn ich mit den Teilen nicht zufrieden bin?",
+    answer: "Ihre Zufriedenheit ist uns wichtig. Bei Qualitätsproblemen oder Abweichungen von der Spezifikation kontaktieren Sie uns bitte innerhalb von 14 Tagen. Wir finden gemeinsam eine Lösung."
+  }, {
+    question: "Kann ich mehrere Bestellungen kombinieren lassen?",
+    answer: "Ja, wenn Sie mehrere Bestellungen kurz nacheinander aufgeben, können wir diese oft kombinieren und gemeinsam versenden. Kontaktieren Sie uns mit Ihren Bestellnummern."
+  }];
   useEffect(() => {
     const verifyAndCreateOrder = async () => {
       if (!sessionId) {
@@ -62,16 +52,17 @@ const CheckoutSuccess = () => {
         }, 1500);
         return;
       }
-
       try {
         console.log("Verifying payment for session:", sessionId);
-        
-        const { data, error } = await supabase.functions.invoke("verify-payment", {
-          body: { sessionId },
+        const {
+          data,
+          error
+        } = await supabase.functions.invoke("verify-payment", {
+          body: {
+            sessionId
+          }
         });
-
         if (error) throw error;
-
         console.log("Payment verified:", data);
         setOrderNumber(data.orderNumber);
         toast.success("Bestellung erfolgreich erstellt!");
@@ -83,18 +74,11 @@ const CheckoutSuccess = () => {
         setLoading(false);
       }
     };
-
     verifyAndCreateOrder();
   }, [sessionId]);
-
   if (loading) {
-    return (
-      <>
-        <SEOHead
-          title="Zahlung wird verarbeitet | ekdruck"
-          description="Ihre Zahlung wird gerade verarbeitet. Bitte warten Sie einen Moment."
-          path="/checkout-success"
-        />
+    return <>
+        <SEOHead title="Zahlung wird verarbeitet | ekdruck" description="Ihre Zahlung wird gerade verarbeitet. Bitte warten Sie einen Moment." path="/checkout-success" />
         <Navigation />
         <div className="min-h-screen pt-24 pb-12 flex items-center justify-center">
           <Card className="max-w-md w-full mx-4">
@@ -108,18 +92,11 @@ const CheckoutSuccess = () => {
           </Card>
         </div>
         <Footer />
-      </>
-    );
+      </>;
   }
-
   if (error) {
-    return (
-      <>
-        <SEOHead
-          title="Fehler bei der Bestellung | ekdruck"
-          description="Es gab ein Problem beim Erstellen Ihrer Bestellung."
-          path="/checkout-success"
-        />
+    return <>
+        <SEOHead title="Fehler bei der Bestellung | ekdruck" description="Es gab ein Problem beim Erstellen Ihrer Bestellung." path="/checkout-success" />
         <Navigation />
         <div className="min-h-screen pt-24 pb-12 flex items-center justify-center">
           <Card className="max-w-md w-full mx-4 border-destructive">
@@ -138,19 +115,10 @@ const CheckoutSuccess = () => {
           </Card>
         </div>
         <Footer />
-      </>
-    );
+      </>;
   }
-
-  return (
-    <>
-      <SEOHead
-        title="Bestellung erfolgreich bestätigt | 3D-Druck ekdruck"
-        description="Vielen Dank für Ihre Bestellung bei ekdruck. Ihre 3D-Druck Teile werden nun produziert. Kostenloser Versand ab 100€."
-        keywords="3d-druck bestellung, bestellbestätigung, fdm 3d-druck österreich, 3d-druck lieferzeit"
-        path="/checkout-success"
-        schemaType="service"
-      />
+  return <>
+      <SEOHead title="Bestellung erfolgreich bestätigt | 3D-Druck ekdruck" description="Vielen Dank für Ihre Bestellung bei ekdruck. Ihre 3D-Druck Teile werden nun produziert. Kostenloser Versand ab 100€." keywords="3d-druck bestellung, bestellbestätigung, fdm 3d-druck österreich, 3d-druck lieferzeit" path="/checkout-success" schemaType="service" />
       <FAQSchema faqs={faqs} />
       <Navigation />
       <main className="min-h-screen pt-24 pb-12 bg-gradient-to-b from-background via-background to-secondary/10">
@@ -207,20 +175,11 @@ const CheckoutSuccess = () => {
                 </div>
 
                 <div className="pt-4 flex flex-col sm:flex-row gap-3">
-                  <Button 
-                    onClick={() => navigate("/meine-bestellungen")} 
-                    className="flex-1"
-                    size="lg"
-                  >
+                  <Button onClick={() => navigate("/meine-bestellungen")} className="flex-1" size="lg">
                     <Package className="w-4 h-4 mr-2" />
                     Meine Bestellungen
                   </Button>
-                  <Button 
-                    onClick={() => navigate("/")} 
-                    variant="outline"
-                    className="flex-1"
-                    size="lg"
-                  >
+                  <Button onClick={() => navigate("/")} variant="outline" className="flex-1" size="lg">
                     Zur Startseite
                   </Button>
                 </div>
@@ -330,42 +289,24 @@ const CheckoutSuccess = () => {
             <Card>
               <CardContent className="p-4 md:p-6">
                 <Accordion type="single" collapsible className="w-full">
-                  {faqs.map((faq, index) => (
-                    <AccordionItem key={index} value={`item-${index}`}>
+                  {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`}>
                       <AccordionTrigger className="text-left">
                         {faq.question}
                       </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
                         {faq.answer}
                       </AccordionContent>
-                    </AccordionItem>
-                  ))}
+                    </AccordionItem>)}
                 </Accordion>
               </CardContent>
             </Card>
 
             {/* Kontakt CTA */}
-            <div className="mt-8 text-center p-6 rounded-lg bg-secondary/50 border">
-              <h3 className="font-bold text-lg mb-2">Noch Fragen?</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Unser Team steht Ihnen jederzeit zur Verfügung
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button variant="outline" onClick={() => window.location.href = 'mailto:kontakt@ek-druck.at'}>
-                  <Mail className="w-4 h-4 mr-2" />
-                  E-Mail schreiben
-                </Button>
-                <Button variant="outline" onClick={() => window.open('https://wa.me/436765517197', '_blank')}>
-                  📱 WhatsApp
-                </Button>
-              </div>
-            </div>
+            
           </div>
         </div>
       </main>
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default CheckoutSuccess;
