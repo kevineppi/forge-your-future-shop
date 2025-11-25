@@ -181,18 +181,22 @@ const CostCalculatorWizard = () => {
   ];
 
   const colorOptions = [
-    { name: "Indigo", hex: "#4f46e5" },
+    // Regenbogenfarben
     { name: "Rot", hex: "#ef4444" },
-    { name: "Blau", hex: "#3b82f6" },
-    { name: "Grün", hex: "#10b981" },
+    { name: "Orange", hex: "#f97316" },
     { name: "Gelb", hex: "#f59e0b" },
+    { name: "Grün", hex: "#10b981" },
+    { name: "Türkis", hex: "#14b8a6" },
+    { name: "Blau", hex: "#3b82f6" },
     { name: "Lila", hex: "#8b5cf6" },
     { name: "Rosa", hex: "#ec4899" },
+    // Neutrale und dunkle Farben
+    { name: "Braun", hex: "#92400e" },
+    { name: "Hellbraun", hex: "#d97706" },
+    { name: "Grau", hex: "#6b7280" },
+    { name: "Hellgrau", hex: "#d1d5db" },
     { name: "Schwarz", hex: "#1f2937" },
     { name: "Weiß", hex: "#f9fafb" },
-    { name: "Grau", hex: "#6b7280" },
-    { name: "Orange", hex: "#f97316" },
-    { name: "Türkis", hex: "#14b8a6" },
   ];
 
   const postProcessingOptions = {
@@ -245,7 +249,7 @@ const CostCalculatorWizard = () => {
       complexity: detectedComplexity,
       postProcessing: postProcessing || "none",
       supportRemoval: supportRemoval || false,
-      color: "#4f46e5", // Default Indigo
+      color: "#ef4444", // Default Rot
       scale: 1,
       quantity: 1,
       notes: ""
