@@ -389,28 +389,29 @@ function calculateComplexity(triangles: Triangle[], surfaceArea: number, volume:
   const manifoldRatio = uniqueEdges > 0 ? 1 - (nonManifoldEdges / uniqueEdges) : 1;
   
   // Normalisierte Scores mit angepassten Schwellenwerten für realistische Erkennung
-  const triangleScore = Math.min(triangleCount / 80000, 1); // 80k triangles = max (weniger empfindlich)
-  const svScore = Math.min(svRatio / 80, 1); // Höhere Schwelle für Surface/Volume
-  const densityScore = Math.min(triangleDensity / 800, 1); // Höhere Schwelle
-  const varianceScore = Math.min(coefficientOfVariation * 1.5, 1); // Weniger Gewicht auf Variance
-  const normalScore = Math.min(normalVariance * 2, 1); // Weniger empfindlich auf Surface roughness
+  const triangleScore = Math.min(triangleCount / 100000, 1); // 100k triangles = max (weniger empfindlich)
+  const svScore = Math.min(svRatio / 100, 1); // Höhere Schwelle für Surface/Volume
+  const densityScore = Math.min(triangleDensity / 1000, 1); // Höhere Schwelle
+  const varianceScore = Math.min(coefficientOfVariation * 1.0, 1); // Stark reduziert - glatte Teile haben oft hohe Variance
+  const normalScore = Math.min(normalVariance * 1.5, 1); // Stark reduziert - glatte Flächen sollten nicht bestraft werden
   const edgeComplexityScore = Math.min((uniqueEdges / triangleCount) * 2, 1);
   
-  // Gewichtete Komplexität mit reduzierten Gewichten für Variance/Normal
+  // Gewichtete Komplexität: Fokus auf Triangle Count und Edge Complexity, weniger auf Variance
   const complexityScore = (
-    triangleScore * 0.30 +      // Triangle count (erhöht)
+    triangleScore * 0.35 +      // Triangle count (Hauptindikator)
     svScore * 0.15 +             // Surface to volume
-    densityScore * 0.15 +        // Triangle density
-    varianceScore * 0.15 +       // Triangle size variance (reduziert von 0.20)
-    normalScore * 0.10 +         // Surface roughness (reduziert von 0.15)
-    edgeComplexityScore * 0.15   // Edge complexity (erhöht von 0.10)
+    densityScore * 0.20 +        // Triangle density (erhöht)
+    varianceScore * 0.08 +       // Triangle size variance (stark reduziert!)
+    normalScore * 0.07 +         // Surface roughness (stark reduziert!)
+    edgeComplexityScore * 0.15   // Edge complexity
   );
   
-  // Angepasste Schwellenwerte: Einfache Teile bleiben einfach!
+  // Angepasste Schwellenwerte: Glatte Grundformen bleiben einfach!
   let level: 'simple' | 'moderate' | 'complex' | 'very_complex' = 'simple';
-  if (complexityScore > 0.70) level = 'very_complex';  // Nur wirklich sehr komplexe Teile
-  else if (complexityScore > 0.50) level = 'complex';   // Komplexe Teile
-  else if (complexityScore > 0.30) level = 'moderate';  // Mittlere Komplexität
+  if (complexityScore > 0.75) level = 'very_complex';  // Nur extrem komplexe Teile
+  else if (complexityScore > 0.55) level = 'complex';   // Komplexe Teile mit vielen Details
+  else if (complexityScore > 0.35) level = 'moderate';  // Mittlere Komplexität
+  // <0.35 = simple (Grundformen, glatte Teile)
   
   return {
     triangleCount,
