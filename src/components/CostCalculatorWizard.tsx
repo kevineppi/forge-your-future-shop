@@ -1402,10 +1402,7 @@ const CostCalculatorWizard = () => {
                     </Badge>
                   )}
 
-                  <div className="pt-4 border-t space-y-3">
-                    <Button className="w-full" size="lg">
-                      Unverbindliches Angebot anfordern
-                    </Button>
+                  <div className="pt-4 border-t">
                     <p className="text-xs text-muted-foreground text-center">
                       📦 Kostenloser Versand ab 100€ • 🔒 Sichere Zahlung
                     </p>
