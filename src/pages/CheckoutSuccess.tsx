@@ -44,14 +44,6 @@ const CheckoutSuccess = () => {
         return;
       }
 
-      // Demo-Modus für Vorschau
-      if (sessionId === "demo") {
-        setTimeout(() => {
-          setOrderNumber("DEMO-2024-001");
-          setLoading(false);
-        }, 1500);
-        return;
-      }
       try {
         console.log("Verifying payment for session:", sessionId);
         const {
