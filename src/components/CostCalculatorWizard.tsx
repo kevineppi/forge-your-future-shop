@@ -73,6 +73,15 @@ const geometryToSTL = (geometry: THREE.BufferGeometry): string => {
   return stl;
 };
 
+// Helper function to sanitize filename for Supabase Storage
+const sanitizeFilename = (filename: string): string => {
+  return filename
+    .normalize('NFD') // Decompose umlauts
+    .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
+    .replace(/[^a-zA-Z0-9._-]/g, '_') // Replace invalid chars with underscore
+    .replace(/_{2,}/g, '_'); // Replace multiple underscores with single
+};
+
 interface AnalysisResult {
   type: "error" | "warning" | "info";
   message: string;
@@ -1139,7 +1148,9 @@ const CostCalculatorWizard = () => {
                             const uploadedFileUrls: { [key: string]: string } = {};
                             
                             for (const file of uploadedFiles) {
-                              const fileName = `${Date.now()}-${file.fileName}`;
+                              // Sanitize filename to remove umlauts and special characters
+                              const sanitizedFileName = sanitizeFilename(file.fileName);
+                              const fileName = `${Date.now()}-${sanitizedFileName}`;
                               const filePath = `orders/${fileName}`;
                               
                               // Convert geometry to STL blob
