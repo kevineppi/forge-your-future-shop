@@ -181,22 +181,23 @@ const CostCalculatorWizard = () => {
   ];
 
   const colorOptions = [
-    // Regenbogenfarben
+    // Regenbogenfarben (gängige Standardfarben)
     { name: "Rot", hex: "#ef4444" },
     { name: "Orange", hex: "#f97316" },
-    { name: "Gelb", hex: "#f59e0b" },
+    { name: "Gelb", hex: "#eab308" },
+    { name: "Hellgrün", hex: "#84cc16" },
     { name: "Grün", hex: "#10b981" },
-    { name: "Türkis", hex: "#14b8a6" },
+    { name: "Hellblau", hex: "#06b6d4" },
     { name: "Blau", hex: "#3b82f6" },
+    { name: "Dunkelblau", hex: "#1e40af" },
     { name: "Lila", hex: "#8b5cf6" },
-    { name: "Rosa", hex: "#ec4899" },
-    // Neutrale und dunkle Farben
-    { name: "Braun", hex: "#92400e" },
-    { name: "Hellbraun", hex: "#d97706" },
-    { name: "Grau", hex: "#6b7280" },
-    { name: "Hellgrau", hex: "#d1d5db" },
-    { name: "Schwarz", hex: "#1f2937" },
+    { name: "Pink", hex: "#ec4899" },
+    // Neutrale Farben
     { name: "Weiß", hex: "#f9fafb" },
+    { name: "Hellgrau", hex: "#d1d5db" },
+    { name: "Grau", hex: "#6b7280" },
+    { name: "Dunkelgrau", hex: "#374151" },
+    { name: "Schwarz", hex: "#111827" },
   ];
 
   const postProcessingOptions = {
