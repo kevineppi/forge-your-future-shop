@@ -723,7 +723,10 @@ const CostCalculatorWizard = () => {
                               <div className="flex-1 text-left">
                                 <p className="text-sm font-medium truncate">{file.fileName}</p>
                                 <p className="text-xs text-muted-foreground">
-                                  {file.length}×{file.width}×{file.height}mm • {file.volume.toFixed(1)}cm³
+                                  {Math.round(file.length * (file.scale || 1))}×{Math.round(file.width * (file.scale || 1))}×{Math.round(file.height * (file.scale || 1))}mm • {(file.volume * Math.pow(file.scale || 1, 3)).toFixed(1)}cm³
+                                  {file.scale && file.scale !== 1 && (
+                                    <span className="ml-1 text-primary font-medium">({Math.round(file.scale * 100)}% skaliert)</span>
+                                  )}
                                 </p>
                               </div>
                               <div className="flex items-center gap-1">
@@ -799,7 +802,10 @@ const CostCalculatorWizard = () => {
                               <div className="flex-1">
                                 <p className="font-medium text-sm">{file.fileName}</p>
                                 <p className="text-xs text-muted-foreground">
-                                  {file.length}×{file.width}×{file.height}mm
+                                  {Math.round(file.length * (file.scale || 1))}×{Math.round(file.width * (file.scale || 1))}×{Math.round(file.height * (file.scale || 1))}mm
+                                  {file.scale && file.scale !== 1 && (
+                                    <span className="ml-1 text-primary">({Math.round(file.scale * 100)}%)</span>
+                                  )}
                                 </p>
                               </div>
                               <div className="text-right">
@@ -1105,7 +1111,12 @@ const CostCalculatorWizard = () => {
                         <div key={file.id} className="p-3 bg-muted/30 rounded-lg space-y-2 text-sm">
                           <p className="font-medium">{file.fileName}</p>
                           <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
-                            <div>Maße: {file.length}×{file.width}×{file.height}mm</div>
+                            <div>
+                              Maße: {Math.round(file.length * (file.scale || 1))}×{Math.round(file.width * (file.scale || 1))}×{Math.round(file.height * (file.scale || 1))}mm
+                              {file.scale && file.scale !== 1 && (
+                                <span className="text-primary ml-1">({Math.round(file.scale * 100)}%)</span>
+                              )}
+                            </div>
                             <div>Menge: {file.quantity || 1} Stück</div>
                             <div>Material: {materials[file.material as keyof typeof materials]?.name || "PLA"}</div>
                             <div>Volumen: {file.volume.toFixed(1)}cm³</div>
