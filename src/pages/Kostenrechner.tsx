@@ -68,47 +68,12 @@ const Kostenrechner = () => {
       <div className="min-h-screen">
         <Navigation />
         <div className="pt-24">
-          <div className="container mx-auto px-4 pt-8 pb-6">
-            <div className="max-w-4xl mx-auto">
-              <div className="mb-8">
-                <h1 className="text-4xl md:text-5xl font-bold mb-3">
-                  3D-Druck Online-Konfigurator
-                </h1>
-                <p className="text-lg text-muted-foreground max-w-2xl">
-                  Laden Sie Ihre STL-Datei hoch, konfigurieren Sie Ihr Teil und erhalten Sie sofort den finalen Preis. 
-                  Keine Wartezeit, keine versteckten Kosten.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div className="flex flex-col gap-1">
-                  <span className="text-muted-foreground">Lieferzeit Standard</span>
-                  <span className="font-semibold">3-5 Werktage</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-muted-foreground">Express verfügbar</span>
-                  <span className="font-semibold">24-48 Stunden</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-muted-foreground">Kostenloser Versand</span>
-                  <span className="font-semibold">ab 100€</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-muted-foreground">Materialien</span>
-                  <span className="font-semibold">PLA, PETG, ABS, PA12</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div id="calculator">
-            <CostCalculatorWizard />
-          </div>
+          <CostCalculatorWizard />
           
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-4xl mx-auto space-y-12">
               <div>
-                <h2 className="text-3xl font-bold mb-6">3D-Druck Online Bestellen – So einfach geht's</h2>
+                <h1 className="text-4xl font-bold mb-6">3D-Druck Online Bestellen – Konfigurator & Sofortpreis</h1>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Mit unserem <strong>3D-Druck Online-Konfigurator</strong> können Sie Ihre Teile in wenigen Minuten konfigurieren und direkt bestellen. 
                   Egal ob <strong>Prototypen</strong>, <strong>Einzelteile</strong> oder <strong>Kleinserien</strong> – unser Konfigurator berücksichtigt 
