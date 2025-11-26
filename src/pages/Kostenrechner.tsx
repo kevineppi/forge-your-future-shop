@@ -68,53 +68,34 @@ const Kostenrechner = () => {
       <div className="min-h-screen">
         <Navigation />
         <div className="pt-24">
-          <div className="relative overflow-hidden">
-            {/* Background gradient effect */}
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute top-20 right-1/4 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-            
-            <div className="container mx-auto px-4 py-8 md:py-12 relative">
-              <div className="max-w-5xl mx-auto">
-                <div className="text-center mb-8">
-                  <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
-                    3D-Druck <span className="text-gradient">Online-Konfigurator</span>
-                  </h1>
-                  <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-                    STL hochladen, Material wählen, <strong className="text-foreground">Sofortpreis</strong> erhalten & direkt bestellen – alles in einem Tool!
-                  </p>
-                  
-                  {/* Feature Pills - Compact horizontal layout */}
-                  <div className="flex flex-wrap justify-center gap-3 mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-primary/5 px-4 py-2 rounded-full border border-primary/20 hover:scale-105 transition-transform">
-                      <span className="text-2xl">⚡</span>
-                      <span className="text-sm font-medium">Sofort-Kalkulation</span>
-                    </div>
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-primary/5 px-4 py-2 rounded-full border border-primary/20 hover:scale-105 transition-transform">
-                      <span className="text-2xl">🎯</span>
-                      <span className="text-sm font-medium">Alle Materialien</span>
-                    </div>
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-primary/5 px-4 py-2 rounded-full border border-primary/20 hover:scale-105 transition-transform">
-                      <span className="text-2xl">🚀</span>
-                      <span className="text-sm font-medium">Express 24-48h</span>
-                    </div>
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-primary/5 px-4 py-2 rounded-full border border-primary/20 hover:scale-105 transition-transform">
-                      <span className="text-2xl">📦</span>
-                      <span className="text-sm font-medium">Versand ab 100€ kostenlos</span>
-                    </div>
-                  </div>
+          <div className="container mx-auto px-4 pt-8 pb-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="mb-8">
+                <h1 className="text-4xl md:text-5xl font-bold mb-3">
+                  3D-Druck Online-Konfigurator
+                </h1>
+                <p className="text-lg text-muted-foreground max-w-2xl">
+                  Laden Sie Ihre STL-Datei hoch, konfigurieren Sie Ihr Teil und erhalten Sie sofort den finalen Preis. 
+                  Keine Wartezeit, keine versteckten Kosten.
+                </p>
+              </div>
 
-                  {/* Call to action scroll button */}
-                  <button 
-                    onClick={() => document.querySelector('#calculator')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-transform shadow-lg hover:shadow-xl animate-fade-in"
-                    style={{ animationDelay: '0.3s' }}
-                  >
-                    <span>Jetzt Teil konfigurieren</span>
-                    <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div className="flex flex-col gap-1">
+                  <span className="text-muted-foreground">Lieferzeit Standard</span>
+                  <span className="font-semibold">3-5 Werktage</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-muted-foreground">Express verfügbar</span>
+                  <span className="font-semibold">24-48 Stunden</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-muted-foreground">Kostenloser Versand</span>
+                  <span className="font-semibold">ab 100€</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-muted-foreground">Materialien</span>
+                  <span className="font-semibold">PLA, PETG, ABS, PA12</span>
                 </div>
               </div>
             </div>
