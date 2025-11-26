@@ -699,8 +699,8 @@ const RapidPrototyping = () => {
                     <div className="text-sm text-muted-foreground">Schichthöhe</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">300x300x400mm</div>
-                    <div className="text-sm text-muted-foreground">Typisches Bauvolumen</div>
+                    <div className="text-3xl font-bold text-primary mb-2">350x350x350mm</div>
+                    <div className="text-sm text-muted-foreground">Maximales Bauvolumen</div>
                   </div>
                 </div>
               </div>

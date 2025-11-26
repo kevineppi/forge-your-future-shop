@@ -349,11 +349,11 @@ export const FileUpload3D = ({
         const analysisResults: AnalysisResult[] = [];
 
         // Size warnings
-        if (length > 300 || width > 300 || height > 300) {
+        if (length > 350 || width > 350 || height > 350) {
           analysisResults.push({
             type: "warning",
             message: "Modell überschreitet Druckbereich",
-            detail: `Maximum: 300mm. Aktuell: ${length}×${width}×${height}mm - Skalierung erforderlich`
+            detail: `Maximum: 350mm. Aktuell: ${length}×${width}×${height}mm - Skalierung erforderlich`
           });
         }
 
