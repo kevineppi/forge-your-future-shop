@@ -1618,12 +1618,18 @@ const CostCalculatorWizard = () => {
                       <Slider
                         value={[editingFile.scale || 1]}
                         onValueChange={(v) => {
-                          const newScale = Math.max(0.1, Math.min(5, v[0]));
+                          // Calculate max scale to keep largest dimension under 350mm
+                          const maxOriginalDimension = Math.max(editingFile.length, editingFile.width, editingFile.height);
+                          const maxAllowedScale = 350 / maxOriginalDimension;
+                          const newScale = Math.max(0.1, Math.min(maxAllowedScale, v[0]));
                           setUploadedFiles(prev => prev.map(f => 
                             f.id === editingFileId ? { ...f, scale: newScale } : f
                           ));
                         }}
-                        max={5}
+                        max={(() => {
+                          const maxOriginalDimension = Math.max(editingFile.length, editingFile.width, editingFile.height);
+                          return Math.min(5, 350 / maxOriginalDimension);
+                        })()}
                         min={0.1}
                         step={0.1}
                       />
@@ -1634,8 +1640,27 @@ const CostCalculatorWizard = () => {
                           {Math.round(editingFile.width * (editingFile.scale || 1))}×
                           {Math.round(editingFile.height * (editingFile.scale || 1))}mm
                         </span>
-                        <span>500%</span>
+                        <span>{(() => {
+                          const maxOriginalDimension = Math.max(editingFile.length, editingFile.width, editingFile.height);
+                          const maxScale = Math.min(5, 350 / maxOriginalDimension);
+                          return Math.round(maxScale * 100);
+                        })()}%</span>
                       </div>
+                      {(() => {
+                        const maxOriginalDimension = Math.max(editingFile.length, editingFile.width, editingFile.height);
+                        const scaledMaxDimension = maxOriginalDimension * (editingFile.scale || 1);
+                        if (scaledMaxDimension > 340) {
+                          return (
+                            <p className="text-xs text-amber-600 mt-2 flex items-center gap-1">
+                              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                              </svg>
+                              Nahe am Maximum: 350mm Limit
+                            </p>
+                          );
+                        }
+                        return null;
+                      })()}
                     </div>
 
                     {/* Complexity */}
