@@ -125,7 +125,7 @@ serve(async (req) => {
       // Services mit detaillierten Preisen
       {
         title: 'FDM 3D-Druck Service - Preise und Leistungen Detail',
-        content: 'Professioneller FDM 3D-Druck Service. Preise nach Material und Stunde: PLA €1,50-2,00/h, PETG €2,00-2,50/h, ABS €2,50-3,00/h, PA12 €4,50-5,50/h, PA12-CF €6,00-7,00/h, PA6 €4,00-5,00/h, TPU €3,00-4,00/h. Druckvolumen: Bis 300x300x400mm. Schichtstärken: 0,1mm (fein, +20%), 0,2mm (standard), 0,3mm (schnell, -15%). Lieferzeit: Standard 3-5 Tage, Express 24-48h (+50%). Kostenloser Versand ab €50. Nachbearbeitung: Schleifen ab €10, Lackieren ab €25, Polieren ab €15.',
+        content: 'Professioneller FDM 3D-Druck Service. Preise nach Material und Stunde: PLA €1,50-2,00/h, PETG €2,00-2,50/h, ABS €2,50-3,00/h, PA12 €4,50-5,50/h, PA12-CF €6,00-7,00/h, PA6 €4,00-5,00/h, TPU €3,00-4,00/h. Druckvolumen: Bis 350x350x350mm. Schichtstärken: 0,1mm (fein, +20%), 0,2mm (standard), 0,3mm (schnell, -15%). Lieferzeit: Standard 3-5 Tage, Express 24-48h (+50%). Kostenloser Versand ab €50. Nachbearbeitung: Schleifen ab €10, Lackieren ab €25, Polieren ab €15.',
         category: 'Services',
         page_url: '/fdm-3d-druck'
       },
