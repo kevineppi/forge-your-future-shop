@@ -437,7 +437,12 @@ const CostCalculatorWizard = () => {
         
       // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
       const complexityMultiplier = 1 + (fileComplexity * 0.5);
-      const pricePerPiece = subtotal * complexityMultiplier;
+      let pricePerPiece = subtotal * complexityMultiplier;
+      
+      // Apply express service surcharge: +50% on part price
+      if (isExpressService) {
+        pricePerPiece = pricePerPiece * 1.5;
+      }
       
       // Apply quantity discount
       let discount = 1.0;
