@@ -13,20 +13,20 @@ import { Check, TrendingDown, Clock, Award } from "lucide-react";
 
 const Kostenrechner = () => {
   useEffect(() => {
-    document.title = "3D-Druck Online Bestellen & Kosten Berechnen | Sofort-Preis | ekdruck";
+    document.title = "3D-Druck Konfigurator | Bestellen & Sofortpreis | ekdruck";
   }, []);
 
   return (
     <>
       <SEOHead 
-        title="3D-Druck Online Bestellen & Kosten Berechnen | Sofort-Preis | ekdruck"
-        description="3D-Teile online konfigurieren und direkt bestellen. Sofortpreis für alle Materialien. Express-Service 24h. Kostenloser Versand ab 100€! STL hochladen & loslegen."
+        title="3D-Druck Konfigurator | Bestellen & Sofortpreis | ekdruck"
+        description="STL hochladen, Material wählen & direkt bestellen. Sofortpreis für alle Materialien. Express in 24h. Kostenloser Versand ab 100€. Jetzt konfigurieren!"
         keywords="3d-druck online bestellen, 3d-teile drucken lassen, 3d-druck konfigurator, stl drucken lassen, 3d-druck shop österreich, 3d-druck kostenrechner, 3d-druck preis berechnen, kosten 3d-druck, fdm druck online, rapid prototyping bestellen"
         path="/kostenrechner"
       />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},
-        {name: "3D-Druck Bestellen", url: "/kostenrechner"}
+        {name: "3D-Druck Konfigurator", url: "/kostenrechner"}
       ]} />
       <ProductSchema 
         name="3D-Druck FDM Service Online"
@@ -72,15 +72,15 @@ const Kostenrechner = () => {
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-12">
                 <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                  3D-Druck <span className="text-gradient">Kostenrechner</span>
+                  3D-Druck <span className="text-gradient">Online-Konfigurator</span>
                 </h1>
                 <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">
-                  3D-Teile Online Konfigurieren & Bestellen
+                  Teile Konfigurieren & Direkt Online Bestellen
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
                   Laden Sie Ihre STL-Datei hoch, wählen Sie Material und Einstellungen, erhalten Sie einen <strong>Sofortpreis</strong> und 
-                  bestellen Sie direkt online. 3D-Druck für Prototypen, Einzelteile und Kleinserien – transparent, schnell und ohne Wartezeit. 
-                  <strong>Express-Service</strong> verfügbar!
+                  bestellen Sie direkt online – ohne Wartezeit auf Angebote. 3D-Druck für Prototypen, Einzelteile und Kleinserien mit 
+                  transparenter Preisgestaltung. <strong>Express-Service in 24-48h</strong> verfügbar!
                 </p>
               </div>
 
@@ -110,8 +110,8 @@ const Kostenrechner = () => {
               <div className="bg-muted/30 p-6 rounded-xl mb-8">
                 <p className="text-center text-muted-foreground">
                   <strong>FDM 3D-Druck Service</strong> für ganz Österreich: Wien, Linz, Graz, Salzburg, Innsbruck & mehr. 
-                  Nutzen Sie unseren <strong>Online Preisrechner</strong> für eine transparente Kostenübersicht und kontaktieren Sie uns 
-                  für ein individuelles Angebot basierend auf Ihrer <strong>CAD-Datei</strong>.
+                  Nutzen Sie unseren <strong>Online-Konfigurator</strong> für transparente Preise und bestellen Sie Ihre Teile 
+                  direkt online. STL-Datei hochladen, konfigurieren und <strong>sofort bestellen</strong> – keine Wartezeit auf Angebote!
                 </p>
               </div>
             </div>
@@ -122,16 +122,17 @@ const Kostenrechner = () => {
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-4xl mx-auto space-y-12">
               <div>
-                <h2 className="text-3xl font-bold mb-6">3D-Druck Kosten online berechnen</h2>
+                <h2 className="text-3xl font-bold mb-6">3D-Druck Online Bestellen – So einfach geht's</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Mit unserem <strong>3D-Druck Kostenrechner</strong> können Sie die Kosten für Ihr Projekt sofort und kostenlos berechnen. 
-                  Egal ob <strong>Prototypen</strong>, <strong>Einzelteile</strong> oder <strong>Kleinserien</strong> – unser Rechner berücksichtigt 
-                  alle relevanten Faktoren wie Material, Größe, Komplexität und Druckdauer für eine präzise Preiskalkulation.
+                  Mit unserem <strong>3D-Druck Online-Konfigurator</strong> können Sie Ihre Teile in wenigen Minuten konfigurieren und direkt bestellen. 
+                  Egal ob <strong>Prototypen</strong>, <strong>Einzelteile</strong> oder <strong>Kleinserien</strong> – unser Konfigurator berücksichtigt 
+                  alle relevanten Faktoren wie Material, Größe, Komplexität und Druckdauer für eine präzise Preiskalkulation. Nach der Konfiguration 
+                  können Sie <strong>sofort zur Kasse</strong> gehen – ohne Wartezeit auf Angebote.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Wir bieten <strong>FDM 3D-Druck</strong> mit hochwertigen Materialien wie <strong>PLA</strong>, <strong>PETG</strong>, 
-                  <strong>ABS</strong> und <strong>Nylon (PA12, PA6)</strong>. Je nach Projektgröße und Anforderungen können Sie zwischen 
-                  verschiedenen Materialien wählen und sofort sehen, wie sich dies auf den Preis auswirkt.
+                  <strong>ABS</strong> und <strong>Nylon (PA12, PA6)</strong>. Wählen Sie zwischen verschiedenen Materialien, Farben und 
+                  Nachbearbeitungsoptionen – der Preis wird in Echtzeit angepasst und Sie behalten die volle Kontrolle über Ihre Bestellung.
                 </p>
               </div>
 
@@ -247,7 +248,7 @@ const Kostenrechner = () => {
                   </Card>
                 </div>
                 <p className="text-sm text-muted-foreground mt-4 text-center">
-                  * Alle Preise sind Richtwerte. Für ein genaues Angebot laden Sie bitte Ihre CAD-Datei hoch oder nutzen Sie unseren Kostenrechner.
+                  * Alle Preise sind Richtwerte. Für den exakten Preis laden Sie Ihre STL-Datei hoch und nutzen Sie unseren Konfigurator – Sie erhalten sofort den finalen Preis und können direkt bestellen.
                 </p>
               </div>
 
@@ -468,10 +469,10 @@ const Kostenrechner = () => {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold mb-6">Wie funktioniert der 3D-Druck Preisrechner?</h2>
+                <h2 className="text-3xl font-bold mb-6">Wie funktioniert der Online-Konfigurator?</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p className="leading-relaxed">
-                    Unser <strong>Online-Kostenrechner für 3D-Druck</strong> berücksichtigt folgende Faktoren für eine genaue Preisberechnung:
+                    Unser <strong>Online-Konfigurator für 3D-Druck</strong> berechnet den Preis sofort und ermöglicht direkte Bestellungen. Folgende Faktoren werden berücksichtigt:
                   </p>
                   <ul className="list-disc list-inside space-y-2 ml-4">
                     <li><strong>3D-Druck Material:</strong> Von günstigem PLA bis zu technischem PA12 Nylon – verschiedene Preiskategorien</li>
@@ -486,16 +487,16 @@ const Kostenrechner = () => {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold mb-6">3D-Druck Preise & Kosten in Österreich</h2>
+                <h2 className="text-3xl font-bold mb-6">3D-Druck Preise & Online Bestellen in Österreich</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Die Kosten für <strong>3D-Druck in Österreich</strong> hängen von verschiedenen Faktoren ab. Bei ekdruck bieten wir 
-                  <strong>transparente Preise</strong> ohne versteckte Kosten. Unsere Preise richten sich nach Material, Größe, 
-                  Komplexität und Druckdauer. Für <strong>technische Bauteile</strong> und <strong>Funktionsprototypen</strong> aus 
-                  hochwertigen Materialien wie PA12 Nylon erstellen wir Ihnen gerne ein individuelles Angebot.
+                  <strong>transparente Sofortpreise</strong> ohne versteckte Kosten. Unsere Preise richten sich nach Material, Größe, 
+                  Komplexität und Druckdauer. Laden Sie Ihre STL-Datei hoch, konfigurieren Sie Ihr Teil im Online-Konfigurator und 
+                  bestellen Sie direkt – der finale Preis wird sofort angezeigt.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Größere Bestellmengen bieten in der Regel bessere Konditionen. Kontaktieren Sie uns für ein maßgeschneidertes 
-                  Angebot basierend auf Ihren spezifischen Anforderungen.
+                  Größere Bestellmengen profitieren automatisch von attraktiven <strong>Mengenrabatten</strong> (ab 5 Stück). 
+                  Ab 100€ Bestellwert ist der Versand <strong>kostenlos</strong>. Nutzen Sie den Konfigurator für Ihre individuelle Preisberechnung!
                 </p>
               </div>
 
