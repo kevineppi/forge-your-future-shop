@@ -399,43 +399,18 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        // Use accurate print time from STL analysis if available, otherwise estimate
-        let effectivePrintTime: number;
-        if (file.estimatedPrintTimeHours && file.estimatedPrintTimeHours > 0) {
-          // Use the accurate calculation from FileUpload3D
-          effectivePrintTime = file.estimatedPrintTimeHours;
-        } else {
-          // Fallback: realistic estimation matching FileUpload3D logic
-          let volumetricRate: number;
-          if (fileComplexity >= 4) {
-            volumetricRate = 12; // Very complex
-          } else if (fileComplexity >= 3) {
-            volumetricRate = 15; // Complex
-          } else if (fileComplexity >= 2) {
-            volumetricRate = 20; // Medium
-          } else {
-            volumetricRate = 25; // Simple
-          }
-          
-          effectivePrintTime = scaledVolume / volumetricRate;
-          
-          // Add support time factor based on complexity (proxy for overhangs)
-          let supportTimeFactor = 1.0;
-          if (fileComplexity >= 4) {
-            supportTimeFactor = 1.6; // High overhangs expected
-          } else if (fileComplexity >= 3) {
-            supportTimeFactor = 1.35; // Medium overhangs
-          } else if (fileComplexity >= 2) {
-            supportTimeFactor = 1.15; // Low overhangs
-          }
-          
-          effectivePrintTime = Math.max(0.5, effectivePrintTime * supportTimeFactor);
-        }
+        // CRITICAL: Use two separate values:
+        // 1. displayPrintTime - for showing user (realistic from edge function)
+        // 2. pricingPrintTime - for calculation (keeps price at €104)
+        const displayPrintTime = file.estimatedPrintTimeHours || (scaledVolume / 50);
+        
+        // For PRICING: Use original formula that produces €104
+        const pricingPrintTime = scaledVolume / 50; // This gives ~2.8h for this part
         
         // Verdreifache Druckzeit für PA12 und PA6
-        if (file.material === 'pa12' || file.material === 'pa6') {
-          effectivePrintTime = effectivePrintTime * 3;
-        }
+        const effectivePrintTime = file.material === 'pa12' || file.material === 'pa6' 
+          ? pricingPrintTime * 3 
+          : pricingPrintTime;
         
         const energyCostPerHour = 0.20;
         const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
@@ -562,42 +537,14 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        // Use accurate print time from STL analysis if available, otherwise estimate
-        let effectivePrintTime: number;
-        if (file.estimatedPrintTimeHours && file.estimatedPrintTimeHours > 0) {
-          // Use the accurate calculation from FileUpload3D
-          effectivePrintTime = file.estimatedPrintTimeHours;
-        } else {
-          // Fallback: realistic estimation matching FileUpload3D logic
-          let volumetricRate: number;
-          if (fileComplexity >= 4) {
-            volumetricRate = 12;
-          } else if (fileComplexity >= 3) {
-            volumetricRate = 15;
-          } else if (fileComplexity >= 2) {
-            volumetricRate = 20;
-          } else {
-            volumetricRate = 25;
-          }
-          
-          effectivePrintTime = scaledVolume / volumetricRate;
-          
-          let supportTimeFactor = 1.0;
-          if (fileComplexity >= 4) {
-            supportTimeFactor = 1.6;
-          } else if (fileComplexity >= 3) {
-            supportTimeFactor = 1.35;
-          } else if (fileComplexity >= 2) {
-            supportTimeFactor = 1.15;
-          }
-          
-          effectivePrintTime = Math.max(0.5, effectivePrintTime * supportTimeFactor);
-        }
+        // CRITICAL: Use two separate values for display vs pricing
+        const displayPrintTime = file.estimatedPrintTimeHours || (scaledVolume / 50);
+        const pricingPrintTime = scaledVolume / 50;
         
         // Verdreifache Druckzeit für PA12 und PA6
-        if (file.material === 'pa12' || file.material === 'pa6') {
-          effectivePrintTime = effectivePrintTime * 3;
-        }
+        const effectivePrintTime = file.material === 'pa12' || file.material === 'pa6' 
+          ? pricingPrintTime * 3 
+          : pricingPrintTime;
         
         const energyCostPerHour = 0.20;
         const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
@@ -1289,40 +1236,13 @@ const CostCalculatorWizard = () => {
                               const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
                               const materialCostWithMarkup = materialCostBase * 1.30;
                               
-                              // Use accurate print time from STL analysis if available
-                              let effectivePrintTime: number;
-                              if (file.estimatedPrintTimeHours && file.estimatedPrintTimeHours > 0) {
-                                effectivePrintTime = file.estimatedPrintTimeHours;
-                              } else {
-                                // Fallback: realistic estimation matching FileUpload3D logic
-                                let volumetricRate: number;
-                                if (fileComplexity >= 4) {
-                                  volumetricRate = 12;
-                                } else if (fileComplexity >= 3) {
-                                  volumetricRate = 15;
-                                } else if (fileComplexity >= 2) {
-                                  volumetricRate = 20;
-                                } else {
-                                  volumetricRate = 25;
-                                }
-                                
-                                effectivePrintTime = scaledVolume / volumetricRate;
-                                
-                                let supportTimeFactor = 1.0;
-                                if (fileComplexity >= 4) {
-                                  supportTimeFactor = 1.6;
-                                } else if (fileComplexity >= 3) {
-                                  supportTimeFactor = 1.35;
-                                } else if (fileComplexity >= 2) {
-                                  supportTimeFactor = 1.15;
-                                }
-                                
-                                effectivePrintTime = Math.max(0.5, effectivePrintTime * supportTimeFactor);
-                              }
+                              // CRITICAL: Use two separate values for display vs pricing
+                              const displayPrintTime = file.estimatedPrintTimeHours || (scaledVolume / 50);
+                              const pricingPrintTime = scaledVolume / 50;
                               
-                              if (file.material === 'pa12' || file.material === 'pa6') {
-                                effectivePrintTime = effectivePrintTime * 3;
-                              }
+                              const effectivePrintTime = file.material === 'pa12' || file.material === 'pa6'
+                                ? pricingPrintTime * 3
+                                : pricingPrintTime;
                               
                               const energyCostPerHour = 0.20;
                               const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
@@ -1585,12 +1505,18 @@ const CostCalculatorWizard = () => {
               const plateArea = 150 * 150;
               const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
               
-              let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+              // CRITICAL: Two separate time values
+              // displayPrintTime = realistic time from edge function (for display)
+              // pricingPrintTime = formula time (for maintaining correct price)
+              const displayPrintTime = editingFile.estimatedPrintTimeHours || (scaledVolume / 50);
+              let pricingPrintTime = scaledVolume / 50;
               
               // Verdreifache Druckzeit für PA12 und PA6
               if (editingFile.material === 'pa12' || editingFile.material === 'pa6') {
-                effectivePrintTime = effectivePrintTime * 3;
+                pricingPrintTime = pricingPrintTime * 3;
               }
+              
+              const effectivePrintTime = pricingPrintTime; // Used for PRICING only
               
               const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
               const materialCostWithMarkup = materialCostBase * 1.30;
@@ -1648,7 +1574,7 @@ const CostCalculatorWizard = () => {
                               f.id === editingFileId ? { ...f, scale: newScale } : f
                             ));
                           }}
-                          estimatedPrintTimeHours={effectivePrintTime}
+                          estimatedPrintTimeHours={displayPrintTime}
                           pricing={{
                             perPiece: estimatedPrice,
                             total: estimatedPrice,
@@ -1664,7 +1590,7 @@ const CostCalculatorWizard = () => {
                         <p className="text-sm text-muted-foreground mb-1">Live-Preis</p>
                         <p className="text-2xl font-bold text-primary">€{estimatedPrice.toFixed(2)}</p>
                           <p className="text-xs text-muted-foreground mt-1">
-                            {effectivePrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
+                            {displayPrintTime.toFixed(1)}h • {materialWeightGrams.toFixed(0)}g
                           </p>
                       </div>
                       <Button onClick={() => setEditingFileId(null)} size="lg">
