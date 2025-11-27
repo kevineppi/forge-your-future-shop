@@ -389,8 +389,12 @@ const CostCalculatorWizard = () => {
         const scaledHeight = file.height * fileScale;
         const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
         
+        // FIXED: Calculate actual material volume (≈25% of object volume for typical settings: 20% infill + walls)
+        const infillFactor = 0.25;
+        const materialVolume = scaledVolume * infillFactor;
+        
         const materialDensity = 1.24;
-        const materialWeightGrams = scaledVolume * materialDensity;
+        const materialWeightGrams = materialVolume * materialDensity;
         
         const objectArea = scaledLength * scaledWidth;
         const plateArea = 150 * 150;
@@ -399,13 +403,10 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        // CRITICAL: Use two separate values:
-        // 1. displayPrintTime - for showing user (realistic from edge function)
-        // 2. pricingPrintTime - for calculation (keeps price at €104)
-        const displayPrintTime = file.estimatedPrintTimeHours || (scaledVolume / 50);
-        
-        // For PRICING: Use original formula that produces €104
-        const pricingPrintTime = scaledVolume / 50; // This gives ~2.8h for this part
+        // FIXED: Calculate print time based on material volume, not object volume
+        // Realistic print speed: 26 cm³/h (verified with slicer: 15h for 403 cm³)
+        const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
+        const pricingPrintTime = materialVolume / 26;
         
         // Verdreifache Druckzeit für PA12 und PA6
         const effectivePrintTime = file.material === 'pa12' || file.material === 'pa6' 
@@ -492,7 +493,7 @@ const CostCalculatorWizard = () => {
         freeShipping: freeShipping,
         volume: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3), 0),
         maxDimension: Math.max(...uploadedFiles.map(f => Math.max(f.length, f.width, f.height) * (f.scale || 1))),
-        materialWeight: uploadedFiles.reduce((sum, f) => sum + f.volume * Math.pow(f.scale || 1, 3) * 1.24, 0),
+        materialWeight: uploadedFiles.reduce((sum, f) => sum + (f.volume * Math.pow(f.scale || 1, 3) * 0.25 * 1.24), 0),
         objectsPerPlate: 1
       };
     } catch (error) {
@@ -527,8 +528,12 @@ const CostCalculatorWizard = () => {
       const scaledHeight = file.height * fileScale;
       const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
       
+      // FIXED: Calculate actual material volume (≈25% of object volume for typical settings: 20% infill + walls)
+      const infillFactor = 0.25;
+      const materialVolume = scaledVolume * infillFactor;
+      
       const materialDensity = 1.24;
-      const materialWeightGrams = scaledVolume * materialDensity;
+      const materialWeightGrams = materialVolume * materialDensity;
       
       const objectArea = scaledLength * scaledWidth;
       const plateArea = 150 * 150;
@@ -537,9 +542,10 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        // CRITICAL: Use two separate values for display vs pricing
-        const displayPrintTime = file.estimatedPrintTimeHours || (scaledVolume / 50);
-        const pricingPrintTime = scaledVolume / 50;
+        // FIXED: Calculate print time based on material volume, not object volume
+        // Realistic print speed: 26 cm³/h (verified with slicer: 15h for 403 cm³)
+        const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
+        const pricingPrintTime = materialVolume / 26;
         
         // Verdreifache Druckzeit für PA12 und PA6
         const effectivePrintTime = file.material === 'pa12' || file.material === 'pa6' 
@@ -1226,8 +1232,12 @@ const CostCalculatorWizard = () => {
                               const scaledHeight = file.height * fileScale;
                               const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
                               
+                              // FIXED: Calculate actual material volume (≈25% of object volume for typical settings: 20% infill + walls)
+                              const infillFactor = 0.25;
+                              const materialVolume = scaledVolume * infillFactor;
+                              
                               const materialDensity = 1.24;
-                              const materialWeightGrams = scaledVolume * materialDensity;
+                              const materialWeightGrams = materialVolume * materialDensity;
                               
                               const objectArea = scaledLength * scaledWidth;
                               const plateArea = 150 * 150;
@@ -1236,9 +1246,10 @@ const CostCalculatorWizard = () => {
                               const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
                               const materialCostWithMarkup = materialCostBase * 1.30;
                               
-                              // CRITICAL: Use two separate values for display vs pricing
-                              const displayPrintTime = file.estimatedPrintTimeHours || (scaledVolume / 50);
-                              const pricingPrintTime = scaledVolume / 50;
+                              // FIXED: Calculate print time based on material volume, not object volume
+                              // Realistic print speed: 26 cm³/h (verified with slicer: 15h for 403 cm³)
+                              const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
+                              const pricingPrintTime = materialVolume / 26;
                               
                               const effectivePrintTime = file.material === 'pa12' || file.material === 'pa6'
                                 ? pricingPrintTime * 3
