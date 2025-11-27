@@ -28,6 +28,8 @@ interface FileUpload3DProps {
     analysisResults: AnalysisResult[];
     estimatedPrintTimeHours?: number;
     complexityScore?: number; // 0-1 from edge function
+    estimatedMaterialGrams?: number;
+    surfaceArea?: number;
   }) => void;
 }
 
@@ -434,7 +436,9 @@ export const FileUpload3D = ({
           volume: volumeCm3,
           analysisResults,
           estimatedPrintTimeHours: effectivePrintTime,
-          complexityScore: complexity.score // 0-1
+          complexityScore: complexity.score, // 0-1
+          estimatedMaterialGrams: estimates.materialGrams,
+          surfaceArea: analysisData.surfaceArea
         });
 
         setAnalysisProgress(100);
