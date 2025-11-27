@@ -131,97 +131,65 @@ const CostCalculator = () => {
       const actualVolume = (length * width * height) / 1000000;
       const maxDimension = Math.max(length, width, height);
       
-      // Estimate material weight based on volume and infill/complexity
-      // Assuming 20% infill for simple, up to 50% for complex
-      let infillFactor = 0.20;
-      if (complexity === 1) infillFactor = 0.25;
-      else if (complexity === 2) infillFactor = 0.35;
-      else if (complexity === 3) infillFactor = 0.40;
-      else if (complexity === 4) infillFactor = 0.50;
-      
-      // PLA density ~1.24 g/cm³
+      // Calculate material volume (25% of object for typical settings)
+      const infillFactor = 0.25;
+      const materialVolume = actualVolume * 1000 * infillFactor; // in cm³
       const materialDensity = 1.24;
-      const materialWeightGrams = actualVolume * 1000 * materialDensity * infillFactor;
+      const materialWeightGrams = materialVolume * materialDensity;
       
-      // Calculate objects per plate (simplified - larger objects = fewer per plate)
-      const objectArea = length * width; // in mm²
-      const plateArea = 150 * 150; // 150mm x 150mm = 22500 mm²
-      const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+      // NEUE FAIRE PREISBERECHNUNG
+      // 1. MATERIALKOSTEN (realistisch)
+      const materialCost = (materialWeightGrams / 1000) * baseMaterial.pricePerKg * 1.15;
       
-      // 1. MATERIALKOSTEN (Material costs)
-      const materialCostBase = (materialWeightGrams / 1000) * baseMaterial.pricePerKg;
-      const materialCostWithMarkup = materialCostBase * 1.30; // +30% markup
+      // 2. GRUNDGEBÜHR (Setup, Handling, QS)
+      const setupFee = 15;
       
-      // 2. ENERGIEKOSTEN (Energy costs) - simplified to flat rate
-      // Use printDuration if provided, otherwise estimate based on volume and complexity
+      // 3. DRUCKZEIT
       let effectivePrintTime = printDuration;
       if (effectivePrintTime === 0) {
-        // Rough estimate: 1 hour per 50cm³ for simple parts
-        effectivePrintTime = (actualVolume * 1000 / 50) * (1 + complexity * 0.3);
-        effectivePrintTime = Math.max(1, Math.ceil(effectivePrintTime));
+        effectivePrintTime = materialVolume / 26; // 26 cm³/h
       }
       
-      const energyCostPerHour = 0.20; // 0.20€/h flat rate
-      const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
-      const energyCostWithMarkup = energyCostBase * 1.30; // +30% markup
-      
-      // 3. ARBEITSAUFWAND (Labor cost) - fixed
-      const laborCost = 5.00;
-      
-      // 4. DRUCKKOSTEN (Print costs) - based on print time and size
-      let printCostPerHour = 1.5; // Default for parts <= 250mm
-      if (maxDimension > 250) {
-        printCostPerHour = 4.0; // For parts > 250mm
+      // PA12/PA6: 3x längere Druckzeit
+      if (material === 'pa12' || material === 'pa6') {
+        effectivePrintTime *= 3;
       }
-      const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
       
-      // 5. DRUCKERABNUTZUNG (Printer depreciation)
-      const depreciationPerHour = 0.20; // 0.20€/h
-      const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
+      // 4. ZEITKOSTEN mit Komplexitätsmultiplikator
+      // Komplexität: 0=1.0x, 1=1.2x, 2=1.4x, 3=1.6x, 4=2.0x
+      const complexityMultiplier = 1 + (complexity * 0.25);
+      const timeCostPerHour = 3.0; // Fair: 3€/h statt 28€/h
+      const timeCost = effectivePrintTime * timeCostPerHour * complexityMultiplier;
       
-      // 6. TROCKNUNGSKOSTEN (Drying costs)
-      const dryingCostPerHour = 0.50;
-      const dryingCost = baseMaterial.dryingHours * dryingCostPerHour;
-      
-      // SUBTOTAL before additional services
-      let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                     printCost + depreciationCost + dryingCost;
-      
-      // 7. ADDITIONAL SERVICES
+      // 5. ZUSATZLEISTUNGEN
       let additionalServices = 0;
-      
-      // Post-processing costs
       const postProcessingCost = postProcessingOptions[postProcessing as keyof typeof postProcessingOptions]?.price || 0;
       additionalServices += postProcessingCost;
       
-      // Support removal (if complexity >= 3)
       if (supportRemoval && complexity >= 3) {
         additionalServices += 8;
       }
       
-      subtotal += additionalServices;
-      
-      // 8. GEWINN (Profit margin 30%)
-      const profit = subtotal * 0.30;
-      subtotal += profit;
-      
-      // 9. EXPRESS SERVICE (before tax)
-      let expressCharge = 0;
-      let expressShipping = 0;
-      
-      if (isExpressService) {
-        expressCharge = subtotal * 0.50; // 50% surcharge
-        expressShipping = 20;
-        subtotal += expressCharge + expressShipping;
+      // Trocknungskosten für Nylon
+      if (baseMaterial.dryingHours > 0) {
+        additionalServices += baseMaterial.dryingHours * 0.50;
       }
       
-      // 10. STEUERN (Tax 20% VAT)
-      const tax = subtotal * 0.20;
+      // ZWISCHENSUMME
+      let pricePerPiece = materialCost + setupFee + timeCost + additionalServices;
       
-      // FINAL PRICE PER PIECE
-      const pricePerPiece = subtotal + tax;
+      // 6. EXPRESS-ZUSCHLAG (+30%)
+      let expressCharge = 0;
+      if (isExpressService) {
+        expressCharge = pricePerPiece * 0.30;
+        pricePerPiece += expressCharge;
+      }
       
-      // Quantity discounts
+      // 7. STEUER (20% MwSt)
+      const tax = pricePerPiece * 0.20;
+      pricePerPiece += tax;
+      
+      // 8. MENGENRABATT
       let discount = 1.0;
       if (quantity >= 50) discount = 0.80; // 20% off
       else if (quantity >= 20) discount = 0.85; // 15% off
@@ -231,10 +199,16 @@ const CostCalculator = () => {
       const totalPrice = pricePerPiece * quantity * discount;
       const savings = quantity > 4 ? (pricePerPiece * quantity - totalPrice) : 0;
       
-      // 11. STANDARD SHIPPING (only if not express service)
-      const standardShippingCost = 7.00;
-      const freeShipping = totalPrice >= 100;
-      const shippingToAdd = (!isExpressService && !freeShipping) ? standardShippingCost : 0;
+      // 9. VERSANDKOSTEN
+      let expressShipping = 0;
+      let standardShippingCost = 7.50;
+      const freeShipping = totalPrice >= 100 && !isExpressService;
+      
+      if (isExpressService) {
+        expressShipping = 20;
+      }
+      
+      const shippingToAdd = isExpressService ? expressShipping : (freeShipping ? 0 : standardShippingCost);
       const finalTotal = totalPrice + shippingToAdd;
       
       // Round to 5 cents
@@ -244,21 +218,21 @@ const CostCalculator = () => {
         perPiece: Math.max(5, roundTo5Cents(pricePerPiece)),
         total: Math.max(5 * quantity, roundTo5Cents(finalTotal)),
         savings,
-        materialCost: materialCostWithMarkup,
-        energyCost: energyCostWithMarkup,
-        printCost,
-        depreciationCost,
-        dryingCost,
-        laborCost,
+        materialCost,
+        energyCost: 0,
+        printCost: timeCost,
+        depreciationCost: 0,
+        dryingCost: 0,
+        laborCost: setupFee,
         additionalServices,
-        expressCharge: isExpressService ? expressCharge : 0,
-        expressShipping: isExpressService ? expressShipping : 0,
-        standardShipping: shippingToAdd,
+        expressCharge,
+        expressShipping,
+        standardShipping: !isExpressService ? shippingToAdd : 0,
         freeShipping,
         volume: actualVolume * 1000000,
         maxDimension,
         materialWeight: materialWeightGrams,
-        objectsPerPlate
+        objectsPerPlate: 1
       };
     } catch (error) {
       console.error('Error calculating price:', error);

@@ -383,73 +383,64 @@ const CostCalculatorWizard = () => {
         const filePostProcessing = file.postProcessing || "none";
         const fileSupportRemoval = file.supportRemoval || false;
         
-        const scaledVolume = file.volume * Math.pow(fileScale, 3);
-        const scaledLength = file.length * fileScale;
-        const scaledWidth = file.width * fileScale;
-        const scaledHeight = file.height * fileScale;
-        const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
-        
-        // FIXED: Calculate actual material volume (≈25% of object volume for typical settings: 20% infill + walls)
-        const infillFactor = 0.25;
-        const materialVolume = scaledVolume * infillFactor;
-        
-        const materialDensity = 1.24;
-        const materialWeightGrams = materialVolume * materialDensity;
-        
-        const objectArea = scaledLength * scaledWidth;
-        const plateArea = 150 * 150;
-        const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
-        
-        const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
-        const materialCostWithMarkup = materialCostBase * 1.30;
-        
-        // FIXED: Calculate print time based on material volume, not object volume
-        // Realistic print speed: 26 cm³/h (verified with slicer: 15h for 403 cm³)
-        const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
-        const pricingPrintTime = materialVolume / 26;
-        
-        // Verdreifache Druckzeit für PA12 und PA6
-        const effectivePrintTime = file.material === 'pa12' || file.material === 'pa6' 
-          ? pricingPrintTime * 3 
-          : pricingPrintTime;
-        
-        const energyCostPerHour = 0.20;
-        const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
-        const energyCostWithMarkup = energyCostBase * 1.30;
-        
-        const laborCost = 5.00;
-        
-        let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-        const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
-        
-        const depreciationPerHour = 0.20;
-        const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
-        const dryingCostPerHour = 0.50;
-        const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
-        
-        let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                       printCost + depreciationCost + dryingCost;
-        
-        let additionalServices = 0;
-        const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
-        additionalServices += postProcessingCost;
-        
-        if (fileSupportRemoval && fileComplexity >= 3) {
-          additionalServices += 8;
-        }
-        
-        subtotal += additionalServices;
-        subtotal = subtotal * 1.30; // Profit margin
-        subtotal = subtotal * 1.20; // Tax
-        
-      // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
-      const complexityMultiplier = 1 + (fileComplexity * 0.5);
-      let pricePerPiece = subtotal * complexityMultiplier;
+      const scaledVolume = file.volume * Math.pow(fileScale, 3);
+      const scaledLength = file.length * fileScale;
+      const scaledWidth = file.width * fileScale;
+      const scaledHeight = file.height * fileScale;
+      const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
       
-      // Apply express service surcharge: +50% on part price
-      if (isExpressService) {
-        pricePerPiece = pricePerPiece * 1.5;
+      // Calculate material volume (25% of object for typical settings)
+      const infillFactor = 0.25;
+      const materialVolume = scaledVolume * infillFactor;
+      const materialDensity = 1.24;
+      const materialWeightGrams = materialVolume * materialDensity;
+      
+      // NEUE FAIRE PREISBERECHNUNG
+      // 1. MATERIALKOSTEN (realistisch)
+      const materialCost = (materialWeightGrams / 1000) * fileMaterial.pricePerKg * 1.15;
+      
+      // 2. GRUNDGEBÜHR (Setup, Handling, QS)
+      const setupFee = 15;
+      
+      // 3. DRUCKZEIT
+      const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
+      let effectivePrintTime = materialVolume / 26;
+      
+      // PA12/PA6: 3x längere Druckzeit
+      if (file.material === 'pa12' || file.material === 'pa6') {
+        effectivePrintTime *= 3;
       }
+      
+      // 4. ZEITKOSTEN mit Komplexitätsmultiplikator
+      // Komplexität: 0=1.0x, 1=1.2x, 2=1.4x, 3=1.6x, 4=2.0x
+      const complexityMultiplier = 1 + (fileComplexity * 0.25);
+      const timeCostPerHour = 3.0; // Fair: 3€/h statt 28€/h
+      const timeCost = effectivePrintTime * timeCostPerHour * complexityMultiplier;
+      
+      // 5. ZUSATZLEISTUNGEN
+      let additionalServices = 0;
+      const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
+      additionalServices += postProcessingCost;
+      
+      if (fileSupportRemoval && fileComplexity >= 3) {
+        additionalServices += 8;
+      }
+      
+      // Trocknungskosten für Nylon
+      if (fileMaterial.dryingHours > 0) {
+        additionalServices += fileMaterial.dryingHours * 0.50;
+      }
+      
+      // ZWISCHENSUMME
+      let pricePerPiece = materialCost + setupFee + timeCost + additionalServices;
+      
+      // 6. EXPRESS-ZUSCHLAG (+30%)
+      if (isExpressService) {
+        pricePerPiece *= 1.30;
+      }
+      
+      // 7. STEUER (20% MwSt)
+      pricePerPiece *= 1.20;
       
       // Apply quantity discount
       let discount = 1.0;
@@ -528,47 +519,35 @@ const CostCalculatorWizard = () => {
       const scaledHeight = file.height * fileScale;
       const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
       
-      // FIXED: Calculate actual material volume (≈25% of object volume for typical settings: 20% infill + walls)
+      // Calculate material volume (25% of object for typical settings)
       const infillFactor = 0.25;
       const materialVolume = scaledVolume * infillFactor;
-      
       const materialDensity = 1.24;
       const materialWeightGrams = materialVolume * materialDensity;
       
-      const objectArea = scaledLength * scaledWidth;
-      const plateArea = 150 * 150;
-      const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+      // NEUE FAIRE PREISBERECHNUNG
+      // 1. MATERIALKOSTEN (realistisch)
+      const materialCost = (materialWeightGrams / 1000) * fileMaterial.pricePerKg * 1.15;
       
-        const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
-        const materialCostWithMarkup = materialCostBase * 1.30;
-        
-        // FIXED: Calculate print time based on material volume, not object volume
-        // Realistic print speed: 26 cm³/h (verified with slicer: 15h for 403 cm³)
-        const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
-        const pricingPrintTime = materialVolume / 26;
-        
-        // Verdreifache Druckzeit für PA12 und PA6
-        const effectivePrintTime = file.material === 'pa12' || file.material === 'pa6' 
-          ? pricingPrintTime * 3 
-          : pricingPrintTime;
-        
-        const energyCostPerHour = 0.20;
-        const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
-        const energyCostWithMarkup = energyCostBase * 1.30;
-        
-        const laborCost = 5.00;
-        
-        let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-        const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
-        
-        const depreciationPerHour = 0.20;
-        const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
-        const dryingCostPerHour = 0.50;
-        const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
-        
-        let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                       printCost + depreciationCost + dryingCost;
+      // 2. GRUNDGEBÜHR (Setup, Handling, QS)
+      const setupFee = 15;
       
+      // 3. DRUCKZEIT
+      const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
+      let effectivePrintTime = materialVolume / 26;
+      
+      // PA12/PA6: 3x längere Druckzeit
+      if (file.material === 'pa12' || file.material === 'pa6') {
+        effectivePrintTime *= 3;
+      }
+      
+      // 4. ZEITKOSTEN mit Komplexitätsmultiplikator
+      // Komplexität: 0=1.0x, 1=1.2x, 2=1.4x, 3=1.6x, 4=2.0x
+      const complexityMultiplier = 1 + (fileComplexity * 0.25);
+      const timeCostPerHour = 3.0; // Fair: 3€/h statt 28€/h
+      const timeCost = effectivePrintTime * timeCostPerHour * complexityMultiplier;
+      
+      // 5. ZUSATZLEISTUNGEN
       let additionalServices = 0;
       const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
       additionalServices += postProcessingCost;
@@ -577,22 +556,21 @@ const CostCalculatorWizard = () => {
         additionalServices += 8;
       }
       
-      subtotal += additionalServices;
-      const profit = subtotal * 0.30;
-      subtotal += profit;
-      
-      let expressCharge = 0;
-      if (isExpressService) {
-        expressCharge = subtotal * 0.50;
-        subtotal += expressCharge;
+      // Trocknungskosten für Nylon
+      if (fileMaterial.dryingHours > 0) {
+        additionalServices += fileMaterial.dryingHours * 0.50;
       }
       
-        const tax = subtotal * 0.20;
-        let pricePerPiece = subtotal + tax;
-        
-        // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
-        const complexityMultiplier = 1 + (fileComplexity * 0.5);
-        pricePerPiece = pricePerPiece * complexityMultiplier;
+      // ZWISCHENSUMME
+      let pricePerPiece = materialCost + setupFee + timeCost + additionalServices;
+      
+      // 6. EXPRESS-ZUSCHLAG (+30%)
+      if (isExpressService) {
+        pricePerPiece *= 1.30;
+      }
+      
+      // 7. STEUER (20% MwSt)
+      pricePerPiece *= 1.20;
       
       let discount = 1.0;
       if (fileQuantity >= 50) discount = 0.80;
