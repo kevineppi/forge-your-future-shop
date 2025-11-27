@@ -424,7 +424,11 @@ const CostCalculatorWizard = () => {
     
     // 4. ZEITKOSTEN mit Komplexitätsmultiplikator
     const complexityMultiplier = 1 + (fileComplexity * 0.25);
-    const timeCostPerHour = 3.0;
+    
+    // Stundensatz: 5€/h für große Teile (≥250mm), sonst 3€/h
+    const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
+    const timeCostPerHour = maxDimension >= 250 ? 5.0 : 3.0;
+    
     const timeCost = effectivePrintTime * timeCostPerHour * complexityMultiplier;
     
     // 5. ZUSATZLEISTUNGEN
