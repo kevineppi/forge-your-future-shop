@@ -399,7 +399,20 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+        // Use accurate print time from STL analysis if available, otherwise estimate
+        let effectivePrintTime: number;
+        if (file.estimatedPrintTimeHours && file.estimatedPrintTimeHours > 0) {
+          // Use the accurate calculation from FileUpload3D
+          effectivePrintTime = file.estimatedPrintTimeHours;
+        } else {
+          // Fallback: improved estimation considering complexity
+          effectivePrintTime = scaledVolume / 50; // Base: 50 cm³/h
+          
+          // Apply complexity multiplier for support structures
+          const complexityMultipliers = [1.0, 1.2, 1.5, 2.0, 2.5];
+          const complexityFactor = complexityMultipliers[fileComplexity] || 1.0;
+          effectivePrintTime *= complexityFactor;
+        }
         
         // Verdreifache Druckzeit für PA12 und PA6
         if (file.material === 'pa12' || file.material === 'pa6') {
@@ -531,7 +544,20 @@ const CostCalculatorWizard = () => {
         const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
         const materialCostWithMarkup = materialCostBase * 1.30;
         
-        let effectivePrintTime = scaledVolume / 50; // 50 cm³/h Druckgeschwindigkeit
+        // Use accurate print time from STL analysis if available, otherwise estimate
+        let effectivePrintTime: number;
+        if (file.estimatedPrintTimeHours && file.estimatedPrintTimeHours > 0) {
+          // Use the accurate calculation from FileUpload3D
+          effectivePrintTime = file.estimatedPrintTimeHours;
+        } else {
+          // Fallback: improved estimation considering complexity
+          effectivePrintTime = scaledVolume / 50; // Base: 50 cm³/h
+          
+          // Apply complexity multiplier for support structures
+          const complexityMultipliers = [1.0, 1.2, 1.5, 2.0, 2.5];
+          const complexityFactor = complexityMultipliers[fileComplexity] || 1.0;
+          effectivePrintTime *= complexityFactor;
+        }
         
         // Verdreifache Druckzeit für PA12 und PA6
         if (file.material === 'pa12' || file.material === 'pa6') {
@@ -1217,7 +1243,19 @@ const CostCalculatorWizard = () => {
                               const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
                               
                               const materialWeightGrams = scaledVolume * 1.24;
-                              let effectivePrintTime = scaledVolume / 50;
+                              
+                              // Use accurate print time from STL analysis if available
+                              let effectivePrintTime: number;
+                              if (file.estimatedPrintTimeHours && file.estimatedPrintTimeHours > 0) {
+                                effectivePrintTime = file.estimatedPrintTimeHours;
+                              } else {
+                                // Fallback: improved estimation considering complexity
+                                effectivePrintTime = scaledVolume / 50;
+                                
+                                const complexityMultipliers = [1.0, 1.2, 1.5, 2.0, 2.5];
+                                const complexityFactor = complexityMultipliers[file.complexity || 0] || 1.0;
+                                effectivePrintTime *= complexityFactor;
+                              }
                               
                               if (file.material === 'pa12' || file.material === 'pa6') {
                                 effectivePrintTime = effectivePrintTime * 3;
