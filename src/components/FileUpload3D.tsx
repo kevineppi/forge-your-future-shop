@@ -163,8 +163,33 @@ export const FileUpload3D = ({
     // Add 15% overhead for acceleration, deceleration, retractions, cooling
     const totalWithOverhead = totalTimeSeconds * 1.15;
     
-    // Convert to hours
-    const hours = totalWithOverhead / 3600;
+    // CRITICAL: Add support material time based on geometry complexity
+    // Support can add 40-100% to print time for complex parts with overhangs
+    let supportTimeFactor = 1.0;
+    
+    // Calculate overhang severity from dimensions and volume
+    // Parts with high surface area to volume ratio likely need more support
+    const surfaceArea = 2 * (length * width + length * height + width * height);
+    const surfaceToVolumeRatio = surfaceArea / volume;
+    
+    // Vertical parts (height > length & width) typically need more support
+    const isVertical = height > length && height > width;
+    const aspectRatio = Math.max(length, width, height) / Math.min(length, width, height);
+    
+    // Estimate support requirements
+    if (surfaceToVolumeRatio > 0.15 || isVertical || aspectRatio > 3) {
+      // High complexity geometry with likely overhangs
+      supportTimeFactor = 1.8; // +80% for extensive support structures
+    } else if (surfaceToVolumeRatio > 0.10 || aspectRatio > 2) {
+      // Moderate overhangs
+      supportTimeFactor = 1.4; // +40% for moderate support
+    } else if (surfaceToVolumeRatio > 0.08) {
+      // Minor support needed
+      supportTimeFactor = 1.2; // +20% for light support
+    }
+    
+    // Convert to hours with support factor applied
+    const hours = (totalWithOverhead * supportTimeFactor) / 3600;
     
     // Return with 0.1 hour precision, minimum 0.5h
     return Math.max(0.5, Math.round(hours * 10) / 10);
