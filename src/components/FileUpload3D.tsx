@@ -77,122 +77,67 @@ export const FileUpload3D = ({
     return Math.abs(volume);
   };
 
-  // Calculate estimated print time using Bambu Lab Standard 0.20mm PLA profile
+  // Calculate estimated print time - REALISTIC METHOD based on actual slicer results
   const calculateEstimatedPrintTime = (
     length: number,
     width: number,
     height: number,
     volume: number
   ): number => {
-    // Bambu Lab Standard Profile Settings
-    const layerHeight = 0.2; // mm
-    const lineWidth = 0.42; // mm
-    const nozzleDiameter = 0.4; // mm
+    // Use conservative volumetric print rate based on real-world PrusaSlicer results
+    // Real example: 142.4cm³ → 15h = ~9.5cm³/h with support
+    // Base rate without support: 15-20 cm³/h for complex parts, 25-35 cm³/h for simple parts
     
-    // Speeds (mm/s) from Bambu profile
-    const outerWallSpeed = 200;
-    const innerWallSpeed = 300;
-    const infillSpeed = 270;
-    const solidInfillSpeed = 250;
-    const topSurfaceSpeed = 200;
-    const travelSpeed = 300;
-    const firstLayerSpeed = 50; // conservative for first layer
+    const volumeCm3 = volume / 1000; // Convert mm³ to cm³
     
-    // Material settings
-    const maxVolumetricSpeed = 21; // mm³/s for Bambu PLA Basic
-    const infillPercent = 20; // %
-    
-    // Wall settings
-    const wallCount = 3;
-    const wallThickness = wallCount * lineWidth; // ~1.26mm total
-    
-    // Calculate number of layers
-    const numLayers = Math.ceil(height / layerHeight);
-    
-    // Estimate surface area per layer (assuming roughly rectangular)
-    const avgPerimeter = 2 * (length + width); // mm
-    const layerArea = length * width; // mm²
-    
-    // Calculate wall extrusion per layer
-    // Outer wall: 1 perimeter at outerWallSpeed
-    // Inner walls: 2 perimeters at innerWallSpeed
-    const outerWallLength = avgPerimeter;
-    const innerWallLength = avgPerimeter * 2;
-    
-    // Calculate infill area (layer area minus wall area)
-    const wallArea = avgPerimeter * wallThickness;
-    const infillArea = Math.max(0, layerArea - wallArea) * (infillPercent / 100);
-    
-    // Estimate infill line length (gyroid pattern, roughly 1.5x the area coverage)
-    const infillLineLength = (infillArea / lineWidth) * 1.5;
-    
-    // Top/bottom layers (5 top + 4 bottom)
-    const topBottomLayers = 5 + 4;
-    const solidLayerArea = layerArea * topBottomLayers;
-    const solidInfillLength = solidLayerArea / lineWidth;
-    
-    // Calculate extrusion volume per feature
-    const crossSectionArea = layerHeight * lineWidth; // mm²
-    
-    // Time calculations for typical layers
-    const outerWallTime = (outerWallLength / outerWallSpeed) * (numLayers - topBottomLayers);
-    const innerWallTime = (innerWallLength / innerWallSpeed) * (numLayers - topBottomLayers);
-    const infillTime = (infillLineLength / infillSpeed) * (numLayers - topBottomLayers);
-    
-    // Time for solid top/bottom layers
-    const solidTopBottomTime = (solidInfillLength / solidInfillSpeed);
-    
-    // First layer is slower
-    const firstLayerTime = (outerWallLength + innerWallLength + infillLineLength) / firstLayerSpeed;
-    
-    // Travel time (estimated as 20% of print time)
-    const printTimeSeconds = outerWallTime + innerWallTime + infillTime + solidTopBottomTime + firstLayerTime;
-    const travelTimeSeconds = printTimeSeconds * 0.2;
-    
-    // Check volumetric speed limit
-    // If flow rate exceeds max volumetric speed, scale up time
-    const avgFlowRate = (volume / printTimeSeconds) / 60; // mm³/s
-    let volumetricSpeedFactor = 1.0;
-    if (avgFlowRate > maxVolumetricSpeed) {
-      volumetricSpeedFactor = avgFlowRate / maxVolumetricSpeed;
-    }
-    
-    // Total time with overhead
-    const totalTimeSeconds = (printTimeSeconds + travelTimeSeconds) * volumetricSpeedFactor;
-    
-    // Add 15% overhead for acceleration, deceleration, retractions, cooling
-    const totalWithOverhead = totalTimeSeconds * 1.15;
-    
-    // CRITICAL: Add support material time based on geometry complexity
-    // Support can add 40-100% to print time for complex parts with overhangs
-    let supportTimeFactor = 1.0;
-    
-    // Calculate overhang severity from dimensions and volume
-    // Parts with high surface area to volume ratio likely need more support
+    // Calculate geometry complexity factors
     const surfaceArea = 2 * (length * width + length * height + width * height);
     const surfaceToVolumeRatio = surfaceArea / volume;
-    
-    // Vertical parts (height > length & width) typically need more support
-    const isVertical = height > length && height > width;
     const aspectRatio = Math.max(length, width, height) / Math.min(length, width, height);
+    const isVertical = height > Math.max(length, width);
+    const isTall = height > 150; // mm
     
-    // Estimate support requirements
-    if (surfaceToVolumeRatio > 0.15 || isVertical || aspectRatio > 3) {
-      // High complexity geometry with likely overhangs
-      supportTimeFactor = 1.8; // +80% for extensive support structures
-    } else if (surfaceToVolumeRatio > 0.10 || aspectRatio > 2) {
-      // Moderate overhangs
-      supportTimeFactor = 1.4; // +40% for moderate support
-    } else if (surfaceToVolumeRatio > 0.08) {
-      // Minor support needed
-      supportTimeFactor = 1.2; // +20% for light support
+    // Determine base print rate based on geometry
+    // Simple, low parts: 30 cm³/h
+    // Medium complexity: 20 cm³/h
+    // Complex, tall, or vertical parts: 12 cm³/h
+    let basePrintRate = 20; // cm³/h default
+    
+    if (surfaceToVolumeRatio > 0.12 || aspectRatio > 3 || (isVertical && isTall)) {
+      // Complex geometry - slow print
+      basePrintRate = 12;
+    } else if (surfaceToVolumeRatio < 0.05 && aspectRatio < 2) {
+      // Simple geometry - faster print
+      basePrintRate = 30;
     }
     
-    // Convert to hours with support factor applied
-    const hours = (totalWithOverhead * supportTimeFactor) / 3600;
+    // Base time without support
+    let baseTimeHours = volumeCm3 / basePrintRate;
     
-    // Return with 0.1 hour precision, minimum 0.5h
-    return Math.max(0.5, Math.round(hours * 10) / 10);
+    // CRITICAL: Calculate support time factor based on geometry
+    // Real PrusaSlicer data shows support can be 30-50% of total time for complex parts
+    let supportTimeFactor = 1.0;
+    
+    if (surfaceToVolumeRatio > 0.15 || (isVertical && isTall) || aspectRatio > 4) {
+      // Very complex geometry - extensive support needed
+      // Example case: 33.6% support → factor 1.5x
+      supportTimeFactor = 1.6;
+    } else if (surfaceToVolumeRatio > 0.10 || (isVertical && height > 100) || aspectRatio > 2.5) {
+      // Moderate support needed
+      supportTimeFactor = 1.35;
+    } else if (surfaceToVolumeRatio > 0.08 || aspectRatio > 2) {
+      // Light support
+      supportTimeFactor = 1.15;
+    }
+    
+    // Apply support factor
+    const totalTimeHours = baseTimeHours * supportTimeFactor;
+    
+    // Add overhead for first layer, cooling, retractions (10-20%)
+    const finalTimeHours = totalTimeHours * 1.15;
+    
+    // Return with 0.5 hour precision, minimum 0.5h
+    return Math.max(0.5, Math.round(finalTimeHours * 2) / 2);
   };
 
   const analyzeGeometry = (geometry: THREE.BufferGeometry): AnalysisResult[] => {
