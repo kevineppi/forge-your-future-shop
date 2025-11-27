@@ -1229,12 +1229,14 @@ const CostCalculatorWizard = () => {
                               description: "Sie werden zu Stripe Checkout weitergeleitet.",
                             });
 
-                            // Calculate file prices
+                            // Calculate file prices - MUST match filePrices calculation exactly
                             const items = uploadedFiles.map(file => {
                               const fileQuantity = file.quantity || 1;
                               const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
                               const fileComplexity = file.complexity || 0;
                               const fileScale = file.scale || 1;
+                              const filePostProcessing = file.postProcessing || "none";
+                              const fileSupportRemoval = file.supportRemoval || false;
                               
                               const scaledVolume = file.volume * Math.pow(fileScale, 3);
                               const scaledLength = file.length * fileScale;
@@ -1242,18 +1244,24 @@ const CostCalculatorWizard = () => {
                               const scaledHeight = file.height * fileScale;
                               const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
                               
-                              const materialWeightGrams = scaledVolume * 1.24;
+                              const materialDensity = 1.24;
+                              const materialWeightGrams = scaledVolume * materialDensity;
+                              
+                              const objectArea = scaledLength * scaledWidth;
+                              const plateArea = 150 * 150;
+                              const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
+                              
+                              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
+                              const materialCostWithMarkup = materialCostBase * 1.30;
                               
                               // Use accurate print time from STL analysis if available
                               let effectivePrintTime: number;
                               if (file.estimatedPrintTimeHours && file.estimatedPrintTimeHours > 0) {
                                 effectivePrintTime = file.estimatedPrintTimeHours;
                               } else {
-                                // Fallback: improved estimation considering complexity
                                 effectivePrintTime = scaledVolume / 50;
-                                
                                 const complexityMultipliers = [1.0, 1.2, 1.5, 2.0, 2.5];
-                                const complexityFactor = complexityMultipliers[file.complexity || 0] || 1.0;
+                                const complexityFactor = complexityMultipliers[fileComplexity] || 1.0;
                                 effectivePrintTime *= complexityFactor;
                               }
                               
@@ -1261,19 +1269,37 @@ const CostCalculatorWizard = () => {
                                 effectivePrintTime = effectivePrintTime * 3;
                               }
                               
-                              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
-                              const materialCostWithMarkup = materialCostBase * 1.30;
+                              const energyCostPerHour = 0.20;
+                              const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
+                              const energyCostWithMarkup = energyCostBase * 1.30;
                               
-                              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-                              const printCost = effectivePrintTime * printCostPerHour;
                               const laborCost = 5.00;
                               
-                              let pricePerPiece = materialCostWithMarkup + printCost + laborCost;
-                              pricePerPiece = pricePerPiece * 1.30;
-                              pricePerPiece = pricePerPiece * 1.20;
+                              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
+                              const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
+                              
+                              const depreciationPerHour = 0.20;
+                              const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
+                              const dryingCostPerHour = 0.50;
+                              const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
+                              
+                              let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
+                                             printCost + depreciationCost + dryingCost;
+                              
+                              let additionalServices = 0;
+                              const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
+                              additionalServices += postProcessingCost;
+                              
+                              if (fileSupportRemoval && fileComplexity >= 3) {
+                                additionalServices += 8;
+                              }
+                              
+                              subtotal += additionalServices;
+                              subtotal = subtotal * 1.30; // Profit margin
+                              subtotal = subtotal * 1.20; // Tax
                               
                               const complexityMultiplier = 1 + (fileComplexity * 0.5);
-                              pricePerPiece = pricePerPiece * complexityMultiplier;
+                              let pricePerPiece = subtotal * complexityMultiplier;
 
                               // Apply quantity discount
                               let discount = 1.0;
