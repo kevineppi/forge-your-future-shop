@@ -406,22 +406,21 @@ const CostCalculatorWizard = () => {
     // 2. GRUNDGEBÜHR (Setup, Handling, QS)
     const setupFee = 15;
     
-    // 3. DRUCKZEIT - Nutze Edge-Function-Wert wenn verfügbar
-    let effectivePrintTime: number;
-    if (file.estimatedPrintTimeHours) {
-      effectivePrintTime = file.estimatedPrintTimeHours;
-      console.log(`[${file.fileName}] Using edge function print time: ${effectivePrintTime.toFixed(2)}h`);
-    } else {
-      effectivePrintTime = materialVolume / 26;
-      console.log(`[${file.fileName}] Using fallback print time: ${effectivePrintTime.toFixed(2)}h (material vol: ${materialVolume.toFixed(2)}cm³)`);
-    }
+    // 3. DRUCKZEIT - EINFACHE REALISTISCHE BERECHNUNG
+    // Basiert auf Material-Gewicht, nicht auf Edge-Function
+    // Typische Druckrate: 10-15g Material pro Stunde
+    const gramsPerHour = 15; // Konservativ für strukturelle Teile
+    let effectivePrintTime = materialWeightGrams / gramsPerHour;
     
-    // PA12/PA6: 3x längere Druckzeit
+    // PA12/PA6: 2x längere Druckzeit (langsamer)
     if (file.material === 'pa12' || file.material === 'pa6') {
-      effectivePrintTime *= 3;
+      effectivePrintTime *= 2;
     }
     
-    console.log(`[${file.fileName}] Material weight: ${materialWeightGrams.toFixed(1)}g, Print time: ${effectivePrintTime.toFixed(2)}h`);
+    // Minimum 0.5h
+    effectivePrintTime = Math.max(0.5, effectivePrintTime);
+    
+    console.log(`[${file.fileName}] Material: ${materialWeightGrams.toFixed(1)}g, Print time: ${effectivePrintTime.toFixed(2)}h (${gramsPerHour}g/h)`);
     
     // 4. ZEITKOSTEN mit Komplexitätsmultiplikator
     const complexityMultiplier = 1 + (fileComplexity * 0.25);

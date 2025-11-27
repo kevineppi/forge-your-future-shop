@@ -438,19 +438,21 @@ function estimatePrinting(
   
   // Infill (20% Standard)
   const infillPercentage = 0.20;
-  const solidVolume = volumeCm3 * infillPercentage;
+  const infillVolume = volumeCm3 * infillPercentage;
   
   // Material density (PLA: 1.24 g/cm³)
   const materialDensity = 1.24;
-  const materialGrams = solidVolume * materialDensity;
+  const infillMaterial = infillVolume * materialDensity;
   
-  // Perimeter und Top/Bottom Layers
-  const shellThickness = 0.8; // 2 Perimeter
-  const topBottomLayers = 4;
-  const shellVolume = (surfaceArea / 100) * shellThickness / 10;
+  // Shell (Wände + Top/Bottom) - REALISTISCH
+  // Typisch 2-3 Perimeter (0.8-1.2mm) + 4-6 Top/Bottom Layer
+  // Approximation: ~15-20% des Gesamt-Volumens für dünnwandige Teile
+  // Für normale Teile: ~10-12% zusätzlich zum Infill
+  const shellPercentage = 0.12;
+  const shellVolume = volumeCm3 * shellPercentage;
   const shellMaterial = shellVolume * materialDensity;
   
-  const totalMaterial = materialGrams + shellMaterial;
+  const totalMaterial = infillMaterial + shellMaterial;
   
   // Support Material Schätzung
   let supportMaterial = 0;
