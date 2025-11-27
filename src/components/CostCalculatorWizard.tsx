@@ -408,8 +408,8 @@ const CostCalculatorWizard = () => {
     
     // 3. DRUCKZEIT - EINFACHE REALISTISCHE BERECHNUNG
     // Basiert auf Material-Gewicht, nicht auf Edge-Function
-    // Typische Druckrate: 10-15g Material pro Stunde
-    const gramsPerHour = 15; // Konservativ für strukturelle Teile
+    // Typische Druckrate: 40-60g Material pro Stunde je nach Qualität
+    const gramsPerHour = 50; // Standard für gute Qualität
     let effectivePrintTime = materialWeightGrams / gramsPerHour;
     
     // PA12/PA6: 2x längere Druckzeit (langsamer)
