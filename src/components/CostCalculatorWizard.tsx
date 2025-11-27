@@ -405,13 +405,31 @@ const CostCalculatorWizard = () => {
           // Use the accurate calculation from FileUpload3D
           effectivePrintTime = file.estimatedPrintTimeHours;
         } else {
-          // Fallback: improved estimation considering complexity
-          effectivePrintTime = scaledVolume / 50; // Base: 50 cm³/h
+          // Fallback: realistic estimation matching FileUpload3D logic
+          let volumetricRate: number;
+          if (fileComplexity >= 4) {
+            volumetricRate = 12; // Very complex
+          } else if (fileComplexity >= 3) {
+            volumetricRate = 15; // Complex
+          } else if (fileComplexity >= 2) {
+            volumetricRate = 20; // Medium
+          } else {
+            volumetricRate = 25; // Simple
+          }
           
-          // Apply complexity multiplier for support structures
-          const complexityMultipliers = [1.0, 1.2, 1.5, 2.0, 2.5];
-          const complexityFactor = complexityMultipliers[fileComplexity] || 1.0;
-          effectivePrintTime *= complexityFactor;
+          effectivePrintTime = scaledVolume / volumetricRate;
+          
+          // Add support time factor based on complexity (proxy for overhangs)
+          let supportTimeFactor = 1.0;
+          if (fileComplexity >= 4) {
+            supportTimeFactor = 1.6; // High overhangs expected
+          } else if (fileComplexity >= 3) {
+            supportTimeFactor = 1.35; // Medium overhangs
+          } else if (fileComplexity >= 2) {
+            supportTimeFactor = 1.15; // Low overhangs
+          }
+          
+          effectivePrintTime = Math.max(0.5, effectivePrintTime * supportTimeFactor);
         }
         
         // Verdreifache Druckzeit für PA12 und PA6
@@ -550,13 +568,30 @@ const CostCalculatorWizard = () => {
           // Use the accurate calculation from FileUpload3D
           effectivePrintTime = file.estimatedPrintTimeHours;
         } else {
-          // Fallback: improved estimation considering complexity
-          effectivePrintTime = scaledVolume / 50; // Base: 50 cm³/h
+          // Fallback: realistic estimation matching FileUpload3D logic
+          let volumetricRate: number;
+          if (fileComplexity >= 4) {
+            volumetricRate = 12;
+          } else if (fileComplexity >= 3) {
+            volumetricRate = 15;
+          } else if (fileComplexity >= 2) {
+            volumetricRate = 20;
+          } else {
+            volumetricRate = 25;
+          }
           
-          // Apply complexity multiplier for support structures
-          const complexityMultipliers = [1.0, 1.2, 1.5, 2.0, 2.5];
-          const complexityFactor = complexityMultipliers[fileComplexity] || 1.0;
-          effectivePrintTime *= complexityFactor;
+          effectivePrintTime = scaledVolume / volumetricRate;
+          
+          let supportTimeFactor = 1.0;
+          if (fileComplexity >= 4) {
+            supportTimeFactor = 1.6;
+          } else if (fileComplexity >= 3) {
+            supportTimeFactor = 1.35;
+          } else if (fileComplexity >= 2) {
+            supportTimeFactor = 1.15;
+          }
+          
+          effectivePrintTime = Math.max(0.5, effectivePrintTime * supportTimeFactor);
         }
         
         // Verdreifache Druckzeit für PA12 und PA6
@@ -1259,10 +1294,30 @@ const CostCalculatorWizard = () => {
                               if (file.estimatedPrintTimeHours && file.estimatedPrintTimeHours > 0) {
                                 effectivePrintTime = file.estimatedPrintTimeHours;
                               } else {
-                                effectivePrintTime = scaledVolume / 50;
-                                const complexityMultipliers = [1.0, 1.2, 1.5, 2.0, 2.5];
-                                const complexityFactor = complexityMultipliers[fileComplexity] || 1.0;
-                                effectivePrintTime *= complexityFactor;
+                                // Fallback: realistic estimation matching FileUpload3D logic
+                                let volumetricRate: number;
+                                if (fileComplexity >= 4) {
+                                  volumetricRate = 12;
+                                } else if (fileComplexity >= 3) {
+                                  volumetricRate = 15;
+                                } else if (fileComplexity >= 2) {
+                                  volumetricRate = 20;
+                                } else {
+                                  volumetricRate = 25;
+                                }
+                                
+                                effectivePrintTime = scaledVolume / volumetricRate;
+                                
+                                let supportTimeFactor = 1.0;
+                                if (fileComplexity >= 4) {
+                                  supportTimeFactor = 1.6;
+                                } else if (fileComplexity >= 3) {
+                                  supportTimeFactor = 1.35;
+                                } else if (fileComplexity >= 2) {
+                                  supportTimeFactor = 1.15;
+                                }
+                                
+                                effectivePrintTime = Math.max(0.5, effectivePrintTime * supportTimeFactor);
                               }
                               
                               if (file.material === 'pa12' || file.material === 'pa6') {

@@ -387,15 +387,43 @@ export const FileUpload3D = ({
           });
         }
 
-        // Calculate print time and material weight using same logic as CostCalculatorWizard
+        // Calculate print time and material weight using REALISTIC volumetric flow rates
         const volumeCm3 = volume / 1000; // mm³ to cm³
         const materialDensity = 1.24; // g/cm³
         const materialWeightGrams = volumeCm3 * materialDensity;
         
-        // Use complexity from edge function for time calculation
+        // CRITICAL: Use realistic volumetric flow rate based on complexity
         const fileComplexity = Math.round(complexity.score * 5); // 0-1 → 0-5
-        let effectivePrintTime = volumeCm3 / 50; // 50 cm³/h base speed
-        effectivePrintTime = Math.max(1, effectivePrintTime * (1 + fileComplexity * 0.3));
+        
+        // Realistic volumetric print rates (cm³/h) based on quality needed
+        let volumetricRate: number;
+        if (fileComplexity >= 4) {
+          volumetricRate = 12; // Very complex: slow, high detail
+        } else if (fileComplexity >= 3) {
+          volumetricRate = 15; // Complex: moderate detail
+        } else if (fileComplexity >= 2) {
+          volumetricRate = 20; // Medium complexity
+        } else {
+          volumetricRate = 25; // Simple parts
+        }
+        
+        // Base print time from volume
+        let effectivePrintTime = volumeCm3 / volumetricRate;
+        
+        // Add support material time based on overhang severity
+        let supportTimeFactor = 1.0;
+        if (overhangs.severity === 'high') {
+          supportTimeFactor = 1.6; // +60% time for heavy supports
+        } else if (overhangs.severity === 'medium') {
+          supportTimeFactor = 1.35; // +35% time for moderate supports
+        } else if (overhangs.severity === 'low') {
+          supportTimeFactor = 1.15; // +15% time for minimal supports
+        }
+        
+        effectivePrintTime = effectivePrintTime * supportTimeFactor;
+        
+        // Minimum 0.5h for any print
+        effectivePrintTime = Math.max(0.5, effectivePrintTime);
 
         onDimensionsCalculated({
           geometry,
