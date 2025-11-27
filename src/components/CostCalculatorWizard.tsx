@@ -387,22 +387,13 @@ const CostCalculatorWizard = () => {
     if (file.estimatedMaterialGrams && fileScale === 1) {
       // Use precise edge function calculation
       materialWeightGrams = file.estimatedMaterialGrams;
+      console.log(`[${file.fileName}] Using edge function material: ${materialWeightGrams.toFixed(1)}g`);
     } else {
-      // Calculate with shell + infill (realistic for 3D printing)
-      const infillPercentage = 0.20; // 20% infill
-      const infillVolume = scaledVolume * infillPercentage;
-      const infillWeight = infillVolume * materialDensity;
-      
-      // Shell calculation (walls + top/bottom)
-      const surfaceArea = file.surfaceArea 
-        ? file.surfaceArea * Math.pow(fileScale, 2)
-        : 2 * (scaledLength * scaledWidth + scaledLength * scaledHeight + scaledWidth * scaledHeight);
-      
-      const shellThickness = 0.8; // mm - typically 2 perimeters
-      const shellVolume = (surfaceArea / 100) * shellThickness / 10; // Convert to cm³
-      const shellWeight = shellVolume * materialDensity;
-      
-      materialWeightGrams = infillWeight + shellWeight;
+      // Fallback: Calculate with infill only (edge function already includes shell)
+      // 20% infill typical for structural parts
+      const infillPercentage = 0.20;
+      materialWeightGrams = scaledVolume * infillPercentage * materialDensity;
+      console.log(`[${file.fileName}] Using fallback material calc: ${materialWeightGrams.toFixed(1)}g (${scaledVolume.toFixed(1)}cm³ * ${infillPercentage})`);
     }
     
     // Calculate material volume for print time estimation
