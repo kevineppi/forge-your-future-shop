@@ -366,9 +366,136 @@ const CostCalculatorWizard = () => {
     }
   };
 
+  // KONSOLIDIERTE PREISBERECHNUNG - Einzige Quelle der Wahrheit
+  const calculateFilePriceDetails = useCallback((file: UploadedFile) => {
+    const fileQuantity = file.quantity || 1;
+    const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
+    const fileComplexity = file.complexity || 0;
+    const fileScale = file.scale || 1;
+    const filePostProcessing = file.postProcessing || "none";
+    const fileSupportRemoval = file.supportRemoval || false;
+    
+    const scaledVolume = file.volume * Math.pow(fileScale, 3);
+    const scaledLength = file.length * fileScale;
+    const scaledWidth = file.width * fileScale;
+    const scaledHeight = file.height * fileScale;
+    
+    // REALISTIC MATERIAL CALCULATION
+    const materialDensity = 1.24; // g/cm³ for PLA
+    let materialWeightGrams: number;
+    
+    if (file.estimatedMaterialGrams && fileScale === 1) {
+      // Use precise edge function calculation
+      materialWeightGrams = file.estimatedMaterialGrams;
+    } else {
+      // Calculate with shell + infill (realistic for 3D printing)
+      const infillPercentage = 0.20; // 20% infill
+      const infillVolume = scaledVolume * infillPercentage;
+      const infillWeight = infillVolume * materialDensity;
+      
+      // Shell calculation (walls + top/bottom)
+      const surfaceArea = file.surfaceArea 
+        ? file.surfaceArea * Math.pow(fileScale, 2)
+        : 2 * (scaledLength * scaledWidth + scaledLength * scaledHeight + scaledWidth * scaledHeight);
+      
+      const shellThickness = 0.8; // mm - typically 2 perimeters
+      const shellVolume = (surfaceArea / 100) * shellThickness / 10; // Convert to cm³
+      const shellWeight = shellVolume * materialDensity;
+      
+      materialWeightGrams = infillWeight + shellWeight;
+    }
+    
+    // Calculate material volume for print time estimation
+    const materialVolume = materialWeightGrams / materialDensity;
+    
+    // NEUE FAIRE PREISBERECHNUNG
+    // 1. MATERIALKOSTEN (realistisch)
+    const materialCost = (materialWeightGrams / 1000) * fileMaterial.pricePerKg * 1.15;
+    
+    // 2. GRUNDGEBÜHR (Setup, Handling, QS)
+    const setupFee = 15;
+    
+    // 3. DRUCKZEIT - Nutze Edge-Function-Wert wenn verfügbar
+    let effectivePrintTime: number;
+    if (file.estimatedPrintTimeHours) {
+      effectivePrintTime = file.estimatedPrintTimeHours;
+      console.log(`[${file.fileName}] Using edge function print time: ${effectivePrintTime.toFixed(2)}h`);
+    } else {
+      effectivePrintTime = materialVolume / 26;
+      console.log(`[${file.fileName}] Using fallback print time: ${effectivePrintTime.toFixed(2)}h (material vol: ${materialVolume.toFixed(2)}cm³)`);
+    }
+    
+    // PA12/PA6: 3x längere Druckzeit
+    if (file.material === 'pa12' || file.material === 'pa6') {
+      effectivePrintTime *= 3;
+    }
+    
+    console.log(`[${file.fileName}] Material weight: ${materialWeightGrams.toFixed(1)}g, Print time: ${effectivePrintTime.toFixed(2)}h`);
+    
+    // 4. ZEITKOSTEN mit Komplexitätsmultiplikator
+    const complexityMultiplier = 1 + (fileComplexity * 0.25);
+    const timeCostPerHour = 3.0;
+    const timeCost = effectivePrintTime * timeCostPerHour * complexityMultiplier;
+    
+    // 5. ZUSATZLEISTUNGEN
+    let additionalServices = 0;
+    const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
+    additionalServices += postProcessingCost;
+    
+    if (fileSupportRemoval && fileComplexity >= 3) {
+      additionalServices += 8;
+    }
+    
+    // Trocknungskosten für Nylon
+    if (fileMaterial.dryingHours > 0) {
+      additionalServices += fileMaterial.dryingHours * 0.50;
+    }
+    
+    // ZWISCHENSUMME
+    let pricePerPiece = materialCost + setupFee + timeCost + additionalServices;
+    
+    console.log(`[${file.fileName}] Price breakdown: Material=${materialCost.toFixed(2)}€, Setup=${setupFee}€, Time=${timeCost.toFixed(2)}€, Additional=${additionalServices.toFixed(2)}€`);
+    
+    // 6. EXPRESS-ZUSCHLAG (+30%)
+    if (isExpressService) {
+      pricePerPiece *= 1.30;
+    }
+    
+    // 7. STEUER (20% MwSt)
+    pricePerPiece *= 1.20;
+    
+    // Apply quantity discount
+    let discount = 1.0;
+    if (fileQuantity >= 50) discount = 0.80;
+    else if (fileQuantity >= 20) discount = 0.85;
+    else if (fileQuantity >= 10) discount = 0.90;
+    else if (fileQuantity >= 5) discount = 0.95;
+    
+    const fileTotalPrice = pricePerPiece * fileQuantity * discount;
+    
+    console.log(`[${file.fileName}] Final: ${pricePerPiece.toFixed(2)}€/pc × ${fileQuantity} × ${discount} = ${fileTotalPrice.toFixed(2)}€`);
+    
+    return {
+      totalPrice: fileTotalPrice,
+      pricePerPiece,
+      materialWeightGrams,
+      effectivePrintTime
+    };
+  }, [isExpressService, materials, postProcessingOptions]);
+
+  // Calculate individual file prices using the shared function
+  const filePrices = useMemo(() => {
+    const prices: { [key: string]: number } = {};
+    uploadedFiles.forEach(file => {
+      const { totalPrice } = calculateFilePriceDetails(file);
+      prices[file.id] = totalPrice;
+    });
+    return prices;
+  }, [uploadedFiles, calculateFilePriceDetails]);
+
+  // Calculate total price using the same shared function
   const calculatePrice = useCallback(() => {
     try {
-      // Return 0 if no files uploaded
       if (uploadedFiles.length === 0) {
         return { 
           perPiece: 0, total: 0, savings: 0, materialCost: 0, energyCost: 0,
@@ -379,108 +506,11 @@ const CostCalculatorWizard = () => {
         };
       }
       
-      // Calculate total for all uploaded files using EXACT SAME LOGIC as filePrices
+      // Sum all file prices using the shared calculation function
       let totalWithQuantities = 0;
-      
       uploadedFiles.forEach(file => {
-        const fileQuantity = file.quantity || 1;
-        const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
-        const fileComplexity = file.complexity || 0;
-        const fileScale = file.scale || 1;
-        const filePostProcessing = file.postProcessing || "none";
-        const fileSupportRemoval = file.supportRemoval || false;
-        
-      const scaledVolume = file.volume * Math.pow(fileScale, 3);
-      const scaledLength = file.length * fileScale;
-      const scaledWidth = file.width * fileScale;
-      const scaledHeight = file.height * fileScale;
-      const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
-      
-      // REALISTIC MATERIAL CALCULATION
-      // Use edge function estimate if available, otherwise calculate with shell + infill
-      const materialDensity = 1.24; // g/cm³ for PLA
-      let materialWeightGrams: number;
-      
-      if (file.estimatedMaterialGrams && fileScale === 1) {
-        // Use precise edge function calculation
-        materialWeightGrams = file.estimatedMaterialGrams;
-      } else {
-        // Calculate with shell + infill (realistic for 3D printing)
-        const infillPercentage = 0.20; // 20% infill
-        const infillVolume = scaledVolume * infillPercentage;
-        const infillWeight = infillVolume * materialDensity;
-        
-        // Shell calculation (walls + top/bottom)
-        const surfaceArea = file.surfaceArea 
-          ? file.surfaceArea * Math.pow(fileScale, 2)
-          : 2 * (scaledLength * scaledWidth + scaledLength * scaledHeight + scaledWidth * scaledHeight);
-        
-        const shellThickness = 0.8; // mm - typically 2 perimeters
-        const shellVolume = (surfaceArea / 100) * shellThickness / 10; // Convert to cm³
-        const shellWeight = shellVolume * materialDensity;
-        
-        materialWeightGrams = infillWeight + shellWeight;
-      }
-      
-      // Calculate material volume for print time estimation
-      const materialVolume = materialWeightGrams / materialDensity;
-      
-      // NEUE FAIRE PREISBERECHNUNG
-      // 1. MATERIALKOSTEN (realistisch)
-      const materialCost = (materialWeightGrams / 1000) * fileMaterial.pricePerKg * 1.15;
-      
-      // 2. GRUNDGEBÜHR (Setup, Handling, QS)
-      const setupFee = 15;
-      
-      // 3. DRUCKZEIT
-      const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
-      let effectivePrintTime = materialVolume / 26;
-      
-      // PA12/PA6: 3x längere Druckzeit
-      if (file.material === 'pa12' || file.material === 'pa6') {
-        effectivePrintTime *= 3;
-      }
-      
-      // 4. ZEITKOSTEN mit Komplexitätsmultiplikator
-      // Komplexität: 0=1.0x, 1=1.2x, 2=1.4x, 3=1.6x, 4=2.0x
-      const complexityMultiplier = 1 + (fileComplexity * 0.25);
-      const timeCostPerHour = 3.0; // Fair: 3€/h statt 28€/h
-      const timeCost = effectivePrintTime * timeCostPerHour * complexityMultiplier;
-      
-      // 5. ZUSATZLEISTUNGEN
-      let additionalServices = 0;
-      const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
-      additionalServices += postProcessingCost;
-      
-      if (fileSupportRemoval && fileComplexity >= 3) {
-        additionalServices += 8;
-      }
-      
-      // Trocknungskosten für Nylon
-      if (fileMaterial.dryingHours > 0) {
-        additionalServices += fileMaterial.dryingHours * 0.50;
-      }
-      
-      // ZWISCHENSUMME
-      let pricePerPiece = materialCost + setupFee + timeCost + additionalServices;
-      
-      // 6. EXPRESS-ZUSCHLAG (+30%)
-      if (isExpressService) {
-        pricePerPiece *= 1.30;
-      }
-      
-      // 7. STEUER (20% MwSt)
-      pricePerPiece *= 1.20;
-      
-      // Apply quantity discount
-      let discount = 1.0;
-      if (fileQuantity >= 50) discount = 0.80;
-      else if (fileQuantity >= 20) discount = 0.85;
-      else if (fileQuantity >= 10) discount = 0.90;
-      else if (fileQuantity >= 5) discount = 0.95;
-      
-      const fileTotalPrice = pricePerPiece * fileQuantity * discount;
-      totalWithQuantities += fileTotalPrice;
+        const { totalPrice } = calculateFilePriceDetails(file);
+        totalWithQuantities += totalPrice;
       });
       
       // Check if free shipping applies (>= 100€ without shipping and express)
@@ -496,7 +526,8 @@ const CostCalculatorWizard = () => {
         totalWithQuantities += expressShipping;
       }
       
-      // Gesamtpreis ist einfach die Summe aller Live-Preise + Versand
+      console.log(`Total before shipping: ${(totalWithQuantities - shippingCost - expressShipping).toFixed(2)}€, Shipping: ${shippingCost}€, Express: ${expressShipping}€, Final: ${totalWithQuantities.toFixed(2)}€`);
+      
       return {
         perPiece: 0,
         total: totalWithQuantities,
@@ -527,117 +558,9 @@ const CostCalculatorWizard = () => {
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
     }
-  }, [material, complexity, isExpressService, postProcessing, supportRemoval, uploadedFiles]);
+  }, [uploadedFiles, calculateFilePriceDetails, isExpressService]);
 
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
-
-  // Calculate individual file prices
-  const filePrices = useMemo(() => {
-    const prices: { [key: string]: number } = {};
-    
-    uploadedFiles.forEach(file => {
-      const fileQuantity = file.quantity || 1;
-      const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
-      const fileComplexity = file.complexity || 0;
-      const fileScale = file.scale || 1;
-      const filePostProcessing = file.postProcessing || "none";
-      const fileSupportRemoval = file.supportRemoval || false;
-      
-      const scaledVolume = file.volume * Math.pow(fileScale, 3);
-      const scaledLength = file.length * fileScale;
-      const scaledWidth = file.width * fileScale;
-      const scaledHeight = file.height * fileScale;
-      const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
-      
-      // REALISTIC MATERIAL CALCULATION
-      // Use edge function estimate if available, otherwise calculate with shell + infill
-      const materialDensity = 1.24; // g/cm³ for PLA
-      let materialWeightGrams: number;
-      
-      if (file.estimatedMaterialGrams && fileScale === 1) {
-        // Use precise edge function calculation
-        materialWeightGrams = file.estimatedMaterialGrams;
-      } else {
-        // Calculate with shell + infill (realistic for 3D printing)
-        const infillPercentage = 0.20; // 20% infill
-        const infillVolume = scaledVolume * infillPercentage;
-        const infillWeight = infillVolume * materialDensity;
-        
-        // Shell calculation (walls + top/bottom)
-        const surfaceArea = file.surfaceArea 
-          ? file.surfaceArea * Math.pow(fileScale, 2)
-          : 2 * (scaledLength * scaledWidth + scaledLength * scaledHeight + scaledWidth * scaledHeight);
-        
-        const shellThickness = 0.8; // mm - typically 2 perimeters
-        const shellVolume = (surfaceArea / 100) * shellThickness / 10; // Convert to cm³
-        const shellWeight = shellVolume * materialDensity;
-        
-        materialWeightGrams = infillWeight + shellWeight;
-      }
-      
-      // Calculate material volume for print time estimation
-      const materialVolume = materialWeightGrams / materialDensity;
-      
-      // NEUE FAIRE PREISBERECHNUNG
-      // 1. MATERIALKOSTEN (realistisch)
-      const materialCost = (materialWeightGrams / 1000) * fileMaterial.pricePerKg * 1.15;
-      
-      // 2. GRUNDGEBÜHR (Setup, Handling, QS)
-      const setupFee = 15;
-      
-      // 3. DRUCKZEIT
-      const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
-      let effectivePrintTime = materialVolume / 26;
-      
-      // PA12/PA6: 3x längere Druckzeit
-      if (file.material === 'pa12' || file.material === 'pa6') {
-        effectivePrintTime *= 3;
-      }
-      
-      // 4. ZEITKOSTEN mit Komplexitätsmultiplikator
-      // Komplexität: 0=1.0x, 1=1.2x, 2=1.4x, 3=1.6x, 4=2.0x
-      const complexityMultiplier = 1 + (fileComplexity * 0.25);
-      const timeCostPerHour = 3.0; // Fair: 3€/h statt 28€/h
-      const timeCost = effectivePrintTime * timeCostPerHour * complexityMultiplier;
-      
-      // 5. ZUSATZLEISTUNGEN
-      let additionalServices = 0;
-      const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
-      additionalServices += postProcessingCost;
-      
-      if (fileSupportRemoval && fileComplexity >= 3) {
-        additionalServices += 8;
-      }
-      
-      // Trocknungskosten für Nylon
-      if (fileMaterial.dryingHours > 0) {
-        additionalServices += fileMaterial.dryingHours * 0.50;
-      }
-      
-      // ZWISCHENSUMME
-      let pricePerPiece = materialCost + setupFee + timeCost + additionalServices;
-      
-      // 6. EXPRESS-ZUSCHLAG (+30%)
-      if (isExpressService) {
-        pricePerPiece *= 1.30;
-      }
-      
-      // 7. STEUER (20% MwSt)
-      pricePerPiece *= 1.20;
-      
-      let discount = 1.0;
-      if (fileQuantity >= 50) discount = 0.80;
-      else if (fileQuantity >= 20) discount = 0.85;
-      else if (fileQuantity >= 10) discount = 0.90;
-      else if (fileQuantity >= 5) discount = 0.95;
-      
-      const fileTotalPrice = pricePerPiece * fileQuantity * discount;
-      
-      prices[file.id] = fileTotalPrice;
-    });
-    
-    return prices;
-  }, [uploadedFiles, isExpressService, materials, postProcessingOptions]);
 
   const steps = [
     { number: 1, title: "Eingabe", icon: Upload, completed: currentStep > 1 },
