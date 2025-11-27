@@ -436,11 +436,6 @@ function estimatePrinting(
   
   const layerCount = Math.ceil(boundingBox.dimensions.z / layerHeight);
   
-  // Druckgeschwindigkeit basierend auf Komplexität (mm/s)
-  let printSpeed = 60; // Standard
-  if (complexity.level === 'very_complex') printSpeed = 40;
-  else if (complexity.level === 'complex') printSpeed = 50;
-  
   // Infill (20% Standard)
   const infillPercentage = 0.20;
   const solidVolume = volumeCm3 * infillPercentage;
@@ -467,18 +462,29 @@ function estimatePrinting(
     supportMaterial = totalMaterial * 0.05;
   }
   
-  // Druckzeit Berechnung
-  // Basis: Volumen / Durchsatz
-  const volumetricFlowRate = 11; // mm³/s für 0.4mm Nozzle bei 50mm/s
-  const extrusionTime = (volumeCm3 * 1000) / volumetricFlowRate / 3600; // hours
+  // KRITISCH: Druckzeit basierend auf MATERIAL-Volumen, nicht Objekt-Volumen!
+  // Material-Volumen in cm³
+  const materialVolumeCm3 = totalMaterial / materialDensity;
   
-  // Travel, Retractions, Acceleration
-  const travelTime = layerCount * 0.5 / 60; // 0.5s pro Layer
-  const complexityFactor = 1 + (complexity.score * 0.5);
-  const overhangFactor = overhangs.severity === 'high' ? 1.3 : 
-                        overhangs.severity === 'medium' ? 1.15 : 1.0;
+  // Realistische volumetrische Druckrate: 15-30 cm³/h je nach Komplexität
+  let volumetricRate = 25; // cm³/h standard
+  if (complexity.level === 'very_complex') volumetricRate = 15;
+  else if (complexity.level === 'complex') volumetricRate = 20;
   
-  const totalPrintTime = (extrusionTime + travelTime) * complexityFactor * overhangFactor;
+  // Basis-Druckzeit
+  let basePrintTime = materialVolumeCm3 / volumetricRate;
+  
+  // Support-Zeit addieren basierend auf Überhängen
+  let supportTimeFactor = 1.0;
+  if (overhangs.severity === 'high') {
+    supportTimeFactor = 1.5; // +50% für viel Support
+  } else if (overhangs.severity === 'medium') {
+    supportTimeFactor = 1.25; // +25% für moderaten Support
+  } else if (overhangs.severity === 'low') {
+    supportTimeFactor = 1.1; // +10% für minimalen Support
+  }
+  
+  const totalPrintTime = basePrintTime * supportTimeFactor;
   
   return {
     printTimeHours: Math.max(0.5, totalPrintTime),
