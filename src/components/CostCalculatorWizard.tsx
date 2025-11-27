@@ -1451,67 +1451,8 @@ const CostCalculatorWizard = () => {
               const scaledVolume = editingFile.volume * Math.pow(editingFile.scale || 1, 3);
               const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
               
-              // Calculate pricing for this file - SAME LOGIC AS filePrices
-              const fileMaterial = materials[editingFile.material as keyof typeof materials] || materials.pla;
-              const materialWeightGrams = scaledVolume * 1.24;
-              
-              // Calculate objects per plate
-              const objectArea = scaledLength * scaledWidth;
-              const plateArea = 150 * 150;
-              const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
-              
-              // CRITICAL: Two separate time values
-              // displayPrintTime = realistic time from edge function (for display)
-              // pricingPrintTime = formula time (for maintaining correct price)
-              const displayPrintTime = editingFile.estimatedPrintTimeHours || (scaledVolume / 50);
-              let pricingPrintTime = scaledVolume / 50;
-              
-              // Verdreifache Druckzeit für PA12 und PA6
-              if (editingFile.material === 'pa12' || editingFile.material === 'pa6') {
-                pricingPrintTime = pricingPrintTime * 3;
-              }
-              
-              const effectivePrintTime = pricingPrintTime; // Used for PRICING only
-              
-              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
-              const materialCostWithMarkup = materialCostBase * 1.30;
-              
-              const energyCostPerHour = 0.20;
-              const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
-              const energyCostWithMarkup = energyCostBase * 1.30;
-              
-              const laborCost = 5.00;
-              
-              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-              const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
-              
-              const depreciationPerHour = 0.20;
-              const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
-              const dryingCostPerHour = 0.50;
-              const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
-              
-              let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                             printCost + depreciationCost + dryingCost;
-              
-              const fileComplexity = editingFile.complexity || 0;
-              const filePostProcessing = editingFile.postProcessing || "none";
-              const fileSupportRemoval = editingFile.supportRemoval || false;
-              
-              let additionalServices = 0;
-              const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
-              additionalServices += postProcessingCost;
-              
-              if (fileSupportRemoval && fileComplexity >= 3) {
-                additionalServices += 8;
-              }
-              
-              subtotal += additionalServices;
-              subtotal = subtotal * 1.30; // Profit margin
-              subtotal = subtotal * 1.20; // Tax
-              
-              // Apply complexity multiplier: +50% per level (0=100%, 1=150%, 2=200%, 3=250%, 4=300%)
-              const complexityMultiplier = 1 + (fileComplexity * 0.5);
-              let estimatedPrice = subtotal * complexityMultiplier;
+              // Calculate pricing for this file using shared function
+              const { pricePerPiece: estimatedPrice, materialWeightGrams, effectivePrintTime: displayPrintTime } = calculateFilePriceDetails(editingFile);
               
               return (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4">
