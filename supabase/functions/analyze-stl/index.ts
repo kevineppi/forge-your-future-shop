@@ -513,8 +513,8 @@ serve(async (req) => {
     
     console.log('Processing file:', stlFile.name, 'Size:', stlFile.size);
     
-    // Memory limit: Max 15MB für vollständige Analyse
-    const MAX_FILE_SIZE = 15 * 1024 * 1024; // 15MB
+    // Memory limit: Max 8MB für vollständige Analyse (Edge Functions haben begrenzte Ressourcen)
+    const MAX_FILE_SIZE = 8 * 1024 * 1024; // 8MB
     if (stlFile.size > MAX_FILE_SIZE) {
       console.log('File too large, using sampling analysis');
       

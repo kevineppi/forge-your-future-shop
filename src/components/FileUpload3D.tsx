@@ -281,7 +281,7 @@ export const FileUpload3D = ({
 
         if (analysisError) {
           console.error('Analysis error:', analysisError);
-          // Fallback to basic analysis if edge function fails
+          // Fallback to basic client-side calculation if edge function fails
           const boundingBox = geometry.boundingBox;
           if (boundingBox) {
             const size = new THREE.Vector3();
