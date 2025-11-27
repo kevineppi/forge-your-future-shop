@@ -98,6 +98,9 @@ interface UploadedFile {
   height: number;
   analysisResults: AnalysisResult[];
   estimatedPrintTimeHours?: number;
+  complexityScore?: number;
+  estimatedMaterialGrams?: number;
+  surfaceArea?: number;
   // File-specific settings
   material?: string;
   complexity?: number;
@@ -217,6 +220,8 @@ const CostCalculatorWizard = () => {
     analysisResults: AnalysisResult[];
     estimatedPrintTimeHours?: number;
     complexityScore?: number;
+    estimatedMaterialGrams?: number;
+    surfaceArea?: number;
   }) => {
     // Map complexity score to array index (0-4)
     // complexityScore 0-1 -> 0-4 index
@@ -245,6 +250,8 @@ const CostCalculatorWizard = () => {
       height: fileData.height,
       analysisResults: fileData.analysisResults,
       estimatedPrintTimeHours: fileData.estimatedPrintTimeHours,
+      estimatedMaterialGrams: fileData.estimatedMaterialGrams,
+      surfaceArea: fileData.surfaceArea,
       // Initialize with detected complexity or current settings
       material: material || "pla",
       complexity: detectedComplexity,
@@ -389,11 +396,34 @@ const CostCalculatorWizard = () => {
       const scaledHeight = file.height * fileScale;
       const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
       
-      // Calculate material volume (25% of object for typical settings)
-      const infillFactor = 0.25;
-      const materialVolume = scaledVolume * infillFactor;
-      const materialDensity = 1.24;
-      const materialWeightGrams = materialVolume * materialDensity;
+      // REALISTIC MATERIAL CALCULATION
+      // Use edge function estimate if available, otherwise calculate with shell + infill
+      const materialDensity = 1.24; // g/cm³ for PLA
+      let materialWeightGrams: number;
+      
+      if (file.estimatedMaterialGrams && fileScale === 1) {
+        // Use precise edge function calculation
+        materialWeightGrams = file.estimatedMaterialGrams;
+      } else {
+        // Calculate with shell + infill (realistic for 3D printing)
+        const infillPercentage = 0.20; // 20% infill
+        const infillVolume = scaledVolume * infillPercentage;
+        const infillWeight = infillVolume * materialDensity;
+        
+        // Shell calculation (walls + top/bottom)
+        const surfaceArea = file.surfaceArea 
+          ? file.surfaceArea * Math.pow(fileScale, 2)
+          : 2 * (scaledLength * scaledWidth + scaledLength * scaledHeight + scaledWidth * scaledHeight);
+        
+        const shellThickness = 0.8; // mm - typically 2 perimeters
+        const shellVolume = (surfaceArea / 100) * shellThickness / 10; // Convert to cm³
+        const shellWeight = shellVolume * materialDensity;
+        
+        materialWeightGrams = infillWeight + shellWeight;
+      }
+      
+      // Calculate material volume for print time estimation
+      const materialVolume = materialWeightGrams / materialDensity;
       
       // NEUE FAIRE PREISBERECHNUNG
       // 1. MATERIALKOSTEN (realistisch)
@@ -519,11 +549,34 @@ const CostCalculatorWizard = () => {
       const scaledHeight = file.height * fileScale;
       const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
       
-      // Calculate material volume (25% of object for typical settings)
-      const infillFactor = 0.25;
-      const materialVolume = scaledVolume * infillFactor;
-      const materialDensity = 1.24;
-      const materialWeightGrams = materialVolume * materialDensity;
+      // REALISTIC MATERIAL CALCULATION
+      // Use edge function estimate if available, otherwise calculate with shell + infill
+      const materialDensity = 1.24; // g/cm³ for PLA
+      let materialWeightGrams: number;
+      
+      if (file.estimatedMaterialGrams && fileScale === 1) {
+        // Use precise edge function calculation
+        materialWeightGrams = file.estimatedMaterialGrams;
+      } else {
+        // Calculate with shell + infill (realistic for 3D printing)
+        const infillPercentage = 0.20; // 20% infill
+        const infillVolume = scaledVolume * infillPercentage;
+        const infillWeight = infillVolume * materialDensity;
+        
+        // Shell calculation (walls + top/bottom)
+        const surfaceArea = file.surfaceArea 
+          ? file.surfaceArea * Math.pow(fileScale, 2)
+          : 2 * (scaledLength * scaledWidth + scaledLength * scaledHeight + scaledWidth * scaledHeight);
+        
+        const shellThickness = 0.8; // mm - typically 2 perimeters
+        const shellVolume = (surfaceArea / 100) * shellThickness / 10; // Convert to cm³
+        const shellWeight = shellVolume * materialDensity;
+        
+        materialWeightGrams = infillWeight + shellWeight;
+      }
+      
+      // Calculate material volume for print time estimation
+      const materialVolume = materialWeightGrams / materialDensity;
       
       // NEUE FAIRE PREISBERECHNUNG
       // 1. MATERIALKOSTEN (realistisch)
