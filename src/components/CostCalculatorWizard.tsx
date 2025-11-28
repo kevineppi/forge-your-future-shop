@@ -1271,90 +1271,26 @@ const CostCalculatorWizard = () => {
                               description: "Sie werden zu Stripe Checkout weitergeleitet.",
                             });
 
-                            // Calculate file prices - apply discount at item level
+                            // Calculate file prices - use unified calculation function
                             const items = uploadedFiles.map(file => {
                               const fileQuantity = file.quantity || 1;
                               const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
                               const fileComplexity = file.complexity || 0;
                               const fileScale = file.scale || 1;
-                              const filePostProcessing = file.postProcessing || "none";
-                              const fileSupportRemoval = file.supportRemoval || false;
                               
-                              const scaledVolume = file.volume * Math.pow(fileScale, 3);
+                              // Use the same unified calculation function as live preview
+                              const { totalPrice, pricePerPiece, materialWeightGrams, effectivePrintTime } = calculateFilePriceDetails(file);
+                              
+                              // Apply discount code to individual item
+                              let discountedTotalPrice = totalPrice;
+                              if (appliedDiscount) {
+                                const itemDiscount = totalPrice * (appliedDiscount.percentage / 100);
+                                discountedTotalPrice = totalPrice - itemDiscount;
+                              }
+                              
                               const scaledLength = file.length * fileScale;
                               const scaledWidth = file.width * fileScale;
                               const scaledHeight = file.height * fileScale;
-                              const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
-                              
-                              // FIXED: Calculate actual material volume (≈25% of object volume for typical settings: 20% infill + walls)
-                              const infillFactor = 0.25;
-                              const materialVolume = scaledVolume * infillFactor;
-                              
-                              const materialDensity = 1.24;
-                              const materialWeightGrams = materialVolume * materialDensity;
-                              
-                              const objectArea = scaledLength * scaledWidth;
-                              const plateArea = 150 * 150;
-                              const objectsPerPlate = Math.max(1, Math.floor(plateArea / objectArea));
-                              
-                              const materialCostBase = (materialWeightGrams / 1000) * fileMaterial.pricePerKg;
-                              const materialCostWithMarkup = materialCostBase * 1.30;
-                              
-                              // FIXED: Calculate print time based on material volume, not object volume
-                              // Realistic print speed: 26 cm³/h (verified with slicer: 15h for 403 cm³)
-                              const displayPrintTime = file.estimatedPrintTimeHours || (materialVolume / 26);
-                              const pricingPrintTime = materialVolume / 26;
-                              
-                              const effectivePrintTime = file.material === 'pa12' || file.material === 'pa6'
-                                ? pricingPrintTime * 3
-                                : pricingPrintTime;
-                              
-                              const energyCostPerHour = 0.20;
-                              const energyCostBase = (effectivePrintTime * energyCostPerHour) / objectsPerPlate;
-                              const energyCostWithMarkup = energyCostBase * 1.30;
-                              
-                              const laborCost = 5.00;
-                              
-                              let printCostPerHour = maxDimension > 250 ? 4.0 : 1.5;
-                              const printCost = (effectivePrintTime * printCostPerHour) / objectsPerPlate;
-                              
-                              const depreciationPerHour = 0.20;
-                              const depreciationCost = (effectivePrintTime * depreciationPerHour) / objectsPerPlate;
-                              const dryingCostPerHour = 0.50;
-                              const dryingCost = fileMaterial.dryingHours * dryingCostPerHour;
-                              
-                              let subtotal = materialCostWithMarkup + energyCostWithMarkup + laborCost + 
-                                             printCost + depreciationCost + dryingCost;
-                              
-                              let additionalServices = 0;
-                              const postProcessingCost = postProcessingOptions[filePostProcessing as keyof typeof postProcessingOptions]?.price || 0;
-                              additionalServices += postProcessingCost;
-                              
-                              if (fileSupportRemoval && fileComplexity >= 3) {
-                                additionalServices += 8;
-                              }
-                              
-                              subtotal += additionalServices;
-                              subtotal = subtotal * 1.30; // Profit margin
-                              subtotal = subtotal * 1.20; // Tax
-                              
-                              const complexityMultiplier = 1 + (fileComplexity * 0.5);
-                              let pricePerPiece = subtotal * complexityMultiplier;
-
-                              // Apply quantity discount
-                              let discount = 1.0;
-                              if (fileQuantity >= 50) discount = 0.80;
-                              else if (fileQuantity >= 20) discount = 0.85;
-                              else if (fileQuantity >= 10) discount = 0.90;
-                              else if (fileQuantity >= 5) discount = 0.95;
-                              
-                              let totalPrice = pricePerPiece * fileQuantity * discount;
-                              
-                              // Apply discount code to individual item
-                              if (appliedDiscount) {
-                                const itemDiscount = totalPrice * (appliedDiscount.percentage / 100);
-                                totalPrice = totalPrice - itemDiscount;
-                              }
                               
                               return {
                                 file_name: file.fileName,
@@ -1375,8 +1311,8 @@ const CostCalculatorWizard = () => {
                                 print_time: effectivePrintTime,
                                 infill: 20,
                                 quantity: fileQuantity,
-                                unit_price: totalPrice / fileQuantity,
-                                total_price: totalPrice,
+                                unit_price: discountedTotalPrice / fileQuantity,
+                                total_price: discountedTotalPrice,
                               };
                             });
 
