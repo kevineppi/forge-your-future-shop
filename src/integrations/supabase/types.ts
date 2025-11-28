@@ -549,6 +549,10 @@ export type Database = {
         }
         Returns: boolean
       }
+      increment_discount_usage: {
+        Args: { code_id: string }
+        Returns: undefined
+      }
       is_admin: { Args: never; Returns: boolean }
       search_knowledge_base: {
         Args: {
