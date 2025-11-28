@@ -510,34 +510,35 @@ const CostCalculatorWizard = () => {
       }
       
       // Sum all file prices using the shared calculation function
-      let totalWithQuantities = 0;
+      let itemsSubtotal = 0;
       uploadedFiles.forEach(file => {
         const { totalPrice } = calculateFilePriceDetails(file);
-        totalWithQuantities += totalPrice;
+        itemsSubtotal += totalPrice;
       });
       
-      // Check if free shipping applies (>= 100€ without shipping and express)
-      const freeShipping = totalWithQuantities >= 100 && !isExpressService;
+      // Apply discount code first (percentage discount on items only, before shipping)
+      let discountAmount = 0;
+      let itemsTotalAfterDiscount = itemsSubtotal;
+      if (appliedDiscount) {
+        discountAmount = itemsSubtotal * (appliedDiscount.percentage / 100);
+        itemsTotalAfterDiscount = itemsSubtotal - discountAmount;
+      }
+      
+      // NOW check if free shipping applies (>= 100€ AFTER discount, without express)
+      const freeShipping = itemsTotalAfterDiscount >= 100 && !isExpressService;
       
       // Versandkosten: 7.50€ wenn nicht kostenlos oder express
       const shippingCost = freeShipping ? 0 : 7.50;
-      totalWithQuantities += shippingCost;
       
       let expressShipping = 0;
       if (isExpressService) {
         expressShipping = 20;
-        totalWithQuantities += expressShipping;
       }
       
-      // Apply discount code if applicable (percentage discount on items before shipping)
-      let discountAmount = 0;
-      if (appliedDiscount) {
-        const itemsTotal = totalWithQuantities - shippingCost - expressShipping;
-        discountAmount = itemsTotal * (appliedDiscount.percentage / 100);
-        totalWithQuantities -= discountAmount;
-      }
+      // Calculate final total
+      const totalWithQuantities = itemsTotalAfterDiscount + shippingCost + expressShipping;
       
-      console.log(`Total before discount: ${(totalWithQuantities + discountAmount).toFixed(2)}€, Discount: -${discountAmount.toFixed(2)}€, Final: ${totalWithQuantities.toFixed(2)}€`);
+      console.log(`Items: ${itemsSubtotal.toFixed(2)}€, Discount: -${discountAmount.toFixed(2)}€, After discount: ${itemsTotalAfterDiscount.toFixed(2)}€, Shipping: ${shippingCost}€, Express: ${expressShipping}€, Final: ${totalWithQuantities.toFixed(2)}€`);
       
       return {
         perPiece: 0,
@@ -1270,7 +1271,7 @@ const CostCalculatorWizard = () => {
                               description: "Sie werden zu Stripe Checkout weitergeleitet.",
                             });
 
-                            // Calculate file prices - MUST match filePrices calculation exactly
+                            // Calculate file prices - apply discount at item level
                             const items = uploadedFiles.map(file => {
                               const fileQuantity = file.quantity || 1;
                               const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
@@ -1347,7 +1348,13 @@ const CostCalculatorWizard = () => {
                               else if (fileQuantity >= 10) discount = 0.90;
                               else if (fileQuantity >= 5) discount = 0.95;
                               
-                              const totalPrice = pricePerPiece * fileQuantity * discount;
+                              let totalPrice = pricePerPiece * fileQuantity * discount;
+                              
+                              // Apply discount code to individual item
+                              if (appliedDiscount) {
+                                const itemDiscount = totalPrice * (appliedDiscount.percentage / 100);
+                                totalPrice = totalPrice - itemDiscount;
+                              }
                               
                               return {
                                 file_name: file.fileName,
@@ -1368,7 +1375,7 @@ const CostCalculatorWizard = () => {
                                 print_time: effectivePrintTime,
                                 infill: 20,
                                 quantity: fileQuantity,
-                                unit_price: pricePerPiece,
+                                unit_price: totalPrice / fileQuantity,
                                 total_price: totalPrice,
                               };
                             });
@@ -1377,12 +1384,17 @@ const CostCalculatorWizard = () => {
                               ? [postProcessingOptions[postProcessing as keyof typeof postProcessingOptions]?.name || "Keine"]
                               : [];
 
+                            // Calculate actual shipping cost based on discounted total
+                            const itemsSubtotal = items.reduce((sum, item) => sum + item.total_price, 0);
+                            const freeShipping = itemsSubtotal >= 100 && !isExpressService;
+                            const actualShippingCost = freeShipping ? 0 : 7.50;
+
                             const orderData = {
                               items,
                               express_service: isExpressService,
                               notes: uploadedFiles[0]?.notes || "",
                               post_processing: postProcessingNames,
-                              shippingCost: pricing.shippingCost,
+                              shippingCost: actualShippingCost,
                               shippingAddress: shippingAddress,
                               guestEmail: user ? undefined : guestEmail,
                               discountCode: appliedDiscount ? {
