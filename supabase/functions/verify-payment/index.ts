@@ -120,6 +120,38 @@ serve(async (req) => {
 
     console.log("Order created:", order.id);
 
+    // Track discount code usage if applicable
+    if (metadata.discount_code_id && metadata.discount_code) {
+      console.log("Recording discount code usage:", metadata.discount_code);
+      
+      try {
+        // Increment usage count
+        const { error: updateError } = await supabaseClient.rpc('increment_discount_usage', {
+          code_id: metadata.discount_code_id
+        });
+        
+        if (updateError) {
+          console.error("Failed to update discount code usage:", updateError);
+        }
+
+        // Record usage in tracking table
+        const { error: usageError } = await supabaseClient
+          .from('discount_code_usage')
+          .insert({
+            discount_code_id: metadata.discount_code_id,
+            order_id: order.id,
+            user_email: metadata.customer_email || session.customer_details?.email || user?.email || "unknown",
+          });
+
+        if (usageError) {
+          console.error("Failed to record discount code usage:", usageError);
+        }
+      } catch (discountError) {
+        console.error("Error tracking discount code:", discountError);
+        // Don't fail the whole transaction if discount tracking fails
+      }
+    }
+
     // Create order items
     const itemsToInsert = orderItems.map((item: any) => ({
       order_id: order.id,

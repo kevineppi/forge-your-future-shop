@@ -95,6 +95,84 @@ export type Database = {
         }
         Relationships: []
       }
+      discount_code_usage: {
+        Row: {
+          discount_code_id: string
+          id: string
+          order_id: string | null
+          used_at: string
+          user_email: string
+        }
+        Insert: {
+          discount_code_id: string
+          id?: string
+          order_id?: string | null
+          used_at?: string
+          user_email: string
+        }
+        Update: {
+          discount_code_id?: string
+          id?: string
+          order_id?: string | null
+          used_at?: string
+          user_email?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "discount_code_usage_discount_code_id_fkey"
+            columns: ["discount_code_id"]
+            isOneToOne: false
+            referencedRelation: "discount_codes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "discount_code_usage_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      discount_codes: {
+        Row: {
+          code: string
+          created_at: string
+          created_by: string | null
+          current_uses: number
+          discount_percentage: number
+          expires_at: string | null
+          id: string
+          is_active: boolean
+          max_uses: number | null
+          updated_at: string
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          created_by?: string | null
+          current_uses?: number
+          discount_percentage: number
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          max_uses?: number | null
+          updated_at?: string
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          created_by?: string | null
+          current_uses?: number
+          discount_percentage?: number
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          max_uses?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       knowledge_base: {
         Row: {
           category: string

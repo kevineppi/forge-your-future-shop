@@ -91,6 +91,40 @@ serve(async (req) => {
       });
     }
 
+    // Apply discount if provided
+    const discounts = [];
+    if (orderData.discountCode) {
+      // Verify and increment discount code usage
+      const { data: discountCodeData, error: discountError } = await supabaseClient
+        .from("discount_codes")
+        .select("*")
+        .eq("id", orderData.discountCode.codeId)
+        .single();
+
+      if (!discountError && discountCodeData) {
+        // Check if code is still valid
+        const isValid = 
+          discountCodeData.is_active &&
+          (!discountCodeData.expires_at || new Date(discountCodeData.expires_at) > new Date()) &&
+          (discountCodeData.max_uses === null || discountCodeData.current_uses < discountCodeData.max_uses);
+
+        if (isValid) {
+          // Create Stripe coupon for this discount
+          const coupon = await stripe.coupons.create({
+            percent_off: orderData.discountCode.percentage,
+            duration: "once",
+            name: orderData.discountCode.code,
+          });
+
+          discounts.push({ coupon: coupon.id });
+          
+          console.log("Applied discount code:", orderData.discountCode.code, `${orderData.discountCode.percentage}%`);
+        } else {
+          console.log("Discount code is no longer valid:", orderData.discountCode.code);
+        }
+      }
+    }
+
     // Store order data separately to avoid Stripe metadata size limits
     // Metadata in Stripe has a 500 character limit per field
     const session = await stripe.checkout.sessions.create({
@@ -98,6 +132,7 @@ serve(async (req) => {
       customer_email: customerId ? undefined : userEmail,
       line_items: lineItems,
       mode: "payment",
+      discounts: discounts.length > 0 ? discounts : undefined,
       success_url: `${req.headers.get("origin")}/checkout-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.get("origin")}/kostenrechner?canceled=true`,
       metadata: {
@@ -111,6 +146,8 @@ serve(async (req) => {
         shipping_postal_code: (orderData.shippingAddress?.postalCode || "").substring(0, 20),
         shipping_city: (orderData.shippingAddress?.city || "").substring(0, 100),
         shipping_country: (orderData.shippingAddress?.country || "").substring(0, 100),
+        discount_code_id: orderData.discountCode?.codeId || "",
+        discount_code: orderData.discountCode?.code || "",
       },
     });
 
