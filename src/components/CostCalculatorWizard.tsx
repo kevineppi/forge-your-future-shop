@@ -151,6 +151,15 @@ const CostCalculatorWizard = () => {
   // Guest email state
   const [guestEmail, setGuestEmail] = useState("");
 
+  // Discount code state
+  const [discountCode, setDiscountCode] = useState("");
+  const [appliedDiscount, setAppliedDiscount] = useState<{ 
+    code: string; 
+    percentage: number; 
+    codeId: string;
+  } | null>(null);
+  const [isValidatingDiscount, setIsValidatingDiscount] = useState(false);
+
   const { toast } = useToast();
 
   useEffect(() => {
@@ -520,11 +529,20 @@ const CostCalculatorWizard = () => {
         totalWithQuantities += expressShipping;
       }
       
-      console.log(`Total before shipping: ${(totalWithQuantities - shippingCost - expressShipping).toFixed(2)}€, Shipping: ${shippingCost}€, Express: ${expressShipping}€, Final: ${totalWithQuantities.toFixed(2)}€`);
+      // Apply discount code if applicable (percentage discount on items before shipping)
+      let discountAmount = 0;
+      if (appliedDiscount) {
+        const itemsTotal = totalWithQuantities - shippingCost - expressShipping;
+        discountAmount = itemsTotal * (appliedDiscount.percentage / 100);
+        totalWithQuantities -= discountAmount;
+      }
+      
+      console.log(`Total before discount: ${(totalWithQuantities + discountAmount).toFixed(2)}€, Discount: -${discountAmount.toFixed(2)}€, Final: ${totalWithQuantities.toFixed(2)}€`);
       
       return {
         perPiece: 0,
         total: totalWithQuantities,
+        discountAmount: discountAmount,
         savings: 0,
         materialCost: 0,
         energyCost: 0,
@@ -545,14 +563,14 @@ const CostCalculatorWizard = () => {
     } catch (error) {
       console.error('Error calculating price:', error);
       return { 
-        perPiece: 5, total: 5, savings: 0, materialCost: 0, energyCost: 0,
+        perPiece: 5, total: 5, discountAmount: 0, savings: 0, materialCost: 0, energyCost: 0,
         printCost: 0, depreciationCost: 0, dryingCost: 0, laborCost: 0,
         additionalServices: 0, expressCharge: 0, expressShipping: 0, shippingCost: 0,
         freeShipping: false,
         volume: 125000, maxDimension: 50, materialWeight: 0, objectsPerPlate: 1
       };
     }
-  }, [uploadedFiles, calculateFilePriceDetails, isExpressService]);
+  }, [uploadedFiles, calculateFilePriceDetails, isExpressService, appliedDiscount]);
 
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
@@ -1087,6 +1105,93 @@ const CostCalculatorWizard = () => {
                       ))}
                     </div>
 
+                    {/* Discount Code Section */}
+                    <div className="space-y-3 pt-4 border-t">
+                      <h4 className="font-medium">Rabattcode</h4>
+                      {!appliedDiscount ? (
+                        <div className="flex gap-2">
+                          <Input
+                            placeholder="Rabattcode eingeben"
+                            value={discountCode}
+                            onChange={(e) => setDiscountCode(e.target.value.toUpperCase())}
+                            disabled={isValidatingDiscount}
+                          />
+                          <Button
+                            onClick={async () => {
+                              if (!discountCode.trim()) {
+                                toast({
+                                  title: "Fehler",
+                                  description: "Bitte geben Sie einen Rabattcode ein",
+                                  variant: "destructive",
+                                });
+                                return;
+                              }
+
+                              setIsValidatingDiscount(true);
+                              try {
+                                const { data, error } = await supabase.functions.invoke(
+                                  "validate-discount-code",
+                                  { body: { code: discountCode } }
+                                );
+
+                                if (error || !data?.valid) {
+                                  toast({
+                                    title: "Ungültiger Code",
+                                    description: data?.error || "Dieser Rabattcode ist nicht gültig",
+                                    variant: "destructive",
+                                  });
+                                  return;
+                                }
+
+                                setAppliedDiscount({
+                                  code: discountCode,
+                                  percentage: data.discount_percentage,
+                                  codeId: data.code_id,
+                                });
+
+                                toast({
+                                  title: "Rabattcode angewendet!",
+                                  description: `Sie erhalten ${data.discount_percentage}% Rabatt auf Ihre Bestellung`,
+                                });
+                              } catch (error) {
+                                console.error("Error validating discount code:", error);
+                                toast({
+                                  title: "Fehler",
+                                  description: "Der Rabattcode konnte nicht überprüft werden",
+                                  variant: "destructive",
+                                });
+                              } finally {
+                                setIsValidatingDiscount(false);
+                              }
+                            }}
+                            disabled={isValidatingDiscount}
+                          >
+                            {isValidatingDiscount ? "Prüfen..." : "Anwenden"}
+                          </Button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-between p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <Check className="w-5 h-5 text-green-600" />
+                            <div>
+                              <p className="font-medium text-green-700">{appliedDiscount.code}</p>
+                              <p className="text-sm text-green-600">-{appliedDiscount.percentage}% Rabatt</p>
+                            </div>
+                          </div>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => {
+                              setAppliedDiscount(null);
+                              setDiscountCode("");
+                            }}
+                          >
+                            Entfernen
+                          </Button>
+                        </div>
+                      )}
+                    </div>
+
                     <div className="space-y-3 pt-4 border-t">
                       <Button 
                         onClick={async () => {
@@ -1280,6 +1385,12 @@ const CostCalculatorWizard = () => {
                               shippingCost: pricing.shippingCost,
                               shippingAddress: shippingAddress,
                               guestEmail: user ? undefined : guestEmail,
+                              discountCode: appliedDiscount ? {
+                                code: appliedDiscount.code,
+                                codeId: appliedDiscount.codeId,
+                                percentage: appliedDiscount.percentage,
+                                customerEmail: user?.email || guestEmail,
+                              } : null,
                             };
 
                             const { data, error } = await supabase.functions.invoke("create-checkout-session", {
@@ -1350,6 +1461,18 @@ const CostCalculatorWizard = () => {
                       </span>
                       <span className="text-lg font-semibold text-yellow-600">
                         +€{pricing.expressCharge.toFixed(2)}
+                      </span>
+                    </div>
+                  )}
+
+                  {pricing.discountAmount && pricing.discountAmount > 0 && (
+                    <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border-2 border-green-500/20">
+                      <span className="font-medium flex items-center gap-1">
+                        <Check className="w-4 h-4 text-green-600" />
+                        Rabatt ({appliedDiscount?.code}):
+                      </span>
+                      <span className="text-lg font-semibold text-green-600">
+                        -€{pricing.discountAmount.toFixed(2)}
                       </span>
                     </div>
                   )}
