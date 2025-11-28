@@ -510,19 +510,37 @@ const CostCalculatorWizard = () => {
       }
       
       // Sum all file prices using the shared calculation function
+      // CRITICAL: Apply same cent-rounding logic as Stripe upload to prevent discrepancies
+      let itemsSubtotalBeforeDiscount = 0;
       let itemsSubtotal = 0;
       uploadedFiles.forEach(file => {
         const { totalPrice } = calculateFilePriceDetails(file);
-        itemsSubtotal += totalPrice;
+        const fileQuantity = file.quantity || 1;
+        
+        // Track pre-discount price for discount display
+        const preTotalPriceInCents = Math.round(totalPrice * 100);
+        const preUnitPriceInCents = Math.round(preTotalPriceInCents / fileQuantity);
+        const preExactTotalPrice = (preUnitPriceInCents * fileQuantity) / 100;
+        itemsSubtotalBeforeDiscount += preExactTotalPrice;
+        
+        // Apply discount to this file
+        let discountedTotalPrice = totalPrice;
+        if (appliedDiscount) {
+          const itemDiscount = totalPrice * (appliedDiscount.percentage / 100);
+          discountedTotalPrice = totalPrice - itemDiscount;
+        }
+        
+        // Round to cents exactly as Stripe does
+        const totalPriceInCents = Math.round(discountedTotalPrice * 100);
+        const unitPriceInCents = Math.round(totalPriceInCents / fileQuantity);
+        const exactTotalPrice = (unitPriceInCents * fileQuantity) / 100;
+        
+        itemsSubtotal += exactTotalPrice;
       });
       
-      // Apply discount code first (percentage discount on items only, before shipping)
-      let discountAmount = 0;
-      let itemsTotalAfterDiscount = itemsSubtotal;
-      if (appliedDiscount) {
-        discountAmount = itemsSubtotal * (appliedDiscount.percentage / 100);
-        itemsTotalAfterDiscount = itemsSubtotal - discountAmount;
-      }
+      // Calculate discount amount for display
+      const discountAmount = itemsSubtotalBeforeDiscount - itemsSubtotal;
+      const itemsTotalAfterDiscount = itemsSubtotal;
       
       // NOW check if free shipping applies (>= 100€ AFTER discount, without express)
       const freeShipping = itemsTotalAfterDiscount >= 100 && !isExpressService;
@@ -1288,6 +1306,13 @@ const CostCalculatorWizard = () => {
                                 discountedTotalPrice = totalPrice - itemDiscount;
                               }
                               
+                              // CRITICAL: Round to cents before dividing to prevent rounding errors
+                              // Stripe expects prices in cents (integer), so we must ensure exact cent values
+                              const totalPriceInCents = Math.round(discountedTotalPrice * 100);
+                              const unitPriceInCents = Math.round(totalPriceInCents / fileQuantity);
+                              const unitPrice = unitPriceInCents / 100;
+                              const exactTotalPrice = (unitPriceInCents * fileQuantity) / 100;
+                              
                               const scaledLength = file.length * fileScale;
                               const scaledWidth = file.width * fileScale;
                               const scaledHeight = file.height * fileScale;
@@ -1311,8 +1336,8 @@ const CostCalculatorWizard = () => {
                                 print_time: effectivePrintTime,
                                 infill: 20,
                                 quantity: fileQuantity,
-                                unit_price: discountedTotalPrice / fileQuantity,
-                                total_price: discountedTotalPrice,
+                                unit_price: unitPrice,
+                                total_price: exactTotalPrice,
                               };
                             });
 
