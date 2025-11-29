@@ -18,7 +18,7 @@ export const useGoogleAds = (adsConversionId?: string) => {
     // No additional initialization needed here
   }, [adsConversionId]);
 
-  const trackConversion = (conversionLabel: string, value?: number) => {
+  const trackConversion = (conversionLabel: string, value?: number, transactionId?: string) => {
     if (!window.gtag) {
       console.warn('Google gtag not initialized');
       return;
@@ -34,8 +34,13 @@ export const useGoogleAds = (adsConversionId?: string) => {
       conversionData['currency'] = 'EUR';
     }
 
+    // Add transaction ID if provided
+    if (transactionId) {
+      conversionData['transaction_id'] = transactionId;
+    }
+
     window.gtag('event', 'conversion', conversionData);
-    console.log('Google Ads conversion tracked:', conversionLabel, value);
+    console.log('Google Ads conversion tracked:', conversionLabel, value, transactionId);
   };
 
   return { trackConversion };

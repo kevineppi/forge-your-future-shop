@@ -1380,10 +1380,10 @@ const CostCalculatorWizard = () => {
                             if (error) throw error;
 
                             if (data?.url) {
-                              // Track Google Ads conversion (nur wenn CONVERSION_LABEL konfiguriert ist)
-                              if (GOOGLE_ADS_CONVERSION_LABEL) {
+                              // Track Google Ads conversion mit Session ID als Transaction ID
+                              if (GOOGLE_ADS_CONVERSION_LABEL && data.sessionId) {
                                 const orderValueWithVAT = pricing.total * 1.20;
-                                trackConversion(GOOGLE_ADS_CONVERSION_LABEL, orderValueWithVAT);
+                                trackConversion(GOOGLE_ADS_CONVERSION_LABEL, orderValueWithVAT, data.sessionId);
                               }
                               
                               window.open(data.url, '_blank');
