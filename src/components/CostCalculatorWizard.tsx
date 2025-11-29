@@ -116,10 +116,9 @@ interface UploadedFile {
 const CostCalculatorWizard = () => {
   const { user } = useAuth();
   
-  // Google Ads Conversion Tracking (optional - nur wenn du Google Ads Kampagnen schaltest)
-  // Für Google Ads benötigst du eine separate AW- Conversion ID
-  const GOOGLE_ADS_CONVERSION_ID = ''; // z.B. 'AW-123456789'
-  const GOOGLE_ADS_CONVERSION_LABEL = ''; // z.B. 'AW-123456789/AbC-DEFG1234'
+  // Google Ads Conversion Tracking - "Kauf" Conversion
+  const GOOGLE_ADS_CONVERSION_ID = 'AW-16570583366';
+  const GOOGLE_ADS_CONVERSION_LABEL = 'AW-16570583366/AEH2CLyV_MgbEMaSvN09';
   const { trackConversion } = useGoogleAds(GOOGLE_ADS_CONVERSION_ID);
   
   const [currentStep, setCurrentStep] = useState(1);
