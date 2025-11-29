@@ -14,11 +14,8 @@ declare global {
 
 export const useGoogleAds = (adsConversionId?: string) => {
   useEffect(() => {
-    // gtag is already loaded via index.html for GA4
-    // Only configure Google Ads if conversion ID is provided
-    if (adsConversionId && window.gtag && adsConversionId.startsWith('AW-')) {
-      window.gtag('config', adsConversionId);
-    }
+    // gtag is already loaded and configured via index.html for both GA4 and Google Ads
+    // No additional initialization needed here
   }, [adsConversionId]);
 
   const trackConversion = (conversionLabel: string, value?: number) => {
