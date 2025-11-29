@@ -116,10 +116,10 @@ interface UploadedFile {
 const CostCalculatorWizard = () => {
   const { user } = useAuth();
   
-  // Google Ads Conversion Tracking
-  // TODO: Replace with your actual Google Ads Conversion ID and Label
-  const GOOGLE_ADS_CONVERSION_ID = 'AW-XXXXXXXXXX'; // e.g., 'AW-123456789'
-  const GOOGLE_ADS_CONVERSION_LABEL = 'AW-XXXXXXXXXX/YYYYYYYY'; // e.g., 'AW-123456789/AbC-DEFG1234'
+  // Google Ads Conversion Tracking (optional - nur wenn du Google Ads Kampagnen schaltest)
+  // Für Google Ads benötigst du eine separate AW- Conversion ID
+  const GOOGLE_ADS_CONVERSION_ID = ''; // z.B. 'AW-123456789'
+  const GOOGLE_ADS_CONVERSION_LABEL = ''; // z.B. 'AW-123456789/AbC-DEFG1234'
   const { trackConversion } = useGoogleAds(GOOGLE_ADS_CONVERSION_ID);
   
   const [currentStep, setCurrentStep] = useState(1);
@@ -1381,9 +1381,11 @@ const CostCalculatorWizard = () => {
                             if (error) throw error;
 
                             if (data?.url) {
-                              // Track Google Ads conversion with order value (including 20% VAT)
-                              const orderValueWithVAT = pricing.total * 1.20;
-                              trackConversion(GOOGLE_ADS_CONVERSION_LABEL, orderValueWithVAT);
+                              // Track Google Ads conversion (nur wenn CONVERSION_LABEL konfiguriert ist)
+                              if (GOOGLE_ADS_CONVERSION_LABEL) {
+                                const orderValueWithVAT = pricing.total * 1.20;
+                                trackConversion(GOOGLE_ADS_CONVERSION_LABEL, orderValueWithVAT);
+                              }
                               
                               window.open(data.url, '_blank');
                             }

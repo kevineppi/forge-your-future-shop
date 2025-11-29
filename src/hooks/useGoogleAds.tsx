@@ -1,42 +1,29 @@
 import { useEffect } from 'react';
 
-// Type declarations for Google Ads gtag
+// Type declarations for Google gtag (Analytics & Ads)
 declare global {
   interface Window {
     gtag?: (
       command: string,
-      targetId: string,
+      targetId: string | Date,
       config?: Record<string, any>
     ) => void;
     dataLayer?: any[];
   }
 }
 
-export const useGoogleAds = (conversionId?: string) => {
+export const useGoogleAds = (adsConversionId?: string) => {
   useEffect(() => {
-    // Initialize gtag if conversion ID is provided
-    if (conversionId && !window.gtag) {
-      // Create dataLayer
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function() {
-        window.dataLayer?.push(arguments);
-      };
-      window.gtag('js', new Date() as any);
-      
-      // Load Google Ads script
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${conversionId}`;
-      document.head.appendChild(script);
-      
-      // Configure Google Ads
-      window.gtag('config', conversionId);
+    // gtag is already loaded via index.html for GA4
+    // Only configure Google Ads if conversion ID is provided
+    if (adsConversionId && window.gtag && adsConversionId.startsWith('AW-')) {
+      window.gtag('config', adsConversionId);
     }
-  }, [conversionId]);
+  }, [adsConversionId]);
 
   const trackConversion = (conversionLabel: string, value?: number) => {
     if (!window.gtag) {
-      console.warn('Google Ads gtag not initialized');
+      console.warn('Google gtag not initialized');
       return;
     }
 
