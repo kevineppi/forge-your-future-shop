@@ -14,6 +14,7 @@ import { Model3DViewer } from "./Model3DViewer";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/useAuth";
+import { useGoogleAds } from "@/hooks/useGoogleAds";
 import * as THREE from "three";
 
 // Helper function to convert THREE.BufferGeometry to STL string
@@ -113,10 +114,17 @@ interface UploadedFile {
 }
 
 const CostCalculatorWizard = () => {
+  const { user } = useAuth();
+  
+  // Google Ads Conversion Tracking
+  // TODO: Replace with your actual Google Ads Conversion ID and Label
+  const GOOGLE_ADS_CONVERSION_ID = 'AW-XXXXXXXXXX'; // e.g., 'AW-123456789'
+  const GOOGLE_ADS_CONVERSION_LABEL = 'AW-XXXXXXXXXX/YYYYYYYY'; // e.g., 'AW-123456789/AbC-DEFG1234'
+  const { trackConversion } = useGoogleAds(GOOGLE_ADS_CONVERSION_ID);
+  
   const [currentStep, setCurrentStep] = useState(1);
   const [isClient, setIsClient] = useState(false);
   const [editingFileId, setEditingFileId] = useState<string | null>(null);
-  const { user } = useAuth();
   
   // 3D File state - Multi-file support
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
@@ -1373,6 +1381,10 @@ const CostCalculatorWizard = () => {
                             if (error) throw error;
 
                             if (data?.url) {
+                              // Track Google Ads conversion with order value (including 20% VAT)
+                              const orderValueWithVAT = pricing.total * 1.20;
+                              trackConversion(GOOGLE_ADS_CONVERSION_LABEL, orderValueWithVAT);
+                              
                               window.open(data.url, '_blank');
                             }
                           } catch (error) {
