@@ -11,7 +11,7 @@ const Ratgeber = () => {
   const articles = [
     {
       title: "Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck?",
-      description: "Praxis-Beispiel: 200 Montagehalterungen im 3D-Druck. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie bis zu 89% Kosten sparen.",
+      description: "Praxis-Beispiel: 200 Montagehalterungen im 3D-Druck. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie bis zu 82% Kosten sparen.",
       link: "/ratgeber/serienfertigung-case-study",
       icon: TrendingUp,
       category: "Serienfertigung",
