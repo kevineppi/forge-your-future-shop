@@ -12,7 +12,7 @@ const SerienfertigungCaseStudy = () => {
     <>
       <SEOHead
         title="Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck? | ekdruck"
-        description="Praxis-Beispiel: 200 Keksausstecher im 3D-Druck. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie Kosten optimieren."
+        description="Praxis-Beispiel: 1000 Keksausstecher im 3D-Druck. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie Kosten optimieren."
         keywords="3d-druck serienfertigung, kleinserien 3d-druck, 3d-druck wirtschaftlichkeit, 3d-druck kosten pro stück, serienfertigung österreich"
         path="/ratgeber/serienfertigung-case-study"
         schemaType="article"
@@ -41,7 +41,7 @@ const SerienfertigungCaseStudy = () => {
               Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck?
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Ein Praxisbeispiel aus Oberösterreich: 200 Keksausstecher für ein österreichisches Unternehmen – wie 3D-Druck bei Kleinserien Zeit und Kosten spart.
+              Ein Praxisbeispiel aus Oberösterreich: 1000 Keksausstecher für ein österreichisches Unternehmen – wie 3D-Druck bei Kleinserien Zeit und Kosten spart.
             </p>
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
@@ -83,7 +83,7 @@ const SerienfertigungCaseStudy = () => {
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Stückzahl:</strong> 200 Keksausstecher</span>
+                        <span><strong>Stückzahl:</strong> 1000 Keksausstecher</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -108,15 +108,15 @@ const SerienfertigungCaseStudy = () => {
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Stückkosten:</strong> ~2,50€ pro Ausstecher</span>
+                        <span><strong>Stückkosten:</strong> ~2,00€ pro Ausstecher (inkl. Mengenrabatt)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Gesamtpreis:</strong> ~500€ (inkl. Material, Druck, Nachbearbeitung)</span>
+                        <span><strong>Gesamtpreis:</strong> ~2.000€ (inkl. Material, Druck, Nachbearbeitung)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Produktionszeit:</strong> 10 Tage (Druck + QA)</span>
+                        <span><strong>Produktionszeit:</strong> 3-4 Wochen (Druck + QA)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -151,20 +151,20 @@ const SerienfertigungCaseStudy = () => {
                         <div className="font-semibold text-foreground mb-1">Spritzguss (traditionell)</div>
                         <div className="text-muted-foreground text-sm">
                           Werkzeug: ~8.000€ für 4 Formen<br />
-                          Produktion (200 Stück): ~200€<br />
-                          <span className="font-semibold text-foreground">Gesamt: ~8.200€</span>
+                          Produktion (1000 Stück): ~800€<br />
+                          <span className="font-semibold text-foreground">Gesamt: ~8.800€</span>
                         </div>
                       </div>
                       <div className="border-t pt-4">
                         <div className="font-semibold text-primary mb-1">3D-Druck</div>
                         <div className="text-muted-foreground text-sm">
                           Werkzeug: 0€<br />
-                          Produktion (200 Stück): ~500€<br />
-                          <span className="font-semibold text-primary">Gesamt: ~500€</span>
+                          Produktion (1000 Stück): ~2.000€<br />
+                          <span className="font-semibold text-primary">Gesamt: ~2.000€</span>
                         </div>
                       </div>
                       <div className="bg-primary/10 p-3 rounded-lg">
-                        <div className="font-bold text-primary">Ersparnis: ~7.700€ (94%)</div>
+                        <div className="font-bold text-primary">Ersparnis: ~6.800€ (77%)</div>
                       </div>
                     </div>
                   </CardContent>
@@ -183,7 +183,7 @@ const SerienfertigungCaseStudy = () => {
                         <div className="font-semibold text-foreground mb-1">Spritzguss (traditionell)</div>
                         <div className="text-muted-foreground text-sm">
                           Werkzeugbau: 4–8 Wochen<br />
-                          Produktion: 1–2 Tage<br />
+                          Produktion: 2–3 Tage<br />
                           <span className="font-semibold text-foreground">Gesamt: 5–9 Wochen</span>
                         </div>
                       </div>
@@ -191,12 +191,12 @@ const SerienfertigungCaseStudy = () => {
                         <div className="font-semibold text-primary mb-1">3D-Druck</div>
                         <div className="text-muted-foreground text-sm">
                           Setup: 1 Tag<br />
-                          Produktion: 10 Tage<br />
-                          <span className="font-semibold text-primary">Gesamt: 2 Wochen</span>
+                          Produktion: 3-4 Wochen<br />
+                          <span className="font-semibold text-primary">Gesamt: 4 Wochen</span>
                         </div>
                       </div>
                       <div className="bg-primary/10 p-3 rounded-lg">
-                        <div className="font-bold text-primary">70% schneller</div>
+                        <div className="font-bold text-primary">55% schneller</div>
                       </div>
                     </div>
                   </CardContent>
@@ -226,7 +226,7 @@ const SerienfertigungCaseStudy = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Jeder Ausstecher wurde visuell geprüft. Layer-Adhesion, scharfe Kanten und Maßhaltigkeit waren kritisch. Von 200 Teilen waren 197 perfekt – 3 hatten minimale Abweichungen und wurden nachgedruckt. Das ist eine Ausschussquote von 1,5%, die bei Kleinserien akzeptabel ist.
+                      Jeder Ausstecher wurde visuell geprüft. Layer-Adhesion, scharfe Kanten und Maßhaltigkeit waren kritisch. Von 1000 Teilen waren 985 perfekt – 15 hatten minimale Abweichungen und wurden nachgedruckt. Das ist eine Ausschussquote von 1,5%, die bei Kleinserien akzeptabel ist.
                     </p>
                   </CardContent>
                 </Card>
@@ -248,7 +248,7 @@ const SerienfertigungCaseStudy = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      200 Teile auf mehreren Druckern parallel: 5 Drucker × 8 Teile pro Batch × 5 Batches = 200 Teile in 10 Tagen. Die richtige Kapazitätsplanung war entscheidend, um den Zeitrahmen einzuhalten. Batch-Produktion ermöglicht gleichmäßige Qualität und effiziente Nachbearbeitung.
+                      1000 Teile auf mehreren Druckern parallel: 5 Drucker × 8 Teile pro Batch × 25 Batches = 1000 Teile in 3-4 Wochen. Die richtige Kapazitätsplanung war entscheidend, um den Zeitrahmen einzuhalten. Batch-Produktion ermöglicht gleichmäßige Qualität und effiziente Nachbearbeitung.
                     </p>
                   </CardContent>
                 </Card>
@@ -290,7 +290,7 @@ const SerienfertigungCaseStudy = () => {
               </div>
 
               <p className="text-muted-foreground mb-4">
-                <strong className="text-foreground">Break-Even-Punkt:</strong> Bei diesem Projekt wäre Spritzguss erst ab ~1.500 Stück wirtschaftlicher gewesen. Für 200 Stück war 3D-Druck die eindeutig bessere Wahl.
+                <strong className="text-foreground">Break-Even-Punkt:</strong> Bei diesem Projekt wäre Spritzguss erst ab ~2.500-3.000 Stück wirtschaftlicher gewesen. Für 1000 Stück war 3D-Druck noch die bessere Wahl, auch wenn die Ersparnis gegenüber Spritzguss bei dieser Menge kleiner ausfällt.
               </p>
             </div>
 
@@ -390,7 +390,7 @@ const SerienfertigungCaseStudy = () => {
               </div>
 
               <p className="text-muted-foreground mt-6">
-                Dieses Projekt zeigt: Bei 200 Keksausstecher sparten wir ~7.700€ (94%) und lieferten 70% schneller als mit traditioneller Fertigung. Für Marketingagenturen, Produktentwickler und Unternehmen mit Kleinserien-Bedarf ist 3D-Druck oft die wirtschaftlichste Lösung.
+                Dieses Projekt zeigt: Bei 1000 Keksausstecher sparten wir ~6.800€ (77%) und lieferten 55% schneller als mit traditioneller Fertigung. Für Marketingagenturen, Produktentwickler und Unternehmen mit Kleinserien-Bedarf ist 3D-Druck oft die wirtschaftlichste Lösung.
               </p>
             </div>
 
