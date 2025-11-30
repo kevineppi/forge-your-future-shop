@@ -16,9 +16,9 @@ interface OrderItem {
   unit_price: number;
   total_price: number;
   dimensions?: {
-    length: number;
-    width: number;
-    height: number;
+    scaled_length?: number;
+    scaled_width?: number;
+    scaled_height?: number;
   };
 }
 
@@ -64,7 +64,7 @@ const handler = async (req: Request): Promise<Response> => {
           <strong>${item.file_name}</strong><br/>
           <small style="color: #6b7280;">
             Material: ${item.material} | 
-            ${item.dimensions ? `${item.dimensions.length.toFixed(0)}×${item.dimensions.width.toFixed(0)}×${item.dimensions.height.toFixed(0)} mm` : ''}
+            ${item.dimensions?.scaled_length ? `${item.dimensions.scaled_length.toFixed(0)}×${item.dimensions.scaled_width.toFixed(0)}×${item.dimensions.scaled_height.toFixed(0)} mm` : ''}
           </small>
         </td>
         <td style="padding: 12px 8px; text-align: center;">${item.quantity || 1}</td>
@@ -87,7 +87,7 @@ const handler = async (req: Request): Promise<Response> => {
     ` : '';
 
     const emailResponse = await resend.emails.send({
-      from: "ekdruck <noreply@ekdruck.at>",
+      from: "ekdruck <noreply@ek-druck.at>",
       to: [customerEmail],
       subject: `Bestellbestätigung #${orderNumber} - ekdruck 3D-Druck Service`,
       html: `
