@@ -60,22 +60,22 @@ const handler = async (req: Request): Promise<Response> => {
           <span style="color: #666; font-size: 13px;">
             ${item.material} - ${item.color}<br>
             Qualität: ${item.quality}, Infill: ${item.infill}%<br>
-            Größe: ${item.dimensions.x}×${item.dimensions.y}×${item.dimensions.z} mm
+            Größe: ${item.dimensions?.x || 0}×${item.dimensions?.y || 0}×${item.dimensions?.z || 0} mm
           </span>
         </td>
-        <td style="padding: 12px 8px; text-align: center;">${item.quantity}</td>
-        <td style="padding: 12px 8px; text-align: right;">€${item.unit_price.toFixed(2)}</td>
-        <td style="padding: 12px 8px; text-align: right;"><strong>€${item.total_price.toFixed(2)}</strong></td>
+        <td style="padding: 12px 8px; text-align: center;">${item.quantity || 1}</td>
+        <td style="padding: 12px 8px; text-align: right;">€${(item.unit_price || 0).toFixed(2)}</td>
+        <td style="padding: 12px 8px; text-align: right;"><strong>€${(item.total_price || 0).toFixed(2)}</strong></td>
       </tr>
     `).join('');
 
     const discountHtml = requestData.discount_code ? `
       <tr>
         <td colspan="4" style="padding: 8px; text-align: right; color: #16a34a;">
-          <strong>Rabattcode "${requestData.discount_code}" (-${requestData.discount_percentage}%)</strong>
+          <strong>Rabattcode "${requestData.discount_code}" (-${requestData.discount_percentage || 0}%)</strong>
         </td>
         <td style="padding: 8px; text-align: right; color: #16a34a;">
-          <strong>-€${(requestData.total_price * (requestData.discount_percentage || 0) / 100).toFixed(2)}</strong>
+          <strong>-€${((requestData.total_price || 0) * (requestData.discount_percentage || 0) / 100).toFixed(2)}</strong>
         </td>
       </tr>
     ` : '';
@@ -134,7 +134,7 @@ const handler = async (req: Request): Promise<Response> => {
                   ${discountHtml}
                   <tr style="background: #f3f4f6; font-size: 16px;">
                     <td colspan="4" style="padding: 12px 8px; text-align: right;"><strong>Gesamtbetrag:</strong></td>
-                    <td style="padding: 12px 8px; text-align: right;"><strong style="color: #667eea;">€${requestData.total_price.toFixed(2)}</strong></td>
+                    <td style="padding: 12px 8px; text-align: right;"><strong style="color: #667eea;">€${(requestData.total_price || 0).toFixed(2)}</strong></td>
                   </tr>
                 </tbody>
               </table>
@@ -173,7 +173,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { data, error } = await resend.emails.send({
       from: "ekdruck Bestellungen <noreply@ekdruck.at>",
       to: ["office@ekdruck.at"], // Admin E-Mail
-      subject: `🎉 Neue Bestellung #${requestData.order_id.slice(0, 8)} - €${requestData.total_price.toFixed(2)}`,
+      subject: `🎉 Neue Bestellung #${requestData.order_id.slice(0, 8)} - €${(requestData.total_price || 0).toFixed(2)}`,
       html: emailHtml,
     });
 
