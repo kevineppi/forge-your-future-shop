@@ -6,14 +6,13 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import AIChatWidget from "@/components/AIChatWidget";
-import generaliImage from "@/assets/generali-keksausstecher.jpeg";
 
 const SerienfertigungCaseStudy = () => {
   return (
     <>
       <SEOHead
         title="Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck? | ekdruck"
-        description="Praxis-Beispiel: 200 Keksausstecher für Generali Versicherung. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie Kosten optimieren."
+        description="Praxis-Beispiel: 200 Keksausstecher im 3D-Druck. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie Kosten optimieren."
         keywords="3d-druck serienfertigung, kleinserien 3d-druck, 3d-druck wirtschaftlichkeit, 3d-druck kosten pro stück, serienfertigung österreich"
         path="/ratgeber/serienfertigung-case-study"
         schemaType="article"
@@ -42,7 +41,7 @@ const SerienfertigungCaseStudy = () => {
               Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck?
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Ein Praxisbeispiel aus Oberösterreich: 200 Keksausstecher für die Generali Versicherung – wie 3D-Druck bei Kleinserien Zeit und Kosten spart.
+              Ein Praxisbeispiel aus Oberösterreich: 200 Keksausstecher für ein österreichisches Unternehmen – wie 3D-Druck bei Kleinserien Zeit und Kosten spart.
             </p>
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
@@ -74,8 +73,8 @@ const SerienfertigungCaseStudy = () => {
             {/* Project Overview Card */}
             <Card className="mb-12 border-primary/20">
               <CardHeader>
-                <CardTitle className="text-2xl">Projekt-Übersicht: Generali Versicherung</CardTitle>
-                <CardDescription>Branded Keksausstecher als Kundenpräsent</CardDescription>
+                <CardTitle className="text-2xl">Projekt-Übersicht: Keksausstecher-Serienfertigung</CardTitle>
+                <CardDescription>Branded Keksausstecher als Werbeartikel</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -88,11 +87,11 @@ const SerienfertigungCaseStudy = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Design:</strong> 4 verschiedene Weihnachtsmotive mit Generali-Branding</span>
+                        <span><strong>Design:</strong> 4 verschiedene Weihnachtsmotive mit Corporate-Branding</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Material:</strong> Lebensmittelechtes PLA in Rot (Firmenfarbe)</span>
+                        <span><strong>Material:</strong> Lebensmittelechtes PLA in individueller Firmenfarbe</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -133,17 +132,6 @@ const SerienfertigungCaseStudy = () => {
               </CardContent>
             </Card>
 
-            {/* Image */}
-            <div className="mb-12">
-              <img 
-                src={generaliImage} 
-                alt="200 rote 3D-gedruckte Keksausstecher für Generali Versicherung mit verschiedenen Weihnachtsmotiven"
-                className="w-full rounded-lg shadow-lg"
-              />
-              <p className="text-sm text-muted-foreground mt-3 text-center">
-                200 Keksausstecher in Generali Rot: 4 verschiedene Weihnachtsmotive in Serienfertigung
-              </p>
-            </div>
 
             {/* Why 3D Printing Made Sense */}
             <div className="mb-12">
@@ -402,7 +390,7 @@ const SerienfertigungCaseStudy = () => {
               </div>
 
               <p className="text-muted-foreground mt-6">
-                Das Generali-Projekt zeigt: Bei 200 Keksausstecher sparten wir ~7.700€ (94%) und lieferten 70% schneller als mit traditioneller Fertigung. Für Marketingagenturen, Produktentwickler und Unternehmen mit Kleinserien-Bedarf ist 3D-Druck oft die wirtschaftlichste Lösung.
+                Dieses Projekt zeigt: Bei 200 Keksausstecher sparten wir ~7.700€ (94%) und lieferten 70% schneller als mit traditioneller Fertigung. Für Marketingagenturen, Produktentwickler und Unternehmen mit Kleinserien-Bedarf ist 3D-Druck oft die wirtschaftlichste Lösung.
               </p>
             </div>
 
