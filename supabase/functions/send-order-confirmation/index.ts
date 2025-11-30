@@ -67,9 +67,9 @@ const handler = async (req: Request): Promise<Response> => {
             ${item.dimensions ? `${item.dimensions.length.toFixed(0)}×${item.dimensions.width.toFixed(0)}×${item.dimensions.height.toFixed(0)} mm` : ''}
           </small>
         </td>
-        <td style="padding: 12px 8px; text-align: center;">${item.quantity}</td>
-        <td style="padding: 12px 8px; text-align: right;">€${item.unit_price.toFixed(2)}</td>
-        <td style="padding: 12px 8px; text-align: right;"><strong>€${item.total_price.toFixed(2)}</strong></td>
+        <td style="padding: 12px 8px; text-align: center;">${item.quantity || 1}</td>
+        <td style="padding: 12px 8px; text-align: right;">€${(item.unit_price || 0).toFixed(2)}</td>
+        <td style="padding: 12px 8px; text-align: right;"><strong>€${(item.total_price || 0).toFixed(2)}</strong></td>
       </tr>
     `).join('');
 
