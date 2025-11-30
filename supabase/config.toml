@@ -9,6 +9,9 @@ verify_jwt = false
 [functions.stripe-webhook]
 verify_jwt = false
 
+[functions.restore-order]
+verify_jwt = false
+
 [functions.send-contact-notification]
 verify_jwt = false
 
