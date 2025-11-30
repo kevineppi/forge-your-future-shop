@@ -2,17 +2,48 @@ import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
-
 serve(async (req) => {
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
+  const signature = req.headers.get("stripe-signature");
+  const webhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET");
+
+  if (!signature || !webhookSecret) {
+    console.error("Missing signature or webhook secret");
+    return new Response(JSON.stringify({ error: "Webhook configuration error" }), {
+      status: 400,
+    });
   }
 
   try {
+    const body = await req.text();
+    const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
+      apiVersion: "2025-08-27.basil",
+    });
+
+    // Verify webhook signature
+    let event: Stripe.Event;
+    try {
+      event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
+    } catch (err) {
+      console.error("Webhook signature verification failed:", err);
+      return new Response(JSON.stringify({ error: "Invalid signature" }), {
+        status: 400,
+      });
+    }
+
+    console.log("Webhook event received:", event.type, event.id);
+
+    // Only process checkout.session.completed events
+    if (event.type !== "checkout.session.completed") {
+      return new Response(JSON.stringify({ received: true }), { status: 200 });
+    }
+
+    const session = event.data.object as Stripe.Checkout.Session;
+    
+    if (session.payment_status !== "paid") {
+      console.log("Payment not completed, skipping order creation");
+      return new Response(JSON.stringify({ received: true }), { status: 200 });
+    }
+
     const supabaseClient = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
@@ -24,53 +55,23 @@ serve(async (req) => {
       }
     );
 
-    // Try to get authenticated user, but allow guest checkout
-    let user = null;
-    const authHeader = req.headers.get("Authorization");
-    if (authHeader) {
-      const token = authHeader.replace("Bearer ", "");
-      const { data } = await supabaseClient.auth.getUser(token);
-      user = data.user;
-    }
-
-    const { sessionId } = await req.json();
-    console.log("Verifying payment for session:", sessionId);
-
-    const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
-      apiVersion: "2025-08-27.basil",
-    });
-
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-    
-    if (session.payment_status !== "paid") {
-      throw new Error("Payment not completed");
-    }
-
-    // Check if order already exists (created by webhook)
+    // Check if order already exists (prevent duplicates)
     const { data: existingOrder } = await supabaseClient
       .from("orders")
-      .select("id, user_id")
-      .eq("stripe_checkout_session_id", sessionId)
+      .select("id")
+      .eq("stripe_checkout_session_id", session.id)
       .single();
 
     if (existingOrder) {
-      console.log("Order already exists (created by webhook):", existingOrder.id);
-      return new Response(JSON.stringify({ 
-        success: true, 
-        orderId: existingOrder.id,
-        orderNumber: existingOrder.id.split('-')[0].toUpperCase(),
-        existingOrder: true,
-      }), {
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-        status: 200,
-      });
+      console.log("Order already exists for session:", session.id);
+      return new Response(JSON.stringify({ received: true, existing: true }), { status: 200 });
     }
 
     // Parse metadata
     const metadata = session.metadata!;
     
     // Get order items from line items with full metadata
-    const lineItems = await stripe.checkout.sessions.listLineItems(sessionId, { 
+    const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { 
       limit: 100,
       expand: ['data.price.product']
     });
@@ -115,15 +116,15 @@ serve(async (req) => {
     const { data: order, error: orderError } = await supabaseClient
       .from("orders")
       .insert({
-        user_id: user?.id || null,
+        user_id: metadata.user_id !== "guest" ? metadata.user_id : null,
         customer_name: session.customer_details?.name || metadata.customer_email || "Guest",
-        customer_email: metadata.customer_email || session.customer_details?.email || user?.email || null,
+        customer_email: metadata.customer_email || session.customer_details?.email || null,
         total_price: session.amount_total! / 100,
         status: "paid",
         express_service: metadata.express_service === "true",
         notes: metadata.notes || null,
-        post_processing: null, // Post processing info stored in order items
-        stripe_checkout_session_id: sessionId,
+        post_processing: null,
+        stripe_checkout_session_id: session.id,
         stripe_payment_intent_id: session.payment_intent as string,
         shipping_street: metadata.shipping_street || null,
         shipping_postal_code: metadata.shipping_postal_code || null,
@@ -138,7 +139,7 @@ serve(async (req) => {
       throw orderError;
     }
 
-    console.log("Order created:", order.id);
+    console.log("Order created via webhook:", order.id);
 
     // Track discount code usage if applicable
     if (metadata.discount_code_id && metadata.discount_code) {
@@ -160,7 +161,7 @@ serve(async (req) => {
           .insert({
             discount_code_id: metadata.discount_code_id,
             order_id: order.id,
-            user_email: metadata.customer_email || session.customer_details?.email || user?.email || "unknown",
+            user_email: metadata.customer_email || session.customer_details?.email || "unknown",
           });
 
         if (usageError) {
@@ -168,7 +169,6 @@ serve(async (req) => {
         }
       } catch (discountError) {
         console.error("Error tracking discount code:", discountError);
-        // Don't fail the whole transaction if discount tracking fails
       }
     }
 
@@ -198,7 +198,7 @@ serve(async (req) => {
       throw itemsError;
     }
 
-    console.log("Order items created successfully");
+    console.log("Order items created successfully via webhook");
 
     // Send order confirmation email
     try {
@@ -211,7 +211,7 @@ serve(async (req) => {
             "Authorization": `Bearer ${Deno.env.get("SUPABASE_ANON_KEY")}`,
           },
           body: JSON.stringify({
-            customerEmail: metadata.customer_email || session.customer_details?.email || user?.email,
+            customerEmail: metadata.customer_email || session.customer_details?.email,
             customerName: session.customer_details?.name || metadata.customer_email || "Kunde",
             orderId: order.id,
             orderNumber: order.id.split('-')[0].toUpperCase(),
@@ -239,25 +239,18 @@ serve(async (req) => {
       if (!confirmationResponse.ok) {
         console.error("Failed to send order confirmation email");
       } else {
-        console.log("Order confirmation email sent successfully");
+        console.log("Order confirmation email sent successfully via webhook");
       }
     } catch (emailError) {
       console.error("Error sending confirmation email:", emailError);
-      // Don't fail the whole transaction if email fails
     }
 
-    return new Response(JSON.stringify({ 
-      success: true, 
-      orderId: order.id,
-      orderNumber: order.id.split('-')[0].toUpperCase(),
-    }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    return new Response(JSON.stringify({ received: true, orderId: order.id }), {
       status: 200,
     });
   } catch (error) {
-    console.error("Error verifying payment:", error);
+    console.error("Webhook processing error:", error);
     return new Response(JSON.stringify({ error: error.message }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 500,
     });
   }
