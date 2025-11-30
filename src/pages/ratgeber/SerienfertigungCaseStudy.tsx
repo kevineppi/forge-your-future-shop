@@ -108,11 +108,11 @@ const SerienfertigungCaseStudy = () => {
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Stückkosten:</strong> ~3,50€ pro Halterung</span>
+                        <span><strong>Stückkosten:</strong> ~6,00€ pro Halterung</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Gesamtpreis:</strong> ~700€ (inkl. Material, Druck, Nachbearbeitung)</span>
+                        <span><strong>Gesamtpreis:</strong> ~1.200€ (inkl. Material, Druck, Nachbearbeitung)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -159,12 +159,12 @@ const SerienfertigungCaseStudy = () => {
                         <div className="font-semibold text-primary mb-1">3D-Druck</div>
                         <div className="text-muted-foreground text-sm">
                           Setup: 0€<br />
-                          Produktion (200 Stück): ~700€<br />
-                          <span className="font-semibold text-primary">Gesamt: ~700€</span>
+                          Produktion (200 Stück): ~1.200€<br />
+                          <span className="font-semibold text-primary">Gesamt: ~1.200€</span>
                         </div>
                       </div>
                       <div className="bg-primary/10 p-3 rounded-lg">
-                        <div className="font-bold text-primary">Ersparnis: ~5.800€ (89%)</div>
+                        <div className="font-bold text-primary">Ersparnis: ~5.300€ (82%)</div>
                       </div>
                     </div>
                   </CardContent>
@@ -248,7 +248,7 @@ const SerienfertigungCaseStudy = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      200 Teile auf mehreren Druckern parallel: 5 Drucker × 8 Teile pro Batch × 5 Batches = 200 Teile in 10 Tagen. Die richtige Kapazitätsplanung war entscheidend, um den Zeitrahmen einzuhalten. Batch-Produktion ermöglicht gleichmäßige Qualität und effiziente Nachbearbeitung.
+                      Die 200 Teile wurden in Batches parallel produziert und innerhalb von 10 Tagen fertiggestellt. Die richtige Produktionsplanung war entscheidend, um den Zeitrahmen einzuhalten. Batch-Produktion ermöglicht gleichmäßige Qualität und effiziente Nachbearbeitung.
                     </p>
                   </CardContent>
                 </Card>
@@ -390,7 +390,7 @@ const SerienfertigungCaseStudy = () => {
               </div>
 
               <p className="text-muted-foreground mt-6">
-                Dieses Projekt zeigt: Bei 200 Montagehalterungen sparten wir ~5.800€ (89%) und lieferten 60% schneller als mit traditioneller Fertigung. Für Maschinenbauer, Produktentwickler und Unternehmen mit Kleinserien-Bedarf ist 3D-Druck oft die wirtschaftlichste Lösung.
+                Dieses Projekt zeigt: Bei 200 Montagehalterungen sparten wir ~5.300€ (82%) und lieferten 60% schneller als mit traditioneller Fertigung. Für Maschinenbauer, Produktentwickler und Unternehmen mit Kleinserien-Bedarf ist 3D-Druck oft die wirtschaftlichste Lösung.
               </p>
             </div>
 
