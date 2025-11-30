@@ -87,7 +87,7 @@ const handler = async (req: Request): Promise<Response> => {
     ` : '';
 
     const emailResponse = await resend.emails.send({
-      from: "ekdruck <noreply@ek-druck.at>",
+      from: "ekdruck <onboarding@resend.dev>",
       to: [customerEmail],
       subject: `Bestellbestätigung #${orderNumber} - ekdruck 3D-Druck Service`,
       html: `

@@ -171,7 +171,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const { data, error } = await resend.emails.send({
-      from: "ekdruck Bestellungen <noreply@ek-druck.at>",
+      from: "ekdruck Bestellungen <onboarding@resend.dev>",
       to: ["office@ekdruck.at"], // Admin E-Mail
       subject: `🎉 Neue Bestellung #${requestData.order_id.slice(0, 8)} - €${(requestData.total_price || 0).toFixed(2)}`,
       html: emailHtml,
