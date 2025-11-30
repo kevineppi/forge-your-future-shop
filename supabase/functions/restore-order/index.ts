@@ -261,6 +261,40 @@ serve(async (req) => {
           console.error("Error sending confirmation email:", emailError);
         }
 
+        // Send admin notification email
+        try {
+          await fetch(
+            `${Deno.env.get("SUPABASE_URL")}/functions/v1/send-admin-order-notification`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${Deno.env.get("SUPABASE_ANON_KEY")}`,
+              },
+              body: JSON.stringify({
+                order_id: order.id,
+                customer_name: session.customer_details?.name || metadata.customer_email || "Kunde",
+                customer_email: metadata.customer_email || session.customer_details?.email,
+                total_price: session.amount_total! / 100,
+                express_service: metadata.express_service === "true",
+                shipping_address: {
+                  street: metadata.shipping_street || null,
+                  postal_code: metadata.shipping_postal_code || null,
+                  city: metadata.shipping_city || null,
+                  country: metadata.shipping_country || "Österreich",
+                },
+                items: orderItems,
+                notes: metadata.notes || null,
+                discount_code: metadata.discount_code || null,
+                discount_percentage: metadata.discount_percentage ? parseInt(metadata.discount_percentage) : null,
+              }),
+            }
+          );
+          console.log("Admin notification email sent for order:", order.id);
+        } catch (adminEmailError) {
+          console.error("Error sending admin notification email:", adminEmailError);
+        }
+
         results.push({ 
           paymentId, 
           sessionId, 
