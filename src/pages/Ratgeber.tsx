@@ -10,6 +10,15 @@ import AIChatWidget from "@/components/AIChatWidget";
 const Ratgeber = () => {
   const articles = [
     {
+      title: "Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck?",
+      description: "Praxis-Beispiel: 200 Keksausstecher für Generali Versicherung. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie 94% Kosten sparen.",
+      link: "/ratgeber/serienfertigung-case-study",
+      icon: TrendingUp,
+      category: "Serienfertigung",
+      readTime: "8 Min. Lesezeit",
+      date: "Januar 2025"
+    },
+    {
       title: "Rapid Prototyping Österreich: Wissenschaftlicher Guide + 24h Express",
       description: "85% schneller als traditionelle Methoden: Wissenschaftlich fundierter Guide zu Rapid Prototyping mit FDM 3D-Druck. Inkl. Vergleichstabellen, ROI-Berechnung und Branchenanwendungen.",
       link: "/rapid-prototyping",
@@ -169,6 +178,7 @@ const Ratgeber = () => {
                   <CardContent>
                     <Button asChild className="w-full md:w-auto">
                       <a href={article.link}>
+                        {article.link === '/ratgeber/serienfertigung-case-study' && 'Case Study lesen'}
                         {article.link === '/rapid-prototyping' && 'Rapid Prototyping Guide lesen'}
                         {article.link === '/ratgeber/kosten-guide' && '3D-Druck Kosten-Guide lesen'}
                         {article.link === '/ratgeber/verfahrens-vergleich' && 'Verfahrens-Vergleich lesen'}

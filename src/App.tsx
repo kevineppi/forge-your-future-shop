@@ -39,6 +39,7 @@ import VerfahrensVergleich from "./pages/ratgeber/VerfahrensVergleich";
 import MaterialGuide from "./pages/ratgeber/MaterialGuide";
 import PrototypingGuide from "./pages/ratgeber/PrototypingGuide";
 import Maschinenbau from "./pages/ratgeber/Maschinenbau";
+import SerienfertigungCaseStudy from "./pages/ratgeber/SerienfertigungCaseStudy";
 import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
 import MeineBestellungen from "./pages/MeineBestellungen";
@@ -75,6 +76,7 @@ const App = () => (
             <Route path="/ratgeber/material-guide" element={<MaterialGuide />} />
             <Route path="/ratgeber/prototyping-guide" element={<PrototypingGuide />} />
             <Route path="/ratgeber/maschinenbau" element={<Maschinenbau />} />
+            <Route path="/ratgeber/serienfertigung-case-study" element={<SerienfertigungCaseStudy />} />
             <Route path="/glossar" element={<Glossar />} />
             <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
             <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
