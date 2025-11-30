@@ -158,7 +158,7 @@ const handler = async (req: Request): Promise<Response> => {
               <tfoot>
                 <tr style="background-color: #f9fafb; border-top: 2px solid #e5e7eb;">
                   <td colspan="3" style="padding: 16px 8px; text-align: right; font-weight: 600; font-size: 16px;">Gesamtsumme:</td>
-                  <td style="padding: 16px 8px; text-align: right; font-weight: 700; font-size: 18px; color: #4f46e5;">€${totalPrice.toFixed(2)}</td>
+                  <td style="padding: 16px 8px; text-align: right; font-weight: 700; font-size: 18px; color: #4f46e5;">€${(totalPrice || 0).toFixed(2)}</td>
                 </tr>
               </tfoot>
             </table>
