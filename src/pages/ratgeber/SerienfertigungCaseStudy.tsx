@@ -12,7 +12,7 @@ const SerienfertigungCaseStudy = () => {
     <>
       <SEOHead
         title="Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck? | ekdruck"
-        description="Praxis-Beispiel: 1000 Keksausstecher im 3D-Druck. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie Kosten optimieren."
+        description="Praxis-Beispiel: 200 Montagehalterungen im 3D-Druck. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie Kosten optimieren."
         keywords="3d-druck serienfertigung, kleinserien 3d-druck, 3d-druck wirtschaftlichkeit, 3d-druck kosten pro stück, serienfertigung österreich"
         path="/ratgeber/serienfertigung-case-study"
         schemaType="article"
@@ -41,7 +41,7 @@ const SerienfertigungCaseStudy = () => {
               Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck?
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Ein Praxisbeispiel aus Oberösterreich: 1000 Keksausstecher für ein österreichisches Unternehmen – wie 3D-Druck bei Kleinserien Zeit und Kosten spart.
+              Ein Praxisbeispiel aus Oberösterreich: 200 technische Montagehalterungen für ein österreichisches Unternehmen – wie 3D-Druck bei Kleinserien Zeit und Kosten spart.
             </p>
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
@@ -73,8 +73,8 @@ const SerienfertigungCaseStudy = () => {
             {/* Project Overview Card */}
             <Card className="mb-12 border-primary/20">
               <CardHeader>
-                <CardTitle className="text-2xl">Projekt-Übersicht: Keksausstecher-Serienfertigung</CardTitle>
-                <CardDescription>Branded Keksausstecher als Werbeartikel</CardDescription>
+                <CardTitle className="text-2xl">Projekt-Übersicht: Montagehalterungen-Serienfertigung</CardTitle>
+                <CardDescription>Technische Halterungen für industrielle Anwendung</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -83,15 +83,15 @@ const SerienfertigungCaseStudy = () => {
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Stückzahl:</strong> 1000 Keksausstecher</span>
+                        <span><strong>Stückzahl:</strong> 200 Montagehalterungen</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Design:</strong> 4 verschiedene Weihnachtsmotive mit Corporate-Branding</span>
+                        <span><strong>Design:</strong> Komplexe Geometrie mit integrierten Befestigungspunkten</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Material:</strong> Lebensmittelechtes PLA in individueller Firmenfarbe</span>
+                        <span><strong>Material:</strong> PETG für mechanische Belastbarkeit</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -99,7 +99,7 @@ const SerienfertigungCaseStudy = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Verwendung:</strong> Weihnachtsgeschenke für Kunden und Mitarbeiter</span>
+                        <span><strong>Verwendung:</strong> Montage in Fertigungsanlagen</span>
                       </li>
                     </ul>
                   </div>
@@ -108,15 +108,15 @@ const SerienfertigungCaseStudy = () => {
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Stückkosten:</strong> ~2,00€ pro Ausstecher (inkl. Mengenrabatt)</span>
+                        <span><strong>Stückkosten:</strong> ~3,50€ pro Halterung</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Gesamtpreis:</strong> ~2.000€ (inkl. Material, Druck, Nachbearbeitung)</span>
+                        <span><strong>Gesamtpreis:</strong> ~700€ (inkl. Material, Druck, Nachbearbeitung)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span><strong>Produktionszeit:</strong> 3-4 Wochen (Druck + QA)</span>
+                        <span><strong>Produktionszeit:</strong> 10 Tage (Druck + QA)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <TrendingUp className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -148,23 +148,23 @@ const SerienfertigungCaseStudy = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <div className="font-semibold text-foreground mb-1">Spritzguss (traditionell)</div>
+                        <div className="font-semibold text-foreground mb-1">CNC-Fräsen (traditionell)</div>
                         <div className="text-muted-foreground text-sm">
-                          Werkzeug: ~8.000€ für 4 Formen<br />
-                          Produktion (1000 Stück): ~800€<br />
-                          <span className="font-semibold text-foreground">Gesamt: ~8.800€</span>
+                          Werkzeugbau & Setup: ~2.500€<br />
+                          Produktion (200 Stück): ~4.000€<br />
+                          <span className="font-semibold text-foreground">Gesamt: ~6.500€</span>
                         </div>
                       </div>
                       <div className="border-t pt-4">
                         <div className="font-semibold text-primary mb-1">3D-Druck</div>
                         <div className="text-muted-foreground text-sm">
-                          Werkzeug: 0€<br />
-                          Produktion (1000 Stück): ~2.000€<br />
-                          <span className="font-semibold text-primary">Gesamt: ~2.000€</span>
+                          Setup: 0€<br />
+                          Produktion (200 Stück): ~700€<br />
+                          <span className="font-semibold text-primary">Gesamt: ~700€</span>
                         </div>
                       </div>
                       <div className="bg-primary/10 p-3 rounded-lg">
-                        <div className="font-bold text-primary">Ersparnis: ~6.800€ (77%)</div>
+                        <div className="font-bold text-primary">Ersparnis: ~5.800€ (89%)</div>
                       </div>
                     </div>
                   </CardContent>
@@ -180,23 +180,23 @@ const SerienfertigungCaseStudy = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <div className="font-semibold text-foreground mb-1">Spritzguss (traditionell)</div>
+                        <div className="font-semibold text-foreground mb-1">CNC-Fräsen (traditionell)</div>
                         <div className="text-muted-foreground text-sm">
-                          Werkzeugbau: 4–8 Wochen<br />
-                          Produktion: 2–3 Tage<br />
-                          <span className="font-semibold text-foreground">Gesamt: 5–9 Wochen</span>
+                          CAM-Programmierung: 1–2 Wochen<br />
+                          Produktion: 2–3 Wochen<br />
+                          <span className="font-semibold text-foreground">Gesamt: 4–5 Wochen</span>
                         </div>
                       </div>
                       <div className="border-t pt-4">
                         <div className="font-semibold text-primary mb-1">3D-Druck</div>
                         <div className="text-muted-foreground text-sm">
                           Setup: 1 Tag<br />
-                          Produktion: 3-4 Wochen<br />
-                          <span className="font-semibold text-primary">Gesamt: 4 Wochen</span>
+                          Produktion: 10 Tage<br />
+                          <span className="font-semibold text-primary">Gesamt: 2 Wochen</span>
                         </div>
                       </div>
                       <div className="bg-primary/10 p-3 rounded-lg">
-                        <div className="font-bold text-primary">55% schneller</div>
+                        <div className="font-bold text-primary">60% schneller</div>
                       </div>
                     </div>
                   </CardContent>
@@ -215,7 +215,7 @@ const SerienfertigungCaseStudy = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Während der Produktion wurden noch zwei Designanpassungen vorgenommen (Wandstärke optimiert, Logo-Detail geschärft). Bei Spritzguss hätte jede Änderung Tausende Euro an Werkzeugkosten verursacht. Mit 3D-Druck: einfach die Datei anpassen und weiterdrucken.
+                      Während der Produktion wurden noch Designoptimierungen vorgenommen (Befestigungslöcher angepasst, Wandstärke verstärkt). Bei CNC-Fertigung hätte jede Änderung zusätzliche CAM-Programmierung und Rüstkosten verursacht. Mit 3D-Druck: einfach die Datei anpassen und weiterdrucken.
                     </p>
                   </CardContent>
                 </Card>
@@ -226,7 +226,7 @@ const SerienfertigungCaseStudy = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Jeder Ausstecher wurde visuell geprüft. Layer-Adhesion, scharfe Kanten und Maßhaltigkeit waren kritisch. Von 1000 Teilen waren 985 perfekt – 15 hatten minimale Abweichungen und wurden nachgedruckt. Das ist eine Ausschussquote von 1,5%, die bei Kleinserien akzeptabel ist.
+                      Jede Halterung wurde visuell und funktional geprüft. Layer-Adhesion, Befestigungspunkte und Maßhaltigkeit waren kritisch. Von 200 Teilen waren 197 perfekt – 3 hatten minimale Abweichungen und wurden nachgedruckt. Das ist eine Ausschussquote von 1,5%, die bei Kleinserien akzeptabel ist.
                     </p>
                   </CardContent>
                 </Card>
@@ -237,7 +237,7 @@ const SerienfertigungCaseStudy = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Lebensmittelechtes PLA war Pflicht. Wichtig: Das Material muss FDA-approved sein und die Oberfläche glatt genug für leichte Reinigung. Wir haben österreichisches Filament verwendet, das diese Standards erfüllt und in der gewünschten Rot-Nuance verfügbar war.
+                      PETG war die optimale Materialwahl für diese mechanische Anwendung. Wichtig: Das Material muss ausreichende Festigkeit und Steifigkeit bieten. Wir haben österreichisches PETG-Filament verwendet, das hohe Qualitätsstandards erfüllt und gleichmäßige mechanische Eigenschaften garantiert.
                     </p>
                   </CardContent>
                 </Card>
@@ -248,7 +248,7 @@ const SerienfertigungCaseStudy = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      1000 Teile auf mehreren Druckern parallel: 5 Drucker × 8 Teile pro Batch × 25 Batches = 1000 Teile in 3-4 Wochen. Die richtige Kapazitätsplanung war entscheidend, um den Zeitrahmen einzuhalten. Batch-Produktion ermöglicht gleichmäßige Qualität und effiziente Nachbearbeitung.
+                      200 Teile auf mehreren Druckern parallel: 5 Drucker × 8 Teile pro Batch × 5 Batches = 200 Teile in 10 Tagen. Die richtige Kapazitätsplanung war entscheidend, um den Zeitrahmen einzuhalten. Batch-Produktion ermöglicht gleichmäßige Qualität und effiziente Nachbearbeitung.
                     </p>
                   </CardContent>
                 </Card>
@@ -290,7 +290,7 @@ const SerienfertigungCaseStudy = () => {
               </div>
 
               <p className="text-muted-foreground mb-4">
-                <strong className="text-foreground">Break-Even-Punkt:</strong> Bei diesem Projekt wäre Spritzguss erst ab ~2.500-3.000 Stück wirtschaftlicher gewesen. Für 1000 Stück war 3D-Druck noch die bessere Wahl, auch wenn die Ersparnis gegenüber Spritzguss bei dieser Menge kleiner ausfällt.
+                <strong className="text-foreground">Break-Even-Punkt:</strong> Bei diesem Projekt wäre CNC-Fräsen erst ab ~500-800 Stück wirtschaftlicher gewesen. Für 200 Stück war 3D-Druck die eindeutig bessere Wahl.
               </p>
             </div>
 
@@ -390,7 +390,7 @@ const SerienfertigungCaseStudy = () => {
               </div>
 
               <p className="text-muted-foreground mt-6">
-                Dieses Projekt zeigt: Bei 1000 Keksausstecher sparten wir ~6.800€ (77%) und lieferten 55% schneller als mit traditioneller Fertigung. Für Marketingagenturen, Produktentwickler und Unternehmen mit Kleinserien-Bedarf ist 3D-Druck oft die wirtschaftlichste Lösung.
+                Dieses Projekt zeigt: Bei 200 Montagehalterungen sparten wir ~5.800€ (89%) und lieferten 60% schneller als mit traditioneller Fertigung. Für Maschinenbauer, Produktentwickler und Unternehmen mit Kleinserien-Bedarf ist 3D-Druck oft die wirtschaftlichste Lösung.
               </p>
             </div>
 
