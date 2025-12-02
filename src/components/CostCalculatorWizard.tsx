@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calculator, Upload, Ruler, Package, Settings, Sparkles, Zap, Wrench, ChevronRight, Check, Eye, X, Edit2, Palette, Plus, Minus, ShoppingCart } from "lucide-react";
 import { FileUpload3D } from "./FileUpload3D";
 import { Model3DViewer } from "./Model3DViewer";
@@ -881,35 +882,50 @@ const CostCalculatorWizard = () => {
                             </div>
                             
                             {/* Color Selection */}
-                            <div className="space-y-2">
-                              <label className="text-sm font-medium block flex items-center gap-2">
+                            <div className="flex items-center gap-3">
+                              <span className="text-sm font-medium flex items-center gap-1.5">
                                 <Palette className="w-4 h-4" />
-                                Farbe
-                              </label>
-                              <div className="grid grid-cols-5 gap-1.5">
-                                {colorOptions.map((color) => (
+                                Farbe:
+                              </span>
+                              <Popover>
+                                <PopoverTrigger asChild>
                                   <button
-                                    key={color.hex}
                                     type="button"
-                                    onClick={() => {
-                                      setUploadedFiles(prev => prev.map(f => 
-                                        f.id === file.id ? { ...f, color: color.hex } : f
-                                      ));
-                                    }}
-                                    className={`aspect-square rounded border-2 transition-all hover:scale-105 ${
-                                      file.color === color.hex
-                                        ? "border-primary ring-1 ring-primary"
-                                        : "border-border hover:border-primary/50"
-                                    }`}
-                                    style={{ backgroundColor: color.hex }}
-                                    title={color.name}
-                                  >
-                                    {file.color === color.hex && (
-                                      <Check className="w-2.5 h-2.5 text-white drop-shadow mx-auto" />
-                                    )}
-                                  </button>
-                                ))}
-                              </div>
+                                    className="w-8 h-8 rounded border-2 border-border hover:border-primary transition-colors shadow-sm"
+                                    style={{ backgroundColor: file.color || "#111827" }}
+                                    title={colorOptions.find(c => c.hex === file.color)?.name || "Farbe wählen"}
+                                  />
+                                </PopoverTrigger>
+                                <PopoverContent className="w-auto p-3" align="start">
+                                  <div className="grid grid-cols-5 gap-2">
+                                    {colorOptions.map((color) => (
+                                      <button
+                                        key={color.hex}
+                                        type="button"
+                                        onClick={() => {
+                                          setUploadedFiles(prev => prev.map(f => 
+                                            f.id === file.id ? { ...f, color: color.hex } : f
+                                          ));
+                                        }}
+                                        className={`w-7 h-7 rounded border-2 transition-all hover:scale-110 ${
+                                          file.color === color.hex
+                                            ? "border-primary ring-2 ring-primary ring-offset-1"
+                                            : "border-border hover:border-primary/50"
+                                        }`}
+                                        style={{ backgroundColor: color.hex }}
+                                        title={color.name}
+                                      >
+                                        {file.color === color.hex && (
+                                          <Check className="w-3 h-3 text-white drop-shadow mx-auto" />
+                                        )}
+                                      </button>
+                                    ))}
+                                  </div>
+                                </PopoverContent>
+                              </Popover>
+                              <span className="text-xs text-muted-foreground">
+                                {colorOptions.find(c => c.hex === file.color)?.name || "Schwarz"}
+                              </span>
                             </div>
                           </div>
                         );
