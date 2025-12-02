@@ -1459,17 +1459,17 @@ const CostCalculatorWizard = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                  {pricing.additionalServices > 0 && (
-                    <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg">
-                      <span className="font-medium flex items-center gap-1">
-                        <Wrench className="w-4 h-4" />
-                        Zusätzliche Services:
-                      </span>
-                      <span className="text-lg font-semibold text-blue-600">
-                        +€{pricing.additionalServices.toFixed(2)}
-                      </span>
-                    </div>
-                  )}
+                    {pricing.additionalServices > 0 && (
+                      <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg">
+                        <span className="font-medium flex items-center gap-1">
+                          <Wrench className="w-4 h-4" />
+                          Zusätzliche Services:
+                        </span>
+                        <span className="text-lg font-semibold text-blue-600">
+                          +€{pricing.additionalServices.toFixed(2)}
+                        </span>
+                      </div>
+                    )}
 
                   {pricing.expressCharge > 0 && (
                     <div className="flex justify-between items-center p-4 bg-yellow-500/10 rounded-lg">
