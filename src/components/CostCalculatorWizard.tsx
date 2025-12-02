@@ -273,7 +273,7 @@ const CostCalculatorWizard = () => {
       complexity: detectedComplexity,
       postProcessing: postProcessing || "none",
       supportRemoval: supportRemoval || false,
-      color: "#ef4444", // Default Rot
+      color: "#111827", // Default Schwarz
       scale: 1,
       quantity: 1,
       notes: ""
