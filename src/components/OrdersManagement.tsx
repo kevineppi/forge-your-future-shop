@@ -9,9 +9,10 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { useToast } from "@/hooks/use-toast";
-import { Search, Filter, RefreshCw, Eye, FileText, Truck, Package, CheckCircle2, XCircle, MapPin } from "lucide-react";
+import { Search, Filter, RefreshCw, Eye, FileText, Truck, Package, CheckCircle2, XCircle, MapPin, Download } from "lucide-react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
+import JSZip from "jszip";
 
 type Order = Tables<'orders'>;
 type OrderItem = Tables<'order_items'>;
@@ -138,6 +139,62 @@ const OrdersManagement = () => {
       title: "Rechnung wird erstellt",
       description: "Diese Funktion wird noch implementiert.",
     });
+  };
+
+  const downloadAllFiles = async (order: OrderWithItems) => {
+    try {
+      toast({
+        title: "Download wird vorbereitet",
+        description: "Die Dateien werden heruntergeladen und zu einem ZIP-Archiv zusammengefasst...",
+      });
+
+      const zip = new JSZip();
+      const folder = zip.folder(`Bestellung_${order.id.substring(0, 8)}`);
+
+      if (!folder) {
+        throw new Error("ZIP-Ordner konnte nicht erstellt werden");
+      }
+
+      // Alle Dateien herunterladen und zum ZIP hinzufügen
+      const downloadPromises = order.order_items.map(async (item, index) => {
+        try {
+          const response = await fetch(item.file_url);
+          if (!response.ok) throw new Error(`Download fehlgeschlagen für ${item.file_name}`);
+          
+          const blob = await response.blob();
+          const fileName = `${index + 1}_${item.file_name}`;
+          folder.file(fileName, blob);
+        } catch (error) {
+          console.error(`Fehler beim Download von ${item.file_name}:`, error);
+          throw error;
+        }
+      });
+
+      await Promise.all(downloadPromises);
+
+      // ZIP generieren und herunterladen
+      const content = await zip.generateAsync({ type: "blob" });
+      const url = window.URL.createObjectURL(content);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `Bestellung_${order.id.substring(0, 8)}_${format(new Date(order.created_at), "yyyyMMdd")}.zip`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+
+      toast({
+        title: "Download erfolgreich",
+        description: `${order.order_items.length} Datei(en) wurden heruntergeladen.`,
+      });
+    } catch (error) {
+      console.error('Error downloading files:', error);
+      toast({
+        title: "Fehler beim Download",
+        description: "Die Dateien konnten nicht heruntergeladen werden.",
+        variant: "destructive",
+      });
+    }
   };
 
   if (loading) {
@@ -379,7 +436,17 @@ const OrdersManagement = () => {
               {/* Order Items */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Bestellpositionen</CardTitle>
+                  <CardTitle className="text-lg flex items-center justify-between">
+                    <span>Bestellpositionen</span>
+                    <Button 
+                      onClick={() => downloadAllFiles(selectedOrder)}
+                      variant="outline"
+                      size="sm"
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      Alle Dateien herunterladen
+                    </Button>
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <Table>
