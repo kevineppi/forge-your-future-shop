@@ -926,6 +926,13 @@ const CostCalculatorWizard = () => {
                               <span className="text-xs text-muted-foreground">
                                 {colorOptions.find(c => c.hex === file.color)?.name || "Schwarz"}
                               </span>
+                              
+                              <span className="text-muted-foreground mx-2">•</span>
+                              
+                              <span className="text-sm font-medium">Material:</span>
+                              <span className="text-xs text-muted-foreground">
+                                {materials[file.material as keyof typeof materials]?.name || "PLA"}
+                              </span>
                             </div>
                           </div>
                         );
