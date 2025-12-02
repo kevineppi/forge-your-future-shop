@@ -879,6 +879,38 @@ const CostCalculatorWizard = () => {
                                 </Button>
                               </div>
                             </div>
+                            
+                            {/* Color Selection */}
+                            <div className="space-y-2">
+                              <label className="text-sm font-medium block flex items-center gap-2">
+                                <Palette className="w-4 h-4" />
+                                Farbe
+                              </label>
+                              <div className="grid grid-cols-8 gap-2">
+                                {colorOptions.map((color) => (
+                                  <button
+                                    key={color.hex}
+                                    type="button"
+                                    onClick={() => {
+                                      setUploadedFiles(prev => prev.map(f => 
+                                        f.id === file.id ? { ...f, color: color.hex } : f
+                                      ));
+                                    }}
+                                    className={`aspect-square rounded-md border-2 transition-all hover:scale-110 ${
+                                      file.color === color.hex
+                                        ? "border-primary ring-2 ring-primary ring-offset-1"
+                                        : "border-border hover:border-primary/50"
+                                    }`}
+                                    style={{ backgroundColor: color.hex }}
+                                    title={color.name}
+                                  >
+                                    {file.color === color.hex && (
+                                      <Check className="w-3 h-3 text-white drop-shadow-lg mx-auto" />
+                                    )}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
                           </div>
                         );
                       })}
