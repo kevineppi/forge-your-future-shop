@@ -886,7 +886,7 @@ const CostCalculatorWizard = () => {
                                 <Palette className="w-4 h-4" />
                                 Farbe
                               </label>
-                              <div className="grid grid-cols-8 gap-2">
+                              <div className="grid grid-cols-5 gap-1.5">
                                 {colorOptions.map((color) => (
                                   <button
                                     key={color.hex}
@@ -896,16 +896,16 @@ const CostCalculatorWizard = () => {
                                         f.id === file.id ? { ...f, color: color.hex } : f
                                       ));
                                     }}
-                                    className={`aspect-square rounded-md border-2 transition-all hover:scale-110 ${
+                                    className={`aspect-square rounded border-2 transition-all hover:scale-105 ${
                                       file.color === color.hex
-                                        ? "border-primary ring-2 ring-primary ring-offset-1"
+                                        ? "border-primary ring-1 ring-primary"
                                         : "border-border hover:border-primary/50"
                                     }`}
                                     style={{ backgroundColor: color.hex }}
                                     title={color.name}
                                   >
                                     {file.color === color.hex && (
-                                      <Check className="w-3 h-3 text-white drop-shadow-lg mx-auto" />
+                                      <Check className="w-2.5 h-2.5 text-white drop-shadow mx-auto" />
                                     )}
                                   </button>
                                 ))}
@@ -1451,14 +1451,14 @@ const CostCalculatorWizard = () => {
             {/* Right Panel - Live Preview (50% width) */}
             <div className="lg:sticky lg:top-8 h-fit space-y-6 min-h-[600px]">
               {/* Price Preview */}
-              <Card className="gradient-card border-0">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
-                    Live-Kostenvorschau
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
+                <Card className="gradient-card border-0">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Sparkles className="w-5 h-5 text-primary" />
+                      Live-Kostenvorschau
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
                   {pricing.additionalServices > 0 && (
                     <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg">
                       <span className="font-medium flex items-center gap-1">
