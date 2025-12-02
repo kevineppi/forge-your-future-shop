@@ -1459,7 +1459,7 @@ const CostCalculatorWizard = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    {pricing.additionalServices > 0 && (
+                    {pricing.additionalServices > 0 ? (
                       <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg">
                         <span className="font-medium flex items-center gap-1">
                           <Wrench className="w-4 h-4" />
@@ -1469,66 +1469,66 @@ const CostCalculatorWizard = () => {
                           +€{pricing.additionalServices.toFixed(2)}
                         </span>
                       </div>
-                    )}
+                    ) : null}
 
-                  {pricing.expressCharge > 0 && (
-                    <div className="flex justify-between items-center p-4 bg-yellow-500/10 rounded-lg">
-                      <span className="font-medium flex items-center gap-1">
-                        <Zap className="w-4 h-4 text-yellow-500" />
-                        Express-Aufschlag:
-                      </span>
-                      <span className="text-lg font-semibold text-yellow-600">
-                        +€{pricing.expressCharge.toFixed(2)}
-                      </span>
-                    </div>
-                  )}
+                    {pricing.expressCharge > 0 ? (
+                      <div className="flex justify-between items-center p-4 bg-yellow-500/10 rounded-lg">
+                        <span className="font-medium flex items-center gap-1">
+                          <Zap className="w-4 h-4 text-yellow-500" />
+                          Express-Aufschlag:
+                        </span>
+                        <span className="text-lg font-semibold text-yellow-600">
+                          +€{pricing.expressCharge.toFixed(2)}
+                        </span>
+                      </div>
+                    ) : null}
 
-                  {pricing.discountAmount && pricing.discountAmount > 0 && (
-                    <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border-2 border-green-500/20">
-                      <span className="font-medium flex items-center gap-1">
-                        <Check className="w-4 h-4 text-green-600" />
-                        Rabatt ({appliedDiscount?.code}):
-                      </span>
-                      <span className="text-lg font-semibold text-green-600">
-                        -€{pricing.discountAmount.toFixed(2)}
-                      </span>
-                    </div>
-                  )}
+                    {pricing.discountAmount && pricing.discountAmount > 0 ? (
+                      <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border-2 border-green-500/20">
+                        <span className="font-medium flex items-center gap-1">
+                          <Check className="w-4 h-4 text-green-600" />
+                          Rabatt ({appliedDiscount?.code}):
+                        </span>
+                        <span className="text-lg font-semibold text-green-600">
+                          -€{pricing.discountAmount.toFixed(2)}
+                        </span>
+                      </div>
+                    ) : null}
 
-                  {!isExpressService && pricing.shippingCost === 0 && pricing.freeShipping && (
-                    <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border-2 border-green-500/20">
-                      <span className="font-medium flex items-center gap-1">
-                        🎉 Versandkosten:
-                      </span>
-                      <span className="text-lg font-semibold text-green-600">
-                        Kostenlos!
-                      </span>
-                    </div>
-                  )}
+                    {!isExpressService && pricing.shippingCost === 0 && pricing.freeShipping ? (
+                      <div className="flex justify-between items-center p-4 bg-green-500/10 rounded-lg border-2 border-green-500/20">
+                        <span className="font-medium flex items-center gap-1">
+                          🎉 Versandkosten:
+                        </span>
+                        <span className="text-lg font-semibold text-green-600">
+                          Kostenlos!
+                        </span>
+                      </div>
+                    ) : null}
 
-                  {!isExpressService && pricing.shippingCost > 0 && (
-                    <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg border-2 border-blue-500/20">
-                      <span className="font-medium flex items-center gap-1">
-                        <Package className="w-4 h-4 text-blue-500" />
-                        Versandkosten:
-                      </span>
-                      <span className="text-lg font-semibold text-blue-600">
-                        +€{pricing.shippingCost.toFixed(2)}
-                      </span>
-                    </div>
-                  )}
+                    {!isExpressService && pricing.shippingCost > 0 ? (
+                      <div className="flex justify-between items-center p-4 bg-blue-500/10 rounded-lg border-2 border-blue-500/20">
+                        <span className="font-medium flex items-center gap-1">
+                          <Package className="w-4 h-4 text-blue-500" />
+                          Versandkosten:
+                        </span>
+                        <span className="text-lg font-semibold text-blue-600">
+                          +€{pricing.shippingCost.toFixed(2)}
+                        </span>
+                      </div>
+                    ) : null}
 
-                  {pricing.expressShipping > 0 && (
-                    <div className="flex justify-between items-center p-4 bg-orange-500/10 rounded-lg">
-                      <span className="font-medium flex items-center gap-1">
-                        <Zap className="w-4 h-4 text-orange-500" />
-                        Express-Versand:
-                      </span>
-                      <span className="text-lg font-semibold text-orange-600">
-                        +€{pricing.expressShipping.toFixed(2)}
-                      </span>
-                    </div>
-                  )}
+                    {pricing.expressShipping > 0 ? (
+                      <div className="flex justify-between items-center p-4 bg-orange-500/10 rounded-lg">
+                        <span className="font-medium flex items-center gap-1">
+                          <Zap className="w-4 h-4 text-orange-500" />
+                          Express-Versand:
+                        </span>
+                        <span className="text-lg font-semibold text-orange-600">
+                          +€{pricing.expressShipping.toFixed(2)}
+                        </span>
+                      </div>
+                    ) : null}
 
                   <div className="flex justify-between items-center p-4 bg-primary/20 rounded-lg">
                     <span className="font-medium">
