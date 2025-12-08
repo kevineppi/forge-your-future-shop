@@ -422,8 +422,8 @@ const CostCalculatorWizard = () => {
     const materialCost = (materialWeightGrams / 1000) * fileMaterial.pricePerKg * 1.15;
     
     // 2. DEGRESSIVE GRUNDGEBÜHR (Setup, Handling, QS)
-    // Erstes Teil: €20 (volles Setup), weitere Teile: €5 (minimaler Zusatzaufwand)
-    const setupFee = fileIndex === 0 ? 20 : 5;
+    // Erstes Teil: €15 (wie bisher), weitere Teile: €5 (minimaler Zusatzaufwand)
+    const setupFee = fileIndex === 0 ? 15 : 5;
     
     // 3. DRUCKZEIT - EINFACHE REALISTISCHE BERECHNUNG
     // Basiert auf Material-Gewicht, nicht auf Edge-Function
