@@ -464,29 +464,41 @@ const CostCalculatorWizard = () => {
       additionalServices += fileMaterial.dryingHours * 0.50;
     }
     
-    // ZWISCHENSUMME
-    let pricePerPiece = materialCost + setupFee + timeCost + additionalServices;
+    // STÜCKKOSTEN (ohne Setup - Setup ist einmalig pro Datei)
+    let pricePerPieceWithoutSetup = materialCost + timeCost + additionalServices;
     
-    console.log(`[${file.fileName}] Price breakdown: Material=${materialCost.toFixed(2)}€, Setup=${setupFee}€, Time=${timeCost.toFixed(2)}€, Additional=${additionalServices.toFixed(2)}€`);
-    
-    // 6. EXPRESS-ZUSCHLAG (+30%)
+    // 6. EXPRESS-ZUSCHLAG (+30%) auf Stückkosten
     if (isExpressService) {
-      pricePerPiece *= 1.30;
+      pricePerPieceWithoutSetup *= 1.30;
     }
     
-    // 7. STEUER (20% MwSt)
-    pricePerPiece *= 1.20;
+    // 7. STEUER (20% MwSt) auf Stückkosten
+    pricePerPieceWithoutSetup *= 1.20;
     
-    // Apply quantity discount
+    // Setup-Gebühr ist EINMALIG pro Datei (nicht pro Stück!)
+    // Express-Zuschlag und MwSt auch auf Setup
+    let setupFeeWithTax = setupFee;
+    if (isExpressService) {
+      setupFeeWithTax *= 1.30;
+    }
+    setupFeeWithTax *= 1.20;
+    
+    // Apply quantity discount nur auf Stückkosten
     let discount = 1.0;
     if (fileQuantity >= 50) discount = 0.80;
     else if (fileQuantity >= 20) discount = 0.85;
     else if (fileQuantity >= 10) discount = 0.90;
     else if (fileQuantity >= 5) discount = 0.95;
     
-    const fileTotalPrice = pricePerPiece * fileQuantity * discount;
+    // Gesamtpreis = (Stückkosten × Menge × Rabatt) + einmalige Setup-Gebühr
+    const itemsCost = pricePerPieceWithoutSetup * fileQuantity * discount;
+    const fileTotalPrice = itemsCost + setupFeeWithTax;
     
-    console.log(`[${file.fileName}] Final: ${pricePerPiece.toFixed(2)}€/pc × ${fileQuantity} × ${discount} = ${fileTotalPrice.toFixed(2)}€`);
+    // pricePerPiece für Anzeige (durchschnittlicher Stückpreis inkl. anteiligem Setup)
+    const pricePerPiece = fileTotalPrice / fileQuantity;
+    
+    console.log(`[${file.fileName}] Price breakdown: Material=${materialCost.toFixed(2)}€, Setup=${setupFee}€ (einmalig), Time=${timeCost.toFixed(2)}€, Additional=${additionalServices.toFixed(2)}€`);
+    console.log(`[${file.fileName}] Final: (${pricePerPieceWithoutSetup.toFixed(2)}€/pc × ${fileQuantity} × ${discount}) + ${setupFeeWithTax.toFixed(2)}€ Setup = ${fileTotalPrice.toFixed(2)}€`);
     
     return {
       totalPrice: fileTotalPrice,
