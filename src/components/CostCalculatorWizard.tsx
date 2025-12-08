@@ -384,7 +384,8 @@ const CostCalculatorWizard = () => {
   };
 
   // KONSOLIDIERTE PREISBERECHNUNG - Einzige Quelle der Wahrheit
-  const calculateFilePriceDetails = useCallback((file: UploadedFile) => {
+  // fileIndex: 0 = erstes Teil (€20 Pauschale), 1+ = weitere Teile (€5 Pauschale)
+  const calculateFilePriceDetails = useCallback((file: UploadedFile, fileIndex: number = 0) => {
     const fileQuantity = file.quantity || 1;
     const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
     const fileComplexity = file.complexity || 0;
@@ -420,8 +421,9 @@ const CostCalculatorWizard = () => {
     // 1. MATERIALKOSTEN (realistisch)
     const materialCost = (materialWeightGrams / 1000) * fileMaterial.pricePerKg * 1.15;
     
-    // 2. GRUNDGEBÜHR (Setup, Handling, QS)
-    const setupFee = 15;
+    // 2. DEGRESSIVE GRUNDGEBÜHR (Setup, Handling, QS)
+    // Erstes Teil: €20 (volles Setup), weitere Teile: €5 (minimaler Zusatzaufwand)
+    const setupFee = fileIndex === 0 ? 20 : 5;
     
     // 3. DRUCKZEIT - EINFACHE REALISTISCHE BERECHNUNG
     // Basiert auf Material-Gewicht, nicht auf Edge-Function
@@ -495,10 +497,11 @@ const CostCalculatorWizard = () => {
   }, [isExpressService, materials, postProcessingOptions]);
 
   // Calculate individual file prices using the shared function
+  // Degressive Pauschale: erstes Teil €20, weitere Teile €5
   const filePrices = useMemo(() => {
     const prices: { [key: string]: number } = {};
-    uploadedFiles.forEach(file => {
-      const { totalPrice } = calculateFilePriceDetails(file);
+    uploadedFiles.forEach((file, index) => {
+      const { totalPrice } = calculateFilePriceDetails(file, index);
       prices[file.id] = totalPrice;
     });
     return prices;
@@ -521,8 +524,8 @@ const CostCalculatorWizard = () => {
       // CRITICAL: Apply same cent-rounding logic as Stripe upload to prevent discrepancies
       let itemsSubtotalBeforeDiscount = 0;
       let itemsSubtotal = 0;
-      uploadedFiles.forEach(file => {
-        const { totalPrice } = calculateFilePriceDetails(file);
+      uploadedFiles.forEach((file, index) => {
+        const { totalPrice } = calculateFilePriceDetails(file, index);
         const fileQuantity = file.quantity || 1;
         
         // Track pre-discount price for discount display
@@ -1352,14 +1355,15 @@ const CostCalculatorWizard = () => {
                             });
 
                             // Calculate file prices - use unified calculation function
-                            const items = uploadedFiles.map(file => {
+                            const items = uploadedFiles.map((file, index) => {
                               const fileQuantity = file.quantity || 1;
                               const fileMaterial = materials[file.material as keyof typeof materials] || materials.pla;
                               const fileComplexity = file.complexity || 0;
                               const fileScale = file.scale || 1;
                               
                               // Use the same unified calculation function as live preview
-                              const { totalPrice, pricePerPiece, materialWeightGrams, effectivePrintTime } = calculateFilePriceDetails(file);
+                              // Degressive Pauschale: erstes Teil €20, weitere Teile €5
+                              const { totalPrice, pricePerPiece, materialWeightGrams, effectivePrintTime } = calculateFilePriceDetails(file, index);
                               
                               // Apply discount code to individual item
                               let discountedTotalPrice = totalPrice;
@@ -1620,7 +1624,9 @@ const CostCalculatorWizard = () => {
               const maxDimension = Math.max(scaledLength, scaledWidth, scaledHeight);
               
               // Calculate pricing for this file using shared function
-              const { pricePerPiece: estimatedPrice, materialWeightGrams, effectivePrintTime: displayPrintTime } = calculateFilePriceDetails(editingFile);
+              // Find the index of this file for degressive Pauschale calculation
+              const editingFileIndex = uploadedFiles.findIndex(f => f.id === editingFileId);
+              const { pricePerPiece: estimatedPrice, materialWeightGrams, effectivePrintTime: displayPrintTime } = calculateFilePriceDetails(editingFile, editingFileIndex);
               
               return (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-4">
