@@ -492,7 +492,16 @@ const CostCalculatorWizard = () => {
     
     // Gesamtpreis = (Stückkosten × Menge × Rabatt) + einmalige Setup-Gebühr
     const itemsCost = pricePerPieceWithoutSetup * fileQuantity * discount;
-    const fileTotalPrice = itemsCost + setupFeeWithTax;
+    
+    // Druckplattenwechsel: €10 pro angefangene 10 Stück (inkl. MwSt & Express)
+    const plateChanges = Math.ceil(fileQuantity / 10);
+    let plateChangeFee = plateChanges * 10;
+    if (isExpressService) {
+      plateChangeFee *= 1.30;
+    }
+    plateChangeFee *= 1.20;
+    
+    const fileTotalPrice = itemsCost + setupFeeWithTax + plateChangeFee;
     
     // pricePerPiece für Anzeige (durchschnittlicher Stückpreis inkl. anteiligem Setup)
     const pricePerPiece = fileTotalPrice / fileQuantity;
