@@ -190,8 +190,8 @@ const handler = async (req: Request): Promise<Response> => {
               <strong>Fragen zu Ihrer Bestellung?</strong>
             </p>
             <p style="margin: 0;">
-              Kontaktieren Sie uns per E-Mail: <a href="mailto:info@ekdruck.at" style="color: #4f46e5; text-decoration: none;">info@ekdruck.at</a><br/>
-              oder nutzen Sie unseren KI-Chat auf <a href="https://www.ekdruck.at" style="color: #4f46e5; text-decoration: none;">www.ekdruck.at</a>
+              Kontaktieren Sie uns per E-Mail: <a href="mailto:office@ek-druck.at" style="color: #4f46e5; text-decoration: none;">office@ek-druck.at</a><br/>
+              oder nutzen Sie unseren KI-Chat auf <a href="https://www.ek-druck.at" style="color: #4f46e5; text-decoration: none;">www.ek-druck.at</a>
             </p>
           </div>
 
