@@ -84,7 +84,7 @@ const ReviewsWidget = () => {
 
         <div className="text-center mt-8">
           <a 
-            href="https://g.page/r/CXP3g4yiw40TEB0/review"
+            href="https://search.google.com/local/reviews?placeid=ChIJ32dHE_nzc0cRF4NmcjDDj3M"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary hover:underline"
