@@ -51,9 +51,44 @@ function isValidCoordinate(v: Vector3): boolean {
 }
 
 // Check if file is ASCII STL
+// Binary STL files can also have "solid" in their header, so we need a more robust check
 function isAsciiSTL(buffer: ArrayBuffer): boolean {
-  const text = new TextDecoder().decode(buffer.slice(0, 80));
-  return text.toLowerCase().includes('solid');
+  // First check: must start with "solid"
+  const headerText = new TextDecoder().decode(buffer.slice(0, 80));
+  if (!headerText.toLowerCase().trimStart().startsWith('solid')) {
+    return false;
+  }
+  
+  // Second check: Look for ASCII STL keywords in the file content
+  // Binary files won't have these text patterns after the header
+  const sampleSize = Math.min(buffer.byteLength, 1000);
+  const sampleText = new TextDecoder().decode(buffer.slice(0, sampleSize));
+  const lowerSample = sampleText.toLowerCase();
+  
+  // ASCII STL must contain "facet normal" and "vertex" keywords
+  const hasFacetNormal = lowerSample.includes('facet normal');
+  const hasVertex = lowerSample.includes('vertex');
+  
+  // If we find these keywords, it's likely ASCII
+  if (hasFacetNormal && hasVertex) {
+    return true;
+  }
+  
+  // Additional check: if header says "solid" but no ASCII keywords found,
+  // verify by checking if the data after header looks like binary (has triangle count)
+  if (buffer.byteLength >= 84) {
+    const view = new DataView(buffer);
+    const triangleCount = view.getUint32(80, true);
+    const expectedSize = 84 + triangleCount * 50;
+    
+    // If file size matches binary format closely, it's binary
+    if (Math.abs(buffer.byteLength - expectedSize) < 100) {
+      console.log('Detected as binary STL (header contains "solid" but structure is binary)');
+      return false;
+    }
+  }
+  
+  return false; // Default to binary if unsure
 }
 
 // Parse ASCII STL
