@@ -349,104 +349,81 @@ function analyzeOverhangs(triangles: Triangle[]) {
 function calculateComplexity(triangles: Triangle[], surfaceArea: number, volume: number) {
   const triangleCount = triangles.length;
   
-  // 1. Surface-to-Volume Ratio (höher = komplexer, mehr Details/Löcher)
-  const svRatio = volume > 0 ? surfaceArea / volume : 0;
+  // Volumen in cm³ für bessere Verhältnisberechnung
+  const volumeCm3 = volume / 1000;
+  const surfaceAreaCm2 = surfaceArea / 100;
   
-  // 2. Triangle Density (mehr Triangles pro Volumen = feinere Details)
-  const triangleDensity = volume > 0 ? triangleCount / volume : 0;
+  // 1. Surface-to-Volume Ratio - KRITISCH für organische/detaillierte Modelle
+  // Eine Kugel hat das niedrigste Verhältnis, detaillierte Modelle viel höher
+  // Formel: SA/V für eine Kugel mit gleichem Volumen = 4.84 * V^(-1/3)
+  // Alles darüber = mehr Oberfläche als nötig = komplexer
+  const sphereEquivalentSV = volumeCm3 > 0 ? 4.84 * Math.pow(volumeCm3, -1/3) : 0;
+  const actualSV = volumeCm3 > 0 ? surfaceAreaCm2 / volumeCm3 : 0;
+  const svComplexity = sphereEquivalentSV > 0 ? actualSV / sphereEquivalentSV : 1;
+  // svComplexity > 2 bedeutet doppelt so viel Oberfläche wie eine Kugel = sehr detailliert
   
-  // 3. Triangle Size Variance (hohe Varianz = Mix aus groß und klein = komplexe Features)
-  let triangleAreas: number[] = [];
-  for (const triangle of triangles) {
-    const [v1, v2, v3] = triangle.vertices;
-    const ab = { x: v2.x - v1.x, y: v2.y - v1.y, z: v2.z - v1.z };
-    const ac = { x: v3.x - v1.x, y: v3.y - v1.y, z: v3.z - v1.z };
-    const cross = {
-      x: ab.y * ac.z - ab.z * ac.y,
-      y: ab.z * ac.x - ab.x * ac.z,
-      z: ab.x * ac.y - ab.y * ac.x,
-    };
-    const area = Math.sqrt(cross.x ** 2 + cross.y ** 2 + cross.z ** 2) / 2;
-    triangleAreas.push(area);
-  }
+  // 2. Triangle Density - mehr Triangles pro Oberfläche = feinere Details
+  const triangleDensity = surfaceAreaCm2 > 0 ? triangleCount / surfaceAreaCm2 : 0;
+  // Typisch: 50-200 triangles/cm² für einfache Modelle, 500+ für detaillierte
   
-  const avgTriangleArea = triangleAreas.reduce((a, b) => a + b, 0) / triangleAreas.length;
-  const variance = triangleAreas.reduce((sum, area) => sum + Math.pow(area - avgTriangleArea, 2), 0) / triangleAreas.length;
-  const standardDeviation = Math.sqrt(variance);
-  const coefficientOfVariation = avgTriangleArea > 0 ? standardDeviation / avgTriangleArea : 0;
+  // 3. Absolute Triangle Count - hohe Zahlen = detailliertes Modell
+  // 1000 triangles = einfach, 10000 = moderat, 50000+ = komplex
   
-  // 4. Normal Variance (wie stark variieren die Normalen = Oberflächenrauigkeit)
+  // 4. Normal Variance (wie stark variieren die Normalen = Oberflächenkrümmung)
   let normalVariance = 0;
   if (triangles.length > 1) {
-    const avgNormal = { x: 0, y: 0, z: 0 };
-    for (const triangle of triangles) {
-      avgNormal.x += triangle.normal.x;
-      avgNormal.y += triangle.normal.y;
-      avgNormal.z += triangle.normal.z;
+    // Berechne Winkelabweichung zwischen benachbarten Normalen
+    let totalDeviation = 0;
+    for (let i = 1; i < triangles.length; i++) {
+      const n1 = triangles[i-1].normal;
+      const n2 = triangles[i].normal;
+      // Dot product = cos(angle)
+      const dot = n1.x * n2.x + n1.y * n2.y + n1.z * n2.z;
+      totalDeviation += 1 - Math.abs(dot); // 0 = gleich, 2 = entgegengesetzt
     }
-    avgNormal.x /= triangles.length;
-    avgNormal.y /= triangles.length;
-    avgNormal.z /= triangles.length;
-    
-    for (const triangle of triangles) {
-      const dx = triangle.normal.x - avgNormal.x;
-      const dy = triangle.normal.y - avgNormal.y;
-      const dz = triangle.normal.z - avgNormal.z;
-      normalVariance += Math.sqrt(dx * dx + dy * dy + dz * dz);
-    }
-    normalVariance /= triangles.length;
+    normalVariance = totalDeviation / triangles.length;
   }
   
-  // 5. Edge Count Analysis (hohe unique edges = mehr Features)
-  const edgeMap = new Map<string, number>();
-  for (const triangle of triangles) {
-    const [v1, v2, v3] = triangle.vertices;
-    const edges = [
-      [v1, v2],
-      [v2, v3],
-      [v3, v1],
-    ];
-    for (const [a, b] of edges) {
-      const key = [
-        Math.round(a.x * 100) / 100,
-        Math.round(a.y * 100) / 100,
-        Math.round(a.z * 100) / 100,
-        Math.round(b.x * 100) / 100,
-        Math.round(b.y * 100) / 100,
-        Math.round(b.z * 100) / 100,
-      ].sort().join(',');
-      edgeMap.set(key, (edgeMap.get(key) || 0) + 1);
-    }
-  }
+  // SCORING - angepasst für realistische Erkennung
   
-  const uniqueEdges = edgeMap.size;
-  const nonManifoldEdges = Array.from(edgeMap.values()).filter(count => count !== 2).length;
-  const manifoldRatio = uniqueEdges > 0 ? 1 - (nonManifoldEdges / uniqueEdges) : 1;
+  // Surface-to-Volume Score: > 3x Kugel = sehr komplex
+  const svScore = Math.min((svComplexity - 1) / 2, 1); // 1 = Kugel, 3 = max
   
-  // Normalisierte Scores mit angepassten Schwellenwerten für realistische Erkennung
-  const triangleScore = Math.min(triangleCount / 100000, 1); // 100k triangles = max (weniger empfindlich)
-  const svScore = Math.min(svRatio / 100, 1); // Höhere Schwelle für Surface/Volume
-  const densityScore = Math.min(triangleDensity / 1000, 1); // Höhere Schwelle
-  const varianceScore = Math.min(coefficientOfVariation * 1.0, 1); // Stark reduziert - glatte Teile haben oft hohe Variance
-  const normalScore = Math.min(normalVariance * 1.5, 1); // Stark reduziert - glatte Flächen sollten nicht bestraft werden
-  const edgeComplexityScore = Math.min((uniqueEdges / triangleCount) * 2, 1);
+  // Triangle Density Score: > 500 triangles/cm² = max
+  const densityScore = Math.min(triangleDensity / 500, 1);
   
-  // Gewichtete Komplexität: Fokus auf Triangle Count und Edge Complexity, weniger auf Variance
+  // Triangle Count Score: 50k = max
+  const triangleScore = Math.min(triangleCount / 50000, 1);
+  
+  // Normal Variance Score
+  const normalScore = Math.min(normalVariance * 5, 1);
+  
+  // Gewichtete Gesamtkomplexität
+  // SV-Ratio ist der wichtigste Indikator für organische/detaillierte Modelle!
   const complexityScore = (
-    triangleScore * 0.35 +      // Triangle count (Hauptindikator)
-    svScore * 0.15 +             // Surface to volume
-    densityScore * 0.20 +        // Triangle density (erhöht)
-    varianceScore * 0.08 +       // Triangle size variance (stark reduziert!)
-    normalScore * 0.07 +         // Surface roughness (stark reduziert!)
-    edgeComplexityScore * 0.15   // Edge complexity
+    svScore * 0.40 +           // Surface-to-Volume (HAUPTINDIKATOR)
+    triangleScore * 0.25 +     // Absolute triangle count
+    densityScore * 0.20 +      // Triangle density
+    normalScore * 0.15         // Surface curvature
   );
   
-  // Angepasste Schwellenwerte: Glatte Grundformen bleiben einfach!
+  // Level-Bestimmung mit realistischen Schwellenwerten
   let level: 'simple' | 'moderate' | 'complex' | 'very_complex' = 'simple';
-  if (complexityScore > 0.75) level = 'very_complex';  // Nur extrem komplexe Teile
-  else if (complexityScore > 0.55) level = 'complex';   // Komplexe Teile mit vielen Details
-  else if (complexityScore > 0.35) level = 'moderate';  // Mittlere Komplexität
-  // <0.35 = simple (Grundformen, glatte Teile)
+  
+  // Spezialfälle für organische Modelle: hohe SV-Ratio = sofort komplex
+  if (svComplexity > 4) {
+    level = 'very_complex';
+  } else if (svComplexity > 2.5) {
+    level = 'complex';
+  } else if (complexityScore > 0.65) {
+    level = 'very_complex';
+  } else if (complexityScore > 0.45) {
+    level = 'complex';
+  } else if (complexityScore > 0.25) {
+    level = 'moderate';
+  }
+  
+  console.log(`Complexity analysis: SV=${svComplexity.toFixed(2)}, Density=${triangleDensity.toFixed(0)}, Triangles=${triangleCount}, Score=${complexityScore.toFixed(2)}, Level=${level}`);
   
   return {
     triangleCount,
@@ -471,19 +448,35 @@ function estimatePrinting(
   
   const layerCount = Math.ceil(boundingBox.dimensions.z / layerHeight);
   
-  // Infill (20% Standard)
-  const infillPercentage = 0.20;
+  // KRITISCHE ÄNDERUNG: Infill basierend auf Komplexität!
+  // Detaillierte Modelle haben viele kleine Features = effektiv mehr Material
+  // Einfache Grundformen: 20% Infill
+  // Komplexe organische Modelle: 60-80% effektiver Infill (viele kleine Bereiche = fast solid)
+  let infillPercentage: number;
+  switch (complexity.level) {
+    case 'very_complex':
+      infillPercentage = 0.75; // Sehr detailliert = fast vollständig gefüllt
+      break;
+    case 'complex':
+      infillPercentage = 0.55; // Detailliert = mehr als halb gefüllt
+      break;
+    case 'moderate':
+      infillPercentage = 0.35; // Moderat = etwas mehr als Standard
+      break;
+    default:
+      infillPercentage = 0.20; // Einfache Formen = Standard 20%
+  }
+  
   const infillVolume = volumeCm3 * infillPercentage;
   
   // Material density (PLA: 1.24 g/cm³)
   const materialDensity = 1.24;
   const infillMaterial = infillVolume * materialDensity;
   
-  // Shell (Wände + Top/Bottom) - REALISTISCH
-  // Typisch 2-3 Perimeter (0.8-1.2mm) + 4-6 Top/Bottom Layer
-  // Approximation: ~15-20% des Gesamt-Volumens für dünnwandige Teile
-  // Für normale Teile: ~10-12% zusätzlich zum Infill
-  const shellPercentage = 0.12;
+  // Shell (Wände + Top/Bottom) - abhängig von Komplexität
+  // Komplexe Teile haben mehr Oberfläche = mehr Shell
+  const shellPercentage = complexity.level === 'very_complex' ? 0.18 :
+                         complexity.level === 'complex' ? 0.15 : 0.12;
   const shellVolume = volumeCm3 * shellPercentage;
   const shellMaterial = shellVolume * materialDensity;
   
@@ -492,36 +485,47 @@ function estimatePrinting(
   // Support Material Schätzung
   let supportMaterial = 0;
   if (overhangs.severity === 'high') {
-    supportMaterial = totalMaterial * 0.3; // 30% Support
+    supportMaterial = totalMaterial * 0.3;
   } else if (overhangs.severity === 'medium') {
     supportMaterial = totalMaterial * 0.15;
   } else if (overhangs.severity === 'low') {
     supportMaterial = totalMaterial * 0.05;
   }
   
-  // KRITISCH: Druckzeit basierend auf MATERIAL-Volumen, nicht Objekt-Volumen!
-  // Material-Volumen in cm³
-  const materialVolumeCm3 = totalMaterial / materialDensity;
+  // DRUCKZEIT - REALISTISCH basierend auf Material und Komplexität
+  // Basis: Gramm Material / Druckrate (g/h)
+  // Einfache Teile: ~60g/h
+  // Komplexe Teile: ~25g/h (langsamer wegen Details, Retractions, etc.)
+  let gramsPerHour: number;
+  switch (complexity.level) {
+    case 'very_complex':
+      gramsPerHour = 20; // Sehr langsam für feine Details
+      break;
+    case 'complex':
+      gramsPerHour = 30; // Langsamer für Details
+      break;
+    case 'moderate':
+      gramsPerHour = 45; // Etwas langsamer
+      break;
+    default:
+      gramsPerHour = 60; // Schnell für einfache Formen
+  }
   
-  // Realistische volumetrische Druckrate: 15-30 cm³/h je nach Komplexität
-  let volumetricRate = 25; // cm³/h standard
-  if (complexity.level === 'very_complex') volumetricRate = 15;
-  else if (complexity.level === 'complex') volumetricRate = 20;
-  
-  // Basis-Druckzeit
-  let basePrintTime = materialVolumeCm3 / volumetricRate;
+  let basePrintTime = totalMaterial / gramsPerHour;
   
   // Support-Zeit addieren basierend auf Überhängen
   let supportTimeFactor = 1.0;
   if (overhangs.severity === 'high') {
-    supportTimeFactor = 1.5; // +50% für viel Support
+    supportTimeFactor = 1.5;
   } else if (overhangs.severity === 'medium') {
-    supportTimeFactor = 1.25; // +25% für moderaten Support
+    supportTimeFactor = 1.25;
   } else if (overhangs.severity === 'low') {
-    supportTimeFactor = 1.1; // +10% für minimalen Support
+    supportTimeFactor = 1.1;
   }
   
   const totalPrintTime = basePrintTime * supportTimeFactor;
+  
+  console.log(`Print estimate: ${totalMaterial.toFixed(1)}g (${infillPercentage * 100}% infill), ${totalPrintTime.toFixed(1)}h (${gramsPerHour}g/h)`);
   
   return {
     printTimeHours: Math.max(0.5, totalPrintTime),
@@ -657,22 +661,47 @@ serve(async (req) => {
       
       const estimatedSurfaceArea = sampledSurfaceArea * (triangleCount / surfaceSampleSize);
       
-      // Schätze Material-Volumen (wie in Slicer)
-      // Typische Parameter: 2 Perimeter à 0.4mm, 20% Infill, 4 Top/Bottom Layers
-      const shellThickness = 0.8; // 2 Perimeter × 0.4mm
-      const shellVolume = estimatedSurfaceArea * shellThickness;
-      const infillPercentage = 0.20;
-      const infillVolume = geometricVolume * infillPercentage;
-      const estimatedMaterialVolume = shellVolume + infillVolume;
+      // Berechne Komplexität basierend auf Surface-to-Volume Ratio
+      const volumeCm3Large = geometricVolume / 1000;
+      const surfaceAreaCm2Large = estimatedSurfaceArea / 100;
+      const sphereEquivalentSVLarge = volumeCm3Large > 0 ? 4.84 * Math.pow(volumeCm3Large, -1/3) : 0;
+      const actualSVLarge = volumeCm3Large > 0 ? surfaceAreaCm2Large / volumeCm3Large : 0;
+      const svComplexityLarge = sphereEquivalentSVLarge > 0 ? actualSVLarge / sphereEquivalentSVLarge : 1;
       
-      console.log('Geometric volume:', geometricVolume.toFixed(2), 'mm³');
-      console.log('Surface area:', estimatedSurfaceArea.toFixed(2), 'mm²');
-      console.log('Estimated material volume:', estimatedMaterialVolume.toFixed(2), 'mm³');
+      // Komplexitätslevel bestimmen
+      let complexityLevelLarge: 'simple' | 'moderate' | 'complex' | 'very_complex' = 'moderate';
+      if (svComplexityLarge > 4 || triangleCount > 100000) complexityLevelLarge = 'very_complex';
+      else if (svComplexityLarge > 2.5 || triangleCount > 50000) complexityLevelLarge = 'complex';
+      else if (triangleCount < 5000) complexityLevelLarge = 'simple';
       
-      console.log('Real dimensions from large file:', dimensions);
+      // Infill basierend auf Komplexität
+      let infillPercentageLarge = 0.20;
+      let gramsPerHourLarge = 60;
+      switch (complexityLevelLarge) {
+        case 'very_complex':
+          infillPercentageLarge = 0.75;
+          gramsPerHourLarge = 20;
+          break;
+        case 'complex':
+          infillPercentageLarge = 0.55;
+          gramsPerHourLarge = 30;
+          break;
+        case 'moderate':
+          infillPercentageLarge = 0.35;
+          gramsPerHourLarge = 45;
+          break;
+      }
+      
+      // Material berechnen
+      const infillVolumeLarge = volumeCm3Large * infillPercentageLarge;
+      const shellVolumeLarge = volumeCm3Large * 0.15;
+      const materialGramsLarge = (infillVolumeLarge + shellVolumeLarge) * 1.24;
+      const printTimeHoursLarge = materialGramsLarge / gramsPerHourLarge;
+      
+      console.log(`Large file analysis: SV=${svComplexityLarge.toFixed(2)}, Level=${complexityLevelLarge}, Material=${materialGramsLarge.toFixed(0)}g, Time=${printTimeHoursLarge.toFixed(1)}h`);
       
       const analysis: STLAnalysis = {
-        volume: estimatedMaterialVolume, // Material-Volumen statt geometrisches
+        volume: geometricVolume, // Geometrisches Volumen für Anzeige
         surfaceArea: estimatedSurfaceArea,
         boundingBox: {
           min,
@@ -686,13 +715,13 @@ serve(async (req) => {
         },
         complexity: {
           triangleCount,
-          score: 0.8,
-          level: 'very_complex',
+          score: svComplexityLarge > 3 ? 0.8 : svComplexityLarge > 2 ? 0.5 : 0.3,
+          level: complexityLevelLarge,
         },
         estimates: {
-          printTimeHours: (estimatedMaterialVolume / 1000 / 100) * 8,
-          materialGrams: (estimatedMaterialVolume / 1000) * 1.24,
-          supportMaterialGrams: (estimatedMaterialVolume / 1000) * 1.24 * 0.15,
+          printTimeHours: Math.max(0.5, printTimeHoursLarge),
+          materialGrams: Math.max(5, materialGramsLarge),
+          supportMaterialGrams: materialGramsLarge * 0.15,
           layerCount: Math.ceil(dimensions.z / 0.2),
         },
       };
