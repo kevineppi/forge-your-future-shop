@@ -425,11 +425,28 @@ const CostCalculatorWizard = () => {
     // Erstes Teil: €15 (wie bisher), weitere Teile: €5 (minimaler Zusatzaufwand)
     const setupFee = fileIndex === 0 ? 15 : 5;
     
-    // 3. DRUCKZEIT - EINFACHE REALISTISCHE BERECHNUNG
-    // Basiert auf Material-Gewicht, nicht auf Edge-Function
-    // Typische Druckrate: 40-60g Material pro Stunde je nach Qualität
-    const gramsPerHour = 50; // Standard für gute Qualität
-    let effectivePrintTime = materialWeightGrams / gramsPerHour;
+    // 3. DRUCKZEIT - KOMPLEXITÄTSBASIERTE BERECHNUNG
+    // Verwende Edge Function Wert wenn verfügbar und Skalierung 1
+    let effectivePrintTime: number;
+    
+    if (file.estimatedPrintTimeHours && fileScale === 1) {
+      // Edge Function hat bereits komplexitätsbasierte Zeit berechnet
+      effectivePrintTime = file.estimatedPrintTimeHours;
+      console.log(`[${file.fileName}] Using edge function print time: ${effectivePrintTime.toFixed(2)}h`);
+    } else {
+      // Fallback: Komplexitätsbasierte Druckrate
+      // Einfache Teile: 60g/h, Komplexe Teile: 20g/h
+      let gramsPerHour: number;
+      switch (fileComplexity) {
+        case 4: gramsPerHour = 20; break; // Sehr komplex
+        case 3: gramsPerHour = 25; break; // Komplex mit Überhängen
+        case 2: gramsPerHour = 35; break; // Moderat komplex
+        case 1: gramsPerHour = 45; break; // Leicht komplex
+        default: gramsPerHour = 60;       // Einfach
+      }
+      effectivePrintTime = materialWeightGrams / gramsPerHour;
+      console.log(`[${file.fileName}] Calculated print time: ${effectivePrintTime.toFixed(2)}h (${gramsPerHour}g/h, complexity=${fileComplexity})`);
+    }
     
     // PA12/PA6: 2x längere Druckzeit (langsamer)
     if (file.material === 'pa12' || file.material === 'pa6') {
@@ -439,7 +456,7 @@ const CostCalculatorWizard = () => {
     // Minimum 0.5h
     effectivePrintTime = Math.max(0.5, effectivePrintTime);
     
-    console.log(`[${file.fileName}] Material: ${materialWeightGrams.toFixed(1)}g, Print time: ${effectivePrintTime.toFixed(2)}h (${gramsPerHour}g/h)`);
+    console.log(`[${file.fileName}] Material: ${materialWeightGrams.toFixed(1)}g, Print time: ${effectivePrintTime.toFixed(2)}h`);
     
     // 4. ZEITKOSTEN mit Komplexitätsmultiplikator
     const complexityMultiplier = 1 + (fileComplexity * 0.25);
