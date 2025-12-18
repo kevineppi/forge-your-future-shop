@@ -448,67 +448,64 @@ function estimatePrinting(
   
   const layerCount = Math.ceil(boundingBox.dimensions.z / layerHeight);
   
-  // KRITISCHE ÄNDERUNG: Infill basierend auf Komplexität!
-  // Detaillierte Modelle haben viele kleine Features = effektiv mehr Material
-  // Einfache Grundformen: 20% Infill
-  // Komplexe organische Modelle: 60-80% effektiver Infill (viele kleine Bereiche = fast solid)
+  // Realistischer Infill basierend auf Standard-Druckeinstellungen
+  // Standard FDM: 15-20% Infill, nicht mehr!
   let infillPercentage: number;
   switch (complexity.level) {
     case 'very_complex':
-      infillPercentage = 0.75; // Sehr detailliert = fast vollständig gefüllt
+      infillPercentage = 0.25; // Mehr Infill wegen kleiner Strukturen
       break;
     case 'complex':
-      infillPercentage = 0.55; // Detailliert = mehr als halb gefüllt
+      infillPercentage = 0.22;
       break;
     case 'moderate':
-      infillPercentage = 0.35; // Moderat = etwas mehr als Standard
+      infillPercentage = 0.18;
       break;
     default:
-      infillPercentage = 0.20; // Einfache Formen = Standard 20%
+      infillPercentage = 0.15; // Standard 15%
   }
-  
-  const infillVolume = volumeCm3 * infillPercentage;
   
   // Material density (PLA: 1.24 g/cm³)
   const materialDensity = 1.24;
-  const infillMaterial = infillVolume * materialDensity;
   
-  // Shell (Wände + Top/Bottom) - abhängig von Komplexität
-  // Komplexe Teile haben mehr Oberfläche = mehr Shell
-  const shellPercentage = complexity.level === 'very_complex' ? 0.18 :
-                         complexity.level === 'complex' ? 0.15 : 0.12;
-  const shellVolume = volumeCm3 * shellPercentage;
-  const shellMaterial = shellVolume * materialDensity;
+  // Shell (Wände) - ca. 2-3 Perimeter = ~10-12% des Volumens
+  // Dies ist NICHT additiv zum Infill, sondern ersetzt die äußeren Bereiche
+  const shellPercentage = 0.10;
+  
+  // Berechnung: Äußere Shell + Inneres Infill
+  // Shell-Material (äußere Wände, 100% dicht)
+  const shellMaterial = volumeCm3 * shellPercentage * materialDensity;
+  // Infill-Material (Inneres, teilweise gefüllt)
+  const innerVolume = volumeCm3 * (1 - shellPercentage);
+  const infillMaterial = innerVolume * infillPercentage * materialDensity;
   
   const totalMaterial = infillMaterial + shellMaterial;
   
   // Support Material Schätzung
   let supportMaterial = 0;
   if (overhangs.severity === 'high') {
-    supportMaterial = totalMaterial * 0.3;
+    supportMaterial = totalMaterial * 0.25;
   } else if (overhangs.severity === 'medium') {
-    supportMaterial = totalMaterial * 0.15;
+    supportMaterial = totalMaterial * 0.12;
   } else if (overhangs.severity === 'low') {
     supportMaterial = totalMaterial * 0.05;
   }
   
-  // DRUCKZEIT - REALISTISCH basierend auf Material und Komplexität
-  // Basis: Gramm Material / Druckrate (g/h)
-  // Einfache Teile: ~60g/h
-  // Komplexe Teile: ~25g/h (langsamer wegen Details, Retractions, etc.)
+  // DRUCKZEIT - Realistisch basierend auf typischen FDM-Druckern
+  // Moderne Drucker schaffen 50-80g/h bei normalen Einstellungen
   let gramsPerHour: number;
   switch (complexity.level) {
     case 'very_complex':
-      gramsPerHour = 20; // Sehr langsam für feine Details
+      gramsPerHour = 35; // Langsamer wegen Details
       break;
     case 'complex':
-      gramsPerHour = 30; // Langsamer für Details
+      gramsPerHour = 45;
       break;
     case 'moderate':
-      gramsPerHour = 45; // Etwas langsamer
+      gramsPerHour = 55;
       break;
     default:
-      gramsPerHour = 60; // Schnell für einfache Formen
+      gramsPerHour = 65; // Schnell für einfache Formen
   }
   
   let basePrintTime = totalMaterial / gramsPerHour;
@@ -674,28 +671,30 @@ serve(async (req) => {
       else if (svComplexityLarge > 2.5 || triangleCount > 50000) complexityLevelLarge = 'complex';
       else if (triangleCount < 5000) complexityLevelLarge = 'simple';
       
-      // Infill basierend auf Komplexität
-      let infillPercentageLarge = 0.20;
-      let gramsPerHourLarge = 60;
+      // Realistischer Infill basierend auf Komplexität
+      let infillPercentageLarge = 0.15;
+      let gramsPerHourLarge = 65;
       switch (complexityLevelLarge) {
         case 'very_complex':
-          infillPercentageLarge = 0.75;
-          gramsPerHourLarge = 20;
+          infillPercentageLarge = 0.25;
+          gramsPerHourLarge = 35;
           break;
         case 'complex':
-          infillPercentageLarge = 0.55;
-          gramsPerHourLarge = 30;
+          infillPercentageLarge = 0.22;
+          gramsPerHourLarge = 45;
           break;
         case 'moderate':
-          infillPercentageLarge = 0.35;
-          gramsPerHourLarge = 45;
+          infillPercentageLarge = 0.18;
+          gramsPerHourLarge = 55;
           break;
       }
       
-      // Material berechnen
-      const infillVolumeLarge = volumeCm3Large * infillPercentageLarge;
-      const shellVolumeLarge = volumeCm3Large * 0.15;
-      const materialGramsLarge = (infillVolumeLarge + shellVolumeLarge) * 1.24;
+      // Material berechnen (Shell + Infill getrennt)
+      const shellPercentageLarge = 0.10;
+      const shellMaterialLarge = volumeCm3Large * shellPercentageLarge * 1.24;
+      const innerVolumeLarge = volumeCm3Large * (1 - shellPercentageLarge);
+      const infillMaterialLarge = innerVolumeLarge * infillPercentageLarge * 1.24;
+      const materialGramsLarge = shellMaterialLarge + infillMaterialLarge;
       const printTimeHoursLarge = materialGramsLarge / gramsPerHourLarge;
       
       console.log(`Large file analysis: SV=${svComplexityLarge.toFixed(2)}, Level=${complexityLevelLarge}, Material=${materialGramsLarge.toFixed(0)}g, Time=${printTimeHoursLarge.toFixed(1)}h`);
