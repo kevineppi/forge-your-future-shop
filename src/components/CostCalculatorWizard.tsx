@@ -500,23 +500,22 @@ const CostCalculatorWizard = () => {
     }
     setupFeeWithTax *= 1.20;
     
-    // WICHTIG: Mengenrabatt nur auf Setup/Handling, NICHT auf Material/Druckzeit!
-    // Material und Druckzeit skalieren linear (1 Teil = 1x Kosten, 10 Teile = 10x Kosten)
-    // Nur Setup-Aufwand pro Teil sinkt bei höheren Mengen
+    // PREISLOGIK: Erstes Teil = Basispreis, jedes weitere Teil = +15% Zuschlag
+    // Dies deckt Handling, Qualitätskontrolle und Mehraufwand pro Teil ab
     
-    // Effizienz-Rabatt: Reduziert nur den Aufwand pro Teil (Setup, Handling)
-    // Nicht angewendet auf: Material, Druckzeit, Nachbearbeitung
-    let handlingDiscountPerPiece = 0;
-    if (fileQuantity >= 50) handlingDiscountPerPiece = 2.0; // €2 weniger Handling pro Stück
-    else if (fileQuantity >= 20) handlingDiscountPerPiece = 1.5;
-    else if (fileQuantity >= 10) handlingDiscountPerPiece = 1.0;
-    else if (fileQuantity >= 5) handlingDiscountPerPiece = 0.5;
+    // Basispreis für ein Teil (ohne Setup)
+    const basePricePerPiece = pricePerPieceWithoutSetup;
     
-    // Gesamtpreis = Stückkosten × Menge (OHNE prozentualen Rabatt auf Material/Zeit!)
-    const itemsCost = pricePerPieceWithoutSetup * fileQuantity;
+    // Zusätzliche Teile kosten 15% mehr (Handling-Zuschlag)
+    const additionalPartSurcharge = basePricePerPiece * 0.15;
     
-    // Handling-Rabatt abziehen (nur bei Mengenbestellungen)
-    const handlingDiscount = handlingDiscountPerPiece * fileQuantity * 1.20; // inkl. MwSt
+    // Gesamtpreis: 1. Teil + (weitere Teile × (Basispreis + 15%))
+    const firstPartCost = basePricePerPiece;
+    const additionalPartsCost = fileQuantity > 1 
+      ? (fileQuantity - 1) * (basePricePerPiece + additionalPartSurcharge)
+      : 0;
+    
+    const itemsCost = firstPartCost + additionalPartsCost;
     
     // Druckplattenwechsel: €10 pro angefangene 10 Stück (inkl. MwSt & Express)
     const plateChanges = Math.ceil(fileQuantity / 10);
@@ -526,13 +525,13 @@ const CostCalculatorWizard = () => {
     }
     plateChangeFee *= 1.20;
     
-    const fileTotalPrice = Math.max(itemsCost - handlingDiscount + setupFeeWithTax + plateChangeFee, pricePerPieceWithoutSetup + setupFeeWithTax);
+    const fileTotalPrice = itemsCost + setupFeeWithTax + plateChangeFee;
     
     // pricePerPiece für Anzeige (durchschnittlicher Stückpreis inkl. anteiligem Setup)
     const pricePerPiece = fileTotalPrice / fileQuantity;
     
-    console.log(`[${file.fileName}] Price breakdown: Material=${materialCost.toFixed(2)}€, Setup=${setupFee}€ (einmalig), Time=${timeCost.toFixed(2)}€, Additional=${additionalServices.toFixed(2)}€`);
-    console.log(`[${file.fileName}] Final: ${pricePerPieceWithoutSetup.toFixed(2)}€/pc × ${fileQuantity} - ${handlingDiscount.toFixed(2)}€ Rabatt + ${setupFeeWithTax.toFixed(2)}€ Setup + ${plateChangeFee.toFixed(2)}€ Plattenwechsel = ${fileTotalPrice.toFixed(2)}€`);
+    console.log(`[${file.fileName}] Price: Base=${basePricePerPiece.toFixed(2)}€, +15%=${additionalPartSurcharge.toFixed(2)}€ pro Zusatzteil`);
+    console.log(`[${file.fileName}] Final: ${firstPartCost.toFixed(2)}€ (1. Teil) + ${additionalPartsCost.toFixed(2)}€ (${fileQuantity - 1} weitere) + ${setupFeeWithTax.toFixed(2)}€ Setup + ${plateChangeFee.toFixed(2)}€ Platten = ${fileTotalPrice.toFixed(2)}€`);
     
     return {
       totalPrice: fileTotalPrice,
