@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Play } from "lucide-react";
+import { ShoppingCart, Play, Star, Clock, Truck } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -7,21 +7,50 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
+          {/* Social Proof Badge */}
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
+            <div className="flex items-center gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            <span className="text-sm font-medium text-foreground">4,9/5 bei Google</span>
+            <span className="text-sm text-muted-foreground">• 50+ Bewertungen</span>
+          </div>
+
           <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
             Nachhaltiger FDM <span className="text-primary">3D-Druck Service</span> aus Österreich
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto">
             Professioneller <a href="/fdm-3d-druck" className="text-primary font-semibold hover:underline">FDM 3D-Druck</a> aus Oberösterreich mit 100% österreichischem Filament. 
             Von <a href="/rapid-prototyping" className="text-primary font-semibold hover:underline">Rapid Prototyping</a> über{" "}
             <a href="/einzelanfertigungen" className="text-primary font-semibold hover:underline">Einzelanfertigungen</a> bis zur{" "}
             <a href="/serienfertigung" className="text-primary font-semibold hover:underline">Serienfertigung</a> – regional, schnell und umweltfreundlich.
           </p>
 
+          {/* Price Anchor */}
+          <div className="flex flex-wrap justify-center gap-4 mb-8 text-sm">
+            <div className="flex items-center gap-2 text-foreground">
+              <span className="font-bold text-primary text-lg">Ab 20€</span>
+              <span className="text-muted-foreground">pro Teil</span>
+            </div>
+            <div className="w-px h-6 bg-border hidden sm:block" />
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Truck className="h-4 w-4 text-primary" />
+              <span>Versandkostenfrei ab 100€</span>
+            </div>
+            <div className="w-px h-6 bg-border hidden sm:block" />
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Clock className="h-4 w-4 text-primary" />
+              <span>Express 24h möglich</span>
+            </div>
+          </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="hero" size="lg" className="group" onClick={() => window.location.href = '/kostenrechner'}>
                 <ShoppingCart className="mr-2 h-5 w-5 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-300" />
-                Jetzt bestellen
+                Preis berechnen – dauert 30 Sek
               </Button>
               
               <Button variant="outline" size="lg" className="group border-primary text-primary hover:bg-primary hover:text-white" onClick={() => document.getElementById('services')?.scrollIntoView({
@@ -76,4 +105,4 @@ const Hero = () => {
     );
   };
   
-  export default Hero;
+export default Hero;
