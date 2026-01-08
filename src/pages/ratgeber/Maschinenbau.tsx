@@ -150,8 +150,8 @@ const Maschinenbau = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Maschinenbau: Prototypen & Teile | ekdruck"
-        description="3D-Druck im Maschinenbau: Fundierter Guide zu Funktionsprototypen, Ersatzteilen & Materialien. Mit Toleranzen, Kostenvergleich & Praxisbeispielen."
+        title="3D-Druck im Maschinenbau: 70% Kosten sparen | Praxis-Guide"
+        description="Maschinenbauer sparen €500-5.000 pro Projekt! Toleranzen, Belastbarkeit, Materialwahl für Funktionsteile. → Jetzt Ihr Teil anfragen"
         keywords="3d-druck maschinenbau, funktionsprototypen, ersatzteile 3d-druck, maschinenbau prototyping, technische bauteile"
         path="/ratgeber/maschinenbau"
         schemaType="article"

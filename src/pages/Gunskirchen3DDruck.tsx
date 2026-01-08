@@ -18,7 +18,7 @@ import { Phone, Mail, ArrowRight, CheckCircle2, Zap, Shield, Clock, Users, Facto
 
 const Gunskirchen3DDruck = () => {
   useEffect(() => {
-    document.title = "3D-Druck Gunskirchen | Lokaler Premium FDM Service | ekdruck e.U.";
+    document.title = "3D-Druck Gunskirchen | Direkt abholen | Kein Versand";
   }, []);
 
   const faqs = [

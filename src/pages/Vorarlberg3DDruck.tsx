@@ -18,7 +18,7 @@ import { Phone, Mail, ArrowRight, CheckCircle2, Zap, Shield, Clock, Users, Facto
 
 const Vorarlberg3DDruck = () => {
   useEffect(() => {
-    document.title = "3D-Druck Vorarlberg | Premium FDM Service | ekdruck e.U.";
+    document.title = "3D-Druck Vorarlberg | Express 24-48h | Ab €15";
   }, []);
 
   const faqs = [

@@ -126,8 +126,8 @@ const Probeteile = () => {
   };
   return <>
         <SEOHead 
-          title="GRATIS Probeteil für B2B ab 50 Stück | ekdruck e.U."
-          description="Risikofrei testen vor Serienfertigung: 1 kostenloses Probeteil (max. 20cm) für B2B-Kunden. Qualität, Maßhaltigkeit & Material prüfen. Antwort in 6h – jetzt anfragen!" 
+          title="GRATIS Probeteil für B2B | Risikofrei testen | 6h Antwort"
+          description="0€ Risiko: Kostenloses Probeteil vor Ihrer Serie! Qualität prüfen, dann entscheiden. Antwort in 6 Stunden. → Jetzt gratis Muster anfordern" 
           keywords="kostenlose probeteile 3d-druck, b2b 3d-druck, serienfertigung probedruck, gratis probeteil"
         path="/probeteile" 
       />

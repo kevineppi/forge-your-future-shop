@@ -11,8 +11,8 @@ const SerienfertigungCaseStudy = () => {
   return (
     <>
       <SEOHead
-        title="Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck? | ekdruck"
-        description="Praxis-Beispiel: 200 Montagehalterungen im 3D-Druck. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie Kosten optimieren."
+        title="200 Teile: €15.000 Werkzeugkosten gespart | Case Study"
+        description="Echtes Beispiel: 200 Halterungen per 3D-Druck statt Spritzguss. Ergebnis: 4 Wochen schneller, €15k gespart. → Lohnt sich das für Sie?"
         keywords="3d-druck serienfertigung, kleinserien 3d-druck, 3d-druck wirtschaftlichkeit, 3d-druck kosten pro stück, serienfertigung österreich"
         path="/ratgeber/serienfertigung-case-study"
         schemaType="article"

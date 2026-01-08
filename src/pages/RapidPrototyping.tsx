@@ -68,8 +68,8 @@ const RapidPrototyping = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Prototypen in 24h ab €50 | Österreich | ekdruck"
-        description="Prototypen in 24-48h geliefert! Ab €50, kostenlose Designberatung, österreichisches Material. Anfrage heute stellen, morgen testen - Jetzt Express-Service nutzen!"
+        title="Prototyp in 24h ab €50 | Heute bestellen, morgen testen"
+        description="85% schneller als CNC! Funktionsprototyp morgen in der Hand. Unbegrenzte Iterationen, keine Werkzeugkosten. → Jetzt Express-Prototyp anfragen"
         keywords="rapid prototyping österreich, prototypen 3d-druck, 3d-druck prototypen, express 3d-druck, prototypen 24h, fdm prototyping, schnelle produktentwicklung"
         path="/rapid-prototyping"
         type="article"

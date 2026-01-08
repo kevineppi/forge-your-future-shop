@@ -15,8 +15,8 @@ const FdmDruck = () => {
   return (
     <>
       <SEOHead 
-        title="FDM 3D-Druck: Kosteneffizient & präzise bis 0,1mm | ekdruck e.U."
-        description="Warum Ingenieure FDM-Technologie lieben: Robuste Funktionsteile, breite Materialauswahl und unschlagbare Wirtschaftlichkeit. Jetzt Machbarkeit prüfen lassen!"
+        title="FDM 3D-Druck ab €15 | 0,1mm Präzision | Jetzt Preis berechnen"
+        description="70% günstiger als CNC! FDM-Druck für Funktionsteile: PLA, PETG, ABS. Heute bestellen → 24-48h geliefert. → Kostenlos Machbarkeit prüfen"
         keywords="fdm 3d-druck österreich, fused deposition modeling oberösterreich, fdm verfahren österreich, 3d-druck fdm oberösterreich, fdm drucker service österreich, schichtauflösung 0.1mm, thermoplastisches filament, material-extrusion"
         path="/fdm-3d-druck"
         breadcrumbs={[

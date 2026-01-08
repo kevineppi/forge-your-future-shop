@@ -58,7 +58,7 @@ const Oberoesterreich3DDruck = () => {
     text: "Versicherter Expressversand nach Linz, Wels, Steyr und ganz OÖ oder Abholung nach Vereinbarung."
   }];
   return <>
-      <SEOHead title="3D-Druck Oberösterreich | Premium FDM Service | ekdruck e.U." description="Direkter Draht zum Hersteller in Gunskirchen: Same-Day Abholung, 24h Express nach Linz/Wels/Steyr. OÖ Industrie setzt auf lokale Qualität. Beratungstermin vereinbaren!" keywords="3d-druck oberösterreich, 3d druck linz, 3d druck wels, fdm 3d-druck oö, rapid prototyping oberösterreich, serienfertigung 3d-druck" path="/3d-druck-oberoesterreich" />
+      <SEOHead title="3D-Druck Oberösterreich | Direkt vom Hersteller | Same-Day" description="OÖ: Kürzeste Wege! Same-Day Abholung in Gunskirchen, Express 24h nach Linz/Wels/Steyr. Industrie-Qualität lokal. → Jetzt OÖ-Vorteil nutzen" keywords="3d-druck oberösterreich, 3d druck linz, 3d druck wels, fdm 3d-druck oö, rapid prototyping oberösterreich, serienfertigung 3d-druck" path="/3d-druck-oberoesterreich" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

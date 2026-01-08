@@ -13,7 +13,11 @@ import { Check, TrendingDown, Clock, Award } from "lucide-react";
 
 const Kostenrechner = () => {
   useEffect(() => {
-    document.title = "3D-Druck Konfigurator | Bestellen & Sofortpreis | ekdruck";
+    document.title = "3D-Druck Preis in 30 Sek. berechnen | Sofort bestellen";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'STL hochladen → Sofort-Preis sehen → Direkt bestellen. Kein Warten auf Angebote! Express 24h möglich. → Jetzt Datei hochladen');
+    }
   }, []);
 
   return (

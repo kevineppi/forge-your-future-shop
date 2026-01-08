@@ -18,7 +18,7 @@ import { Phone, Mail, ArrowRight, CheckCircle2, Zap, Shield, Clock, Users, Facto
 
 const Kaernten3DDruck = () => {
   useEffect(() => {
-    document.title = "3D-Druck Kärnten | Premium FDM Service | ekdruck e.U.";
+    document.title = "3D-Druck Kärnten | Express 24-48h | Gratis ab €50";
   }, []);
 
   const faqs = [

@@ -20,7 +20,7 @@ import AIChatWidget from "@/components/AIChatWidget";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
-      <SEOHead title="3D-Druck Österreich | FDM Service | ekdruck" description="Von der Idee zum fertigen Prototyp in 24h! Nachhaltig produziert in Österreich mit recycelten Materialien. Versandkostenfrei ab 50€ – Starten Sie Ihr Projekt jetzt!" keywords="3d-druck österreich, fdm 3d-druck, prototypen, serienfertigung, rapid prototyping österreich, 3d druck service, 3d-druck dienstleister, nachhaltig" path="/" preloadResources={[{
+      <SEOHead title="3D-Druck Österreich ab €15 | 24h Express | Jetzt Angebot" description="✓ Sofort-Preis berechnen ✓ Express in 24h ✓ Gratis Versand ab €50. 3D-Druck aus Österreich: Prototyp heute bestellen, morgen testen. → Jetzt starten!" keywords="3d-druck österreich, fdm 3d-druck, prototypen, serienfertigung, rapid prototyping österreich, 3d druck service, 3d-druck dienstleister, nachhaltig" path="/" preloadResources={[{
       href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
       as: "image",
       type: "image/png"

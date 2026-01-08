@@ -23,8 +23,8 @@ const Steiermark3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Steiermark | FDM 3D-Druck Service | ekdruck e.U."
-        description="Grünes Herz Österreichs setzt auf Green Tech: Nachhaltige FDM-Fertigung für Graz & Leoben. Automotive-Cluster vertraut uns. 24-48h Express-Service starten!"
+        title="3D-Druck Steiermark | Green Tech | Express 24-48h"
+        description="Grünes Herz + Green Tech: Nachhaltige 3D-Fertigung für Graz & Leoben. Automotive-Cluster vertraut uns! → Jetzt Steiermark-Express starten"
         keywords="3d-druck steiermark, 3d druck graz, fdm 3d-druck steiermark, rapid prototyping steiermark"
         path="/3d-druck-steiermark"
       />
