@@ -22,7 +22,7 @@ const Klagenfurt3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Klagenfurt & Kärnten | 24-48h Express | Ab €15"
-        description="Kärnten: Prototypen, Ersatzteile, Kleinserien in 24-48h! Tourismus bis Industrie. Gratis Versand ab €50. → Jetzt Kärnten-Angebot sichern"
+        description="Kärnten: Prototypen, Ersatzteile, Kleinserien in 24-48h! Tourismus bis Industrie. Versandkostenfrei ab 100€. → Jetzt anfragen"
         keywords="3d-druck klagenfurt, 3d drucker klagenfurt, fdm druck klagenfurt, rapid prototyping kärnten, 3d-druck service klagenfurt, prototypen klagenfurt"
         path="/3d-druck-klagenfurt"
       />
