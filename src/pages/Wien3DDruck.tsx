@@ -24,7 +24,7 @@ const Wien3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Wien | 24h Express in alle Bezirke | Ab €15"
-        description="Wien: Heute bestellen → morgen geliefert! Start-ups, TU-Projekte, Unternehmen. Alle 23 Bezirke. → Jetzt Wiener Express-Angebot holen"
+        description="Wien: Heute bestellen → morgen geliefert! Start-ups, TU-Projekte, Unternehmen. Alle 23 Bezirke. Preise ab 20€. → Jetzt anfragen"
         keywords="3d-druck wien, 3d drucker wien, fdm druck wien, rapid prototyping wien, 3d-druck service wien, prototypen wien"
         path="/3d-druck-wien"
       />

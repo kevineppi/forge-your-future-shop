@@ -24,7 +24,7 @@ const Burgenland3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Burgenland | Express 24-48h | Gratis ab €50"
-        description="Burgenland: Eisenstadt, Neusiedl, Oberwart – Express 24-48h! Von Weinbau bis Industrie. Gratis Versand ab €50. → Jetzt Bgld-Angebot holen"
+        description="Burgenland: Eisenstadt, Neusiedl, Oberwart – Express 24-48h! Von Weinbau bis Industrie. Versandkostenfrei ab 100€. → Jetzt anfragen"
         keywords="3d-druck burgenland, 3d druck eisenstadt, fdm 3d-druck burgenland, rapid prototyping burgenland"
         path="/3d-druck-burgenland"
       />

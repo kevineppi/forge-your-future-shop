@@ -17,7 +17,7 @@ const Serienfertigung = () => {
     <>
       <SEOHead 
         title="Kleinserien ab 10 Stück | €0 Werkzeugkosten | Jetzt anfragen"
-        description="Keine Mindestabnahme, keine Werkzeugkosten! 3D-Druck Serienfertigung: 10-10.000 Stück flexibel produzieren. → Gratis Mengenrabatt berechnen"
+        description="Keine Mindestabnahme, keine Werkzeugkosten! 3D-Druck Serienfertigung: 10-10.000 Stück flexibel produzieren. Preise ab 20€. → Jetzt Angebot anfordern"
         keywords="3d-druck serienfertigung österreich, kleinserien 3d-druck oberösterreich, additive serienfertigung österreich, 3d-druck produktion oberösterreich, spritzguss alternative österreich, rapid manufacturing, on-demand produktion, flexible stückzahlen"
         path="/serienfertigung"
         breadcrumbs={[
