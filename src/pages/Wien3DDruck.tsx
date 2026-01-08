@@ -23,8 +23,8 @@ const Wien3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Wien | FDM 3D-Druck Service | ekdruck e.U."
-        description="Wiener Start-ups & TU-Projekte vertrauen uns: 24h Express-Lieferung direkt in alle 23 Bezirke. Heute bestellen, morgen testen! Innovation Hub Partner in Wien."
+        title="3D-Druck Wien | 24h Express in alle Bezirke | Ab €15"
+        description="Wien: Heute bestellen → morgen geliefert! Start-ups, TU-Projekte, Unternehmen. Alle 23 Bezirke. → Jetzt Wiener Express-Angebot holen"
         keywords="3d-druck wien, 3d drucker wien, fdm druck wien, rapid prototyping wien, 3d-druck service wien, prototypen wien"
         path="/3d-druck-wien"
       />

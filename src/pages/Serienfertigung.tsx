@@ -16,8 +16,8 @@ const Serienfertigung = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Kleinserien ab 10 Stück | ekdruck e.U."
-        description="Sparen Sie €15.000 Werkzeugkosten bei Ihrer ersten Serie! Produzieren Sie 100-10.000 Stück ohne Mindestabnahme. Markttests starten, bevor Sie investieren – Jetzt kalkulieren!"
+        title="Kleinserien ab 10 Stück | €0 Werkzeugkosten | Jetzt anfragen"
+        description="Keine Mindestabnahme, keine Werkzeugkosten! 3D-Druck Serienfertigung: 10-10.000 Stück flexibel produzieren. → Gratis Mengenrabatt berechnen"
         keywords="3d-druck serienfertigung österreich, kleinserien 3d-druck oberösterreich, additive serienfertigung österreich, 3d-druck produktion oberösterreich, spritzguss alternative österreich, rapid manufacturing, on-demand produktion, flexible stückzahlen"
         path="/serienfertigung"
         breadcrumbs={[

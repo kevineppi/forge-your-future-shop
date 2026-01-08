@@ -18,7 +18,7 @@ import { Phone, Mail, ArrowRight, CheckCircle2, Zap, Shield, Clock, Users, Facto
 
 const Niederoesterreich3DDruck = () => {
   useEffect(() => {
-    document.title = "3D-Druck Niederösterreich | Premium FDM Service | ekdruck e.U.";
+    document.title = "3D-Druck Niederösterreich | Express 24-48h | Ab €15";
   }, []);
 
   const faqs = [

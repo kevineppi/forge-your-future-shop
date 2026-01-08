@@ -13,7 +13,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import AnimatedSection from "@/components/AnimatedSection";
 const Linz3DDruck = () => {
   return <>
-      <SEOHead title="3D-Druck Linz | FDM 3D-Druck Service | ekdruck e.U." description="Nur 30km von Linz! Same-Day Abholung in Gunskirchen möglich. Express-Lieferung 24h nach Linz. Regional aus OÖ – Ihr lokaler 3D-Druck Partner wartet auf Sie!" keywords="3d-druck linz, 3d drucker linz, fdm druck linz, rapid prototyping linz, 3d-druck oberösterreich, prototypen linz" path="/3d-druck-linz" />
+      <SEOHead title="3D-Druck Linz | Same-Day Abholung möglich | Ab €15" description="Nur 30km von Linz! Same-Day Abholung in Gunskirchen oder Express 24h nach Linz. Lokal, schnell, günstig. → Jetzt Preis berechnen" keywords="3d-druck linz, 3d drucker linz, fdm druck linz, rapid prototyping linz, 3d-druck oberösterreich, prototypen linz" path="/3d-druck-linz" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

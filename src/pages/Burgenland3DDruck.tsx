@@ -23,8 +23,8 @@ const Burgenland3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Burgenland | FDM 3D-Druck Service | ekdruck e.U."
-        description="Pannonische Innovation: Eisenstadt, Neusiedl & Oberwart mit 24-48h Express. Weinbau-Werkzeuge bis Industrie-Teile. Gratis Versand ab €50!"
+        title="3D-Druck Burgenland | Express 24-48h | Gratis ab €50"
+        description="Burgenland: Eisenstadt, Neusiedl, Oberwart – Express 24-48h! Von Weinbau bis Industrie. Gratis Versand ab €50. → Jetzt Bgld-Angebot holen"
         keywords="3d-druck burgenland, 3d druck eisenstadt, fdm 3d-druck burgenland, rapid prototyping burgenland"
         path="/3d-druck-burgenland"
       />

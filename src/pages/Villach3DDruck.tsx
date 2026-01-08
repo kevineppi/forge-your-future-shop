@@ -21,8 +21,8 @@ const Villach3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Villach | FDM 3D-Druck Service | ekdruck e.U."
-        description="Kärntens Industriestadt setzt auf Qualität: Technische Bauteile für Automotive & Elektronik. 24-48h Express nach Villach. Engineering-Support inklusive!"
+        title="3D-Druck Villach | Industrie-Qualität | Express 24-48h"
+        description="Villachs Industrie setzt auf uns: Automotive, Elektronik, Maschinenbau. Technische Beratung gratis! → Jetzt Villach-Express anfragen"
         keywords="3d-druck villach, 3d drucker villach, fdm druck villach, rapid prototyping villach, 3d-druck service villach, prototypen villach"
         path="/3d-druck-villach"
       />

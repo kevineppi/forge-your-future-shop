@@ -15,8 +15,8 @@ const Einzelanfertigungen = () => {
   return (
     <>
       <SEOHead 
-        title="Custom 3D-Druck Einzelanfertigungen | ekdruck e.U."
-        description="Unmögliches möglich machen: Vom defekten Oldtimer-Teil bis zum personalisierten Geschenk. Millimetergenau gefertigt in Österreich. Kostenlose Machbarkeitsprüfung starten!"
+        title="Einzelteil nach Maß ab €15 | Ersatzteile & Unikate | 24h"
+        description="Defektes Teil? Sonderwunsch? Wir fertigen Ihr Unikat: Ersatzteile, Geschenke, Prototypen. Gratis Machbarkeits-Check → Jetzt Idee beschreiben!"
         keywords="3d-druck einzelanfertigungen österreich, custom 3d parts österreich, individuelle 3d-teile oberösterreich, maßanfertigungen österreich, 3d-druck unikate oberösterreich, spezialanfertigungen 3d-druck, personalisierte 3d-objekte, millimetergenaue fertigung"
         path="/einzelanfertigungen"
         breadcrumbs={[
