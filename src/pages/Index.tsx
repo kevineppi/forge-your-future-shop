@@ -20,15 +20,21 @@ import AIChatWidget from "@/components/AIChatWidget";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
-      <SEOHead title="3D-Druck Österreich ab €15 | 24h Express | Jetzt Angebot" description="✓ Sofort-Preis berechnen ✓ Express in 24h ✓ Gratis Versand ab €50. 3D-Druck aus Österreich: Prototyp heute bestellen, morgen testen. → Jetzt starten!" keywords="3d-druck österreich, fdm 3d-druck, prototypen, serienfertigung, rapid prototyping österreich, 3d druck service, 3d-druck dienstleister, nachhaltig" path="/" preloadResources={[{
-      href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
-      as: "image",
-      type: "image/png"
-    }, {
-      href: "/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-      as: "image",
-      type: "image/png"
-    }]} />
+      <SEOHead 
+        title="3D-Druck Service Österreich ab €20 ✓ Express 24h | ekdruck" 
+        description="★ 5/5 bei Google | 3D-Druck Dienstleister aus Österreich. Ab €20, versandkostenfrei ab €100. ✓ Express 24h ✓ Made in Austria → Jetzt Preis berechnen" 
+        keywords="3d druck service, 3d druck österreich, 3d druck dienstleister, 3d-druck österreich, fdm 3d-druck, prototypen, serienfertigung, rapid prototyping österreich" 
+        path="/" 
+        preloadResources={[{
+          href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
+          as: "image",
+          type: "image/png"
+        }, {
+          href: "/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
+          as: "image",
+          type: "image/png"
+        }]} 
+      />
       <OrganizationSchema />
       <StructuredData type="organization" />
       <StructuredData type="service" />
