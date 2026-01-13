@@ -11,7 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { cropImagesToSquare } from "@/lib/imageUtils";
+
 import { 
   Plus, 
   Pencil, 
@@ -26,8 +26,7 @@ import {
   Loader2,
   Tags,
   GripVertical,
-  Images,
-  Crop
+  Images
 } from "lucide-react";
 
 interface ReferenceImage {
@@ -170,20 +169,17 @@ const ReferencesManager = () => {
     const newImages: Partial<ReferenceImage>[] = [];
 
     try {
-      // Crop all images to 1:1 square format from center
-      const croppedImages = await cropImagesToSquare(files);
-
-      for (let i = 0; i < croppedImages.length; i++) {
-        const { blob, name } = croppedImages[i];
-        const fileExt = name.split('.').pop();
+      // Upload original images without any processing to preserve quality
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const fileExt = file.name.split('.').pop();
         const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
 
         const { error: uploadError } = await supabase.storage
           .from('reference-images')
-          .upload(fileName, blob, {
+          .upload(fileName, file, {
             cacheControl: '31536000', // 1 year cache for CDN
             upsert: false,
-            contentType: blob.type,
           });
 
         if (uploadError) throw uploadError;
@@ -211,7 +207,7 @@ const ReferencesManager = () => {
 
       toast({
         title: `${files.length} Bild${files.length > 1 ? 'er' : ''} hochgeladen`,
-        description: "Automatisch auf 1:1 zugeschnitten (Zentrum)",
+        description: "Originalqualität beibehalten • Quadratische Anzeige via CSS",
       });
     } catch (error) {
       console.error('Error uploading images:', error);
@@ -650,9 +646,8 @@ const ReferencesManager = () => {
                         </label>
                       )}
 
-                      <p className="text-xs text-muted-foreground flex items-center gap-1">
-                        <Crop className="w-3 h-3" />
-                        Automatischer 1:1 Zuschnitt vom Zentrum • Originalqualität • Lazy Loading
+                      <p className="text-xs text-muted-foreground">
+                        ✓ 100% Originalqualität • ✓ Quadratische Vorschau via CSS • ✓ Lazy Loading
                       </p>
                     </div>
 
