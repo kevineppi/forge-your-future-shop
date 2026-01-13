@@ -116,10 +116,9 @@ const Navigation = () => {
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
-            <a href="/ratgeber" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Ratgeber</a>
             <a href="/kostenrechner" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
               <Calculator className="w-4 h-4" />
-              Kostenrechner
+              3D-Druck Konfigurator & Bestellung
             </a>
             <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</a>
             
@@ -240,22 +239,14 @@ const Navigation = () => {
                 3D-Druck Glossar
               </a>
             </div>
-            <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Wissen</div>
-            <a 
-              href="/ratgeber" 
-              className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-              onClick={() => setIsOpen(false)}
-            >
-              <BookOpen className="h-4 w-4 text-primary" />
-              Ratgeber
-            </a>
+            <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Bestellen</div>
             <a 
               href="/kostenrechner" 
               className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
               onClick={() => setIsOpen(false)}
             >
               <Calculator className="h-4 w-4 text-primary" />
-              Kostenrechner
+              3D-Druck Konfigurator & Bestellung
             </a>
             
             <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Mein Konto</div>
