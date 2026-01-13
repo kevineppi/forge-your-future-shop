@@ -650,11 +650,11 @@ const CostCalculatorWizard = () => {
   const pricing = useMemo(() => calculatePrice(), [calculatePrice]);
 
   const steps = [
-    { number: 1, title: "Eingabe", icon: Upload, completed: currentStep > 1 },
-    { number: 2, title: "Stückzahlen", icon: Package, completed: currentStep > 2 },
-    { number: 3, title: "Lieferoptionen", icon: Settings, completed: currentStep > 3 },
+    { number: 1, title: "Datei hochladen", icon: Upload, completed: currentStep > 1 },
+    { number: 2, title: "Konfigurieren", icon: Package, completed: currentStep > 2 },
+    { number: 3, title: "Versandart", icon: Settings, completed: currentStep > 3 },
     { number: 4, title: "Adresse", icon: Wrench, completed: currentStep > 4 },
-    { number: 5, title: "Ergebnis", icon: Calculator, completed: false }
+    { number: 5, title: "Bestellen", icon: ShoppingCart, completed: false }
   ];
 
   if (!isClient) {
@@ -677,11 +677,25 @@ const CostCalculatorWizard = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Kosten-<span className="text-gradient">Rechner</span>
+            3D-Druck <span className="text-gradient">Konfigurator</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Erhalten Sie in wenigen Schritten eine präzise Kostenberechnung
+            STL hochladen → Preis sehen → Direkt bestellen
           </p>
+          <div className="flex items-center justify-center gap-4 mt-4 text-sm text-muted-foreground">
+            <span className="flex items-center gap-1">
+              <Check className="w-4 h-4 text-green-500" />
+              Express 24h
+            </span>
+            <span className="flex items-center gap-1">
+              <Check className="w-4 h-4 text-green-500" />
+              Made in Austria
+            </span>
+            <span className="flex items-center gap-1">
+              <Check className="w-4 h-4 text-green-500" />
+              ★ 5/5 Google
+            </span>
+          </div>
         </div>
 
         {/* Step Indicator */}
@@ -736,10 +750,11 @@ const CostCalculatorWizard = () => {
                     {uploadedFiles.length > 0 && (
                       <Button 
                         onClick={() => setCurrentStep(2)} 
+                        variant="hero"
                         className="w-full" 
                         size="lg"
                       >
-                        Weiter zu Stückzahlen
+                        Weiter zur Konfiguration
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
                     )}
@@ -1523,11 +1538,18 @@ const CostCalculatorWizard = () => {
             {/* Right Panel - Live Preview (50% width) */}
             <div className="lg:sticky lg:top-8 h-fit space-y-6 min-h-[600px]">
               {/* Price Preview */}
-                <Card className="gradient-card border-0">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Sparkles className="w-5 h-5 text-primary" />
-                      Live-Kostenvorschau
+                <Card className="gradient-card border-0 ring-2 ring-primary/20">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="flex items-center justify-between">
+                      <span className="flex items-center gap-2">
+                        <ShoppingCart className="w-5 h-5 text-primary" />
+                        Ihre Bestellung
+                      </span>
+                      {uploadedFiles.length > 0 && (
+                        <Badge variant="secondary" className="bg-primary/10 text-primary">
+                          {uploadedFiles.reduce((sum, f) => sum + (f.quantity || 1), 0)} Teile
+                        </Badge>
+                      )}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
@@ -1638,11 +1660,50 @@ const CostCalculatorWizard = () => {
                     </Badge>
                   )}
 
-                  <div className="pt-4 border-t">
-                    <p className="text-xs text-muted-foreground text-center">
-                      📦 Kostenloser Versand ab 100€ • 🔒 Sichere Zahlung
-                    </p>
-                  </div>
+                  {/* Prominent Order CTA */}
+                  {uploadedFiles.length > 0 && currentStep < 5 && (
+                    <div className="pt-4 border-t space-y-3">
+                      <Button 
+                        onClick={() => setCurrentStep(5)} 
+                        variant="cta"
+                        size="lg"
+                        className="w-full text-lg h-14 animate-pulse hover:animate-none"
+                      >
+                        <ShoppingCart className="w-5 h-5 mr-2" />
+                        Jetzt für €{pricing.total.toFixed(2)} bestellen
+                      </Button>
+                      <div className="flex items-center justify-center gap-3 text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1">
+                          <Check className="w-3 h-3 text-green-500" />
+                          Sichere Zahlung
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Check className="w-3 h-3 text-green-500" />
+                          Versand ab 24h
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Check className="w-3 h-3 text-green-500" />
+                          Made in Austria
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {currentStep === 5 && (
+                    <div className="pt-4 border-t">
+                      <p className="text-xs text-muted-foreground text-center">
+                        📦 Kostenloser Versand ab 100€ • 🔒 Sichere Zahlung
+                      </p>
+                    </div>
+                  )}
+
+                  {uploadedFiles.length === 0 && (
+                    <div className="pt-4 border-t">
+                      <p className="text-sm text-muted-foreground text-center">
+                        👆 Laden Sie eine STL-Datei hoch, um den Preis zu sehen
+                      </p>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </div>
