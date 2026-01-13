@@ -141,16 +141,17 @@ const OptimizedImage = ({
           decoding="async"
           onLoad={handleLoad}
           onError={handleError}
-          style={{
-            imageRendering: 'auto',
-            WebkitBackfaceVisibility: 'hidden',
-            backfaceVisibility: 'hidden',
-          }}
           className={cn(
             "w-full h-full object-cover transition-opacity duration-500",
             isLoaded && !isError ? "opacity-100" : "opacity-0",
             className
           )}
+          style={{
+            imageRendering: '-webkit-optimize-contrast',
+            WebkitFontSmoothing: 'antialiased',
+            transform: 'translateZ(0)',
+            willChange: 'transform',
+          }}
         />
       )}
     </div>
