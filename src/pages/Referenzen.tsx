@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   Clock, 
   Scale, 
@@ -18,136 +19,78 @@ import {
   Factory,
   Zap,
   CheckCircle2,
-  Filter
+  Filter,
+  Loader2,
+  ImageIcon
 } from "lucide-react";
 
 interface ProjectReference {
   id: string;
   title: string;
-  description: string;
+  description: string | null;
   industry: string;
   material: string;
-  color: string;
-  printTimeHours: number;
-  weightGrams: number;
-  dimensions: string;
-  quantity: number;
-  deliveryDays: number;
-  imageUrl: string;
-  customerQuote?: string;
-  customerName?: string;
-  highlights?: string[];
+  color: string | null;
+  print_time_hours: number | null;
+  weight_grams: number | null;
+  dimensions: string | null;
+  quantity: number | null;
+  delivery_days: number | null;
+  image_url: string | null;
+  customer_quote: string | null;
+  customer_name: string | null;
+  highlights: string[] | null;
+  is_featured: boolean | null;
 }
 
-// Placeholder projects - will be replaced with real photos
-const projects: ProjectReference[] = [
-  {
-    id: "1",
-    title: "Prototyp Gehäuse Steuerungsmodul",
-    description: "Funktionsprototyp für ein industrielles Steuerungsmodul mit präzisen Passungen für Elektronik-Komponenten.",
-    industry: "Maschinenbau",
-    material: "PETG",
-    color: "Anthrazit",
-    printTimeHours: 8.5,
-    weightGrams: 145,
-    dimensions: "120 × 80 × 45 mm",
-    quantity: 3,
-    deliveryDays: 2,
-    imageUrl: "/placeholder.svg",
-    customerQuote: "Perfekte Passgenauigkeit, wie aus dem CAD. Wir konnten sofort mit dem Testing starten.",
-    customerName: "Ing. M. Huber, Maschinenbau GmbH",
-    highlights: ["Präzise Toleranzen ±0.2mm", "Hitzebeständig bis 80°C", "3 Iterationen in 1 Woche"]
-  },
-  {
-    id: "2",
-    title: "Kleinserie Montageclips",
-    description: "50 Stück Montageclips für Kabelführung in Schaltschränken. Hohe Wiederholgenauigkeit über die gesamte Serie.",
-    industry: "Elektrotechnik",
-    material: "PA12 Nylon",
-    color: "Schwarz",
-    printTimeHours: 24,
-    weightGrams: 12,
-    dimensions: "35 × 20 × 15 mm",
-    quantity: 50,
-    deliveryDays: 4,
-    imageUrl: "/placeholder.svg",
-    customerQuote: "Spritzguss hätte 8 Wochen gedauert. Mit ekdruck hatten wir die Teile in 4 Tagen.",
-    customerName: "Elektro Müller KG",
-    highlights: ["50 identische Teile", "Werkzeugkosten gespart", "UV-beständig"]
-  },
-  {
-    id: "3",
-    title: "Design-Prototyp Lampenhalterung",
-    description: "Designstudie für eine moderne Wandlampen-Halterung mit organischen Formen und optimierter Struktur.",
-    industry: "Interior Design",
-    material: "PLA",
-    color: "Weiß matt",
-    printTimeHours: 6,
-    weightGrams: 85,
-    dimensions: "150 × 100 × 60 mm",
-    quantity: 1,
-    deliveryDays: 1,
-    imageUrl: "/placeholder.svg",
-    highlights: ["Organisches Design", "Leichtbau-Struktur", "Express-Lieferung"]
-  },
-  {
-    id: "4",
-    title: "Ersatzteil Ventilhalterung",
-    description: "Reverse-Engineering eines nicht mehr verfügbaren Ersatzteils für eine Produktionsanlage aus den 90ern.",
-    industry: "Instandhaltung",
-    material: "ABS",
-    color: "Rot (Sicherheitsfarbe)",
-    printTimeHours: 4.5,
-    weightGrams: 68,
-    dimensions: "80 × 60 × 40 mm",
-    quantity: 2,
-    deliveryDays: 1,
-    imageUrl: "/placeholder.svg",
-    customerQuote: "Das Teil gibt es seit 20 Jahren nicht mehr zu kaufen. ekdruck hat es innerhalb von 48h nachproduziert.",
-    customerName: "Produktionsleiter, Lebensmittelbetrieb",
-    highlights: ["Reverse Engineering", "Maschinenstillstand vermieden", "24h Express"]
-  },
-  {
-    id: "5",
-    title: "Medizintechnik Prototyp",
-    description: "Gehäuse für ein medizinisches Handgerät zur Evaluierung der Ergonomie vor der Serienproduktion.",
-    industry: "Medizintechnik",
-    material: "PETG",
-    color: "Weiß",
-    printTimeHours: 12,
-    weightGrams: 120,
-    dimensions: "180 × 50 × 35 mm",
-    quantity: 5,
-    deliveryDays: 3,
-    imageUrl: "/placeholder.svg",
-    highlights: ["Ergonomie-Test", "Lebensmittelecht", "Glatte Oberfläche"]
-  },
-  {
-    id: "6",
-    title: "Robotergreifer Prototyp",
-    description: "Funktionaler Greifer-Prototyp für einen Cobot mit integrierten Vakuumkanälen.",
-    industry: "Automatisierung",
-    material: "PA6 Nylon GF",
-    color: "Grau",
-    printTimeHours: 18,
-    weightGrams: 210,
-    dimensions: "140 × 90 × 70 mm",
-    quantity: 1,
-    deliveryDays: 3,
-    imageUrl: "/placeholder.svg",
-    customerQuote: "Die integrierten Luftkanäle funktionieren einwandfrei. Beeindruckende Qualität!",
-    customerName: "Robotics Startup Wien",
-    highlights: ["Integrierte Kanäle", "Glasfaserverstärkt", "Hochfest"]
-  }
-];
-
-const industries = ["Alle", "Maschinenbau", "Elektrotechnik", "Interior Design", "Instandhaltung", "Medizintechnik", "Automatisierung"];
-const materials = ["Alle", "PLA", "PETG", "ABS", "PA12 Nylon", "PA6 Nylon GF", "TPU"];
+interface Category {
+  id: string;
+  name: string;
+  type: string;
+}
 
 const Referenzen = () => {
+  const [projects, setProjects] = useState<ProjectReference[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<ProjectReference | null>(null);
   const [filterIndustry, setFilterIndustry] = useState("Alle");
   const [filterMaterial, setFilterMaterial] = useState("Alle");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch references
+        const { data: refsData, error: refsError } = await supabase
+          .from('references')
+          .select('*')
+          .eq('is_active', true)
+          .order('sort_order', { ascending: true });
+
+        if (refsError) throw refsError;
+        setProjects(refsData || []);
+
+        // Fetch categories
+        const { data: catsData, error: catsError } = await supabase
+          .from('reference_categories')
+          .select('*')
+          .eq('is_active', true)
+          .order('sort_order', { ascending: true });
+
+        if (catsError) throw catsError;
+        setCategories(catsData || []);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const industryCategories = ["Alle", ...categories.filter(c => c.type === 'industry').map(c => c.name)];
+  const materialCategories = ["Alle", ...categories.filter(c => c.type === 'material').map(c => c.name)];
 
   const filteredProjects = projects.filter(project => {
     const matchesIndustry = filterIndustry === "Alle" || project.industry === filterIndustry;
@@ -225,7 +168,7 @@ const Referenzen = () => {
               
               <div className="flex flex-wrap gap-2">
                 <span className="text-sm text-muted-foreground mr-2">Branche:</span>
-                {industries.map(industry => (
+                {industryCategories.slice(0, 6).map(industry => (
                   <Button
                     key={industry}
                     variant={filterIndustry === industry ? "default" : "outline"}
@@ -242,7 +185,7 @@ const Referenzen = () => {
 
               <div className="flex flex-wrap gap-2">
                 <span className="text-sm text-muted-foreground mr-2">Material:</span>
-                {materials.slice(0, 5).map(material => (
+                {materialCategories.slice(0, 5).map(material => (
                   <Button
                     key={material}
                     variant={filterMaterial === material ? "default" : "outline"}
@@ -261,100 +204,123 @@ const Referenzen = () => {
         {/* Projects Grid */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project, index) => (
-                <Card 
-                  key={project.id}
-                  className="group overflow-hidden border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 cursor-pointer animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                  onClick={() => setSelectedProject(project)}
-                >
-                  {/* Image */}
-                  <div className="aspect-[4/3] relative overflow-hidden bg-muted">
-                    <img 
-                      src={project.imageUrl} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
-                    {/* Quick Stats Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <div className="flex items-center justify-between text-sm">
-                        <Badge variant="secondary" className="bg-background/90">
-                          <Clock className="w-3 h-3 mr-1" />
-                          {project.printTimeHours}h
-                        </Badge>
-                        <Badge variant="secondary" className="bg-background/90">
-                          <Scale className="w-3 h-3 mr-1" />
-                          {project.weightGrams}g
-                        </Badge>
-                        <Badge variant="secondary" className="bg-background/90">
-                          <Zap className="w-3 h-3 mr-1" />
-                          {project.deliveryDays}d
-                        </Badge>
-                      </div>
-                    </div>
-
-                    {/* Industry Badge */}
-                    <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
-                      {project.industry}
-                    </Badge>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 space-y-4">
-                    <div>
-                      <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    {/* Technical Data Grid */}
-                    <div className="grid grid-cols-2 gap-3 text-sm">
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Layers className="w-4 h-4 text-primary" />
-                        <span>{project.material}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Box className="w-4 h-4 text-primary" />
-                        <span>{project.quantity}x</span>
-                      </div>
-                    </div>
-
-                    {/* Highlights */}
-                    {project.highlights && (
-                      <div className="flex flex-wrap gap-1">
-                        {project.highlights.slice(0, 2).map((highlight, i) => (
-                          <Badge key={i} variant="outline" className="text-xs">
-                            {highlight}
-                          </Badge>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </Card>
-              ))}
-            </div>
-
-            {filteredProjects.length === 0 && (
-              <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">
-                  Keine Projekte mit diesen Filterkriterien gefunden.
+            {loading ? (
+              <div className="flex items-center justify-center py-20">
+                <Loader2 className="w-8 h-8 animate-spin text-primary" />
+              </div>
+            ) : filteredProjects.length === 0 ? (
+              <div className="text-center py-20">
+                <ImageIcon className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">
+                  {projects.length === 0 ? "Noch keine Referenzen" : "Keine Treffer"}
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  {projects.length === 0 
+                    ? "Referenzen werden bald hinzugefügt." 
+                    : "Keine Projekte mit diesen Filterkriterien gefunden."}
                 </p>
-                <Button 
-                  variant="outline" 
-                  className="mt-4"
-                  onClick={() => {
-                    setFilterIndustry("Alle");
-                    setFilterMaterial("Alle");
-                  }}
-                >
-                  Filter zurücksetzen
-                </Button>
+                {projects.length > 0 && (
+                  <Button 
+                    variant="outline" 
+                    onClick={() => {
+                      setFilterIndustry("Alle");
+                      setFilterMaterial("Alle");
+                    }}
+                  >
+                    Filter zurücksetzen
+                  </Button>
+                )}
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredProjects.map((project, index) => (
+                  <Card 
+                    key={project.id}
+                    className="group overflow-hidden border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 cursor-pointer animate-fade-in"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    {/* Image */}
+                    <div className="aspect-[4/3] relative overflow-hidden bg-muted">
+                      {project.image_url ? (
+                        <img 
+                          src={project.image_url} 
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <ImageIcon className="w-12 h-12 text-muted-foreground" />
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      {/* Quick Stats Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div className="flex items-center justify-between text-sm">
+                          {project.print_time_hours && (
+                            <Badge variant="secondary" className="bg-background/90">
+                              <Clock className="w-3 h-3 mr-1" />
+                              {project.print_time_hours}h
+                            </Badge>
+                          )}
+                          {project.weight_grams && (
+                            <Badge variant="secondary" className="bg-background/90">
+                              <Scale className="w-3 h-3 mr-1" />
+                              {project.weight_grams}g
+                            </Badge>
+                          )}
+                          {project.delivery_days && (
+                            <Badge variant="secondary" className="bg-background/90">
+                              <Zap className="w-3 h-3 mr-1" />
+                              {project.delivery_days}d
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Industry Badge */}
+                      <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+                        {project.industry}
+                      </Badge>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6 space-y-4">
+                      <div>
+                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground line-clamp-2">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Technical Data Grid */}
+                      <div className="grid grid-cols-2 gap-3 text-sm">
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Layers className="w-4 h-4 text-primary" />
+                          <span>{project.material}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Box className="w-4 h-4 text-primary" />
+                          <span>{project.quantity}x</span>
+                        </div>
+                      </div>
+
+                      {/* Highlights */}
+                      {project.highlights && project.highlights.length > 0 && (
+                        <div className="flex flex-wrap gap-1">
+                          {project.highlights.slice(0, 2).map((highlight, i) => (
+                            <Badge key={i} variant="outline" className="text-xs">
+                              {highlight}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </Card>
+                ))}
               </div>
             )}
           </div>
@@ -396,26 +362,36 @@ const Referenzen = () => {
           {selectedProject && (
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Image Side */}
-              <div className="relative aspect-square lg:aspect-auto bg-muted">
-                <img 
-                  src={selectedProject.imageUrl} 
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative aspect-square lg:aspect-auto bg-muted min-h-[300px]">
+                {selectedProject.image_url ? (
+                  <img 
+                    src={selectedProject.image_url} 
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <ImageIcon className="w-16 h-16 text-muted-foreground" />
+                  </div>
+                )}
                 
                 {/* Navigation Arrows */}
-                <button
-                  onClick={(e) => { e.stopPropagation(); navigateProject('prev'); }}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </button>
-                <button
-                  onClick={(e) => { e.stopPropagation(); navigateProject('next'); }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </button>
+                {filteredProjects.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); navigateProject('prev'); }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors"
+                    >
+                      <ChevronLeft className="w-6 h-6" />
+                    </button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); navigateProject('next'); }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors"
+                    >
+                      <ChevronRight className="w-6 h-6" />
+                    </button>
+                  </>
+                )}
 
                 {/* Close Button */}
                 <button
@@ -426,9 +402,11 @@ const Referenzen = () => {
                 </button>
 
                 {/* Counter */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm text-sm">
-                  {currentIndex + 1} / {filteredProjects.length}
-                </div>
+                {filteredProjects.length > 1 && (
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm text-sm">
+                    {currentIndex + 1} / {filteredProjects.length}
+                  </div>
+                )}
               </div>
 
               {/* Details Side */}
@@ -454,48 +432,60 @@ const Referenzen = () => {
                         Material
                       </div>
                       <p className="font-semibold">{selectedProject.material}</p>
-                      <p className="text-sm text-muted-foreground">{selectedProject.color}</p>
+                      {selectedProject.color && (
+                        <p className="text-sm text-muted-foreground">{selectedProject.color}</p>
+                      )}
                     </div>
-                    <div className="p-4 bg-muted/50 rounded-lg">
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                        <Box className="w-4 h-4" />
-                        Abmessungen
+                    {selectedProject.dimensions && (
+                      <div className="p-4 bg-muted/50 rounded-lg">
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                          <Box className="w-4 h-4" />
+                          Abmessungen
+                        </div>
+                        <p className="font-semibold">{selectedProject.dimensions}</p>
                       </div>
-                      <p className="font-semibold">{selectedProject.dimensions}</p>
-                    </div>
-                    <div className="p-4 bg-muted/50 rounded-lg">
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                        <Clock className="w-4 h-4" />
-                        Druckzeit
+                    )}
+                    {selectedProject.print_time_hours && (
+                      <div className="p-4 bg-muted/50 rounded-lg">
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                          <Clock className="w-4 h-4" />
+                          Druckzeit
+                        </div>
+                        <p className="font-semibold">{selectedProject.print_time_hours} Stunden</p>
                       </div>
-                      <p className="font-semibold">{selectedProject.printTimeHours} Stunden</p>
-                    </div>
-                    <div className="p-4 bg-muted/50 rounded-lg">
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                        <Scale className="w-4 h-4" />
-                        Gewicht
+                    )}
+                    {selectedProject.weight_grams && (
+                      <div className="p-4 bg-muted/50 rounded-lg">
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                          <Scale className="w-4 h-4" />
+                          Gewicht
+                        </div>
+                        <p className="font-semibold">{selectedProject.weight_grams} Gramm</p>
                       </div>
-                      <p className="font-semibold">{selectedProject.weightGrams} Gramm</p>
-                    </div>
-                    <div className="p-4 bg-muted/50 rounded-lg">
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                        <Box className="w-4 h-4" />
-                        Stückzahl
+                    )}
+                    {selectedProject.quantity && (
+                      <div className="p-4 bg-muted/50 rounded-lg">
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                          <Box className="w-4 h-4" />
+                          Stückzahl
+                        </div>
+                        <p className="font-semibold">{selectedProject.quantity} Stück</p>
                       </div>
-                      <p className="font-semibold">{selectedProject.quantity} Stück</p>
-                    </div>
-                    <div className="p-4 bg-primary/10 rounded-lg border border-primary/20">
-                      <div className="flex items-center gap-2 text-primary text-sm mb-1">
-                        <Zap className="w-4 h-4" />
-                        Lieferzeit
+                    )}
+                    {selectedProject.delivery_days && (
+                      <div className="p-4 bg-primary/10 rounded-lg border border-primary/20">
+                        <div className="flex items-center gap-2 text-primary text-sm mb-1">
+                          <Zap className="w-4 h-4" />
+                          Lieferzeit
+                        </div>
+                        <p className="font-semibold text-primary">{selectedProject.delivery_days} Tage</p>
                       </div>
-                      <p className="font-semibold text-primary">{selectedProject.deliveryDays} Tage</p>
-                    </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Highlights */}
-                {selectedProject.highlights && (
+                {selectedProject.highlights && selectedProject.highlights.length > 0 && (
                   <div className="space-y-3">
                     <h3 className="font-semibold text-lg">Highlights</h3>
                     <div className="flex flex-wrap gap-2">
@@ -510,14 +500,16 @@ const Referenzen = () => {
                 )}
 
                 {/* Customer Quote */}
-                {selectedProject.customerQuote && (
+                {selectedProject.customer_quote && (
                   <div className="p-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border border-primary/20">
                     <p className="italic text-foreground mb-3">
-                      "{selectedProject.customerQuote}"
+                      "{selectedProject.customer_quote}"
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      — {selectedProject.customerName}
-                    </p>
+                    {selectedProject.customer_name && (
+                      <p className="text-sm text-muted-foreground">
+                        — {selectedProject.customer_name}
+                      </p>
+                    )}
                   </div>
                 )}
 
