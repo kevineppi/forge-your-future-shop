@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { supabase } from "@/integrations/supabase/client";
 import OptimizedImage from "@/components/OptimizedImage";
 import ImageGallery from "@/components/ImageGallery";
@@ -17,6 +18,7 @@ import {
   Box, 
   ChevronLeft, 
   ChevronRight, 
+  ChevronDown,
   X,
   Zap,
   CheckCircle2,
@@ -72,6 +74,7 @@ const Referenzen = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectReference | null>(null);
   const [filterIndustry, setFilterIndustry] = useState("Alle");
   const [filterMaterial, setFilterMaterial] = useState("Alle");
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -197,46 +200,124 @@ const Referenzen = () => {
           </div>
         </section>
 
-        {/* Filter Section */}
-        <section className="py-8 border-y border-border/50 bg-muted/30 sticky top-20 z-40 backdrop-blur-lg">
+        {/* Filter Section - Compact & Sticky */}
+        <section className="py-2 md:py-3 border-b border-border/30 bg-background/95 sticky top-16 md:top-20 z-40 backdrop-blur-md">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="flex items-center gap-2">
-                <Filter className="w-4 h-4 text-muted-foreground" />
-                <span className="text-sm font-medium text-muted-foreground">Filter:</span>
-              </div>
-              
-              <div className="flex flex-wrap gap-2">
-                <span className="text-sm text-muted-foreground mr-2">Branche:</span>
-                {industryCategories.slice(0, 6).map(industry => (
-                  <Button
-                    key={industry}
-                    variant={filterIndustry === industry ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setFilterIndustry(industry)}
-                    className="text-xs"
-                  >
-                    {industry}
+            {/* Mobile: Collapsible Filter */}
+            <div className="md:hidden">
+              <Collapsible open={filtersOpen} onOpenChange={setFiltersOpen}>
+                <CollapsibleTrigger asChild>
+                  <Button variant="ghost" size="sm" className="w-full justify-between text-xs h-8">
+                    <div className="flex items-center gap-2">
+                      <Filter className="w-3 h-3" />
+                      <span>Filter</span>
+                      {(filterIndustry !== "Alle" || filterMaterial !== "Alle") && (
+                        <Badge variant="secondary" className="text-[10px] px-1.5 py-0">
+                          {[filterIndustry !== "Alle" && filterIndustry, filterMaterial !== "Alle" && filterMaterial].filter(Boolean).join(", ")}
+                        </Badge>
+                      )}
+                    </div>
+                    <ChevronDown className={`w-3 h-3 transition-transform ${filtersOpen ? "rotate-180" : ""}`} />
                   </Button>
-                ))}
-              </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="pt-2 pb-1 space-y-2">
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-[10px] text-muted-foreground w-full mb-1">Branche:</span>
+                    {industryCategories.slice(0, 6).map(industry => (
+                      <Button
+                        key={industry}
+                        variant={filterIndustry === industry ? "default" : "ghost"}
+                        size="sm"
+                        onClick={() => setFilterIndustry(industry)}
+                        className="text-[10px] h-6 px-2"
+                      >
+                        {industry}
+                      </Button>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-[10px] text-muted-foreground w-full mb-1">Material:</span>
+                    {materialCategories.slice(0, 5).map(material => (
+                      <Button
+                        key={material}
+                        variant={filterMaterial === material ? "default" : "ghost"}
+                        size="sm"
+                        onClick={() => setFilterMaterial(material)}
+                        className="text-[10px] h-6 px-2"
+                      >
+                        {material}
+                      </Button>
+                    ))}
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
 
-              <div className="w-px h-6 bg-border hidden md:block" />
+            {/* Desktop: Inline filters with collapsible */}
+            <div className="hidden md:block">
+              <Collapsible open={filtersOpen} onOpenChange={setFiltersOpen}>
+                <div className="flex items-center justify-between">
+                  <CollapsibleTrigger asChild>
+                    <Button variant="ghost" size="sm" className="gap-2 text-xs h-8">
+                      <Filter className="w-3 h-3" />
+                      <span>Filter</span>
+                      <ChevronDown className={`w-3 h-3 transition-transform ${filtersOpen ? "rotate-180" : ""}`} />
+                    </Button>
+                  </CollapsibleTrigger>
+                  
+                  {/* Quick filter pills when collapsed */}
+                  {!filtersOpen && (filterIndustry !== "Alle" || filterMaterial !== "Alle") && (
+                    <div className="flex items-center gap-2">
+                      {filterIndustry !== "Alle" && (
+                        <Badge variant="secondary" className="text-xs cursor-pointer" onClick={() => setFilterIndustry("Alle")}>
+                          {filterIndustry} <X className="w-3 h-3 ml-1" />
+                        </Badge>
+                      )}
+                      {filterMaterial !== "Alle" && (
+                        <Badge variant="secondary" className="text-xs cursor-pointer" onClick={() => setFilterMaterial("Alle")}>
+                          {filterMaterial} <X className="w-3 h-3 ml-1" />
+                        </Badge>
+                      )}
+                    </div>
+                  )}
+                </div>
+                
+                <CollapsibleContent className="pt-3 pb-1">
+                  <div className="flex flex-wrap items-center gap-4">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="text-xs text-muted-foreground mr-1">Branche:</span>
+                      {industryCategories.slice(0, 6).map(industry => (
+                        <Button
+                          key={industry}
+                          variant={filterIndustry === industry ? "default" : "ghost"}
+                          size="sm"
+                          onClick={() => setFilterIndustry(industry)}
+                          className="text-xs h-7 px-2.5"
+                        >
+                          {industry}
+                        </Button>
+                      ))}
+                    </div>
 
-              <div className="flex flex-wrap gap-2">
-                <span className="text-sm text-muted-foreground mr-2">Material:</span>
-                {materialCategories.slice(0, 5).map(material => (
-                  <Button
-                    key={material}
-                    variant={filterMaterial === material ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setFilterMaterial(material)}
-                    className="text-xs"
-                  >
-                    {material}
-                  </Button>
-                ))}
-              </div>
+                    <div className="w-px h-5 bg-border" />
+
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="text-xs text-muted-foreground mr-1">Material:</span>
+                      {materialCategories.slice(0, 5).map(material => (
+                        <Button
+                          key={material}
+                          variant={filterMaterial === material ? "default" : "ghost"}
+                          size="sm"
+                          onClick={() => setFilterMaterial(material)}
+                          className="text-xs h-7 px-2.5"
+                        >
+                          {material}
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
             </div>
           </div>
         </section>
@@ -333,25 +414,26 @@ const Referenzen = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 space-y-4">
-                      <div>
-                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground line-clamp-2">
-                          {project.description}
-                        </p>
-                      </div>
+                    <div className="p-5 space-y-3">
+                      <h3 className="font-bold text-base group-hover:text-primary transition-colors line-clamp-1">
+                        {project.title}
+                      </h3>
 
-                      {/* Technical Data Grid */}
-                      <div className="grid grid-cols-2 gap-3 text-sm">
-                        <div className="flex items-center gap-2 text-muted-foreground">
-                          <Layers className="w-4 h-4 text-primary" />
-                          <span>{project.material}</span>
+                      {/* Technical Data - Box Style like Modal */}
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="border border-border rounded-md p-2">
+                          <div className="flex items-center gap-1.5 text-muted-foreground text-[10px] uppercase tracking-wide mb-0.5">
+                            <Layers className="w-3 h-3" />
+                            <span>Material</span>
+                          </div>
+                          <span className="text-sm font-medium">{project.material}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-muted-foreground">
-                          <Box className="w-4 h-4 text-primary" />
-                          <span>{project.quantity}x</span>
+                        <div className="border border-border rounded-md p-2">
+                          <div className="flex items-center gap-1.5 text-muted-foreground text-[10px] uppercase tracking-wide mb-0.5">
+                            <Box className="w-3 h-3" />
+                            <span>Stückzahl</span>
+                          </div>
+                          <span className="text-sm font-medium">{project.quantity || 1} Stück</span>
                         </div>
                       </div>
 
