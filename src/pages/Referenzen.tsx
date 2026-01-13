@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
+import OptimizedImage from "@/components/OptimizedImage";
+import ImageGallery from "@/components/ImageGallery";
 import { 
   Clock, 
   Scale, 
@@ -16,13 +18,26 @@ import {
   ChevronLeft, 
   ChevronRight, 
   X,
-  Factory,
   Zap,
   CheckCircle2,
   Filter,
   Loader2,
-  ImageIcon
+  ImageIcon,
+  Images,
+  Ruler,
+  Palette,
+  Truck,
+  Quote
 } from "lucide-react";
+
+interface ReferenceImage {
+  id: string;
+  image_url: string;
+  thumbnail_url: string | null;
+  alt_text: string | null;
+  is_primary: boolean;
+  sort_order: number;
+}
 
 interface ProjectReference {
   id: string;
@@ -41,6 +56,7 @@ interface ProjectReference {
   customer_name: string | null;
   highlights: string[] | null;
   is_featured: boolean | null;
+  images?: ReferenceImage[];
 }
 
 interface Category {
@@ -68,7 +84,22 @@ const Referenzen = () => {
           .order('sort_order', { ascending: true });
 
         if (refsError) throw refsError;
-        setProjects(refsData || []);
+
+        // Fetch images
+        const { data: imagesData, error: imagesError } = await supabase
+          .from('reference_images')
+          .select('*')
+          .order('sort_order', { ascending: true });
+
+        if (imagesError) throw imagesError;
+
+        // Map images to references
+        const refsWithImages = (refsData || []).map(ref => ({
+          ...ref,
+          images: (imagesData || []).filter(img => img.reference_id === ref.id)
+        }));
+
+        setProjects(refsWithImages);
 
         // Fetch categories
         const { data: catsData, error: catsError } = await supabase
@@ -106,6 +137,15 @@ const Referenzen = () => {
       ? (currentIndex - 1 + filteredProjects.length) % filteredProjects.length
       : (currentIndex + 1) % filteredProjects.length;
     setSelectedProject(filteredProjects[newIndex]);
+  };
+
+  // Get primary image or first image
+  const getProjectImage = (project: ProjectReference) => {
+    if (project.images && project.images.length > 0) {
+      const primary = project.images.find(img => img.is_primary);
+      return primary?.image_url || project.images[0].image_url;
+    }
+    return project.image_url;
   };
 
   return (
@@ -240,20 +280,18 @@ const Referenzen = () => {
                     style={{ animationDelay: `${index * 100}ms` }}
                     onClick={() => setSelectedProject(project)}
                   >
-                    {/* Image */}
-                    <div className="aspect-[4/3] relative overflow-hidden bg-muted">
-                      {project.image_url ? (
-                        <img 
-                          src={project.image_url} 
-                          alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <ImageIcon className="w-12 h-12 text-muted-foreground" />
-                        </div>
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* Image with Lazy Loading */}
+                    <div className="relative overflow-hidden">
+                      <OptimizedImage
+                        src={getProjectImage(project)}
+                        alt={project.title}
+                        aspectRatio="4/3"
+                        priority={index < 6}
+                        containerClassName="group-hover:scale-105 transition-transform duration-700"
+                      />
+                      
+                      {/* Gradient Overlay on Hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                       
                       {/* Quick Stats Overlay */}
                       <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -283,6 +321,14 @@ const Referenzen = () => {
                       <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                         {project.industry}
                       </Badge>
+
+                      {/* Multi-Image Indicator */}
+                      {project.images && project.images.length > 1 && (
+                        <Badge className="absolute top-4 right-4 bg-background/80 text-foreground backdrop-blur-sm">
+                          <Images className="w-3 h-3 mr-1" />
+                          {project.images.length}
+                        </Badge>
+                      )}
                     </div>
 
                     {/* Content */}
@@ -356,37 +402,47 @@ const Referenzen = () => {
         <Footer />
       </div>
 
-      {/* Lightbox Dialog */}
+      {/* Lightbox Dialog with Image Gallery */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
         <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0">
           {selectedProject && (
             <div className="grid lg:grid-cols-2 gap-0">
-              {/* Image Side */}
-              <div className="relative aspect-square lg:aspect-auto bg-muted min-h-[300px]">
-                {selectedProject.image_url ? (
-                  <img 
-                    src={selectedProject.image_url} 
+              {/* Image Gallery Side */}
+              <div className="relative bg-muted min-h-[300px] lg:min-h-[500px]">
+                {selectedProject.images && selectedProject.images.length > 0 ? (
+                  <ImageGallery
+                    images={selectedProject.images}
                     alt={selectedProject.title}
-                    className="w-full h-full object-cover"
+                    aspectRatio="square"
+                    showThumbnails={selectedProject.images.length > 1}
+                    className="h-full"
+                  />
+                ) : selectedProject.image_url ? (
+                  <OptimizedImage
+                    src={selectedProject.image_url}
+                    alt={selectedProject.title}
+                    priority
+                    containerClassName="h-full"
+                    className="h-full"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center">
+                  <div className="w-full h-full flex items-center justify-center min-h-[300px]">
                     <ImageIcon className="w-16 h-16 text-muted-foreground" />
                   </div>
                 )}
                 
-                {/* Navigation Arrows */}
+                {/* Navigation Arrows for multiple projects */}
                 {filteredProjects.length > 1 && (
                   <>
                     <button
                       onClick={(e) => { e.stopPropagation(); navigateProject('prev'); }}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors z-20"
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button
                       onClick={(e) => { e.stopPropagation(); navigateProject('next'); }}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors z-20"
                     >
                       <ChevronRight className="w-6 h-6" />
                     </button>
@@ -396,15 +452,15 @@ const Referenzen = () => {
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors"
+                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors z-20"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
-                {/* Counter */}
+                {/* Project Counter */}
                 {filteredProjects.length > 1 && (
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm text-sm">
-                    {currentIndex + 1} / {filteredProjects.length}
+                  <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm text-sm z-20">
+                    Projekt {currentIndex + 1} / {filteredProjects.length}
                   </div>
                 )}
               </div>
@@ -415,83 +471,95 @@ const Referenzen = () => {
                   <Badge className="mb-3 bg-primary/10 text-primary border-primary/20">
                     {selectedProject.industry}
                   </Badge>
-                  <h2 className="text-2xl font-bold mb-3">{selectedProject.title}</h2>
-                  <p className="text-muted-foreground">{selectedProject.description}</p>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                    {selectedProject.title}
+                  </h2>
+                  <p className="text-muted-foreground">
+                    {selectedProject.description}
+                  </p>
                 </div>
 
-                {/* Technical Specifications */}
-                <div className="space-y-4">
-                  <h3 className="font-semibold text-lg flex items-center gap-2">
-                    <Factory className="w-5 h-5 text-primary" />
-                    Technische Daten
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 bg-muted/50 rounded-lg">
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                        <Layers className="w-4 h-4" />
-                        Material
-                      </div>
-                      <p className="font-semibold">{selectedProject.material}</p>
-                      {selectedProject.color && (
-                        <p className="text-sm text-muted-foreground">{selectedProject.color}</p>
-                      )}
+                {/* Technical Specs Grid */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-4 rounded-xl bg-muted/50 border border-border/50">
+                    <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                      <Layers className="w-4 h-4" />
+                      <span className="text-xs uppercase tracking-wide">Material</span>
                     </div>
-                    {selectedProject.dimensions && (
-                      <div className="p-4 bg-muted/50 rounded-lg">
-                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                          <Box className="w-4 h-4" />
-                          Abmessungen
-                        </div>
-                        <p className="font-semibold">{selectedProject.dimensions}</p>
-                      </div>
-                    )}
-                    {selectedProject.print_time_hours && (
-                      <div className="p-4 bg-muted/50 rounded-lg">
-                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                          <Clock className="w-4 h-4" />
-                          Druckzeit
-                        </div>
-                        <p className="font-semibold">{selectedProject.print_time_hours} Stunden</p>
-                      </div>
-                    )}
-                    {selectedProject.weight_grams && (
-                      <div className="p-4 bg-muted/50 rounded-lg">
-                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                          <Scale className="w-4 h-4" />
-                          Gewicht
-                        </div>
-                        <p className="font-semibold">{selectedProject.weight_grams} Gramm</p>
-                      </div>
-                    )}
-                    {selectedProject.quantity && (
-                      <div className="p-4 bg-muted/50 rounded-lg">
-                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
-                          <Box className="w-4 h-4" />
-                          Stückzahl
-                        </div>
-                        <p className="font-semibold">{selectedProject.quantity} Stück</p>
-                      </div>
-                    )}
-                    {selectedProject.delivery_days && (
-                      <div className="p-4 bg-primary/10 rounded-lg border border-primary/20">
-                        <div className="flex items-center gap-2 text-primary text-sm mb-1">
-                          <Zap className="w-4 h-4" />
-                          Lieferzeit
-                        </div>
-                        <p className="font-semibold text-primary">{selectedProject.delivery_days} Tage</p>
-                      </div>
-                    )}
+                    <p className="font-semibold">{selectedProject.material}</p>
                   </div>
+                  
+                  {selectedProject.color && (
+                    <div className="p-4 rounded-xl bg-muted/50 border border-border/50">
+                      <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                        <Palette className="w-4 h-4" />
+                        <span className="text-xs uppercase tracking-wide">Farbe</span>
+                      </div>
+                      <p className="font-semibold">{selectedProject.color}</p>
+                    </div>
+                  )}
+                  
+                  {selectedProject.dimensions && (
+                    <div className="p-4 rounded-xl bg-muted/50 border border-border/50">
+                      <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                        <Ruler className="w-4 h-4" />
+                        <span className="text-xs uppercase tracking-wide">Abmessungen</span>
+                      </div>
+                      <p className="font-semibold">{selectedProject.dimensions}</p>
+                    </div>
+                  )}
+                  
+                  {selectedProject.print_time_hours && (
+                    <div className="p-4 rounded-xl bg-muted/50 border border-border/50">
+                      <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                        <Clock className="w-4 h-4" />
+                        <span className="text-xs uppercase tracking-wide">Druckzeit</span>
+                      </div>
+                      <p className="font-semibold">{selectedProject.print_time_hours} Stunden</p>
+                    </div>
+                  )}
+                  
+                  {selectedProject.weight_grams && (
+                    <div className="p-4 rounded-xl bg-muted/50 border border-border/50">
+                      <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                        <Scale className="w-4 h-4" />
+                        <span className="text-xs uppercase tracking-wide">Gewicht</span>
+                      </div>
+                      <p className="font-semibold">{selectedProject.weight_grams}g</p>
+                    </div>
+                  )}
+                  
+                  {selectedProject.quantity && (
+                    <div className="p-4 rounded-xl bg-muted/50 border border-border/50">
+                      <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                        <Box className="w-4 h-4" />
+                        <span className="text-xs uppercase tracking-wide">Stückzahl</span>
+                      </div>
+                      <p className="font-semibold">{selectedProject.quantity} Stück</p>
+                    </div>
+                  )}
+                  
+                  {selectedProject.delivery_days && (
+                    <div className="p-4 rounded-xl bg-muted/50 border border-border/50">
+                      <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                        <Truck className="w-4 h-4" />
+                        <span className="text-xs uppercase tracking-wide">Lieferzeit</span>
+                      </div>
+                      <p className="font-semibold">{selectedProject.delivery_days} Tage</p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Highlights */}
                 {selectedProject.highlights && selectedProject.highlights.length > 0 && (
                   <div className="space-y-3">
-                    <h3 className="font-semibold text-lg">Highlights</h3>
+                    <h3 className="font-semibold text-lg flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-500" />
+                      Projekt-Highlights
+                    </h3>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.highlights.map((highlight, i) => (
-                        <Badge key={i} variant="secondary" className="bg-green-500/10 text-green-600 border-green-500/20">
-                          <CheckCircle2 className="w-3 h-3 mr-1" />
+                        <Badge key={i} variant="secondary" className="py-1.5 px-3">
                           {highlight}
                         </Badge>
                       ))}
@@ -501,12 +569,13 @@ const Referenzen = () => {
 
                 {/* Customer Quote */}
                 {selectedProject.customer_quote && (
-                  <div className="p-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border border-primary/20">
-                    <p className="italic text-foreground mb-3">
+                  <div className="p-6 rounded-xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20">
+                    <Quote className="w-8 h-8 text-primary/50 mb-3" />
+                    <blockquote className="text-lg italic mb-3">
                       "{selectedProject.customer_quote}"
-                    </p>
+                    </blockquote>
                     {selectedProject.customer_name && (
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground font-medium">
                         — {selectedProject.customer_name}
                       </p>
                     )}
@@ -514,12 +583,18 @@ const Referenzen = () => {
                 )}
 
                 {/* CTA */}
-                <div className="pt-4 border-t">
-                  <Button variant="cta" size="lg" className="w-full" asChild>
-                    <a href="/kostenrechner">
-                      Ähnliches Projekt starten
-                    </a>
-                  </Button>
+                <div className="pt-4 border-t border-border/50 space-y-3">
+                  <p className="text-sm text-muted-foreground">
+                    Haben Sie ein ähnliches Projekt? Wir helfen Ihnen gerne!
+                  </p>
+                  <div className="flex gap-3">
+                    <Button variant="cta" asChild className="flex-1">
+                      <a href="/kostenrechner">Jetzt kalkulieren</a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <a href="#contact">Kontakt</a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>

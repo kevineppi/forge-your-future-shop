@@ -448,6 +448,47 @@ export type Database = {
         }
         Relationships: []
       }
+      reference_images: {
+        Row: {
+          alt_text: string | null
+          created_at: string
+          id: string
+          image_url: string
+          is_primary: boolean | null
+          reference_id: string
+          sort_order: number | null
+          thumbnail_url: string | null
+        }
+        Insert: {
+          alt_text?: string | null
+          created_at?: string
+          id?: string
+          image_url: string
+          is_primary?: boolean | null
+          reference_id: string
+          sort_order?: number | null
+          thumbnail_url?: string | null
+        }
+        Update: {
+          alt_text?: string | null
+          created_at?: string
+          id?: string
+          image_url?: string
+          is_primary?: boolean | null
+          reference_id?: string
+          sort_order?: number | null
+          thumbnail_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reference_images_reference_id_fkey"
+            columns: ["reference_id"]
+            isOneToOne: false
+            referencedRelation: "references"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       references: {
         Row: {
           color: string | null
