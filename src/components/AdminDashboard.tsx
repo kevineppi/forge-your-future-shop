@@ -11,10 +11,11 @@ import type { Tables } from "@/integrations/supabase/types";
 
 type ContactInquiry = Tables<'contact_inquiries'>;
 import { useToast } from "@/hooks/use-toast";
-import { Search, Filter, Download, RefreshCw, Eye, CheckCircle, Clock, Archive, ShoppingCart } from "lucide-react";
+import { Search, Filter, Download, RefreshCw, Eye, CheckCircle, Clock, Archive, ShoppingCart, Image } from "lucide-react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import OrdersManagement from "./OrdersManagement";
+import ReferencesManager from "./ReferencesManager";
 
 const AdminDashboard = () => {
   const [inquiries, setInquiries] = useState<ContactInquiry[]>([]);
@@ -189,7 +190,7 @@ const AdminDashboard = () => {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full max-w-md grid-cols-2">
+          <TabsList className="grid w-full max-w-lg grid-cols-3">
             <TabsTrigger value="inquiries">
               <Filter className="h-4 w-4 mr-2" />
               Kontaktanfragen
@@ -197,6 +198,10 @@ const AdminDashboard = () => {
             <TabsTrigger value="orders">
               <ShoppingCart className="h-4 w-4 mr-2" />
               Bestellungen
+            </TabsTrigger>
+            <TabsTrigger value="references">
+              <Image className="h-4 w-4 mr-2" />
+              Referenzen
             </TabsTrigger>
           </TabsList>
 
@@ -480,6 +485,10 @@ const AdminDashboard = () => {
 
           <TabsContent value="orders" className="space-y-6">
             <OrdersManagement />
+          </TabsContent>
+
+          <TabsContent value="references" className="space-y-6">
+            <ReferencesManager />
           </TabsContent>
         </Tabs>
       </div>

@@ -418,6 +418,105 @@ export type Database = {
         }
         Relationships: []
       }
+      reference_categories: {
+        Row: {
+          color: string | null
+          created_at: string
+          id: string
+          is_active: boolean | null
+          name: string
+          sort_order: number | null
+          type: string
+        }
+        Insert: {
+          color?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          name: string
+          sort_order?: number | null
+          type: string
+        }
+        Update: {
+          color?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          sort_order?: number | null
+          type?: string
+        }
+        Relationships: []
+      }
+      references: {
+        Row: {
+          color: string | null
+          created_at: string
+          customer_name: string | null
+          customer_quote: string | null
+          delivery_days: number | null
+          description: string | null
+          dimensions: string | null
+          highlights: string[] | null
+          id: string
+          image_url: string | null
+          industry: string
+          is_active: boolean | null
+          is_featured: boolean | null
+          material: string
+          print_time_hours: number | null
+          quantity: number | null
+          sort_order: number | null
+          title: string
+          updated_at: string
+          weight_grams: number | null
+        }
+        Insert: {
+          color?: string | null
+          created_at?: string
+          customer_name?: string | null
+          customer_quote?: string | null
+          delivery_days?: number | null
+          description?: string | null
+          dimensions?: string | null
+          highlights?: string[] | null
+          id?: string
+          image_url?: string | null
+          industry: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          material: string
+          print_time_hours?: number | null
+          quantity?: number | null
+          sort_order?: number | null
+          title: string
+          updated_at?: string
+          weight_grams?: number | null
+        }
+        Update: {
+          color?: string | null
+          created_at?: string
+          customer_name?: string | null
+          customer_quote?: string | null
+          delivery_days?: number | null
+          description?: string | null
+          dimensions?: string | null
+          highlights?: string[] | null
+          id?: string
+          image_url?: string | null
+          industry?: string
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          material?: string
+          print_time_hours?: number | null
+          quantity?: number | null
+          sort_order?: number | null
+          title?: string
+          updated_at?: string
+          weight_grams?: number | null
+        }
+        Relationships: []
+      }
       sample_requests: {
         Row: {
           company_name: string
