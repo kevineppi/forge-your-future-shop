@@ -73,11 +73,11 @@ const ImageGallery = ({
     <div className={cn("relative", className)}>
       {/* Main Image */}
       <div className="relative group">
-        <div className={cn("relative bg-muted overflow-hidden", aspectClasses[aspectRatio])}>
+        <div className={cn("relative bg-black overflow-hidden", aspectClasses[aspectRatio])}>
           {/* Loading spinner */}
           {!isLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center bg-muted z-10">
-              <Loader2 className="w-8 h-8 animate-spin text-muted-foreground/50" />
+            <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
+              <Loader2 className="w-8 h-8 animate-spin text-white/50" />
             </div>
           )}
           <img
