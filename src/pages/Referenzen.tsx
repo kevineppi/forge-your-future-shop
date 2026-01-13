@@ -280,14 +280,15 @@ const Referenzen = () => {
                     style={{ animationDelay: `${index * 100}ms` }}
                     onClick={() => setSelectedProject(project)}
                   >
-                    {/* Image - Square 1:1 format */}
+                    {/* Image - Square 1:1 format, high quality rendering */}
                     <div className="relative overflow-hidden aspect-square bg-muted">
                       <img
                         src={getProjectImage(project) || ''}
                         alt={project.title}
                         loading={index < 6 ? "eager" : "lazy"}
                         decoding="async"
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        style={{ imageRendering: 'auto' }}
                       />
                       
                       {/* Gradient Overlay on Hover */}
