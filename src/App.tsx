@@ -44,6 +44,7 @@ import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
 import MeineBestellungen from "./pages/MeineBestellungen";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
+import Referenzen from "./pages/Referenzen";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,7 @@ const App = () => (
             <Route path="/ratgeber/maschinenbau" element={<Maschinenbau />} />
             <Route path="/ratgeber/serienfertigung-case-study" element={<SerienfertigungCaseStudy />} />
             <Route path="/glossar" element={<Glossar />} />
+            <Route path="/referenzen" element={<Referenzen />} />
             <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
             <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
             <Route path="/3d-druck-graz" element={<Graz3DDruck />} />
