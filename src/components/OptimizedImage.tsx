@@ -12,18 +12,43 @@ interface OptimizedImageProps {
   showLoader?: boolean;
   onLoad?: () => void;
   onError?: () => void;
+  /** Width hint for image optimization (px) */
+  width?: number;
 }
+
+/**
+ * Transforms a Supabase storage URL to use image transformation API
+ * This serves appropriately sized images to avoid browser downscaling blur
+ */
+const getOptimizedUrl = (url: string, width?: number): string => {
+  if (!url || !width) return url;
+  
+  // Only transform Supabase storage URLs
+  if (!url.includes('supabase.co/storage/v1/object/public/')) return url;
+  
+  // Convert public URL to render URL with transformation
+  // From: .../storage/v1/object/public/bucket/path
+  // To: .../storage/v1/render/image/public/bucket/path?width=X&resize=contain
+  const transformedUrl = url.replace(
+    '/storage/v1/object/public/',
+    '/storage/v1/render/image/public/'
+  );
+  
+  // Add width parameter for resizing
+  const separator = transformedUrl.includes('?') ? '&' : '?';
+  return `${transformedUrl}${separator}width=${width}&resize=contain&quality=90`;
+};
 
 /**
  * OptimizedImage - Lazy loading image component with progressive loading
  * 
  * Features:
  * - IntersectionObserver-based lazy loading
+ * - Supabase image transformation for optimal sizing
  * - Smooth fade-in animation on load
  * - Native loading="lazy" fallback
  * - Placeholder while loading
  * - Error state handling
- * - Preserves original image quality (no compression)
  */
 const OptimizedImage = ({
   src,
@@ -35,12 +60,31 @@ const OptimizedImage = ({
   showLoader = true,
   onLoad,
   onError,
+  width,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
+  const [containerWidth, setContainerWidth] = useState<number | undefined>(width);
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Measure container width for optimal image sizing
+  useEffect(() => {
+    if (width || !containerRef.current) return;
+    
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (entry) {
+        // Use 2x for retina displays
+        const newWidth = Math.ceil(entry.contentRect.width * 2);
+        setContainerWidth(newWidth > 0 ? newWidth : undefined);
+      }
+    });
+    
+    resizeObserver.observe(containerRef.current);
+    return () => resizeObserver.disconnect();
+  }, [width]);
 
   // IntersectionObserver for lazy loading
   useEffect(() => {
@@ -135,7 +179,7 @@ const OptimizedImage = ({
       {isInView && (
         <img
           ref={imgRef}
-          src={src}
+          src={getOptimizedUrl(src, containerWidth)}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
@@ -146,12 +190,6 @@ const OptimizedImage = ({
             isLoaded && !isError ? "opacity-100" : "opacity-0",
             className
           )}
-          style={{
-            imageRendering: '-webkit-optimize-contrast',
-            WebkitFontSmoothing: 'antialiased',
-            transform: 'translateZ(0)',
-            willChange: 'transform',
-          }}
         />
       )}
     </div>
