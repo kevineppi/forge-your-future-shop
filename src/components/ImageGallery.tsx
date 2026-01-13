@@ -29,7 +29,7 @@ const ImageGallery = ({
   images,
   alt,
   className,
-  aspectRatio = "4/3",
+  aspectRatio = "square",
   showThumbnails = true,
   showArrows = true,
 }: ImageGalleryProps) => {
@@ -87,7 +87,7 @@ const ImageGallery = ({
             decoding="async"
             onLoad={() => setIsLoaded(true)}
             className={cn(
-              "w-full h-full object-cover transition-all duration-500",
+              "w-full h-full object-contain transition-all duration-500",
               isLoaded ? "opacity-100" : "opacity-0",
               "group-hover:scale-105"
             )}
