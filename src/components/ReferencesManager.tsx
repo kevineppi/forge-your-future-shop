@@ -20,12 +20,23 @@ import {
   Star, 
   Eye, 
   EyeOff,
-  GripVertical,
   X,
   Check,
   Loader2,
-  Tags
+  Tags,
+  GripVertical,
+  Images
 } from "lucide-react";
+
+interface ReferenceImage {
+  id: string;
+  reference_id: string;
+  image_url: string;
+  thumbnail_url: string | null;
+  sort_order: number;
+  alt_text: string | null;
+  is_primary: boolean;
+}
 
 interface Reference {
   id: string;
@@ -47,6 +58,7 @@ interface Reference {
   is_active: boolean | null;
   sort_order: number | null;
   created_at: string;
+  images?: ReferenceImage[];
 }
 
 interface Category {
@@ -76,6 +88,7 @@ const emptyReference: Partial<Reference> = {
   is_featured: false,
   is_active: true,
   sort_order: 0,
+  images: [],
 };
 
 const ReferencesManager = () => {
@@ -97,13 +110,29 @@ const ReferencesManager = () => {
 
   const fetchReferences = async () => {
     try {
-      const { data, error } = await supabase
+      // Fetch references with their images
+      const { data: refsData, error: refsError } = await supabase
         .from('references')
         .select('*')
         .order('sort_order', { ascending: true });
 
-      if (error) throw error;
-      setReferences(data || []);
+      if (refsError) throw refsError;
+
+      // Fetch all images
+      const { data: imagesData, error: imagesError } = await supabase
+        .from('reference_images')
+        .select('*')
+        .order('sort_order', { ascending: true });
+
+      if (imagesError) throw imagesError;
+
+      // Map images to references
+      const refsWithImages = (refsData || []).map(ref => ({
+        ...ref,
+        images: (imagesData || []).filter(img => img.reference_id === ref.id)
+      }));
+
+      setReferences(refsWithImages);
     } catch (error) {
       console.error('Error fetching references:', error);
       toast({
@@ -131,45 +160,106 @@ const ReferencesManager = () => {
     }
   };
 
-  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
+  const handleMultiImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
 
     setUploading(true);
+    const newImages: Partial<ReferenceImage>[] = [];
+
     try {
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-      const filePath = `${fileName}`;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
 
-      const { error: uploadError } = await supabase.storage
-        .from('reference-images')
-        .upload(filePath, file, {
-          cacheControl: '31536000', // 1 year cache
-          upsert: false,
+        const { error: uploadError } = await supabase.storage
+          .from('reference-images')
+          .upload(fileName, file, {
+            cacheControl: '31536000', // 1 year cache for CDN
+            upsert: false,
+          });
+
+        if (uploadError) throw uploadError;
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('reference-images')
+          .getPublicUrl(fileName);
+
+        newImages.push({
+          image_url: publicUrl,
+          thumbnail_url: publicUrl, // Could generate thumbnails server-side
+          sort_order: (editingRef?.images?.length || 0) + i,
+          is_primary: (editingRef?.images?.length || 0) === 0 && i === 0,
+          alt_text: editingRef?.title || '',
         });
+      }
 
-      if (uploadError) throw uploadError;
-
-      const { data: { publicUrl } } = supabase.storage
-        .from('reference-images')
-        .getPublicUrl(filePath);
-
-      setEditingRef(prev => ({ ...prev, image_url: publicUrl }));
+      setEditingRef(prev => ({
+        ...prev,
+        images: [...(prev?.images || []), ...newImages as ReferenceImage[]],
+        // Set first image as legacy image_url for backward compatibility
+        image_url: prev?.images?.length === 0 && newImages.length > 0 
+          ? newImages[0].image_url 
+          : prev?.image_url,
+      }));
 
       toast({
-        title: "Bild hochgeladen",
-        description: "Das Bild wurde erfolgreich hochgeladen",
+        title: `${files.length} Bild${files.length > 1 ? 'er' : ''} hochgeladen`,
+        description: "Bilder wurden erfolgreich hochgeladen (Original-Qualität)",
       });
     } catch (error) {
-      console.error('Error uploading image:', error);
+      console.error('Error uploading images:', error);
       toast({
         title: "Upload fehlgeschlagen",
-        description: "Das Bild konnte nicht hochgeladen werden",
+        description: "Bilder konnten nicht hochgeladen werden",
         variant: "destructive",
       });
     } finally {
       setUploading(false);
     }
+  };
+
+  const removeImage = (index: number) => {
+    setEditingRef(prev => {
+      const newImages = prev?.images?.filter((_, i) => i !== index) || [];
+      // Update primary if needed
+      if (newImages.length > 0 && !newImages.some(img => img.is_primary)) {
+        newImages[0].is_primary = true;
+      }
+      return {
+        ...prev,
+        images: newImages,
+        image_url: newImages[0]?.image_url || null,
+      };
+    });
+  };
+
+  const setPrimaryImage = (index: number) => {
+    setEditingRef(prev => {
+      const newImages = prev?.images?.map((img, i) => ({
+        ...img,
+        is_primary: i === index,
+      })) || [];
+      return {
+        ...prev,
+        images: newImages,
+        image_url: newImages[index]?.image_url || prev?.image_url,
+      };
+    });
+  };
+
+  const moveImage = (index: number, direction: 'up' | 'down') => {
+    setEditingRef(prev => {
+      const images = [...(prev?.images || [])];
+      const newIndex = direction === 'up' ? index - 1 : index + 1;
+      if (newIndex < 0 || newIndex >= images.length) return prev;
+      
+      [images[index], images[newIndex]] = [images[newIndex], images[index]];
+      images.forEach((img, i) => img.sort_order = i);
+      
+      return { ...prev, images };
+    });
   };
 
   const handleSaveReference = async () => {
@@ -183,6 +273,8 @@ const ReferencesManager = () => {
     }
 
     try {
+      let referenceId = editingRef.id;
+
       if (editingRef.id) {
         // Update existing
         const { error } = await supabase
@@ -209,10 +301,9 @@ const ReferencesManager = () => {
           .eq('id', editingRef.id);
 
         if (error) throw error;
-        toast({ title: "Referenz aktualisiert" });
       } else {
         // Create new
-        const { error } = await supabase
+        const { data, error } = await supabase
           .from('references')
           .insert({
             title: editingRef.title,
@@ -232,12 +323,42 @@ const ReferencesManager = () => {
             is_featured: editingRef.is_featured,
             is_active: editingRef.is_active,
             sort_order: references.length,
-          });
+          })
+          .select('id')
+          .single();
 
         if (error) throw error;
-        toast({ title: "Referenz erstellt" });
+        referenceId = data.id;
       }
 
+      // Handle images
+      if (referenceId && editingRef.images) {
+        // Delete existing images for this reference
+        await supabase
+          .from('reference_images')
+          .delete()
+          .eq('reference_id', referenceId);
+
+        // Insert new images
+        if (editingRef.images.length > 0) {
+          const imagesToInsert = editingRef.images.map((img, index) => ({
+            reference_id: referenceId,
+            image_url: img.image_url,
+            thumbnail_url: img.thumbnail_url,
+            sort_order: index,
+            alt_text: img.alt_text || editingRef.title,
+            is_primary: img.is_primary,
+          }));
+
+          const { error: imgError } = await supabase
+            .from('reference_images')
+            .insert(imagesToInsert);
+
+          if (imgError) throw imgError;
+        }
+      }
+
+      toast({ title: editingRef.id ? "Referenz aktualisiert" : "Referenz erstellt" });
       setIsDialogOpen(false);
       setEditingRef(null);
       fetchReferences();
@@ -401,55 +522,129 @@ const ReferencesManager = () => {
 
                 {editingRef && (
                   <div className="grid gap-6 py-4">
-                    {/* Image Upload */}
-                    <div className="space-y-2">
-                      <Label>Projektbild (Original-Qualität)</Label>
-                      <div className="flex items-start gap-4">
-                        {editingRef.image_url ? (
-                          <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-muted">
-                            <img 
-                              src={editingRef.image_url} 
-                              alt="Preview" 
-                              className="w-full h-full object-cover"
-                            />
-                            <Button
-                              variant="destructive"
-                              size="icon"
-                              className="absolute top-2 right-2 h-8 w-8"
-                              onClick={() => setEditingRef(prev => ({ ...prev, image_url: null }))}
-                            >
-                              <X className="w-4 h-4" />
-                            </Button>
-                          </div>
-                        ) : (
-                          <label className="flex flex-col items-center justify-center w-48 h-48 border-2 border-dashed border-border rounded-lg cursor-pointer hover:border-primary/50 transition-colors">
-                            <input
-                              type="file"
-                              accept="image/*"
-                              className="hidden"
-                              onChange={handleImageUpload}
-                              disabled={uploading}
-                            />
-                            {uploading ? (
-                              <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
-                            ) : (
-                              <>
-                                <Upload className="w-8 h-8 text-muted-foreground mb-2" />
-                                <span className="text-sm text-muted-foreground text-center px-2">
-                                  Bild hochladen<br/>(max. 50MB)
-                                </span>
-                              </>
-                            )}
-                          </label>
-                        )}
-                        <div className="flex-1 space-y-2">
-                          <p className="text-sm text-muted-foreground">
-                            ✓ Original-Qualität wird beibehalten<br/>
-                            ✓ Unterstützt: JPG, PNG, WebP, HEIC<br/>
-                            ✓ Max. 50MB pro Bild
-                          </p>
-                        </div>
+                    {/* Multi-Image Upload Section */}
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <Label className="text-base font-semibold flex items-center gap-2">
+                          <Images className="w-4 h-4" />
+                          Projektbilder ({editingRef.images?.length || 0})
+                        </Label>
+                        <label className="cursor-pointer">
+                          <input
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            className="hidden"
+                            onChange={handleMultiImageUpload}
+                            disabled={uploading}
+                          />
+                          <Button variant="outline" size="sm" asChild disabled={uploading}>
+                            <span>
+                              {uploading ? (
+                                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                              ) : (
+                                <Upload className="w-4 h-4 mr-2" />
+                              )}
+                              Bilder hinzufügen
+                            </span>
+                          </Button>
+                        </label>
                       </div>
+
+                      {/* Image Grid */}
+                      {editingRef.images && editingRef.images.length > 0 ? (
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                          {editingRef.images.map((img, index) => (
+                            <div 
+                              key={img.id || index} 
+                              className={`relative group rounded-lg overflow-hidden bg-muted aspect-square ${
+                                img.is_primary ? 'ring-2 ring-primary ring-offset-2' : ''
+                              }`}
+                            >
+                              <img 
+                                src={img.image_url} 
+                                alt={`Bild ${index + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                              
+                              {/* Primary Badge */}
+                              {img.is_primary && (
+                                <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground text-xs">
+                                  Hauptbild
+                                </Badge>
+                              )}
+
+                              {/* Overlay Actions */}
+                              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                {!img.is_primary && (
+                                  <Button
+                                    size="icon"
+                                    variant="secondary"
+                                    className="h-8 w-8"
+                                    onClick={() => setPrimaryImage(index)}
+                                    title="Als Hauptbild setzen"
+                                  >
+                                    <Star className="w-4 h-4" />
+                                  </Button>
+                                )}
+                                {index > 0 && (
+                                  <Button
+                                    size="icon"
+                                    variant="secondary"
+                                    className="h-8 w-8"
+                                    onClick={() => moveImage(index, 'up')}
+                                    title="Nach vorne"
+                                  >
+                                    <GripVertical className="w-4 h-4" />
+                                  </Button>
+                                )}
+                                <Button
+                                  size="icon"
+                                  variant="destructive"
+                                  className="h-8 w-8"
+                                  onClick={() => removeImage(index)}
+                                  title="Löschen"
+                                >
+                                  <Trash2 className="w-4 h-4" />
+                                </Button>
+                              </div>
+
+                              {/* Sort Number */}
+                              <div className="absolute bottom-2 right-2 bg-background/80 backdrop-blur-sm rounded px-2 py-0.5 text-xs font-medium">
+                                {index + 1}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <label className="flex flex-col items-center justify-center h-48 border-2 border-dashed border-border rounded-lg cursor-pointer hover:border-primary/50 transition-colors">
+                          <input
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            className="hidden"
+                            onChange={handleMultiImageUpload}
+                            disabled={uploading}
+                          />
+                          {uploading ? (
+                            <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
+                          ) : (
+                            <>
+                              <Upload className="w-8 h-8 text-muted-foreground mb-2" />
+                              <span className="text-sm text-muted-foreground text-center px-4">
+                                Bilder per Drag & Drop oder Klick hochladen<br/>
+                                <span className="text-xs opacity-70">
+                                  JPG, PNG, WebP, HEIC • Max. 50MB pro Bild • Originalqualität
+                                </span>
+                              </span>
+                            </>
+                          )}
+                        </label>
+                      )}
+
+                      <p className="text-xs text-muted-foreground">
+                        ✓ Originalqualität wird beibehalten • ✓ Lazy Loading für Performance • ✓ Erstes Bild = Hauptbild
+                      </p>
                     </div>
 
                     {/* Basic Info */}
@@ -684,13 +879,20 @@ const ReferencesManager = () => {
                   <CardContent className="p-4">
                     <div className="flex items-start gap-4">
                       {/* Image Thumbnail */}
-                      <div className="w-24 h-24 rounded-lg overflow-hidden bg-muted flex-shrink-0">
+                      <div className="w-24 h-24 rounded-lg overflow-hidden bg-muted flex-shrink-0 relative">
                         {ref.image_url ? (
                           <img src={ref.image_url} alt={ref.title} className="w-full h-full object-cover" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center">
                             <ImageIcon className="w-8 h-8 text-muted-foreground" />
                           </div>
+                        )}
+                        {/* Image count badge */}
+                        {ref.images && ref.images.length > 1 && (
+                          <Badge className="absolute bottom-1 right-1 bg-background/80 text-foreground text-xs px-1.5 py-0.5">
+                            <Images className="w-3 h-3 mr-1" />
+                            {ref.images.length}
+                          </Badge>
                         )}
                       </div>
 
