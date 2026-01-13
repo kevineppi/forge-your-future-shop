@@ -12,29 +12,18 @@ interface OptimizedImageProps {
   showLoader?: boolean;
   onLoad?: () => void;
   onError?: () => void;
-  /** Width hint for image optimization (px) */
-  width?: number;
 }
 
 /**
- * Transforms a Supabase storage URL to use image transformation API
- * This serves appropriately sized images to avoid browser downscaling blur
- */
-// Image Transformation API requires Pro plan - just use original URL
-const getOptimizedUrl = (url: string, _width?: number): string => {
-  return url;
-};
-
-/**
- * OptimizedImage - Lazy loading image component with progressive loading
+ * OptimizedImage - High-quality lazy loading image component
  * 
  * Features:
  * - IntersectionObserver-based lazy loading
- * - Supabase image transformation for optimal sizing
  * - Smooth fade-in animation on load
  * - Native loading="lazy" fallback
  * - Placeholder while loading
  * - Error state handling
+ * - High-quality rendering with proper CSS
  */
 const OptimizedImage = ({
   src,
@@ -46,31 +35,12 @@ const OptimizedImage = ({
   showLoader = true,
   onLoad,
   onError,
-  width,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
-  const [containerWidth, setContainerWidth] = useState<number | undefined>(width);
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Measure container width for optimal image sizing
-  useEffect(() => {
-    if (width || !containerRef.current) return;
-    
-    const resizeObserver = new ResizeObserver((entries) => {
-      const entry = entries[0];
-      if (entry) {
-        // Use 2x for retina displays
-        const newWidth = Math.ceil(entry.contentRect.width * 2);
-        setContainerWidth(newWidth > 0 ? newWidth : undefined);
-      }
-    });
-    
-    resizeObserver.observe(containerRef.current);
-    return () => resizeObserver.disconnect();
-  }, [width]);
 
   // IntersectionObserver for lazy loading
   useEffect(() => {
@@ -165,10 +135,11 @@ const OptimizedImage = ({
       {isInView && (
         <img
           ref={imgRef}
-          src={getOptimizedUrl(src, containerWidth)}
+          src={src}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
           onLoad={handleLoad}
           onError={handleError}
           className={cn(

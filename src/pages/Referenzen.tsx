@@ -281,13 +281,13 @@ const Referenzen = () => {
                     onClick={() => setSelectedProject(project)}
                   >
                     {/* Image with Lazy Loading */}
-                    <div className="relative overflow-hidden">
-                      <OptimizedImage
-                        src={getProjectImage(project)}
+                    <div className="relative overflow-hidden aspect-[4/3]">
+                      <img
+                        src={getProjectImage(project) || ''}
                         alt={project.title}
-                        aspectRatio="4/3"
-                        priority={index < 6}
-                        containerClassName="group-hover:scale-105 transition-transform duration-700"
+                        loading={index < 6 ? "eager" : "lazy"}
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       
                       {/* Gradient Overlay on Hover */}
@@ -418,13 +418,14 @@ const Referenzen = () => {
                     className="h-full"
                   />
                 ) : selectedProject.image_url ? (
-                  <OptimizedImage
-                    src={selectedProject.image_url}
-                    alt={selectedProject.title}
-                    priority
-                    containerClassName="h-full"
-                    className="h-full"
-                  />
+                  <div className="w-full h-full min-h-[300px] lg:min-h-[500px]">
+                    <img
+                      src={selectedProject.image_url}
+                      alt={selectedProject.title}
+                      className="w-full h-full object-contain"
+                      loading="eager"
+                    />
+                  </div>
                 ) : (
                   <div className="w-full h-full flex items-center justify-center min-h-[300px]">
                     <ImageIcon className="w-16 h-16 text-muted-foreground" />
