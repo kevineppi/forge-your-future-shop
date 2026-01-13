@@ -71,7 +71,7 @@ const ImageGallery = ({
 
   return (
     <div className={cn("relative", className)}>
-      {/* Main Image */}
+      {/* Main Image Container */}
       <div className="relative group">
         <div className={cn("relative bg-black overflow-hidden", aspectClasses[aspectRatio])}>
           {/* Loading spinner */}
@@ -92,86 +92,90 @@ const ImageGallery = ({
               "group-hover:scale-105"
             )}
           />
-        </div>
 
-        {/* Navigation Arrows */}
-        {hasMultipleImages && showArrows && (
-          <>
-            <button
-              onClick={goToPrevious}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-background hover:scale-110 z-10"
-              aria-label="Vorheriges Bild"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-background hover:scale-110 z-10"
-              aria-label="Nächstes Bild"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </>
-        )}
-
-        {/* Dot Indicators */}
-        {hasMultipleImages && (
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
-            {images.map((_, index) => (
+          {/* Navigation Arrows - inside image */}
+          {hasMultipleImages && showArrows && (
+            <>
               <button
-                key={index}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsLoaded(false);
-                  setActiveIndex(index);
-                }}
-                className={cn(
-                  "w-2 h-2 rounded-full transition-all duration-300",
-                  index === activeIndex
-                    ? "bg-white w-4"
-                    : "bg-white/50 hover:bg-white/80"
-                )}
-                aria-label={`Bild ${index + 1}`}
-              />
-            ))}
-          </div>
-        )}
+                onClick={goToPrevious}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/40 hover:scale-110 z-10"
+                aria-label="Vorheriges Bild"
+              >
+                <ChevronLeft className="w-5 h-5 text-white" />
+              </button>
+              <button
+                onClick={goToNext}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/40 hover:scale-110 z-10"
+                aria-label="Nächstes Bild"
+              >
+                <ChevronRight className="w-5 h-5 text-white" />
+              </button>
+            </>
+          )}
 
-        {/* Image Counter */}
-        {hasMultipleImages && (
-          <div className="absolute top-3 right-3 px-2 py-1 rounded-md bg-background/80 backdrop-blur-sm text-xs font-medium z-10">
-            {activeIndex + 1} / {images.length}
-          </div>
-        )}
-      </div>
-
-      {/* Thumbnails */}
-      {hasMultipleImages && showThumbnails && (
-        <div className="flex gap-2 mt-3 overflow-x-auto pb-2 scrollbar-hide">
-          {images.map((image, index) => (
-            <button
-              key={image.id}
-              onClick={() => {
-                setIsLoaded(false);
-                setActiveIndex(index);
-              }}
-              className={cn(
-                "relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden transition-all duration-200",
-                index === activeIndex
-                  ? "ring-2 ring-primary ring-offset-2 ring-offset-background"
-                  : "opacity-60 hover:opacity-100"
+          {/* Bottom Bar with Thumbnails or Dots - integrated into image */}
+          {hasMultipleImages && (
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-8 pb-3 px-3 z-10">
+              {showThumbnails ? (
+                // Thumbnails inside image
+                <div className="flex gap-2 justify-center overflow-x-auto scrollbar-hide">
+                  {images.map((image, index) => (
+                    <button
+                      key={image.id}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsLoaded(false);
+                        setActiveIndex(index);
+                      }}
+                      className={cn(
+                        "relative flex-shrink-0 w-12 h-12 rounded-md overflow-hidden transition-all duration-200 border-2",
+                        index === activeIndex
+                          ? "border-white scale-110"
+                          : "border-transparent opacity-70 hover:opacity-100 hover:border-white/50"
+                      )}
+                    >
+                      <img
+                        src={image.thumbnail_url || image.image_url}
+                        alt={`${alt} - Bild ${index + 1}`}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                // Dot indicators as fallback
+                <div className="flex items-center justify-center gap-1.5">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsLoaded(false);
+                        setActiveIndex(index);
+                      }}
+                      className={cn(
+                        "w-2 h-2 rounded-full transition-all duration-300",
+                        index === activeIndex
+                          ? "bg-white w-4"
+                          : "bg-white/50 hover:bg-white/80"
+                      )}
+                      aria-label={`Bild ${index + 1}`}
+                    />
+                  ))}
+                </div>
               )}
-            >
-              <img
-                src={image.thumbnail_url || image.image_url}
-                alt={`${alt} - Bild ${index + 1}`}
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ))}
+            </div>
+          )}
+
+          {/* Image Counter */}
+          {hasMultipleImages && (
+            <div className="absolute top-3 right-3 px-2 py-1 rounded-md bg-black/50 backdrop-blur-sm text-xs font-medium text-white z-10">
+              {activeIndex + 1} / {images.length}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
