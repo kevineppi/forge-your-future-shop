@@ -557,14 +557,17 @@ const ReferencesManager = () => {
                           {editingRef.images.map((img, index) => (
                             <div 
                               key={img.id || index} 
-                              className={`relative group rounded-lg overflow-hidden bg-muted aspect-square ${
+                              className={`relative group rounded-lg overflow-hidden bg-muted aspect-[4/3] ${
                                 img.is_primary ? 'ring-2 ring-primary ring-offset-2' : ''
                               }`}
                             >
+                              {/* Use native img with object-contain to preserve quality */}
                               <img 
                                 src={img.image_url} 
                                 alt={`Bild ${index + 1}`}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-contain bg-muted"
+                                loading="lazy"
+                                decoding="async"
                               />
                               
                               {/* Primary Badge */}
