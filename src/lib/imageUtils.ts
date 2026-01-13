@@ -1,12 +1,15 @@
 /**
  * Crops an image to a 1:1 square aspect ratio from the center
- * Preserves original quality by using the shorter dimension as the crop size
+ * Preserves maximum quality by using lossless PNG or high-quality JPEG
  */
 export const cropImageToSquare = (file: File): Promise<Blob> => {
   return new Promise((resolve, reject) => {
     const img = new Image();
     const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { 
+      alpha: true,
+      willReadFrequently: false,
+    });
 
     if (!ctx) {
       reject(new Error('Could not get canvas context'));
@@ -25,6 +28,10 @@ export const cropImageToSquare = (file: File): Promise<Blob> => {
       canvas.width = size;
       canvas.height = size;
 
+      // Enable high-quality image rendering
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+
       // Draw the cropped image from center
       ctx.drawImage(
         img,
@@ -32,7 +39,12 @@ export const cropImageToSquare = (file: File): Promise<Blob> => {
         0, 0, size, size                // Destination rectangle
       );
 
-      // Convert to blob with high quality
+      // Determine output format - use PNG for lossless quality, JPEG with max quality for photos
+      const isPng = file.type === 'image/png' || file.name.toLowerCase().endsWith('.png');
+      const outputType = isPng ? 'image/png' : 'image/jpeg';
+      const quality = isPng ? undefined : 1.0; // PNG doesn't use quality, JPEG at 100%
+
+      // Convert to blob with maximum quality
       canvas.toBlob(
         (blob) => {
           if (blob) {
@@ -41,12 +53,16 @@ export const cropImageToSquare = (file: File): Promise<Blob> => {
             reject(new Error('Failed to create blob'));
           }
         },
-        file.type || 'image/jpeg',
-        0.95 // High quality
+        outputType,
+        quality
       );
+
+      // Clean up object URL
+      URL.revokeObjectURL(img.src);
     };
 
     img.onerror = () => {
+      URL.revokeObjectURL(img.src);
       reject(new Error('Failed to load image'));
     };
 
