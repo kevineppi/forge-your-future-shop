@@ -20,23 +20,9 @@ interface OptimizedImageProps {
  * Transforms a Supabase storage URL to use image transformation API
  * This serves appropriately sized images to avoid browser downscaling blur
  */
-const getOptimizedUrl = (url: string, width?: number): string => {
-  if (!url || !width) return url;
-  
-  // Only transform Supabase storage URLs
-  if (!url.includes('supabase.co/storage/v1/object/public/')) return url;
-  
-  // Convert public URL to render URL with transformation
-  // From: .../storage/v1/object/public/bucket/path
-  // To: .../storage/v1/render/image/public/bucket/path?width=X&resize=contain
-  const transformedUrl = url.replace(
-    '/storage/v1/object/public/',
-    '/storage/v1/render/image/public/'
-  );
-  
-  // Add width parameter for resizing
-  const separator = transformedUrl.includes('?') ? '&' : '?';
-  return `${transformedUrl}${separator}width=${width}&resize=contain&quality=90`;
+// Image Transformation API requires Pro plan - just use original URL
+const getOptimizedUrl = (url: string, _width?: number): string => {
+  return url;
 };
 
 /**
