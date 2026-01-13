@@ -296,21 +296,21 @@ const Referenzen = () => {
                       
                       {/* Quick Stats Overlay */}
                       <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <div className="flex items-center justify-between text-sm">
+                        <div className="flex items-center justify-between text-sm gap-2">
                           {project.print_time_hours && (
-                            <Badge variant="secondary" className="bg-background/90">
+                            <Badge variant="secondary" className="bg-background/90 text-foreground backdrop-blur-sm">
                               <Clock className="w-3 h-3 mr-1" />
                               {project.print_time_hours}h
                             </Badge>
                           )}
                           {project.weight_grams && (
-                            <Badge variant="secondary" className="bg-background/90">
+                            <Badge variant="secondary" className="bg-background/90 text-foreground backdrop-blur-sm">
                               <Scale className="w-3 h-3 mr-1" />
                               {project.weight_grams}g
                             </Badge>
                           )}
                           {project.delivery_days && (
-                            <Badge variant="secondary" className="bg-background/90">
+                            <Badge variant="secondary" className="bg-background/90 text-foreground backdrop-blur-sm">
                               <Zap className="w-3 h-3 mr-1" />
                               {project.delivery_days}d
                             </Badge>
