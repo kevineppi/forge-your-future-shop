@@ -552,9 +552,9 @@ const ReferencesManager = () => {
                         </label>
                       </div>
 
-                      {/* Image Grid */}
+                      {/* Image Grid - larger thumbnails for better quality preview */}
                       {editingRef.images && editingRef.images.length > 0 ? (
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div className="grid grid-cols-2 gap-4">
                           {editingRef.images.map((img, index) => (
                             <div 
                               key={img.id || index} 
@@ -562,13 +562,12 @@ const ReferencesManager = () => {
                                 img.is_primary ? 'ring-2 ring-primary ring-offset-2' : ''
                               }`}
                             >
-                              {/* Use native img with object-cover for square images */}
+                              {/* Full quality image with proper sizing */}
                               <img 
                                 src={img.image_url} 
                                 alt={`Bild ${index + 1}`}
-                                className="w-full h-full object-cover bg-muted"
-                                loading="lazy"
-                                decoding="async"
+                                className="w-full h-full object-cover"
+                                style={{ imageRendering: 'auto' }}
                               />
                               
                               {/* Primary Badge */}
