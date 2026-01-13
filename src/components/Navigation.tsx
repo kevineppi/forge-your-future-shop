@@ -113,6 +113,17 @@ const Navigation = () => {
                       </div>
                     </a>
                   </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/referenzen" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Sparkles className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Referenzen & Projekte</div>
+                        <div className="text-sm text-muted-foreground">Erfolgreiche Kundenprojekte</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -237,6 +248,14 @@ const Navigation = () => {
               >
                 <Book className="h-4 w-4 text-primary" />
                 3D-Druck Glossar
+              </a>
+              <a 
+                href="/referenzen" 
+                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                onClick={() => setIsOpen(false)}
+              >
+                <Sparkles className="h-4 w-4 text-primary" />
+                Referenzen & Projekte
               </a>
             </div>
             <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Bestellen</div>
