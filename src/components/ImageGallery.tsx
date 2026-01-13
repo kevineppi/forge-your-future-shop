@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import OptimizedImage from "./OptimizedImage";
-import { ChevronLeft, ChevronRight, ImageIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, ImageIcon, Loader2 } from "lucide-react";
 
 interface ImageGalleryImage {
   id: string;
@@ -24,13 +23,7 @@ interface ImageGalleryProps {
 
 /**
  * ImageGallery - Multi-image gallery with thumbnails and navigation
- * 
- * Features:
- * - Main image with thumbnails
- * - Arrow navigation
- * - Dot indicators for mobile
- * - Smooth transitions
- * - Lazy loading for all images
+ * Uses native img tags for maximum image quality
  */
 const ImageGallery = ({
   images,
@@ -41,12 +34,11 @@ const ImageGallery = ({
   showArrows = true,
 }: ImageGalleryProps) => {
   const [activeIndex, setActiveIndex] = useState(() => {
-    // Start with primary image if available
     const primaryIndex = images.findIndex(img => img.is_primary);
     return primaryIndex >= 0 ? primaryIndex : 0;
   });
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Handle empty images array
   if (!images || images.length === 0) {
     return (
       <div className={cn("relative bg-muted flex items-center justify-center", className)}>
@@ -58,13 +50,22 @@ const ImageGallery = ({
   const currentImage = images[activeIndex];
   const hasMultipleImages = images.length > 1;
 
+  const aspectClasses = {
+    square: "aspect-square",
+    video: "aspect-video",
+    "4/3": "aspect-[4/3]",
+    "3/2": "aspect-[3/2]",
+  };
+
   const goToPrevious = (e?: React.MouseEvent) => {
     e?.stopPropagation();
+    setIsLoaded(false);
     setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   const goToNext = (e?: React.MouseEvent) => {
     e?.stopPropagation();
+    setIsLoaded(false);
     setActiveIndex((prev) => (prev + 1) % images.length);
   };
 
@@ -72,14 +73,26 @@ const ImageGallery = ({
     <div className={cn("relative", className)}>
       {/* Main Image */}
       <div className="relative group">
-        <OptimizedImage
-          src={currentImage.image_url}
-          alt={currentImage.alt_text || alt}
-          aspectRatio={aspectRatio}
-          priority={activeIndex === 0}
-          containerClassName="w-full"
-          className="transition-transform duration-700 group-hover:scale-105"
-        />
+        <div className={cn("relative bg-muted overflow-hidden", aspectClasses[aspectRatio])}>
+          {/* Loading spinner */}
+          {!isLoaded && (
+            <div className="absolute inset-0 flex items-center justify-center bg-muted z-10">
+              <Loader2 className="w-8 h-8 animate-spin text-muted-foreground/50" />
+            </div>
+          )}
+          <img
+            src={currentImage.image_url}
+            alt={currentImage.alt_text || alt}
+            loading={activeIndex === 0 ? "eager" : "lazy"}
+            decoding="async"
+            onLoad={() => setIsLoaded(true)}
+            className={cn(
+              "w-full h-full object-cover transition-all duration-500",
+              isLoaded ? "opacity-100" : "opacity-0",
+              "group-hover:scale-105"
+            )}
+          />
+        </div>
 
         {/* Navigation Arrows */}
         {hasMultipleImages && showArrows && (
@@ -101,7 +114,7 @@ const ImageGallery = ({
           </>
         )}
 
-        {/* Dot Indicators (mobile friendly) */}
+        {/* Dot Indicators */}
         {hasMultipleImages && (
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
             {images.map((_, index) => (
@@ -109,6 +122,7 @@ const ImageGallery = ({
                 key={index}
                 onClick={(e) => {
                   e.stopPropagation();
+                  setIsLoaded(false);
                   setActiveIndex(index);
                 }}
                 className={cn(
@@ -137,7 +151,10 @@ const ImageGallery = ({
           {images.map((image, index) => (
             <button
               key={image.id}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                setIsLoaded(false);
+                setActiveIndex(index);
+              }}
               className={cn(
                 "relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden transition-all duration-200",
                 index === activeIndex
@@ -145,11 +162,11 @@ const ImageGallery = ({
                   : "opacity-60 hover:opacity-100"
               )}
             >
-              <OptimizedImage
+              <img
                 src={image.thumbnail_url || image.image_url}
                 alt={`${alt} - Bild ${index + 1}`}
-                aspectRatio="square"
-                showLoader={false}
+                loading="lazy"
+                className="w-full h-full object-cover"
               />
             </button>
           ))}
