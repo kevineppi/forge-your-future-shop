@@ -552,22 +552,24 @@ const ReferencesManager = () => {
                         </label>
                       </div>
 
-                      {/* Image Grid - larger thumbnails for better quality preview */}
+                      {/* Image Grid - single column for maximum quality preview */}
                       {editingRef.images && editingRef.images.length > 0 ? (
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-4">
                           {editingRef.images.map((img, index) => (
                             <div 
                               key={img.id || index} 
-                              className={`relative group rounded-lg overflow-hidden bg-muted aspect-square ${
+                              className={`relative group rounded-lg overflow-hidden bg-muted ${
                                 img.is_primary ? 'ring-2 ring-primary ring-offset-2' : ''
                               }`}
                             >
-                              {/* Full quality image with proper sizing */}
+                              {/* Full quality image - natural size, no forced aspect ratio */}
                               <img 
                                 src={img.image_url} 
                                 alt={`Bild ${index + 1}`}
-                                className="w-full h-full object-cover"
-                                style={{ imageRendering: 'auto' }}
+                                className="w-full h-auto max-h-[400px] object-contain"
+                                style={{ 
+                                  imageRendering: 'auto',
+                                }}
                               />
                               
                               {/* Primary Badge */}
