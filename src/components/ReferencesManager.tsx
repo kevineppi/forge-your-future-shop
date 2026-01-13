@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { cropImagesToSquare } from "@/lib/imageUtils";
 import { 
   Plus, 
   Pencil, 
@@ -25,7 +26,8 @@ import {
   Loader2,
   Tags,
   GripVertical,
-  Images
+  Images,
+  Crop
 } from "lucide-react";
 
 interface ReferenceImage {
@@ -168,16 +170,20 @@ const ReferencesManager = () => {
     const newImages: Partial<ReferenceImage>[] = [];
 
     try {
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const fileExt = file.name.split('.').pop();
+      // Crop all images to 1:1 square format from center
+      const croppedImages = await cropImagesToSquare(files);
+
+      for (let i = 0; i < croppedImages.length; i++) {
+        const { blob, name } = croppedImages[i];
+        const fileExt = name.split('.').pop();
         const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
 
         const { error: uploadError } = await supabase.storage
           .from('reference-images')
-          .upload(fileName, file, {
+          .upload(fileName, blob, {
             cacheControl: '31536000', // 1 year cache for CDN
             upsert: false,
+            contentType: blob.type,
           });
 
         if (uploadError) throw uploadError;
@@ -188,7 +194,7 @@ const ReferencesManager = () => {
 
         newImages.push({
           image_url: publicUrl,
-          thumbnail_url: publicUrl, // Could generate thumbnails server-side
+          thumbnail_url: publicUrl,
           sort_order: (editingRef?.images?.length || 0) + i,
           is_primary: (editingRef?.images?.length || 0) === 0 && i === 0,
           alt_text: editingRef?.title || '',
@@ -198,7 +204,6 @@ const ReferencesManager = () => {
       setEditingRef(prev => ({
         ...prev,
         images: [...(prev?.images || []), ...newImages as ReferenceImage[]],
-        // Set first image as legacy image_url for backward compatibility
         image_url: prev?.images?.length === 0 && newImages.length > 0 
           ? newImages[0].image_url 
           : prev?.image_url,
@@ -206,7 +211,7 @@ const ReferencesManager = () => {
 
       toast({
         title: `${files.length} Bild${files.length > 1 ? 'er' : ''} hochgeladen`,
-        description: "Bilder wurden erfolgreich hochgeladen (Original-Qualität)",
+        description: "Automatisch auf 1:1 zugeschnitten (Zentrum)",
       });
     } catch (error) {
       console.error('Error uploading images:', error);
@@ -557,15 +562,15 @@ const ReferencesManager = () => {
                           {editingRef.images.map((img, index) => (
                             <div 
                               key={img.id || index} 
-                              className={`relative group rounded-lg overflow-hidden bg-muted aspect-[4/3] ${
+                              className={`relative group rounded-lg overflow-hidden bg-muted aspect-square ${
                                 img.is_primary ? 'ring-2 ring-primary ring-offset-2' : ''
                               }`}
                             >
-                              {/* Use native img with object-contain to preserve quality */}
+                              {/* Use native img with object-cover for square images */}
                               <img 
                                 src={img.image_url} 
                                 alt={`Bild ${index + 1}`}
-                                className="w-full h-full object-contain bg-muted"
+                                className="w-full h-full object-cover bg-muted"
                                 loading="lazy"
                                 decoding="async"
                               />
@@ -645,8 +650,9 @@ const ReferencesManager = () => {
                         </label>
                       )}
 
-                      <p className="text-xs text-muted-foreground">
-                        ✓ Originalqualität wird beibehalten • ✓ Lazy Loading für Performance • ✓ Erstes Bild = Hauptbild
+                      <p className="text-xs text-muted-foreground flex items-center gap-1">
+                        <Crop className="w-3 h-3" />
+                        Automatischer 1:1 Zuschnitt vom Zentrum • Originalqualität • Lazy Loading
                       </p>
                     </div>
 
