@@ -409,7 +409,7 @@ const Referenzen = () => {
           {selectedProject && (
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Image Gallery Side */}
-              <div className="relative bg-muted min-h-[300px] lg:min-h-[500px]">
+              <div className="relative bg-black min-h-[300px] lg:min-h-[500px]">
                 {selectedProject.images && selectedProject.images.length > 0 ? (
                   <ImageGallery
                     images={selectedProject.images}
