@@ -17,6 +17,7 @@ import StickyCTA from "@/components/StickyCTA";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
 import AIChatWidget from "@/components/AIChatWidget";
+import ReferencesTeaser from "@/components/ReferencesTeaser";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
   return <>
@@ -83,6 +84,9 @@ const Index = () => {
       
       {/* Advantages Section - Warum ekdruck wählen */}
       <Advantages />
+      
+      {/* References Teaser - Aktuelle Projekte */}
+      <ReferencesTeaser />
       
       {/* Technology & Process Section - Enhanced with Icons */}
       <section className="py-24 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">

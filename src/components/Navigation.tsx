@@ -160,8 +160,9 @@ const Navigation = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <a href="/auth" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
-                Anmelden
+              <a href="/referenzen" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
+                <Sparkles className="w-4 h-4" />
+                Referenzen
               </a>
             )}
             
@@ -292,12 +293,12 @@ const Navigation = () => {
               </>
             ) : (
               <a 
-                href="/auth" 
+                href="/referenzen" 
                 className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
                 onClick={() => setIsOpen(false)}
               >
-                <User className="h-4 w-4 text-primary" />
-                Anmelden
+                <Sparkles className="h-4 w-4 text-primary" />
+                Referenzen
               </a>
             )}
             
