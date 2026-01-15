@@ -43,24 +43,24 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-center">
-          {/* Left Column - 3 of 5 columns */}
-          <div className="lg:col-span-3 max-w-2xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column */}
+          <div className="max-w-xl">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
               3D-Druck Service Oberösterreich – <span className="text-primary">ab €20</span>, in 24h versandfertig
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-4 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
               Laden Sie Ihre STL-Datei hoch und erhalten Sie sofort Ihren Preis. 
               Professioneller FDM-Druck mit österreichischem Filament.
             </p>
             
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground mb-6">
               Über 100+ zufriedene Kunden vertrauen uns.
             </p>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap gap-2 mb-10">
+            <div className="flex flex-wrap gap-2 mb-8">
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
                 <CheckCircle className="w-3.5 h-3.5 text-primary" />
                 <span>Präzise & zuverlässig</span>
@@ -76,11 +76,11 @@ const Hero = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button 
                 variant="default" 
                 size="lg" 
-                className="group text-base px-8 py-6" 
+                className="group text-base px-6 py-6" 
                 onClick={() => window.location.href = '/3d-druck-bestellen'}
               >
                 <Upload className="mr-2 h-5 w-5" />
@@ -90,7 +90,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="group text-base px-8 py-6" 
+                className="group text-base px-6 py-6" 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Anfrage stellen
@@ -99,25 +99,49 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - 2 of 5 columns, more subtle */}
-          <div className="hidden lg:block lg:col-span-2">
-            <div className="space-y-3 opacity-80">
-              {/* Compact info list */}
-              <div className="flex items-center gap-3 text-sm text-muted-foreground py-3 border-b border-border/50">
-                <Zap className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>Express 24h für dringende Projekte</span>
+          {/* Right Column - Feature Cards */}
+          <div className="hidden lg:block">
+            <div className="grid gap-3">
+              {/* Top Card */}
+              <div className="rounded-xl border border-border bg-card/80 backdrop-blur-sm p-4">
+                <h3 className="font-semibold text-base mb-1">FDM 3D-Druck Service</h3>
+                <p className="text-muted-foreground text-sm">
+                  Prototypen, Ersatzteile und Kleinserien.
+                </p>
               </div>
-              <div className="flex items-center gap-3 text-sm text-muted-foreground py-3 border-b border-border/50">
-                <Shield className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>Premium Qualität mit österreichischem Filament</span>
+
+              {/* Middle Row */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-xl border border-border bg-primary text-primary-foreground p-4">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Zap className="w-4 h-4" />
+                    <h4 className="font-semibold text-sm">Express 24h</h4>
+                  </div>
+                  <p className="text-xs opacity-90">
+                    Für dringende Projekte
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-card/80 backdrop-blur-sm p-4">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Shield className="w-4 h-4 text-primary" />
+                    <h4 className="font-semibold text-sm">Premium Qualität</h4>
+                  </div>
+                  <p className="text-muted-foreground text-xs">
+                    Österreichisches Filament
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-3 text-sm text-muted-foreground py-3 border-b border-border/50">
-                <Clock className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>Versandkostenfrei ab €100</span>
+
+              {/* Bottom Card */}
+              <div className="rounded-xl border border-border bg-card/80 backdrop-blur-sm p-4 flex items-center gap-3">
+                <Clock className="w-5 h-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Versandkostenfrei ab €100
+                </p>
               </div>
-              
+
               {/* Google Rating */}
-              <div className="flex items-center gap-2 text-sm text-muted-foreground pt-4">
+              <div className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground mt-1">
                 <div className="flex items-center gap-0.5">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
