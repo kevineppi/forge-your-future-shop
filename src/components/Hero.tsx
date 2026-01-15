@@ -46,16 +46,6 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column */}
           <div className="max-w-xl">
-            {/* Social Proof */}
-            <div className="inline-flex items-center gap-1.5 text-sm text-muted-foreground mb-6">
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span>5.0 Google Bewertungen</span>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
               3D-Druck <span className="text-primary">ab €20</span> – in 24h versandfertig
             </h1>
@@ -66,7 +56,7 @@ const Hero = () => {
             </p>
             
             <p className="text-muted-foreground mb-6">
-              Über 500+ zufriedene Kunden vertrauen uns.
+              Über 100+ zufriedene Kunden vertrauen uns.
             </p>
 
             {/* Trust Badges */}
@@ -148,6 +138,16 @@ const Hero = () => {
                 <p className="text-sm text-muted-foreground">
                   Versandkostenfrei ab €100
                 </p>
+              </div>
+
+              {/* Google Rating */}
+              <div className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground mt-1">
+                <div className="flex items-center gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span>5.0 Google Bewertungen</span>
               </div>
             </div>
           </div>
