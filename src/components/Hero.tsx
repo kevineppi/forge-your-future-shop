@@ -17,7 +17,7 @@ const Hero = () => {
           </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="hero" size="lg" className="group" onClick={() => window.location.href = '/kostenrechner'}>
+              <Button variant="hero" size="lg" className="group" onClick={() => window.location.href = '/3d-druck-bestellen'}>
                 <ShoppingCart className="mr-2 h-5 w-5 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-300" />
                 Jetzt bestellen
               </Button>

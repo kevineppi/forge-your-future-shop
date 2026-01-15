@@ -1,9 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Layers, Box } from "lucide-react";
+import { ArrowRight, Layers, Box, Sparkles, ShoppingCart } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
 
 interface Reference {
   id: string;
@@ -12,6 +13,7 @@ interface Reference {
   quantity: number | null;
   industry: string;
   image_url: string | null;
+  is_featured: boolean | null;
 }
 
 const ReferencesTeaser = () => {
@@ -20,10 +22,11 @@ const ReferencesTeaser = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from('references')
-        .select('id, title, material, quantity, industry, image_url')
+        .select('id, title, material, quantity, industry, image_url, is_featured')
         .eq('is_active', true)
+        .order('is_featured', { ascending: false })
         .order('created_at', { ascending: false })
-        .limit(4);
+        .limit(3);
       
       if (error) throw error;
       return data as Reference[];
@@ -31,86 +34,133 @@ const ReferencesTeaser = () => {
   });
 
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Aktuelle <span className="text-gradient">Referenzen</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Erfolgreiche Kundenprojekte aus verschiedenen Branchen
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto mb-10">
-          {isLoading ? (
-            Array.from({ length: 4 }).map((_, i) => (
-              <Card key={i} className="overflow-hidden">
-                <Skeleton className="aspect-square w-full" />
-                <CardContent className="p-3">
-                  <Skeleton className="h-4 w-3/4 mb-2" />
-                  <Skeleton className="h-3 w-1/2" />
-                </CardContent>
-              </Card>
-            ))
-          ) : references && references.length > 0 ? (
-            references.map((ref) => (
-              <a 
-                key={ref.id} 
-                href="/referenzen" 
-                className="group"
+    <section className="py-16 bg-background relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-transparent to-muted/30 pointer-events-none" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Main CTA - Focus on ordering */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="gradient-card p-8 md:p-12 rounded-3xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 via-background to-accent/5 text-center relative overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
+            
+            <div className="relative z-10">
+              <Badge variant="secondary" className="mb-4 px-4 py-1">
+                <Sparkles className="w-3 h-3 mr-1" />
+                Jetzt starten
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                3D-Druck <span className="text-gradient">online bestellen</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+                Laden Sie Ihre STL-Datei hoch und erhalten Sie sofort einen Preis. 
+                Einfach Material wählen, Menge angeben und bestellen.
+              </p>
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="group text-lg px-8 py-6"
+                onClick={() => window.location.href = '/3d-druck-bestellen'}
               >
-                <Card className="overflow-hidden hover:border-primary/50 transition-all hover:scale-[1.02] h-full">
-                  <div className="aspect-square bg-muted relative overflow-hidden">
-                    {ref.image_url ? (
-                      <img 
-                        src={ref.image_url} 
-                        alt={ref.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
-                        <Box className="w-12 h-12 text-primary/30" />
-                      </div>
-                    )}
-                  </div>
-                  <CardContent className="p-3 md:p-4">
-                    <p className="font-semibold text-sm md:text-base line-clamp-1 mb-2 group-hover:text-primary transition-colors">
-                      {ref.title}
-                    </p>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground border border-border rounded px-2 py-1">
-                        <Layers className="w-3 h-3 text-primary shrink-0" />
-                        <span className="truncate">{ref.material}</span>
-                      </div>
-                      {ref.quantity && (
-                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground border border-border rounded px-2 py-1">
-                          <Box className="w-3 h-3 text-primary shrink-0" />
-                          <span>{ref.quantity}x</span>
-                        </div>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
-            ))
-          ) : (
-            <div className="col-span-full text-center py-12 text-muted-foreground">
-              Noch keine Referenzen vorhanden
+                <ShoppingCart className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                Jetzt 3D-Druck bestellen
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <p className="text-sm text-muted-foreground mt-4">
+                ✓ Sofortiger Preis &nbsp; ✓ Express 24h möglich &nbsp; ✓ Versandkostenfrei ab €100
+              </p>
             </div>
-          )}
+          </div>
         </div>
 
-        <div className="text-center">
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="group border-primary text-primary hover:bg-primary hover:text-white"
-            onClick={() => window.location.href = '/referenzen'}
-          >
-            Alle Referenzen ansehen
-            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
+        {/* References section - smaller, as supporting content */}
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold">Aktuelle Referenzen</h3>
+                <p className="text-sm text-muted-foreground">Erfolgreiche Kundenprojekte</p>
+              </div>
+            </div>
+            <Button 
+              variant="ghost" 
+              size="sm"
+              className="group text-primary"
+              onClick={() => window.location.href = '/referenzen'}
+            >
+              Alle ansehen
+              <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {isLoading ? (
+              Array.from({ length: 3 }).map((_, i) => (
+                <Card key={i} className="overflow-hidden">
+                  <div className="flex gap-4 p-4">
+                    <Skeleton className="w-20 h-20 rounded-lg shrink-0" />
+                    <div className="flex-1">
+                      <Skeleton className="h-4 w-3/4 mb-2" />
+                      <Skeleton className="h-3 w-1/2" />
+                    </div>
+                  </div>
+                </Card>
+              ))
+            ) : references && references.length > 0 ? (
+              references.map((ref) => (
+                <a 
+                  key={ref.id} 
+                  href="/referenzen" 
+                  className="group"
+                >
+                  <Card className="overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg h-full">
+                    <div className="flex gap-4 p-4">
+                      <div className="w-20 h-20 bg-muted rounded-lg overflow-hidden shrink-0">
+                        {ref.image_url ? (
+                          <img 
+                            src={ref.image_url} 
+                            alt={ref.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
+                            <Box className="w-8 h-8 text-primary/30" />
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-sm line-clamp-1 mb-1 group-hover:text-primary transition-colors">
+                          {ref.title}
+                        </p>
+                        <p className="text-xs text-muted-foreground mb-2">{ref.industry}</p>
+                        <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-1 text-xs text-muted-foreground border border-border rounded px-1.5 py-0.5">
+                            <Layers className="w-3 h-3 text-primary" />
+                            <span>{ref.material}</span>
+                          </div>
+                          {ref.quantity && (
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground border border-border rounded px-1.5 py-0.5">
+                              <Box className="w-3 h-3 text-primary" />
+                              <span>{ref.quantity}x</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </a>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-8 text-muted-foreground">
+                Noch keine Referenzen vorhanden
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

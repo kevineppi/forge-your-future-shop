@@ -70,7 +70,8 @@ const App = () => (
             <Route path="/serienfertigung" element={<Serienfertigung />} />
             <Route path="/probeteile" element={<Probeteile />} />
             <Route path="/impressum" element={<Impressum />} />
-            <Route path="/kostenrechner" element={<Kostenrechner />} />
+            <Route path="/3d-druck-bestellen" element={<Kostenrechner />} />
+            <Route path="/kostenrechner" element={<Kostenrechner />} /> {/* Legacy redirect */}
             <Route path="/ratgeber" element={<Ratgeber />} />
             <Route path="/ratgeber/kosten-guide" element={<KostenGuide />} />
             <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />
