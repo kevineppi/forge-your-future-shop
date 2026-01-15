@@ -47,7 +47,7 @@ const Hero = () => {
           {/* Left Column */}
           <div className="max-w-xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
-              3D-Druck <span className="text-primary">ab €20</span> – in 24h versandfertig
+              3D-Druck Service Oberösterreich – <span className="text-primary">ab €20</span>, in 24h versandfertig
             </h1>
             
             <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
