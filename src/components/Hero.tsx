@@ -1,7 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Play } from "lucide-react";
+import { lazy, Suspense } from "react";
+
+const Hero3DAnimation = lazy(() => import("@/components/Hero3DAnimation"));
+
 const Hero = () => {
-  return <section className="relative min-h-screen flex items-center justify-center bg-background pt-20">
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-background pt-20 overflow-hidden">
+      {/* 3D Animation Background */}
+      <Suspense fallback={null}>
+        <Hero3DAnimation />
+      </Suspense>
+      
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80 pointer-events-none z-[1]" />
+      
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
@@ -70,6 +84,7 @@ const Hero = () => {
         <div className="absolute top-20 left-10 w-20 h-20 border border-primary/20 rotate-45 hidden lg:block"></div>
         <div className="absolute bottom-32 right-16 w-16 h-16 border border-primary/20 rotate-12 hidden lg:block"></div>
         <div className="absolute top-1/2 right-8 w-8 h-8 bg-primary/30 rotate-45 hidden lg:block"></div>
-      </section>;
+      </section>
+  );
 };
 export default Hero;
