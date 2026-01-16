@@ -102,6 +102,16 @@ const Impressum = () => {
                 <p>Gewerbstätigkeit laut WKO-Bezeichnung: Erzeugung von Architekturmodellen sowie Modellen für Gebrauchsgegenstände aller Art, sofern diese lediglich Anschauungszwecken dienen.</p>
               </div>
             </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">
+                Haftungsausschluss
+              </h2>
+              <div className="space-y-4">
+                <p>Alle Angaben auf dieser Website wurden sorgfältig geprüft. Es wird jedoch keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Informationen übernommen.</p>
+                <p className="font-medium">Alle Angaben ohne Gewähr.</p>
+              </div>
+            </section>
           </div>
         </div>
       </main>

@@ -400,6 +400,9 @@ const AIChatWidget = () => {
               <p className="text-xs text-muted-foreground mt-2 text-center">
                 🤖 KI-gestützt • Basiert auf Website-Inhalten
               </p>
+              <p className="text-[10px] text-muted-foreground/70 mt-1 text-center">
+                Alle Angaben ohne Gewähr
+              </p>
             </div>
           </CardContent>
         </Card>
