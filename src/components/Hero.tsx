@@ -153,8 +153,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-muted-foreground opacity-60">
+        {/* Scroll Indicator - hidden on mobile */}
+        <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1 text-muted-foreground opacity-60">
           <span className="text-[10px] uppercase tracking-widest">Entdecken</span>
           <div className="w-4 h-7 rounded-full border border-current flex items-start justify-center p-0.5">
             <div className="w-1 h-2 bg-current rounded-full animate-bounce" />
