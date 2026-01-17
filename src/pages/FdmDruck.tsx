@@ -69,8 +69,11 @@ const FdmDruck = () => {
                 Von Prototypen bis zur Serienfertigung - österreichweit verfügbar.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="hero" className="hover-scale animate-fade-in" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Kostenloses Angebot <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" variant="hero" className="hover-scale animate-fade-in" asChild>
+                  <a href="/kostenrechner">Sofort Preis berechnen <ArrowRight className="ml-2 h-5 w-5" /></a>
+                </Button>
+                <Button size="lg" variant="outline" className="hover-scale animate-fade-in" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  Beratung anfordern
                 </Button>
               </div>
             </div>
@@ -295,8 +298,11 @@ const FdmDruck = () => {
                 Lassen Sie uns Ihre Ideen in die Realität umsetzen!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Kostenloses Angebot anfordern
+                <Button size="lg" variant="hero" className="hover-scale" asChild>
+                  <a href="/kostenrechner">Jetzt Preis berechnen <ArrowRight className="ml-2 h-5 w-5" /></a>
+                </Button>
+                <Button size="lg" variant="outline" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  Beratung anfordern
                 </Button>
               </div>
             </div>

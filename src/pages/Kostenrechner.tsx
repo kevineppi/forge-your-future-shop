@@ -6,10 +6,13 @@ import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ProductSchema from "@/components/ProductSchema";
 import FAQSchema from "@/components/FAQSchema";
+import HowToSchema from "@/components/HowToSchema";
 import AIChatWidget from "@/components/AIChatWidget";
 import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
-import { Check, TrendingDown, Clock, Award } from "lucide-react";
+import { Check, TrendingDown, Clock, Award, Upload, Settings, CreditCard, Truck, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
 
 const Kostenrechner = () => {
   // SEO Title & Description - konsistent mit SEOHead
@@ -45,6 +48,29 @@ const Kostenrechner = () => {
           availability: "https://schema.org/InStock"
         }}
         category="3D Printing Service"
+      />
+      <HowToSchema
+        name="3D-Druck online bestellen - Schritt für Schritt"
+        description="So bestellen Sie 3D-gedruckte Teile bei ekdruck: STL-Datei hochladen, Material wählen, Sofortpreis erhalten und direkt bestellen."
+        totalTime="PT5M"
+        steps={[
+          {
+            name: "STL-Datei hochladen",
+            text: "Laden Sie Ihre 3D-Datei im STL-Format hoch. Der Konfigurator analysiert automatisch Volumen, Größe und Druckzeit Ihres Modells."
+          },
+          {
+            name: "Material und Einstellungen wählen",
+            text: "Wählen Sie das passende Material (PLA, PETG, ABS, Nylon), Farbe, Fülldichte und Qualität. Der Preis wird in Echtzeit aktualisiert."
+          },
+          {
+            name: "Sofortpreis erhalten",
+            text: "Sie sehen sofort den finalen Preis - keine Wartezeit auf Angebote. Bei Fragen steht unser KI-Assistent zur Verfügung."
+          },
+          {
+            name: "Zur Kasse und bestellen",
+            text: "Geben Sie Ihre Lieferadresse ein und schließen Sie die Bestellung ab. Express-Lieferung in 24-48h möglich."
+          }
+        ]}
       />
       <FAQSchema faqs={[
         {
@@ -486,6 +512,117 @@ const Kostenrechner = () => {
                     <h3 className="font-bold mb-2">✓ Hohe Qualität</h3>
                     <p className="text-muted-foreground">Professionelle FDM-Drucker und Premium-Filamente</p>
                   </div>
+                </div>
+              </div>
+
+              {/* Sichtbares FAQ-Akkordeon */}
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-primary/10">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center justify-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6 text-primary" />
+                    </div>
+                  </div>
+                  <h2 className="text-3xl font-bold">
+                    Häufig gestellte <span className="text-primary">Fragen</span> zum 3D-Druck Preis
+                  </h2>
+                </div>
+                
+                <Accordion type="single" collapsible className="space-y-4">
+                  <AccordionItem value="item-1" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Was kostet 3D-Druck pro Stück?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      3D-Druck kostet ab 20€ pro Stück für kleine Teile in PLA. Der Preis hängt von Größe, Material und Komplexität ab. 
+                      Technische Teile in PETG kosten ab 42€, große Gehäuse in ABS ab 89€, Hochleistungsteile in Nylon PA12 ab 135€.
+                      <Link to="/3d-druck-materialien" className="text-primary hover:underline font-semibold ml-1">
+                        → Alle Materialien ansehen
+                      </Link>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-2" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Wie berechne ich die 3D-Druck Kosten?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Laden Sie Ihre STL-Datei in unseren Kostenrechner oben hoch. Der Preis wird sofort berechnet basierend auf: 
+                      Materialverbrauch, Druckzeit, gewähltes Material (PLA, PETG, ABS, Nylon), Komplexität und Stückzahl. 
+                      Keine Wartezeit auf Angebote.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-3" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Ist 3D-Druck günstiger als CNC-Fräsen?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Ja, für Prototypen und Kleinserien (1-500 Stück) ist 3D-Druck bis zu 65% günstiger als CNC-Fräsen. 
+                      Keine Werkzeugkosten, schnellere Lieferung (24h vs. 3+ Wochen), kostenlose Designänderungen.
+                      <Link to="/rapid-prototyping" className="text-primary hover:underline font-semibold ml-1">
+                        → Mehr zu Rapid Prototyping
+                      </Link>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-4" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Ab welcher Stückzahl lohnt sich Spritzguss?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Spritzguss lohnt sich erst ab ca. 500-1000 Stück aufgrund der hohen Werkzeugkosten (3.000-50.000€). 
+                      Für Kleinserien unter 500 Stück ist 3D-Druck bis zu 80% günstiger.
+                      <Link to="/serienfertigung" className="text-primary hover:underline font-semibold ml-1">
+                        → Mehr zur Serienfertigung
+                      </Link>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-5" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Wie schnell werden 3D-Teile geliefert?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Standard-Lieferzeit beträgt 3-5 Werktage. Mit Express-Service erhalten Sie Ihre Teile in 24-48 Stunden. 
+                      Kostenloser Versand ab 100€ Bestellwert in ganz Österreich.
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="item-6" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                    <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
+                      Gibt es Mengenrabatte?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Ja, ab 5 Stück erhalten Sie automatisch Mengenrabatt. Bei 10+ Stück bis zu 15% Rabatt, 
+                      bei 50+ Stück bis zu 25% Rabatt. Größere Serien auf Anfrage.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+
+              {/* Interne Verlinkung Section */}
+              <div className="bg-muted/30 rounded-2xl p-8">
+                <h2 className="text-2xl font-bold mb-6 text-center">Weiterführende Informationen</h2>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <Link to="/3d-druck-materialien" className="group">
+                    <Card className="p-4 hover:border-primary/50 transition-colors">
+                      <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Material-Ratgeber</h3>
+                      <p className="text-sm text-muted-foreground">PLA vs PETG vs ABS - welches Material für Ihr Projekt?</p>
+                    </Card>
+                  </Link>
+                  <Link to="/rapid-prototyping" className="group">
+                    <Card className="p-4 hover:border-primary/50 transition-colors">
+                      <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Rapid Prototyping</h3>
+                      <p className="text-sm text-muted-foreground">Schnelle Prototypen in 24-48h für Ihre Produktentwicklung</p>
+                    </Card>
+                  </Link>
+                  <Link to="/serienfertigung" className="group">
+                    <Card className="p-4 hover:border-primary/50 transition-colors">
+                      <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Serienfertigung</h3>
+                      <p className="text-sm text-muted-foreground">Kleinserien & Produktionsläufe wirtschaftlich umsetzen</p>
+                    </Card>
+                  </Link>
                 </div>
               </div>
             </div>
