@@ -33,7 +33,7 @@ interface Message {
 
 const AIChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [sessionId] = useState(() => `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
+  const [sessionId] = useState(() => `session_${crypto.randomUUID()}`);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
