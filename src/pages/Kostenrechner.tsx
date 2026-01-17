@@ -13,8 +13,8 @@ import { Check, TrendingDown, Clock, Award } from "lucide-react";
 
 const Kostenrechner = () => {
   // SEO Title & Description - konsistent mit SEOHead
-  const seoTitle = "3D-Druck Preis sofort berechnen | Ab 8,50€ | ekdruck.at";
-  const seoDescription = "STL hochladen → Sofort Preis sehen → Direkt bestellen. Kein Warten! ✓ Express 24h ✓ Ab 8,50€ ✓ Kostenloser Versand ab 100€. Jetzt konfigurieren!";
+  const seoTitle = "3D-Druck Preis sofort berechnen | Ab 20€ | ekdruck.at";
+  const seoDescription = "STL hochladen → Sofort Preis sehen → Direkt bestellen. Kein Warten! ✓ Express 24h ✓ Ab 20€ ✓ Kostenloser Versand ab 100€. Jetzt konfigurieren!";
   
   useEffect(() => {
     document.title = seoTitle;
@@ -41,7 +41,7 @@ const Kostenrechner = () => {
         description="Professioneller 3D-Druck Service für Prototypen, Einzelteile und Kleinserien. Alle Materialien (PLA, PETG, ABS, Nylon PA12), Express-Service in 24-48h verfügbar. Kostenloser Versand ab 100€."
         offers={{
           priceCurrency: "EUR",
-          price: "8.50",
+          price: "20.00",
           availability: "https://schema.org/InStock"
         }}
         category="3D Printing Service"
@@ -49,7 +49,7 @@ const Kostenrechner = () => {
       <FAQSchema faqs={[
         {
           question: "Was kostet 3D-Druck pro Stück?",
-          answer: "3D-Druck kostet ab 8,50€ pro Stück für kleine Teile in PLA. Der Preis hängt von Größe, Material und Komplexität ab. Technische Teile in PETG kosten ab 42€, große Gehäuse in ABS ab 89€, Hochleistungsteile in Nylon PA12 ab 135€."
+          answer: "3D-Druck kostet ab 20€ pro Stück für kleine Teile in PLA. Der Preis hängt von Größe, Material und Komplexität ab. Technische Teile in PETG kosten ab 42€, große Gehäuse in ABS ab 89€, Hochleistungsteile in Nylon PA12 ab 135€."
         },
         {
           question: "Wie berechne ich die 3D-Druck Kosten?",
@@ -131,7 +131,7 @@ const Kostenrechner = () => {
                       </div>
                       <div className="border-t pt-2 mt-2 flex justify-between font-bold text-lg">
                         <span>Preis:</span>
-                        <span className="text-primary">ab €8,50</span>
+                        <span className="text-primary">ab €20,00</span>
                       </div>
                     </div>
                   </Card>
