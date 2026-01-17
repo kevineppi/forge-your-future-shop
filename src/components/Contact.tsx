@@ -106,7 +106,9 @@ const Contact = () => {
         uploadedUrls.push(filePath);
         setUploadProgress(prev => ({ ...prev, [file.name]: 100 }));
       } catch (error) {
-        console.error('Upload error:', error);
+        if (import.meta.env.DEV) {
+          console.error('Upload error:', error);
+        }
         throw new Error(`Fehler beim Hochladen von ${file.name}`);
       }
     }

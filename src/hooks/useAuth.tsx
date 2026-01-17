@@ -40,7 +40,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       console.log('Admin check result:', { data, error });
       
       if (error) {
-        console.error('Error checking admin status:', error);
+        if (import.meta.env.DEV) {
+          console.error('Error checking admin status:', error);
+        }
         setIsAdmin(false);
         return;
       }
@@ -49,7 +51,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       console.log('Is user admin?', isUserAdmin);
       setIsAdmin(isUserAdmin);
     } catch (error) {
-      console.error('Unexpected error checking admin status:', error);
+      if (import.meta.env.DEV) {
+        console.error('Unexpected error checking admin status:', error);
+      }
       setIsAdmin(false);
     }
   };

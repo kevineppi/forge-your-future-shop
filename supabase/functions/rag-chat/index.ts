@@ -6,6 +6,18 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
+// Input validation constants
+const MAX_MESSAGE_LENGTH = 2000;
+const MAX_KEYWORDS = 5;
+const MIN_KEYWORD_LENGTH = 3;
+const MAX_KEYWORD_LENGTH = 50;
+
+// Sanitize input by removing potentially dangerous characters
+function sanitizeKeyword(word: string): string {
+  // Remove special SQL/regex characters, keep only alphanumeric and German umlauts
+  return word.replace(/[^a-zA-Z0-9äöüÄÖÜßéèêëàâùûôîïç\s-]/g, '').trim();
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -14,13 +26,37 @@ serve(async (req) => {
   try {
     const { message, conversationHistory, sessionId } = await req.json();
 
-    if (!message) {
+    // Validate message
+    if (!message || typeof message !== 'string') {
       console.error('No message provided');
       return new Response(
         JSON.stringify({ error: 'Message is required' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
+
+    // Validate message length
+    if (message.length > MAX_MESSAGE_LENGTH) {
+      return new Response(
+        JSON.stringify({ error: 'Message too long. Maximum 2000 characters allowed.' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Validate sessionId if provided
+    const validSessionId = sessionId && typeof sessionId === 'string' 
+      ? sessionId.substring(0, 100) 
+      : 'unknown';
+
+    // Validate conversationHistory
+    const validHistory = Array.isArray(conversationHistory) 
+      ? conversationHistory.slice(-10).filter(item => 
+          item && typeof item === 'object' && 
+          typeof item.role === 'string' && 
+          typeof item.content === 'string' &&
+          item.content.length <= MAX_MESSAGE_LENGTH
+        )
+      : [];
 
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     const SUPABASE_URL = Deno.env.get('SUPABASE_URL');
@@ -38,12 +74,12 @@ serve(async (req) => {
 
     console.log('Searching knowledge base...');
 
-    // Search using individual terms to handle special characters better
-    // Extract meaningful keywords from the message
+    // Sanitize and extract keywords - improved security
     const keywords = message.toLowerCase()
-      .split(/[\s,\.]+/) // Split on spaces, commas, dots
-      .filter(word => word.length > 2) // Only words with 3+ chars
-      .slice(0, 5); // Max 5 keywords
+      .split(/[\s,\.]+/)
+      .map(word => sanitizeKeyword(word))
+      .filter(word => word.length >= MIN_KEYWORD_LENGTH && word.length <= MAX_KEYWORD_LENGTH)
+      .slice(0, MAX_KEYWORDS);
     
     console.log('Search keywords:', keywords);
     
@@ -52,6 +88,9 @@ serve(async (req) => {
     if (keywords.length > 0) {
       // Search for each keyword in title or content
       for (const keyword of keywords) {
+        // Skip if keyword is empty after sanitization
+        if (!keyword) continue;
+        
         const { data, error } = await supabase
           .from('knowledge_base')
           .select('*')
@@ -72,20 +111,10 @@ serve(async (req) => {
       // Limit to top 5 matches
       matches = matches.slice(0, 5);
     }
-    
-    const searchError = null; // No error if we got here
-
-    if (searchError) {
-      console.error('Knowledge base search error:', searchError);
-      return new Response(
-        JSON.stringify({ error: 'Failed to search knowledge base' }),
-        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
 
     console.log(`Found ${matches?.length || 0} relevant knowledge base entries`);
 
-    // Step 3: Build context from matches
+    // Build context from matches
     let context = '';
     const sources: any[] = [];
 
@@ -101,7 +130,7 @@ serve(async (req) => {
       })));
     }
 
-    // Step 4: Generate response using Lovable AI with context
+    // Generate response using Lovable AI with context
     const systemPrompt = `Sie sind ein professioneller 3D-Druck Berater für ekdruck.at.
 
 KRITISCHE ANFORDERUNGEN:
@@ -147,10 +176,9 @@ ${context ? `\n=== KB ===\n${context}\n=== ENDE ===\n` : ''}`;
       { role: 'system', content: systemPrompt }
     ];
 
-    // Add conversation history if available (excluding the current message as it will be added separately)
-    if (conversationHistory && conversationHistory.length > 0) {
-      // Add previous messages for context
-      messages.push(...conversationHistory);
+    // Add validated conversation history
+    if (validHistory.length > 0) {
+      messages.push(...validHistory);
     }
     
     // Add current message
@@ -214,13 +242,13 @@ ${context ? `\n=== KB ===\n${context}\n=== ENDE ===\n` : ''}`;
       const { error: logError } = await supabase
         .from('chat_logs')
         .insert({
-          session_id: sessionId || 'unknown',
-          user_message: message,
+          session_id: validSessionId,
+          user_message: message.substring(0, 2000), // Ensure max length
           assistant_message: parsedResponse.answer || rawContent,
           had_context: matches && matches.length > 0,
           sources: sources.slice(0, 3),
           actions: parsedResponse.actions || [],
-          user_agent: req.headers.get('user-agent') || 'unknown'
+          user_agent: (req.headers.get('user-agent') || 'unknown').substring(0, 500)
         });
       
       if (logError) {
@@ -244,7 +272,7 @@ ${context ? `\n=== KB ===\n${context}\n=== ENDE ===\n` : ''}`;
   } catch (error) {
     console.error('Error in rag-chat:', error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: 'An error occurred processing your request' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
