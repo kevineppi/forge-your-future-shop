@@ -62,8 +62,11 @@ const Materialien = () => {
                 für höchste Qualität und Nachhaltigkeit.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="hero" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Material-Beratung <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" variant="hero" className="hover-scale" asChild>
+                  <a href="/kostenrechner">Preis berechnen <ArrowRight className="ml-2 h-5 w-5" /></a>
+                </Button>
+                <Button size="lg" variant="outline" className="hover-scale" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  Material-Beratung
                 </Button>
               </div>
             </div>

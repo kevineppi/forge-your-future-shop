@@ -49,7 +49,7 @@ const Index = () => {
         faqs={[
           {
             question: "Was kostet 3D-Druck bei ekdruck?",
-            answer: "Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren Kostenrechner für eine sofortige Schätzung. Kleine Prototypen ab €5, größere Projekte nach individuellem Angebot."
+            answer: "Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren Kostenrechner für eine sofortige Schätzung. 3D-Druck ab €20, Express-Service und Mengenrabatte verfügbar."
           },
           {
             question: "Wie schnell erhalte ich mein 3D-gedrucktes Teil?",
@@ -205,7 +205,7 @@ const Index = () => {
                     <AccordionContent className="text-muted-foreground">
                       Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren{" "}
                       <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für eine sofortige Schätzung. 
-                      Kleine Prototypen ab €5, größere Projekte nach individuellem Angebot.
+                      3D-Druck ab €20, Express-Service und Mengenrabatte verfügbar.
                     </AccordionContent>
                   </AccordionItem>
 
