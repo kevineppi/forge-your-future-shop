@@ -12,20 +12,24 @@ import { Card } from "@/components/ui/card";
 import { Check, TrendingDown, Clock, Award } from "lucide-react";
 
 const Kostenrechner = () => {
+  // SEO Title & Description - konsistent mit SEOHead
+  const seoTitle = "3D-Druck Preis sofort berechnen | Ab 8,50€ | ekdruck.at";
+  const seoDescription = "STL hochladen → Sofort Preis sehen → Direkt bestellen. Kein Warten! ✓ Express 24h ✓ Ab 8,50€ ✓ Kostenloser Versand ab 100€. Jetzt konfigurieren!";
+  
   useEffect(() => {
-    document.title = "3D-Druck Preis in 30 Sek. berechnen | Sofort bestellen";
+    document.title = seoTitle;
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'STL hochladen → Sofort-Preis sehen → Direkt bestellen. Kein Warten auf Angebote! Express 24h möglich. → Jetzt Datei hochladen');
+      metaDesc.setAttribute('content', seoDescription);
     }
   }, []);
 
   return (
     <>
       <SEOHead 
-        title="3D-Druck Konfigurator | Bestellen & Sofortpreis | ekdruck"
-        description="STL hochladen, Material wählen & direkt bestellen. Sofortpreis für alle Materialien. Express in 24h. Kostenloser Versand ab 100€. Jetzt konfigurieren!"
-        keywords="3d-druck online bestellen, 3d-teile drucken lassen, 3d-druck konfigurator, stl drucken lassen, 3d-druck shop österreich, 3d-druck kostenrechner, 3d-druck preis berechnen, kosten 3d-druck, fdm druck online, rapid prototyping bestellen"
+        title={seoTitle}
+        description={seoDescription}
+        keywords="3d-druck kosten, 3d-druck preis berechnen, 3d-druck kostenrechner, stl drucken lassen preis, 3d-druck online bestellen, 3d-teile drucken lassen kosten, 3d-druck österreich preise, fdm druck kosten, rapid prototyping kosten, 3d-druck konfigurator"
         path="/kostenrechner"
       />
       <BreadcrumbSchema items={[
@@ -44,28 +48,36 @@ const Kostenrechner = () => {
       />
       <FAQSchema faqs={[
         {
-          question: "Wie bestelle ich 3D-Druck online?",
-          answer: "Laden Sie Ihre STL-Datei hoch, wählen Sie Material und Einstellungen, sehen Sie den Sofortpreis und schließen Sie die Bestellung ab. Der gesamte Prozess dauert nur wenige Minuten."
+          question: "Was kostet 3D-Druck pro Stück?",
+          answer: "3D-Druck kostet ab 8,50€ pro Stück für kleine Teile in PLA. Der Preis hängt von Größe, Material und Komplexität ab. Technische Teile in PETG kosten ab 42€, große Gehäuse in ABS ab 89€, Hochleistungsteile in Nylon PA12 ab 135€."
+        },
+        {
+          question: "Wie berechne ich die 3D-Druck Kosten?",
+          answer: "Laden Sie Ihre STL-Datei in unseren Kostenrechner hoch. Der Preis wird sofort berechnet basierend auf: Materialverbrauch, Druckzeit, gewähltes Material (PLA, PETG, ABS, Nylon), Komplexität und Stückzahl. Keine Wartezeit auf Angebote."
         },
         {
           question: "Wie schnell werden meine 3D-Teile geliefert?",
-          answer: "Standard-Lieferzeit beträgt 3-5 Werktage. Mit unserem Express-Service erhalten Sie Ihre Teile in 24-48 Stunden. Versand erfolgt innerhalb von 1-2 Werktagen nach Produktionsabschluss."
+          answer: "Standard-Lieferzeit beträgt 3-5 Werktage. Mit Express-Service erhalten Sie Ihre Teile in 24-48 Stunden. Kostenloser Versand ab 100€ Bestellwert in ganz Österreich."
         },
         {
-          question: "Welche Dateiformate werden für 3D-Druck akzeptiert?",
-          answer: "Wir akzeptieren STL-Dateien für 3D-Druck. Diese können Sie direkt aus CAD-Programmen wie Fusion 360, SolidWorks, AutoCAD oder Blender exportieren."
+          question: "Ist 3D-Druck günstiger als CNC-Fräsen?",
+          answer: "Ja, für Prototypen und Kleinserien (1-500 Stück) ist 3D-Druck bis zu 65% günstiger als CNC-Fräsen. Keine Werkzeugkosten, schnellere Lieferung (24h vs. 3+ Wochen), kostenlose Designänderungen."
         },
         {
-          question: "Was kostet 3D-Druck?",
-          answer: "Die Kosten beginnen ab €8,50 für kleine Teile. Der finale Preis hängt von Größe, Material, Komplexität und Stückzahl ab. Nutzen Sie unseren Kostenrechner für einen Sofortpreis."
+          question: "Ab welcher Stückzahl lohnt sich Spritzguss statt 3D-Druck?",
+          answer: "Spritzguss lohnt sich erst ab ca. 500-1000 Stück aufgrund der hohen Werkzeugkosten (3.000-50.000€). Für Kleinserien unter 500 Stück ist 3D-Druck bis zu 80% günstiger."
         },
         {
           question: "Welche 3D-Druck Materialien bieten Sie an?",
-          answer: "Wir bieten PLA, PETG, ABS, ASA, TPU und Hochleistungsmaterialien wie PA12 und PA6 Nylon an. Jedes Material hat unterschiedliche Eigenschaften für verschiedene Anwendungen."
+          answer: "Wir bieten PLA (ab 0,08€/cm³), PETG (ab 0,12€/cm³), ABS, ASA, TPU flexibel und Hochleistungsmaterialien wie PA12 Nylon (ab 0,25€/cm³). Jedes Material hat spezifische Eigenschaften für verschiedene Anwendungen."
         },
         {
-          question: "Kann ich auch ohne CAD-Kenntnisse 3D-Teile bestellen?",
-          answer: "Ja, Sie benötigen nur eine STL-Datei. Diese kann von einem Designer erstellt oder aus Online-Bibliotheken heruntergeladen werden. Alternativ unterstützen wir Sie bei der Umsetzung Ihrer Idee."
+          question: "Wie bestelle ich 3D-Druck online?",
+          answer: "1. STL-Datei hochladen, 2. Material und Farbe wählen, 3. Sofortpreis sehen, 4. Direkt zur Kasse. Der gesamte Prozess dauert nur 2-3 Minuten. Keine Registrierung erforderlich."
+        },
+        {
+          question: "Gibt es Mengenrabatte für 3D-Druck?",
+          answer: "Ja, ab 5 Stück erhalten Sie automatisch Mengenrabatt. Bei 10+ Stück bis zu 15% Rabatt, bei 50+ Stück bis zu 25% Rabatt. Größere Serien auf Anfrage."
         }
       ]} />
       
