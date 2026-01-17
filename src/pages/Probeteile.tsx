@@ -76,7 +76,9 @@ const Probeteile = () => {
         error: uploadError
       } = await supabase.storage.from('project-files').upload(filePath, file);
       if (uploadError) {
-        console.error('Upload error:', uploadError);
+        if (import.meta.env.DEV) {
+          console.error('Upload error:', uploadError);
+        }
         throw new Error(`Fehler beim Hochladen der Datei ${file.name}`);
       }
       uploadedUrls.push(filePath);
@@ -104,7 +106,9 @@ const Probeteile = () => {
         file_urls: fileUrls
       });
       if (error) {
-        console.error('Database error:', error);
+        if (import.meta.env.DEV) {
+          console.error('Database error:', error);
+        }
         throw new Error('Fehler beim Speichern der Anfrage');
       }
       toast({
@@ -114,7 +118,9 @@ const Probeteile = () => {
       form.reset();
       setFiles([]);
     } catch (error: any) {
-      console.error('Error submitting form:', error);
+      if (import.meta.env.DEV) {
+        console.error('Error submitting form:', error);
+      }
       toast({
         title: "Fehler beim Senden",
         description: error.message || "Bitte versuchen Sie es erneut.",
