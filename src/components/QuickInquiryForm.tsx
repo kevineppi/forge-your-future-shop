@@ -50,7 +50,7 @@ const QuickInquiryForm = () => {
       
       if (file) {
         const fileExt = file.name.split('.').pop();
-        const fileName = `${Math.random()}.${fileExt}`;
+        const fileName = `${crypto.randomUUID()}.${fileExt}`;
         const filePath = `quick-inquiries/${fileName}`;
 
         const { error: uploadError } = await supabase.storage

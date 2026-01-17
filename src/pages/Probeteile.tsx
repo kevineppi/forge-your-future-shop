@@ -70,7 +70,7 @@ const Probeteile = () => {
     const uploadedUrls: string[] = [];
     for (const file of files) {
       const fileExt = file.name.split('.').pop();
-      const fileName = `${Math.random()}.${fileExt}`;
+      const fileName = `${crypto.randomUUID()}.${fileExt}`;
       const filePath = `probeteile/${fileName}`;
       const {
         error: uploadError

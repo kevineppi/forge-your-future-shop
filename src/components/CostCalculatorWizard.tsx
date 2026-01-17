@@ -258,7 +258,7 @@ const CostCalculatorWizard = () => {
     }
     
     const newFile: UploadedFile = {
-      id: `file-${Date.now()}-${Math.random()}`,
+      id: `file-${crypto.randomUUID()}`,
       geometry: fileData.geometry,
       fileName: fileData.fileName,
       volume: fileData.volume,
