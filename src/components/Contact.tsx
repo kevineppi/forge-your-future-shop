@@ -49,6 +49,8 @@ const Contact = () => {
                          file.name.toLowerCase().endsWith('.stl') ||
                          file.name.toLowerCase().endsWith('.obj') ||
                          file.name.toLowerCase().endsWith('.3mf') ||
+                         file.name.toLowerCase().endsWith('.step') ||
+                         file.name.toLowerCase().endsWith('.stp') ||
                          file.type.includes('pdf') ||
                          file.type.includes('image');
       const isValidSize = file.size <= 50 * 1024 * 1024; // 50MB
@@ -449,13 +451,13 @@ const Contact = () => {
                                 3D-Dateien hochladen (optional)
                               </p>
                               <p className="text-xs text-muted-foreground">
-                                STL, OBJ, 3MF, PDF, Bilder - Max. 50MB pro Datei
+                                STL, OBJ, 3MF, STEP/STP, PDF, Bilder - Max. 50MB pro Datei
                               </p>
                             </div>
                             <input
                               type="file"
                               multiple
-                              accept=".stl,.obj,.3mf,.pdf,image/*"
+                              accept=".stl,.obj,.3mf,.step,.stp,.pdf,image/*"
                               onChange={handleFileChange}
                               className="hidden"
                               id="file-upload"
