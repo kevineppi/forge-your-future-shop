@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { X, Gift, Star, Percent, Clock, CheckCircle } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Dialog, DialogContent } from "./ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "./ui/dialog";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
@@ -79,6 +80,9 @@ const ExitIntentPopup = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-lg p-0 overflow-hidden border-2 border-primary/20">
+        <VisuallyHidden.Root>
+          <DialogTitle>Erstbesteller-Rabatt sichern</DialogTitle>
+        </VisuallyHidden.Root>
         <button
           onClick={() => setIsOpen(false)}
           className="absolute right-3 top-3 z-10 rounded-full bg-background/80 p-1.5 opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none"

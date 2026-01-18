@@ -6,7 +6,8 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { supabase } from "@/integrations/supabase/client";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -488,6 +489,9 @@ const Referenzen = () => {
       {/* Lightbox Dialog with Image Gallery */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
         <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0">
+          <VisuallyHidden.Root>
+            <DialogTitle>{selectedProject?.title || "Projektdetails"}</DialogTitle>
+          </VisuallyHidden.Root>
           {selectedProject && (
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Image Gallery Side */}
