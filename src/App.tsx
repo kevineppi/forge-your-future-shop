@@ -9,7 +9,7 @@ import FdmDruck from "./pages/FdmDruck";
 import RapidPrototyping from "./pages/RapidPrototyping";
 import Materialien from "./pages/Materialien";
 import Einzelanfertigungen from "./pages/Einzelanfertigungen";
-import Serienfertigung from "./pages/Serienfertigung";
+import ModellbauDekoration from "./pages/ModellbauDekoration";
 import Probeteile from "./pages/Probeteile";
 import Impressum from "./pages/Impressum";
 import Kostenrechner from "./pages/Kostenrechner";
@@ -38,8 +38,6 @@ import KostenGuide from "./pages/ratgeber/KostenGuide";
 import VerfahrensVergleich from "./pages/ratgeber/VerfahrensVergleich";
 import MaterialGuide from "./pages/ratgeber/MaterialGuide";
 import PrototypingGuide from "./pages/ratgeber/PrototypingGuide";
-import Maschinenbau from "./pages/ratgeber/Maschinenbau";
-import SerienfertigungCaseStudy from "./pages/ratgeber/SerienfertigungCaseStudy";
 import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
 import MeineBestellungen from "./pages/MeineBestellungen";
@@ -62,7 +60,8 @@ const App = () => (
             <Route path="/prototypen" element={<Prototypen />} />
             <Route path="/3d-druck-materialien" element={<Materialien />} />
             <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
-            <Route path="/serienfertigung" element={<Serienfertigung />} />
+            <Route path="/modellbau-dekoration" element={<ModellbauDekoration />} />
+            <Route path="/serienfertigung" element={<ModellbauDekoration />} /> {/* Legacy redirect */}
             <Route path="/probeteile" element={<Probeteile />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/3d-druck-bestellen" element={<Kostenrechner />} />
@@ -72,8 +71,7 @@ const App = () => (
             <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />
             <Route path="/ratgeber/material-guide" element={<MaterialGuide />} />
             <Route path="/ratgeber/prototyping-guide" element={<PrototypingGuide />} />
-            <Route path="/ratgeber/maschinenbau" element={<Maschinenbau />} />
-            <Route path="/ratgeber/serienfertigung-case-study" element={<SerienfertigungCaseStudy />} />
+            <Route path="/ratgeber/maschinenbau" element={<MaterialGuide />} /> {/* Redirect to Material Guide */}
             <Route path="/glossar" element={<Glossar />} />
             <Route path="/referenzen" element={<Referenzen />} />
             <Route path="/3d-druck-wien" element={<Wien3DDruck />} />

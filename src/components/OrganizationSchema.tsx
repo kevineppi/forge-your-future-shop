@@ -9,7 +9,7 @@ const OrganizationSchema = () => {
       "alternateName": "EK-Druck",
       "url": "https://www.ek-druck.at",
       "logo": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-      "description": "Professioneller 3D-Druck Service in Österreich. FDM-Druck, Prototyping und Serienfertigung mit schneller Lieferung.",
+      "description": "Professioneller 3D-Druck Service in Österreich. FDM-Druck für Modellbau, Dekoration und Geschenke mit schneller Lieferung.",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "AT",
@@ -75,14 +75,13 @@ const OrganizationSchema = () => {
       "knowsAbout": [
         "3D-Druck",
         "FDM-Druck",
-        "Rapid Prototyping",
-        "Serienfertigung",
-        "Prototypenentwicklung",
+        "Modellbau",
+        "Architekturmodelle",
+        "Dekoration",
         "PLA",
         "PETG",
         "ABS",
-        "TPU",
-        "Nylon"
+        "TPU"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -93,23 +92,23 @@ const OrganizationSchema = () => {
             "itemOffered": {
               "@type": "Service",
               "name": "FDM 3D-Druck",
-              "description": "Fused Deposition Modeling für funktionale Prototypen und Serienbauteile"
+              "description": "Fused Deposition Modeling für Modellbau und Dekoration"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Rapid Prototyping",
-              "description": "Schnelle Prototypenentwicklung für Produkttests"
+              "name": "Architekturmodelle",
+              "description": "Präzise 3D-gedruckte Architekturmodelle und Designstudien"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Serienfertigung",
-              "description": "Serienproduktion von 3D-gedruckten Bauteilen"
+              "name": "Dekoration & Geschenke",
+              "description": "Individuelle Dekoartikel und personalisierte Geschenke"
             }
           },
           {

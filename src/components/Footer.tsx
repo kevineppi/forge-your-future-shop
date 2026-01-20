@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -11,8 +11,8 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold text-gradient mb-4">ekdruck e.U.</h3>
             <p className="text-muted-foreground mb-6">
-              Hochwertiger 3D-Druck für maßgeschneiderte Prototypen, Kleinserien und 
-              individuelle Fertigungslösungen aus Oberösterreich. Nachhaltig und regional.
+              Hochwertiger 3D-Druck für Modellbau, Dekoration und 
+              individuelle Geschenke aus Oberösterreich. Nachhaltig und regional.
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" asChild>
@@ -28,10 +28,8 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li><a href="/fdm-3d-druck" className="hover:text-primary transition-colors">FDM 3D-Druck</a></li>
-              <li><a href="/rapid-prototyping" className="hover:text-primary transition-colors">Rapid Prototyping</a></li>
               <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">3D-Druck Materialien</a></li>
               <li><a href="/einzelanfertigungen" className="hover:text-primary transition-colors">Einzelanfertigungen</a></li>
-              <li><a href="/serienfertigung" className="hover:text-primary transition-colors">Serienfertigung</a></li>
               <li><a href="/probeteile" className="hover:text-primary transition-colors">Kostenlose Probeteile</a></li>
               <li><a href="/kostenrechner" className="hover:text-primary transition-colors">Kostenrechner</a></li>
             </ul>
@@ -45,7 +43,6 @@ const Footer = () => {
               <li><a href="/ratgeber/kosten-guide" className="hover:text-primary transition-colors">Kosten-Guide</a></li>
               <li><a href="/ratgeber/material-guide" className="hover:text-primary transition-colors">Material-Guide</a></li>
               <li><a href="/ratgeber/verfahrens-vergleich" className="hover:text-primary transition-colors">Verfahrens-Vergleich</a></li>
-              <li><a href="/ratgeber/maschinenbau" className="hover:text-primary transition-colors">3D-Druck Maschinenbau</a></li>
               <li><a href="/glossar" className="hover:text-primary transition-colors">3D-Druck Glossar</a></li>
             </ul>
           </div>
