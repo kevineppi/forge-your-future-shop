@@ -1,29 +1,29 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Cog, Heart, Car } from "lucide-react";
+import { ArrowRight, Home, Gift, Palette } from "lucide-react";
 
 const CaseStudiesTeaser = () => {
   const caseStudies = [
     {
-      icon: Cog,
-      industry: "Maschinenbau",
-      title: "Hydraulikventil-Prototyp",
-      result: "75% Kostenersparnis, 90% Zeitersparnis",
+      icon: Home,
+      industry: "Architektur",
+      title: "Architekturmodell Villa",
+      result: "Detailgetreue Präsentation, schnelle Lieferung",
       link: "/kontakt"
     },
     {
-      icon: Heart,
-      industry: "Medizintechnik",
-      title: "Individuelle Orthesen",
-      result: "5x schnellere Fertigung, 30% leichter",
+      icon: Gift,
+      industry: "Geschenke",
+      title: "Personalisierte Figuren",
+      result: "Einzigartige Unikate, höchste Qualität",
       link: "/kontakt"
     },
     {
-      icon: Car,
-      industry: "Automotive",
-      title: "Oldtimer-Ersatzteil",
-      result: "500€ gespart, perfekte Passform",
+      icon: Palette,
+      industry: "Dekoration",
+      title: "Designer Vasen-Set",
+      result: "Individuelle Designs, nachhaltig gefertigt",
       link: "/kontakt"
     }
   ];
@@ -33,10 +33,10 @@ const CaseStudiesTeaser = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Unsere Prototypen <span className="text-gradient">in Aktion</span>
+            Unsere Projekte <span className="text-gradient">in Aktion</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Erfolgreiche Projekte aus verschiedenen Branchen
+            Erfolgreiche Projekte aus Modellbau, Dekoration und mehr
           </p>
         </div>
 
@@ -61,7 +61,7 @@ const CaseStudiesTeaser = () => {
                     className="w-full group"
                     onClick={() => window.location.href = study.link}
                   >
-                    Jetzt Prototyp anfragen
+                    Jetzt Projekt anfragen
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>

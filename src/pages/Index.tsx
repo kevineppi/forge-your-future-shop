@@ -24,7 +24,7 @@ const Index = () => {
       <SEOHead 
         title="3D-Druck Service Österreich ab €20 ✓ Express 24h | ekdruck" 
         description="★ 5/5 bei Google | 3D-Druck Dienstleister aus Österreich. Ab €20, versandkostenfrei ab €100. ✓ Express 24h ✓ Made in Austria → Jetzt Preis berechnen" 
-        keywords="3d druck service, 3d druck österreich, 3d druck dienstleister, 3d-druck österreich, fdm 3d-druck, prototypen, serienfertigung, rapid prototyping österreich" 
+        keywords="3d druck service, 3d druck österreich, 3d druck dienstleister, 3d-druck österreich, fdm 3d-druck, modellbau, dekoration, geschenke" 
         path="/" 
         preloadResources={[{
           href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
@@ -60,8 +60,8 @@ const Index = () => {
             answer: "Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie basierend auf Ihrer Idee oder Skizze."
           },
           {
-            question: "Für welche Branchen bietet ekdruck 3D-Druck an?",
-            answer: "Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise."
+            question: "Für welche Bereiche bietet ekdruck 3D-Druck an?",
+            answer: "Modellbau & Architektur, Dekoration & Wohnaccessoires, Geschenke & Personalisierung, Design & Kunst sowie Hobby & Kreativprojekte. Wir realisieren Ihre individuellen Ideen."
           },
           {
             question: "Warum österreichisches Filament verwenden?",
@@ -119,10 +119,9 @@ const Index = () => {
                  </p>
                  <p className="text-muted-foreground mb-4 leading-relaxed">
                  Unser Service deckt alle Bereiche ab: von{" "}
-                 <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> und{" "}
-                 <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">schnellem Prototypenbau</a> über{" "}
-                 <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelteile</a> bis zur{" "}
-                 <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Kleinserienproduktion</a>.
+                 <a href="/3d-druck-materialien" className="text-primary hover:underline font-semibold">verschiedenen Materialien</a> über{" "}
+                 <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelteile</a> bis zu{" "}
+                 personalisierten Geschenken und Dekoartikeln.
                  </p>
                  <p className="text-muted-foreground leading-relaxed">
                    Mit Schichtauflösungen bis 0,1mm garantieren wir höchste Präzision. Wir verwenden ausschließlich{" "}
@@ -247,13 +246,13 @@ const Index = () => {
                         <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
-                        Für welche Branchen bietet ekdruck 3D-Druck an?
+                        Für welche Bereiche bietet ekdruck 3D-Druck an?
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                     Industrie & Maschinenbau, Architektur & Bau, Medizintechnik, Automotive, Design & Kunst, 
-                     Bildung & Forschung, sowie viele weitere Bereiche. Jede Branche profitiert von unserer Expertise. 
-                     Lesen Sie mehr in unserem <a href="/ratgeber/maschinenbau" className="text-primary hover:underline font-semibold">Industrie-Guide</a>.
+                     Modellbau & Architektur, Dekoration & Wohnaccessoires, Geschenke & Personalisierung, Design & Kunst 
+                     sowie Hobby & Kreativprojekte. Wir realisieren Ihre individuellen Ideen. 
+                     Entdecken Sie unseren <a href="/ratgeber/material-guide" className="text-primary hover:underline font-semibold">Material-Guide</a>.
                     </AccordionContent>
                   </AccordionItem>
 
@@ -284,8 +283,8 @@ const Index = () => {
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
                      Ja! Wir bieten Schleifen, Lackieren, Grundieren, Glattieren und weitere Finishing-Optionen. 
-                     So erhalten Sie produktionsreife Bauteile direkt einsatzbereit. 
-                     Mehr zu unseren <a href="/serienfertigung" className="text-primary hover:underline font-semibold">Produktions-Möglichkeiten</a>.
+                     So erhalten Sie optisch perfekte Objekte direkt einsatzbereit. 
+                     Mehr zu unseren <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a>.
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
@@ -335,14 +334,14 @@ const Index = () => {
                      <p className="font-semibold mb-2">PETG (Polyethylenterephthalat)</p>
                      <p className="text-muted-foreground text-sm">
                        Robustes Material mit guter chemischer Beständigkeit. Temperaturbeständig bis 80°C.
-                       Lebensmittelecht und UV-beständig. Perfekt für funktionale Bauteile.
+                       UV-beständig und langlebig. Perfekt für Außendekoration und Modellbau.
                      </p>
                    </div>
                    <div className="border-l-4 border-primary pl-4">
                      <p className="font-semibold mb-2">ABS (Acrylnitril-Butadien-Styrol)</p>
                      <p className="text-muted-foreground text-sm">
-                       Hochfestes technisches Material. Temperaturbeständigkeit bis 100°C.
-                       Ideal für mechanisch belastbare Teile und Gehäuse. Nachbearbeitbar durch Schleifen und Lackieren.
+                       Hochwertiges Material. Temperaturbeständigkeit bis 100°C.
+                       Ideal für robuste Modelle und Dekoration. Nachbearbeitbar durch Schleifen und Lackieren.
                      </p>
                    </div>
                    <div className="border-l-4 border-primary pl-4">
@@ -363,31 +362,31 @@ const Index = () => {
                  </div>
                  <div className="space-y-6">
                    <div className="border-l-4 border-secondary pl-4">
-                     <p className="font-semibold mb-2">Industrie & Maschinenbau</p>
+                     <p className="font-semibold mb-2">Modellbau & Architektur</p>
                      <p className="text-muted-foreground text-sm">
-                       Funktionsprototypen, Ersatzteile, Betriebsmittel und Halterungen.
-                       Schnelle Iterationen und kosteneffiziente Kleinserien.
+                       Architekturmodelle, Miniaturmodelle und Dioramen.
+                       Maßstabsgetreue Präsentationsmodelle für jeden Anlass.
                      </p>
                    </div>
                    <div className="border-l-4 border-secondary pl-4">
-                     <p className="font-semibold mb-2">Architektur & Bauwesen</p>
+                     <p className="font-semibold mb-2">Dekoration & Wohnaccessoires</p>
                      <p className="text-muted-foreground text-sm">
-                       Architekturmodelle und Gebäudevisualisierungen.
-                       Maßstabsgetreue Modelle für Präsentationen.
+                       Vasen, Lampen, Deko-Objekte und Wohnaccessoires.
+                       Individuelle Designs in allen Farben und Größen.
                      </p>
                    </div>
                    <div className="border-l-4 border-secondary pl-4">
-                     <p className="font-semibold mb-2">Bildung & Forschung</p>
+                     <p className="font-semibold mb-2">Geschenke & Personalisierung</p>
                      <p className="text-muted-foreground text-sm">
-                       Lehrmittel und wissenschaftliche Modelle.
-                       Anschauungsobjekte für Universitäten und Schulen.
+                       Personalisierte Geschenke, Figuren und Namensschilder.
+                       Einzigartige Unikate für besondere Anlässe.
                      </p>
                    </div>
                    <div className="border-l-4 border-secondary pl-4">
-                     <p className="font-semibold mb-2">Design & Kunst</p>
+                     <p className="font-semibold mb-2">Kunst & Design</p>
                      <p className="text-muted-foreground text-sm">
-                       Kunstobjekte, Skulpturen und Schmuck-Prototypen.
-                       Vielfältige Materialien für kreative Projekte.
+                       Kunstobjekte, Skulpturen und Design-Studien.
+                       Kreative Projekte in höchster Qualität.
                      </p>
                    </div>
                  </div>
