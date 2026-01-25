@@ -6,33 +6,33 @@ const Services = () => {
   const services = [{
     icon: Cpu,
     title: "Einzelanfertigungen",
-    description: "Millimetergenaue Spezialanfertigungen vom Entwurf bis zum fertigen Produkt.",
-    features: ["Individuelle Designs", "Millimetergenauigkeit", "Maßanfertigungen", "Komplette Begleitung"]
-  }, {
-    icon: Palette,
-    title: "Dekoration & Wohnaccessoires",
-    description: "Kompromisslos nachhaltige Einrichtung in allen Farben, Varianten, Größen und Formen.",
-    features: ["Stilvolle Designs", "Alle Farben verfügbar", "Verschiedene Größen", "Nachhaltige Materialien"]
+    description: "Individuelle 3D-Objekte nach Ihren Vorgaben – präzise und maßgeschneidert.",
+    features: ["Individuelle Designs", "Millimetergenauigkeit", "Maßanfertigungen", "Persönliche Beratung"]
   }, {
     icon: Boxes,
-    title: "Modellbau & Architektur",
-    description: "Präzise Architekturmodelle, Miniaturmodelle und Dioramen für Präsentationen und Sammler.",
-    features: ["Architekturmodelle", "Miniaturmodelle", "Dioramen", "Präsentationsmodelle"]
+    title: "Projekte für Firmenkunden",
+    description: "Zuverlässiger Partner für Ihre Unternehmensprojekte – von der Idee bis zum fertigen Objekt.",
+    features: ["B2B-Service", "Projektbegleitung", "Flexible Stückzahlen", "Schnelle Umsetzung"]
+  }, {
+    icon: Palette,
+    title: "Kreative Projekte",
+    description: "Verwirklichen Sie Ihre kreativen Ideen – in allen Farben, Formen und Größen.",
+    features: ["Alle Farben verfügbar", "Verschiedene Größen", "Nachhaltige Materialien", "Freie Gestaltung"]
   }, {
     icon: Gift,
-    title: "Geschenke & Personalisierung",
-    description: "Individuelle Geschenke, Namensschilder, Figuren und personalisierte Unikate.",
-    features: ["Personalisierte Geschenke", "Namensschilder", "Individuelle Figuren", "Unikate"]
+    title: "Personalisierte Objekte",
+    description: "Einzigartige Unikate und personalisierte Stücke für besondere Anlässe.",
+    features: ["Personalisierung", "Unikate", "Besondere Anlässe", "Individuelle Gravuren"]
   }, {
     icon: PenTool,
-    title: "Kunst & Design",
-    description: "Kunstobjekte, Skulpturen und Design-Studien für Künstler und Designer.",
-    features: ["Kunstobjekte", "Skulpturen", "Design-Studien", "Kreative Projekte"]
+    title: "Design & Konstruktion",
+    description: "Keine CAD-Datei? Wir erstellen 3D-Modelle nach Ihren Skizzen oder Fotos.",
+    features: ["CAD-Erstellung", "Design-Beratung", "Optimierung", "Technische Zeichnungen"]
   }, {
     icon: Clock,
     title: "Express Service",
-    description: "Schnelle Fertigung in 24-48h und kostenlose Beratung für Ihr 3D-Druck Projekt.",
-    features: ["24-48h Lieferung", "Kostenlose Beratung", "Faire Preise", "Schnelle Abwicklung"]
+    description: "Schnelle Fertigung in 24-48h für dringende Projekte.",
+    features: ["24-48h Lieferung", "Kostenlose Beratung", "Faire Preise", "Priorität"]
   }];
 
   return (
@@ -43,19 +43,13 @@ const Services = () => {
             Unsere <span className="text-gradient">3D-Druck Leistungen</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
-            Unser professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich bietet umfassende Lösungen 
-            für Dekoration, Modellbau und individuelle Geschenke. Von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> bis zu 
-            personalisierten Unikaten - wir realisieren Ihre Projekte mit nachhaltigen Materialien 
-            aus Oberösterreich.
+            Professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich – 
+            von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> bis 
+            zu individuellen Projekten für Privat- und Firmenkunden.
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            <strong className="text-primary">ekdruck e.U.</strong> ist spezialisiert auf{" "}
-            <strong className="text-primary">FDM 3D-Druck</strong> für{" "}
-            <strong className="text-primary">Modellbau</strong>,{" "}
-            <strong className="text-primary">Dekoration</strong> und{" "}
-            <strong className="text-primary">individuelle Geschenke</strong> für ganz Österreich. Mit unserem{" "}
-            <strong className="text-primary">Express Service</strong> erhalten Sie
-            Ihre Objekte bereits in 24-48 Stunden.
+            Mit nachhaltigen Materialien aus Österreich und persönlicher Beratung 
+            setzen wir Ihre Projekte professionell um.
           </p>
         </div>
 
