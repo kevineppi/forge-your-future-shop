@@ -209,7 +209,7 @@ const SEOHead = ({
                 "itemOffered": {
                   "@type": "Service",
                   "name": "FDM 3D-Druck",
-                  "description": "Professioneller FDM 3D-Druck Service für Prototypen und Kleinserien"
+                  "description": "Professioneller FDM 3D-Druck Service für Dekoration, Modellbau und individuelle Unikate"
                 }
               },
               {

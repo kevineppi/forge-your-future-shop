@@ -249,7 +249,7 @@ const MaterialGuide = () => {
               <div className="p-6 bg-primary/10 rounded-lg border border-primary/20">
                 <h4 className="font-semibold text-foreground mb-3">Ideale Anwendungen für PETG:</h4>
                 <p className="text-muted-foreground">
-                  Funktionsteile mit mechanischer Belastung, Gehäuse für Elektronik, Lebensmittelkontakt, Halterungen und Befestigungen, Werkzeuge, Vorrichtungen, technische Prototypen
+                  Robuste Dekorationsobjekte, Gehäuse für Elektronik, Lebensmittelkontakt, Halterungen und Befestigungen, Werkzeuge, Vorrichtungen, robuste Modelle
                 </p>
               </div>
             </section>

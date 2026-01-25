@@ -356,27 +356,27 @@ const Linz3DDruck = () => {
                 <AnimatedSection delay={0.1}>
                   <div className="bg-card p-8 rounded-2xl border-2 hover:border-primary/30 transition-all">
                     <Factory className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="text-2xl font-bold mb-4">Industrie & Produktion</h3>
+                    <h3 className="text-2xl font-bold mb-4">Modellbau & Dekoration</h3>
                     <p className="text-muted-foreground mb-4 leading-relaxed">
-                      Linz ist ein bedeutender Industriestandort in Österreich. 
-                      Unser <strong className="text-primary">3D-Druck Service</strong> unterstützt produzierende Unternehmen mit:
+                      Linz ist ein kreativer Hotspot in Österreich. 
+                      Unser <strong className="text-primary">3D-Druck Service</strong> unterstützt Kreative mit:
                     </p>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Funktionsprototypen für neue Produktentwicklungen</span>
+                        <span>Architekturmodelle für Präsentationen</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Ersatzteile und Komponenten on-demand</span>
+                        <span>Dekorationsobjekte und Wohnaccessoires</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Vorrichtungen und Betriebsmittel für die Produktion</span>
+                        <span>Individuelle Geschenke und Unikate</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Kleinserien für Spezialprojekte</span>
+                        <span>Kunstobjekte und Skulpturen</span>
                       </li>
                     </ul>
                   </div>

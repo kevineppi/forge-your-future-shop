@@ -300,9 +300,9 @@ const Burgenland3DDruck = () => {
                     <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                       <Factory className="w-7 h-7 text-primary" />
                     </div>
-                    <h3 className="font-bold text-xl mb-3">Industrie</h3>
+                    <h3 className="font-bold text-xl mb-3">Modellbau</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Funktionsprototypen, Ersatzteile und Betriebsmittel für Burgenlands Industriebetriebe.
+                      Architekturmodelle, Präsentationsmodelle und individuelle Objekte für Burgenlands Kreative.
                     </p>
                   </div>
                 </AnimatedSection>

@@ -23,7 +23,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "ekdruck e.U.",
-            "description": "Professioneller 3D-Druck Service für Linz und Oberösterreich. Einzelanfertigungen, Prototypen und Serienfertigung mit österreichischem Filament.",
+            "description": "Professioneller 3D-Druck Service für Linz und Oberösterreich. Dekoration, Modellbau und individuelle Unikate mit österreichischem Filament.",
             "url": "https://www.ek-druck.at",
             "telephone": "+43 676 5517197",
             "email": "office@ek-druck.at",
@@ -67,7 +67,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             ],
             "paymentAccepted": "Cash, Credit Card, Bank Transfer",
             "currenciesAccepted": "EUR",
-            "keywords": "3D-Druck, Prototyping, Einzelanfertigungen, Serienfertigung, nachhaltiger 3D-Druck, österreichisches Filament",
+            "keywords": "3D-Druck, Modellbau, Dekoration, Einzelanfertigungen, nachhaltiger 3D-Druck, österreichisches Filament",
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "5.0",
@@ -219,7 +219,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
             "@context": "https://schema.org",
             "@type": "Service",
             "name": "3D-Druck Service Oberösterreich",
-            "description": "Professionelle 3D-Druck Dienstleistungen: FDM 3D-Druck, Rapid Prototyping, Einzelanfertigungen, Serienfertigung und nachhaltige Materialien aus Oberösterreich.",
+            "description": "Professionelle 3D-Druck Dienstleistungen: FDM 3D-Druck, Modellbau, Einzelanfertigungen, Dekoration und nachhaltige Materialien aus Oberösterreich.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "ekdruck e.U.",
@@ -265,8 +265,8 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
               "serviceUrl": "https://www.ek-druck.at",
               "servicePhone": "+43 676 5517197"
             },
-            "serviceType": "3D-Druck, Rapid Prototyping, FDM, Additive Fertigung, Prototypenerstellung",
-            "category": "Manufacturing, 3D Printing, Prototyping, Custom Manufacturing",
+            "serviceType": "3D-Druck, Modellbau, FDM, Dekoration, Architekturmodelle",
+            "category": "Manufacturing, 3D Printing, Model Making, Custom Design",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "3D-Druck Dienstleistungen",
@@ -275,8 +275,8 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "3D-Druck Funktionsprototyp",
-                    "description": "Voll funktionsfähige Testmodelle für mechanische Tests"
+                    "name": "3D-Druck Architekturmodell",
+                    "description": "Hochwertige Architekturmodelle und Präsentationsmodelle"
                   },
                   "price": "5.00",
                   "priceCurrency": "EUR",
