@@ -168,7 +168,7 @@ const Index = () => {
                       <div>
                         <p className="font-semibold mb-2">Qualitätskontrolle & Versand</p>
                         <p className="text-sm text-muted-foreground">
-                          Sorgfältige Prüfung jedes Bauteils vor dem Versand. Express-Service liefert in 24-48 Stunden österreichweit.
+                          Sorgfältige Prüfung jedes Objekts vor dem Versand. Express-Service liefert in 24-48 Stunden österreichweit.
                         </p>
                       </div>
                    </div>
@@ -418,8 +418,8 @@ const Index = () => {
                 </div>
                 <p className="font-semibold mb-3">Sorgfältige Qualitätskontrolle</p>
                  <p className="text-muted-foreground leading-relaxed">
-                   Jedes Bauteil wird visuell geprüft und auf Maßhaltigkeit kontrolliert.
-                   Reproduzierbare Qualität durch kalibrierte Drucker.
+                   Jedes Objekt wird visuell geprüft und auf Maßhaltigkeit kontrolliert.
+                   Gleichbleibende Qualität durch kalibrierte Drucker.
                  </p>
               </div>
 
@@ -540,10 +540,10 @@ const Index = () => {
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold mb-2">Für alle Branchen</p>
+                        <p className="font-semibold mb-2">Für jeden Kunden</p>
                          <p className="text-muted-foreground text-sm leading-relaxed">
-                           Von Einzelpersonen bis zu Großunternehmen - wir bedienen alle Branchen. 
-                           Industrie, Architektur, Medizintechnik, Design, Bildung und viele mehr. 
+                           Von Privatpersonen bis zu Firmenkunden - wir bedienen alle Bereiche. 
+                           Architektur, Design, Kunst, Bildung und viele mehr. 
                            Vergleichen Sie <a href="/ratgeber/verfahrens-vergleich" className="text-primary hover:underline font-semibold">verschiedene Druckverfahren</a>.
                          </p>
                       </div>
@@ -560,7 +560,7 @@ const Index = () => {
                       <div>
                         <p className="font-semibold mb-2">Finishing-Optionen</p>
                         <p className="text-muted-foreground text-sm leading-relaxed">
-                          Nachbearbeitung für produktionsreife Teile: Schleifen, Grundieren, Lackieren, 
+                          Nachbearbeitung für perfekte Objekte: Schleifen, Grundieren, Lackieren, 
                           Glattieren mit Aceton-Dampf und weitere Veredelungsmöglichkeiten.
                         </p>
                       </div>
