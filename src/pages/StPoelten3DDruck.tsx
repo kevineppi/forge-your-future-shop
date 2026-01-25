@@ -414,12 +414,12 @@ const StPoelten3DDruck = () => {
                 <AnimatedSection delay={0.3}>
                   <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-bold text-xl">ABS Industrial</h3>
-                      <span className="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-semibold">Technisch</span>
+                      <h3 className="font-bold text-xl">ABS Hitzebeständig</h3>
+                      <span className="px-3 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs font-semibold">Robust</span>
                     </div>
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      Bis 100°C hitzebeständig. Ideal für technische Prototypen, 
-                      Gehäuse und funktionale Bauteile in St. Pöltner Projekten.
+                      Bis 100°C hitzebeständig. Ideal für anspruchsvolle Objekte 
+                      und langlebige Projekte in St. Pölten.
                     </p>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center gap-2">

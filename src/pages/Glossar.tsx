@@ -445,8 +445,8 @@ const Glossar = () => {
               <div className="max-w-none text-muted-foreground text-sm md:text-base">
                 <p className="mb-3 md:mb-4 leading-relaxed">
                   Dieses 3D-Druck Glossar wurde speziell für die <strong className="text-foreground">additive Fertigung mit FDM-Technologie</strong> erstellt 
-                  und basiert auf jahrelanger praktischer Erfahrung im Prototypenbau und der Serienfertigung. Die Definitionen orientieren sich 
-                  an fachspezifischen Quellen aus der 3D-Druck-Community, technischen Foren und Herstellerdokumentation.
+                  und basiert auf jahrelanger praktischer Erfahrung. Die Definitionen orientieren sich 
+                  an fachspezifischen Quellen aus der 3D-Druck-Community, Foren und Herstellerdokumentation.
                 </p>
                 <p className="mb-3 md:mb-4 leading-relaxed">
                   Alle Begriffe sind <strong className="text-foreground">praxisnah erklärt</strong> und berücksichtigen die spezifischen Anforderungen 

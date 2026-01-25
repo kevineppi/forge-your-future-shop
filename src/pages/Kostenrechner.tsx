@@ -291,11 +291,11 @@ const Kostenrechner = () => {
                         </p>
                         <div className="bg-muted/50 p-4 rounded-lg space-y-2 text-sm">
                           <div className="flex justify-between">
-                            <span>Herkömmlicher Prototypenbau (6 Wochen):</span>
+                            <span>Herkömmliche Fertigung (6 Wochen):</span>
                             <span className="font-medium line-through">€4.200</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>3D-Druck Rapid Prototyping (1,5 Wochen):</span>
+                            <span>3D-Druck Express (1,5 Wochen):</span>
                             <span className="font-medium text-primary">€1.580</span>
                           </div>
                           <div className="border-t pt-2 flex justify-between font-bold">

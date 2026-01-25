@@ -81,7 +81,7 @@ const Materialien = () => {
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Warum österreichische Filamente?</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                   Kurze Transportwege, hohe Qualitätsstandards und Nachhaltigkeit durch Recycling-Innovation. 
-                  Perfekt für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> und Serienfertigung.
+                  Perfekt für <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> und individuelle Projekte.
                 </p>
               </div>
 
