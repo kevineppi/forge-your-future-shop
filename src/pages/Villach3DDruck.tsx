@@ -100,7 +100,7 @@ const Villach3DDruck = () => {
                 Unsere <span className="text-gradient">Services in Villach</span>
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Von schnellem <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> bis zur Serienfertigung – wir bieten professionelle 3D-Druck-Lösungen für Ihr Projekt in Villach.
+                Von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> bis zu Anschauungsmodellen – wir bieten professionelle 3D-Druck-Lösungen für Ihr Projekt in Villach.
               </p>
             </AnimatedSection>
             

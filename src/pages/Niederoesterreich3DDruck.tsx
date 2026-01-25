@@ -281,11 +281,11 @@ const Niederoesterreich3DDruck = () => {
               <AnimatedSection animation="scale-in" delay={150}>
                 <div className="gradient-card p-6 rounded-xl border border-border/50 hover-scale">
                   <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-xl font-bold">PETG Industrial</h3>
+                    <h3 className="text-xl font-bold">PETG Robust</h3>
                     <Badge variant="secondary" className="text-xs">Robust</Badge>
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Hohe Schlagzähigkeit, chemikalienbeständig. Perfekt für mechanisch belastete Funktionsteile.
+                    Hohe Schlagzähigkeit, chemikalienbeständig. Perfekt für langlebige Objekte.
                   </p>
                 </div>
               </AnimatedSection>

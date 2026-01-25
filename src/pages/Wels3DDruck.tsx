@@ -390,17 +390,17 @@ const Wels3DDruck = () => {
                 <AnimatedSection delay={0.2}>
                   <div className="bg-card p-6 rounded-2xl border-2 hover:border-primary/30 transition-all">
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-bold text-xl">PETG Industrial</h3>
+                      <h3 className="font-bold text-xl">PETG Robust</h3>
                       <span className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs font-semibold">Robust</span>
                     </div>
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      Chemikalienresistent und schlagfest. Ideal für funktionale Bauteile 
-                      in Welser Industriebetrieben. UV-stabil für Außeneinsätze.
+                      Chemikalienresistent und schlagfest. Ideal für langlebige Objekte 
+                      in Wels. UV-stabil für Außeneinsätze.
                     </p>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-primary" />
-                        <span>Industrie-geeignet</span>
+                        <span>Langlebig</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-primary" />

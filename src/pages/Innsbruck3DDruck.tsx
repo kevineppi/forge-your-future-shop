@@ -338,9 +338,9 @@ const Innsbruck3DDruck = () => {
                       die mit konventionellen Verfahren nicht realisierbar sind.
                     </p>
                     <p className="text-muted-foreground leading-relaxed">
-                      Ob für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>, 
-                      <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold"> Spezialanfertigungen</a> oder 
-                      <a href="/serienfertigung" className="text-primary hover:underline font-semibold"> Kleinserien</a> – FDM bietet 
+                      Ob für <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a>, 
+                      <a href="/modellbau-dekoration" className="text-primary hover:underline font-semibold"> Anschauungsmodelle</a> oder 
+                      individuelle Projekte – FDM bietet 
                       maximale Flexibilität für Ihre Projekte in Tirol.
                     </p>
                   </div>

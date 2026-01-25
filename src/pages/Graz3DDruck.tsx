@@ -261,17 +261,16 @@ const Graz3DDruck = () => {
                     <h3 className="text-3xl font-bold mb-6">Was ist FDM 3D-Druck?</h3>
                     <p className="text-lg text-muted-foreground mb-6">
                       <strong className="text-foreground">FDM (Fused Deposition Modeling)</strong> ist das 
-                      führende 3D-Druckverfahren für funktionale Bauteile. Dabei wird thermoplastisches 
+                      führende 3D-Druckverfahren für individuelle Objekte. Dabei wird thermoplastisches 
                       Material schichtweise aufgetragen und verschmolzen.
                     </p>
                     <p className="text-lg text-muted-foreground mb-6">
-                      Diese Technologie eignet sich perfekt für technische Prototypen, Funktionsteile 
-                      und Kleinserien in der Grazer Industrie - von Automotive über Maschinenbau bis 
-                      zur Medizintechnik.
+                      Diese Technologie eignet sich perfekt für Anschauungsmodelle, Messemodelle 
+                      und individuelle Einzelanfertigungen in Graz.
                     </p>
                     <div className="flex items-center gap-2 text-primary font-semibold">
                       <CheckCircle className="w-5 h-5" />
-                      <span>Geprüft für industrielle Anwendungen</span>
+                      <span>Geprüft für höchste Qualität</span>
                     </div>
                   </div>
                   <div className="bg-card p-8 rounded-2xl border-2 border-primary/20">

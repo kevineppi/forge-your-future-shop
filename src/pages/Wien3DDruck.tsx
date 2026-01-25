@@ -311,9 +311,9 @@ const Wien3DDruck = () => {
                       komplexer Geometrien für Wiener Start-ups, TU Wien Projekte und Innovation Labs.
                     </p>
                     <p className="text-muted-foreground leading-relaxed">
-                      Ob für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>, 
-                      <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold"> individuelle Einzelanfertigungen</a> oder 
-                      <a href="/serienfertigung" className="text-primary hover:underline font-semibold"> Kleinserien</a> – FDM 3D-Druck 
+                      Ob für <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a>, 
+                      <a href="/modellbau-dekoration" className="text-primary hover:underline font-semibold"> Anschauungsmodelle</a> oder 
+                      individuelle Projekte – FDM 3D-Druck 
                       bietet maximale Flexibilität für Ihre Projekte in Wien.
                     </p>
                   </div>

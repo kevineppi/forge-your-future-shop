@@ -65,7 +65,7 @@ const LocalBusinessSchema = ({ city, region, latitude, longitude, deliveryTime =
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": `Rapid Prototyping ${city}`,
+              "name": `Express 3D-Druck ${city}`,
               "description": `Express 3D-Druck Service für ${city} - Lieferung innerhalb von 24h`
             },
             "price": "10.00",

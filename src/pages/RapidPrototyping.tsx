@@ -26,16 +26,16 @@ const RapidPrototyping = () => {
 
   const prototypingPhases = [
     { phase: "Konzeptphase", zweck: "Erste Visualisierung", material: "PLA", zeit: "24h", kosten: "€50-150" },
-    { phase: "Funktionstest", zweck: "Mechanik prüfen", material: "PETG/ABS", zeit: "48h", kosten: "€150-400" },
-    { phase: "Validierung", zweck: "Finale Tests", material: "ABS/Nylon", zeit: "72h", kosten: "€300-800" },
-    { phase: "Präserie", zweck: "Nullserie", material: "ASA/PC", zeit: "5-7 Tage", kosten: "€500-2000" }
+    { phase: "Designprüfung", zweck: "Optik prüfen", material: "PETG/ABS", zeit: "48h", kosten: "€150-400" },
+    { phase: "Validierung", zweck: "Finale Tests", material: "ABS", zeit: "72h", kosten: "€300-800" },
+    { phase: "Anschauungsmodell", zweck: "Präsentation", material: "ASA", zeit: "5-7 Tage", kosten: "€500-2000" }
   ];
 
   const industryApplications = [
-    { industry: "Maschinenbau", zeitersparnis: "85%", kostenreduktion: "70%", beispiel: "Gehäuse, Adapter, Halterungen" },
-    { industry: "Medizintechnik", zeitersparnis: "90%", kostenreduktion: "75%", beispiel: "Prothesen, Implantate, Werkzeuge" },
-    { industry: "Automotive", zeitersparnis: "80%", kostenreduktion: "65%", beispiel: "Interieur-Teile, Brackets, Clips" },
-    { industry: "Consumer Products", zeitersparnis: "75%", kostenreduktion: "60%", beispiel: "Gehäuse, Bedienelemente, Design" }
+    { industry: "Architektur", zeitersparnis: "85%", kostenreduktion: "70%", beispiel: "Modelle, Präsentationen, Visualisierungen" },
+    { industry: "Design", zeitersparnis: "90%", kostenreduktion: "75%", beispiel: "Konzepte, Studien, Muster" },
+    { industry: "Kunst & Kreativ", zeitersparnis: "80%", kostenreduktion: "65%", beispiel: "Skulpturen, Objekte, Unikate" },
+    { industry: "Messe & Event", zeitersparnis: "75%", kostenreduktion: "60%", beispiel: "Messemodelle, Anschauungsobjekte, Displays" }
   ];
 
   const faqs = [
@@ -60,8 +60,8 @@ const RapidPrototyping = () => {
       answer: "Idealerweise ja (STL, OBJ, STEP, IGES). Falls Sie keine CAD-Datei haben, erstellen wir diese gerne für Sie basierend auf Ihrer Skizze oder Idee. Kostenlose Designberatung inklusive."
     },
     {
-      question: "Ist Rapid Prototyping auch für Kleinserien geeignet?",
-      answer: "Ja, perfekt für Kleinserien von 1-1000 Stück! FDM 3D-Druck ist kostengünstig ohne Werkzeugkosten. Ideal für Markteinführungen, limitierte Editionen oder Tests vor der Serienfertigung."
+      question: "Ist Rapid Prototyping auch für Anschauungsmodelle geeignet?",
+      answer: "Ja, perfekt für Anschauungsmodelle und Messemodelle! FDM 3D-Druck ist kostengünstig ohne Werkzeugkosten. Ideal für Präsentationen, Kundenpräsentationen oder Designstudien."
     }
   ];
 
