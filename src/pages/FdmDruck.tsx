@@ -16,7 +16,7 @@ const FdmDruck = () => {
     <>
       <SEOHead 
         title="FDM 3D-Druck ab €15 | 0,1mm Präzision | Jetzt Preis berechnen"
-        description="70% günstiger als CNC! FDM-Druck für Funktionsteile: PLA, PETG, ABS. Heute bestellen → 24-48h geliefert. → Kostenlos Machbarkeit prüfen"
+        description="70% günstiger als CNC! FDM-Druck für Modelle & Dekoration: PLA, PETG, ABS. Heute bestellen → 24-48h geliefert. → Kostenlos Machbarkeit prüfen"
         keywords="fdm 3d-druck österreich, fused deposition modeling oberösterreich, fdm verfahren österreich, 3d-druck fdm oberösterreich, fdm drucker service österreich, schichtauflösung 0.1mm, thermoplastisches filament, material-extrusion"
         path="/fdm-3d-druck"
         breadcrumbs={[
@@ -66,7 +66,7 @@ const FdmDruck = () => {
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
                 Präzise, kostengünstige und vielseitige FDM 3D-Druck Lösungen mit höchster Qualität. 
-                Von Prototypen bis zur Serienfertigung - österreichweit verfügbar.
+                Von Modellen bis zur individuellen Dekoration - österreichweit verfügbar.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale animate-fade-in" asChild>
@@ -88,7 +88,7 @@ const FdmDruck = () => {
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Was ist FDM 3D-Druck?</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                   Fused Deposition Modeling (FDM) ist das vielseitigste und kostengünstigste 3D-Druckverfahren 
-                  für Prototypen, Funktionsteile und Kleinserien.
+                  für Modelle, Dekorationen und individuelle Unikate.
                 </p>
               </div>
 
@@ -193,8 +193,8 @@ const FdmDruck = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Kurze Rüstzeiten und parallele Fertigung mehrerer Teile für schnelle Prototypenerstellung. 
-                      Ideal für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>.
+                      Kurze Rüstzeiten und parallele Fertigung mehrerer Teile für schnelle Modellherstellung. 
+                      Ideal für <a href="/modellbau-dekoration" className="text-primary hover:underline font-semibold">Modellbau & Dekoration</a>.
                     </p>
                   </CardContent>
                 </Card>
@@ -237,7 +237,7 @@ const FdmDruck = () => {
                       <li>• Biologisch abbaubar</li>
                       <li>• Niedrige Drucktemperatur</li>
                       <li>• Hohe Detailgenauigkeit</li>
-                      <li>• Ideal für Prototypen</li>
+                      <li>• Ideal für Modelle</li>
                       <li>• Alle Farben verfügbar</li>
                     </ul>
                     <Badge className="mt-4">Bestseller</Badge>
@@ -255,7 +255,7 @@ const FdmDruck = () => {
                       <li>• Chemisch beständig</li>
                       <li>• Transparent möglich</li>
                       <li>• Schlagzäh</li>
-                      <li>• Für Funktionsteile</li>
+                      <li>• Für Dekorationen</li>
                     </ul>
                     <Badge className="mt-4" variant="secondary">Technisch</Badge>
                   </CardContent>
@@ -271,7 +271,7 @@ const FdmDruck = () => {
                       <li>• Hitzebeständig bis 80°C</li>
                       <li>• Schlagfest</li>
                       <li>• Aceton-glättbar</li>
-                      <li>• Für Gehäuse</li>
+                      <li>• Für Modelle</li>
                       <li>• Langlebig</li>
                     </ul>
                     <Badge className="mt-4" variant="outline">Industrial</Badge>
