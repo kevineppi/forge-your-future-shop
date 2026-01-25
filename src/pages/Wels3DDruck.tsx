@@ -284,10 +284,10 @@ const Wels3DDruck = () => {
             <div className="max-w-6xl mx-auto">
               <AnimatedSection>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-                  3D-Druck für <span className="text-gradient">Welser Industrie</span>
+                  3D-Druck für <span className="text-gradient">Welser Kreative</span>
                 </h2>
                 <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-lg">
-                  Als Industriestadt benötigt Wels zuverlässige und schnelle Lösungen für technische Bauteile – 
+                  Wels bietet kreativen Köpfen optimale Möglichkeiten für individuelle Projekte – 
                   wir liefern präzise und rechtzeitig.
                 </p>
               </AnimatedSection>

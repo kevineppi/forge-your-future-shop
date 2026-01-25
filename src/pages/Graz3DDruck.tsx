@@ -107,8 +107,8 @@ const Graz3DDruck = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground mb-6">
-                      Hochpräziser FDM-Druck für technische Bauteile mit Industrie-Toleranzen. 
-                      Perfekt für funktionale Prototypen und Fertigungsteile.
+                      Hochpräziser FDM-Druck für Dekorationsobjekte und Modelle. 
+                      Perfekt für Architekturmodelle und Präsentationsstücke.
                     </p>
                     <a href="/fdm-3d-druck" className="text-primary hover:underline flex items-center gap-2 font-semibold group">
                       Mehr erfahren <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -325,10 +325,10 @@ const StPoelten3DDruck = () => {
                     <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                       <Factory className="w-7 h-7 text-primary" />
                     </div>
-                    <h3 className="font-bold text-xl mb-3">Industrie & Gewerbe</h3>
+                    <h3 className="font-bold text-xl mb-3">Modellbau & Dekoration</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Funktionsprototypen und Betriebsmittel für St. Pöltner Gewerbebetriebe. 
-                      Schnelle Lösungen für lokale Unternehmen.
+                      Architekturmodelle und Dekorationsobjekte für St. Pöltner Kreative. 
+                      Schnelle Lösungen für lokale Projekte.
                     </p>
                   </div>
                 </AnimatedSection>

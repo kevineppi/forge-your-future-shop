@@ -182,12 +182,12 @@ const Oberoesterreich3DDruck = () => {
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                     <Factory className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Serienfertigung</h3>
+                  <h3 className="text-2xl font-bold mb-4">Modellbau & Dekoration</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Klein- und Mittelserien von 10 bis 10.000+ Stück. Konstante Qualität, wirtschaftliche Fertigung. Perfekt für Ersatzteile, Betriebsmittel und Produktionsläufe.
+                    Architekturmodelle, Dekorationsobjekte und individuelle Unikate. Konstante Qualität, kreative Lösungen für Sammler, Architekten und Kreative.
                   </p>
                   <Button variant="link" asChild className="p-0 h-auto font-semibold">
-                    <a href="/serienfertigung-3d-druck">
+                    <a href="/modellbau-dekoration">
                       Mehr erfahren <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>

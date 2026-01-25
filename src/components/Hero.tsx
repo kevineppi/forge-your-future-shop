@@ -106,7 +106,7 @@ const Hero = () => {
               <div className="rounded-xl border border-border bg-card/80 backdrop-blur-sm p-4">
                 <h3 className="font-semibold text-base mb-1">FDM 3D-Druck Service</h3>
                 <p className="text-muted-foreground text-sm">
-                  Prototypen, Ersatzteile und Kleinserien.
+                  Dekoration, Modellbau und individuelle Unikate.
                 </p>
               </div>
 

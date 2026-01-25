@@ -133,8 +133,8 @@ const Probeteile = () => {
   return <>
         <SEOHead 
           title="GRATIS Probeteil für B2B | Risikofrei testen | 6h Antwort"
-          description="0€ Risiko: Kostenloses Probeteil vor Ihrer Serie! Qualität prüfen, dann entscheiden. Antwort in 6 Stunden. → Jetzt gratis Muster anfordern" 
-          keywords="kostenlose probeteile 3d-druck, b2b 3d-druck, serienfertigung probedruck, gratis probeteil"
+          description="0€ Risiko: Kostenloses Probeteil vor Ihrer Bestellung! Qualität prüfen, dann entscheiden. Antwort in 6 Stunden. → Jetzt gratis Muster anfordern" 
+          keywords="kostenlose probeteile 3d-druck, b2b 3d-druck, gratis probeteil, modellbau probedruck"
         path="/probeteile" 
       />
       <StructuredData type="organization" />
@@ -155,10 +155,10 @@ const Probeteile = () => {
               Nur für B2B-Anfragen
             </div>
             <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent leading-relaxed py-2">
-              <span className="text-gradient">GRATIS 3D-Druck Probeteil</span> für B2B Serienfertigung
+              <span className="text-gradient">GRATIS 3D-Druck Probeteil</span> für B2B Projekte
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-              <strong className="text-foreground">Kostenloser Qualitätstest</strong> vor Serienauftrag ab 50 Stück. 
+              <strong className="text-foreground">Kostenloser Qualitätstest</strong> vor größeren Bestellungen ab 50 Stück. 
               Professioneller B2B Service für österreichische Unternehmen - 100% unverbindlich.
             </p>
             <div className="max-w-4xl mx-auto text-left mb-12">
@@ -166,28 +166,28 @@ const Probeteile = () => {
                 <div>
                   <h2 className="text-2xl font-semibold mb-4 text-primary">Warum kostenlose Probeteile?</h2>
                   <p className="text-muted-foreground mb-4">
-                    Bevor Sie sich für eine 3D-Druck Serienfertigung entscheiden, möchten Sie sicherstellen, 
+                    Bevor Sie sich für eine größere 3D-Druck Bestellung entscheiden, möchten Sie sicherstellen, 
                     dass Qualität, Maßhaltigkeit und Materialauswahl Ihren Anforderungen entsprechen. 
                     Unser kostenloses Probeteil-Service ermöglicht es Ihnen, unsere FDM-Druckqualität 
                     ohne Risiko zu bewerten.
                   </p>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li>• Qualitätsprüfung vor Serienauftrag</li>
+                    <li>• Qualitätsprüfung vor größeren Bestellungen</li>
                     <li>• Materialtest für Ihre Anwendung</li>
                     <li>• Maßhaltigkeit und Oberflächenqualität prüfen</li>
-                    <li>• Funktionstest des Bauteils</li>
+                    <li>• Optik und Haptik des Objekts prüfen</li>
                   </ul>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold mb-4 text-primary">Für welche Unternehmen?</h2>
                   <p className="text-muted-foreground mb-4">
                     Unser B2B Probeteile-Service richtet sich an österreichische und deutsche Unternehmen, 
-                    die eine 3D-Druck Serienfertigung planen. Ideal für Maschinenbau und Produktentwicklung.
+                    die größere 3D-Druck Bestellungen planen. Ideal für Modellbau, Dekoration und Präsentationsobjekte.
                   </p>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li>• Produktentwicklung und Prototyping</li>
-                    <li>• Ersatzteilproduktion in Serie</li>
-                    <li>• Kleinserien für Maschinenbau</li>
+                    <li>• Modellbau und Architektur</li>
+                    <li>• Dekoration und Wohnaccessoires</li>
+                    <li>• Individuelle Geschenke und Unikate</li>
                   </ul>
                 </div>
               </div>
@@ -204,7 +204,7 @@ const Probeteile = () => {
               <CardContent>
                 <p className="text-muted-foreground">
                   Ein kostenloses 3D-Druck Probeteil pro Unternehmen mit bis zu 20cm Seitenlänge. 
-                  Perfekt für die Bewertung unserer Serienfertigung-Qualität.
+                  Perfekt für die Bewertung unserer Druck-Qualität vor größeren Bestellungen.
                 </p>
               </CardContent>
             </Card>
@@ -225,11 +225,11 @@ const Probeteile = () => {
             <Card className="border-primary/20 hover:shadow-lg transition-shadow">
               <CardHeader>
                 <AlertCircle className="w-8 h-8 text-primary mb-2" />
-                <CardTitle className="text-lg">B2B Serienfertigung</CardTitle>
+                <CardTitle className="text-lg">B2B Bestellungen</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Ausschließlich für Unternehmen mit geplanter 3D-Druck Serienfertigung ab 50 Stück. 
+                  Ausschließlich für Unternehmen mit geplanten Bestellungen ab 50 Stück. 
                   Für kleinere Mengen nutzen Sie bitte unser normales Bestellformular mit entsprechender Anmerkung.
                 </p>
               </CardContent>
@@ -239,7 +239,7 @@ const Probeteile = () => {
           {/* Additional Info Section */}
           <div className="bg-secondary/20 rounded-lg p-8 mb-12">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-bold text-center mb-6">Ihr Weg zur professionellen 3D-Druck Serienfertigung</h2>
+              <h2 className="text-2xl font-bold text-center mb-6">Ihr Weg zum professionellen 3D-Druck Projekt</h2>
               <div className="grid md:grid-cols-4 gap-6 text-center">
                 <div className="space-y-2">
                   <div className="bg-primary text-primary-foreground rounded-full w-12 h-12 flex items-center justify-center mx-auto font-bold text-lg">1</div>
@@ -249,7 +249,7 @@ const Probeteile = () => {
                 <div className="space-y-2">
                   <div className="bg-primary text-primary-foreground rounded-full w-12 h-12 flex items-center justify-center mx-auto font-bold text-lg">2</div>
                   <h3 className="font-semibold">Qualifikation</h3>
-                  <p className="text-sm text-muted-foreground">Prüfung Ihrer B2B Anfrage und Serienpotential</p>
+                  <p className="text-sm text-muted-foreground">Prüfung Ihrer B2B Anfrage</p>
                 </div>
                 <div className="space-y-2">
                   <div className="bg-primary text-primary-foreground rounded-full w-12 h-12 flex items-center justify-center mx-auto font-bold text-lg">3</div>
@@ -258,8 +258,8 @@ const Probeteile = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="bg-primary text-primary-foreground rounded-full w-12 h-12 flex items-center justify-center mx-auto font-bold text-lg">4</div>
-                  <h3 className="font-semibold">Serienfertigung</h3>
-                  <p className="text-sm text-muted-foreground">Angebot für Ihre 3D-Druck Serienfertigung</p>
+                  <h3 className="font-semibold">Bestellung</h3>
+                  <p className="text-sm text-muted-foreground">Angebot für Ihre 3D-Druck Bestellung</p>
                 </div>
               </div>
             </div>

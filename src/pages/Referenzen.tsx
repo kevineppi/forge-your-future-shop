@@ -156,8 +156,8 @@ const Referenzen = () => {
     <>
       <SEOHead 
         title="3D-Druck Referenzen & Projekte | ekdruck Österreich"
-        description="Entdecken Sie unsere 3D-Druck Projekte: Prototypen, Kleinserien & Ersatzteile. Mit technischen Daten, Druckzeiten & Kundenfeedback. Made in Austria."
-        keywords="3d-druck referenzen, 3d-druck projekte, 3d-druck beispiele, prototypen österreich, kleinserien 3d-druck"
+        description="Entdecken Sie unsere 3D-Druck Projekte: Dekoration, Modellbau & individuelle Unikate. Mit technischen Daten, Druckzeiten & Kundenfeedback. Made in Austria."
+        keywords="3d-druck referenzen, 3d-druck projekte, 3d-druck beispiele, modellbau österreich, dekoration 3d-druck"
         path="/referenzen"
       />
       <BreadcrumbSchema items={[
@@ -180,7 +180,7 @@ const Referenzen = () => {
                 Unsere <span className="text-gradient">Referenzen</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                Von Prototypen bis Kleinserien – entdecken Sie ausgewählte Projekte mit 
+                Von Architekturmodellen bis Deko-Objekten – entdecken Sie ausgewählte Projekte mit 
                 technischen Details, Druckzeiten und Kundenfeedback.
               </p>
               <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">

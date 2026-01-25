@@ -81,13 +81,13 @@ const Navigation = () => {
                     </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="p-0">
-                    <a href="/serienfertigung" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                    <a href="/modellbau-dekoration" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
                       <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                        <Factory className="h-5 w-5 text-primary" />
+                        <Home className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <div className="font-medium text-foreground">Serienfertigung</div>
-                        <div className="text-sm text-muted-foreground">Kleinserien 10-10.000 Stück</div>
+                        <div className="font-medium text-foreground">Modellbau & Dekoration</div>
+                        <div className="text-sm text-muted-foreground">Architekturmodelle, Deko-Objekte</div>
                       </div>
                     </a>
                   </DropdownMenuItem>
@@ -227,12 +227,12 @@ const Navigation = () => {
                 Einzelanfertigungen
               </a>
               <a 
-                href="/serienfertigung" 
+                href="/modellbau-dekoration" 
                 className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
                 onClick={() => setIsOpen(false)}
               >
-                <Factory className="h-4 w-4 text-primary" />
-                Serienfertigung
+                <Home className="h-4 w-4 text-primary" />
+                Modellbau & Dekoration
               </a>
               <a 
                 href="/probeteile" 

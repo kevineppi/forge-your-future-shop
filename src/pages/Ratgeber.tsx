@@ -1,4 +1,4 @@
-import { BookOpen, TrendingUp, Clock, Award } from "lucide-react";
+import { BookOpen, TrendingUp, Clock, Award, Palette } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
@@ -9,24 +9,6 @@ import AIChatWidget from "@/components/AIChatWidget";
 
 const Ratgeber = () => {
   const articles = [
-    {
-      title: "Kleinserien wirtschaftlich produzieren: Ab wann lohnt sich 3D-Druck?",
-      description: "Praxis-Beispiel: 200 Montagehalterungen im 3D-Druck. Erfahren Sie, ab welcher Stückzahl 3D-Druck Serienfertigung wirtschaftlich ist und wie Sie bis zu 82% Kosten sparen.",
-      link: "/ratgeber/serienfertigung-case-study",
-      icon: TrendingUp,
-      category: "Serienfertigung",
-      readTime: "8 Min. Lesezeit",
-      date: "Januar 2025"
-    },
-    {
-      title: "Rapid Prototyping Österreich: Wissenschaftlicher Guide + 24h Express",
-      description: "85% schneller als traditionelle Methoden: Wissenschaftlich fundierter Guide zu Rapid Prototyping mit FDM 3D-Druck. Inkl. Vergleichstabellen, ROI-Berechnung und Branchenanwendungen.",
-      link: "/rapid-prototyping",
-      icon: Clock,
-      category: "Rapid Prototyping",
-      readTime: "15 Min. Lesezeit",
-      date: "Februar 2025"
-    },
     {
       title: "3D-Druck Kosten in Österreich: Der ultimative Preisguide 2025",
       description: "Erfahren Sie alles über 3D-Druck Preise, Kostenfaktoren und wie Sie bei Ihrem nächsten Projekt Geld sparen können. Inklusive echter Preisbeispiele und Kalkulationshilfen.",
@@ -55,13 +37,13 @@ const Ratgeber = () => {
       date: "Oktober 2025"
     },
     {
-      title: "3D-Druck im Maschinenbau: Funktionsprototypen & Ersatzteile",
-      description: "Wissenschaftlich fundierter Guide zu 3D-Druck im Maschinenbau mit Materialvergleich, Toleranzen, Kostenanalyse und Praxisbeispielen aus Österreich.",
-      link: "/ratgeber/maschinenbau",
-      icon: Award,
-      category: "Maschinenbau",
-      readTime: "10 Min. Lesezeit",
-      date: "Oktober 2025"
+      title: "3D-Druck für Architekturmodelle: Tipps & Materialwahl",
+      description: "Erfahren Sie, wie Sie beeindruckende Architekturmodelle mit 3D-Druck erstellen. Materialwahl, Skalierung und Präsentationstechniken für Architekten und Modellbauer.",
+      link: "/modellbau-dekoration",
+      icon: Palette,
+      category: "Modellbau",
+      readTime: "8 Min. Lesezeit",
+      date: "Januar 2025"
     }
   ];
 
@@ -77,8 +59,8 @@ const Ratgeber = () => {
       comingSoon: true
     },
     {
-      title: "3D-Druck für Startups: Von der Idee zum Prototyp",
-      category: "Business",
+      title: "Individuelle Geschenke aus dem 3D-Drucker",
+      category: "Geschenke",
       comingSoon: true
     }
   ];
@@ -88,7 +70,7 @@ const Ratgeber = () => {
       <SEOHead
         title="3D-Druck Wissen: Kosten sparen & Fehler vermeiden | Gratis"
         description="Sparen Sie €500+ bei Ihrem ersten Projekt! Kostenlose Guides: Was kostet 3D-Druck wirklich? Welches Material? → Experten-Tipps sofort anwenden"
-        keywords="3d-druck ratgeber, 3d-druck kosten, fdm verfahren, 3d-druck tipps österreich, 3d-druck guide, rapid prototyping guide"
+        keywords="3d-druck ratgeber, 3d-druck kosten, fdm verfahren, 3d-druck tipps österreich, 3d-druck guide, modellbau guide"
         path="/ratgeber"
         schemaType="article"
       />
@@ -114,7 +96,7 @@ const Ratgeber = () => {
                 3D-Druck Ratgeber für Österreich
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                Professionelles Wissen rund um 3D-Druck, FDM-Technologie und Rapid Prototyping. Von Expert:innen aus Oberösterreich für ganz Österreich.
+                Professionelles Wissen rund um 3D-Druck, FDM-Technologie und Modellbau. Von Expert:innen aus Oberösterreich für ganz Österreich.
               </p>
             </div>
 
@@ -178,12 +160,10 @@ const Ratgeber = () => {
                   <CardContent>
                     <Button asChild className="w-full md:w-auto">
                       <a href={article.link}>
-                        {article.link === '/ratgeber/serienfertigung-case-study' && 'Case Study lesen'}
-                        {article.link === '/rapid-prototyping' && 'Rapid Prototyping Guide lesen'}
-                        {article.link === '/ratgeber/kosten-guide' && '3D-Druck Kosten-Guide lesen'}
-                        {article.link === '/ratgeber/verfahrens-vergleich' && 'Verfahrens-Vergleich lesen'}
-                        {article.link === '/ratgeber/material-guide' && 'Material-Guide lesen'}
-                        {article.link === '/ratgeber/maschinenbau' && 'Maschinenbau-Guide lesen'}
+                        {article.category === 'Kosten & Preise' && '3D-Druck Kosten-Guide lesen'}
+                        {article.category === 'Technologie' && 'Verfahrens-Vergleich lesen'}
+                        {article.category === 'Materialien' && 'Material-Guide lesen'}
+                        {article.category === 'Modellbau' && 'Modellbau-Guide lesen'}
                       </a>
                     </Button>
                   </CardContent>

@@ -21,9 +21,9 @@ const Villach3DDruck = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Villach | Industrie-Qualität | Express 24-48h"
-        description="Villachs Industrie setzt auf uns: Automotive, Elektronik, Maschinenbau. Technische Beratung gratis! → Jetzt Villach-Express anfragen"
-        keywords="3d-druck villach, 3d drucker villach, fdm druck villach, rapid prototyping villach, 3d-druck service villach, prototypen villach"
+        title="3D-Druck Villach | Premium-Qualität | Express 24-48h"
+        description="Villach setzt auf uns: Modellbau, Dekoration, individuelle Unikate. Beratung gratis! → Jetzt Villach-Express anfragen"
+        keywords="3d-druck villach, 3d drucker villach, fdm druck villach, modellbau villach, 3d-druck service villach, dekoration villach"
         path="/3d-druck-villach"
       />
       <BreadcrumbSchema items={[

@@ -163,10 +163,10 @@ const Steiermark3DDruck = () => {
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <Factory className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Industrie 3D-Druck</h3>
+                  <h3 className="text-2xl font-bold mb-4">Modellbau 3D-Druck</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    FDM 3D-Druck für steirische Industriebetriebe. Funktionsprototypen, 
-                    Betriebsmittel und Ersatzteile – robust und präzise.
+                    FDM 3D-Druck für steirische Kreative. Architekturmodelle, 
+                    Dekorationsobjekte und Präsentationsmodelle – detailreich und präzise.
                   </p>
                   <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold inline-flex items-center gap-2 group">
                     Mehr erfahren 
