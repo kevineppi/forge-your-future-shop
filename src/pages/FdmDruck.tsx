@@ -29,7 +29,7 @@ const FdmDruck = () => {
       />
       <ServiceSchema 
         serviceName="FDM 3D-Druck Service"
-        description="Professioneller FDM (Fused Deposition Modeling) 3D-Druck Service für Prototypen, Funktionsteile und Kleinserien in ganz Österreich. Präzise Fertigung mit Schichtauflösungen bis 0,1mm."
+        description="Professioneller FDM (Fused Deposition Modeling) 3D-Druck Service für individuelle Einzelanfertigungen in ganz Österreich. Präzise Fertigung mit Schichtauflösungen bis 0,1mm für Modellbau, Dekoration und Geschenkartikel."
         serviceType="Service"
         offers={{
           price: "5.00",
@@ -119,8 +119,8 @@ const FdmDruck = () => {
                         <div className="w-6 h-6 bg-primary rounded text-white flex items-center justify-center text-sm font-bold">3</div>
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-2">Fertiges Bauteil</h4>
-                        <p className="text-muted-foreground">Nach dem Abkühlen entstehen stabile, funktionsfähige 3D-Objekte.</p>
+                        <h4 className="font-semibold mb-2">Fertiges Objekt</h4>
+                        <p className="text-muted-foreground">Nach dem Abkühlen entstehen hochwertige, detailreiche 3D-Objekte.</p>
                       </div>
                     </div>
                   </div>
@@ -139,7 +139,7 @@ const FdmDruck = () => {
                         <div className="text-primary">0,1 mm</div>
                       </div>
                       <div className="bg-background/50 p-3 rounded-lg">
-                        <div className="font-semibold">Max. Bauteilgröße</div>
+                        <div className="font-semibold">Max. Objektgröße</div>
                         <div className="text-primary">30×30×40 cm</div>
                       </div>
                     </div>
@@ -157,7 +157,7 @@ const FdmDruck = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Warum FDM 3D-Druck?</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Das FDM-Verfahren bietet unschlagbare Vorteile für vielseitige Anwendungen
+                  Das FDM-Verfahren bietet unschlagbare Vorteile für individuelle Projekte
                 </p>
               </div>
 
@@ -169,7 +169,7 @@ const FdmDruck = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Niedrige Materialkosten und effiziente Produktion machen FDM zum preiswertesten 3D-Druckverfahren.
+                      Niedrige Materialkosten und effiziente Fertigung machen FDM zur idealen Wahl für Einzelanfertigungen.
                     </p>
                   </CardContent>
                 </Card>
@@ -181,7 +181,7 @@ const FdmDruck = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Große Auswahl an Materialien: PLA, PETG, ABS, flexible Filamente und technische Werkstoffe.
+                      Große Auswahl an Materialien: PLA, PETG, ABS und flexible Filamente für jeden Anwendungsbereich.
                     </p>
                   </CardContent>
                 </Card>
@@ -193,8 +193,8 @@ const FdmDruck = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Kurze Rüstzeiten und parallele Fertigung mehrerer Teile für schnelle Modellherstellung. 
-                      Ideal für <a href="/modellbau-dekoration" className="text-primary hover:underline font-semibold">Modellbau & Dekoration</a>.
+                      Kurze Vorlaufzeiten für schnelle Umsetzung Ihrer Projekte. 
+                      Ideal für <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelanfertigungen</a>.
                     </p>
                   </CardContent>
                 </Card>
@@ -222,7 +222,7 @@ const FdmDruck = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">FDM 3D-Druck Materialien</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Hochwertige österreichische Filamente für jede Anwendung
+                  Hochwertige Filamente für individuelle Projekte
                 </p>
               </div>
 
@@ -237,7 +237,7 @@ const FdmDruck = () => {
                       <li>• Biologisch abbaubar</li>
                       <li>• Niedrige Drucktemperatur</li>
                       <li>• Hohe Detailgenauigkeit</li>
-                      <li>• Ideal für Modelle</li>
+                      <li>• Ideal für Dekorationen</li>
                       <li>• Alle Farben verfügbar</li>
                     </ul>
                     <Badge className="mt-4">Bestseller</Badge>
@@ -255,9 +255,9 @@ const FdmDruck = () => {
                       <li>• Chemisch beständig</li>
                       <li>• Transparent möglich</li>
                       <li>• Schlagzäh</li>
-                      <li>• Für Dekorationen</li>
+                      <li>• Für Geschenkartikel</li>
                     </ul>
-                    <Badge className="mt-4" variant="secondary">Technisch</Badge>
+                    <Badge className="mt-4" variant="secondary">Vielseitig</Badge>
                   </CardContent>
                 </Card>
 
@@ -271,10 +271,10 @@ const FdmDruck = () => {
                       <li>• Hitzebeständig bis 80°C</li>
                       <li>• Schlagfest</li>
                       <li>• Aceton-glättbar</li>
-                      <li>• Für Modelle</li>
+                      <li>• Für Modellbau</li>
                       <li>• Langlebig</li>
                     </ul>
-                    <Badge className="mt-4" variant="outline">Industrial</Badge>
+                    <Badge className="mt-4" variant="outline">Robust</Badge>
                   </CardContent>
                 </Card>
               </div>
@@ -291,11 +291,11 @@ const FdmDruck = () => {
                 <CheckCircle className="h-8 w-8 text-primary" />
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Ihr FDM 3D-Druck Projekt startet hier
+                Ihre individuelle Einzelanfertigung startet hier
               </h2>
               <p className="text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
                 Kostenlose Beratung, faire Preise und schnelle Lieferung österreichweit. 
-                Lassen Sie uns Ihre Ideen in die Realität umsetzen!
+                Wir setzen Ihre individuellen Projekte professionell um!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale" asChild>
