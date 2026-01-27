@@ -90,11 +90,13 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="group text-base px-6 py-6" 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group text-base px-6 py-6"
+                asChild
               >
-                Anfrage stellen
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <a href="/#contact">
+                  Anfrage stellen
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
               </Button>
             </div>
           </div>

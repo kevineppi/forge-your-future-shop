@@ -319,10 +319,10 @@ const Firmenkunden = () => {
                 {/* Key USPs */}
                 <div className="flex flex-wrap gap-3 mb-8">
                   {[
-                    "Rechnung mit MwSt.",
                     "Express 24h",
                     "Persönlicher Kontakt",
-                    "Made in Austria"
+                    "Made in Austria",
+                    "100% Termintreue"
                   ].map((usp, i) => (
                     <div key={i} className="flex items-center gap-2 bg-muted/50 px-3 py-1.5 rounded-full text-sm">
                       <CheckCircle className="w-4 h-4 text-primary" />
@@ -340,7 +340,7 @@ const Firmenkunden = () => {
                     </Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="text-base group">
-                    <a href="mailto:office@ek-druck.at">
+                    <a href="/#contact">
                       <Mail className="mr-2 w-5 h-5" />
                       Beratung anfragen
                     </a>
@@ -802,9 +802,9 @@ const Firmenkunden = () => {
                     </Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="text-base">
-                    <a href="tel:+436645353003">
+                    <a href="tel:+436765517197">
                       <Phone className="mr-2 w-5 h-5" />
-                      +43 664 535 30 03
+                      +43 676 5517197
                     </a>
                   </Button>
                 </div>
@@ -825,10 +825,10 @@ const Firmenkunden = () => {
                   </div>
 
                   <div className="grid md:grid-cols-3 gap-6">
-                    <a href="tel:+436645353003" className="flex flex-col items-center p-4 rounded-xl bg-muted/50 hover:bg-primary/10 transition-colors group">
+                    <a href="tel:+436765517197" className="flex flex-col items-center p-4 rounded-xl bg-muted/50 hover:bg-primary/10 transition-colors group">
                       <Phone className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
                       <span className="font-semibold">Telefon</span>
-                      <span className="text-sm text-muted-foreground">+43 664 535 30 03</span>
+                      <span className="text-sm text-muted-foreground">+43 676 5517197</span>
                     </a>
                     <a href="mailto:office@ek-druck.at" className="flex flex-col items-center p-4 rounded-xl bg-muted/50 hover:bg-primary/10 transition-colors group">
                       <Mail className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
