@@ -34,61 +34,73 @@ const Navigation = () => {
               <DropdownMenuTrigger className="flex items-center text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
                 Services <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent sideOffset={12} className="w-[520px] p-4 bg-background border border-border/50 shadow-xl z-[110]">
-                <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+              <DropdownMenuContent sideOffset={12} className="w-[520px] p-4 bg-background border border-border/50 shadow-2xl z-[110] animate-scale-in">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-1">
                   {/* Linke Spalte - Services */}
-                  <div className="space-y-1">
-                    <div className="px-2 py-1 text-xs font-semibold text-muted-foreground uppercase tracking-wide">Services</div>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/fdm-3d-druck" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <Box className="h-4 w-4 text-primary" />
+                  <div className="space-y-0.5">
+                    <div className="px-2 py-1.5 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Services</div>
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/fdm-3d-druck" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <Box className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">FDM 3D-Druck</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">FDM 3D-Druck</div>
                           <div className="text-xs text-muted-foreground">Vielseitig & kostengünstig</div>
                         </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/rapid-prototyping" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <TestTube className="h-4 w-4 text-primary" />
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/rapid-prototyping" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <TestTube className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">Rapid Prototyping</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Rapid Prototyping</div>
                           <div className="text-xs text-muted-foreground">Schnelle Modell-Umsetzung</div>
                         </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/einzelanfertigungen" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <Sparkles className="h-4 w-4 text-primary" />
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/einzelanfertigungen" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <Sparkles className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">Einzelanfertigungen</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Einzelanfertigungen</div>
                           <div className="text-xs text-muted-foreground">Unikate nach Ihren Wünschen</div>
                         </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/probeteile" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <TestTube className="h-4 w-4 text-primary" />
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/probeteile" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <TestTube className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">Kostenlose Probeteile</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Kostenlose Probeteile</div>
                           <div className="text-xs text-muted-foreground">Kostenlose B2B Muster</div>
                         </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/glossar" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <Book className="h-4 w-4 text-primary" />
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/glossar" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <Book className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">3D-Druck Glossar</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">3D-Druck Glossar</div>
                           <div className="text-xs text-muted-foreground">Fachbegriffe erklärt</div>
                         </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/referenzen" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <Sparkles className="h-4 w-4 text-primary" />
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/referenzen" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <Sparkles className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">Referenzen & Projekte</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Referenzen & Projekte</div>
                           <div className="text-xs text-muted-foreground">Erfolgreiche Kundenprojekte</div>
                         </div>
                       </a>
@@ -96,40 +108,48 @@ const Navigation = () => {
                   </div>
                   
                   {/* Rechte Spalte - Zielgruppen */}
-                  <div className="space-y-1">
-                    <div className="px-2 py-1 text-xs font-semibold text-muted-foreground uppercase tracking-wide">Zielgruppen</div>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/architekturmodelle" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <Building2 className="h-4 w-4 text-primary" />
+                  <div className="space-y-0.5">
+                    <div className="px-2 py-1.5 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Zielgruppen</div>
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/architekturmodelle" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <Building2 className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">Architekturmodelle</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Architekturmodelle</div>
                           <div className="text-xs text-muted-foreground">Für Architekten & Planer</div>
                         </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/messemodelle" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <Presentation className="h-4 w-4 text-primary" />
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/messemodelle" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <Presentation className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">Messemodelle</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Messemodelle</div>
                           <div className="text-xs text-muted-foreground">Für Events & Präsentationen</div>
                         </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/kunstobjekte" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <Palette className="h-4 w-4 text-primary" />
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/kunstobjekte" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <Palette className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">Kunstobjekte</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Kunstobjekte</div>
                           <div className="text-xs text-muted-foreground">Für Künstler & Kreative</div>
                         </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0">
-                      <a href="/firmenkunden" className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors group">
-                        <Building className="h-4 w-4 text-primary" />
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/firmenkunden" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
+                          <Building className="h-4 w-4 text-primary" />
+                        </div>
                         <div>
-                          <div className="font-medium text-sm text-foreground">Firmenkunden</div>
+                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Firmenkunden</div>
                           <div className="text-xs text-muted-foreground">B2B Projekte & Aufträge</div>
                         </div>
                       </a>
@@ -194,124 +214,137 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-3 animate-fade-in">
-            <div className="space-y-2">
-              <a 
-                href="/" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                <Home className="h-4 w-4 text-primary" />
-                Startseite
-              </a>
-              <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Services</div>
-              <a 
-                href="/fdm-3d-druck" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                <Box className="h-4 w-4 text-primary" />
-                FDM 3D-Druck
-              </a>
-              <a 
-                href="/rapid-prototyping" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                <TestTube className="h-4 w-4 text-primary" />
-                Rapid Prototyping
-              </a>
-              <a 
-                href="/3d-druck-materialien" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                <Leaf className="h-4 w-4 text-primary" />
-                Materialien
-              </a>
-              <a 
-                href="/einzelanfertigungen" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                <Sparkles className="h-4 w-4 text-primary" />
-                Einzelanfertigungen
-              </a>
-              <a 
-                href="/modellbau-dekoration" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                <Home className="h-4 w-4 text-primary" />
-                Modellbau & Dekoration
-              </a>
-              <a 
-                href="/probeteile" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                <TestTube className="h-4 w-4 text-primary" />
-                Kostenlose Probeteile
-              </a>
-              <a 
-                href="/glossar" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                <Book className="h-4 w-4 text-primary" />
-                3D-Druck Glossar
-              </a>
-              <a 
-                href="/referenzen" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-                onClick={() => setIsOpen(false)}
-              >
-                <Sparkles className="h-4 w-4 text-primary" />
-                Referenzen & Projekte
-              </a>
-            </div>
-            <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Bestellen</div>
-            <a 
-              href="/3d-druck-bestellen" 
-              className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
-              onClick={() => setIsOpen(false)}
-            >
-              <Calculator className="h-4 w-4 text-primary" />
-              3D-Druck Konfigurator & Bestellung
-            </a>
-            
-            <div className="text-sm font-semibold text-muted-foreground px-2 mb-2 mt-4">Mein Konto</div>
-            {user ? (
-              <>
+          <div className="md:hidden pb-6 animate-fade-in max-h-[80vh] overflow-y-auto">
+            {/* Services Section */}
+            <div className="mb-4">
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-3 py-2">Services</div>
+              <div className="grid grid-cols-2 gap-1">
                 <a 
-                  href="/meine-bestellungen" 
-                  className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                  href="/fdm-3d-druck" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Package className="h-4 w-4 text-primary" />
-                  Meine Bestellungen
+                  <Box className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">FDM 3D-Druck</span>
                 </a>
-                <button
-                  onClick={() => {
-                    setIsOpen(false);
-                    handleSignOut();
-                  }}
-                  className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10 w-full text-left"
+                <a 
+                  href="/rapid-prototyping" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
                 >
-                  <LogOut className="h-4 w-4 text-primary" />
-                  Abmelden
-                </button>
-              </>
-            ) : (
+                  <TestTube className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">Rapid Prototyping</span>
+                </a>
+                <a 
+                  href="/einzelanfertigungen" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Sparkles className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">Einzelanfertigungen</span>
+                </a>
+                <a 
+                  href="/probeteile" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <TestTube className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">Probeteile</span>
+                </a>
+                <a 
+                  href="/glossar" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Book className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">Glossar</span>
+                </a>
+                <a 
+                  href="/referenzen" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Sparkles className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">Referenzen</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Zielgruppen Section */}
+            <div className="mb-4">
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-3 py-2">Zielgruppen</div>
+              <div className="grid grid-cols-2 gap-1">
+                <a 
+                  href="/architekturmodelle" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Building2 className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">Architektur</span>
+                </a>
+                <a 
+                  href="/messemodelle" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Presentation className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">Messe</span>
+                </a>
+                <a 
+                  href="/kunstobjekte" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Palette className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">Kunst</span>
+                </a>
+                <a 
+                  href="/firmenkunden" 
+                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Building className="h-4 w-4 text-primary flex-shrink-0" />
+                  <span className="text-sm font-medium truncate">Firmenkunden</span>
+                </a>
+              </div>
+            </div>
+            {/* Quick Actions */}
+            <div className="border-t border-border/50 pt-4 space-y-2">
               <a 
-                href="/referenzen" 
-                className="flex items-center gap-3 p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-primary/10"
+                href="/3d-druck-bestellen" 
+                className="flex items-center gap-3 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
                 onClick={() => setIsOpen(false)}
               >
-                <Sparkles className="h-4 w-4 text-primary" />
-                Referenzen
+                <Calculator className="h-5 w-5 text-primary" />
+                <div>
+                  <div className="font-semibold text-sm">Konfigurator & Bestellung</div>
+                  <div className="text-xs text-muted-foreground">Preis berechnen & bestellen</div>
+                </div>
               </a>
-            )}
+              
+              {user ? (
+                <div className="grid grid-cols-2 gap-2">
+                  <a 
+                    href="/meine-bestellungen" 
+                    className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Package className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium">Bestellungen</span>
+                  </a>
+                  <button
+                    onClick={() => {
+                      setIsOpen(false);
+                      handleSignOut();
+                    }}
+                    className="flex items-center gap-2 p-3 text-destructive rounded-xl hover:bg-destructive/10 active:scale-[0.98] transition-all"
+                  >
+                    <LogOut className="h-4 w-4" />
+                    <span className="text-sm font-medium">Abmelden</span>
+                  </button>
+                </div>
+              ) : null}
+            </div>
             
             <Button
               variant="hero" 
