@@ -31,7 +31,19 @@ const Footer = () => {
               <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">3D-Druck Materialien</a></li>
               <li><a href="/einzelanfertigungen" className="hover:text-primary transition-colors">Einzelanfertigungen</a></li>
               <li><a href="/probeteile" className="hover:text-primary transition-colors">Kostenlose Probeteile</a></li>
-              <li><a href="/kostenrechner" className="hover:text-primary transition-colors">Kostenrechner</a></li>
+              <li><a href="/3d-druck-bestellen" className="hover:text-primary transition-colors">Kostenrechner</a></li>
+            </ul>
+          </div>
+
+          {/* Target Groups */}
+          <div>
+            <h4 className="font-semibold mb-4">Zielgruppen</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              <li><a href="/architekturmodelle" className="hover:text-primary transition-colors">Architekturmodelle</a></li>
+              <li><a href="/messemodelle" className="hover:text-primary transition-colors">Messemodelle</a></li>
+              <li><a href="/kunstobjekte" className="hover:text-primary transition-colors">Kunstobjekte</a></li>
+              <li><a href="/firmenkunden" className="hover:text-primary transition-colors">Firmenkunden</a></li>
+              <li><a href="/referenzen" className="hover:text-primary transition-colors">Referenzen</a></li>
             </ul>
           </div>
 
@@ -42,7 +54,6 @@ const Footer = () => {
               <li><a href="/ratgeber" className="hover:text-primary transition-colors">Ratgeber</a></li>
               <li><a href="/ratgeber/kosten-guide" className="hover:text-primary transition-colors">Kosten-Guide</a></li>
               <li><a href="/ratgeber/material-guide" className="hover:text-primary transition-colors">Material-Guide</a></li>
-              <li><a href="/ratgeber/verfahrens-vergleich" className="hover:text-primary transition-colors">Verfahrens-Vergleich</a></li>
               <li><a href="/glossar" className="hover:text-primary transition-colors">3D-Druck Glossar</a></li>
             </ul>
           </div>

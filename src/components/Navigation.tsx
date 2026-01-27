@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube, Calculator, BookOpen, Book, Package, LogOut, User } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube, Calculator, BookOpen, Book, Package, LogOut, User, Building2, Presentation, Palette, Building } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 
 const Navigation = () => {
@@ -121,6 +121,52 @@ const Navigation = () => {
                       <div className="flex-1">
                         <div className="font-medium text-foreground">Referenzen & Projekte</div>
                         <div className="text-sm text-muted-foreground">Erfolgreiche Kundenprojekte</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
+                  <div className="my-2 border-t border-border" />
+                  <div className="px-3 py-1 text-xs font-semibold text-muted-foreground">Zielgruppen</div>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/architekturmodelle" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Building2 className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Architekturmodelle</div>
+                        <div className="text-sm text-muted-foreground">Für Architekten & Planer</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/messemodelle" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Presentation className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Messemodelle</div>
+                        <div className="text-sm text-muted-foreground">Für Events & Präsentationen</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/kunstobjekte" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Palette className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Kunstobjekte</div>
+                        <div className="text-sm text-muted-foreground">Für Künstler & Kreative</div>
+                      </div>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="p-0">
+                    <a href="/firmenkunden" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                        <Building className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-foreground">Firmenkunden</div>
+                        <div className="text-sm text-muted-foreground">B2B Projekte & Aufträge</div>
                       </div>
                     </a>
                   </DropdownMenuItem>
