@@ -53,6 +53,7 @@ const RegionalCoverage = ({ serviceName, description }: RegionalCoverageProps) =
                 <Link 
                   key={index} 
                   to={region.url}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="bg-muted/50 hover:bg-primary/10 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors"
                 >
                   {region.name}
@@ -67,6 +68,7 @@ const RegionalCoverage = ({ serviceName, description }: RegionalCoverageProps) =
                 <Link 
                   key={index} 
                   to={city.url}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="bg-muted/50 hover:bg-primary/10 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors"
                 >
                   {city.name}
