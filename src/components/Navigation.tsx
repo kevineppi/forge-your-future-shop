@@ -162,7 +162,7 @@ const Navigation = () => {
               <Calculator className="w-4 h-4" />
               3D-Druck Konfigurator & Bestellung
             </a>
-            <a href="#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</a>
+            <a href="/#contact" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</a>
             
             {user ? (
               <DropdownMenu>
@@ -197,7 +197,7 @@ const Navigation = () => {
               </a>
             )}
             
-            <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Angebot</Button>
+            <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" asChild><a href="/#contact">Angebot</a></Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -349,13 +349,12 @@ const Navigation = () => {
             <Button
               variant="hero" 
               size="sm" 
-              className="w-full mt-4" 
-              onClick={() => {
-                setIsOpen(false);
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              className="w-full mt-4"
+              asChild
             >
-              Angebot erhalten
+              <a href="/#contact" onClick={() => setIsOpen(false)}>
+                Angebot erhalten
+              </a>
             </Button>
           </div>
         )}

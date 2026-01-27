@@ -619,16 +619,16 @@ const CostCalculator = () => {
                   <Button 
                     className="w-full" 
                     size="lg"
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    asChild
                   >
-                    Unverbindliches Angebot anfordern
+                    <a href="/#contact">Unverbindliches Angebot anfordern</a>
                   </Button>
                   <Button 
                     variant="outline" 
                     className="w-full"
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    asChild
                   >
-                    Kostenlose Beratung
+                    <a href="/#contact">Kostenlose Beratung</a>
                   </Button>
                 </div>
               </CardContent>

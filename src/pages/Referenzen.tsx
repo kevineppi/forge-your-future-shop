@@ -474,7 +474,7 @@ const Referenzen = () => {
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <a href="#contact">
+                  <a href="/#contact">
                     Beratung anfordern
                   </a>
                 </Button>
@@ -680,7 +680,7 @@ const Referenzen = () => {
                       <a href="/kostenrechner">Jetzt kalkulieren</a>
                     </Button>
                     <Button variant="outline" asChild>
-                      <a href="#contact">Kontakt</a>
+                      <a href="/#contact">Kontakt</a>
                     </Button>
                   </div>
                 </div>
