@@ -340,10 +340,10 @@ const Firmenkunden = () => {
                     </Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="text-base group">
-                    <a href="/#contact">
+                    <Link to="/kontakt">
                       <Mail className="mr-2 w-5 h-5" />
                       Beratung anfragen
-                    </a>
+                    </Link>
                   </Button>
                 </div>
 
@@ -600,10 +600,10 @@ const Firmenkunden = () => {
             {/* CTA */}
             <div className="text-center mt-12">
               <Button asChild size="lg" className="shadow-lg">
-                <a href="/#contact">
+                <Link to="/kontakt">
                   Jetzt starten
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
+                </Link>
               </Button>
             </div>
           </div>

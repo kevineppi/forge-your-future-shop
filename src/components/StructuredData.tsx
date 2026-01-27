@@ -369,7 +369,7 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
                 "@type": "ListItem",
                 "position": 4,
                 "name": "Kontakt",
-                "item": "https://www.ek-druck.at/#contact"
+                "item": "https://www.ek-druck.at/kontakt"
               }
             ]
           };

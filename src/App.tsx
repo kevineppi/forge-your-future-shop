@@ -47,6 +47,7 @@ import Architekturmodelle from "./pages/Architekturmodelle";
 import Messemodelle from "./pages/Messemodelle";
 import Kunstobjekte from "./pages/Kunstobjekte";
 import Firmenkunden from "./pages/Firmenkunden";
+import Kontakt from "./pages/Kontakt";
 
 const queryClient = new QueryClient();
 
@@ -82,6 +83,7 @@ const App = () => (
             <Route path="/messemodelle" element={<Messemodelle />} />
             <Route path="/kunstobjekte" element={<Kunstobjekte />} />
             <Route path="/firmenkunden" element={<Firmenkunden />} />
+            <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
             <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
             <Route path="/3d-druck-graz" element={<Graz3DDruck />} />

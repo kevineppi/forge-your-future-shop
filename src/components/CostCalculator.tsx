@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -621,14 +622,14 @@ const CostCalculator = () => {
                     size="lg"
                     asChild
                   >
-                    <a href="/#contact">Unverbindliches Angebot anfordern</a>
+                    <Link to="/kontakt">Unverbindliches Angebot anfordern</Link>
                   </Button>
                   <Button 
                     variant="outline" 
                     className="w-full"
                     asChild
                   >
-                    <a href="/#contact">Kostenlose Beratung</a>
+                    <Link to="/kontakt">Kostenlose Beratung</Link>
                   </Button>
                 </div>
               </CardContent>

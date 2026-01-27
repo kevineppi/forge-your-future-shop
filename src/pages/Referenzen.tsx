@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -474,9 +475,9 @@ const Referenzen = () => {
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <a href="/#contact">
+                  <Link to="/kontakt">
                     Beratung anfordern
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -680,7 +681,7 @@ const Referenzen = () => {
                       <a href="/kostenrechner">Jetzt kalkulieren</a>
                     </Button>
                     <Button variant="outline" asChild>
-                      <a href="/#contact">Kontakt</a>
+                      <Link to="/kontakt">Kontakt</Link>
                     </Button>
                   </div>
                 </div>
