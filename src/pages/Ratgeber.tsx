@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { BookOpen, TrendingUp, Clock, Award, Palette } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -199,7 +200,7 @@ const Ratgeber = () => {
                 Möchten Sie über neue Artikel informiert werden?
               </p>
               <Button asChild variant="outline">
-                <a href="/#contact">Newsletter abonnieren</a>
+                <Link to="/kontakt">Newsletter abonnieren</Link>
               </Button>
             </div>
           </div>

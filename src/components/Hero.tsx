@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Upload, ArrowRight, CheckCircle, Zap, Shield, Clock, Star } from "lucide-react";
 import { lazy, Suspense } from "react";
@@ -93,10 +94,10 @@ const Hero = () => {
                 className="group text-base px-6 py-6"
                 asChild
               >
-                <a href="/#contact">
+                <Link to="/kontakt">
                   Anfrage stellen
                   <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
+                </Link>
               </Button>
             </div>
           </div>

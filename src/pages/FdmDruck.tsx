@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -73,7 +74,7 @@ const FdmDruck = () => {
                   <a href="/kostenrechner">Sofort Preis berechnen <ArrowRight className="ml-2 h-5 w-5" /></a>
                 </Button>
                 <Button size="lg" variant="outline" className="hover-scale animate-fade-in" asChild>
-                  <a href="/#contact">Beratung anfordern</a>
+                  <Link to="/kontakt">Beratung anfordern</Link>
                 </Button>
               </div>
             </div>
@@ -302,7 +303,7 @@ const FdmDruck = () => {
                   <a href="/kostenrechner">Jetzt Preis berechnen <ArrowRight className="ml-2 h-5 w-5" /></a>
                 </Button>
                 <Button size="lg" variant="outline" className="hover-scale" asChild>
-                  <a href="/#contact">Beratung anfordern</a>
+                  <Link to="/kontakt">Beratung anfordern</Link>
                 </Button>
               </div>
             </div>
