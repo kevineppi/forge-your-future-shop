@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
+import RegionalCoverage from "@/components/landing/RegionalCoverage";
+import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import { 
   Building, 
   FileText, 
@@ -151,6 +153,29 @@ const Firmenkunden = () => {
       answer: "Ja, für Firmenkunden gibt es direkte Kommunikation per E-Mail und Telefon – ohne Warteschleifen oder Chatbots. Sie erhalten persönliche Beratung und schnelle Antworten auf Ihre Fragen."
     }
   ];
+
+  const keywordContent = {
+    title: "Warum Unternehmen uns als Partner wählen",
+    intro: "Von Architekturbüros in Wien über Messebauer in Salzburg bis zu Agenturen in Graz – Unternehmen in ganz Österreich vertrauen auf ekdruck als zuverlässigen 3D-Druck Partner. Wir verstehen die Anforderungen von Geschäftskunden: Termintreue, Qualitätskonstanz und professionelle Abwicklung.",
+    blocks: [
+      {
+        title: "Planbare Kosten",
+        content: "Unser Online-Konfigurator liefert sofortige, verbindliche Preise. Keine Wartezeit auf Angebote, keine versteckten Kosten. Sie wissen genau, was Sie bekommen und was es kostet – ideal für Ihre Budgetplanung und Kalkulation."
+      },
+      {
+        title: "Skalierbare Kapazität",
+        content: "Egal ob ein Einzelstück oder 100 identische Teile – wir skalieren mit Ihren Anforderungen. Moderne Druckfarm ermöglicht parallele Fertigung mehrerer Aufträge ohne Qualitätsverlust."
+      },
+      {
+        title: "Dokumentation",
+        content: "Für jeden Auftrag erhalten Sie eine ordentliche Rechnung mit ausgewiesener MwSt. für Ihre Buchhaltung. Auf Wunsch liefern wir Materialzertifikate und Projektdokumentation."
+      },
+      {
+        title: "Langfristige Partnerschaft",
+        content: "Stammkunden profitieren von Rahmenverträgen, Mengenrabatten und bevorzugter Bearbeitung. Wir investieren in langfristige Geschäftsbeziehungen und wachsen mit den Anforderungen unserer Partner."
+      }
+    ]
+  };
 
   const breadcrumbs = [
     { name: "Zielgruppen", url: "#" },
@@ -389,6 +414,20 @@ const Firmenkunden = () => {
             </div>
           </div>
         </section>
+
+        {/* Keyword Rich Content */}
+        <KeywordRichContent 
+          title={keywordContent.title}
+          intro={keywordContent.intro}
+          blocks={keywordContent.blocks}
+          ctaText="B2B-Projekt starten"
+        />
+
+        {/* Regional Coverage */}
+        <RegionalCoverage 
+          serviceName="3D-Druck für Unternehmen"
+          description="Wir arbeiten mit Unternehmen in ganz Österreich zusammen. Von Kleinbetrieben bis zu Konzernen – professionelle Abwicklung und zuverlässige Lieferung."
+        />
 
         {/* FAQ Section */}
         <FAQSection 

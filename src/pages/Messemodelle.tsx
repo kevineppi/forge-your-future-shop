@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
+import RegionalCoverage from "@/components/landing/RegionalCoverage";
+import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import { 
   Presentation, 
   Zap, 
@@ -126,6 +128,29 @@ const Messemodelle = () => {
       answer: "Ja, das ist ein großer Vorteil des 3D-Drucks. Identische Reproduktionen sind ohne Mehraufwand möglich – ideal für mehrere Messestandorte oder als Ersatz bei Beschädigung."
     }
   ];
+
+  const keywordContent = {
+    title: "Messemodelle: Der Wettbewerbsvorteil am Stand",
+    intro: "Auf Messen zählt der erste Eindruck. 3D-gedruckte Präsentationsobjekte ziehen Blicke an und ermöglichen es Ihnen, Produkte und Konzepte haptisch erlebbar zu machen. Von der Hannover Messe über die BAU München bis zu regionalen Fachmessen in Wien, Graz oder Salzburg – überall setzen erfolgreiche Aussteller auf 3D-gedruckte Eyecatcher.",
+    blocks: [
+      {
+        title: "Kurzfristige Termine",
+        content: "Messe-Deadlines sind oft eng. Während traditionelle Modellbauer Wochen brauchen, liefern wir in 24-48 Stunden. Das gibt Ihnen die Flexibilität, auch kurzfristige Änderungen oder Last-Minute-Ergänzungen für Ihren Messestand umzusetzen."
+      },
+      {
+        title: "Leicht & Transportabel",
+        content: "3D-gedruckte Objekte aus PLA oder PETG sind bis zu 70% leichter als vergleichbare Objekte aus Holz oder Metall. Das reduziert Transportkosten und macht die Handhabung am Messestand einfacher. Ideal für Messen in ganz Europa."
+      },
+      {
+        title: "Reproduzierbar",
+        content: "Benötigen Sie das gleiche Modell für mehrere Messestandorte? Kein Problem. Digitale Fertigung ermöglicht identische Reproduktionen ohne Mehraufwand. Auch Ersatzteile bei Beschädigung sind schnell nachgefertigt."
+      },
+      {
+        title: "Individuelle Größen",
+        content: "Von kleinen Produktmodellen für den Besprechungstisch bis zu überdimensionalen Eyecatcher-Objekten über 2 Meter Höhe. Mehrteilige Konstruktion ermöglicht praktisch unbegrenzte Größen ohne Qualitätsverlust."
+      }
+    ]
+  };
 
   const breadcrumbs = [
     { name: "Zielgruppen", url: "#" },
@@ -361,6 +386,19 @@ const Messemodelle = () => {
             </div>
           </div>
         </section>
+
+        {/* Keyword Rich Content */}
+        <KeywordRichContent 
+          title={keywordContent.title}
+          intro={keywordContent.intro}
+          blocks={keywordContent.blocks}
+        />
+
+        {/* Regional Coverage */}
+        <RegionalCoverage 
+          serviceName="Messemodelle" 
+          description="Wir beliefern Messebauer und Aussteller in ganz Österreich. Express-Versand für kurzfristige Messetermine. Persönliche Abholung in Gunskirchen (OÖ) möglich."
+        />
 
         {/* FAQ Section */}
         <FAQSection 
