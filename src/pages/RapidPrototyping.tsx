@@ -27,7 +27,7 @@ const RapidPrototyping = () => {
   const prototypingPhases = [
     { phase: "Konzeptphase", zweck: "Erste Visualisierung", material: "PLA", zeit: "24h", kosten: "€50-150" },
     { phase: "Designprüfung", zweck: "Optik prüfen", material: "PETG/ABS", zeit: "48h", kosten: "€150-400" },
-    { phase: "Validierung", zweck: "Finale Tests", material: "ABS", zeit: "72h", kosten: "€300-800" },
+    { phase: "Validierung", zweck: "Finale Prüfung", material: "ABS", zeit: "72h", kosten: "€300-800" },
     { phase: "Anschauungsmodell", zweck: "Präsentation", material: "ASA", zeit: "5-7 Tage", kosten: "€500-2000" }
   ];
 
@@ -48,8 +48,8 @@ const RapidPrototyping = () => {
       answer: "Einfache Prototypen starten ab €50. Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren Kostenrechner für eine sofortige Schätzung oder kontaktieren Sie uns für ein individuelles Angebot."
     },
     {
-      question: "Welche Materialien eignen sich für Prototypen?",
-      answer: "Für Konzeptmodelle empfehlen wir PLA, für Funktionstests PETG oder ABS, und für finale Validierung Nylon oder ASA. Wir beraten Sie gerne bei der Materialwahl basierend auf Ihren spezifischen Anforderungen."
+      question: "Welche Materialien eignen sich für Modelle?",
+      answer: "Für Konzeptmodelle empfehlen wir PLA, für robustere Modelle PETG oder ABS, und für hochwertige Präsentationsmodelle ASA. Wir beraten Sie gerne bei der Materialwahl basierend auf Ihren spezifischen Anforderungen."
     },
     {
       question: "Kann ich mehrere Iterationen meines Prototyps anfertigen lassen?",
@@ -83,7 +83,7 @@ const RapidPrototyping = () => {
       />
       <ServiceSchema 
         serviceName="Rapid Prototyping 24h Express-Service"
-        description="Professioneller Rapid Prototyping Service mit FDM 3D-Druck in Österreich. Express-Fertigung in 24-48h für schnelle Produktentwicklung und Funktionsprototypen. 85% schneller als traditionelle Methoden."
+        description="Professioneller Rapid Prototyping Service mit FDM 3D-Druck in Österreich. Express-Fertigung in 24-48h für schnelle Modell-Umsetzung. 85% schneller als traditionelle Methoden."
         serviceType="Service"
         offers={{
           price: "50.00",
@@ -196,7 +196,7 @@ const RapidPrototyping = () => {
                 <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Rapid Prototyping ab €50 - Express-Service Österreich</span>
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-                Von der Idee zum fertigen Prototyp in 24-48h! Kostenlose Designberatung, österreichisches Filament und Express-Fertigung. Perfekt für <strong className="text-foreground">schnelle Produktentwicklung und Funktionsprototypen</strong>.
+                Von der Idee zum fertigen Modell in 24-48h! Kostenlose Designberatung, österreichisches Filament und Express-Fertigung. Perfekt für <strong className="text-foreground">Architekturmodelle, Messemodelle und Designstudien</strong>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
@@ -285,10 +285,10 @@ const RapidPrototyping = () => {
               <h2 className="text-3xl lg:text-4xl font-bold mb-8">Was ist Rapid Prototyping?</h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
                 <p className="text-lg leading-relaxed">
-                  <strong className="text-foreground">Rapid Prototyping</strong> bezeichnet die <strong className="text-foreground">schnelle Herstellung funktionaler Prototypen</strong> durch additive Fertigungsverfahren wie FDM 3D-Druck. Im Gegensatz zu traditionellen Methoden (CNC-Fräsen, Spritzguss) ermöglicht Rapid Prototyping die Fertigung komplexer Geometrien in Stunden statt Wochen – ohne teure Werkzeuge oder Formen.
+                  <strong className="text-foreground">Rapid Prototyping</strong> bezeichnet die <strong className="text-foreground">schnelle Herstellung von Modellen und Anschauungsobjekten</strong> durch additive Fertigungsverfahren wie FDM 3D-Druck. Im Gegensatz zu traditionellen Methoden ermöglicht Rapid Prototyping die Fertigung komplexer Geometrien in Stunden statt Wochen – ohne teure Werkzeuge oder Formen.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  In Österreich hat sich <strong className="text-foreground">FDM (Fused Deposition Modeling) 3D-Druck</strong> als führende Technologie für Rapid Prototyping etabliert. Die Methode ist besonders attraktiv für KMUs, Startups und Entwicklungsabteilungen, die iterative Produktentwicklung mit kurzen Zykluszeiten benötigen.
+                  In Österreich hat sich <strong className="text-foreground">FDM (Fused Deposition Modeling) 3D-Druck</strong> als führende Technologie für Rapid Prototyping etabliert. Die Methode ist besonders attraktiv für Architekten, Designer, Künstler und Kreative, die schnelle Visualisierungen und Konzeptmodelle benötigen.
                 </p>
               </div>
             </div>
@@ -350,7 +350,7 @@ const RapidPrototyping = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground text-center">
-                      Durch frühzeitige physische Validierung vor Serienfertigung (Journal of Product Innovation 2023)
+                      Durch frühzeitige physische Validierung vor der finalen Umsetzung (Journal of Product Innovation 2023)
                     </p>
                   </CardContent>
                 </Card>
@@ -381,7 +381,7 @@ const RapidPrototyping = () => {
               </div>
 
               <div className="bg-gradient-card p-8 rounded-2xl">
-                <h3 className="text-2xl font-bold mb-6 text-center">Warum funktioniert Rapid Prototyping so gut?</h3>
+                <h3 className="text-2xl font-bold mb-6 text-center">Warum ist Rapid Prototyping so effektiv?</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
@@ -416,7 +416,7 @@ const RapidPrototyping = () => {
                       Risikoreduzierung
                     </h4>
                     <p className="text-muted-foreground">
-                      Bevor teure Werkzeuge für Spritzguss gebaut werden (€20.000+), validieren Prototypen alle Funktionen. Das eliminiert kostspielige Nachbesserungen.
+                      Bevor teure Werkzeuge gebaut werden (€20.000+), validieren Modelle das Design. Das eliminiert kostspielige Nachbesserungen.
                     </p>
                   </div>
                 </div>
@@ -501,7 +501,7 @@ const RapidPrototyping = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Die 4 Phasen des Rapid Prototyping</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Von der ersten Idee bis zur Serienreife: So nutzen Sie Prototypen optimal in jeder Entwicklungsphase
+                  Von der ersten Idee bis zum fertigen Präsentationsmodell: So nutzen Sie Modelle optimal in jeder Entwicklungsphase
                 </p>
               </div>
 
@@ -546,7 +546,7 @@ const RapidPrototyping = () => {
                     </p>
                     <ul className="space-y-2 text-sm text-muted-foreground ml-4">
                       <li>• Schnelle Formstudien mit PLA</li>
-                      <li>• Keine funktionalen Anforderungen</li>
+                      <li>• Für erste Visualisierungen</li>
                       <li>• 24-48h Lieferzeit möglich</li>
                       <li>• Ideal für A/B-Tests von Designs</li>
                     </ul>
@@ -557,18 +557,18 @@ const RapidPrototyping = () => {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Cog className="h-6 w-6 text-primary" />
-                      Phase 2: Funktionsprototypen
+                      Phase 2: Designmodelle
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-muted-foreground">
-                      <strong className="text-foreground">Ziel:</strong> Test von Mechanik, Passgenauigkeit und Montage unter realen Bedingungen.
+                      <strong className="text-foreground">Ziel:</strong> Prüfung von Design, Passgenauigkeit und Proportionen.
                     </p>
                     <ul className="space-y-2 text-sm text-muted-foreground ml-4">
                       <li>• PETG oder ABS für Stabilität</li>
-                      <li>• Bewegliche Teile testen</li>
+                      <li>• Detaillierte Designprüfung</li>
                       <li>• Passgenauigkeit validieren</li>
-                      <li>• Belastungstests durchführen</li>
+                      <li>• Haptik bewerten</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -582,12 +582,12 @@ const RapidPrototyping = () => {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-muted-foreground">
-                      <strong className="text-foreground">Ziel:</strong> Finale Tests vor Werkzeugbau oder Serienfertigung mit seriennahen Eigenschaften.
+                      <strong className="text-foreground">Ziel:</strong> Finale Prüfung vor der endgültigen Umsetzung mit hochwertigen Materialien.
                     </p>
                     <ul className="space-y-2 text-sm text-muted-foreground ml-4">
-                      <li>• ABS oder Nylon für Festigkeit</li>
-                      <li>• Langzeittests und Feld-Tests</li>
-                      <li>• Zertifizierungsvorbereitung</li>
+                      <li>• ABS oder ASA für Qualität</li>
+                      <li>• Detailgenaue Prüfung</li>
+                      <li>• Optische Qualität bewerten</li>
                       <li>• Finale Designfreigabe</li>
                     </ul>
                   </CardContent>
@@ -597,18 +597,18 @@ const RapidPrototyping = () => {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Award className="h-6 w-6 text-primary" />
-                      Phase 4: Präserien-Prototypen
+                      Phase 4: Präsentationsmodelle
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-muted-foreground">
-                      <strong className="text-foreground">Ziel:</strong> Nullserie für Produktionsplanung und erste Kundenlieferungen.
+                      <strong className="text-foreground">Ziel:</strong> Hochwertige Modelle für Präsentationen, Messen und Kunden.
                     </p>
                     <ul className="space-y-2 text-sm text-muted-foreground ml-4">
-                      <li>• ASA oder PC für Haltbarkeit</li>
-                      <li>• Qualitätskontrolle etablieren</li>
-                      <li>• Produktionsprozesse testen</li>
-                      <li>• Erste Kundenfeedbacks einholen</li>
+                      <li>• ASA für hochwertige Optik</li>
+                      <li>• Nachbearbeitung möglich</li>
+                      <li>• Professionelle Präsentation</li>
+                      <li>• Kundenfeedback einholen</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -677,11 +677,11 @@ const RapidPrototyping = () => {
 
                 <Card className="border-0 shadow-card">
                   <CardHeader>
-                    <CardTitle className="text-lg">4. Funktionale Eigenschaften</CardTitle>
+                    <CardTitle className="text-lg">4. Hochwertige Oberflächen</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground text-sm">
-                      FDM-Teile sind nicht nur Anschauungsmodelle: Sie halten mechanischer Belastung stand, können geschraubt, geklebt und nachbearbeitet werden.
+                      FDM-Modelle bieten hochwertige Oberflächen: Sie können geschliffen, lackiert und nachbearbeitet werden für ein professionelles Finish.
                     </p>
                   </CardContent>
                 </Card>
@@ -742,9 +742,9 @@ const RapidPrototyping = () => {
                   <CardContent>
                     <ul className="space-y-2 text-muted-foreground">
                       <li>• <strong className="text-foreground">Designstudien:</strong> PLA (günstig, schnell)</li>
-                      <li>• <strong className="text-foreground">Funktionstests:</strong> PETG (schlagfest)</li>
-                      <li>• <strong className="text-foreground">Hitzebeständigkeit:</strong> ABS/ASA (bis 100°C)</li>
-                      <li>• <strong className="text-foreground">Mechanische Belastung:</strong> Nylon (abriebfest)</li>
+                      <li>• <strong className="text-foreground">Robuste Modelle:</strong> PETG (schlagfest)</li>
+                      <li>• <strong className="text-foreground">Outdoor-Modelle:</strong> ASA (UV-beständig)</li>
+                      <li>• <strong className="text-foreground">Hitzebeständigkeit:</strong> ABS (bis 100°C)</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -772,7 +772,7 @@ const RapidPrototyping = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Testen Sie jeden Prototyp physisch: Passgenauigkeit, Montage, Funktion, Haptik. Digitale Simulationen ersetzen niemals das physische Testen.
+                      Testen Sie jeden Prototyp physisch: Passgenauigkeit, Optik, Haptik. Digitale Simulationen ersetzen niemals das physische Begutachten.
                     </p>
                   </CardContent>
                 </Card>
@@ -786,7 +786,7 @@ const RapidPrototyping = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Teilen Sie Ihre Anforderungen klar mit: Welche Funktion muss der Prototyp erfüllen? Welche Toleranzen sind kritisch? Gibt es Besonderheiten?
+                      Teilen Sie Ihre Anforderungen klar mit: Welchen Zweck hat das Modell? Welche Optik ist gewünscht? Gibt es Besonderheiten?
                     </p>
                   </CardContent>
                 </Card>

@@ -54,18 +54,7 @@ const Navigation = () => {
                       </div>
                       <div className="flex-1">
                         <div className="font-medium text-foreground">Rapid Prototyping</div>
-                        <div className="text-sm text-muted-foreground">Funktions- & Designprototypen</div>
-                      </div>
-                    </a>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild className="p-0">
-                    <a href="/3d-druck-materialien" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
-                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                        <Leaf className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="font-medium text-foreground">Materialien</div>
-                        <div className="text-sm text-muted-foreground">Nachhaltige österreichische Filamente</div>
+                        <div className="text-sm text-muted-foreground">Schnelle Modell-Umsetzung</div>
                       </div>
                     </a>
                   </DropdownMenuItem>
@@ -77,17 +66,6 @@ const Navigation = () => {
                       <div className="flex-1">
                         <div className="font-medium text-foreground">Einzelanfertigungen</div>
                         <div className="text-sm text-muted-foreground">Unikate nach Ihren Wünschen</div>
-                      </div>
-                    </a>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild className="p-0">
-                    <a href="/modellbau-dekoration" className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group">
-                      <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                        <Home className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="font-medium text-foreground">Modellbau & Dekoration</div>
-                        <div className="text-sm text-muted-foreground">Architekturmodelle, Deko-Objekte</div>
                       </div>
                     </a>
                   </DropdownMenuItem>
