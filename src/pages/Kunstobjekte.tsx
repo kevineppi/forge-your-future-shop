@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import FAQSection from "@/components/landing/FAQSection";
+import RelatedPages from "@/components/landing/RelatedPages";
 import { 
   Palette, 
   Sparkles, 
@@ -17,7 +20,6 @@ import {
   Eye,
   Layers,
   Lightbulb,
-  Maximize,
   Infinity
 } from "lucide-react";
 
@@ -110,6 +112,38 @@ const Kunstobjekte = () => {
     { name: "Modulare Systeme", desc: "Einzelne 3D-gedruckte Elemente zu größeren Werken kombiniert" }
   ];
 
+  const faqs = [
+    {
+      question: "Welche Formen sind mit 3D-Druck für Kunst möglich?",
+      answer: "Der 3D-Druck ermöglicht praktisch grenzenlose Formfreiheit. Hinterschnitte, organische Strukturen, filigrane Details und komplexe Verschachtelungen sind realisierbar – Geometrien, die mit traditionellen Methoden wie Guss oder Schnitzen unmöglich wären."
+    },
+    {
+      question: "Welche Materialien eignen sich für Kunstobjekte?",
+      answer: "Für Kunst empfehlen wir PLA in über 20 Farben für klassische Skulpturen, PETG Transparent für Lichteffekte, Holz-Filament für natürliche Optik und Marmor-Look für elegante Steinoptik. Jedes Material hat eigene ästhetische Qualitäten."
+    },
+    {
+      question: "Wie groß können 3D-gedruckte Kunstobjekte sein?",
+      answer: "Wir fertigen Objekte von wenigen Zentimetern bis über 2 Meter Größe. Größere Werke werden modular konzipiert und nahtlos zusammengefügt – wie bei monumentalen Skulpturen etablierter 3D-Druck-Künstler."
+    },
+    {
+      question: "Eignet sich 3D-Druck für Gussformen?",
+      answer: "Ja, 3D-gedruckte Positivformen eignen sich hervorragend für den Abguss in Bronze, Gips oder Kunstharz. Diese Technik wird von vielen Bildhauern für die Kombination digitaler und traditioneller Methoden genutzt."
+    },
+    {
+      question: "Was kosten 3D-gedruckte Kunstobjekte?",
+      answer: "Die Kosten hängen von Größe und Komplexität ab. Kleine Konzeptmodelle starten ab ca. €20, größere Skulpturen und Installationselemente liegen typischerweise zwischen €50-300. Nutzen Sie unseren Konfigurator für sofortige Preise."
+    },
+    {
+      question: "Kann ich limitierte Editionen erstellen lassen?",
+      answer: "Ja, jedes 3D-Modell kann beliebig oft identisch reproduziert werden. Das macht den 3D-Druck ideal für limitierte Editionen und Multiples – konsistente Qualität bei jeder Auflage."
+    }
+  ];
+
+  const breadcrumbs = [
+    { name: "Zielgruppen", url: "#" },
+    { name: "Kunstobjekte", url: "/kunstobjekte" }
+  ];
+
   return (
     <>
       <Helmet>
@@ -120,6 +154,7 @@ const Kunstobjekte = () => {
       </Helmet>
 
       <Navigation />
+      <Breadcrumbs items={breadcrumbs} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -349,6 +384,17 @@ const Kunstobjekte = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection 
+          faqs={faqs} 
+          title="Häufige Fragen zu Kunstobjekten"
+          subtitle="Antworten auf die wichtigsten Fragen rund um 3D-Druck für Künstler"
+          schemaId="kunstobjekte"
+        />
+
+        {/* Related Pages */}
+        <RelatedPages currentPage="/kunstobjekte" />
       </main>
 
       <Footer />

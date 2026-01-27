@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import FAQSection from "@/components/landing/FAQSection";
+import RelatedPages from "@/components/landing/RelatedPages";
 import { 
   Building2, 
   Layers, 
@@ -14,12 +17,9 @@ import {
   Star,
   MapPin,
   Palette,
-  Eye,
-  TrendingUp,
-  Award,
   Zap,
   Target,
-  Users
+  Award
 } from "lucide-react";
 
 const Architekturmodelle = () => {
@@ -95,6 +95,38 @@ const Architekturmodelle = () => {
     { name: "Holz-Filament", use: "Natürliche Holzoptik", popular: false }
   ];
 
+  const faqs = [
+    {
+      question: "Was kostet ein 3D-gedrucktes Architekturmodell?",
+      answer: "Die Kosten hängen von Größe, Detailgrad und Material ab. Einfache Studienmodelle starten ab ca. €20, komplexe Präsentationsmodelle im Maßstab 1:100 liegen typischerweise zwischen €80-200. Nutzen Sie unseren Online-Konfigurator für einen sofortigen Preis."
+    },
+    {
+      question: "Welcher Maßstab eignet sich für Architekturmodelle?",
+      answer: "Die gängigsten Maßstäbe sind 1:50 für detaillierte Innenraumdarstellungen, 1:100 für Einzelgebäude und Präsentationen, 1:200 bis 1:500 für städtebauliche Modelle und Quartiersdarstellungen. Wir beraten Sie gerne zur optimalen Wahl."
+    },
+    {
+      question: "Wie lange dauert die Fertigung eines Architekturmodells?",
+      answer: "Standard-Lieferzeit beträgt 3-5 Werktage nach Auftragsbestätigung. Für dringende Wettbewerbsabgaben bieten wir Express-Service in 24-48 Stunden an (Aufpreis 50%)."
+    },
+    {
+      question: "Welche Dateiformate werden für Architekturmodelle akzeptiert?",
+      answer: "Wir verarbeiten STL, OBJ und 3MF Dateien. Diese können direkt aus CAD-Programmen wie ArchiCAD, Revit, SketchUp oder Rhino exportiert werden. Bei Fragen zum Export helfen wir gerne."
+    },
+    {
+      question: "Können auch transparente Fassadenelemente gedruckt werden?",
+      answer: "Ja, mit PETG Transparent können Glasflächen und Fassadenelemente halbtransparent dargestellt werden. Dies eignet sich besonders für moderne Gebäude mit großen Glasfronten."
+    },
+    {
+      question: "Ist 3D-Druck günstiger als traditioneller Modellbau?",
+      answer: "Ja, 3D-gedruckte Architekturmodelle sind typischerweise 60-80% günstiger als handgefertigte Modelle. Zudem ermöglicht die digitale Fertigung schnelle Änderungen und identische Reproduktionen."
+    }
+  ];
+
+  const breadcrumbs = [
+    { name: "Zielgruppen", url: "#" },
+    { name: "Architekturmodelle", url: "/architekturmodelle" }
+  ];
+
   return (
     <>
       <Helmet>
@@ -105,6 +137,7 @@ const Architekturmodelle = () => {
       </Helmet>
 
       <Navigation />
+      <Breadcrumbs items={breadcrumbs} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -358,6 +391,17 @@ const Architekturmodelle = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection 
+          faqs={faqs} 
+          title="Häufige Fragen zu Architekturmodellen"
+          subtitle="Antworten auf die wichtigsten Fragen rund um 3D-gedruckte Architekturmodelle"
+          schemaId="architekturmodelle"
+        />
+
+        {/* Related Pages */}
+        <RelatedPages currentPage="/architekturmodelle" />
       </main>
 
       <Footer />
