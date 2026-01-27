@@ -600,10 +600,10 @@ const Firmenkunden = () => {
             {/* CTA */}
             <div className="text-center mt-12">
               <Button asChild size="lg" className="shadow-lg">
-                <Link to="/3d-druck-bestellen">
+                <a href="/#contact">
                   Jetzt starten
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
