@@ -8,7 +8,6 @@ import Breadcrumbs from "@/components/landing/Breadcrumbs";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import RegionalCoverage from "@/components/landing/RegionalCoverage";
-import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import { 
   Building, 
   FileText, 
@@ -25,157 +24,253 @@ import {
   Target,
   BarChart3,
   Briefcase,
-  GraduationCap
+  GraduationCap,
+  Phone,
+  Mail,
+  Award,
+  Zap,
+  TrendingUp,
+  BadgeCheck,
+  Package,
+  Settings,
+  HeartHandshake,
+  Factory,
+  Euro,
+  Percent,
+  CalendarCheck,
+  MessageSquare
 } from "lucide-react";
 
 const Firmenkunden = () => {
-  const stats = [
-    { value: "100+", label: "Firmenkunden", description: "Vertrauen uns bereits" },
-    { value: "5.0", label: "Google Rating", description: "Höchste Zufriedenheit" },
-    { value: "24h", label: "Express möglich", description: "Bei dringenden Projekten" },
-    { value: "100%", label: "Termintreue", description: "Zuverlässige Lieferung" }
+  const heroStats = [
+    { value: "100+", label: "Firmenkunden", icon: Building },
+    { value: "5.0", label: "Google Rating", icon: Star },
+    { value: "24h", label: "Express", icon: Zap },
+    { value: "100%", label: "Termintreue", icon: CalendarCheck }
+  ];
+
+  const trustLogos = [
+    "Architekturbüros", "Messebau", "Werbeagenturen", "Designbüros", "Bildungseinrichtungen"
   ];
 
   const benefits = [
     {
       icon: Receipt,
       title: "Ordentliche Rechnungsstellung",
-      description: "Professionelle Rechnungen mit ausgewiesener MwSt. (20%) für Ihre Buchhaltung. Zahlung auf Rechnung für Stammkunden möglich."
+      description: "Professionelle Rechnungen mit ausgewiesener MwSt. (20%) für Ihre Buchhaltung.",
+      highlight: "Zahlung auf Rechnung für Stammkunden",
+      stats: "Sofort buchungsfertig"
     },
     {
       icon: Clock,
-      title: "Zuverlässige Lieferzeiten",
-      description: "Verbindliche Termine, die zu Ihren Projektplänen passen. Express in 24-48h bei dringenden Anforderungen."
+      title: "Verbindliche Lieferzeiten",
+      description: "Termine die zu Ihren Projektplänen passen. Wir halten was wir versprechen.",
+      highlight: "Express in 24-48h möglich",
+      stats: "100% Termintreue"
     },
     {
       icon: Handshake,
       title: "Persönlicher Ansprechpartner",
-      description: "Direkte Kommunikation per E-Mail und Telefon – ohne Warteschleifen, Tickets oder Chatbots. Schnelle Antworten garantiert."
+      description: "Direkte Kommunikation ohne Warteschleifen, Tickets oder Chatbots.",
+      highlight: "Schnelle Antworten garantiert",
+      stats: "< 24h Reaktionszeit"
     },
     {
       icon: ShieldCheck,
       title: "Gleichbleibende Qualität",
-      description: "Konsistente Ergebnisse bei wiederkehrenden Aufträgen. Dokumentierte Prozesse und Qualitätskontrolle bei jedem Auftrag."
+      description: "Konsistente Ergebnisse bei wiederkehrenden Aufträgen durch dokumentierte Prozesse.",
+      highlight: "Qualitätskontrolle bei jedem Auftrag",
+      stats: "ISO-konforme Prozesse"
+    },
+    {
+      icon: Euro,
+      title: "Transparente Preise",
+      description: "Online-Konfigurator liefert sofortige, verbindliche Preise ohne versteckte Kosten.",
+      highlight: "Keine Wartezeit auf Angebote",
+      stats: "Sofortpreis in Sekunden"
+    },
+    {
+      icon: HeartHandshake,
+      title: "Langfristige Partnerschaft",
+      description: "Stammkunden profitieren von Rahmenverträgen, Mengenrabatten und bevorzugter Bearbeitung.",
+      highlight: "Wachsende Vorteile über Zeit",
+      stats: "Bis 20% Mengenrabatt"
     }
   ];
 
   const industries = [
     {
       title: "Architektur & Planung",
-      description: "Präsentationsmodelle, Wettbewerbsmodelle und Konzeptstudien für Architekturbüros und Planungsbüros.",
+      description: "Präsentationsmodelle in Maßstäben 1:50 bis 1:500. Wettbewerbsmodelle, Konzeptstudien und städtebauliche Modelle für Architekten und Planungsbüros.",
       link: "/architekturmodelle",
       icon: Building,
-      stats: "Bis 80% günstiger als Handmodelle"
+      stats: "Bis 80% günstiger",
+      highlight: "als konventionelle Handmodelle",
+      features: ["Maßstabsgetreu", "Hochdetailliert", "Farbig möglich"]
     },
     {
       title: "Messebau & Events",
-      description: "Produktmodelle, Dekorationsobjekte und Präsentationselemente für Messebauer und Eventfirmen.",
+      description: "Produktmodelle, Dekorationsobjekte und XXL-Elemente für Messebauer und Eventfirmen. Große Objekte bis 2m+ durch Segmentierung.",
       link: "/messemodelle",
       icon: Users,
-      stats: "Express 24h verfügbar"
+      stats: "Express 24h",
+      highlight: "für dringende Messetermine",
+      features: ["XXL-Objekte", "Transportabel", "Robust"]
     },
     {
       title: "Agenturen & Design",
-      description: "Modelle für Produktpräsentationen, Mockups und Kundenvorführungen. Ideal für Werbe- und Designagenturen.",
+      description: "Modelle für Produktpräsentationen, Mockups und Kundenvorführungen. Über 20 Farben und Materialoptionen für kreative Projekte.",
       link: "/einzelanfertigungen",
       icon: Target,
-      stats: "Über 20 Farben & Materialien"
+      stats: "20+ Farben",
+      highlight: "und Materialoptionen",
+      features: ["Mockups", "Prototypen", "Präsentationen"]
     },
     {
       title: "Bildung & Forschung",
-      description: "Anschauungsmodelle für Schulen, Universitäten und Forschungseinrichtungen. Didaktische Modelle und Demonstrationsobjekte.",
+      description: "Anschauungsmodelle für Schulen, Universitäten und Forschungseinrichtungen. Anatomische Modelle, technische Demonstrationen, Lehrmaterial.",
       link: "/einzelanfertigungen",
       icon: GraduationCap,
-      stats: "Mengenrabatte ab 10 Stück"
+      stats: "Mengenrabatte",
+      highlight: "für Klassensätze",
+      features: ["Didaktisch", "Robust", "Erschwinglich"]
     }
   ];
 
   const process = [
-    { step: "1", title: "Anfrage senden", description: "Beschreiben Sie Ihr Projekt und laden Sie Ihre 3D-Dateien hoch oder nutzen Sie unseren Online-Konfigurator.", icon: FileText },
-    { step: "2", title: "Angebot erhalten", description: "Sie erhalten sofort einen Preis im Konfigurator oder ein individuelles Angebot innerhalb von 24h.", icon: BarChart3 },
-    { step: "3", title: "Auftrag bestätigen", description: "Bei Einverständnis starten wir sofort mit der Umsetzung. Zahlung per Rechnung für Stammkunden.", icon: Briefcase },
-    { step: "4", title: "Lieferung & Rechnung", description: "Pünktliche Lieferung mit ordentlicher Rechnung inkl. ausgewiesener MwSt.", icon: Truck }
+    { 
+      step: "1", 
+      title: "Anfrage", 
+      description: "3D-Datei hochladen oder Projekt beschreiben. Unser Online-Konfigurator zeigt sofort den Preis.",
+      icon: FileText,
+      time: "2 Minuten"
+    },
+    { 
+      step: "2", 
+      title: "Angebot", 
+      description: "Sofortpreis im Konfigurator oder individuelles Angebot innerhalb von 24h bei Sonderwünschen.",
+      icon: BarChart3,
+      time: "Sofort / 24h"
+    },
+    { 
+      step: "3", 
+      title: "Produktion", 
+      description: "Bei Bestätigung starten wir sofort. Moderne Druckfarm mit paralleler Fertigung für schnelle Lieferung.",
+      icon: Factory,
+      time: "3-7 Werktage"
+    },
+    { 
+      step: "4", 
+      title: "Lieferung", 
+      description: "Sichere Verpackung, Versand mit Tracking. Ordentliche Rechnung mit ausgewiesener MwSt.",
+      icon: Truck,
+      time: "1-2 Werktage"
+    }
   ];
 
   const testimonials = [
     {
-      quote: "Zuverlässiger Partner für unsere Architekturmodelle. Die Qualität ist konstant hervorragend und die Lieferung immer pünktlich.",
-      author: "Architekturbüro",
+      quote: "Zuverlässiger Partner für unsere Architekturmodelle. Die Qualität ist konstant hervorragend und die Lieferung immer pünktlich. Besonders schätzen wir die unkomplizierte Kommunikation.",
+      author: "Planungsbüro",
+      industry: "Architektur",
       location: "Oberösterreich",
-      rating: 5
+      rating: 5,
+      highlight: "Seit 2 Jahren Partner"
     },
     {
-      quote: "Auch bei kurzfristigen Messeterminen können wir uns auf ekdruck verlassen. Der Express-Service hat uns schon mehrfach gerettet.",
-      author: "Messebau-Unternehmen",
+      quote: "Auch bei kurzfristigen Messeterminen können wir uns auf ekdruck verlassen. Der 24h-Express-Service hat uns schon mehrfach gerettet. Absolute Empfehlung für alle Messebauer!",
+      author: "Event-Agentur",
+      industry: "Messebau",
       location: "Wien",
-      rating: 5
+      rating: 5,
+      highlight: "Express-Service"
     },
     {
-      quote: "Einfache Abwicklung und faire Preise. Die Rechnungsstellung ist vorbildlich – genau was wir als Unternehmen brauchen.",
-      author: "Werbeagentur",
+      quote: "Einfache Abwicklung, faire Preise und die Rechnungsstellung ist vorbildlich. Genau was wir als Agentur brauchen – kein unnötiger Overhead, einfach professionelle Umsetzung.",
+      author: "Kreativagentur",
+      industry: "Werbung",
       location: "Salzburg",
-      rating: 5
+      rating: 5,
+      highlight: "Perfekte Abwicklung"
     }
   ];
 
-  const advantages = [
-    { title: "Keine Mindestbestellmenge", desc: "Auch Einzelstücke ohne Aufpreis" },
-    { title: "Mengenrabatte", desc: "Ab 10 Stück attraktive Staffelpreise" },
-    { title: "Sammelrechnungen", desc: "Monatliche Abrechnung für Stammkunden" },
-    { title: "Rahmenverträge", desc: "Individuelle Konditionen auf Anfrage" },
-    { title: "Vertraulichkeit", desc: "NDA auf Wunsch verfügbar" },
-    { title: "Schnelle Reaktion", desc: "Antwort innerhalb von 24h garantiert" }
+  const pricingAdvantages = [
+    { 
+      title: "Keine Mindestbestellmenge", 
+      desc: "Auch Einzelstücke ohne Aufpreis – Sie zahlen nur was Sie brauchen",
+      icon: Package
+    },
+    { 
+      title: "Mengenrabatte ab 10 Stück", 
+      desc: "5% ab 10 Stück, 10% ab 20 Stück, bis zu 20% ab 50 Stück",
+      icon: Percent
+    },
+    { 
+      title: "Sammelrechnungen", 
+      desc: "Monatliche Abrechnung für Stammkunden – weniger Verwaltung für Sie",
+      icon: Receipt
+    },
+    { 
+      title: "Rahmenverträge", 
+      desc: "Individuelle Konditionen und garantierte Kapazitäten auf Anfrage",
+      icon: FileText
+    },
+    { 
+      title: "Vertraulichkeit garantiert", 
+      desc: "NDA verfügbar, alle Daten werden nach Projektabschluss gelöscht",
+      icon: ShieldCheck
+    },
+    { 
+      title: "Schnelle Reaktionszeit", 
+      desc: "Antwort innerhalb von 24h garantiert – meist deutlich schneller",
+      icon: MessageSquare
+    }
+  ];
+
+  const comparisonData = [
+    { feature: "Mindestbestellwert", ekdruck: "Keiner", others: "Oft €200+" },
+    { feature: "Angebotszeit", ekdruck: "Sofort", others: "1-5 Tage" },
+    { feature: "Lieferzeit Standard", ekdruck: "5-7 Tage", others: "10-14 Tage" },
+    { feature: "Express-Option", ekdruck: "24-48h", others: "Selten möglich" },
+    { feature: "Persönlicher Kontakt", ekdruck: "Direkt", others: "Ticket-System" },
+    { feature: "Rechnungsstellung", ekdruck: "Sofort mit MwSt.", others: "Variiert" },
   ];
 
   const faqs = [
     {
       question: "Wie erfolgt die Rechnungsstellung für Firmenkunden?",
-      answer: "Sie erhalten eine ordentliche Rechnung mit ausgewiesener MwSt. (20%) für Ihre Buchhaltung. Stammkunden können auch auf Rechnung mit Zahlungsziel bestellen. Sammelrechnungen am Monatsende sind ebenfalls möglich."
+      answer: "Sie erhalten eine ordentliche Rechnung mit ausgewiesener MwSt. (20%) für Ihre Buchhaltung. Stammkunden können auch auf Rechnung mit Zahlungsziel bestellen. Sammelrechnungen am Monatsende sind ebenfalls möglich – sprechen Sie uns einfach an."
     },
     {
       question: "Gibt es Mengenrabatte für Unternehmen?",
-      answer: "Ja, ab 10 identischen Teilen bieten wir attraktive Staffelpreise. Bei regelmäßigen Aufträgen sind individuelle Rahmenverträge mit besonderen Konditionen möglich. Sprechen Sie uns für ein individuelles Angebot an."
+      answer: "Ja! Ab 10 identischen Teilen erhalten Sie 5% Rabatt, ab 20 Stück 10%, ab 50 Stück bis zu 20%. Bei regelmäßigen Aufträgen sind individuelle Rahmenverträge mit besonderen Konditionen möglich. Der Rabatt wird automatisch im Konfigurator angezeigt."
     },
     {
       question: "Wie werden vertrauliche Projekte geschützt?",
-      answer: "Auf Wunsch unterzeichnen wir eine Geheimhaltungsvereinbarung (NDA). Alle Projektdaten werden vertraulich behandelt und nach Abschluss des Auftrags gelöscht."
+      answer: "Vertraulichkeit hat bei uns höchste Priorität. Auf Wunsch unterzeichnen wir eine Geheimhaltungsvereinbarung (NDA). Alle Projektdaten werden vertraulich behandelt und nach Abschluss des Auftrags gelöscht. Ihre Designs sind bei uns sicher."
     },
     {
       question: "Wie schnell erhalte ich eine Antwort auf Anfragen?",
-      answer: "Wir garantieren eine Rückmeldung innerhalb von 24 Stunden an Werktagen. Bei dringenden Projekten erreichen Sie uns auch telefonisch für sofortige Beratung."
+      answer: "Wir garantieren eine Rückmeldung innerhalb von 24 Stunden an Werktagen – meist antworten wir aber deutlich schneller. Bei dringenden Projekten erreichen Sie uns auch telefonisch für sofortige Beratung."
     },
     {
       question: "Welche Branchen bedienen Sie als B2B-Partner?",
-      answer: "Wir arbeiten mit Architekturbüros, Messebauern, Werbeagenturen, Designbüros, Bildungseinrichtungen und vielen weiteren Branchen. Für jede Branche haben wir spezialisierte Lösungen."
+      answer: "Wir arbeiten mit Architekturbüros, Messebauern, Werbeagenturen, Designbüros, Bildungseinrichtungen, Filmproduktionen, Museumswerkstätten und vielen weiteren Branchen. Für jede Branche haben wir spezialisierte Lösungen und verstehen die spezifischen Anforderungen."
     },
     {
       question: "Kann ich einen persönlichen Ansprechpartner bekommen?",
-      answer: "Ja, für Firmenkunden gibt es direkte Kommunikation per E-Mail und Telefon – ohne Warteschleifen oder Chatbots. Sie erhalten persönliche Beratung und schnelle Antworten auf Ihre Fragen."
+      answer: "Ja, für Firmenkunden gibt es direkte Kommunikation per E-Mail und Telefon – ohne Warteschleifen, Tickets oder Chatbots. Sie erhalten persönliche Beratung und schnelle Antworten auf Ihre Fragen. Bei regelmäßigen Projekten kennen wir Ihre Präferenzen."
+    },
+    {
+      question: "Wie funktioniert der Express-Service?",
+      answer: "Bei dringenden Projekten bieten wir Express-Fertigung in 24-48 Stunden an. Wählen Sie einfach die Express-Option im Konfigurator oder kontaktieren Sie uns direkt. Der Aufpreis beträgt 50%, dafür erhalten Sie absolute Priorität in unserer Produktion."
+    },
+    {
+      question: "Was passiert, wenn etwas nicht passt?",
+      answer: "Qualität steht bei uns an erster Stelle. Sollte dennoch einmal etwas nicht Ihren Erwartungen entsprechen, finden wir gemeinsam eine Lösung – sei es Nachbesserung, Neuproduktion oder Erstattung. Ihre Zufriedenheit ist unser Ziel."
     }
   ];
-
-  const keywordContent = {
-    title: "Warum Unternehmen uns als Partner wählen",
-    intro: "Von Architekturbüros in Wien über Messebauer in Salzburg bis zu Agenturen in Graz – Unternehmen in ganz Österreich vertrauen auf ekdruck als zuverlässigen 3D-Druck Partner. Wir verstehen die Anforderungen von Geschäftskunden: Termintreue, Qualitätskonstanz und professionelle Abwicklung.",
-    blocks: [
-      {
-        title: "Planbare Kosten",
-        content: "Unser Online-Konfigurator liefert sofortige, verbindliche Preise. Keine Wartezeit auf Angebote, keine versteckten Kosten. Sie wissen genau, was Sie bekommen und was es kostet – ideal für Ihre Budgetplanung und Kalkulation."
-      },
-      {
-        title: "Skalierbare Kapazität",
-        content: "Egal ob ein Einzelstück oder 100 identische Teile – wir skalieren mit Ihren Anforderungen. Moderne Druckfarm ermöglicht parallele Fertigung mehrerer Aufträge ohne Qualitätsverlust."
-      },
-      {
-        title: "Dokumentation",
-        content: "Für jeden Auftrag erhalten Sie eine ordentliche Rechnung mit ausgewiesener MwSt. für Ihre Buchhaltung. Auf Wunsch liefern wir Materialzertifikate und Projektdokumentation."
-      },
-      {
-        title: "Langfristige Partnerschaft",
-        content: "Stammkunden profitieren von Rahmenverträgen, Mengenrabatten und bevorzugter Bearbeitung. Wir investieren in langfristige Geschäftsbeziehungen und wachsen mit den Anforderungen unserer Partner."
-      }
-    ]
-  };
 
   const breadcrumbs = [
     { name: "Zielgruppen", url: "#" },
@@ -185,106 +280,210 @@ const Firmenkunden = () => {
   return (
     <>
       <Helmet>
-        <title>3D-Druck für Firmenkunden | B2B Projekte & Aufträge | ekdruck.at</title>
-        <meta name="description" content="Zuverlässiger 3D-Druck Partner für Unternehmen in Österreich. Ordentliche Rechnungsstellung mit MwSt., persönliche Betreuung und gleichbleibende Qualität." />
-        <meta name="keywords" content="3D-Druck B2B, Firmenkunden, Geschäftskunden, Projektaufträge, Rechnungsstellung, Unternehmen 3D-Druck Österreich" />
+        <title>3D-Druck für Firmenkunden | B2B Partner Österreich | ekdruck.at</title>
+        <meta name="description" content="Zuverlässiger 3D-Druck Partner für Unternehmen in Österreich. Ordentliche Rechnungen mit MwSt., persönliche Betreuung, Express in 24h. Architekturbüros, Agenturen, Messebau. Jetzt anfragen!" />
+        <meta name="keywords" content="3D-Druck B2B, 3D-Druck Firmenkunden, 3D-Druck Unternehmen Österreich, B2B 3D-Druck Service, 3D-Druck Geschäftskunden, Projektaufträge 3D-Druck, 3D-Druck mit Rechnung, 3D-Druck Express Unternehmen, Architekturmodelle B2B, Messemodelle Firma" />
         <link rel="canonical" href="https://ek-druck.at/firmenkunden" />
+        <meta property="og:title" content="3D-Druck für Firmenkunden | B2B Partner Österreich" />
+        <meta property="og:description" content="Zuverlässiger 3D-Druck Partner für Unternehmen. Ordentliche Rechnungen, persönliche Betreuung, Express in 24h." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ek-druck.at/firmenkunden" />
       </Helmet>
 
       <Navigation />
       <Breadcrumbs items={breadcrumbs} />
 
       <main className="min-h-screen bg-background">
-        {/* Hero Section */}
-        <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Premium Hero Section */}
+        <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+          {/* Background Effects */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10" />
-          <div className="absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
           
           <div className="container mx-auto px-4 relative">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Left Column - Content */}
+              <div className="order-2 lg:order-1">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
                   <Building className="w-4 h-4" />
-                  Für Unternehmen
+                  <span>B2B 3D-Druck Partner</span>
                 </div>
+                
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Ihr Partner für<br />
-                  <span className="text-primary">professionelle Projekte</span>
+                  Ihr zuverlässiger<br />
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    3D-Druck Partner
+                  </span>
                 </h1>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                  Von der ersten Anfrage bis zur Lieferung – wir verstehen die 
-                  Anforderungen von Geschäftskunden. Ordentliche Rechnungen mit MwSt., 
-                  verbindliche Termine und gleichbleibende Qualität.
+                
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
+                  Von Architekturbüros bis Werbeagenturen – über 100 Unternehmen in Österreich 
+                  vertrauen auf uns. Ordentliche Rechnungen, verbindliche Termine, 
+                  gleichbleibende Qualität.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" variant="hero" className="text-base">
+
+                {/* Key USPs */}
+                <div className="flex flex-wrap gap-3 mb-8">
+                  {[
+                    "Rechnung mit MwSt.",
+                    "Express 24h",
+                    "Persönlicher Kontakt",
+                    "Made in Austria"
+                  ].map((usp, i) => (
+                    <div key={i} className="flex items-center gap-2 bg-muted/50 px-3 py-1.5 rounded-full text-sm">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      <span>{usp}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <Button asChild size="lg" className="text-base shadow-lg hover:shadow-xl transition-all bg-primary hover:bg-primary/90 group">
                     <Link to="/3d-druck-bestellen">
-                      Projekt starten
-                      <ArrowRight className="ml-2 w-5 h-5" />
+                      Jetzt Preis berechnen
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline">
-                    <a href="#contact">Beratungsgespräch</a>
+                  <Button asChild size="lg" variant="outline" className="text-base group">
+                    <a href="mailto:office@ek-druck.at">
+                      <Mail className="mr-2 w-5 h-5" />
+                      Beratung anfragen
+                    </a>
                   </Button>
                 </div>
-                <div className="flex items-center gap-6 mt-8 pt-6 border-t border-border">
+
+                {/* Trust Indicators */}
+                <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-border">
                   <div className="flex items-center gap-2">
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <span className="text-sm font-medium">5.0 Google</span>
+                    <span className="font-semibold">5.0</span>
+                    <span className="text-muted-foreground text-sm">Google Reviews</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground">
                     <MapPin className="w-4 h-4" />
-                    Made in Austria
+                    <span>Standort Oberösterreich</span>
                   </div>
                 </div>
               </div>
               
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                {stats.map((stat, index) => (
-                  <Card key={index} className={`${index === 0 ? 'bg-primary text-primary-foreground' : 'bg-card'} border-0 shadow-lg hover:shadow-xl transition-shadow`}>
-                    <CardContent className="p-6">
-                      <div className={`text-3xl md:text-4xl font-bold mb-1 ${index === 0 ? '' : 'text-primary'}`}>
-                        {stat.value}
-                      </div>
-                      <div className={`font-semibold mb-1 ${index === 0 ? 'text-primary-foreground/90' : ''}`}>
-                        {stat.label}
-                      </div>
-                      <div className={`text-sm ${index === 0 ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
-                        {stat.description}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+              {/* Right Column - Stats Grid */}
+              <div className="order-1 lg:order-2">
+                <div className="grid grid-cols-2 gap-4">
+                  {heroStats.map((stat, index) => (
+                    <Card 
+                      key={index} 
+                      className={`
+                        ${index === 0 ? 'bg-gradient-to-br from-primary to-primary/80 text-primary-foreground' : 'bg-card border-2 hover:border-primary/30'} 
+                        shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group
+                      `}
+                    >
+                      <CardContent className="p-6 relative">
+                        <div className={`absolute top-3 right-3 ${index === 0 ? 'text-primary-foreground/30' : 'text-primary/10'}`}>
+                          <stat.icon className="w-12 h-12" />
+                        </div>
+                        <div className={`text-4xl md:text-5xl font-bold mb-2 ${index === 0 ? '' : 'text-primary'}`}>
+                          {stat.value}
+                        </div>
+                        <div className={`font-medium ${index === 0 ? 'text-primary-foreground/90' : 'text-foreground'}`}>
+                          {stat.label}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                {/* Trust Logos */}
+                <div className="mt-8 p-6 bg-muted/30 rounded-2xl border border-border/50">
+                  <p className="text-sm text-muted-foreground mb-4 text-center">Vertrauen von Unternehmen aus:</p>
+                  <div className="flex flex-wrap justify-center gap-3">
+                    {trustLogos.map((logo, i) => (
+                      <span key={i} className="text-sm bg-background px-3 py-1.5 rounded-full border border-border">
+                        {logo}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Benefits */}
-        <section className="py-16 md:py-24">
+        {/* Social Proof Bar */}
+        <section className="py-8 bg-muted/50 border-y border-border">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Vorteile für Firmenkunden</h2>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-center">
+              <div>
+                <div className="text-3xl font-bold text-primary">100+</div>
+                <div className="text-sm text-muted-foreground">Firmenkunden</div>
+              </div>
+              <div className="h-12 w-px bg-border hidden md:block" />
+              <div>
+                <div className="text-3xl font-bold text-primary">1000+</div>
+                <div className="text-sm text-muted-foreground">B2B-Projekte</div>
+              </div>
+              <div className="h-12 w-px bg-border hidden md:block" />
+              <div>
+                <div className="text-3xl font-bold text-primary">5.0</div>
+                <div className="text-sm text-muted-foreground">Google Rating</div>
+              </div>
+              <div className="h-12 w-px bg-border hidden md:block" />
+              <div>
+                <div className="text-3xl font-bold text-primary">24h</div>
+                <div className="text-sm text-muted-foreground">Express möglich</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section - Premium Cards */}
+        <section className="py-20 md:py-28">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <Award className="w-4 h-4" />
+                Ihre Vorteile
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Warum Unternehmen uns wählen
+              </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                Was uns als B2B-Partner auszeichnet
+                Was uns als B2B-Partner auszeichnet – professionelle Abwicklung für Ihr Unternehmen
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((benefit, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 hover:shadow-lg transition-all group">
+                <Card 
+                  key={index} 
+                  className="group border-2 hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden relative"
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <CardContent className="p-6">
-                    <div className="flex gap-4">
-                      <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                         <benefit.icon className="w-7 h-7 text-primary" />
                       </div>
-                      <div>
-                        <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
-                        <p className="text-muted-foreground">{benefit.description}</p>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
+                          {benefit.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm mb-3">
+                          {benefit.description}
+                        </p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">
+                            {benefit.highlight}
+                          </span>
+                          <span className="text-xs text-muted-foreground font-medium">
+                            {benefit.stats}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </CardContent>
@@ -294,33 +493,59 @@ const Firmenkunden = () => {
           </div>
         </section>
 
-        {/* Industries */}
-        <section className="py-16 md:py-24 bg-muted/30">
+        {/* Industries Section */}
+        <section className="py-20 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Branchen die wir bedienen</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Spezialisierte Lösungen für verschiedene Anforderungen
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <Target className="w-4 h-4" />
+                Branchen
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Spezialisiert auf Ihre Branche
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                Wir verstehen die spezifischen Anforderungen verschiedener Industrien
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
+
+            <div className="grid md:grid-cols-2 gap-8">
               {industries.map((industry, index) => (
-                <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow group">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                        <industry.icon className="w-6 h-6 text-primary" />
+                <Card 
+                  key={index} 
+                  className="overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30"
+                >
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-5">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+                        <industry.icon className="w-8 h-8 text-primary-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold mb-2">{industry.title}</h3>
-                        <p className="text-muted-foreground mb-3">{industry.description}</p>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
-                            {industry.stats}
-                          </span>
-                          <Button asChild variant="link" className="p-0 h-auto">
+                        <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                          {industry.title}
+                        </h3>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          {industry.description}
+                        </p>
+                        
+                        {/* Features */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {industry.features.map((feature, i) => (
+                            <span key={i} className="text-xs bg-muted px-2 py-1 rounded-full">
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="flex items-center justify-between pt-4 border-t border-border">
+                          <div>
+                            <span className="text-xl font-bold text-primary">{industry.stats}</span>
+                            <span className="text-sm text-muted-foreground ml-2">{industry.highlight}</span>
+                          </div>
+                          <Button asChild variant="ghost" size="sm" className="group/btn">
                             <Link to={industry.link}>
-                              Mehr erfahren <ArrowRight className="ml-1 w-4 h-4" />
+                              Details
+                              <ArrowRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                             </Link>
                           </Button>
                         </div>
@@ -333,50 +558,135 @@ const Firmenkunden = () => {
           </div>
         </section>
 
-        {/* Process */}
-        <section className="py-16 md:py-24">
+        {/* Process Section - Timeline Style */}
+        <section className="py-20 md:py-28">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">So funktioniert die Zusammenarbeit</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Ein einfacher und transparenter Prozess
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <Settings className="w-4 h-4" />
+                Ablauf
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                So einfach funktioniert's
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                Von der Anfrage bis zur Lieferung – ein transparenter, effizienter Prozess
               </p>
             </div>
-            <div className="grid md:grid-cols-4 gap-6">
-              {process.map((item, index) => (
-                <div key={index} className="text-center relative">
-                  {index < process.length - 1 && (
-                    <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-primary/20" />
-                  )}
-                  <div className="w-16 h-16 bg-primary text-primary-foreground rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg relative z-10">
-                    <item.icon className="w-8 h-8" />
+
+            <div className="max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-4 gap-8">
+                {process.map((item, index) => (
+                  <div key={index} className="relative">
+                    {/* Connection Line */}
+                    {index < process.length - 1 && (
+                      <div className="hidden md:block absolute top-10 left-[60%] w-[calc(100%-20px)] h-0.5 bg-gradient-to-r from-primary/50 to-primary/20" />
+                    )}
+                    
+                    <div className="text-center group">
+                      <div className="relative inline-block mb-6">
+                        <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                          <item.icon className="w-10 h-10" />
+                        </div>
+                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-background border-2 border-primary rounded-full flex items-center justify-center text-sm font-bold text-primary">
+                          {item.step}
+                        </div>
+                      </div>
+                      
+                      <h3 className="font-bold text-xl mb-2">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm mb-3">{item.description}</p>
+                      <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
+                        {item.time}
+                      </span>
+                    </div>
                   </div>
-                  <div className="text-sm text-primary font-bold mb-2">Schritt {item.step}</div>
-                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center mt-12">
+              <Button asChild size="lg" className="shadow-lg">
+                <Link to="/3d-druck-bestellen">
+                  Jetzt starten
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
 
-        {/* Advantages Grid */}
-        <section className="py-16 md:py-24 bg-muted/30">
+        {/* Comparison Section */}
+        <section className="py-20 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">B2B-Konditionen</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Faire Bedingungen für professionelle Zusammenarbeit
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <TrendingUp className="w-4 h-4" />
+                Der Unterschied
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                ekdruck vs. Andere Anbieter
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                Warum sich Unternehmen für uns entscheiden
               </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-              {advantages.map((adv, index) => (
-                <Card key={index} className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-5">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+
+            <div className="max-w-3xl mx-auto">
+              <Card className="overflow-hidden border-2">
+                <div className="grid grid-cols-3 bg-muted/50 p-4 font-semibold border-b">
+                  <div className="text-muted-foreground">Feature</div>
+                  <div className="text-center text-primary">ekdruck</div>
+                  <div className="text-center text-muted-foreground">Andere</div>
+                </div>
+                {comparisonData.map((row, index) => (
+                  <div 
+                    key={index} 
+                    className={`grid grid-cols-3 p-4 items-center ${index % 2 === 0 ? 'bg-background' : 'bg-muted/20'} ${index < comparisonData.length - 1 ? 'border-b' : ''}`}
+                  >
+                    <div className="font-medium">{row.feature}</div>
+                    <div className="text-center">
+                      <span className="inline-flex items-center gap-1 text-primary font-semibold">
+                        <CheckCircle className="w-4 h-4" />
+                        {row.ekdruck}
+                      </span>
+                    </div>
+                    <div className="text-center text-muted-foreground text-sm">
+                      {row.others}
+                    </div>
+                  </div>
+                ))}
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Advantages */}
+        <section className="py-20 md:py-28">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <Euro className="w-4 h-4" />
+                B2B-Konditionen
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Faire Konditionen für Unternehmen
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                Transparente Preise, keine versteckten Kosten, attraktive Mengenrabatte
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {pricingAdvantages.map((adv, index) => (
+                <Card key={index} className="hover:shadow-lg transition-all group border-2 hover:border-primary/30">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <adv.icon className="w-6 h-6 text-primary" />
+                      </div>
                       <div>
-                        <h3 className="font-semibold mb-1">{adv.title}</h3>
+                        <h3 className="font-bold text-lg mb-2">{adv.title}</h3>
                         <p className="text-sm text-muted-foreground">{adv.desc}</p>
                       </div>
                     </div>
@@ -384,49 +694,186 @@ const Firmenkunden = () => {
                 </Card>
               ))}
             </div>
+
+            {/* Discount Tiers */}
+            <div className="mt-12 max-w-3xl mx-auto">
+              <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-2 border-primary/20">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-6 text-center">Mengenrabatt-Staffel</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {[
+                      { qty: "10+", discount: "5%" },
+                      { qty: "20+", discount: "10%" },
+                      { qty: "50+", discount: "15%" },
+                      { qty: "100+", discount: "20%" }
+                    ].map((tier, i) => (
+                      <div key={i} className="text-center p-4 bg-background rounded-xl border border-border">
+                        <div className="text-3xl font-bold text-primary mb-1">{tier.discount}</div>
+                        <div className="text-sm text-muted-foreground">ab {tier.qty} Stück</div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-center text-sm text-muted-foreground mt-6">
+                    Rabatte werden automatisch im Konfigurator berechnet
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
 
         {/* Testimonials */}
-        <section className="py-16 md:py-24">
+        <section className="py-20 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Was unsere Kunden sagen</h2>
-              <p className="text-muted-foreground">Echte Bewertungen von Geschäftskunden</p>
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <Star className="w-4 h-4" />
+                Kundenstimmen
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Was unsere Partner sagen
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                Echte Bewertungen von Geschäftskunden aus ganz Österreich
+              </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
+                <Card key={index} className="hover:shadow-xl transition-all group border-2 hover:border-primary/30 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent" />
+                  <CardContent className="p-8">
+                    {/* Rating */}
                     <div className="flex gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="text-muted-foreground mb-4 italic">"{testimonial.quote}"</p>
-                    <div className="text-sm">
-                      <span className="font-semibold">{testimonial.author}</span>
-                      <span className="text-muted-foreground"> · {testimonial.location}</span>
+
+                    {/* Quote */}
+                    <blockquote className="text-muted-foreground mb-6 leading-relaxed">
+                      "{testimonial.quote}"
+                    </blockquote>
+
+                    {/* Author */}
+                    <div className="flex items-center justify-between pt-4 border-t border-border">
+                      <div>
+                        <div className="font-semibold">{testimonial.author}</div>
+                        <div className="text-sm text-muted-foreground flex items-center gap-1">
+                          <MapPin className="w-3 h-3" />
+                          {testimonial.location}
+                        </div>
+                      </div>
+                      <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
+                        {testimonial.highlight}
+                      </span>
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
+
+            {/* Trust Badge */}
+            <div className="mt-12 text-center">
+              <div className="inline-flex items-center gap-3 bg-background px-6 py-3 rounded-full border shadow-sm">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <span className="font-semibold">5.0 von 5</span>
+                <span className="text-muted-foreground">basierend auf Google Reviews</span>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Keyword Rich Content */}
-        <KeywordRichContent 
-          title={keywordContent.title}
-          intro={keywordContent.intro}
-          blocks={keywordContent.blocks}
-          ctaText="B2B-Projekt starten"
-        />
+        {/* CTA Section */}
+        <section className="py-20 md:py-28 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80" />
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
+          
+          <div className="container mx-auto px-4 relative">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+                Bereit für eine professionelle Zusammenarbeit?
+              </h2>
+              <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+                Starten Sie jetzt Ihr erstes Projekt oder kontaktieren Sie uns für ein 
+                unverbindliches Beratungsgespräch.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Button asChild size="lg" variant="secondary" className="text-base shadow-xl group">
+                  <Link to="/3d-druck-bestellen">
+                    Preis berechnen
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="text-base bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+                  <a href="tel:+436645353003">
+                    <Phone className="mr-2 w-5 h-5" />
+                    +43 664 535 30 03
+                  </a>
+                </Button>
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-6 text-primary-foreground/80">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5" />
+                  <span>Kostenlose Beratung</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5" />
+                  <span>Unverbindliches Angebot</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5" />
+                  <span>Express möglich</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Info */}
+        <section id="contact" className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <Card className="border-2">
+                <CardContent className="p-8">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold mb-2">Direkter Kontakt für Firmenkunden</h3>
+                    <p className="text-muted-foreground">Persönliche Beratung ohne Warteschleifen</p>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <a href="tel:+436645353003" className="flex flex-col items-center p-4 rounded-xl bg-muted/50 hover:bg-primary/10 transition-colors group">
+                      <Phone className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                      <span className="font-semibold">Telefon</span>
+                      <span className="text-sm text-muted-foreground">+43 664 535 30 03</span>
+                    </a>
+                    <a href="mailto:office@ek-druck.at" className="flex flex-col items-center p-4 rounded-xl bg-muted/50 hover:bg-primary/10 transition-colors group">
+                      <Mail className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                      <span className="font-semibold">E-Mail</span>
+                      <span className="text-sm text-muted-foreground">office@ek-druck.at</span>
+                    </a>
+                    <div className="flex flex-col items-center p-4 rounded-xl bg-muted/50">
+                      <Clock className="w-8 h-8 text-primary mb-3" />
+                      <span className="font-semibold">Reaktionszeit</span>
+                      <span className="text-sm text-muted-foreground">Innerhalb 24h</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
 
         {/* Regional Coverage */}
         <RegionalCoverage 
           serviceName="3D-Druck für Unternehmen"
-          description="Wir arbeiten mit Unternehmen in ganz Österreich zusammen. Von Kleinbetrieben bis zu Konzernen – professionelle Abwicklung und zuverlässige Lieferung."
+          description="Wir arbeiten mit Unternehmen in ganz Österreich zusammen. Von Kleinbetrieben bis zu Konzernen – professionelle Abwicklung und zuverlässige Lieferung in alle Bundesländer."
         />
 
         {/* FAQ Section */}
