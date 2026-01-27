@@ -89,10 +89,10 @@ const Architekturmodelle = () => {
   ];
 
   const materials = [
-    { name: "PLA Weiß", use: "Studienmodelle, saubere Oberflächen", price: "Ab €20", popular: true },
-    { name: "PLA Grau", use: "Betonstruktur, Rohbau-Optik", price: "Ab €22", popular: false },
-    { name: "PETG Transparent", use: "Glasflächen, Fassadenelemente", price: "Ab €25", popular: true },
-    { name: "Holz-Filament", use: "Natürliche Holzoptik", price: "Ab €28", popular: false }
+    { name: "PLA Weiß", use: "Studienmodelle, saubere Oberflächen", popular: true },
+    { name: "PLA Grau", use: "Betonstruktur, Rohbau-Optik", popular: false },
+    { name: "PETG Transparent", use: "Glasflächen, Fassadenelemente", popular: true },
+    { name: "Holz-Filament", use: "Natürliche Holzoptik", popular: false }
   ];
 
   return (
@@ -323,8 +323,7 @@ const Architekturmodelle = () => {
                   )}
                   <CardContent className="p-6 text-center">
                     <h3 className="font-bold text-lg mb-2">{material.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{material.use}</p>
-                    <span className="text-primary font-bold text-xl">{material.price}</span>
+                    <p className="text-sm text-muted-foreground">{material.use}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -356,29 +355,6 @@ const Architekturmodelle = () => {
                   <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-16 md:py-24 bg-primary text-primary-foreground relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
-          <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Bereit für Ihr Architekturmodell?</h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto text-lg">
-              Laden Sie Ihre 3D-Datei hoch und erhalten Sie sofort einen Preis. 
-              Keine versteckten Kosten, keine Wartezeit auf Angebote.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="text-base">
-                <Link to="/3d-druck-bestellen">
-                  <Eye className="mr-2 w-5 h-5" />
-                  Jetzt Preis berechnen
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                <Link to="/probeteile">Kostenloses Probeteil</Link>
-              </Button>
             </div>
           </div>
         </section>

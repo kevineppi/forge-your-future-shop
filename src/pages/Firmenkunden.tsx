@@ -355,29 +355,6 @@ const Firmenkunden = () => {
             </div>
           </div>
         </section>
-
-        {/* CTA */}
-        <section className="py-16 md:py-24 bg-primary text-primary-foreground relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
-          <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Bereit für Ihr Projekt?</h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto text-lg">
-              Starten Sie jetzt mit Ihrem ersten Auftrag oder kontaktieren 
-              Sie uns für ein persönliches Beratungsgespräch.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="text-base">
-                <Link to="/3d-druck-bestellen">
-                  <Truck className="mr-2 w-5 h-5" />
-                  Auftrag starten
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                <Link to="/probeteile">Kostenloses Probeteil</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
       </main>
 
       <Footer />
