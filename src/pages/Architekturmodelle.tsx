@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
+import RegionalCoverage from "@/components/landing/RegionalCoverage";
+import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import { 
   Building2, 
   Layers, 
@@ -121,6 +123,29 @@ const Architekturmodelle = () => {
       answer: "Ja, 3D-gedruckte Architekturmodelle sind typischerweise 60-80% günstiger als handgefertigte Modelle. Zudem ermöglicht die digitale Fertigung schnelle Änderungen und identische Reproduktionen."
     }
   ];
+
+  const keywordContent = {
+    title: "Warum Architekten auf 3D-Druck setzen",
+    intro: "Der 3D-Druck revolutioniert den Architekturmodellbau. Immer mehr Architekturbüros in Österreich – von Wien über Linz bis Graz – nutzen die Technologie für schnellere, günstigere und präzisere Modelle. Die additive Fertigung ermöglicht Geometrien, die im traditionellen Modellbau nur schwer oder gar nicht umsetzbar sind.",
+    blocks: [
+      {
+        title: "Digitaler Workflow",
+        content: "Der nahtlose Übergang von BIM-Modellen (ArchiCAD, Revit) zum physischen Modell spart Zeit und reduziert Fehler. Ein STL-Export genügt, um innerhalb von Stunden einen präzisen Prototypen zu erstellen. Änderungen am digitalen Modell können sofort in eine neue Version übertragen werden."
+      },
+      {
+        title: "Kostentransparenz",
+        content: "Anders als beim traditionellen Modellbauer, wo Kosten oft erst nach Wochen feststehen, erhalten Sie bei uns sofort einen verbindlichen Preis. Unser Online-Konfigurator berechnet basierend auf Volumen und Material – keine versteckten Kosten, keine Überraschungen."
+      },
+      {
+        title: "Nachhaltigkeit",
+        content: "3D-Druck ist materialeffizient: Es wird nur so viel Material verwendet, wie tatsächlich benötigt wird. PLA, unser Hauptmaterial, ist biologisch abbaubar und wird aus nachwachsenden Rohstoffen hergestellt. Lokale Fertigung in Oberösterreich reduziert Transportwege."
+      },
+      {
+        title: "Skalierbarkeit",
+        content: "Vom schnellen Konzeptmodell für die interne Besprechung bis zum detaillierten Präsentationsmodell für den Bauherrn – der 3D-Druck skaliert mit Ihren Anforderungen. Mehrere Varianten können parallel gefertigt werden, um Entwurfsalternativen zu vergleichen."
+      }
+    ]
+  };
 
   const breadcrumbs = [
     { name: "Zielgruppen", url: "#" },
@@ -391,6 +416,16 @@ const Architekturmodelle = () => {
             </div>
           </div>
         </section>
+
+        {/* Keyword Rich Content */}
+        <KeywordRichContent 
+          title={keywordContent.title}
+          intro={keywordContent.intro}
+          blocks={keywordContent.blocks}
+        />
+
+        {/* Regional Coverage */}
+        <RegionalCoverage serviceName="Architekturmodelle" />
 
         {/* FAQ Section */}
         <FAQSection 

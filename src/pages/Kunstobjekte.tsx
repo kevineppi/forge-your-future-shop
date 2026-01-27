@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
+import RegionalCoverage from "@/components/landing/RegionalCoverage";
+import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import { 
   Palette, 
   Sparkles, 
@@ -138,6 +140,29 @@ const Kunstobjekte = () => {
       answer: "Ja, jedes 3D-Modell kann beliebig oft identisch reproduziert werden. Das macht den 3D-Druck ideal für limitierte Editionen und Multiples – konsistente Qualität bei jeder Auflage."
     }
   ];
+
+  const keywordContent = {
+    title: "3D-Druck: Neue Werkzeuge für Künstler",
+    intro: "Der 3D-Druck eröffnet Künstlern völlig neue Ausdrucksmöglichkeiten. Was früher nur in der Fantasie existierte, kann heute Realität werden. Immer mehr Bildhauer, Designer und Installations-Künstler in Wien, Graz, Linz und ganz Österreich nutzen additive Fertigung als kreatives Werkzeug.",
+    blocks: [
+      {
+        title: "Vom Digitalen ins Physische",
+        content: "Digitale Skulpturen aus ZBrush, Blender oder anderen 3D-Programmen können direkt in physische Objekte übersetzt werden. Der 3D-Druck überbrückt die Lücke zwischen digitaler Kunst und haptischer Erfahrung – eine Revolution für digitale Künstler."
+      },
+      {
+        title: "Unmögliche Geometrien",
+        content: "Der 3D-Druck ermöglicht Formen, die mit traditionellen Techniken wie Guss, Schnitzen oder Modellieren nicht realisierbar wären: Ineinander verschachtelte Strukturen, filigrane Gitterwerke, organische Formen mit Hinterschnitten."
+      },
+      {
+        title: "Experimentelle Materialien",
+        content: "Neben klassischen Kunststoffen bieten wir Holz-Filament für natürliche Optik, Marmor-Look für Steinästhetik und transparentes PETG für Lichtinstallationen. Jedes Material hat eigene künstlerische Qualitäten."
+      },
+      {
+        title: "Iteratives Arbeiten",
+        content: "3D-Druck ermöglicht schnelle Iterationen. Konzeptmodelle können günstig gedruckt, begutachtet und verfeinert werden, bevor das finale Werk in Bronze gegossen oder aufwändig nachbearbeitet wird."
+      }
+    ]
+  };
 
   const breadcrumbs = [
     { name: "Zielgruppen", url: "#" },
@@ -384,6 +409,20 @@ const Kunstobjekte = () => {
             </div>
           </div>
         </section>
+
+        {/* Keyword Rich Content */}
+        <KeywordRichContent 
+          title={keywordContent.title}
+          intro={keywordContent.intro}
+          blocks={keywordContent.blocks}
+          ctaText="Kunstprojekt starten"
+        />
+
+        {/* Regional Coverage */}
+        <RegionalCoverage 
+          serviceName="Kunstobjekte"
+          description="Wir arbeiten mit Künstlern, Galerien und Kunsthochschulen in ganz Österreich zusammen. Von Wien bis Bregenz – Ihre Vision wird Realität."
+        />
 
         {/* FAQ Section */}
         <FAQSection 
