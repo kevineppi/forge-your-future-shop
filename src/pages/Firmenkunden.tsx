@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import FAQSection from "@/components/landing/FAQSection";
+import RelatedPages from "@/components/landing/RelatedPages";
 import { 
   Building, 
   FileText, 
@@ -17,8 +20,6 @@ import {
   Handshake,
   Receipt,
   Truck,
-  TrendingUp,
-  Award,
   Target,
   BarChart3,
   Briefcase,
@@ -124,6 +125,38 @@ const Firmenkunden = () => {
     { title: "Schnelle Reaktion", desc: "Antwort innerhalb von 24h garantiert" }
   ];
 
+  const faqs = [
+    {
+      question: "Wie erfolgt die Rechnungsstellung für Firmenkunden?",
+      answer: "Sie erhalten eine ordentliche Rechnung mit ausgewiesener MwSt. (20%) für Ihre Buchhaltung. Stammkunden können auch auf Rechnung mit Zahlungsziel bestellen. Sammelrechnungen am Monatsende sind ebenfalls möglich."
+    },
+    {
+      question: "Gibt es Mengenrabatte für Unternehmen?",
+      answer: "Ja, ab 10 identischen Teilen bieten wir attraktive Staffelpreise. Bei regelmäßigen Aufträgen sind individuelle Rahmenverträge mit besonderen Konditionen möglich. Sprechen Sie uns für ein individuelles Angebot an."
+    },
+    {
+      question: "Wie werden vertrauliche Projekte geschützt?",
+      answer: "Auf Wunsch unterzeichnen wir eine Geheimhaltungsvereinbarung (NDA). Alle Projektdaten werden vertraulich behandelt und nach Abschluss des Auftrags gelöscht."
+    },
+    {
+      question: "Wie schnell erhalte ich eine Antwort auf Anfragen?",
+      answer: "Wir garantieren eine Rückmeldung innerhalb von 24 Stunden an Werktagen. Bei dringenden Projekten erreichen Sie uns auch telefonisch für sofortige Beratung."
+    },
+    {
+      question: "Welche Branchen bedienen Sie als B2B-Partner?",
+      answer: "Wir arbeiten mit Architekturbüros, Messebauern, Werbeagenturen, Designbüros, Bildungseinrichtungen und vielen weiteren Branchen. Für jede Branche haben wir spezialisierte Lösungen."
+    },
+    {
+      question: "Kann ich einen persönlichen Ansprechpartner bekommen?",
+      answer: "Ja, für Firmenkunden gibt es direkte Kommunikation per E-Mail und Telefon – ohne Warteschleifen oder Chatbots. Sie erhalten persönliche Beratung und schnelle Antworten auf Ihre Fragen."
+    }
+  ];
+
+  const breadcrumbs = [
+    { name: "Zielgruppen", url: "#" },
+    { name: "Firmenkunden", url: "/firmenkunden" }
+  ];
+
   return (
     <>
       <Helmet>
@@ -134,6 +167,7 @@ const Firmenkunden = () => {
       </Helmet>
 
       <Navigation />
+      <Breadcrumbs items={breadcrumbs} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -355,6 +389,17 @@ const Firmenkunden = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection 
+          faqs={faqs} 
+          title="Häufige Fragen für Firmenkunden"
+          subtitle="Antworten auf die wichtigsten Fragen zur B2B-Zusammenarbeit"
+          schemaId="firmenkunden"
+        />
+
+        {/* Related Pages */}
+        <RelatedPages currentPage="/firmenkunden" />
       </main>
 
       <Footer />

@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import FAQSection from "@/components/landing/FAQSection";
+import RelatedPages from "@/components/landing/RelatedPages";
 import { 
   Presentation, 
   Zap, 
@@ -11,15 +14,12 @@ import {
   Package, 
   CheckCircle, 
   ArrowRight,
-  Star,
   MapPin,
   Scale,
   Sparkles,
-  Eye,
-  Truck,
   Award,
   Target,
-  TrendingUp,
+  Eye,
   Calendar
 } from "lucide-react";
 
@@ -100,6 +100,38 @@ const Messemodelle = () => {
     { name: "Immobilien", examples: "Expo Real, Immobilienmessen" }
   ];
 
+  const faqs = [
+    {
+      question: "Wie schnell können Messemodelle gefertigt werden?",
+      answer: "Unser Express-Service liefert in 24-48 Stunden nach Auftragsbestätigung. Standard-Lieferzeit beträgt 3-5 Werktage. Auch bei kurzfristigen Messeterminen sind wir Ihr zuverlässiger Partner."
+    },
+    {
+      question: "Welche Größe ist für Messemodelle möglich?",
+      answer: "Wir fertigen Objekte von wenigen Zentimetern bis über 2 Meter Größe. Große Objekte werden mehrteilig konstruiert und nahtlos zusammengefügt. Ideal für Eyecatcher-Elemente am Messestand."
+    },
+    {
+      question: "Sind 3D-gedruckte Messemodelle transportfähig?",
+      answer: "Ja, unsere PLA- und PETG-Objekte sind bis zu 70% leichter als vergleichbare Holz- oder Metallmodelle. Das macht sie ideal für den Messetransport und die Handhabung vor Ort."
+    },
+    {
+      question: "Können Firmenfarben exakt umgesetzt werden?",
+      answer: "Wir bieten über 20 Standardfarben und können viele RAL-Farben durch spezielle Filamente oder Nachbearbeitung (Lackierung) umsetzen. Sprechen Sie uns für Corporate-Design-Anforderungen an."
+    },
+    {
+      question: "Was kosten Messemodelle im 3D-Druck?",
+      answer: "Die Kosten hängen von Größe, Material und Komplexität ab. Kleine Produktmodelle starten ab ca. €30, große Eyecatcher-Objekte liegen typischerweise zwischen €150-500. Nutzen Sie unseren Online-Konfigurator für sofortige Preise."
+    },
+    {
+      question: "Kann man das gleiche Modell mehrfach fertigen?",
+      answer: "Ja, das ist ein großer Vorteil des 3D-Drucks. Identische Reproduktionen sind ohne Mehraufwand möglich – ideal für mehrere Messestandorte oder als Ersatz bei Beschädigung."
+    }
+  ];
+
+  const breadcrumbs = [
+    { name: "Zielgruppen", url: "#" },
+    { name: "Messemodelle", url: "/messemodelle" }
+  ];
+
   return (
     <>
       <Helmet>
@@ -110,6 +142,7 @@ const Messemodelle = () => {
       </Helmet>
 
       <Navigation />
+      <Breadcrumbs items={breadcrumbs} />
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
@@ -329,6 +362,16 @@ const Messemodelle = () => {
           </div>
         </section>
 
+        {/* FAQ Section */}
+        <FAQSection 
+          faqs={faqs} 
+          title="Häufige Fragen zu Messemodellen"
+          subtitle="Antworten auf die wichtigsten Fragen rund um 3D-gedruckte Messemodelle"
+          schemaId="messemodelle"
+        />
+
+        {/* Related Pages */}
+        <RelatedPages currentPage="/messemodelle" />
       </main>
 
       <Footer />
