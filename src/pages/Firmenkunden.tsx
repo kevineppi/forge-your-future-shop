@@ -19,18 +19,15 @@ import {
   MapPin,
   ShieldCheck,
   Handshake,
-  Receipt,
   Truck,
   Target,
   BarChart3,
-  Briefcase,
   GraduationCap,
   Phone,
   Mail,
   Award,
   Zap,
   TrendingUp,
-  BadgeCheck,
   Package,
   Settings,
   HeartHandshake,
@@ -54,13 +51,6 @@ const Firmenkunden = () => {
   ];
 
   const benefits = [
-    {
-      icon: Receipt,
-      title: "Ordentliche Rechnungsstellung",
-      description: "Professionelle Rechnungen mit ausgewiesener MwSt. (20%) für Ihre Buchhaltung.",
-      highlight: "Zahlung auf Rechnung für Stammkunden",
-      stats: "Sofort buchungsfertig"
-    },
     {
       icon: Clock,
       title: "Verbindliche Lieferzeiten",
@@ -95,6 +85,13 @@ const Firmenkunden = () => {
       description: "Stammkunden profitieren von Rahmenverträgen, Mengenrabatten und bevorzugter Bearbeitung.",
       highlight: "Wachsende Vorteile über Zeit",
       stats: "Bis 20% Mengenrabatt"
+    },
+    {
+      icon: Package,
+      title: "Flexible Bestellmengen",
+      description: "Vom Einzelstück bis zur Serie – wir skalieren mit Ihren Anforderungen.",
+      highlight: "Keine Mindestbestellmenge",
+      stats: "Ab 1 Stück"
     }
   ];
 
@@ -162,7 +159,7 @@ const Firmenkunden = () => {
     { 
       step: "4", 
       title: "Lieferung", 
-      description: "Sichere Verpackung, Versand mit Tracking. Ordentliche Rechnung mit ausgewiesener MwSt.",
+      description: "Sichere Verpackung, Versand mit Tracking. Pünktlich bei Ihnen.",
       icon: Truck,
       time: "1-2 Werktage"
     }
@@ -186,7 +183,7 @@ const Firmenkunden = () => {
       highlight: "Express-Service"
     },
     {
-      quote: "Einfache Abwicklung, faire Preise und die Rechnungsstellung ist vorbildlich. Genau was wir als Agentur brauchen – kein unnötiger Overhead, einfach professionelle Umsetzung.",
+      quote: "Einfache Abwicklung und faire Preise. Genau was wir als Agentur brauchen – kein unnötiger Overhead, einfach professionelle Umsetzung.",
       author: "Kreativagentur",
       industry: "Werbung",
       location: "Salzburg",
@@ -207,11 +204,6 @@ const Firmenkunden = () => {
       icon: Percent
     },
     { 
-      title: "Sammelrechnungen", 
-      desc: "Monatliche Abrechnung für Stammkunden – weniger Verwaltung für Sie",
-      icon: Receipt
-    },
-    { 
       title: "Rahmenverträge", 
       desc: "Individuelle Konditionen und garantierte Kapazitäten auf Anfrage",
       icon: FileText
@@ -225,6 +217,11 @@ const Firmenkunden = () => {
       title: "Schnelle Reaktionszeit", 
       desc: "Antwort innerhalb von 24h garantiert – meist deutlich schneller",
       icon: MessageSquare
+    },
+    { 
+      title: "Express-Fertigung", 
+      desc: "24-48h bei dringenden Projekten – wir sind flexibel",
+      icon: Zap
     }
   ];
 
@@ -234,14 +231,10 @@ const Firmenkunden = () => {
     { feature: "Lieferzeit Standard", ekdruck: "5-7 Tage", others: "10-14 Tage" },
     { feature: "Express-Option", ekdruck: "24-48h", others: "Selten möglich" },
     { feature: "Persönlicher Kontakt", ekdruck: "Direkt", others: "Ticket-System" },
-    { feature: "Rechnungsstellung", ekdruck: "Sofort mit MwSt.", others: "Variiert" },
+    { feature: "Qualitätskontrolle", ekdruck: "Bei jedem Teil", others: "Stichproben" },
   ];
 
   const faqs = [
-    {
-      question: "Wie erfolgt die Rechnungsstellung für Firmenkunden?",
-      answer: "Sie erhalten eine ordentliche Rechnung mit ausgewiesener MwSt. (20%) für Ihre Buchhaltung. Stammkunden können auch auf Rechnung mit Zahlungsziel bestellen. Sammelrechnungen am Monatsende sind ebenfalls möglich – sprechen Sie uns einfach an."
-    },
     {
       question: "Gibt es Mengenrabatte für Unternehmen?",
       answer: "Ja! Ab 10 identischen Teilen erhalten Sie 5% Rabatt, ab 20 Stück 10%, ab 50 Stück bis zu 20%. Bei regelmäßigen Aufträgen sind individuelle Rahmenverträge mit besonderen Konditionen möglich. Der Rabatt wird automatisch im Konfigurator angezeigt."
@@ -788,51 +781,35 @@ const Firmenkunden = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 md:py-28 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80" />
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-          
-          <div className="container mx-auto px-4 relative">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
-                Bereit für eine professionelle Zusammenarbeit?
-              </h2>
-              <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-                Starten Sie jetzt Ihr erstes Projekt oder kontaktieren Sie uns für ein 
-                unverbindliches Beratungsgespräch.
-              </p>
+        {/* CTA Section - Subtle */}
+        <section className="py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <Card className="max-w-4xl mx-auto border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
+              <CardContent className="p-8 md:p-12 text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  Bereit für eine professionelle Zusammenarbeit?
+                </h2>
+                <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+                  Starten Sie jetzt Ihr erstes Projekt oder kontaktieren Sie uns für ein 
+                  unverbindliches Beratungsgespräch.
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button asChild size="lg" variant="secondary" className="text-base shadow-xl group">
-                  <Link to="/3d-druck-bestellen">
-                    Preis berechnen
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="text-base bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-                  <a href="tel:+436645353003">
-                    <Phone className="mr-2 w-5 h-5" />
-                    +43 664 535 30 03
-                  </a>
-                </Button>
-              </div>
-
-              <div className="flex flex-wrap justify-center gap-6 text-primary-foreground/80">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Kostenlose Beratung</span>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button asChild size="lg" className="text-base group">
+                    <Link to="/3d-druck-bestellen">
+                      Preis berechnen
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="text-base">
+                    <a href="tel:+436645353003">
+                      <Phone className="mr-2 w-5 h-5" />
+                      +43 664 535 30 03
+                    </a>
+                  </Button>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Unverbindliches Angebot</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Express möglich</span>
-                </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
