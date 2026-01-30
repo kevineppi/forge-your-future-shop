@@ -325,9 +325,9 @@ const VerfahrensVergleich = () => {
                   <CardContent className="space-y-2 text-muted-foreground">
                     <p>✓ Höchste mechanische Festigkeit erforderlich ist</p>
                     <p>✓ Keine Stützstrukturen gewünscht sind</p>
-                    <p>✓ Endprodukte oder Kleinserien gefertigt werden</p>
+                    <p>✓ Besonders detaillierte Modelle gefertigt werden</p>
                     <p>✓ Budget für professionelle Fertigung vorhanden ist</p>
-                    <p className="pt-4 font-semibold text-foreground">Beispiele: Funktionsteile, Automobilkomponenten, Luftfahrt-Teile, medizinische Implantate</p>
+                    <p className="pt-4 font-semibold text-foreground">Beispiele: Hochwertige Architekturmodelle, detaillierte Messeexponate, komplexe Designobjekte</p>
                   </CardContent>
                 </Card>
               </div>
