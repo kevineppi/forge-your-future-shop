@@ -100,11 +100,8 @@ const Impressum = () => {
                 <p>Kleinunternehmerregelung nach §6 Abs 1 Z 27 Umsatzsteuergesetz - UStG</p>
                 
                 <div className="space-y-3">
-                  <p className="font-medium">Gewerbstätigkeit:</p>
-                  <p>Erzeugung von Architekturmodellen sowie Modellen für Gebrauchsgegenstände aller Art im Rahmen eines nicht reglementierten Gewerbes, auch in Serienfertigung.</p>
-                  <p>Die hergestellten Objekte dienen überwiegend Präsentations-, Demonstrations- und allgemeinen Gebrauchszwecken und sind nicht für sicherheitsrelevante, tragende, norm- oder zertifizierungspflichtige Anwendungen bestimmt.</p>
-                  <p>Es erfolgt keine Herstellung von Bauteilen für Maschinen-, Elektro-, Medizin- oder Kraftfahrzeuganwendungen sowie keine Fertigung von Bauteilen mit zugesicherter technischer Funktion oder definierter Belastbarkeit.</p>
-                  <p>Eine Gewährleistung für Dauerbelastbarkeit, Einsatz unter technischen Betriebsbedingungen oder eine bestimmte Eignung über den allgemeinen Gebrauch hinaus ist ausgeschlossen, soweit gesetzlich zulässig.</p>
+                  <p className="font-medium">Gewerbetätigkeit:</p>
+                  <p>Erzeugung von Architekturmodellen sowie Modellen für Gebrauchsgegenstände aller Art, sofern diese lediglich Anschauungszwecken dienen</p>
                 </div>
               </div>
             </section>
