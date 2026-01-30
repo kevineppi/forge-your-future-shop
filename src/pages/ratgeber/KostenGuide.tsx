@@ -88,7 +88,7 @@ const KostenGuide = () => {
           },
           {
             question: "Was ist der Unterschied zwischen PLA, PETG und ASA?",
-            answer: "PLA (3-5€/100g) ist ideal für Prototypen und Anschauungsmodelle. PETG (5-7€/100g) ist mechanisch belastbarer und für Funktionsteile geeignet. ASA (7-10€/100g) ist UV- und witterungsbeständig, perfekt für Außenanwendungen."
+            answer: "PLA (3-5€/100g) ist ideal für Prototypen und Anschauungsmodelle. PETG (5-7€/100g) ist robuster und für langlebige Objekte geeignet. ASA (7-10€/100g) ist UV- und witterungsbeständig, perfekt für Außenanwendungen."
           }
         ]}
       />
@@ -269,7 +269,7 @@ const KostenGuide = () => {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    PLA (3-5€/100g) ist ideal für Prototypen und Anschauungsmodelle. PETG (5-7€/100g) ist mechanisch belastbarer und für Funktionsteile geeignet. ASA (7-10€/100g) ist UV- und witterungsbeständig, perfekt für Außenanwendungen.
+                    PLA (3-5€/100g) ist ideal für Prototypen und Anschauungsmodelle. PETG (5-7€/100g) ist robuster und für langlebige Objekte geeignet. ASA (7-10€/100g) ist UV- und witterungsbeständig, perfekt für Außenanwendungen.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
