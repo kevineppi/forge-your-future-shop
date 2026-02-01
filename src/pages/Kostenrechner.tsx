@@ -41,7 +41,7 @@ const Kostenrechner = () => {
       ]} />
       <ProductSchema 
         name="3D-Druck FDM Service Online"
-        description="Professioneller 3D-Druck Service für Prototypen, Einzelteile und Kleinserien. Alle Materialien (PLA, PETG, ABS, Nylon PA12), Express-Service in 24-48h verfügbar. Kostenloser Versand ab 100€."
+        description="Professioneller 3D-Druck Service für Prototypen, Einzelanfertigungen und Modelle. Alle Materialien (PLA, PETG, ABS, Nylon PA12), Express-Service in 24-48h verfügbar. Kostenloser Versand ab 100€."
         offers={{
           priceCurrency: "EUR",
           price: "20.00",
@@ -87,11 +87,11 @@ const Kostenrechner = () => {
         },
         {
           question: "Ist 3D-Druck günstiger als CNC-Fräsen?",
-          answer: "Ja, für Prototypen und Kleinserien (1-500 Stück) ist 3D-Druck bis zu 65% günstiger als CNC-Fräsen. Keine Werkzeugkosten, schnellere Lieferung (24h vs. 3+ Wochen), kostenlose Designänderungen."
+          answer: "Ja, für Prototypen und Einzelanfertigungen ist 3D-Druck oft günstiger als CNC-Fräsen. Keine Werkzeugkosten, schnellere Lieferung (24h vs. 3+ Wochen), kostenlose Designänderungen."
         },
         {
-          question: "Ab welcher Stückzahl lohnt sich Spritzguss statt 3D-Druck?",
-          answer: "Spritzguss lohnt sich erst ab ca. 500-1000 Stück aufgrund der hohen Werkzeugkosten (3.000-50.000€). Für Kleinserien unter 500 Stück ist 3D-Druck bis zu 80% günstiger."
+          question: "Wann lohnt sich 3D-Druck besonders?",
+          answer: "3D-Druck ist ideal für Prototypen, Einzelstücke und individuelle Modelle. Besonders bei komplexen Geometrien und schnellen Iterationen bietet 3D-Druck erhebliche Vorteile."
         },
         {
           question: "Welche 3D-Druck Materialien bieten Sie an?",
@@ -118,7 +118,7 @@ const Kostenrechner = () => {
                 <h1 className="text-4xl font-bold mb-6">3D-Druck Online Bestellen – Konfigurator & Sofortpreis</h1>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Mit unserem <strong>3D-Druck Online-Konfigurator</strong> können Sie Ihre Teile in wenigen Minuten konfigurieren und direkt bestellen. 
-                  Egal ob <strong>Prototypen</strong>, <strong>Einzelteile</strong> oder <strong>Kleinserien</strong> – unser Konfigurator berücksichtigt 
+                  Egal ob <strong>Prototypen</strong>, <strong>Einzelanfertigungen</strong> oder <strong>Modelle</strong> – unser Konfigurator berücksichtigt 
                   alle relevanten Faktoren wie Material, Größe, Komplexität und Druckdauer für eine präzise Preiskalkulation. Nach der Konfiguration 
                   können Sie <strong>sofort zur Kasse</strong> gehen – ohne Wartezeit auf Angebote.
                 </p>
@@ -215,7 +215,7 @@ const Kostenrechner = () => {
                   </Card>
 
                   <Card className="p-6">
-                    <h3 className="font-bold text-lg mb-3">Hochfestes Funktionsbauteil (Nylon PA12)</h3>
+                    <h3 className="font-bold text-lg mb-3">Robustes Modell (Nylon PA12)</h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Größe:</span>
@@ -408,8 +408,8 @@ const Kostenrechner = () => {
                       </tr>
                       <tr>
                         <td className="p-4 border font-medium">Ideal für</td>
-                        <td className="p-4 border"><strong>Prototypen, Einzelteile, Kleinserien (1-500)</strong></td>
-                        <td className="p-4 border"><strong>Metallteile, präzise Bauteile (1-100)</strong></td>
+                        <td className="p-4 border"><strong>Prototypen, Einzelanfertigungen, Modelle</strong></td>
+                        <td className="p-4 border"><strong>Metallteile, präzise Bauteile</strong></td>
                         <td className="p-4 border"><strong>Großserien (500+)</strong></td>
                       </tr>
                     </tbody>
@@ -424,7 +424,7 @@ const Kostenrechner = () => {
                     </h4>
                     <ul className="text-sm space-y-1 text-muted-foreground">
                       <li>• Prototypen & Produktentwicklung</li>
-                      <li>• Einzelstücke & Kleinserien (1-500)</li>
+                      <li>• Einzelanfertigungen & Modelle</li>
                       <li>• Komplexe Geometrien</li>
                       <li>• Schnelle Lieferung benötigt</li>
                       <li>• Häufige Designänderungen</li>
@@ -558,7 +558,7 @@ const Kostenrechner = () => {
                       Ist 3D-Druck günstiger als CNC-Fräsen?
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                      Ja, für Prototypen und Kleinserien (1-500 Stück) ist 3D-Druck bis zu 65% günstiger als CNC-Fräsen. 
+                      Ja, für Prototypen und Einzelanfertigungen ist 3D-Druck oft günstiger als CNC-Fräsen. 
                       Keine Werkzeugkosten, schnellere Lieferung (24h vs. 3+ Wochen), kostenlose Designänderungen.
                       <Link to="/rapid-prototyping" className="text-primary hover:underline font-semibold ml-1">
                         → Mehr zu Rapid Prototyping
@@ -568,13 +568,13 @@ const Kostenrechner = () => {
 
                   <AccordionItem value="item-4" className="bg-background/80 border rounded-xl px-6 hover:border-primary/30 transition-colors">
                     <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
-                      Ab welcher Stückzahl lohnt sich Spritzguss?
+                      Für welche Anwendungen ist 3D-Druck ideal?
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                      Spritzguss lohnt sich erst ab ca. 500-1000 Stück aufgrund der hohen Werkzeugkosten (3.000-50.000€). 
-                      Für Kleinserien unter 500 Stück ist 3D-Druck bis zu 80% günstiger.
-                      <Link to="/serienfertigung" className="text-primary hover:underline font-semibold ml-1">
-                        → Mehr zur Serienfertigung
+                      3D-Druck eignet sich perfekt für Prototypen, Anschauungsmodelle, Architekturmodelle, 
+                      Messemodelle und individuelle Einzelanfertigungen zu Dekorations- und Präsentationszwecken.
+                      <Link to="/einzelanfertigungen-3d-druck" className="text-primary hover:underline font-semibold ml-1">
+                        → Mehr zu Einzelanfertigungen
                       </Link>
                     </AccordionContent>
                   </AccordionItem>
@@ -617,10 +617,10 @@ const Kostenrechner = () => {
                       <p className="text-sm text-muted-foreground">Schnelle Prototypen in 24-48h für Ihre Produktentwicklung</p>
                     </Card>
                   </Link>
-                  <Link to="/serienfertigung" className="group">
+                  <Link to="/einzelanfertigungen-3d-druck" className="group">
                     <Card className="p-4 hover:border-primary/50 transition-colors">
-                      <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Serienfertigung</h3>
-                      <p className="text-sm text-muted-foreground">Kleinserien & Produktionsläufe wirtschaftlich umsetzen</p>
+                      <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Einzelanfertigungen</h3>
+                      <p className="text-sm text-muted-foreground">Individuelle Modelle und Anschauungsobjekte</p>
                     </Card>
                   </Link>
                 </div>

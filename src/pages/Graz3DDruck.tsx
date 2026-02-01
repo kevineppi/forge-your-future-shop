@@ -276,11 +276,11 @@ const Graz3DDruck = () => {
                   <div className="bg-card p-8 rounded-2xl border-2 border-primary/20">
                     <h4 className="text-2xl font-bold mb-6">Vorteile für Grazer Unternehmen</h4>
                     <div className="space-y-4">
-                      <div className="flex items-start gap-3">
+                        <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                         <div>
                           <strong className="block mb-1">Kosteneffizient</strong>
-                          <p className="text-muted-foreground">Keine teuren Werkzeuge - ideal für Prototypen und Kleinserien</p>
+                          <p className="text-muted-foreground">Keine teuren Werkzeuge - ideal für Prototypen und Modelle</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">

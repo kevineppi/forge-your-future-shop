@@ -46,7 +46,7 @@ const KostenGuide = () => {
     material: "Carbon-PETG",
     time: "24 Stunden",
     price: "120-180€",
-    description: "Für hochbelastbare Bauteile, Vorrichtungen, Kleinserien"
+    description: "Für belastbare Modelle, Vorrichtungen und Anschauungsobjekte"
   }, {
     title: "Komplexes Architekturmodell",
     size: "25x25x15cm",
@@ -72,7 +72,7 @@ const KostenGuide = () => {
         faqs={[
           {
             question: "Warum ist 3D-Druck günstiger als traditionelle Fertigung?",
-            answer: "3D-Druck benötigt keine teuren Werkzeuge, Formen oder Vorrichtungen. Sie zahlen nur für Material und Druckzeit. Bei Prototypen und Kleinserien (1-100 Stück) ist FDM 3D-Druck oft 50-80% günstiger als CNC-Fräsen oder Spritzguss."
+            answer: "3D-Druck benötigt keine teuren Werkzeuge, Formen oder Vorrichtungen. Sie zahlen nur für Material und Druckzeit. Bei Prototypen und Einzelanfertigungen ist FDM 3D-Druck oft günstiger als CNC-Fräsen oder Spritzguss."
           },
           {
             question: "Gibt es Mengenrabatte?",
@@ -132,7 +132,7 @@ const KostenGuide = () => {
             <section className="prose prose-lg max-w-none mb-12">
               <p className="text-3xl font-bold mb-6 text-foreground">Wie setzen sich 3D-Druck Kosten zusammen?</p>
               <p className="text-muted-foreground mb-6">
-                Die Kosten für 3D-gedruckte Teile hängen von mehreren Faktoren ab. Anders als bei traditionellen Fertigungsverfahren spielt die Stückzahl beim FDM 3D-Druck eine untergeordnete Rolle – ein einzelnes Teil kostet pro Stück fast genauso viel wie 10 Teile. Das macht 3D-Druck besonders attraktiv für Prototypen und Kleinserien.
+                Die Kosten für 3D-gedruckte Teile hängen von mehreren Faktoren ab. Anders als bei traditionellen Fertigungsverfahren spielt die Stückzahl beim FDM 3D-Druck eine untergeordnete Rolle – ein einzelnes Teil kostet pro Stück fast genauso viel wie mehrere Teile. Das macht 3D-Druck besonders attraktiv für Prototypen und Einzelanfertigungen.
               </p>
             </section>
 
@@ -221,7 +221,7 @@ const KostenGuide = () => {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    3D-Druck benötigt keine teuren Werkzeuge, Formen oder Vorrichtungen. Sie zahlen nur für Material und Druckzeit. Bei Prototypen und Kleinserien (1-100 Stück) ist FDM 3D-Druck oft 50-80% günstiger als CNC-Fräsen oder Spritzguss.
+                    3D-Druck benötigt keine teuren Werkzeuge, Formen oder Vorrichtungen. Sie zahlen nur für Material und Druckzeit. Bei Prototypen und Einzelanfertigungen ist FDM 3D-Druck oft günstiger als CNC-Fräsen oder Spritzguss.
                   </AccordionContent>
                 </AccordionItem>
 

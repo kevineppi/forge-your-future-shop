@@ -31,8 +31,8 @@ const Kaernten3DDruck = () => {
       answer: "Wir arbeiten hauptsächlich mit österreichischem Premium-Filament: PLA, PETG, ABS, TPU und spezialisierte Materialien wie Carbon-verstärktes Filament. Alle Materialien sind zertifiziert und eignen sich sowohl für Prototypen als auch für funktionale Endprodukte."
     },
     {
-      question: "Können Sie auch größere Serien für Unternehmen in Kärnten fertigen?",
-      answer: "Ja, wir sind auf Klein- und Mittelserien spezialisiert. Von 10 bis 10.000+ Stück fertigen wir wirtschaftlich und mit konstanter Qualität. Viele Industriebetriebe aus Klagenfurt, Villach und Wolfsberg vertrauen auf unsere Serienfertigung."
+      question: "Können Sie auch mehrere identische Teile für Unternehmen in Kärnten fertigen?",
+      answer: "Ja, wir fertigen gerne mehrere identische Modelle für Ihre Projekte. Viele Unternehmen aus Klagenfurt, Villach und Wolfsberg vertrauen auf unsere zuverlässige Fertigung."
     },
     {
       question: "Wie hoch sind die Kosten für 3D-Druck in Kärnten?",
@@ -79,8 +79,8 @@ const Kaernten3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Kärnten | Premium FDM Service | ekdruck e.U."
-        description="Sonnenseite Österreichs trifft High-Tech: Klagenfurt, Villach & Wolfsberg mit 24-48h Express. Tourismus-Innovation & Industrie vertrauen uns. Jetzt Beratung sichern!"
-        keywords="3d-druck kärnten, 3d druck klagenfurt, 3d druck villach, fdm 3d-druck kärnten, rapid prototyping kärnten, serienfertigung 3d-druck"
+        description="Sonnenseite Österreichs trifft High-Tech: Klagenfurt, Villach & Wolfsberg mit 24-48h Express. Tourismus-Innovation & Architektur vertrauen uns. Jetzt Beratung sichern!"
+        keywords="3d-druck kärnten, 3d druck klagenfurt, 3d druck villach, fdm 3d-druck kärnten, rapid prototyping kärnten, modellbau 3d-druck"
         path="/3d-druck-kaernten"
       />
       <BreadcrumbSchema items={[

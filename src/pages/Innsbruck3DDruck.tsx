@@ -94,7 +94,7 @@ const Innsbruck3DDruck = () => {
                 Unsere <span className="text-gradient">3D-Druck Services</span> für Innsbruck
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Von <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">schnellem Prototyping</a> bis zu robusten Funktionsteilen – 
+                Von <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">schnellem Prototyping</a> bis zu robusten Modellen – 
                 professionelle Fertigungslösungen für die Tiroler Wirtschaft.
               </p>
             </AnimatedSection>
@@ -355,7 +355,7 @@ const Innsbruck3DDruck = () => {
                         <div>
                           <h4 className="font-bold mb-1">Kosteneffizienz</h4>
                           <p className="text-muted-foreground text-sm leading-relaxed">
-                            Keine teuren Werkzeuge notwendig. Ideal für Prototypen und Kleinserien – 
+                            Keine teuren Werkzeuge notwendig. Ideal für Prototypen und Modelle – 
                             wesentlich günstiger als traditionelle Fertigungsverfahren.
                           </p>
                         </div>
@@ -450,7 +450,7 @@ const Innsbruck3DDruck = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Funktionsteile für Outdoor-Equipment</span>
+                        <span>Robuste Teile für Outdoor-Equipment</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -544,7 +544,7 @@ const Innsbruck3DDruck = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Kleinserien für Spezialprojekte</span>
+                        <span>Individuelle Modelle für Spezialprojekte</span>
                       </li>
                     </ul>
                   </div>
@@ -752,7 +752,7 @@ const Innsbruck3DDruck = () => {
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground leading-relaxed">
                       Ja, wir arbeiten regelmäßig mit Herstellern von Outdoor- und Sportartikeln in Tirol zusammen. 
-                      Von Prototypen für Wintersportausrüstung über Funktionsteile bis zu Produktentwicklung – 
+                      Von Prototypen für Wintersportausrüstung über robuste Teile bis zu Produktentwicklung – 
                       wir verstehen die speziellen Anforderungen der alpinen Sportartikel-Industrie und bieten passende 
                       Materialien und Expertise.
                     </AccordionContent>

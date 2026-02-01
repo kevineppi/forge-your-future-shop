@@ -99,7 +99,7 @@ const Linz3DDruck = () => {
                 Unsere <span className="text-gradient">Services in Linz</span>
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Von schnellem <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> bis zur Serienfertigung – wir bieten professionelle 3D-Druck-Lösungen für Ihr Projekt in Linz.
+                Von schnellem <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> bis zu Einzelanfertigungen – wir bieten professionelle 3D-Druck-Lösungen für Ihr Projekt in Linz.
               </p>
             </AnimatedSection>
             
@@ -111,7 +111,7 @@ const Linz3DDruck = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4">FDM 3D-Druck</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Professioneller FDM 3D-Druck für Prototypen, Einzelteile und Kleinserien. 
+                    Professioneller FDM 3D-Druck für Prototypen, Einzelanfertigungen und Modelle. 
                     Schichtauflösung bis 0,1mm für höchste Präzision in Linz.
                   </p>
                   <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold inline-flex items-center gap-2 group">
@@ -258,7 +258,7 @@ const Linz3DDruck = () => {
                     <p className="text-muted-foreground leading-relaxed">
                       Ob für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>, 
                       <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold"> individuelle Einzelanfertigungen</a> oder 
-                      <a href="/serienfertigung" className="text-primary hover:underline font-semibold"> Kleinserien</a> – FDM 3D-Druck 
+                      <a href="/architekturmodelle" className="text-primary hover:underline font-semibold"> Architekturmodelle</a> – FDM 3D-Druck 
                       bietet maximale Flexibilität für Ihre Projekte in Linz.
                     </p>
                   </div>
@@ -273,7 +273,7 @@ const Linz3DDruck = () => {
                         <div>
                           <h4 className="font-bold mb-1">Kosteneffizienz</h4>
                           <p className="text-muted-foreground text-sm leading-relaxed">
-                            Keine teuren Werkzeuge oder Formen notwendig. Ideal für Prototypen und Kleinserien – 
+                            Keine teuren Werkzeuge oder Formen notwendig. Ideal für Prototypen und individuelle Modelle – 
                             deutlich günstiger als traditionelle Fertigungsverfahren.
                           </p>
                         </div>
