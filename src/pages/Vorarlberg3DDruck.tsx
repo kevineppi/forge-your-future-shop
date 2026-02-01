@@ -31,8 +31,8 @@ const Vorarlberg3DDruck = () => {
       answer: "Wir arbeiten hauptsächlich mit österreichischem Premium-Filament: PLA, PETG, ABS, TPU und spezialisierte Materialien wie Carbon-verstärktes Filament. Alle Materialien sind zertifiziert und eignen sich sowohl für Prototypen als auch für funktionale Endprodukte."
     },
     {
-      question: "Können Sie auch größere Serien für Unternehmen in Vorarlberg fertigen?",
-      answer: "Ja, wir sind auf Klein- und Mittelserien spezialisiert. Von 10 bis 10.000+ Stück fertigen wir wirtschaftlich und mit konstanter Qualität. Viele Industriebetriebe aus Dornbirn, Bregenz und Feldkirch vertrauen auf unsere Serienfertigung."
+      question: "Können Sie auch mehrere identische Teile für Unternehmen in Vorarlberg fertigen?",
+      answer: "Ja, wir fertigen gerne mehrere identische Modelle für Ihre Projekte. Viele Unternehmen aus Dornbirn, Bregenz und Feldkirch vertrauen auf unsere zuverlässige Fertigung."
     },
     {
       question: "Wie hoch sind die Kosten für 3D-Druck in Vorarlberg?",
@@ -80,7 +80,7 @@ const Vorarlberg3DDruck = () => {
       <SEOHead 
         title="3D-Druck Vorarlberg | Premium FDM Service | ekdruck e.U."
         description="Ländle-Qualität trifft Präzision: Dornbirn, Bregenz & Feldkirch mit 24-48h Express. Textil-Industrie & Design-Branche setzen auf uns. Innovation vom Bodensee!"
-        keywords="3d-druck vorarlberg, 3d druck dornbirn, 3d druck bregenz, fdm 3d-druck vorarlberg, rapid prototyping vorarlberg, serienfertigung 3d-druck"
+        keywords="3d-druck vorarlberg, 3d druck dornbirn, 3d druck bregenz, fdm 3d-druck vorarlberg, rapid prototyping vorarlberg, einzelanfertigungen 3d-druck"
         path="/3d-druck-vorarlberg"
       />
       <BreadcrumbSchema items={[
@@ -129,7 +129,7 @@ const Vorarlberg3DDruck = () => {
                   Premium FDM 3D-Druck für Industrie, Mittelstand & Innovation in Dornbirn, Bregenz, Feldkirch und ganz Vorarlberg
                 </p>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                  Österreichisches Filament • Express 24-48h • Serienfertigung bis 10.000+ Stück
+                  Österreichisches Filament • Express 24-48h • Individuelle Modelle
                 </p>
               </div>
             </AnimatedSection>
@@ -218,12 +218,12 @@ const Vorarlberg3DDruck = () => {
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                     <Factory className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Serienfertigung</h3>
+                  <h3 className="text-2xl font-bold mb-4">Modellbau & Dekoration</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Klein- und Mittelserien von 10 bis 10.000+ Stück. Konstante Qualität, wirtschaftliche Fertigung. Perfekt für Ersatzteile, Betriebsmittel und Produktionsläufe.
+                    Architekturmodelle, Dekorationsobjekte und individuelle Unikate. Konstante Qualität, kreative Lösungen für Sammler, Architekten und Kreative.
                   </p>
                   <Button variant="link" asChild className="p-0 h-auto font-semibold">
-                    <a href="/serienfertigung-3d-druck">
+                    <a href="/modellbau-dekoration">
                       Mehr erfahren <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -462,9 +462,9 @@ const Vorarlberg3DDruck = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Serienfertigung bis 10.000+ Stück</h3>
+                    <h3 className="font-bold text-lg mb-2">Mehrfachanfertigungen möglich</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Von Einzelteilen bis zur Großserie – wirtschaftlich und mit konstanter Qualität.
+                      Von Einzelteilen bis zu mehreren identischen Modellen – wirtschaftlich und mit konstanter Qualität.
                     </p>
                   </div>
                 </div>

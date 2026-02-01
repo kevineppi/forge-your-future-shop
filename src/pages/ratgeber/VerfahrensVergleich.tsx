@@ -48,7 +48,7 @@ const VerfahrensVergleich = () => {
   const fdmDisadvantages = ["Geringere Oberflächenqualität (sichtbare Schichten)", "Niedrigere Detailauflösung als SLA", "Anisotrope Festigkeit (Schwächere Z-Achse)", "Stützstrukturen hinterlassen Spuren"];
   const slaAdvantages = ["Höchste Detailgenauigkeit (0.025mm Schichthöhe)", "Glatte Oberflächen ohne sichtbare Schichten", "Ideal für feine Details und komplexe Geometrien", "Isotrope mechanische Eigenschaften"];
   const slaDisadvantages = ["Höhere Material- und Gerätekosten", "Aufwendige Nachbearbeitung (Waschen, Aushärten)", "Begrenzte Materialauswahl", "Gesundheits- und Sicherheitsaspekte bei Resinhandhabung"];
-  const slsAdvantages = ["Keine Stützstrukturen erforderlich", "Hohe mechanische Festigkeit", "Exzellente Oberflächenqualität", "Geeignet für Endprodukte und Kleinserien"];
+  const slsAdvantages = ["Keine Stützstrukturen erforderlich", "Hohe mechanische Festigkeit", "Exzellente Oberflächenqualität", "Geeignet für Anschauungsmodelle und hochwertige Einzelstücke"];
   const slsDisadvantages = ["Sehr hohe Anschaffungskosten", "Höherer Energieverbrauch", "Begrenzte Materialauswahl", "Pulverentsorgung und -handhabung komplex"];
   return <>
       <SEOHead title="FDM vs SLA vs SLS: Welches Verfahren passt? | Vergleich" description="FDM: günstig & robust. SLA: glatt & präzise. SLS: komplex & stark. Vergleichstabelle + Empfehlung für Ihr Projekt. → Bestes Verfahren finden" keywords="fdm vs sla vs sls, 3d-druckverfahren vergleich, fdm 3d-druck, stereolithographie, selektives lasersintern, additive fertigung" path="/ratgeber/verfahrens-vergleich" schemaType="article" />

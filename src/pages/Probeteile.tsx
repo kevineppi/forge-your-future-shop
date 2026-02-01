@@ -432,7 +432,7 @@ const Probeteile = () => {
                         <ul className="text-amber-700 dark:text-amber-300 space-y-1">
                           <li>• Nur ein kostenloses 3D-Druck Probeteil pro Unternehmen</li>
                           <li>• Maximale Seitenlänge: bis zu 20cm</li>
-                          <li>• Ausschließlich für geplante B2B Serienfertigungen ab 50 Stück</li>
+                          <li>• Ausschließlich für geplante B2B-Projekte ab 50 Stück</li>
                           <li>• Keine Einzelanfertigungen, Prototypen oder Privatpersonen</li>
                           <li>• Lieferzeit: 3-5 Werktage nach Qualifikation und Bestätigung</li>
                           <li>• Verfügbare Materialien: PLA, PETG, ABS, ASA, TPU</li>

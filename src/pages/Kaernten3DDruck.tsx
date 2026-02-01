@@ -129,7 +129,7 @@ const Kaernten3DDruck = () => {
                   Premium FDM 3D-Druck für Industrie, Mittelstand & Innovation in Klagenfurt, Villach, Wolfsberg und ganz Kärnten
                 </p>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                  Österreichisches Filament • Express 24-48h • Serienfertigung bis 10.000+ Stück
+                  Österreichisches Filament • Express 24-48h • Individuelle Modelle
                 </p>
               </div>
             </AnimatedSection>
@@ -218,12 +218,12 @@ const Kaernten3DDruck = () => {
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                     <Factory className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Serienfertigung</h3>
+                  <h3 className="text-2xl font-bold mb-4">Modellbau & Dekoration</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Klein- und Mittelserien von 10 bis 10.000+ Stück. Konstante Qualität, wirtschaftliche Fertigung. Perfekt für Ersatzteile, Betriebsmittel und Produktionsläufe.
+                    Architekturmodelle, Dekorationsobjekte und individuelle Unikate. Konstante Qualität, kreative Lösungen für Sammler, Architekten und Kreative.
                   </p>
                   <Button variant="link" asChild className="p-0 h-auto font-semibold">
-                    <a href="/serienfertigung-3d-druck">
+                    <a href="/modellbau-dekoration">
                       Mehr erfahren <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -462,9 +462,9 @@ const Kaernten3DDruck = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Serienfertigung bis 10.000+ Stück</h3>
+                    <h3 className="font-bold text-lg mb-2">Mehrfachanfertigungen möglich</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Von Einzelteilen bis zur Großserie – wirtschaftlich und mit konstanter Qualität.
+                      Von Einzelteilen bis zu mehreren identischen Modellen – wirtschaftlich und mit konstanter Qualität.
                     </p>
                   </div>
                 </div>

@@ -9,7 +9,7 @@ interface SEOData {
 export const useSEO = (sectionId?: string): SEOData => {
   const [seoData, setSeoData] = useState<SEOData>({
     title: "3D-Druck Österreich | FDM Service | ekdruck",
-    description: "Ihr 3D-Druck Partner in Österreich für FDM-Druck, Rapid Prototyping und Serienfertigung. Nachhaltig mit österreichischem Filament und Express-Service in 24-48 Stunden.",
+    description: "Ihr 3D-Druck Partner in Österreich für FDM-Druck, Rapid Prototyping und individuelle Modelle. Nachhaltig mit österreichischem Filament und Express-Service in 24-48 Stunden.",
     keywords: "3d-druck österreich, 3d-druck service, fdm 3d-druck, rapid prototyping österreich, 3d-druck dienstleister, 3d-druck firma, 3d-druck shop österreich, additives fertigungsverfahren"
   });
 
@@ -17,7 +17,7 @@ export const useSEO = (sectionId?: string): SEOData => {
     const seoConfigs = {
       hero: {
         title: "3D-Druck Österreich | FDM Service | ekdruck",
-        description: "Ihr 3D-Druck Partner in Österreich für FDM-Druck, Rapid Prototyping und Serienfertigung. Nachhaltig mit österreichischem Filament und Express-Service in 24-48 Stunden.",
+        description: "Ihr 3D-Druck Partner in Österreich für FDM-Druck, Rapid Prototyping und individuelle Modelle. Nachhaltig mit österreichischem Filament und Express-Service in 24-48 Stunden.",
         keywords: "3d-druck österreich, 3d-druck service, fdm 3d-druck, rapid prototyping österreich, 3d-druck dienstleister, 3d-druck firma, 3d-druck shop österreich, additives fertigungsverfahren"
       },
       services: {

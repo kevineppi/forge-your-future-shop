@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Box, Clock, MapPin, CheckCircle, Factory, Recycle, Users, ArrowRight, Sparkles, Settings, Zap, Shield, TrendingUp, Package } from "lucide-react";
 const Graz3DDruck = () => {
   return <>
-      <SEOHead title="3D-Druck Graz | Express 24-48h | Industrie-Toleranzen" description="Grazer Industrie vertraut uns: Automotive-Teile, Prototypen, Kleinserien. CAD-Prüfung gratis! → Jetzt Angebot für Graz anfragen" keywords="3d-druck graz, 3d drucker graz, fdm druck graz, rapid prototyping graz, 3d-druck steiermark, prototypen graz" path="/3d-druck-graz" />
+      <SEOHead title="3D-Druck Graz | Express 24-48h | Präzise Modelle" description="Grazer Kreative vertrauen uns: Prototypen, Architekturmodelle, individuelle Objekte. CAD-Prüfung gratis! → Jetzt Angebot für Graz anfragen" keywords="3d-druck graz, 3d drucker graz, fdm druck graz, rapid prototyping graz, 3d-druck steiermark, prototypen graz" path="/3d-druck-graz" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"
@@ -433,8 +433,8 @@ const Graz3DDruck = () => {
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground">
-                        Test-Bauteile, Prototypen-Komponenten und Funktionsteile für die 
-                        Grazer Fahrzeugindustrie und Zulieferer.
+                        Anschauungsmodelle, Prototypen-Komponenten und Design-Studien für die 
+                        Grazer Kreativszene und Entwicklungsprojekte.
                       </p>
                     </CardContent>
                   </Card>
