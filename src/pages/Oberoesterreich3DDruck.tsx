@@ -26,8 +26,8 @@ const Oberoesterreich3DDruck = () => {
     question: "Welche Materialien nutzen Sie für 3D-Druck in Oberösterreich?",
     answer: "Wir arbeiten hauptsächlich mit österreichischem Premium-Filament: PLA, PETG, ABS, TPU und spezialisierte Materialien wie Carbon-verstärktes Filament. Alle Materialien sind zertifiziert und eignen sich sowohl für Prototypen als auch für funktionale Endprodukte."
   }, {
-    question: "Können Sie auch größere Serien für Unternehmen in OÖ fertigen?",
-    answer: "Ja, wir sind auf Klein- und Mittelserien spezialisiert. Von 10 bis 10.000+ Stück fertigen wir wirtschaftlich und mit konstanter Qualität. Viele Industriebetriebe aus Linz, Steyr und Wels vertrauen auf unsere Serienfertigung."
+    question: "Können Sie auch mehrere identische Teile für Unternehmen in OÖ fertigen?",
+    answer: "Ja, wir fertigen gerne mehrere identische Modelle für Ihre Projekte. Viele Unternehmen aus Linz, Steyr und Wels vertrauen auf unsere zuverlässige Fertigung."
   }, {
     question: "Wie hoch sind die Kosten für 3D-Druck in Oberösterreich?",
     answer: "Die Kosten hängen von Material, Größe, Komplexität und Stückzahl ab. Nutzen Sie unseren Online-Kostenrechner für eine erste Einschätzung. Kleinteile starten bereits ab wenigen Euro. Für umfangreiche Projekte erstellen wir gerne individuelle Angebote."
@@ -58,7 +58,7 @@ const Oberoesterreich3DDruck = () => {
     text: "Versicherter Expressversand nach Linz, Wels, Steyr und ganz OÖ oder Abholung nach Vereinbarung."
   }];
   return <>
-      <SEOHead title="3D-Druck Oberösterreich | Direkt vom Hersteller | Same-Day" description="OÖ: Kürzeste Wege! Same-Day Abholung in Gunskirchen, Express 24h nach Linz/Wels/Steyr. Industrie-Qualität lokal. → Jetzt OÖ-Vorteil nutzen" keywords="3d-druck oberösterreich, 3d druck linz, 3d druck wels, fdm 3d-druck oö, rapid prototyping oberösterreich, serienfertigung 3d-druck" path="/3d-druck-oberoesterreich" />
+      <SEOHead title="3D-Druck Oberösterreich | Direkt vom Hersteller | Same-Day" description="OÖ: Kürzeste Wege! Same-Day Abholung in Gunskirchen, Express 24h nach Linz/Wels/Steyr. Qualität lokal. → Jetzt OÖ-Vorteil nutzen" keywords="3d-druck oberösterreich, 3d druck linz, 3d druck wels, fdm 3d-druck oö, rapid prototyping oberösterreich, modellbau 3d-druck" path="/3d-druck-oberoesterreich" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"
@@ -96,7 +96,7 @@ const Oberoesterreich3DDruck = () => {
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-4">
                   Premium FDM 3D-Druck für Industrie, Mittelstand & Innovation in Linz, Wels, Steyr und ganz Oberösterreich
                 </p>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">Österreichisches Filament • Express 24-48h • Serienfertigung bis 10.000+ Stück</p>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">Österreichisches Filament • Express 24-48h • Individuelle Modelle</p>
               </div>
             </AnimatedSection>
 

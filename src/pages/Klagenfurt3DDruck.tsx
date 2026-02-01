@@ -22,7 +22,7 @@ const Klagenfurt3DDruck = () => {
     <>
       <SEOHead 
         title="3D-Druck Klagenfurt & Kärnten | 24-48h Express | Ab €15"
-        description="Kärnten: Prototypen, Ersatzteile, Kleinserien in 24-48h! Tourismus bis Industrie. Versandkostenfrei ab 100€. → Jetzt anfragen"
+        description="Kärnten: Prototypen, Ersatzteile, Modelle in 24-48h! Tourismus bis Architektur. Versandkostenfrei ab 100€. → Jetzt anfragen"
         keywords="3d-druck klagenfurt, 3d drucker klagenfurt, fdm druck klagenfurt, rapid prototyping kärnten, 3d-druck service klagenfurt, prototypen klagenfurt"
         path="/3d-druck-klagenfurt"
       />
@@ -100,7 +100,7 @@ const Klagenfurt3DDruck = () => {
                 Unsere <span className="text-gradient">Services in Klagenfurt</span>
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Von schnellem <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> bis zur Serienfertigung – wir bieten professionelle 3D-Druck-Lösungen für Ihr Projekt in Klagenfurt.
+                Von schnellem <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> bis zu Einzelanfertigungen – wir bieten professionelle 3D-Druck-Lösungen für Ihr Projekt in Klagenfurt.
               </p>
             </AnimatedSection>
             
@@ -112,7 +112,7 @@ const Klagenfurt3DDruck = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4">FDM 3D-Druck</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Professioneller FDM 3D-Druck für Prototypen, Einzelteile und Kleinserien. 
+                    Professioneller FDM 3D-Druck für Prototypen, Einzelanfertigungen und Modelle. 
                     Schichtauflösung bis 0,1mm für höchste Präzision in Klagenfurt.
                   </p>
                   <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold inline-flex items-center gap-2 group">
@@ -264,7 +264,7 @@ const Klagenfurt3DDruck = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Kleinserien für Spezialprojekte</span>
+                        <span>Individuelle Modelle für Spezialprojekte</span>
                       </li>
                     </ul>
                   </div>

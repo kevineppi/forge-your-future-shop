@@ -12,7 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import AnimatedSection from "@/components/AnimatedSection";
 const Salzburg3DDruck = () => {
   return <>
-      <SEOHead title="3D-Druck Salzburg | 24-48h Express | Jetzt bestellen" description="Salzburg: Heute bestellen → morgen geliefert! Prototypen, Ersatzteile, Kleinserien ab €15. Gratis Versand ab €50. → Sofort Preis berechnen" keywords="3d-druckservice salzburg, 3d druck salzburg stadt, fdm-druck salzburg, rapid prototyping salzburg, 3d-druck dienstleister salzburg" path="/3d-druck-salzburg" />
+      <SEOHead title="3D-Druck Salzburg | 24-48h Express | Jetzt bestellen" description="Salzburg: Heute bestellen → morgen geliefert! Prototypen, Ersatzteile, Modelle ab €15. Gratis Versand ab €50. → Sofort Preis berechnen" keywords="3d-druckservice salzburg, 3d druck salzburg stadt, fdm-druck salzburg, rapid prototyping salzburg, 3d-druck dienstleister salzburg" path="/3d-druck-salzburg" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"
@@ -94,7 +94,7 @@ const Salzburg3DDruck = () => {
                 Unsere <span className="text-gradient">Services für Salzburg</span>
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Von schnellem <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> bis zur Serienfertigung – wir bieten professionelle 3D-Drucklösungen für Ihr Projekt in Salzburg.
+                Von schnellem <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> bis zu Einzelanfertigungen – wir bieten professionelle 3D-Drucklösungen für Ihr Projekt in Salzburg.
               </p>
             </AnimatedSection>
             
@@ -106,7 +106,7 @@ const Salzburg3DDruck = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4">FDM 3D-Druck</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Professioneller FDM-3D-Druck für Prototypen, Einzelteile und Kleinserien. 
+                    Professioneller FDM-3D-Druck für Prototypen, Einzelanfertigungen und Modelle. 
                     Schichtauflösung bis 0,1mm für höchste Präzision in Salzburg.
                   </p>
                   <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold inline-flex items-center gap-2 group">
@@ -250,7 +250,7 @@ const Salzburg3DDruck = () => {
                     <p className="text-muted-foreground leading-relaxed">
                       Ob für <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a>, 
                       <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold"> individuelle Einzelanfertigungen</a> oder 
-                      <a href="/serienfertigung" className="text-primary hover:underline font-semibold"> Kleinserien</a> – FDM 3D-Druck 
+                      <a href="/architekturmodelle" className="text-primary hover:underline font-semibold"> Architekturmodelle</a> – FDM 3D-Druck 
                       bietet maximale Flexibilität für Ihre Projekte in Salzburg.
                     </p>
                   </div>
@@ -265,7 +265,7 @@ const Salzburg3DDruck = () => {
                         <div>
                           <h4 className="font-bold mb-1">Kosteneffizienz</h4>
                           <p className="text-muted-foreground text-sm leading-relaxed">
-                            Keine teuren Werkzeuge oder Formen notwendig. Ideal für Prototypen und Kleinserien – 
+                            Keine teuren Werkzeuge oder Formen notwendig. Ideal für Prototypen und individuelle Modelle – 
                             deutlich günstiger als traditionelle Fertigungsverfahren.
                           </p>
                         </div>

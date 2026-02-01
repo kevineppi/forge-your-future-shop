@@ -43,8 +43,8 @@ const Gunskirchen3DDruck = () => {
       answer: "Wir arbeiten ausschließlich mit österreichischem Premium-Filament: PLA, PETG, ABS, TPU und technische Materialien. Bei einem persönlichen Termin können Sie alle Materialien anfassen und vergleichen – so finden Sie das perfekte Material für Ihr Projekt."
     },
     {
-      question: "Können Sie auch größere Serien fertigen?",
-      answer: "Ja! Als lokaler Produktionspartner fertigen wir Klein- und Mittelserien von 10 bis 10.000+ Stück. Durch unsere Nähe können wir bei Serienprojekten flexibel auf Änderungen reagieren und Sie persönlich betreuen."
+      question: "Können Sie auch mehrere identische Teile fertigen?",
+      answer: "Ja! Wir fertigen gerne mehrere Teile eines Designs für Sie. Durch unsere Nähe können wir bei Projekten flexibel auf Änderungen reagieren und Sie persönlich betreuen."
     },
     {
       question: "Unterstützen Sie bei der Konstruktion?",
@@ -275,12 +275,12 @@ const Gunskirchen3DDruck = () => {
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                     <Factory className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Serienfertigung</h3>
+                  <h3 className="text-2xl font-bold mb-4">Mehrfachanfertigungen</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Klein- und Mittelserien von 10 bis 10.000+ Stück. Lokaler Produktionspartner mit persönlicher Projektbetreuung.
+                    Mehrere identische Modelle für Ihre Projekte. Lokaler Produktionspartner mit persönlicher Projektbetreuung.
                   </p>
                   <Button variant="link" asChild className="p-0 h-auto font-semibold">
-                    <a href="/serienfertigung-3d-druck">
+                    <a href="/einzelanfertigungen-3d-druck">
                       Mehr erfahren <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
