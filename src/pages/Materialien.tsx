@@ -145,7 +145,7 @@ const Materialien = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Unsere Material-Auswahl</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Für jede Anwendung das passende Material - von einfachen Prototypen bis zu technischen Funktionsteilen
+                  Für jede Anwendung das passende Material - von einfachen Prototypen bis zu anspruchsvollen Modellen
                 </p>
               </div>
 
@@ -226,7 +226,7 @@ const Materialien = () => {
                             <li>• Alle Standard-Farben</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Funktionsteile, Mechanik, Werkzeuge
+                            <span className="font-medium">Ideal für:</span> Robuste Modelle, Mechanik, Werkzeuge
                           </div>
                         </div>
                       </CardContent>

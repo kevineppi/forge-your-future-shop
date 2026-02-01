@@ -423,9 +423,9 @@ const Oberoesterreich3DDruck = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Serienfertigung bis 10.000+ Stück</h3>
+                    <h3 className="font-bold text-lg mb-2">Mehrfachanfertigungen möglich</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Von Einzelteilen bis zur Großserie – wirtschaftlich und mit konstanter Qualität.
+                      Von Einzelteilen bis zu mehreren identischen Modellen – wirtschaftlich und mit konstanter Qualität.
                     </p>
                   </div>
                 </div>

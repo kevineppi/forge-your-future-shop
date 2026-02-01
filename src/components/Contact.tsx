@@ -390,7 +390,7 @@ const Contact = () => {
                             >
                               <option value="">Projekt-Art wählen</option>
                               <option value="einzelanfertigung">Einzelanfertigung</option>
-                              <option value="serienfertigung">Serienfertigung</option>
+                              <option value="mehrfachanfertigung">Mehrfachanfertigung</option>
                               <option value="inneneinrichtung">Inneneinrichtung</option>
                               <option value="beratung">Beratung & Design</option>
                               <option value="sonstiges">Sonstiges</option>

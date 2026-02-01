@@ -130,7 +130,7 @@ const AdminDashboard = () => {
   const getProjectTypeLabel = (projectType: string) => {
     const types = {
       einzelanfertigung: "Einzelanfertigung",
-      serienfertigung: "Serienfertigung", 
+      mehrfachanfertigung: "Mehrfachanfertigung", 
       inneneinrichtung: "Inneneinrichtung",
       beratung: "Beratung & Design",
       sonstiges: "Sonstiges"

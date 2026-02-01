@@ -17,7 +17,7 @@ const glossaryTerms = [
   {
     term: "FDM (Fused Deposition Modeling)",
     category: "Verfahren",
-    definition: "Auch Schmelzschichtung oder Fused Filament Fabrication (FFF) genannt. Das am weitesten verbreitete 3D-Druckverfahren, bei dem thermoplastisches Filament durch eine beheizte Düse geschmolzen und schichtweise auf eine Bauplatte aufgetragen wird. Ideal für Prototypen und Funktionsteile aus Kunststoff."
+    definition: "Auch Schmelzschichtung oder Fused Filament Fabrication (FFF) genannt. Das am weitesten verbreitete 3D-Druckverfahren, bei dem thermoplastisches Filament durch eine beheizte Düse geschmolzen und schichtweise auf eine Bauplatte aufgetragen wird. Ideal für Prototypen, Modelle und Anschauungsobjekte aus Kunststoff."
   },
   {
     term: "Filament",
@@ -62,7 +62,7 @@ const glossaryTerms = [
   {
     term: "PETG (Polyethylenterephthalat-Glykol)",
     category: "Material",
-    definition: "Robuster, schlagfester Kunststoff mit hervorragenden mechanischen Eigenschaften. Drucktemperatur 230-250°C, Heizbett 70-80°C empfohlen. UV- und chemikalienbeständig, lebensmittelecht, ideal für Funktionsteile. Höhere Festigkeit als PLA bei guter Druckbarkeit. Neigt zu Stringing (Fädenbildung)."
+    definition: "Robuster, schlagfester Kunststoff mit hervorragenden mechanischen Eigenschaften. Drucktemperatur 230-250°C, Heizbett 70-80°C empfohlen. UV- und chemikalienbeständig, lebensmittelecht, ideal für langlebige Modelle und Prototypen. Höhere Festigkeit als PLA bei guter Druckbarkeit. Neigt zu Stringing (Fädenbildung)."
   },
   {
     term: "ABS (Acrylnitril-Butadien-Styrol)",
@@ -82,7 +82,7 @@ const glossaryTerms = [
   {
     term: "Nylon (Polyamid PA6/PA12)",
     category: "Material",
-    definition: "Hochfestes, abriebfestes technisches Material mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch (wasseranziehend) - muss vor Druck getrocknet werden. Drucktemperatur 240-280°C, Heizbett 70-90°C. Ideal für mechanisch belastete Funktionsteile, Zahnräder, Lager. PA12 weniger hygroskopisch als PA6."
+    definition: "Hochfestes, abriebfestes technisches Material mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch (wasseranziehend) - muss vor Druck getrocknet werden. Drucktemperatur 240-280°C, Heizbett 70-90°C. Ideal für anspruchsvolle Modelle und Prototypen. PA12 weniger hygroskopisch als PA6."
   },
   {
     term: "Layer Height (Schichthöhe)",

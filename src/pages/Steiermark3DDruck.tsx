@@ -153,7 +153,7 @@ const Steiermark3DDruck = () => {
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
                 Von <a href="/rapid-prototyping" className="text-primary hover:underline font-semibold">Rapid Prototyping</a> für 
-                TU Graz bis zur Serienfertigung – professionelle 3D-Druck-Lösungen für Graz und ganz Steiermark.
+                TU Graz bis zu individuellen Modellen – professionelle 3D-Druck-Lösungen für Graz und ganz Steiermark.
               </p>
             </AnimatedSection>
             

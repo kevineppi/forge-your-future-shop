@@ -112,7 +112,7 @@ const Villach3DDruck = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4">FDM 3D-Druck</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Professioneller FDM 3D-Druck für Prototypen, Einzelteile und Kleinserien. 
+                    Professioneller FDM 3D-Druck für Prototypen, Einzelteile und individuelle Modelle. 
                     Schichtauflösung bis 0,1mm für höchste Präzision in Villach.
                   </p>
                   <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold inline-flex items-center gap-2 group">
@@ -264,7 +264,7 @@ const Villach3DDruck = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Kleinserien für Spezialprojekte</span>
+                        <span>Individuelle Modelle für Spezialprojekte</span>
                       </li>
                     </ul>
                   </div>
