@@ -52,7 +52,7 @@ const Graz3DDruck = () => {
                     Jetzt Angebot erhalten
                   </Button>
                   <Button size="lg" variant="outline" className="text-lg h-14 px-8" asChild>
-                    <a href="/kostenrechner">Kosten berechnen</a>
+                    <a href="/kontakt">Anfrage stellen</a>
                   </Button>
                 </div>
 

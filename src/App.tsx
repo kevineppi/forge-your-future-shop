@@ -12,7 +12,6 @@ import Einzelanfertigungen from "./pages/Einzelanfertigungen";
 import ModellbauDekoration from "./pages/ModellbauDekoration";
 import Probeteile from "./pages/Probeteile";
 import Impressum from "./pages/Impressum";
-import Kostenrechner from "./pages/Kostenrechner";
 import Wien3DDruck from "./pages/Wien3DDruck";
 import Linz3DDruck from "./pages/Linz3DDruck";
 import Graz3DDruck from "./pages/Graz3DDruck";
@@ -40,8 +39,6 @@ import MaterialGuide from "./pages/ratgeber/MaterialGuide";
 import PrototypingGuide from "./pages/ratgeber/PrototypingGuide";
 import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
-import MeineBestellungen from "./pages/MeineBestellungen";
-import CheckoutSuccess from "./pages/CheckoutSuccess";
 import Referenzen from "./pages/Referenzen";
 import Architekturmodelle from "./pages/Architekturmodelle";
 import Messemodelle from "./pages/Messemodelle";
@@ -66,17 +63,13 @@ const App = () => (
             <Route path="/3d-druck-materialien" element={<Materialien />} />
             <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
             <Route path="/modellbau-dekoration" element={<ModellbauDekoration />} />
-            <Route path="/serienfertigung" element={<ModellbauDekoration />} /> {/* Legacy redirect */}
             <Route path="/probeteile" element={<Probeteile />} />
             <Route path="/impressum" element={<Impressum />} />
-            <Route path="/3d-druck-bestellen" element={<Kostenrechner />} />
-            <Route path="/kostenrechner" element={<Kostenrechner />} /> {/* Legacy redirect */}
             <Route path="/ratgeber" element={<Ratgeber />} />
             <Route path="/ratgeber/kosten-guide" element={<KostenGuide />} />
             <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />
             <Route path="/ratgeber/material-guide" element={<MaterialGuide />} />
             <Route path="/ratgeber/prototyping-guide" element={<PrototypingGuide />} />
-            <Route path="/ratgeber/maschinenbau" element={<MaterialGuide />} /> {/* Redirect to Material Guide */}
             <Route path="/glossar" element={<Glossar />} />
             <Route path="/referenzen" element={<Referenzen />} />
             <Route path="/architekturmodelle" element={<Architekturmodelle />} />
@@ -103,8 +96,6 @@ const App = () => (
             <Route path="/3d-druck-gunskirchen" element={<Gunskirchen3DDruck />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/auth" element={<Auth />} />
-            <Route path="/meine-bestellungen" element={<MeineBestellungen />} />
-            <Route path="/checkout-success" element={<CheckoutSuccess />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

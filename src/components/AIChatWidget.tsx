@@ -135,7 +135,7 @@ const AIChatWidget = () => {
         userMessage = 'Was kostet ungefähr mein 3D-Druck Projekt?';
         assistantMessage = 'Die Kosten hängen von mehreren Faktoren ab:\n\n💡 Beispiel 10×10×5cm in PETG:\nMaterial: ~€8-12 | Produktion: ~€20-30 | Setup: ~€8-10\n💰 Gesamt: €40-55 (Standard) | €55-75 (Express)\n\n📊 Einflussfaktoren:\n📏 Größe | ⚙️ Komplexität | 🧱 Material | ⚡ Express';
         actions = [
-          { label: 'Kostenrechner nutzen', url: '/kostenrechner', icon: 'calculator' },
+          { label: 'Anfrage stellen', url: '/kontakt', icon: 'contact' },
           { label: 'Individuelles Angebot', url: '/kontakt', icon: 'contact' }
         ];
         break;

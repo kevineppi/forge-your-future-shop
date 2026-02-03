@@ -82,9 +82,11 @@ const Services = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button variant="hero" size="lg" className="shadow-lg group" onClick={() => window.location.href = '/kostenrechner'}>
-            <Settings className="mr-2 h-5 w-5 group-hover:rotate-90 transition-transform duration-500" />
-            Teil konfigurieren & bestellen
+          <Button variant="hero" size="lg" className="shadow-lg group" asChild>
+            <a href="/kontakt">
+              <Settings className="mr-2 h-5 w-5 group-hover:rotate-90 transition-transform duration-500" />
+              Projekt anfragen
+            </a>
           </Button>
           
           {/* KI Chat Hinweis */}

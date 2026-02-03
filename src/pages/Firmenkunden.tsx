@@ -334,8 +334,8 @@ const Firmenkunden = () => {
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <Button asChild size="lg" className="text-base shadow-lg hover:shadow-xl transition-all bg-primary hover:bg-primary/90 group">
-                    <Link to="/3d-druck-bestellen">
-                      Jetzt Preis berechnen
+                    <Link to="/kontakt">
+                      Anfrage stellen
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
@@ -796,8 +796,8 @@ const Firmenkunden = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button asChild size="lg" className="text-base group">
-                    <Link to="/3d-druck-bestellen">
-                      Preis berechnen
+                    <Link to="/kontakt">
+                      Anfrage stellen
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>

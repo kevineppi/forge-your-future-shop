@@ -11,10 +11,9 @@ import type { Tables } from "@/integrations/supabase/types";
 
 type ContactInquiry = Tables<'contact_inquiries'>;
 import { useToast } from "@/hooks/use-toast";
-import { Search, Filter, Download, RefreshCw, Eye, CheckCircle, Clock, Archive, ShoppingCart, Image } from "lucide-react";
+import { Search, Filter, Download, RefreshCw, Eye, CheckCircle, Clock, Archive, Image } from "lucide-react";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
-import OrdersManagement from "./OrdersManagement";
 import ReferencesManager from "./ReferencesManager";
 
 const AdminDashboard = () => {
@@ -189,15 +188,12 @@ const AdminDashboard = () => {
           </p>
         </div>
 
+
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full max-w-lg grid-cols-3">
+          <TabsList className="grid w-full max-w-lg grid-cols-2">
             <TabsTrigger value="inquiries">
               <Filter className="h-4 w-4 mr-2" />
               Kontaktanfragen
-            </TabsTrigger>
-            <TabsTrigger value="orders">
-              <ShoppingCart className="h-4 w-4 mr-2" />
-              Bestellungen
             </TabsTrigger>
             <TabsTrigger value="references">
               <Image className="h-4 w-4 mr-2" />
@@ -481,10 +477,6 @@ const AdminDashboard = () => {
             </Card>
           </div>
         )}
-          </TabsContent>
-
-          <TabsContent value="orders" className="space-y-6">
-            <OrdersManagement />
           </TabsContent>
 
           <TabsContent value="references" className="space-y-6">

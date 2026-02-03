@@ -74,9 +74,9 @@ const CaseStudiesTeaser = () => {
           <Button 
             size="lg" 
             variant="secondary"
-            onClick={() => window.location.href = '/kostenrechner'}
+            onClick={() => window.location.href = '/kontakt'}
           >
-            Kosten für Ihr Projekt berechnen
+            Anfrage für Ihr Projekt stellen
             <ArrowRight className="ml-2" />
           </Button>
         </div>

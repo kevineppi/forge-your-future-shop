@@ -320,8 +320,8 @@ const ModellbauDekoration = () => {
                 <Button size="lg" variant="hero" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                   Kostenlose Beratung
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => window.location.href = '/kostenrechner'}>
-                  Preis berechnen
+                <Button size="lg" variant="outline" onClick={() => window.location.href = '/kontakt'}>
+                  Anfrage stellen
                 </Button>
               </div>
             </div>

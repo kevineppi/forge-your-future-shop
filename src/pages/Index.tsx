@@ -13,7 +13,7 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 import FAQSchema from "@/components/FAQSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import SEOHead from "@/components/SEOHead";
-import StickyCTA from "@/components/StickyCTA";
+
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
 import AIChatWidget from "@/components/AIChatWidget";
@@ -202,8 +202,7 @@ const Index = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                      Die Kosten hängen von Material, Größe und Druckdauer ab. Nutzen Sie unseren{" "}
-                      <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Kostenrechner</a> für eine sofortige Schätzung. 
+                      Die Kosten hängen von Material, Größe und Druckdauer ab. Kontaktieren Sie uns für ein individuelles Angebot. 
                       3D-Druck ab €20, Express-Service und Mengenrabatte verfügbar.
                     </AccordionContent>
                   </AccordionItem>
@@ -524,8 +523,7 @@ const Index = () => {
                        <div>
                          <p className="font-semibold mb-2">Faire Preise</p>
                          <p className="text-muted-foreground text-sm leading-relaxed">
-                           Transparente Preisgestaltung ohne versteckte Kosten. Nutzen Sie unseren{" "}
-                           <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Online-Kalkulator</a> für eine sofortige Preisindikation oder fordern Sie ein individuelles Angebot an. 
+                           Transparente Preisgestaltung ohne versteckte Kosten. Kontaktieren Sie uns für ein individuelles Angebot. 
                            Mehr dazu im <a href="/ratgeber/kosten-guide" className="text-primary hover:underline font-semibold">Preis-Ratgeber</a>.
                          </p>
                       </div>

@@ -118,7 +118,7 @@ const Burgenland3DDruck = () => {
                   <TrendingUp className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="/kostenrechner">Kosten berechnen</a>
+                  <a href="/kontakt">Anfrage stellen</a>
                 </Button>
               </div>
               

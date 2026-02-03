@@ -35,7 +35,7 @@ const ProductSchema = ({
         "priceCurrency": offers.priceCurrency,
         "price": offers.price,
         "availability": offers.availability || "https://schema.org/InStock",
-        "url": "https://www.ek-druck.at/kostenrechner",
+        "url": "https://www.ek-druck.at/kontakt",
         "seller": {
           "@type": "Organization",
           "name": brand

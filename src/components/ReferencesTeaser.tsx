@@ -1,10 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Layers, Box, Sparkles, ShoppingCart } from "lucide-react";
+import { ArrowRight, Layers, Box, Sparkles, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 interface Reference {
   id: string;
@@ -52,24 +53,26 @@ const ReferencesTeaser = () => {
                 Jetzt starten
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                3D-Druck <span className="text-gradient">online bestellen</span>
+                3D-Druck <span className="text-gradient">anfragen</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Laden Sie Ihre STL-Datei hoch und erhalten Sie sofort einen Preis. 
-                Einfach Material wählen, Menge angeben und bestellen.
+                Senden Sie uns Ihre Projektanfrage und wir erstellen Ihnen ein individuelles Angebot. 
+                Persönliche Beratung inklusive.
               </p>
               <Button 
                 variant="hero" 
                 size="lg" 
                 className="group text-lg px-8 py-6"
-                onClick={() => window.location.href = '/3d-druck-bestellen'}
+                asChild
               >
-                <ShoppingCart className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                Jetzt 3D-Druck bestellen
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Link to="/kontakt">
+                  <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                  Jetzt Anfrage stellen
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
               <p className="text-sm text-muted-foreground mt-4">
-                ✓ Sofortiger Preis &nbsp; ✓ Express 24h möglich &nbsp; ✓ Versandkostenfrei ab €100
+                ✓ Persönliche Beratung &nbsp; ✓ Express 24h möglich &nbsp; ✓ Versandkostenfrei ab €100
               </p>
             </div>
           </div>

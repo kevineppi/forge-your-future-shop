@@ -1169,9 +1169,9 @@ const RapidPrototyping = () => {
                 <Button 
                   size="lg" 
                   variant="secondary" 
-                  onClick={() => window.location.href = '/kostenrechner'}
+                  onClick={() => window.location.href = '/kontakt'}
                 >
-                  Zum Kostenrechner
+                  Anfrage stellen
                 </Button>
               </div>
             </div>
