@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Upload, ArrowRight, CheckCircle, Zap, Shield, Clock, Star } from "lucide-react";
+import { ArrowRight, CheckCircle, Zap, Shield, Clock, Star } from "lucide-react";
 import { lazy, Suspense } from "react";
 
 const Hero3DAnimation = lazy(() => import("@/components/Hero3DAnimation"));
@@ -82,11 +82,12 @@ const Hero = () => {
                 variant="default" 
                 size="lg" 
                 className="group text-base px-6 py-6" 
-                onClick={() => window.location.href = '/3d-druck-bestellen'}
+                asChild
               >
-                <Upload className="mr-2 h-5 w-5" />
-                Jetzt Preis berechnen
-                <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                <Link to="/kontakt">
+                  Anfrage stellen
+                  <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                </Link>
               </Button>
               <Button 
                 variant="outline" 
@@ -94,8 +95,8 @@ const Hero = () => {
                 className="group text-base px-6 py-6"
                 asChild
               >
-                <Link to="/kontakt">
-                  Anfrage stellen
+                <Link to="/referenzen">
+                  Referenzen ansehen
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>

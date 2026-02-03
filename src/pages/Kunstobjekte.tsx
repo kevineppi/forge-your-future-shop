@@ -206,7 +206,7 @@ const Kunstobjekte = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" variant="hero" className="text-base">
-                    <Link to="/3d-druck-bestellen">
+                    <Link to="/kontakt">
                       Kunstwerk realisieren
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
@@ -399,7 +399,7 @@ const Kunstobjekte = () => {
                   </blockquote>
                   <cite className="text-sm text-muted-foreground block mb-6">— {artistQuotes[1].source}, {artistQuotes[1].context}</cite>
                   <Button asChild variant="default" size="lg">
-                    <Link to="/3d-druck-bestellen">
+                    <Link to="/kontakt">
                       Ihr Projekt starten
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>

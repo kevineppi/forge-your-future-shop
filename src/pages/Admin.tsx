@@ -7,7 +7,6 @@ import { SeedKnowledgeButton } from "@/components/SeedKnowledgeButton";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/hooks/useAuth";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { DiscountCodeManager } from "@/components/DiscountCodeManager";
 
 const Admin = () => {
   const { user, isAdmin, loading } = useAuth();
@@ -35,10 +34,9 @@ const Admin = () => {
       <Navigation />
       <div className="container mx-auto px-4 py-8 pt-24">
         <Tabs defaultValue="dashboard" className="w-full">
-          <TabsList className="grid w-full max-w-md grid-cols-3">
+          <TabsList className="grid w-full max-w-md grid-cols-2">
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             <TabsTrigger value="knowledge">Knowledge Base</TabsTrigger>
-            <TabsTrigger value="discounts">Rabattcodes</TabsTrigger>
           </TabsList>
           <TabsContent value="dashboard" className="mt-6">
             <AdminDashboard />
@@ -48,9 +46,6 @@ const Admin = () => {
               <SeedKnowledgeButton />
             </div>
             <KnowledgeBaseManager />
-          </TabsContent>
-          <TabsContent value="discounts" className="mt-6">
-            <DiscountCodeManager />
           </TabsContent>
         </Tabs>
       </div>

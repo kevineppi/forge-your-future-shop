@@ -20,8 +20,8 @@ const KeywordRichContent = ({
   title, 
   intro, 
   blocks, 
-  ctaText = "Jetzt Preis berechnen",
-  ctaLink = "/3d-druck-bestellen"
+  ctaText = "Anfrage stellen",
+  ctaLink = "/kontakt"
 }: KeywordRichContentProps) => {
   return (
     <section className="py-16 md:py-24 bg-muted/30">

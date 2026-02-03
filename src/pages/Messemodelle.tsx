@@ -193,8 +193,8 @@ const Messemodelle = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" variant="hero" className="text-base">
-                    <Link to="/3d-druck-bestellen">
-                      Jetzt Preis berechnen
+                    <Link to="/kontakt">
+                      Anfrage stellen
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>

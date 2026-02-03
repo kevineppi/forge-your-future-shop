@@ -145,9 +145,9 @@ const Niederoesterreich3DDruck = () => {
                   Jetzt Angebot anfordern
                 </Button>
                 <Button size="lg" variant="outline" className="text-lg px-8" asChild>
-                  <a href="/kostenrechner">
+                  <a href="/kontakt">
                     <Cog className="mr-2 h-5 w-5" />
-                    Kosten berechnen
+                    Anfrage stellen
                   </a>
                 </Button>
               </div>

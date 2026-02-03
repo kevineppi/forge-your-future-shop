@@ -159,10 +159,10 @@ const Navigation = () => {
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
-            <a href="/3d-druck-bestellen" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
+            <Link to="/kontakt" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
               <Calculator className="w-4 h-4" />
-              3D-Druck Konfigurator & Bestellung
-            </a>
+              Anfrage stellen
+            </Link>
             <Link to="/kontakt" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</Link>
             
             {user ? (
@@ -311,17 +311,17 @@ const Navigation = () => {
             </div>
             {/* Quick Actions */}
             <div className="border-t border-border/50 pt-4 space-y-2">
-              <a 
-                href="/3d-druck-bestellen" 
+              <Link 
+                to="/kontakt" 
                 className="flex items-center gap-3 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
                 onClick={() => setIsOpen(false)}
               >
                 <Calculator className="h-5 w-5 text-primary" />
                 <div>
-                  <div className="font-semibold text-sm">Konfigurator & Bestellung</div>
-                  <div className="text-xs text-muted-foreground">Preis berechnen & bestellen</div>
+                  <div className="font-semibold text-sm">Anfrage stellen</div>
+                  <div className="text-xs text-muted-foreground">Projektanfrage & Beratung</div>
                 </div>
-              </a>
+              </Link>
               
               {user ? (
                 <div className="grid grid-cols-2 gap-2">

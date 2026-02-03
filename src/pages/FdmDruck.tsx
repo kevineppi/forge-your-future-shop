@@ -71,7 +71,7 @@ const FdmDruck = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale animate-fade-in" asChild>
-                  <a href="/kostenrechner">Sofort Preis berechnen <ArrowRight className="ml-2 h-5 w-5" /></a>
+                  <Link to="/kontakt">Anfrage stellen <ArrowRight className="ml-2 h-5 w-5" /></Link>
                 </Button>
                 <Button size="lg" variant="outline" className="hover-scale animate-fade-in" asChild>
                   <Link to="/kontakt">Beratung anfordern</Link>
@@ -300,7 +300,7 @@ const FdmDruck = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale" asChild>
-                  <a href="/kostenrechner">Jetzt Preis berechnen <ArrowRight className="ml-2 h-5 w-5" /></a>
+                  <Link to="/kontakt">Anfrage stellen <ArrowRight className="ml-2 h-5 w-5" /></Link>
                 </Button>
                 <Button size="lg" variant="outline" className="hover-scale" asChild>
                   <Link to="/kontakt">Beratung anfordern</Link>

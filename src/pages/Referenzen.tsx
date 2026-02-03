@@ -470,9 +470,9 @@ const Referenzen = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="cta" size="lg" asChild>
-                  <a href="/kostenrechner">
+                  <Link to="/kontakt">
                     Jetzt Projekt starten
-                  </a>
+                  </Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
                   <Link to="/kontakt">
@@ -678,7 +678,7 @@ const Referenzen = () => {
                   </p>
                   <div className="flex gap-3">
                     <Button variant="cta" asChild className="flex-1">
-                      <a href="/kostenrechner">Jetzt kalkulieren</a>
+                      <Link to="/kontakt">Anfrage stellen</Link>
                     </Button>
                     <Button variant="outline" asChild>
                       <Link to="/kontakt">Kontakt</Link>

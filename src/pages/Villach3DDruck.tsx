@@ -65,7 +65,7 @@ const Villach3DDruck = () => {
                   <TrendingUp className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="/kostenrechner">Kosten berechnen</a>
+                  <a href="/kontakt">Anfrage stellen</a>
                 </Button>
               </div>
               
@@ -609,9 +609,8 @@ const Villach3DDruck = () => {
                       Wie werden die Kosten für 3D-Druck in Villach berechnet?
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground leading-relaxed">
-                      Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Nutzen Sie unseren{" "}
-                      <a href="/kostenrechner" className="text-primary hover:underline font-semibold">Online-Kostenrechner</a> für eine 
-                      sofortige Schätzung. Kleine Teile starten bereits ab €5, größere Projekte nach individuellem Angebot.
+                      Die Kosten hängen von Material, Größe, Komplexität und Druckdauer ab. Kontaktieren Sie uns für ein individuelles Angebot. 
+                      Kleine Teile starten bereits ab €5, größere Projekte nach individueller Kalkulation.
                     </AccordionContent>
                   </AccordionItem>
 
