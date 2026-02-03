@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Zap, Shield, Clock, Star, AlertTriangle } from "lucide-react";
+import { ArrowRight, CheckCircle, Zap, Shield, Clock, Star } from "lucide-react";
 import { lazy, Suspense } from "react";
 
 const Hero3DAnimation = lazy(() => import("@/components/Hero3DAnimation"));
@@ -137,9 +137,9 @@ const Hero = () => {
               </div>
 
               {/* Legal Notice */}
-              <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50/80 dark:bg-amber-950/30 backdrop-blur-sm p-3 flex items-start gap-2">
-                <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-amber-800 dark:text-amber-200">
+              <div className="rounded-xl border border-primary/20 bg-primary/5 backdrop-blur-sm p-3 flex items-start gap-2">
+                <Shield className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-muted-foreground">
                   Nur Anschauungsmodelle & Dekorationsobjekte – keine Funktionsteile
                 </p>
               </div>
