@@ -52,17 +52,6 @@ const Navigation = () => {
                       </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
-                      <a href="/rapid-prototyping" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
-                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
-                          <TestTube className="h-4 w-4 text-primary" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Rapid Prototyping</div>
-                          <div className="text-xs text-muted-foreground">Schnelle Modell-Umsetzung</div>
-                        </div>
-                      </a>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
                       <a href="/einzelanfertigungen" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
                         <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
                           <Sparkles className="h-4 w-4 text-primary" />
@@ -70,17 +59,6 @@ const Navigation = () => {
                         <div>
                           <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Einzelanfertigungen</div>
                           <div className="text-xs text-muted-foreground">Unikate nach Ihren Wünschen</div>
-                        </div>
-                      </a>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
-                      <a href="/probeteile" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
-                        <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
-                          <TestTube className="h-4 w-4 text-primary" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">Kostenlose Probeteile</div>
-                          <div className="text-xs text-muted-foreground">Kostenlose B2B Muster</div>
                         </div>
                       </a>
                     </DropdownMenuItem>
@@ -229,28 +207,12 @@ const Navigation = () => {
                   <span className="text-sm font-medium truncate">FDM 3D-Druck</span>
                 </a>
                 <a 
-                  href="/rapid-prototyping" 
-                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <TestTube className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span className="text-sm font-medium truncate">Rapid Prototyping</span>
-                </a>
-                <a 
                   href="/einzelanfertigungen" 
                   className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
                   onClick={() => setIsOpen(false)}
                 >
                   <Sparkles className="h-4 w-4 text-primary flex-shrink-0" />
                   <span className="text-sm font-medium truncate">Einzelanfertigungen</span>
-                </a>
-                <a 
-                  href="/probeteile" 
-                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <TestTube className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span className="text-sm font-medium truncate">Probeteile</span>
                 </a>
                 <a 
                   href="/glossar" 

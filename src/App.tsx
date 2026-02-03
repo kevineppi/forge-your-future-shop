@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
 import Index from "./pages/Index";
 import FdmDruck from "./pages/FdmDruck";
-import RapidPrototyping from "./pages/RapidPrototyping";
 import Materialien from "./pages/Materialien";
 import Einzelanfertigungen from "./pages/Einzelanfertigungen";
 import ModellbauDekoration from "./pages/ModellbauDekoration";
@@ -57,7 +56,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/fdm-3d-druck" element={<FdmDruck />} />
-            <Route path="/rapid-prototyping" element={<RapidPrototyping />} />
             <Route path="/prototypen" element={<Prototypen />} />
             <Route path="/3d-druck-materialien" element={<Materialien />} />
             <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
