@@ -13,7 +13,6 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 import FAQSchema from "@/components/FAQSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import SEOHead from "@/components/SEOHead";
-import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
@@ -81,14 +80,6 @@ const Index = () => {
       <div className="min-h-screen">
       <Navigation />
       <Hero />
-      
-      {/* Legal Disclaimer */}
-      <section className="py-6 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <LegalDisclaimer variant="compact" />
-        </div>
-      </section>
-      
       <Services />
       
       {/* Advantages Section - Warum ekdruck wählen */}

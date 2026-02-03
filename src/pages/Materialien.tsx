@@ -5,7 +5,6 @@ import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
-import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -71,13 +70,6 @@ const Materialien = () => {
                 </Button>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Legal Disclaimer */}
-        <section className="py-6 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <LegalDisclaimer variant="compact" />
           </div>
         </section>
 

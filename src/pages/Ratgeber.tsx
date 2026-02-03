@@ -7,7 +7,6 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import AIChatWidget from "@/components/AIChatWidget";
-import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 const Ratgeber = () => {
   const articles = [
@@ -133,13 +132,6 @@ const Ratgeber = () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
-        </section>
-
-        {/* Legal Disclaimer */}
-        <section className="py-6 bg-muted/30">
-          <div className="container mx-auto max-w-6xl px-4">
-            <LegalDisclaimer variant="compact" />
           </div>
         </section>
 

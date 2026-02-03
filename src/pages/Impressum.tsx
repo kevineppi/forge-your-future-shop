@@ -3,7 +3,6 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 const Impressum = () => {
   useEffect(() => {
@@ -29,15 +28,8 @@ const Impressum = () => {
       
       <div className="min-h-screen">
         <Navigation />
-        
-        {/* Legal Disclaimer */}
-        <section className="pt-24 pb-4 bg-muted/30">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <LegalDisclaimer variant="compact" />
-          </div>
-        </section>
       
-      <main className="py-12">
+      <main className="py-24">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-8">
             <span className="text-gradient">Impressum</span>

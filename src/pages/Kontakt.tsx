@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import LegalDisclaimer from "@/components/LegalDisclaimer";
 
 const Kontakt = () => {
   return (
@@ -17,13 +16,6 @@ const Kontakt = () => {
       <Navigation />
       
       <main className="pt-20">
-        {/* Legal Disclaimer */}
-        <section className="py-6 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <LegalDisclaimer variant="compact" />
-          </div>
-        </section>
-        
         <Contact />
       </main>
       
