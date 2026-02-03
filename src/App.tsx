@@ -10,7 +10,6 @@ import RapidPrototyping from "./pages/RapidPrototyping";
 import Materialien from "./pages/Materialien";
 import Einzelanfertigungen from "./pages/Einzelanfertigungen";
 import ModellbauDekoration from "./pages/ModellbauDekoration";
-import Probeteile from "./pages/Probeteile";
 import Impressum from "./pages/Impressum";
 import Wien3DDruck from "./pages/Wien3DDruck";
 import Linz3DDruck from "./pages/Linz3DDruck";
@@ -63,7 +62,6 @@ const App = () => (
             <Route path="/3d-druck-materialien" element={<Materialien />} />
             <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
             <Route path="/modellbau-dekoration" element={<ModellbauDekoration />} />
-            <Route path="/probeteile" element={<Probeteile />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/ratgeber" element={<Ratgeber />} />
             <Route path="/ratgeber/kosten-guide" element={<KostenGuide />} />
