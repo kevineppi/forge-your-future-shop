@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Palette, PenTool, Clock, Gift, Home, Sparkles, AlertTriangle } from "lucide-react";
+import { Palette, PenTool, Clock, Gift, Home, Sparkles, FileCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Services = () => {
@@ -60,13 +60,13 @@ const Services = () => {
         </div>
 
         {/* Legal Notice */}
-        <div className="max-w-3xl mx-auto mb-12 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+        <div className="max-w-3xl mx-auto mb-12 bg-primary/5 border border-primary/20 rounded-lg p-4">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-amber-800 dark:text-amber-200">
-              <strong>Hinweis:</strong> Gemäß unserer Gewerbeberechtigung fertigen wir ausschließlich 
+            <FileCheck className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-muted-foreground">
+              <span className="text-foreground font-medium">Hinweis:</span> Gemäß unserer Gewerbeberechtigung fertigen wir ausschließlich 
               Anschauungsmodelle, Dekorationsobjekte und Kunst-/Ziergegenstände. 
-              <strong> Keine Funktionsteile oder technische Bauteile.</strong>
+              <span className="font-medium text-foreground"> Keine Funktionsteile oder technische Bauteile.</span>
             </div>
           </div>
         </div>
