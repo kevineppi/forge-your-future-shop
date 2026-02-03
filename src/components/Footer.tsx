@@ -30,7 +30,6 @@ const Footer = () => {
               <li><a href="/fdm-3d-druck" className="hover:text-primary transition-colors">FDM 3D-Druck</a></li>
               <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">3D-Druck Materialien</a></li>
               <li><a href="/einzelanfertigungen" className="hover:text-primary transition-colors">Einzelanfertigungen</a></li>
-              <li><a href="/probeteile" className="hover:text-primary transition-colors">Kostenlose Probeteile</a></li>
               <li><a href="/kontakt" className="hover:text-primary transition-colors">Kontakt</a></li>
             </ul>
           </div>

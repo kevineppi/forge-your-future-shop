@@ -13,9 +13,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "3D-Druck Service aus Österreich | Nachhaltiger FDM 3D-Druck | ekdruck e.U.",
-  description = "Ihr 3D-Druck Partner in Österreich für FDM-Druck und Modellbau. Nachhaltig mit österreichischem Filament und Express-Service in 24-48 Stunden.",
-  keywords = "3d-druck österreich, 3d-druck dienstleister, fdm 3d-druck, modellbau, architekturmodelle, dekoration 3d-druck, 3d-druck firma, 3d-druck shop österreich",
+  title = "3D-Druck für Modellbau & Dekoration | Anschauungsmodelle | ekdruck.at",
+  description = "Architekturmodelle, Dekorationsobjekte und Kunstgegenstände aus Oberösterreich. Nachhaltiger FDM-Druck mit österreichischem Filament. Express 24h.",
+  keywords = "3d-druck modellbau, architekturmodelle 3d-druck, dekoration 3d-druck, anschauungsmodelle, messemodelle, kunstobjekte 3d-druck",
   path = "",
   image = "",
   type = "website",

@@ -7,18 +7,19 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
+import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Box, Zap, DollarSign, Wrench, CheckCircle, ArrowRight } from "lucide-react";
+import { Box, Zap, DollarSign, Wrench, CheckCircle, ArrowRight, Palette, Home } from "lucide-react";
 
 const FdmDruck = () => {
   return (
     <>
       <SEOHead 
-        title="FDM 3D-Druck ab €15 | 0,1mm Präzision | Jetzt Preis berechnen"
-        description="70% günstiger als CNC! FDM-Druck für Modelle & Dekoration: PLA, PETG, ABS. Heute bestellen → 24-48h geliefert. → Kostenlos Machbarkeit prüfen"
-        keywords="fdm 3d-druck österreich, fused deposition modeling oberösterreich, fdm verfahren österreich, 3d-druck fdm oberösterreich, fdm drucker service österreich, schichtauflösung 0.1mm, thermoplastisches filament, material-extrusion"
+        title="FDM 3D-Druck für Modellbau & Dekoration | ekdruck.at"
+        description="FDM 3D-Druck für Anschauungsmodelle, Architekturmodelle und Dekorationsobjekte aus Oberösterreich. Nachhaltige Materialien, präzise Fertigung."
+        keywords="fdm 3d-druck österreich, 3d-druck modellbau, architekturmodelle 3d-druck, dekoration 3d-druck, anschauungsmodelle"
         path="/fdm-3d-druck"
         breadcrumbs={[
           {name: "Home", url: "/"},
@@ -29,13 +30,13 @@ const FdmDruck = () => {
         ]}
       />
       <ServiceSchema 
-        serviceName="FDM 3D-Druck Service"
-        description="Professioneller FDM (Fused Deposition Modeling) 3D-Druck Service für individuelle Einzelanfertigungen in ganz Österreich. Präzise Fertigung mit Schichtauflösungen bis 0,1mm für Modellbau, Dekoration und Geschenkartikel."
+        serviceName="FDM 3D-Druck für Modellbau & Dekoration"
+        description="Professioneller FDM 3D-Druck Service für Anschauungsmodelle, Architekturmodelle, Dekorationsobjekte und Kunstgegenstände in Österreich."
         serviceType="Service"
         offers={{
-          price: "5.00",
+          price: "15.00",
           priceCurrency: "EUR",
-          description: "FDM 3D-Druck ab €5, abhängig von Größe und Material"
+          description: "FDM 3D-Druck ab €15, abhängig von Größe und Material"
         }}
       />
       <StructuredData type="organization" />
@@ -50,7 +51,6 @@ const FdmDruck = () => {
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
-          {/* Decorative Elements */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -62,12 +62,12 @@ const FdmDruck = () => {
                 <Box className="h-10 w-10 text-primary" />
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground animate-fade-in">
-                FDM 3D-Druck Service
-                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">für ganz Österreich</span>
+                FDM 3D-Druck
+                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">für Modellbau, Dekoration & Kunst</span>
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-                Präzise, kostengünstige und vielseitige FDM 3D-Druck Lösungen mit höchster Qualität. 
-                Von Modellen bis zur individuellen Dekoration - österreichweit verfügbar.
+                Präzise Anschauungsmodelle, hochwertige Dekorationsobjekte und individuelle Kunstgegenstände 
+                aus nachhaltigen Materialien – gefertigt in Oberösterreich.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale animate-fade-in" asChild>
@@ -81,6 +81,15 @@ const FdmDruck = () => {
           </div>
         </section>
 
+        {/* Legal Disclaimer */}
+        <section className="py-8">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <LegalDisclaimer />
+            </div>
+          </div>
+        </section>
+
         {/* Was ist FDM? */}
         <section className="py-16 lg:py-20">
           <div className="container mx-auto px-4">
@@ -88,8 +97,8 @@ const FdmDruck = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Was ist FDM 3D-Druck?</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Fused Deposition Modeling (FDM) ist das vielseitigste und kostengünstigste 3D-Druckverfahren 
-                  für Modelle, Dekorationen und individuelle Unikate.
+                  Fused Deposition Modeling (FDM) ist ein vielseitiges 3D-Druckverfahren, 
+                  ideal für Anschauungsmodelle, Dekorationen und künstlerische Objekte.
                 </p>
               </div>
 
@@ -132,7 +141,7 @@ const FdmDruck = () => {
                     <h4 className="text-xl font-bold mb-4">Hochpräzise FDM-Drucker</h4>
                     <p className="text-muted-foreground mb-6">
                       Unsere professionellen FDM 3D-Drucker erreichen Schichtauflösungen bis 0,1mm 
-                      für perfekte Oberflächenqualität.
+                      für perfekte Oberflächenqualität bei Modellen und Dekorationen.
                     </p>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div className="bg-background/50 p-3 rounded-lg">
@@ -151,38 +160,38 @@ const FdmDruck = () => {
           </div>
         </section>
 
-        {/* FDM Vorteile */}
+        {/* Anwendungsbereiche */}
         <section className="py-16 lg:py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Warum FDM 3D-Druck?</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Unsere Anwendungsbereiche</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Das FDM-Verfahren bietet unschlagbare Vorteile für individuelle Projekte
+                  FDM 3D-Druck für visuelle und dekorative Anwendungen
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <Card className="text-center border-0 shadow-card">
                   <CardHeader>
-                    <DollarSign className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <CardTitle>Kostengünstig</CardTitle>
+                    <Home className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <CardTitle>Architekturmodelle</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Niedrige Materialkosten und effiziente Fertigung machen FDM zur idealen Wahl für Einzelanfertigungen.
+                      Maßstabsgetreue Architekturmodelle für Präsentationen, Wettbewerbe und Visualisierungen.
                     </p>
                   </CardContent>
                 </Card>
 
                 <Card className="text-center border-0 shadow-card">
                   <CardHeader>
-                    <Wrench className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <CardTitle>Vielseitig</CardTitle>
+                    <Palette className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <CardTitle>Dekorationsobjekte</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Große Auswahl an Materialien: PLA, PETG, ABS und flexible Filamente für jeden Anwendungsbereich.
+                      Individuelle Dekorationen für Wohnräume, Messen, Events und Schaufenster.
                     </p>
                   </CardContent>
                 </Card>
@@ -190,24 +199,11 @@ const FdmDruck = () => {
                 <Card className="text-center border-0 shadow-card">
                   <CardHeader>
                     <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <CardTitle>Schnell</CardTitle>
+                    <CardTitle>Kunstgegenstände</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      Kurze Vorlaufzeiten für schnelle Umsetzung Ihrer Projekte. 
-                      Ideal für <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">individuelle Einzelanfertigungen</a>.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="text-center border-0 shadow-card">
-                  <CardHeader>
-                    <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <CardTitle>Bewährt</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Ausgereiftes Verfahren mit vorhersagbaren Ergebnissen für zuverlässige Qualität.
+                      Skulpturen, Kunstinstallationen und einzigartige Objekte für Künstler und Galerien.
                     </p>
                   </CardContent>
                 </Card>
@@ -221,9 +217,9 @@ const FdmDruck = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6">FDM 3D-Druck Materialien</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Materialien für Modelle & Dekoration</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Hochwertige Filamente für individuelle Projekte
+                  Hochwertige Filamente für visuelle und dekorative Anwendungen
                 </p>
               </div>
 
@@ -231,15 +227,15 @@ const FdmDruck = () => {
                 <Card className="border-0 shadow-card">
                   <CardHeader>
                     <CardTitle className="text-xl">PLA & PLA+</CardTitle>
-                    <CardDescription>Einfach, umweltfreundlich, präzise</CardDescription>
+                    <CardDescription>Ideal für Modelle und Dekorationen</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Biologisch abbaubar</li>
-                      <li>• Niedrige Drucktemperatur</li>
                       <li>• Hohe Detailgenauigkeit</li>
-                      <li>• Ideal für Dekorationen</li>
-                      <li>• Alle Farben verfügbar</li>
+                      <li>• Ideal für Architekturmodelle</li>
+                      <li>• Über 20 Farben verfügbar</li>
+                      <li>• Matt oder glänzend</li>
                     </ul>
                     <Badge className="mt-4">Bestseller</Badge>
                   </CardContent>
@@ -248,15 +244,15 @@ const FdmDruck = () => {
                 <Card className="border-0 shadow-card">
                   <CardHeader>
                     <CardTitle className="text-xl">PETG</CardTitle>
-                    <CardDescription>Chemikalienbeständig, transparent</CardDescription>
+                    <CardDescription>Transparent und wetterfest</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• Lebensmittelecht</li>
-                      <li>• Chemisch beständig</li>
                       <li>• Transparent möglich</li>
+                      <li>• UV-beständig</li>
+                      <li>• Für Außendekorationen</li>
                       <li>• Schlagzäh</li>
-                      <li>• Für Geschenkartikel</li>
+                      <li>• Hochglanz-Optik</li>
                     </ul>
                     <Badge className="mt-4" variant="secondary">Vielseitig</Badge>
                   </CardContent>
@@ -264,18 +260,18 @@ const FdmDruck = () => {
 
                 <Card className="border-0 shadow-card">
                   <CardHeader>
-                    <CardTitle className="text-xl">ABS</CardTitle>
-                    <CardDescription>Robust, hitzebeständig, nachbearbeitbar</CardDescription>
+                    <CardTitle className="text-xl">Spezialfilamente</CardTitle>
+                    <CardDescription>Besondere Optik & Haptik</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• Hitzebeständig bis 80°C</li>
-                      <li>• Schlagfest</li>
-                      <li>• Aceton-glättbar</li>
-                      <li>• Für Modellbau</li>
-                      <li>• Langlebig</li>
+                      <li>• Holz-Look</li>
+                      <li>• Marmor-Optik</li>
+                      <li>• Seidenmatt</li>
+                      <li>• Glow-in-the-dark</li>
+                      <li>• Metallic-Effekte</li>
                     </ul>
-                    <Badge className="mt-4" variant="outline">Robust</Badge>
+                    <Badge className="mt-4" variant="outline">Premium</Badge>
                   </CardContent>
                 </Card>
               </div>
@@ -292,12 +288,13 @@ const FdmDruck = () => {
                 <CheckCircle className="h-8 w-8 text-primary" />
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Ihre individuelle Einzelanfertigung startet hier
+                Ihr Projekt für Modellbau oder Dekoration
               </h2>
               <p className="text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
-                Kostenlose Beratung, faire Preise und schnelle Lieferung österreichweit. 
-                Wir setzen Ihre individuellen Projekte professionell um!
+                Kostenlose Beratung für Architekturmodelle, Dekorationsobjekte und Kunstgegenstände. 
+                Wir prüfen die Machbarkeit Ihres Projekts!
               </p>
+              <LegalDisclaimer variant="compact" className="max-w-2xl mx-auto mb-8" />
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale" asChild>
                   <Link to="/kontakt">Anfrage stellen <ArrowRight className="ml-2 h-5 w-5" /></Link>
@@ -309,6 +306,7 @@ const FdmDruck = () => {
             </div>
           </div>
         </section>
+
         {/* Contact Section */}
         <Contact />
       </main>

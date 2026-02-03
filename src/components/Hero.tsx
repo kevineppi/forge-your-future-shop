@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Zap, Shield, Clock, Star } from "lucide-react";
+import { ArrowRight, CheckCircle, Zap, Shield, Clock, Star, AlertTriangle } from "lucide-react";
 import { lazy, Suspense } from "react";
 
 const Hero3DAnimation = lazy(() => import("@/components/Hero3DAnimation"));
@@ -48,12 +48,12 @@ const Hero = () => {
           {/* Left Column */}
           <div className="max-w-xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
-              3D-Druck Service Oberösterreich – <span className="text-primary">ab €20</span>, in 24h versandfertig
+              3D-Druck für <span className="text-primary">Modellbau & Dekoration</span> aus Oberösterreich
             </h1>
             
             <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-              Laden Sie Ihre STL-Datei hoch und erhalten Sie sofort Ihren Preis. 
-              Professioneller FDM-Druck mit österreichischem Filament.
+              Professionelle Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände. 
+              FDM-Druck mit österreichischem Filament – nachhaltig und präzise.
             </p>
             
             <p className="text-muted-foreground mb-6">
@@ -64,11 +64,11 @@ const Hero = () => {
             <div className="flex flex-wrap gap-2 mb-8">
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
                 <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                <span>Präzise & zuverlässig</span>
+                <span>Architekturmodelle</span>
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
                 <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                <span>Persönliche Beratung</span>
+                <span>Dekorationen</span>
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
                 <CheckCircle className="w-3.5 h-3.5 text-primary" />
@@ -108,9 +108,9 @@ const Hero = () => {
             <div className="grid gap-3">
               {/* Top Card */}
               <div className="rounded-xl border border-border bg-card/80 backdrop-blur-sm p-4">
-                <h3 className="font-semibold text-base mb-1">FDM 3D-Druck Service</h3>
+                <h3 className="font-semibold text-base mb-1">Spezialisiert auf Modellbau & Dekoration</h3>
                 <p className="text-muted-foreground text-sm">
-                  Dekoration, Modellbau und individuelle Unikate.
+                  Architekturmodelle, Messemodelle, Kunstobjekte und Dekorationen.
                 </p>
               </div>
 
@@ -134,6 +134,14 @@ const Hero = () => {
                     Österreichisches Filament
                   </p>
                 </div>
+              </div>
+
+              {/* Legal Notice */}
+              <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50/80 dark:bg-amber-950/30 backdrop-blur-sm p-3 flex items-start gap-2">
+                <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-amber-800 dark:text-amber-200">
+                  Nur Anschauungsmodelle & Dekorationsobjekte – keine Funktionsteile
+                </p>
               </div>
 
               {/* Bottom Card */}
