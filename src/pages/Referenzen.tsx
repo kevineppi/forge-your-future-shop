@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -199,6 +200,13 @@ const Referenzen = () => {
                 </span>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Legal Disclaimer */}
+        <section className="py-4 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <LegalDisclaimer variant="compact" />
           </div>
         </section>
 

@@ -8,6 +8,7 @@ import Breadcrumbs from "@/components/landing/Breadcrumbs";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import RegionalCoverage from "@/components/landing/RegionalCoverage";
+import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { 
   Building, 
   FileText, 
@@ -404,6 +405,13 @@ const Firmenkunden = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Legal Disclaimer */}
+        <section className="py-6 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <LegalDisclaimer variant="compact" />
           </div>
         </section>
 
