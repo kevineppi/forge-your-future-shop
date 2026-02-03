@@ -13,8 +13,8 @@ const LegalDisclaimer = ({ variant = "full", className = "" }: LegalDisclaimerPr
         <div className="flex items-start gap-3">
           <FileCheck className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
           <div className="text-sm text-muted-foreground">
-            <span className="text-foreground font-medium">Hinweis:</span> Wir fertigen ausschließlich Anschauungsmodelle, Dekorationsobjekte und 
-            Kunst-/Ziergegenstände. <span className="font-medium text-foreground">Keine Funktionsteile.</span>
+            <span className="text-foreground font-medium">Hinweis:</span> Ausschließlich Anschauungsmodelle für 
+            Messen, Architektur & Präsentationen. <span className="font-medium text-foreground">Keine Funktionsteile.</span>
           </div>
         </div>
       </div>
@@ -32,8 +32,9 @@ const LegalDisclaimer = ({ variant = "full", className = "" }: LegalDisclaimerPr
           Gemäß unserer Gewerbeberechtigung fertigen wir <strong className="text-foreground">ausschließlich</strong>:
         </p>
         <ul className="list-disc list-inside space-y-1 ml-2">
-          <li><strong className="text-foreground">Anschauungsmodelle</strong> – Architekturmodelle, Präsentationsmodelle, Konzeptmodelle</li>
-          <li><strong className="text-foreground">Dekorationsobjekte</strong> – Wohnaccessoires, Messedekorationen, Schaufensterdeko</li>
+          <li><strong className="text-foreground">Messemodelle & Präsentationsobjekte</strong> – Exponate, Showpieces, Standdekorationen</li>
+          <li><strong className="text-foreground">Architekturmodelle</strong> – Maßstabsmodelle, Gebäudemodelle, Stadtmodelle</li>
+          <li><strong className="text-foreground">Industrielle Anschauungsmodelle</strong> – Produktvisualisierungen, Konzeptdarstellungen</li>
           <li><strong className="text-foreground">Kunst- und Ziergegenstände</strong> – Skulpturen, künstlerische Objekte, Unikate</li>
         </ul>
         <div className="bg-muted/50 rounded-lg p-3 mt-4">

@@ -48,12 +48,12 @@ const Hero = () => {
           {/* Left Column */}
           <div className="max-w-xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
-              3D-Druck für <span className="text-primary">Modellbau & Dekoration</span> aus Oberösterreich
+              3D-Druck für <span className="text-primary">Messe, Architektur & Präsentation</span> aus Oberösterreich
             </h1>
             
             <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-              Professionelle Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände. 
-              FDM-Druck mit österreichischem Filament – nachhaltig und präzise.
+              Professionelle Anschauungsmodelle für Messen, Architektur und Industrie. 
+              FDM-Druck mit österreichischem Filament – präzise und termingerecht.
             </p>
             
             <p className="text-muted-foreground mb-6">
@@ -64,15 +64,15 @@ const Hero = () => {
             <div className="flex flex-wrap gap-2 mb-8">
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
                 <CheckCircle className="w-3.5 h-3.5 text-primary" />
+                <span>Messemodelle</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
+                <CheckCircle className="w-3.5 h-3.5 text-primary" />
                 <span>Architekturmodelle</span>
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
                 <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                <span>Dekorationen</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
-                <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                <span>Made in Austria</span>
+                <span>Anschauungsobjekte</span>
               </div>
             </div>
 
@@ -108,9 +108,9 @@ const Hero = () => {
             <div className="grid gap-3">
               {/* Top Card */}
               <div className="rounded-xl border border-border bg-card/80 backdrop-blur-sm p-4">
-                <h3 className="font-semibold text-base mb-1">Spezialisiert auf Modellbau & Dekoration</h3>
+                <h3 className="font-semibold text-base mb-1">Spezialisiert auf Messe & Architektur</h3>
                 <p className="text-muted-foreground text-sm">
-                  Architekturmodelle, Messemodelle, Kunstobjekte und Dekorationen.
+                  Messemodelle, Architekturmodelle und Anschauungsobjekte für Industrie.
                 </p>
               </div>
 
@@ -140,7 +140,7 @@ const Hero = () => {
               <div className="rounded-xl border border-primary/20 bg-primary/5 backdrop-blur-sm p-3 flex items-start gap-2">
                 <Shield className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-muted-foreground">
-                  Nur Anschauungsmodelle & Dekorationsobjekte – keine Funktionsteile
+                  Ausschließlich Anschauungsmodelle für Präsentationszwecke – keine Funktionsteile
                 </p>
               </div>
 

@@ -15,10 +15,10 @@ import { Sparkles, Users, Lightbulb, Target, CheckCircle, ArrowRight, Clock, Hom
 const Einzelanfertigungen = () => {
   return (
     <>
-      <SEOHead 
-        title="Individuelle 3D-Druck Objekte | Modelle & Dekoration | ekdruck.at"
-        description="Individuelle Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände nach Ihren Wünschen. Maßanfertigung aus Oberösterreich."
-        keywords="3d-druck einzelanfertigungen, individuelle modelle, maßanfertigung 3d-druck, dekorationsobjekte, kunstgegenstände 3d-druck"
+<SEOHead 
+        title="Individuelle Anschauungsobjekte | Messe & Präsentation | ekdruck.at"
+        description="Individuelle Anschauungsmodelle für Messen, Architektur und Industrie. Maßanfertigung aus Oberösterreich."
+        keywords="3d-druck anschauungsmodelle, messemodelle, präsentationsmodelle, architekturmodelle 3d-druck, industriemodelle"
         path="/einzelanfertigungen"
         breadcrumbs={[
           {name: "Home", url: "/"},
@@ -29,8 +29,8 @@ const Einzelanfertigungen = () => {
         ]}
       />
       <ServiceSchema 
-        serviceName="Individuelle 3D-Druck Objekte"
-        description="Individuelle Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände nach Ihren Wünschen gefertigt in Oberösterreich."
+        serviceName="Individuelle Anschauungsobjekte"
+        description="Individuelle Anschauungsmodelle für Messen, Architektur und Industriepräsentationen, gefertigt in Oberösterreich."
         serviceType="Service"
         offers={{
           price: "20.00",
@@ -61,12 +61,12 @@ const Einzelanfertigungen = () => {
                 <Sparkles className="h-10 w-10 text-primary" />
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-foreground">
-                Individuelle 3D-Objekte
-                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">Modelle, Dekoration & Kunst nach Maß</span>
+                Individuelle Anschauungsobjekte
+                <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">für Messe, Architektur & Industrie</span>
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-                Von der Idee zum fertigen Unikat – wir verwirklichen Ihre individuellen 
-                Projekte für Anschauungszwecke, Dekoration und Kunst.
+                Von der Idee zum fertigen Präsentationsobjekt – wir verwirklichen Ihre individuellen 
+                Anschauungsmodelle für Messen, Architektur und Kundenpräsentationen.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale" asChild>
@@ -93,21 +93,21 @@ const Einzelanfertigungen = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Was wir für Sie fertigen</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Individuelle 3D-Druck Objekte für visuelle und dekorative Anwendungen
+                  Individuelle Anschauungsmodelle für Messen, Architektur und Industriepräsentationen
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
                 <div>
-                  <h3 className="text-2xl font-bold mb-6">Vom Konzept zur Realität</h3>
+                  <h3 className="text-2xl font-bold mb-6">Vom Konzept zum Präsentationsmodell</h3>
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
                       <div className="bg-primary/20 p-3 rounded-lg flex-shrink-0">
                         <Lightbulb className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-2">Ideenentwicklung</h4>
-                        <p className="text-muted-foreground">Gemeinsam entwickeln wir aus Ihrer Idee ein realisierbares Konzept für Anschauungszwecke.</p>
+                        <h4 className="font-semibold mb-2">Konzeptentwicklung</h4>
+                        <p className="text-muted-foreground">Gemeinsam entwickeln wir aus Ihrer Idee ein optimales Anschauungsmodell für Ihren Einsatzzweck.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -125,7 +125,7 @@ const Einzelanfertigungen = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold mb-2">Qualitätskontrolle</h4>
-                        <p className="text-muted-foreground">Jedes Objekt wird sorgfältig geprüft und entspricht höchsten Qualitätsstandards.</p>
+                        <p className="text-muted-foreground">Jedes Objekt wird sorgfältig geprüft – präsentationsfertig für Ihren Einsatz.</p>
                       </div>
                     </div>
                   </div>
@@ -133,10 +133,10 @@ const Einzelanfertigungen = () => {
                 <div className="bg-gradient-card p-8 rounded-2xl">
                   <div className="text-center">
                     <Sparkles className="h-24 w-24 text-primary mx-auto mb-6" />
-                    <h4 className="text-xl font-bold mb-4">Kreative Möglichkeiten</h4>
+                    <h4 className="text-xl font-bold mb-4">Komplexe Geometrien möglich</h4>
                     <p className="text-muted-foreground mb-6">
-                      Mit 3D-Druck sind auch komplexeste Geometrien möglich – 
-                      ideal für einzigartige Dekorations- und Kunstobjekte.
+                      Mit 3D-Druck sind auch anspruchsvollste Formen realisierbar – 
+                      ideal für einzigartige Messe- und Präsentationsobjekte.
                     </p>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div className="bg-background/50 p-3 rounded-lg">
@@ -144,8 +144,8 @@ const Einzelanfertigungen = () => {
                         <div className="text-primary">verfügbar</div>
                       </div>
                       <div className="bg-background/50 p-3 rounded-lg">
-                        <div className="font-semibold">Personalisierung</div>
-                        <div className="text-primary">100%</div>
+                        <div className="font-semibold">Individuelle</div>
+                        <div className="text-primary">Maßstäbe</div>
                       </div>
                     </div>
                   </div>
@@ -162,16 +162,33 @@ const Einzelanfertigungen = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Anwendungsbereiche</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Individuelle Objekte für Anschauung, Dekoration und Kunst
+                  Anschauungsmodelle für Messen, Architektur, Industrie und Kunst
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card className="border-0 shadow-card">
                   <CardHeader>
+                    <Sparkles className="h-12 w-12 text-primary mb-4" />
+                    <CardTitle className="text-xl">Messemodelle & Events</CardTitle>
+                    <CardDescription>Blickfänger für Ihren Messestand</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>• Großformatige Exponate</li>
+                      <li>• Produktnachbildungen</li>
+                      <li>• Standdekorationen</li>
+                      <li>• Showpieces</li>
+                      <li>• Express 24h möglich</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-0 shadow-card">
+                  <CardHeader>
                     <Home className="h-12 w-12 text-primary mb-4" />
                     <CardTitle className="text-xl">Architekturmodelle</CardTitle>
-                    <CardDescription>Präsentationsmodelle für Architekten</CardDescription>
+                    <CardDescription>Für Architekten und Planer</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -186,26 +203,43 @@ const Einzelanfertigungen = () => {
 
                 <Card className="border-0 shadow-card">
                   <CardHeader>
-                    <Palette className="h-12 w-12 text-primary mb-4" />
-                    <CardTitle className="text-xl">Dekorationsobjekte</CardTitle>
-                    <CardDescription>Individuelle Dekorationen</CardDescription>
+                    <Target className="h-12 w-12 text-primary mb-4" />
+                    <CardTitle className="text-xl">Industriemodelle</CardTitle>
+                    <CardDescription>Anschauungsmodelle für die Industrie</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• Wohnaccessoires</li>
-                      <li>• Schaufensterdeko</li>
-                      <li>• Eventdekorationen</li>
-                      <li>• Messeexponate</li>
-                      <li>• Saisonale Deko</li>
+                      <li>• Produktvisualisierungen</li>
+                      <li>• Konzeptdarstellungen</li>
+                      <li>• Maßstabsmodelle</li>
+                      <li>• Kundenpräsentationen</li>
+                      <li>• Schulungsmodelle</li>
                     </ul>
                   </CardContent>
                 </Card>
 
                 <Card className="border-0 shadow-card">
                   <CardHeader>
-                    <Sparkles className="h-12 w-12 text-primary mb-4" />
-                    <CardTitle className="text-xl">Kunst & Design</CardTitle>
-                    <CardDescription>Kunstgegenstände und Unikate</CardDescription>
+                    <Palette className="h-12 w-12 text-primary mb-4" />
+                    <CardTitle className="text-xl">Showroom & Retail</CardTitle>
+                    <CardDescription>Für Verkaufsräume und Schaufenster</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>• Schaufensterobjekte</li>
+                      <li>• Produktnachbildungen</li>
+                      <li>• POS-Displays</li>
+                      <li>• Markeninszenierungen</li>
+                      <li>• Saisonale Exponate</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-0 shadow-card">
+                  <CardHeader>
+                    <Users className="h-12 w-12 text-primary mb-4" />
+                    <CardTitle className="text-xl">Kunst & Skulpturen</CardTitle>
+                    <CardDescription>Für Künstler und Galerien</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -220,51 +254,17 @@ const Einzelanfertigungen = () => {
 
                 <Card className="border-0 shadow-card">
                   <CardHeader>
-                    <Users className="h-12 w-12 text-primary mb-4" />
-                    <CardTitle className="text-xl">Personalisierte Geschenke</CardTitle>
-                    <CardDescription>Einzigartige Präsente</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• Personalisierte Deko</li>
-                      <li>• Individuelle Schmuckstücke</li>
-                      <li>• Gravierte Objekte</li>
-                      <li>• Erinnerungsstücke</li>
-                      <li>• Besondere Anlässe</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-card">
-                  <CardHeader>
-                    <Target className="h-12 w-12 text-primary mb-4" />
-                    <CardTitle className="text-xl">Anschauungsmodelle</CardTitle>
-                    <CardDescription>Für Präsentation und Visualisierung</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• Produktvisualisierungen</li>
-                      <li>• Konzeptmodelle</li>
-                      <li>• Lehrmaterial</li>
-                      <li>• Präsentationsobjekte</li>
-                      <li>• Maßstabsmodelle</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-card">
-                  <CardHeader>
                     <Clock className="h-12 w-12 text-primary mb-4" />
                     <CardTitle className="text-xl">Express-Fertigung</CardTitle>
-                    <CardDescription>Schnelle Umsetzung</CardDescription>
+                    <CardDescription>Für dringende Termine</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• 24h Express-Service</li>
                       <li>• Dringende Messetermine</li>
-                      <li>• Last-Minute Geschenke</li>
-                      <li>• Eilige Präsentationen</li>
-                      <li>• Kurzfristige Events</li>
+                      <li>• Kurzfristige Präsentationen</li>
+                      <li>• Last-Minute Projekte</li>
+                      <li>• Eilige Events</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -282,10 +282,10 @@ const Einzelanfertigungen = () => {
                 <CheckCircle className="h-8 w-8 text-primary" />
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Ihr individuelles Projekt startet hier
+                Ihr individuelles Anschauungsobjekt startet hier
               </h2>
               <p className="text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
-                Kostenlose Beratung für Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände. 
+                Kostenlose Beratung für Messemodelle, Architekturmodelle und Industriepräsentationen. 
                 Wir prüfen gerne die Machbarkeit Ihres Projekts!
               </p>
               <LegalDisclaimer variant="compact" className="max-w-2xl mx-auto mb-8" />
