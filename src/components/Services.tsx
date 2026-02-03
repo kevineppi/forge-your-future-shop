@@ -5,39 +5,39 @@ import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [{
+    icon: Sparkles,
+    title: "Messemodelle & Präsentation",
+    description: "Beeindruckende Anschauungsobjekte für Messen, Events und Ausstellungen.",
+    features: ["XXL-Objekte möglich", "Express 24h", "Transportfähig", "Blickfang für Ihren Stand"],
+    link: "/messemodelle"
+  }, {
     icon: Home,
     title: "Architekturmodelle",
     description: "Maßstabsgetreue Modelle für Architekten, Planer und Immobilienentwickler.",
     features: ["Maßstäbe 1:50 bis 1:500", "Hochdetailliert", "Präsentationsfertig", "Mehrfarbig möglich"],
     link: "/architekturmodelle"
   }, {
-    icon: Sparkles,
-    title: "Messemodelle",
-    description: "Beeindruckende Modelle und Objekte für Messen, Events und Ausstellungen.",
-    features: ["XXL-Objekte möglich", "Express 24h", "Transportfähig", "Blickfang-Garantie"],
-    link: "/messemodelle"
+    icon: PenTool,
+    title: "Industrielle Anschauungsmodelle",
+    description: "Präsentationsmodelle für Industrie, Maschinenbau und Produktentwicklung.",
+    features: ["Maßstabsmodelle", "Produktvisualisierung", "Konzeptdarstellung", "Kundenpräsentationen"],
+    link: "/kontakt"
   }, {
     icon: Palette,
-    title: "Dekorationsobjekte",
-    description: "Individuelle Dekorationen für Wohnräume, Schaufenster und öffentliche Räume.",
-    features: ["Alle Größen", "20+ Farben", "Nachhaltige Materialien", "Wetterfest möglich"],
+    title: "Showroom & Schaufenster",
+    description: "Anschauungsobjekte für Verkaufsräume, Schaufenster und Ausstellungen.",
+    features: ["Individuelle Größen", "20+ Farben", "Eyecatcher", "Markenkonform"],
     link: "/einzelanfertigungen"
   }, {
     icon: Gift,
-    title: "Kunstobjekte & Unikate",
-    description: "Einzigartige Skulpturen und Kunstgegenstände für Künstler und Sammler.",
-    features: ["Individuelle Designs", "Spezialeffekte", "Künstlerberatung", "Limitierte Editionen"],
+    title: "Kunst & Skulpturen",
+    description: "Einzigartige Skulpturen und Kunstobjekte für Künstler, Galerien und Sammler.",
+    features: ["Individuelle Designs", "Spezialeffekte", "Künstlerberatung", "Unikate"],
     link: "/kunstobjekte"
   }, {
-    icon: PenTool,
-    title: "Design & Konstruktion",
-    description: "Keine CAD-Datei? Wir erstellen 3D-Modelle nach Ihren Skizzen oder Fotos.",
-    features: ["CAD-Erstellung", "Design-Beratung", "Optimierung", "Technische Zeichnungen"],
-    link: "/kontakt"
-  }, {
     icon: Clock,
-    title: "Express Service",
-    description: "Schnelle Fertigung in 24-48h für dringende Modell- und Dekorationsprojekte.",
+    title: "Express Service 24h",
+    description: "Schnelle Fertigung für dringende Messe- und Präsentationstermine.",
     features: ["24-48h Lieferung", "Kostenlose Beratung", "Faire Preise", "Priorität"],
     link: "/kontakt"
   }];
@@ -51,11 +51,11 @@ const Services = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
             Professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich für 
-            Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände.
+            Messen, Architektur und Industriepräsentationen.
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Mit nachhaltigen Materialien aus Österreich und persönlicher Beratung 
-            setzen wir Ihre visuellen und dekorativen Projekte um.
+            Anschauungsmodelle für jeden Maßstab – termingerecht und präzise gefertigt 
+            mit nachhaltigen Materialien aus Österreich.
           </p>
         </div>
 
@@ -64,8 +64,8 @@ const Services = () => {
           <div className="flex items-start gap-3">
             <FileCheck className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
             <div className="text-sm text-muted-foreground">
-              <span className="text-foreground font-medium">Hinweis:</span> Gemäß unserer Gewerbeberechtigung fertigen wir ausschließlich 
-              Anschauungsmodelle, Dekorationsobjekte und Kunst-/Ziergegenstände. 
+              <span className="text-foreground font-medium">Hinweis:</span> Ausschließlich Anschauungsmodelle für 
+              Messen, Architektur und Industriepräsentationen. 
               <span className="font-medium text-foreground"> Keine Funktionsteile oder technische Bauteile.</span>
             </div>
           </div>
