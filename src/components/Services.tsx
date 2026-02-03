@@ -1,38 +1,45 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Cpu, Palette, PenTool, Clock, Settings, Gift, Home, Boxes } from "lucide-react";
+import { Palette, PenTool, Clock, Gift, Home, Sparkles, AlertTriangle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [{
-    icon: Cpu,
-    title: "Einzelanfertigungen",
-    description: "Individuelle 3D-Objekte nach Ihren Vorgaben – präzise und maßgeschneidert.",
-    features: ["Individuelle Designs", "Millimetergenauigkeit", "Maßanfertigungen", "Persönliche Beratung"]
+    icon: Home,
+    title: "Architekturmodelle",
+    description: "Maßstabsgetreue Modelle für Architekten, Planer und Immobilienentwickler.",
+    features: ["Maßstäbe 1:50 bis 1:500", "Hochdetailliert", "Präsentationsfertig", "Mehrfarbig möglich"],
+    link: "/architekturmodelle"
   }, {
-    icon: Boxes,
-    title: "Projekte für Firmenkunden",
-    description: "Zuverlässiger Partner für Ihre Unternehmensprojekte – von der Idee bis zum fertigen Objekt.",
-    features: ["B2B-Service", "Projektbegleitung", "Flexible Stückzahlen", "Schnelle Umsetzung"]
+    icon: Sparkles,
+    title: "Messemodelle",
+    description: "Beeindruckende Modelle und Objekte für Messen, Events und Ausstellungen.",
+    features: ["XXL-Objekte möglich", "Express 24h", "Transportfähig", "Blickfang-Garantie"],
+    link: "/messemodelle"
   }, {
     icon: Palette,
-    title: "Kreative Projekte",
-    description: "Verwirklichen Sie Ihre kreativen Ideen – in allen Farben, Formen und Größen.",
-    features: ["Alle Farben verfügbar", "Verschiedene Größen", "Nachhaltige Materialien", "Freie Gestaltung"]
+    title: "Dekorationsobjekte",
+    description: "Individuelle Dekorationen für Wohnräume, Schaufenster und öffentliche Räume.",
+    features: ["Alle Größen", "20+ Farben", "Nachhaltige Materialien", "Wetterfest möglich"],
+    link: "/einzelanfertigungen"
   }, {
     icon: Gift,
-    title: "Personalisierte Objekte",
-    description: "Einzigartige Unikate und personalisierte Stücke für besondere Anlässe.",
-    features: ["Personalisierung", "Unikate", "Besondere Anlässe", "Individuelle Gravuren"]
+    title: "Kunstobjekte & Unikate",
+    description: "Einzigartige Skulpturen und Kunstgegenstände für Künstler und Sammler.",
+    features: ["Individuelle Designs", "Spezialeffekte", "Künstlerberatung", "Limitierte Editionen"],
+    link: "/kunstobjekte"
   }, {
     icon: PenTool,
     title: "Design & Konstruktion",
     description: "Keine CAD-Datei? Wir erstellen 3D-Modelle nach Ihren Skizzen oder Fotos.",
-    features: ["CAD-Erstellung", "Design-Beratung", "Optimierung", "Technische Zeichnungen"]
+    features: ["CAD-Erstellung", "Design-Beratung", "Optimierung", "Technische Zeichnungen"],
+    link: "/kontakt"
   }, {
     icon: Clock,
     title: "Express Service",
-    description: "Schnelle Fertigung in 24-48h für dringende Projekte.",
-    features: ["24-48h Lieferung", "Kostenlose Beratung", "Faire Preise", "Priorität"]
+    description: "Schnelle Fertigung in 24-48h für dringende Modell- und Dekorationsprojekte.",
+    features: ["24-48h Lieferung", "Kostenlose Beratung", "Faire Preise", "Priorität"],
+    link: "/kontakt"
   }];
 
   return (
@@ -43,14 +50,25 @@ const Services = () => {
             Unsere <span className="text-gradient">3D-Druck Leistungen</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
-            Professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich – 
-            von <a href="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</a> bis 
-            zu individuellen Projekten für Privat- und Firmenkunden.
+            Professioneller <strong className="text-primary">FDM 3D-Druck Service</strong> aus Oberösterreich für 
+            Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände.
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Mit nachhaltigen Materialien aus Österreich und persönlicher Beratung 
-            setzen wir Ihre Projekte professionell um.
+            setzen wir Ihre visuellen und dekorativen Projekte um.
           </p>
+        </div>
+
+        {/* Legal Notice */}
+        <div className="max-w-3xl mx-auto mb-12 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-amber-800 dark:text-amber-200">
+              <strong>Hinweis:</strong> Gemäß unserer Gewerbeberechtigung fertigen wir ausschließlich 
+              Anschauungsmodelle, Dekorationsobjekte und Kunst-/Ziergegenstände. 
+              <strong> Keine Funktionsteile oder technische Bauteile.</strong>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -76,6 +94,11 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+                {service.link && (
+                  <Button variant="outline" size="sm" asChild className="w-full">
+                    <Link to={service.link}>Mehr erfahren</Link>
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}
@@ -83,13 +106,12 @@ const Services = () => {
 
         <div className="text-center mt-16">
           <Button variant="hero" size="lg" className="shadow-lg group" asChild>
-            <a href="/kontakt">
-              <Settings className="mr-2 h-5 w-5 group-hover:rotate-90 transition-transform duration-500" />
+            <Link to="/kontakt">
+              <PenTool className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-500" />
               Projekt anfragen
-            </a>
+            </Link>
           </Button>
           
-          {/* KI Chat Hinweis */}
           <p className="text-sm text-muted-foreground mt-4">
             oder nutzen Sie unseren <span className="font-semibold text-foreground">🤖 KI-Berater</span> für schnelle Antworten
           </p>

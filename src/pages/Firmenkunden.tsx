@@ -273,12 +273,12 @@ const Firmenkunden = () => {
   return (
     <>
       <Helmet>
-        <title>3D-Druck für Firmenkunden | B2B Partner Österreich | ekdruck.at</title>
-        <meta name="description" content="Zuverlässiger 3D-Druck Partner für Unternehmen in Österreich. Ordentliche Rechnungen mit MwSt., persönliche Betreuung, Express in 24h. Architekturbüros, Agenturen, Messebau. Jetzt anfragen!" />
-        <meta name="keywords" content="3D-Druck B2B, 3D-Druck Firmenkunden, 3D-Druck Unternehmen Österreich, B2B 3D-Druck Service, 3D-Druck Geschäftskunden, Projektaufträge 3D-Druck, 3D-Druck mit Rechnung, 3D-Druck Express Unternehmen, Architekturmodelle B2B, Messemodelle Firma" />
+        <title>3D-Druck für Firmenkunden | Architekturmodelle & Messemodelle | ekdruck.at</title>
+        <meta name="description" content="3D-Druck für Architekturbüros, Agenturen und Messebau. Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände. Keine Funktionsteile. Express 24h." />
+        <meta name="keywords" content="architekturmodelle b2b, messemodelle 3d-druck, anschauungsmodelle firmenkunden, dekorationsobjekte unternehmen, 3d-druck architekturbüro" />
         <link rel="canonical" href="https://ek-druck.at/firmenkunden" />
-        <meta property="og:title" content="3D-Druck für Firmenkunden | B2B Partner Österreich" />
-        <meta property="og:description" content="Zuverlässiger 3D-Druck Partner für Unternehmen. Ordentliche Rechnungen, persönliche Betreuung, Express in 24h." />
+        <meta property="og:title" content="3D-Druck für Firmenkunden | Modelle & Dekoration" />
+        <meta property="og:description" content="Architekturmodelle, Messemodelle und Dekorationsobjekte für Unternehmen. Keine Funktionsteile." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ek-druck.at/firmenkunden" />
       </Helmet>
