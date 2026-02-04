@@ -35,7 +35,7 @@ const RegionalCoverage = ({ serviceName, description, baseUrl = '3d-druck' }: Re
   // Build URLs based on baseUrl prop
   const getUrl = (slug: string) => {
     if (baseUrl === 'messemodelle') {
-      return `/messemodelle-${slug}`;
+      return `/messemodelle/${slug}`;
     }
     // Default 3d-druck URLs with some special cases
     const specialCases: Record<string, string> = {

@@ -58,7 +58,7 @@ const MessemodellRegion = () => {
 
   const breadcrumbs = [
     { name: "Messemodelle", url: "/messemodelle" },
-    { name: regionData.name, url: `/messemodelle-${regionData.slug}` }
+    { name: regionData.name, url: `/messemodelle/${regionData.slug}` }
   ];
 
   // Get nearby regions for internal linking
@@ -73,7 +73,7 @@ const MessemodellRegion = () => {
         <title>{regionData.metaTitle}</title>
         <meta name="description" content={regionData.metaDescription} />
         <meta name="keywords" content={`messemodelle ${regionData.name.toLowerCase()}, 3d-druck ${regionData.name.toLowerCase()}, messebau ${regionData.name.toLowerCase()}, präsentationsmodelle ${regionData.name.toLowerCase()}`} />
-        <link rel="canonical" href={`https://ek-druck.at/messemodelle-${regionData.slug}`} />
+        <link rel="canonical" href={`https://ek-druck.at/messemodelle/${regionData.slug}`} />
       </Helmet>
 
       <Navigation />
@@ -261,7 +261,7 @@ const MessemodellRegion = () => {
                 {nearbyRegions.map((nearby) => (
                   <Link 
                     key={nearby.slug}
-                    to={`/messemodelle-${nearby.slug}`}
+                    to={`/messemodelle/${nearby.slug}`}
                     className="group"
                     onClick={() => window.scrollTo(0, 0)}
                   >
@@ -324,7 +324,7 @@ const MessemodellRegion = () => {
         />
 
         {/* Related Pages */}
-        <RelatedPages currentPage={`/messemodelle-${regionData.slug}`} />
+        <RelatedPages currentPage={`/messemodelle/${regionData.slug}`} />
       </main>
 
       <Footer />
