@@ -15,7 +15,6 @@ import MesseValueProposition from "@/components/landing/MesseValueProposition";
 import StickyCTA from "@/components/landing/StickyCTA";
 import SectionDivider from "@/components/landing/SectionDivider";
 import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
-import FloatingShowcase from "@/components/landing/FloatingShowcase";
 import { getRegionBySlug, regionalMesseData } from "@/data/regionalMesseData";
 import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
 import { 
@@ -182,44 +181,37 @@ const MessemodellRegion = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="relative py-12 md:py-20 overflow-hidden min-h-[90vh] flex items-center">
-          {/* Dynamic background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-muted/50 via-background to-primary/5" />
+        <section className="relative py-20 md:py-32 overflow-hidden">
+          {/* Subtle background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-background to-muted/20" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4" />
           
-          {/* Animated background grid */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }} />
-          
-          {/* Floating orbs */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-pulse-glow" />
-          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: '1s' }} />
+          {/* Subtle decorative elements */}
+          <div className="absolute top-20 left-10 w-20 h-20 border border-primary/5 rounded-full" />
+          <div className="absolute bottom-32 right-20 w-14 h-14 border border-primary/10 rounded-full" />
           
           <div className="container mx-auto px-4 relative">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-4 items-center">
-              {/* Left: Content */}
-              <AnimatedSection animation="fade-in" className="order-2 lg:order-1">
-                {/* Location badge with animation */}
-                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-semibold mb-6 animate-fade-in">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <AnimatedSection animation="fade-in">
+                {/* Location badge */}
+                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-semibold mb-8">
                   <MapPin className="w-4 h-4" />
                   {regionData.type === 'bundesland' ? 'Bundesland' : 'Stadt'} {regionData.name}
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  <span className="block">Messemodelle für</span>
-                  <span className="text-primary">{regionData.name}</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+                  {regionData.title}
                 </h1>
                 
-                <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
+                <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
                   {regionData.heroSubtitle}
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <Button asChild size="lg" variant="hero" className="text-base group">
+                <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                  <Button asChild size="lg" variant="hero" className="text-base">
                     <Link to="/kontakt">
                       Anfrage stellen
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="group">
@@ -231,51 +223,57 @@ const MessemodellRegion = () => {
                 </div>
                 
                 {/* Trust indicators */}
-                <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-border/50">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 chip-interactive">
+                <div className="flex flex-wrap items-center gap-4 pt-8 border-t border-border/50">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 chip-interactive">
                     <Truck className="w-4 h-4 text-primary" />
                     <span className="text-sm font-medium">{regionData.deliveryTime}</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 chip-interactive">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 chip-interactive">
                     <Zap className="w-4 h-4 text-primary" />
                     <span className="text-sm">Express 24h</span>
                   </div>
-                  <div className="flex items-center gap-1 px-3 py-2">
+                  <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className="w-4 h-4 fill-primary text-primary transition-all duration-300 hover:scale-125" 
-                        style={{ transitionDelay: `${i * 50}ms` }} 
-                      />
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary transition-transform duration-200 hover:scale-110" style={{ transitionDelay: `${i * 50}ms` }} />
                     ))}
-                    <span className="text-sm font-medium ml-2">5.0</span>
+                    <span className="text-sm font-medium ml-1">5.0</span>
                   </div>
                 </div>
               </AnimatedSection>
               
-              {/* Right: Floating Showcase */}
-              <div className="order-1 lg:order-2 hidden md:block">
-                <FloatingShowcase 
-                  regionName={regionData.name}
-                  stats={regionData.stats}
-                />
-              </div>
-
-              {/* Mobile Stats - Show on mobile only */}
-              <div className="order-1 lg:hidden grid grid-cols-3 gap-3 mb-6">
-                <div className="bg-primary text-primary-foreground rounded-2xl p-4 text-center">
-                  <div className="text-2xl font-bold">{regionData.stats.messen}</div>
-                  <div className="text-xs text-primary-foreground/70">Messen</div>
-                </div>
-                <div className="bg-card border border-border/50 rounded-2xl p-4 text-center">
-                  <div className="text-2xl font-bold text-primary">{regionData.stats.lieferzeit}</div>
-                  <div className="text-xs text-muted-foreground">Lieferung</div>
-                </div>
-                <div className="bg-card border border-border/50 rounded-2xl p-4 text-center">
-                  <div className="text-2xl font-bold text-primary">{regionData.stats.kunden}</div>
-                  <div className="text-xs text-muted-foreground">Kunden</div>
-                </div>
-              </div>
+              {/* Stats Grid */}
+              <AnimatedSection animation="slide-up" delay={200} className="grid grid-cols-2 gap-4">
+                {/* Large featured stat */}
+                <Card className="col-span-2 bg-primary text-primary-foreground border-0 shadow-lg overflow-hidden relative haptic-scale cursor-default">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+                  <CardContent className="p-8 text-center relative">
+                    <Sparkles className="w-8 h-8 mx-auto mb-3 opacity-80" />
+                    <div className="text-5xl font-bold mb-2">{regionData.stats.messen}</div>
+                    <div className="text-primary-foreground/80">Messen erfolgreich beliefert</div>
+                  </CardContent>
+                </Card>
+                
+                {/* Secondary stats */}
+                <Card className="border border-border/50 shadow-md bg-card haptic-scale cursor-default">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 transition-colors group-hover:bg-primary/15">
+                      <Clock className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="text-3xl font-bold text-primary mb-1">{regionData.stats.lieferzeit}</div>
+                    <div className="text-sm text-muted-foreground">Lieferzeit</div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="border border-border/50 shadow-md bg-card haptic-scale cursor-default">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                      <CheckCircle className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="text-3xl font-bold text-primary mb-1">{regionData.stats.kunden}</div>
+                    <div className="text-sm text-muted-foreground">Kunden in {regionData.name}</div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             </div>
           </div>
         </section>
