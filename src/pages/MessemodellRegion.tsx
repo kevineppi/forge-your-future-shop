@@ -31,6 +31,83 @@ const MessemodellRegion = () => {
     return <Navigate to="/messemodelle" replace />;
   }
 
+  // Service Schema for rich snippets
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `Messemodelle ${regionData.name}`,
+    "description": regionData.metaDescription,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "ekdruck e.U.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wegscheid 25",
+        "addressLocality": "Gunskirchen",
+        "postalCode": "4623",
+        "addressRegion": "Oberösterreich",
+        "addressCountry": "AT"
+      },
+      "telephone": "+43 660 9691150",
+      "email": "office@ek-druck.at"
+    },
+    "areaServed": {
+      "@type": regionData.type === 'bundesland' ? "State" : "City",
+      "name": regionData.name,
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Österreich"
+      }
+    },
+    "serviceType": "3D-Druck Messemodelle",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR"
+      }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Messemodelle Services",
+      "itemListElement": regionData.localMessen.map((messe, index) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": `Messemodelle für ${messe.name}`,
+          "description": `3D-gedruckte Präsentationsmodelle für ${messe.name} in ${messe.location}`
+        }
+      }))
+    }
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.ek-druck.at/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Messemodelle",
+        "item": "https://www.ek-druck.at/messemodelle"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": regionData.name,
+        "item": `https://www.ek-druck.at/messemodelle/${regionData.slug}`
+      }
+    ]
+  };
+
   const faqs = [
     {
       question: `Wie schnell können Messemodelle nach ${regionData.name} geliefert werden?`,
@@ -72,8 +149,23 @@ const MessemodellRegion = () => {
       <Helmet>
         <title>{regionData.metaTitle}</title>
         <meta name="description" content={regionData.metaDescription} />
-        <meta name="keywords" content={`messemodelle ${regionData.name.toLowerCase()}, 3d-druck ${regionData.name.toLowerCase()}, messebau ${regionData.name.toLowerCase()}, präsentationsmodelle ${regionData.name.toLowerCase()}`} />
-        <link rel="canonical" href={`https://ek-druck.at/messemodelle/${regionData.slug}`} />
+        <meta name="keywords" content={`messemodelle ${regionData.name.toLowerCase()}, 3d-druck ${regionData.name.toLowerCase()}, messebau ${regionData.name.toLowerCase()}, präsentationsmodelle ${regionData.name.toLowerCase()}, messe ${regionData.name.toLowerCase()}`} />
+        <link rel="canonical" href={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={regionData.metaTitle} />
+        <meta property="og:description" content={regionData.metaDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
+        <meta property="og:locale" content="de_AT" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(serviceSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       <Navigation />
