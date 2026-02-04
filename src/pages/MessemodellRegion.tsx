@@ -13,6 +13,8 @@ import MesseCaseStudy from "@/components/landing/MesseCaseStudy";
 import MesseMaterialTips from "@/components/landing/MesseMaterialTips";
 import MesseValueProposition from "@/components/landing/MesseValueProposition";
 import StickyCTA from "@/components/landing/StickyCTA";
+import ScrollIndicator from "@/components/landing/ScrollIndicator";
+import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
 import { getRegionBySlug, regionalMesseData } from "@/data/regionalMesseData";
 import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
 import { 
@@ -117,7 +119,7 @@ const MessemodellRegion = () => {
   const faqs = [
     {
       question: `Wie schnell können Messemodelle nach ${regionData.name} geliefert werden?`,
-      answer: `Standardlieferung nach ${regionData.name}: ${regionData.deliveryTime}. ${regionData.deliveryNote}. Bei dringenden Terminen ist Express-Fertigung in 24-48h möglich.`
+      answer: `Standardlieferung nach ${regionData.name}: ${regionData.deliveryTime}. ${regionData.deliveryNote}. Bei dringenden Terminen ist Express-Fertigung in 24h möglich.`
     },
     {
       question: `Welche Messen in ${regionData.name} werden beliefert?`,
@@ -273,6 +275,9 @@ const MessemodellRegion = () => {
           </div>
         </section>
 
+        {/* Scroll Indicator */}
+        <ScrollIndicator />
+
         {/* Why 3D-Druck - Value Proposition */}
         <MesseValueProposition regionName={regionData.name} />
 
@@ -294,6 +299,9 @@ const MessemodellRegion = () => {
           regionName={regionData.name}
           industryFocus={extendedData.industryFocus}
         />
+
+        {/* Personal Delivery Service */}
+        <PersonalDeliveryInfo regionName={regionData.name} />
 
         {/* Local Advantages */}
         <section className="py-20 md:py-28 relative overflow-hidden">
@@ -347,7 +355,7 @@ const MessemodellRegion = () => {
               <div className="grid sm:grid-cols-3 gap-6 mb-12">
                 {[
                   { icon: Clock, label: "Standard", value: regionData.deliveryTime, highlight: false },
-                  { icon: Zap, label: "Express", value: "24-48h", highlight: true },
+                  { icon: Zap, label: "Express", value: "24h", highlight: true },
                   { icon: Package, label: "Versandkostenfrei", value: "ab €100", highlight: false }
                 ].map((item, index) => (
                   <AnimatedSection key={index} animation="scale-in" delay={200 + index * 100}>

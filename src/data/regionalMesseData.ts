@@ -62,7 +62,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Niederösterreich | Express | St. Pölten, Krems | ekdruck.at',
     metaDescription: 'Messemodelle und Präsentationsobjekte für Niederösterreich. Lieferung nach St. Pölten, Krems, Wiener Neustadt. Express-Service verfügbar.',
     heroSubtitle: 'Professionelle Messemodelle für das größte Bundesland. Schnelle Lieferung in alle Regionen Niederösterreichs.',
-    deliveryTime: '1-2 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Schnelle Anbindung über A1/S33',
     localMessen: [
       { name: 'Wieselburger Messe', location: 'Wieselburg', type: 'Landwirtschaft' },
@@ -77,7 +77,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Flexible Lieferoptionen',
     ],
     nearbyRegions: ['wien', 'oberoesterreich', 'st-poelten'],
-    stats: { messen: '20+', lieferzeit: '1-2 Tage', kunden: '15+' },
+    stats: { messen: '20+', lieferzeit: '5-7 Tage', kunden: '15+' },
   },
 
   'oberoesterreich': {
@@ -115,7 +115,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Steiermark | Express Graz | Häuslbauermesse | ekdruck.at',
     metaDescription: 'Professionelle Messemodelle für die Steiermark. Express-Lieferung nach Graz. Ideal für Grazer Herbstmesse, Häuslbauermesse und Industriemessen.',
     heroSubtitle: 'Hochwertige Messemodelle für das Grüne Herz Österreichs. Express-Lieferung nach Graz und in alle steirischen Regionen.',
-    deliveryTime: '2-3 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Express nach Graz über A9',
     localMessen: [
       { name: 'Grazer Herbstmesse', location: 'Messe Graz', type: 'Allgemein' },
@@ -130,7 +130,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Flexible Terminplanung',
     ],
     nearbyRegions: ['kaernten', 'burgenland', 'graz'],
-    stats: { messen: '25+', lieferzeit: '2-3 Tage', kunden: '20+' },
+    stats: { messen: '25+', lieferzeit: '5-7 Tage', kunden: '20+' },
   },
 
   'kaernten': {
@@ -141,7 +141,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Kärnten | Klagenfurt, Villach | Holzmesse | ekdruck.at',
     metaDescription: 'Messemodelle für Kärnten. Lieferung nach Klagenfurt und Villach. Spezialist für Internationale Holzmesse und Kärntner Messen.',
     heroSubtitle: 'Ihr Partner für Messemodelle im sonnigen Süden. Zuverlässige Lieferung nach Klagenfurt, Villach und ganz Kärnten.',
-    deliveryTime: '2-3 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Versand über A10 Tauernautobahn',
     localMessen: [
       { name: 'Internationale Holzmesse', location: 'Klagenfurt', type: 'Holz' },
@@ -156,7 +156,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Flexible Lieferzeiten',
     ],
     nearbyRegions: ['steiermark', 'tirol', 'klagenfurt', 'villach'],
-    stats: { messen: '15+', lieferzeit: '2-3 Tage', kunden: '10+' },
+    stats: { messen: '15+', lieferzeit: '5-7 Tage', kunden: '10+' },
   },
 
   'salzburg': {
@@ -167,7 +167,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Salzburg | AutoSalon, Baumesse | Express | ekdruck.at',
     metaDescription: 'Professionelle Messemodelle für Salzburg. Express-Lieferung zum Messezentrum Salzburg. Ideal für AutoSalon, Bauen+Wohnen und Kongressmessen.',
     heroSubtitle: 'Hochwertige Messemodelle für die Mozartstadt und das Salzburger Land. Schnelle Lieferung über die Westautobahn.',
-    deliveryTime: '1-2 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Schnelle Anbindung über A1 Westautobahn',
     localMessen: [
       { name: 'AutoSalon Salzburg', location: 'Messezentrum Salzburg', type: 'Automobil' },
@@ -182,7 +182,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Express-Service verfügbar',
     ],
     nearbyRegions: ['oberoesterreich', 'tirol', 'kaernten'],
-    stats: { messen: '20+', lieferzeit: '1-2 Tage', kunden: '15+' },
+    stats: { messen: '20+', lieferzeit: '5-7 Tage', kunden: '15+' },
   },
 
   'tirol': {
@@ -193,7 +193,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Tirol | Innsbruck Messe | Express | ekdruck.at',
     metaDescription: 'Messemodelle für Tirol. Express-Lieferung nach Innsbruck. Spezialist für Wintersport-, Tourismus- und Baumessen in den Alpen.',
     heroSubtitle: 'Professionelle Messemodelle für das Herz der Alpen. Zuverlässige Lieferung nach Innsbruck und in alle Tiroler Regionen.',
-    deliveryTime: '2-3 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Versand über A10/A13',
     localMessen: [
       { name: 'Innsbrucker Herbstmesse', location: 'Messe Innsbruck', type: 'Allgemein' },
@@ -208,7 +208,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Robuste Verpackung für Alpentransport',
     ],
     nearbyRegions: ['salzburg', 'vorarlberg', 'innsbruck'],
-    stats: { messen: '15+', lieferzeit: '2-3 Tage', kunden: '10+' },
+    stats: { messen: '15+', lieferzeit: '5-7 Tage', kunden: '10+' },
   },
 
   'vorarlberg': {
@@ -219,7 +219,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Vorarlberg | Dornbirner Messe | Express | ekdruck.at',
     metaDescription: 'Professionelle Messemodelle für Vorarlberg. Lieferung nach Dornbirn, Bregenz, Feldkirch. Ideal für die Dornbirner Messe und regionale Events.',
     heroSubtitle: 'Hochwertige Messemodelle für das Ländle. Zuverlässige Lieferung nach Dornbirn, Bregenz und ganz Vorarlberg.',
-    deliveryTime: '2-3 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Versand über A14 Rheintal',
     localMessen: [
       { name: 'Dornbirner Herbstmesse', location: 'Messe Dornbirn', type: 'Allgemein' },
@@ -234,7 +234,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Express-Option verfügbar',
     ],
     nearbyRegions: ['tirol', 'dornbirn'],
-    stats: { messen: '10+', lieferzeit: '2-3 Tage', kunden: '8+' },
+    stats: { messen: '10+', lieferzeit: '5-7 Tage', kunden: '8+' },
   },
 
   'burgenland': {
@@ -245,7 +245,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Burgenland | Eisenstadt, Oberwart | Express | ekdruck.at',
     metaDescription: 'Messemodelle für das Burgenland. Lieferung nach Eisenstadt, Oberwart, Neusiedl am See. Ideal für Wein-, Tourismus- und Regionalmessen.',
     heroSubtitle: 'Professionelle Messemodelle für das östlichste Bundesland. Schnelle Lieferung über Wien ins gesamte Burgenland.',
-    deliveryTime: '2 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Versand über Wien/A4',
     localMessen: [
       { name: 'Inform Oberwart', location: 'Oberwart', type: 'Allgemein' },
@@ -259,7 +259,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Regionale Expertise',
     ],
     nearbyRegions: ['wien', 'niederoesterreich', 'steiermark'],
-    stats: { messen: '10+', lieferzeit: '2 Tage', kunden: '5+' },
+    stats: { messen: '10+', lieferzeit: '5-7 Tage', kunden: '5+' },
   },
 
   // HAUPTSTÄDTE (zusätzlich zu den Bundesländern)
@@ -323,7 +323,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Graz | Messe Graz, Herbstmesse | Express | ekdruck.at',
     metaDescription: 'Professionelle Messemodelle für Graz. Express-Lieferung zur Messe Graz. Ideal für Herbstmesse, Häuslbauermesse und Grazer Events.',
     heroSubtitle: 'Hochwertige Messemodelle für die steirische Landeshauptstadt. Express-Lieferung direkt zur Messe Graz.',
-    deliveryTime: '2 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Express-Versand über A9 Pyhrnautobahn',
     localMessen: [
       { name: 'Grazer Herbstmesse', location: 'Messe Graz', type: 'Allgemein' },
@@ -338,7 +338,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Persönlicher Ansprechpartner',
     ],
     nearbyRegions: ['steiermark', 'kaernten'],
-    stats: { messen: '20+', lieferzeit: '2 Tage', kunden: '15+' },
+    stats: { messen: '20+', lieferzeit: '5-7 Tage', kunden: '15+' },
   },
 
   'klagenfurt': {
@@ -349,7 +349,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Klagenfurt | Holzmesse, Kärntner Messen | ekdruck.at',
     metaDescription: 'Messemodelle für Klagenfurt. Spezialist für die Internationale Holzmesse. Express-Lieferung nach Kärnten.',
     heroSubtitle: 'Professionelle Messemodelle für die Kärntner Landeshauptstadt. Spezialist für Holzmesse und regionale Events.',
-    deliveryTime: '2-3 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Versand über A10 Tauernautobahn',
     localMessen: [
       { name: 'Internationale Holzmesse', location: 'Klagenfurt', type: 'Holz' },
@@ -363,7 +363,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Zuverlässige Alpen-Logistik',
     ],
     nearbyRegions: ['kaernten', 'villach', 'steiermark'],
-    stats: { messen: '10+', lieferzeit: '2-3 Tage', kunden: '8+' },
+    stats: { messen: '10+', lieferzeit: '5-7 Tage', kunden: '8+' },
   },
 
   'villach': {
@@ -374,7 +374,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Villach | Events, Kirchtag | Express Kärnten | ekdruck.at',
     metaDescription: 'Messemodelle für Villach und Umgebung. Express-Lieferung nach Kärnten. Ideal für Events und regionale Präsentationen.',
     heroSubtitle: 'Professionelle Messemodelle für die Draustadt. Zuverlässige Lieferung für Events und Präsentationen in Villach.',
-    deliveryTime: '2-3 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Versand über A10/A2',
     localMessen: [
       { name: 'Villacher Kirchtag', location: 'Villach', type: 'Tradition' },
@@ -388,7 +388,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Flexible Lieferzeiten',
     ],
     nearbyRegions: ['kaernten', 'klagenfurt', 'tirol'],
-    stats: { messen: '8+', lieferzeit: '2-3 Tage', kunden: '5+' },
+    stats: { messen: '8+', lieferzeit: '5-7 Tage', kunden: '5+' },
   },
 
   'st-poelten': {
@@ -399,7 +399,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle St. Pölten | NÖ Events | Express | ekdruck.at',
     metaDescription: 'Messemodelle für St. Pölten und Niederösterreich. Express-Lieferung in die NÖ Landeshauptstadt. Ideal für regionale Events.',
     heroSubtitle: 'Professionelle Messemodelle für die niederösterreichische Landeshauptstadt. Schnelle Lieferung über A1.',
-    deliveryTime: '1-2 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Schnelle Anbindung über A1 Westautobahn',
     localMessen: [
       { name: 'VAZ St. Pölten Events', location: 'VAZ St. Pölten', type: 'Events' },
@@ -413,7 +413,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Express-Option verfügbar',
     ],
     nearbyRegions: ['niederoesterreich', 'wien'],
-    stats: { messen: '10+', lieferzeit: '1-2 Tage', kunden: '8+' },
+    stats: { messen: '10+', lieferzeit: '5-7 Tage', kunden: '8+' },
   },
 
   'innsbruck': {
@@ -424,7 +424,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Innsbruck | Messe Innsbruck, Interalpin | ekdruck.at',
     metaDescription: 'Professionelle Messemodelle für Innsbruck. Ideal für Messe Innsbruck, Interalpin und alpine Events. Express-Lieferung nach Tirol.',
     heroSubtitle: 'Hochwertige Messemodelle für die Tiroler Landeshauptstadt. Spezialist für alpine Messen und Wintersport-Events.',
-    deliveryTime: '2-3 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Versand über A10/A13 Brennerautobahn',
     localMessen: [
       { name: 'Innsbrucker Herbstmesse', location: 'Messe Innsbruck', type: 'Allgemein' },
@@ -439,7 +439,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Express-Option verfügbar',
     ],
     nearbyRegions: ['tirol', 'salzburg', 'vorarlberg'],
-    stats: { messen: '15+', lieferzeit: '2-3 Tage', kunden: '10+' },
+    stats: { messen: '15+', lieferzeit: '5-7 Tage', kunden: '10+' },
   },
 
   'dornbirn': {
@@ -450,7 +450,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     metaTitle: '3D-Druck Messemodelle Dornbirn | Dornbirner Messe, Gustav | ekdruck.at',
     metaDescription: 'Messemodelle für Dornbirn und Vorarlberg. Spezialist für Dornbirner Messe und Design-Events. Express-Lieferung ins Ländle.',
     heroSubtitle: 'Professionelle Messemodelle für die Messestadt im Ländle. Erfahrung mit Dornbirner Messe und Design-Events.',
-    deliveryTime: '2-3 Tage',
+    deliveryTime: '5-7 Tage',
     deliveryNote: 'Versand über A14 Rheintal Autobahn',
     localMessen: [
       { name: 'Dornbirner Herbstmesse', location: 'Messe Dornbirn', type: 'Allgemein' },
@@ -465,7 +465,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Express-Option verfügbar',
     ],
     nearbyRegions: ['vorarlberg', 'tirol'],
-    stats: { messen: '10+', lieferzeit: '2-3 Tage', kunden: '8+' },
+    stats: { messen: '10+', lieferzeit: '5-7 Tage', kunden: '8+' },
   },
 };
 
