@@ -26,9 +26,7 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
         "Modell-Anforderungen definieren",
         "Anfrage senden"
       ],
-      tip: "Je früher, desto mehr Optimierungsmöglichkeiten",
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "bg-blue-500/10"
+      tip: "Je früher, desto mehr Optimierungsmöglichkeiten"
     },
     {
       week: "4-3 Wochen",
@@ -39,9 +37,7 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
         "Farbmuster prüfen",
         "Fertigung starten"
       ],
-      tip: "Große Objekte = mehrere Drucktage",
-      color: "from-violet-500 to-purple-500",
-      bgColor: "bg-violet-500/10"
+      tip: "Große Objekte = mehrere Drucktage"
     },
     {
       week: "2-1 Wochen",
@@ -52,9 +48,7 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
         `Versand nach ${regionName}`,
         "Express zum Messestand"
       ],
-      tip: `Lieferzeit: ${deliveryTime}`,
-      color: "from-amber-500 to-orange-500",
-      bgColor: "bg-amber-500/10"
+      tip: `Lieferzeit: ${deliveryTime}`
     },
     {
       week: "Messetag",
@@ -65,22 +59,20 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
         "Beleuchtung ausrichten",
         "Besucher beeindrucken"
       ],
-      tip: "Bis zu 70% leichter als Alternativen",
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-500/10"
+      tip: "Bis zu 70% leichter als Alternativen"
     }
   ];
 
   return (
     <section className="py-20 md:py-28 relative overflow-hidden bg-muted/30">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.05),transparent_50%)]" />
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.03),transparent_50%)]" />
       
       <div className="container mx-auto px-4 relative">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <AnimatedSection animation="fade-in" className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-card border border-border shadow-lg px-5 py-2.5 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 bg-card border border-border shadow-sm px-5 py-2.5 rounded-full text-sm font-semibold mb-6">
               <Clock className="w-4 h-4 text-primary" />
               Planungs-Timeline
             </div>
@@ -96,7 +88,7 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
           <div className="hidden lg:block">
             {/* Connection line */}
             <div className="relative mb-8">
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-violet-500 via-amber-500 to-green-500 rounded-full -translate-y-1/2" />
+              <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/30 via-primary/50 to-primary/30 rounded-full -translate-y-1/2" />
               <div className="flex justify-between relative">
                 {checklistItems.map((item, index) => (
                   <AnimatedSection 
@@ -105,8 +97,8 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
                     delay={index * 100}
                     className="flex flex-col items-center"
                   >
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-xl z-10`}>
-                      <item.icon className="w-8 h-8 text-white" />
+                    <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center shadow-lg z-10">
+                      <item.icon className="w-7 h-7 text-primary-foreground" />
                     </div>
                   </AnimatedSection>
                 ))}
@@ -117,10 +109,10 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
             <div className="grid grid-cols-4 gap-6">
               {checklistItems.map((item, index) => (
                 <AnimatedSection key={index} animation="slide-up" delay={200 + index * 100}>
-                  <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow h-full bg-card">
+                  <Card className="border border-border/50 shadow-sm hover:shadow-md hover:border-primary/20 transition-all h-full bg-card">
                     <CardContent className="p-6">
                       {/* Week badge */}
-                      <div className={`inline-flex px-3 py-1 rounded-full text-xs font-bold mb-4 ${item.bgColor} text-foreground`}>
+                      <div className="inline-flex px-3 py-1 rounded-full text-xs font-bold mb-4 bg-primary/10 text-primary">
                         {item.week}
                       </div>
                       
@@ -137,7 +129,7 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
                       
                       {/* Tip */}
                       <div className="flex items-start gap-2 p-3 rounded-lg bg-muted/50 text-xs">
-                        <Lightbulb className="w-3 h-3 text-amber-500 shrink-0 mt-0.5" />
+                        <Lightbulb className="w-3 h-3 text-primary shrink-0 mt-0.5" />
                         <span className="text-muted-foreground">{item.tip}</span>
                       </div>
                     </CardContent>
@@ -151,13 +143,13 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
           <div className="lg:hidden space-y-6">
             {checklistItems.map((item, index) => (
               <AnimatedSection key={index} animation="slide-up" delay={index * 100}>
-                <Card className="border-0 shadow-lg overflow-hidden">
-                  {/* Colored header */}
-                  <div className={`bg-gradient-to-r ${item.color} p-4 flex items-center gap-4`}>
-                    <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <item.icon className="w-6 h-6 text-white" />
+                <Card className="border border-border/50 shadow-sm overflow-hidden">
+                  {/* Header */}
+                  <div className="bg-primary p-4 flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center">
+                      <item.icon className="w-6 h-6 text-primary-foreground" />
                     </div>
-                    <div className="text-white">
+                    <div className="text-primary-foreground">
                       <div className="text-xs font-medium opacity-80">{item.week}</div>
                       <div className="text-lg font-bold">{item.title}</div>
                     </div>
@@ -174,7 +166,7 @@ const MesseChecklist = ({ regionName, deliveryTime }: MesseChecklistProps) => {
                     </ul>
                     
                     <div className="flex items-start gap-2 p-3 rounded-lg bg-muted/50 text-sm">
-                      <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                      <Lightbulb className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                       <span className="text-muted-foreground">{item.tip}</span>
                     </div>
                   </CardContent>
