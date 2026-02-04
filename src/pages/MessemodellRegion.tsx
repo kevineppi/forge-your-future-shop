@@ -13,7 +13,7 @@ import MesseCaseStudy from "@/components/landing/MesseCaseStudy";
 import MesseMaterialTips from "@/components/landing/MesseMaterialTips";
 import MesseValueProposition from "@/components/landing/MesseValueProposition";
 import StickyCTA from "@/components/landing/StickyCTA";
-import ScrollIndicator from "@/components/landing/ScrollIndicator";
+import SectionDivider from "@/components/landing/SectionDivider";
 import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
 import { getRegionBySlug, regionalMesseData } from "@/data/regionalMesseData";
 import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
@@ -208,30 +208,33 @@ const MessemodellRegion = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                  <Button asChild size="lg" className="text-base shadow-lg">
+                  <Button asChild size="lg" variant="hero" className="text-base">
                     <Link to="/kontakt">
                       Anfrage stellen
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline">
-                    <Link to="/messemodelle">Alle Infos</Link>
+                  <Button asChild size="lg" variant="outline" className="group">
+                    <Link to="/messemodelle">
+                      Alle Infos
+                      <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                    </Link>
                   </Button>
                 </div>
                 
                 {/* Trust indicators */}
                 <div className="flex flex-wrap items-center gap-4 pt-8 border-t border-border/50">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 chip-interactive">
                     <Truck className="w-4 h-4 text-primary" />
                     <span className="text-sm font-medium">{regionData.deliveryTime}</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 chip-interactive">
                     <Zap className="w-4 h-4 text-primary" />
                     <span className="text-sm">Express 24h</span>
                   </div>
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary transition-transform duration-200 hover:scale-110" style={{ transitionDelay: `${i * 50}ms` }} />
                     ))}
                     <span className="text-sm font-medium ml-1">5.0</span>
                   </div>
@@ -241,7 +244,7 @@ const MessemodellRegion = () => {
               {/* Stats Grid */}
               <AnimatedSection animation="slide-up" delay={200} className="grid grid-cols-2 gap-4">
                 {/* Large featured stat */}
-                <Card className="col-span-2 bg-primary text-primary-foreground border-0 shadow-lg overflow-hidden relative">
+                <Card className="col-span-2 bg-primary text-primary-foreground border-0 shadow-lg overflow-hidden relative haptic-scale cursor-default">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
                   <CardContent className="p-8 text-center relative">
                     <Sparkles className="w-8 h-8 mx-auto mb-3 opacity-80" />
@@ -251,9 +254,9 @@ const MessemodellRegion = () => {
                 </Card>
                 
                 {/* Secondary stats */}
-                <Card className="border border-border/50 shadow-md bg-card">
+                <Card className="border border-border/50 shadow-md bg-card haptic-scale cursor-default">
                   <CardContent className="p-6 text-center">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 transition-colors group-hover:bg-primary/15">
                       <Clock className="w-6 h-6 text-primary" />
                     </div>
                     <div className="text-3xl font-bold text-primary mb-1">{regionData.stats.lieferzeit}</div>
@@ -261,7 +264,7 @@ const MessemodellRegion = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="border border-border/50 shadow-md bg-card">
+                <Card className="border border-border/50 shadow-md bg-card haptic-scale cursor-default">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
                       <CheckCircle className="w-6 h-6 text-primary" />
@@ -275,8 +278,8 @@ const MessemodellRegion = () => {
           </div>
         </section>
 
-        {/* Scroll Indicator */}
-        <ScrollIndicator />
+        {/* Section Transition Animation */}
+        <SectionDivider />
 
         {/* Why 3D-Druck - Value Proposition */}
         <MesseValueProposition regionName={regionData.name} />
@@ -410,17 +413,18 @@ const MessemodellRegion = () => {
                       className="group block"
                       onClick={() => window.scrollTo(0, 0)}
                     >
-                      <Card className="border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 group-hover:-translate-y-1 overflow-hidden">
-                        <div className="h-0.5 bg-primary/30 group-hover:bg-primary transition-colors" />
+                      <Card className="border border-border/50 shadow-sm card-interactive overflow-hidden">
+                        <div className="h-1 bg-primary/20 group-hover:bg-primary transition-all duration-300 group-hover:h-1.5" />
                         <CardContent className="p-6 text-center">
-                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/15 transition-colors">
+                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                             <MapPin className="w-6 h-6 text-primary" />
                           </div>
                           <div className="font-bold text-lg group-hover:text-primary transition-colors mb-1">
                             {nearby.name}
                           </div>
-                          <div className="text-sm text-muted-foreground">
-                            {nearby.stats.lieferzeit} Lieferzeit
+                          <div className="text-sm text-muted-foreground flex items-center justify-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            {nearby.stats.lieferzeit}
                           </div>
                         </CardContent>
                       </Card>
@@ -436,14 +440,14 @@ const MessemodellRegion = () => {
         <section className="py-20 md:py-28">
           <div className="container mx-auto px-4">
             <AnimatedSection animation="fade-in">
-              <Card className="bg-primary text-primary-foreground border-0 overflow-hidden shadow-xl">
+              <Card className="bg-primary text-primary-foreground border-0 overflow-hidden shadow-xl haptic-scale">
                 <CardContent className="p-10 md:p-16 text-center relative">
                   {/* Subtle decorative elements */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-primary-foreground/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                   <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-foreground/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
                   
                   <div className="relative">
-                    <Sparkles className="w-10 h-10 mx-auto mb-6 opacity-80" />
+                    <Sparkles className="w-10 h-10 mx-auto mb-6 opacity-80 animate-pulse" />
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
                       Messemodelle für {regionData.name}?
                     </h2>
@@ -451,15 +455,16 @@ const MessemodellRegion = () => {
                       Kontaktieren Sie uns für ein unverbindliches Angebot. Express-Lieferung nach {regionData.name} in {regionData.deliveryTime}.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button asChild size="lg" variant="secondary" className="text-base shadow-lg">
+                      <Button asChild size="lg" variant="secondary" className="text-base shadow-lg group">
                         <Link to="/kontakt">
                           Anfrage stellen
-                          <ArrowRight className="ml-2 w-5 h-5" />
+                          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                       </Button>
-                      <Button asChild size="lg" variant="outline" className="text-base bg-transparent border-primary-foreground/30 hover:bg-primary-foreground/10">
+                      <Button asChild size="lg" variant="outline" className="text-base bg-transparent border-primary-foreground/30 hover:bg-primary-foreground/10 group">
                         <Link to="/referenzen">
                           Referenzen ansehen
+                          <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                         </Link>
                       </Button>
                     </div>

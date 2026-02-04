@@ -40,8 +40,8 @@ const StickyCTA = ({ regionName, deliveryTime }: StickyCTAProps) => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-5xl mx-auto">
           {/* Left: Info */}
           <div className="flex items-center gap-6">
-            {/* Animated icon */}
-            <div className="hidden sm:flex w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 items-center justify-center shadow-lg shadow-primary/20">
+            {/* Animated icon with pulse */}
+            <div className="hidden sm:flex w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 items-center justify-center shadow-lg shadow-primary/20 animate-pulse hover:animate-none transition-all">
               <Sparkles className="w-6 h-6 text-primary-foreground" />
             </div>
             
@@ -66,25 +66,25 @@ const StickyCTA = ({ regionName, deliveryTime }: StickyCTAProps) => {
               asChild 
               variant="outline" 
               size="sm"
-              className="hidden sm:flex"
+              className="hidden sm:flex group"
             >
               <a href="tel:+436765517197">
-                <Phone className="w-4 h-4 mr-2" />
+                <Phone className="w-4 h-4 mr-2 group-hover:animate-pulse" />
                 Anrufen
               </a>
             </Button>
             
-            <Button asChild size="sm" className="shadow-lg shadow-primary/20">
+            <Button asChild size="sm" variant="hero" className="group">
               <Link to="/kontakt">
                 Anfrage stellen
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
             
             <Button 
               variant="ghost" 
               size="icon"
-              className="h-8 w-8 shrink-0"
+              className="h-8 w-8 shrink-0 hover:bg-destructive/10 hover:text-destructive transition-colors"
               onClick={() => setIsDismissed(true)}
             >
               <X className="w-4 h-4" />

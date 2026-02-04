@@ -173,4 +173,48 @@
   .gradient-text-white {
     color: white;
   }
+
+  /* Haptic feedback utilities */
+  .haptic-press {
+    @apply transition-all duration-150 active:scale-[0.97] active:transition-none;
+  }
+
+  .haptic-lift {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 active:shadow-md;
+  }
+
+  .haptic-scale {
+    @apply transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .haptic-glow {
+    @apply transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  /* Interactive card states */
+  .card-interactive {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 active:translate-y-0 active:shadow-md cursor-pointer;
+  }
+
+  .card-subtle {
+    @apply transition-all duration-200 hover:shadow-md hover:border-border/80;
+  }
+
+  /* Link underline animation */
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-right transition-transform duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  /* Badge/chip hover */
+  .chip-interactive {
+    @apply transition-all duration-200 hover:bg-primary/15 hover:border-primary/30 cursor-pointer;
+  }
 }
