@@ -7,7 +7,13 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
+import MesseChecklist from "@/components/landing/MesseChecklist";
+import MesseCaseStudy from "@/components/landing/MesseCaseStudy";
+import MesseMaterialTips from "@/components/landing/MesseMaterialTips";
+import MesseValueProposition from "@/components/landing/MesseValueProposition";
+import StickyCTA from "@/components/landing/StickyCTA";
 import { getRegionBySlug, regionalMesseData } from "@/data/regionalMesseData";
+import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
 import { 
   Presentation, 
   Zap, 
@@ -17,17 +23,17 @@ import {
   ArrowRight,
   MapPin,
   Truck,
-  Calendar,
-  Building,
-  Star
+  Star,
+  Target
 } from "lucide-react";
 
 const MessemodellRegion = () => {
   const { region } = useParams<{ region: string }>();
   const regionData = region ? getRegionBySlug(region) : undefined;
+  const extendedData = region ? getExtendedDataBySlug(region) : undefined;
 
   // Redirect to main messemodelle page if region not found
-  if (!regionData) {
+  if (!regionData || !extendedData) {
     return <Navigate to="/messemodelle" replace />;
   }
 
@@ -238,8 +244,36 @@ const MessemodellRegion = () => {
           </div>
         </section>
 
+        {/* Unique Selling Points - Extended Data */}
+        <section className="py-12 md:py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                  <Target className="w-4 h-4" />
+                  Warum ekdruck für {regionData.name}?
+                </span>
+              </div>
+              <div className="grid md:grid-cols-3 gap-4">
+                {extendedData.uniqueSellingPoints.map((usp, index) => (
+                  <Card key={index} className="border-2 hover:border-primary/50 transition-all">
+                    <CardContent className="p-5">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                          <Star className="w-4 h-4 text-primary" />
+                        </div>
+                        <p className="font-medium">{usp}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Local Messen Section */}
-        <section className="py-16 md:py-20 bg-muted/30">
+        <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -269,11 +303,41 @@ const MessemodellRegion = () => {
                 </Card>
               ))}
             </div>
+            <div className="text-center mt-8">
+              <Button asChild variant="outline">
+                <Link to="/kontakt">
+                  Modell für Ihre Messe anfragen
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
 
+        {/* Why 3D-Druck - Value Proposition */}
+        <MesseValueProposition regionName={regionData.name} />
+
+        {/* Case Study */}
+        <MesseCaseStudy 
+          caseStudy={extendedData.caseStudy} 
+          regionName={regionData.name} 
+        />
+
+        {/* Planning Checklist */}
+        <MesseChecklist 
+          regionName={regionData.name} 
+          deliveryTime={regionData.deliveryTime} 
+        />
+
+        {/* Material Tips */}
+        <MesseMaterialTips 
+          materials={extendedData.materials} 
+          regionName={regionData.name}
+          industryFocus={extendedData.industryFocus}
+        />
+
         {/* Local Advantages */}
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -283,7 +347,7 @@ const MessemodellRegion = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {regionData.localAdvantages.map((advantage, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-muted/30 rounded-xl">
+                  <div key={index} className="flex items-start gap-3 p-4 bg-background rounded-xl border-2">
                     <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                     <span className="text-lg">{advantage}</span>
                   </div>
@@ -327,7 +391,7 @@ const MessemodellRegion = () => {
                   </CardContent>
                 </Card>
               </div>
-              <Button asChild size="lg">
+              <Button asChild size="lg" variant="hero">
                 <Link to="/kontakt">
                   Jetzt Anfrage stellen
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -418,6 +482,9 @@ const MessemodellRegion = () => {
         {/* Related Pages */}
         <RelatedPages currentPage={`/messemodelle/${regionData.slug}`} />
       </main>
+
+      {/* Sticky CTA Bar */}
+      <StickyCTA regionName={regionData.name} deliveryTime={regionData.deliveryTime} />
 
       <Footer />
     </>
