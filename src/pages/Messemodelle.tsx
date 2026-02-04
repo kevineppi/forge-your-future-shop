@@ -22,7 +22,9 @@ import {
   Award,
   Target,
   Eye,
-  Calendar
+  Calendar,
+  Briefcase,
+  TrendingUp
 } from "lucide-react";
 
 const Messemodelle = () => {
@@ -87,6 +89,34 @@ const Messemodelle = () => {
     }
   ];
 
+  // Industrial Case Studies
+  const caseStudies = [
+    {
+      title: "Industriemesse-Projekt",
+      industry: "Maschinenbau-Aussteller",
+      challenge: "Überdimensionales Produktmodell (1,5m) für Messestand bei der Hannover Messe. Nur 10 Tage Vorlaufzeit.",
+      solution: "Mehrteiliger FDM-Druck in Corporate-Farben, nahtlose Montage vor Ort.",
+      results: ["Termingerecht geliefert", "Eyecatcher am Stand", "Wiederholungsauftrag erhalten"],
+      metrics: { size: "1,5m", time: "10 Tage", parts: "12 Teile" }
+    },
+    {
+      title: "Immobilienmesse Wien",
+      industry: "Projektentwickler",
+      challenge: "Städtebauliches Modell eines Quartiers im Maßstab 1:200 für Investorenpräsentation.",
+      solution: "Detailgetreue Gebäudemodelle mit abnehmbaren Dächern zur Innenraumvisualisierung.",
+      results: ["Investor überzeugt", "3 Folgeprojekte", "Transportable Einzelteile"],
+      metrics: { scale: "1:200", buildings: "8 Gebäude", time: "14 Tage" }
+    },
+    {
+      title: "Medizintechnik-Messe",
+      industry: "Medtech-Unternehmen",
+      challenge: "Vergrößertes Funktionsmodell eines Implantats für MEDICA-Messestand.",
+      solution: "10:1 Vergrößerung mit transparenten und farbigen Komponenten zur Veranschaulichung.",
+      results: ["Komplexität verständlich gemacht", "Hohe Standbesucherzahl", "Presseanfragen"],
+      metrics: { scale: "10:1", colors: "4 Farben", finish: "Hochglanz" }
+    }
+  ];
+
   const timeline = [
     { days: "24-48h", type: "Express", description: "Für dringende Messetermine", price: "+50% Aufpreis", recommended: true },
     { days: "3-5 Tage", type: "Standard", description: "Optimales Preis-Leistungs-Verhältnis", price: "Normalpreis", recommended: false },
@@ -121,7 +151,7 @@ const Messemodelle = () => {
     },
     {
       question: "Was kosten Messemodelle im 3D-Druck?",
-      answer: "Die Kosten hängen von Größe, Material und Komplexität ab. Kleine Produktmodelle starten ab ca. €30, große Eyecatcher-Objekte liegen typischerweise zwischen €150-500. Nutzen Sie unseren Online-Konfigurator für sofortige Preise."
+      answer: "Die Kosten hängen von Größe, Material und Komplexität ab. Kleine Produktmodelle starten ab ca. €30, große Eyecatcher-Objekte liegen typischerweise zwischen €150-500. Kontaktieren Sie uns für ein individuelles Angebot."
     },
     {
       question: "Kann man das gleiche Modell mehrfach fertigen?",
@@ -346,6 +376,75 @@ const Messemodelle = () => {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Case Studies Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <Briefcase className="w-4 h-4" />
+                Erfolgsbeispiele
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Messe-Projekte in der Praxis</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Anonymisierte Beispiele aus unserer Projektarbeit
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {caseStudies.map((study, index) => (
+                <Card key={index} className="overflow-hidden border-2 hover:border-primary/30 hover:shadow-xl transition-all group">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <TrendingUp className="w-5 h-5 text-primary" />
+                      <span className="text-xs bg-muted px-2 py-1 rounded-full font-medium">{study.industry}</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{study.title}</h3>
+                    
+                    <div className="space-y-3 mb-4">
+                      <div>
+                        <span className="text-xs font-semibold text-primary uppercase tracking-wide">Herausforderung</span>
+                        <p className="text-sm text-muted-foreground mt-1">{study.challenge}</p>
+                      </div>
+                      <div>
+                        <span className="text-xs font-semibold text-primary uppercase tracking-wide">Lösung</span>
+                        <p className="text-sm text-muted-foreground mt-1">{study.solution}</p>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-border pt-4 mb-4">
+                      <span className="text-xs font-semibold text-foreground uppercase tracking-wide mb-2 block">Ergebnis</span>
+                      <ul className="space-y-1">
+                        {study.results.map((result, i) => (
+                          <li key={i} className="flex items-center gap-2 text-sm">
+                            <CheckCircle className="w-3 h-3 text-primary shrink-0" />
+                            {result}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {Object.entries(study.metrics).map(([key, value]) => (
+                        <span key={key} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">
+                          {value}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            
+            <div className="text-center mt-10">
+              <Button asChild variant="outline" size="lg">
+                <Link to="/referenzen">
+                  Alle Referenzen ansehen
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
