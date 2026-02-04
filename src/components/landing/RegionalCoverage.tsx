@@ -4,30 +4,49 @@ import { MapPin } from "lucide-react";
 interface RegionalCoverageProps {
   serviceName: string;
   description?: string;
+  baseUrl?: 'messemodelle' | '3d-druck'; // Which regional pages to link to
 }
 
-const RegionalCoverage = ({ serviceName, description }: RegionalCoverageProps) => {
-  const regions = [
-    { name: "Wien", url: "/3d-druck-wien" },
-    { name: "Oberösterreich", url: "/3d-druck-oberoesterreich" },
-    { name: "Niederösterreich", url: "/3d-druck-niederoesterreich" },
-    { name: "Steiermark", url: "/3d-druck-steiermark" },
-    { name: "Salzburg", url: "/3d-druck-salzburg" },
-    { name: "Kärnten", url: "/3d-druck-kaernten" },
-    { name: "Tirol", url: "/3d-druck-innsbruck" },
-    { name: "Vorarlberg", url: "/3d-druck-vorarlberg" },
+const RegionalCoverage = ({ serviceName, description, baseUrl = '3d-druck' }: RegionalCoverageProps) => {
+  // Define regions with slugs that work for both URL patterns
+  const regionData = [
+    { name: "Wien", slug: "wien" },
+    { name: "Oberösterreich", slug: "oberoesterreich" },
+    { name: "Niederösterreich", slug: "niederoesterreich" },
+    { name: "Steiermark", slug: "steiermark" },
+    { name: "Salzburg", slug: "salzburg" },
+    { name: "Kärnten", slug: "kaernten" },
+    { name: "Tirol", slug: "tirol" },
+    { name: "Vorarlberg", slug: "vorarlberg" },
+    { name: "Burgenland", slug: "burgenland" },
   ];
 
-  const cities = [
-    { name: "Linz", url: "/3d-druck-linz" },
-    { name: "Graz", url: "/3d-druck-graz" },
-    { name: "Salzburg Stadt", url: "/3d-druck-salzburg" },
-    { name: "Innsbruck", url: "/3d-druck-innsbruck" },
-    { name: "Klagenfurt", url: "/3d-druck-klagenfurt" },
-    { name: "Wels", url: "/3d-druck-wels" },
-    { name: "St. Pölten", url: "/3d-druck-st-poelten" },
-    { name: "Dornbirn", url: "/3d-druck-dornbirn" },
+  const cityData = [
+    { name: "Linz", slug: "linz" },
+    { name: "Graz", slug: "graz" },
+    { name: "Innsbruck", slug: "innsbruck" },
+    { name: "Klagenfurt", slug: "klagenfurt" },
+    { name: "Wels", slug: "wels" },
+    { name: "St. Pölten", slug: "st-poelten" },
+    { name: "Dornbirn", slug: "dornbirn" },
+    { name: "Villach", slug: "villach" },
   ];
+
+  // Build URLs based on baseUrl prop
+  const getUrl = (slug: string) => {
+    if (baseUrl === 'messemodelle') {
+      return `/messemodelle-${slug}`;
+    }
+    // Default 3d-druck URLs with some special cases
+    const specialCases: Record<string, string> = {
+      'tirol': '/3d-druck-innsbruck',
+      'salzburg': '/3d-druck-salzburg',
+    };
+    return specialCases[slug] || `/3d-druck-${slug}`;
+  };
+
+  const regions = regionData.map(r => ({ name: r.name, url: getUrl(r.slug) }));
+  const cities = cityData.map(c => ({ name: c.name, url: getUrl(c.slug) }));
 
   return (
     <section className="py-16 md:py-20 border-t border-border">

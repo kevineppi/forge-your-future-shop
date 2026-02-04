@@ -497,6 +497,7 @@ const Messemodelle = () => {
         <RegionalCoverage 
           serviceName="Messemodelle" 
           description="Wir beliefern Messebauer und Aussteller in ganz Österreich. Express-Versand für kurzfristige Messetermine. Persönliche Abholung in Gunskirchen (OÖ) möglich."
+          baseUrl="messemodelle"
         />
 
         {/* FAQ Section */}
