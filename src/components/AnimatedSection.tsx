@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -14,18 +14,17 @@ const AnimatedSection = ({
   delay = 0 
 }: AnimatedSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const element = entry.target as HTMLElement;
             setTimeout(() => {
-              element.style.animationPlayState = "running";
-              element.classList.add(`animate-${animation}`);
+              setIsVisible(true);
             }, delay);
-            observer.unobserve(element);
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -33,18 +32,20 @@ const AnimatedSection = ({
     );
 
     if (ref.current) {
-      const element = ref.current;
-      element.style.opacity = "0";
-      element.style.animationFillMode = "forwards";
-      element.style.animationPlayState = "paused";
-      observer.observe(element);
+      observer.observe(ref.current);
     }
 
     return () => observer.disconnect();
-  }, [animation, delay]);
+  }, [delay]);
 
   return (
-    <div ref={ref} className={className}>
+    <div 
+      ref={ref} 
+      className={`${className} ${isVisible ? `animate-${animation}` : 'opacity-0'}`}
+      style={{ 
+        animationFillMode: 'forwards',
+      }}
+    >
       {children}
     </div>
   );
