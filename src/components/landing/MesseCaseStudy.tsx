@@ -35,17 +35,15 @@ interface MesseCaseStudyProps {
 const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
-      {/* Dramatic gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
-      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] -translate-y-1/2" />
-      <div className="absolute top-20 right-10 w-24 h-24 bg-primary/20 rounded-full blur-xl" />
-      <div className="absolute bottom-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-xl" />
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-background to-muted/20" />
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2" />
       
       <div className="container mx-auto px-4 relative">
         <div className="max-w-6xl mx-auto">
-          {/* Floating header */}
+          {/* Header */}
           <AnimatedSection animation="fade-in" className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-xl shadow-primary/20">
+            <div className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg">
               <Sparkles className="w-4 h-4" />
               Erfolgsgeschichte aus der Praxis
             </div>
@@ -57,13 +55,13 @@ const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
             </p>
           </AnimatedSection>
 
-          {/* Main case study card - asymmetric design */}
+          {/* Main case study card */}
           <div className="grid lg:grid-cols-12 gap-6 items-start">
             {/* Left column - Main content */}
             <AnimatedSection animation="slide-up" delay={100} className="lg:col-span-7">
-              <Card className="border-0 shadow-2xl bg-card/80 backdrop-blur-sm overflow-hidden">
+              <Card className="border border-border/50 shadow-lg bg-card/80 backdrop-blur-sm overflow-hidden">
                 {/* Industry badge header */}
-                <div className="bg-gradient-to-r from-primary/10 to-accent/10 px-8 py-4 border-b border-border/50">
+                <div className="bg-muted/50 px-8 py-4 border-b border-border/50">
                   <span className="text-sm font-bold text-primary uppercase tracking-wider">
                     {caseStudy.industry}
                   </span>
@@ -76,18 +74,18 @@ const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
                   
                   {/* Challenge-Solution-Result flow */}
                   <div className="space-y-8">
-                    <div className="relative pl-8 border-l-2 border-red-500/30">
-                      <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center">
-                        <div className="w-2 h-2 rounded-full bg-red-500" />
+                    <div className="relative pl-8 border-l-2 border-muted-foreground/30">
+                      <div className="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-muted flex items-center justify-center">
+                        <div className="w-2 h-2 rounded-full bg-muted-foreground/50" />
                       </div>
-                      <h4 className="font-bold text-red-600 dark:text-red-400 mb-2 text-sm uppercase tracking-wider">
+                      <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider">
                         Die Herausforderung
                       </h4>
                       <p className="text-muted-foreground leading-relaxed">{caseStudy.challenge}</p>
                     </div>
                     
-                    <div className="relative pl-8 border-l-2 border-primary/30">
-                      <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
+                    <div className="relative pl-8 border-l-2 border-primary/50">
+                      <div className="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
                       <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">
@@ -96,11 +94,11 @@ const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
                       <p className="text-muted-foreground leading-relaxed">{caseStudy.solution}</p>
                     </div>
                     
-                    <div className="relative pl-8 border-l-2 border-green-500/30">
-                      <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
-                        <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <div className="relative pl-8 border-l-2 border-primary/30">
+                      <div className="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
+                        <CheckCircle2 className="w-3 h-3 text-primary" />
                       </div>
-                      <h4 className="font-bold text-green-600 dark:text-green-400 mb-2 text-sm uppercase tracking-wider">
+                      <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">
                         Das Ergebnis
                       </h4>
                       <p className="text-muted-foreground leading-relaxed">{caseStudy.result}</p>
@@ -114,7 +112,7 @@ const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
             <div className="lg:col-span-5 space-y-6">
               {/* Specs card */}
               <AnimatedSection animation="slide-up" delay={200}>
-                <Card className="border-0 shadow-xl bg-gradient-to-br from-primary to-primary/80 text-primary-foreground overflow-hidden">
+                <Card className="border-0 shadow-xl bg-primary text-primary-foreground overflow-hidden">
                   <CardContent className="p-8">
                     <h4 className="font-bold text-lg mb-6 flex items-center gap-2">
                       <CheckCircle2 className="w-5 h-5" />
@@ -129,7 +127,7 @@ const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
                       ].map((spec, index) => (
                         <div 
                           key={index}
-                          className="flex items-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm"
+                          className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm"
                         >
                           <spec.icon className="w-6 h-6 text-primary-foreground/80" />
                           <div>
@@ -146,10 +144,10 @@ const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
               {/* Quote card */}
               {caseStudy.quote && (
                 <AnimatedSection animation="slide-up" delay={300}>
-                  <Card className="border-0 shadow-xl bg-card overflow-hidden">
+                  <Card className="border border-border/50 shadow-lg bg-card overflow-hidden">
                     <CardContent className="p-8 relative">
                       {/* Large decorative quote mark */}
-                      <Quote className="absolute top-4 right-4 w-16 h-16 text-primary/10" />
+                      <Quote className="absolute top-4 right-4 w-12 h-12 text-primary/10" />
                       
                       <p className="text-lg italic leading-relaxed mb-4 relative z-10">
                         "{caseStudy.quote}"
@@ -157,7 +155,7 @@ const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
                       
                       <div className="flex items-center gap-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                         ))}
                       </div>
                     </CardContent>
@@ -167,7 +165,7 @@ const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
 
               {/* CTA */}
               <AnimatedSection animation="fade-in" delay={400}>
-                <Button asChild size="lg" className="w-full shadow-xl">
+                <Button asChild size="lg" className="w-full shadow-lg">
                   <Link to="/kontakt">
                     Ähnliches Projekt starten
                     <ArrowRight className="ml-2 w-5 h-5" />

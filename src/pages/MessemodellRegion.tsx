@@ -178,24 +178,21 @@ const MessemodellRegion = () => {
       <Breadcrumbs items={breadcrumbs} />
 
       <main className="min-h-screen bg-background">
-        {/* Hero Section - Dramatic and unique */}
+        {/* Hero Section */}
         <section className="relative py-20 md:py-32 overflow-hidden">
-          {/* Multi-layer background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[80px] translate-y-1/4 -translate-x-1/4" />
+          {/* Subtle background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-background to-muted/20" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4" />
           
-          {/* Decorative elements */}
-          <div className="absolute top-20 left-10 w-24 h-24 border border-primary/10 rounded-full" />
-          <div className="absolute bottom-32 right-20 w-16 h-16 border border-primary/20 rounded-full" />
-          <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-primary/40 rounded-full" />
-          <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-accent/40 rounded-full" />
+          {/* Subtle decorative elements */}
+          <div className="absolute top-20 left-10 w-20 h-20 border border-primary/5 rounded-full" />
+          <div className="absolute bottom-32 right-20 w-14 h-14 border border-primary/10 rounded-full" />
           
           <div className="container mx-auto px-4 relative">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <AnimatedSection animation="fade-in">
                 {/* Location badge */}
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-semibold mb-8 shadow-lg">
+                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-semibold mb-8">
                   <MapPin className="w-4 h-4" />
                   {regionData.type === 'bundesland' ? 'Bundesland' : 'Stadt'} {regionData.name}
                 </div>
@@ -209,41 +206,41 @@ const MessemodellRegion = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                  <Button asChild size="lg" className="text-base shadow-xl shadow-primary/20">
+                  <Button asChild size="lg" className="text-base shadow-lg">
                     <Link to="/kontakt">
                       Anfrage stellen
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="backdrop-blur-sm">
+                  <Button asChild size="lg" variant="outline">
                     <Link to="/messemodelle">Alle Infos</Link>
                   </Button>
                 </div>
                 
                 {/* Trust indicators */}
-                <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-border/50">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border/50">
+                <div className="flex flex-wrap items-center gap-4 pt-8 border-t border-border/50">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50">
                     <Truck className="w-4 h-4 text-primary" />
                     <span className="text-sm font-medium">{regionData.deliveryTime}</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border/50">
-                    <Zap className="w-4 h-4 text-amber-500" />
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50">
+                    <Zap className="w-4 h-4 text-primary" />
                     <span className="text-sm">Express 24h</span>
                   </div>
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                     ))}
                     <span className="text-sm font-medium ml-1">5.0</span>
                   </div>
                 </div>
               </AnimatedSection>
               
-              {/* Stats Grid - Bento style */}
+              {/* Stats Grid */}
               <AnimatedSection animation="slide-up" delay={200} className="grid grid-cols-2 gap-4">
                 {/* Large featured stat */}
-                <Card className="col-span-2 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground border-0 shadow-2xl shadow-primary/20 overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+                <Card className="col-span-2 bg-primary text-primary-foreground border-0 shadow-lg overflow-hidden relative">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
                   <CardContent className="p-8 text-center relative">
                     <Sparkles className="w-8 h-8 mx-auto mb-3 opacity-80" />
                     <div className="text-5xl font-bold mb-2">{regionData.stats.messen}</div>
@@ -252,7 +249,7 @@ const MessemodellRegion = () => {
                 </Card>
                 
                 {/* Secondary stats */}
-                <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm">
+                <Card className="border border-border/50 shadow-md bg-card">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
                       <Clock className="w-6 h-6 text-primary" />
@@ -262,10 +259,10 @@ const MessemodellRegion = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm">
+                <Card className="border border-border/50 shadow-md bg-card">
                   <CardContent className="p-6 text-center">
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-3">
-                      <CheckCircle className="w-6 h-6 text-accent-foreground" />
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                      <CheckCircle className="w-6 h-6 text-primary" />
                     </div>
                     <div className="text-3xl font-bold text-primary mb-1">{regionData.stats.kunden}</div>
                     <div className="text-sm text-muted-foreground">Kunden in {regionData.name}</div>
@@ -298,14 +295,14 @@ const MessemodellRegion = () => {
           industryFocus={extendedData.industryFocus}
         />
 
-        {/* Local Advantages - Enhanced */}
+        {/* Local Advantages */}
         <section className="py-20 md:py-28 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-muted/50 via-background to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-background to-background" />
           
           <div className="container mx-auto px-4 relative">
             <div className="max-w-5xl mx-auto">
               <AnimatedSection animation="fade-in" className="text-center mb-16">
-                <div className="inline-flex items-center gap-2 bg-card border border-border shadow-lg px-5 py-2.5 rounded-full text-sm font-semibold mb-6">
+                <div className="inline-flex items-center gap-2 bg-card border border-border shadow-sm px-5 py-2.5 rounded-full text-sm font-semibold mb-6">
                   <CheckCircle className="w-4 h-4 text-primary" />
                   Regionale Vorteile
                 </div>
@@ -317,8 +314,8 @@ const MessemodellRegion = () => {
               <div className="grid md:grid-cols-2 gap-5">
                 {regionData.localAdvantages.map((advantage, index) => (
                   <AnimatedSection key={index} animation="slide-up" delay={index * 75}>
-                    <div className="group flex items-start gap-4 p-6 bg-card rounded-2xl border border-border/50 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="group flex items-start gap-4 p-6 bg-card rounded-2xl border border-border/50 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
                         <CheckCircle className="w-6 h-6 text-primary" />
                       </div>
                       <span className="text-lg font-medium pt-2">{advantage}</span>
@@ -330,14 +327,14 @@ const MessemodellRegion = () => {
           </div>
         </section>
 
-        {/* Delivery Info - Dramatic redesign */}
-        <section className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/10">
-          <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
+        {/* Delivery Info */}
+        <section className="py-20 md:py-28 relative overflow-hidden bg-muted/30">
+          <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
           
           <div className="container mx-auto px-4 relative">
             <AnimatedSection animation="fade-in" className="max-w-4xl mx-auto text-center">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto mb-8 shadow-xl shadow-primary/20">
-                <Truck className="w-10 h-10 text-primary-foreground" />
+              <div className="w-18 h-18 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-8 shadow-lg p-4">
+                <Truck className="w-8 h-8 text-primary-foreground" />
               </div>
               
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -354,15 +351,15 @@ const MessemodellRegion = () => {
                   { icon: Package, label: "Versandkostenfrei", value: "ab €100", highlight: false }
                 ].map((item, index) => (
                   <AnimatedSection key={index} animation="scale-in" delay={200 + index * 100}>
-                    <Card className={`border-0 shadow-xl overflow-hidden ${item.highlight ? 'ring-2 ring-primary' : ''}`}>
+                    <Card className={`border border-border/50 shadow-md overflow-hidden ${item.highlight ? 'ring-1 ring-primary' : ''}`}>
                       {item.highlight && (
-                        <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs font-bold py-1 text-center">
+                        <div className="bg-primary text-primary-foreground text-xs font-bold py-1 text-center">
                           EMPFOHLEN
                         </div>
                       )}
-                      <CardContent className="p-8 text-center">
+                      <CardContent className="p-8 text-center bg-card">
                         <div className={`w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center ${
-                          item.highlight ? 'bg-primary/20' : 'bg-muted'
+                          item.highlight ? 'bg-primary/15' : 'bg-muted/50'
                         }`}>
                           <item.icon className={`w-7 h-7 ${item.highlight ? 'text-primary' : 'text-muted-foreground'}`} />
                         </div>
@@ -374,7 +371,7 @@ const MessemodellRegion = () => {
                 ))}
               </div>
               
-              <Button asChild size="lg" className="shadow-xl shadow-primary/20">
+              <Button asChild size="lg" className="shadow-lg">
                 <Link to="/kontakt">
                   Jetzt Anfrage stellen
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -384,9 +381,9 @@ const MessemodellRegion = () => {
           </div>
         </section>
 
-        {/* Nearby Regions - Enhanced */}
+        {/* Nearby Regions */}
         {nearbyRegions.length > 0 && (
-          <section className="py-20 md:py-28 bg-muted/30">
+          <section className="py-20 md:py-28">
             <div className="container mx-auto px-4">
               <AnimatedSection animation="fade-in" className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -405,10 +402,10 @@ const MessemodellRegion = () => {
                       className="group block"
                       onClick={() => window.scrollTo(0, 0)}
                     >
-                      <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden">
-                        <div className="h-1 bg-gradient-to-r from-primary/50 to-accent/50 group-hover:from-primary group-hover:to-accent transition-colors" />
+                      <Card className="border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 group-hover:-translate-y-1 overflow-hidden">
+                        <div className="h-0.5 bg-primary/30 group-hover:bg-primary transition-colors" />
                         <CardContent className="p-6 text-center">
-                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/15 transition-colors">
                             <MapPin className="w-6 h-6 text-primary" />
                           </div>
                           <div className="font-bold text-lg group-hover:text-primary transition-colors mb-1">
@@ -427,20 +424,18 @@ const MessemodellRegion = () => {
           </section>
         )}
 
-        {/* CTA Section - Premium */}
+        {/* CTA Section */}
         <section className="py-20 md:py-28">
           <div className="container mx-auto px-4">
             <AnimatedSection animation="fade-in">
-              <Card className="bg-gradient-to-br from-primary via-primary to-primary/80 text-primary-foreground border-0 overflow-hidden shadow-2xl shadow-primary/20">
+              <Card className="bg-primary text-primary-foreground border-0 overflow-hidden shadow-xl">
                 <CardContent className="p-10 md:p-16 text-center relative">
-                  {/* Decorative elements */}
-                  <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                  <div className="absolute bottom-0 left-0 w-60 h-60 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-                  <div className="absolute top-10 left-10 w-20 h-20 border border-white/10 rounded-full" />
-                  <div className="absolute bottom-10 right-10 w-16 h-16 border border-white/10 rounded-full" />
+                  {/* Subtle decorative elements */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary-foreground/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-foreground/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
                   
                   <div className="relative">
-                    <Sparkles className="w-12 h-12 mx-auto mb-6 opacity-80" />
+                    <Sparkles className="w-10 h-10 mx-auto mb-6 opacity-80" />
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
                       Messemodelle für {regionData.name}?
                     </h2>
@@ -448,7 +443,7 @@ const MessemodellRegion = () => {
                       Kontaktieren Sie uns für ein unverbindliches Angebot. Express-Lieferung nach {regionData.name} in {regionData.deliveryTime}.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button asChild size="lg" variant="secondary" className="text-base shadow-xl">
+                      <Button asChild size="lg" variant="secondary" className="text-base shadow-lg">
                         <Link to="/kontakt">
                           Anfrage stellen
                           <ArrowRight className="ml-2 w-5 h-5" />
