@@ -32,11 +32,11 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     name: 'Wien',
     type: 'bundesland',
     title: 'Messemodelle für Wien',
-    metaTitle: '3D-Druck Messemodelle Wien | Express 24h | Messebau Wien | ekdruck.at',
-    metaDescription: 'Professionelle 3D-gedruckte Messemodelle für Wien. Express-Lieferung 1-2 Tage. Ideal für Reed Messe Wien, FERIEN-MESSE, BAUEN & WOHNEN und mehr.',
-    heroSubtitle: 'Ihr Partner für beeindruckende Messemodelle in der Bundeshauptstadt. Express-Lieferung nach Wien in 1-2 Werktagen.',
-    deliveryTime: '1-2 Tage',
-    deliveryNote: 'Express-Versand direkt zur Messe Wien möglich',
+    metaTitle: '3D-Druck Messemodelle Wien | Messebau Wien | ekdruck.at',
+    metaDescription: 'Professionelle 3D-gedruckte Messemodelle für Wien. Lieferung in 5-7 Tagen. Ideal für Reed Messe Wien, FERIEN-MESSE, BAUEN & WOHNEN und mehr.',
+    heroSubtitle: 'Ihr Partner für beeindruckende Messemodelle in der Bundeshauptstadt. Zuverlässige Lieferung nach Wien in 5-7 Werktagen.',
+    deliveryTime: '5-7 Tage',
+    deliveryNote: 'Versand direkt zur Messe Wien möglich',
     localMessen: [
       { name: 'FERIEN-MESSE Wien', location: 'Reed Messe Wien', type: 'Touristik' },
       { name: 'BAUEN & WOHNEN', location: 'Reed Messe Wien', type: 'Bau' },
@@ -51,7 +51,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
       'Erfahrung mit Wiener Messebauern',
     ],
     nearbyRegions: ['niederoesterreich', 'burgenland'],
-    stats: { messen: '50+', lieferzeit: '1-2 Tage', kunden: '30+' },
+    stats: { messen: '50+', lieferzeit: '5-7 Tage', kunden: '30+' },
   },
 
   'niederoesterreich': {

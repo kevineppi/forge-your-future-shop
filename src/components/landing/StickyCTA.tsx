@@ -34,7 +34,7 @@ const StickyCTA = ({ regionName, deliveryTime }: StickyCTAProps) => {
             </div>
             <div className="hidden lg:flex items-center gap-2 text-muted-foreground">
               <Phone className="w-4 h-4" />
-              <span>Tel: <a href="tel:+436609691150" className="text-foreground hover:text-primary">+43 660 9691150</a></span>
+              <span>Tel: <a href="tel:+436765517197" className="text-foreground hover:text-primary">+43 676 5517197</a></span>
             </div>
           </div>
           
