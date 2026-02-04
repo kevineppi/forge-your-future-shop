@@ -15,16 +15,13 @@ import StickyCTA from "@/components/landing/StickyCTA";
 import { getRegionBySlug, regionalMesseData } from "@/data/regionalMesseData";
 import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
 import { 
-  Presentation, 
   Zap, 
   Clock, 
   Package, 
   CheckCircle, 
   ArrowRight,
   MapPin,
-  Truck,
-  Star,
-  Target
+  Truck
 } from "lucide-react";
 
 const MessemodellRegion = () => {
@@ -240,76 +237,6 @@ const MessemodellRegion = () => {
                   </CardContent>
                 </Card>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Unique Selling Points - Extended Data */}
-        <section className="py-12 md:py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8">
-                <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-                  <Target className="w-4 h-4" />
-                  Warum ekdruck für {regionData.name}?
-                </span>
-              </div>
-              <div className="grid md:grid-cols-3 gap-4">
-                {extendedData.uniqueSellingPoints.map((usp, index) => (
-                  <Card key={index} className="border-2 hover:border-primary/50 transition-all">
-                    <CardContent className="p-5">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                          <Star className="w-4 h-4 text-primary" />
-                        </div>
-                        <p className="font-medium">{usp}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Local Messen Section */}
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Messen in {regionData.name}
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Wir beliefern Aussteller bei allen wichtigen Messen in {regionData.name}
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-              {regionData.localMessen.map((messe, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
-                  <CardContent className="p-5">
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                        <Presentation className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold mb-1">{messe.name}</h3>
-                        <p className="text-sm text-muted-foreground">{messe.location}</p>
-                        <span className="text-xs bg-muted px-2 py-0.5 rounded-full mt-2 inline-block">
-                          {messe.type}
-                        </span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="text-center mt-8">
-              <Button asChild variant="outline">
-                <Link to="/kontakt">
-                  Modell für Ihre Messe anfragen
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
             </div>
           </div>
         </section>
