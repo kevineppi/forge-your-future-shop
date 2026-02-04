@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import AnimatedSection from "@/components/AnimatedSection";
 import { 
   ArrowRight, 
   Clock, 
@@ -8,7 +9,8 @@ import {
   Package,
   Quote,
   Star,
-  Building2
+  CheckCircle2,
+  Sparkles
 } from "lucide-react";
 
 export interface CaseStudyData {
@@ -32,110 +34,148 @@ interface MesseCaseStudyProps {
 
 const MesseCaseStudy = ({ caseStudy, regionName }: MesseCaseStudyProps) => {
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-              <Building2 className="w-4 h-4" />
-              Praxisbeispiel
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Erfolgreich auf der Messe in {regionName}
+    <section className="py-20 md:py-28 relative overflow-hidden">
+      {/* Dramatic gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
+      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] -translate-y-1/2" />
+      <div className="absolute top-20 right-10 w-24 h-24 bg-primary/20 rounded-full blur-xl" />
+      <div className="absolute bottom-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-xl" />
+      
+      <div className="container mx-auto px-4 relative">
+        <div className="max-w-6xl mx-auto">
+          {/* Floating header */}
+          <AnimatedSection animation="fade-in" className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-xl shadow-primary/20">
+              <Sparkles className="w-4 h-4" />
+              Erfolgsgeschichte aus der Praxis
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              So überzeugen unsere Kunden
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Wie unsere Kunden mit 3D-gedruckten Messemodellen überzeugen
+            <p className="text-xl text-muted-foreground max-w-xl mx-auto">
+              Ein Blick hinter die Kulissen erfolgreicher Messeprojekte in {regionName}
             </p>
-          </div>
+          </AnimatedSection>
 
-          <Card className="border-2 overflow-hidden">
-            <CardContent className="p-0">
-              <div className="grid lg:grid-cols-5 gap-0">
-                {/* Left: Case Study Content */}
-                <div className="lg:col-span-3 p-8 md:p-10">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-xs font-bold px-3 py-1 bg-primary/10 text-primary rounded-full">
-                      {caseStudy.industry}
-                    </span>
-                  </div>
+          {/* Main case study card - asymmetric design */}
+          <div className="grid lg:grid-cols-12 gap-6 items-start">
+            {/* Left column - Main content */}
+            <AnimatedSection animation="slide-up" delay={100} className="lg:col-span-7">
+              <Card className="border-0 shadow-2xl bg-card/80 backdrop-blur-sm overflow-hidden">
+                {/* Industry badge header */}
+                <div className="bg-gradient-to-r from-primary/10 to-accent/10 px-8 py-4 border-b border-border/50">
+                  <span className="text-sm font-bold text-primary uppercase tracking-wider">
+                    {caseStudy.industry}
+                  </span>
+                </div>
+                
+                <CardContent className="p-8 md:p-10">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-8 leading-tight">
+                    {caseStudy.title}
+                  </h3>
                   
-                  <h3 className="text-2xl font-bold mb-6">{caseStudy.title}</h3>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="font-semibold text-primary mb-2">Herausforderung</h4>
-                      <p className="text-muted-foreground">{caseStudy.challenge}</p>
+                  {/* Challenge-Solution-Result flow */}
+                  <div className="space-y-8">
+                    <div className="relative pl-8 border-l-2 border-red-500/30">
+                      <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center">
+                        <div className="w-2 h-2 rounded-full bg-red-500" />
+                      </div>
+                      <h4 className="font-bold text-red-600 dark:text-red-400 mb-2 text-sm uppercase tracking-wider">
+                        Die Herausforderung
+                      </h4>
+                      <p className="text-muted-foreground leading-relaxed">{caseStudy.challenge}</p>
                     </div>
                     
-                    <div>
-                      <h4 className="font-semibold text-primary mb-2">Unsere Lösung</h4>
-                      <p className="text-muted-foreground">{caseStudy.solution}</p>
+                    <div className="relative pl-8 border-l-2 border-primary/30">
+                      <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
+                      </div>
+                      <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">
+                        Unsere Lösung
+                      </h4>
+                      <p className="text-muted-foreground leading-relaxed">{caseStudy.solution}</p>
                     </div>
                     
-                    <div>
-                      <h4 className="font-semibold text-primary mb-2">Ergebnis</h4>
-                      <p className="text-muted-foreground">{caseStudy.result}</p>
+                    <div className="relative pl-8 border-l-2 border-green-500/30">
+                      <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                        <div className="w-2 h-2 rounded-full bg-green-500" />
+                      </div>
+                      <h4 className="font-bold text-green-600 dark:text-green-400 mb-2 text-sm uppercase tracking-wider">
+                        Das Ergebnis
+                      </h4>
+                      <p className="text-muted-foreground leading-relaxed">{caseStudy.result}</p>
                     </div>
                   </div>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
 
-                  {caseStudy.quote && (
-                    <div className="mt-8 p-6 bg-muted/50 rounded-xl border-l-4 border-primary">
-                      <Quote className="w-8 h-8 text-primary/30 mb-3" />
-                      <p className="italic text-lg mb-3">"{caseStudy.quote}"</p>
+            {/* Right column - Specs & Quote */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Specs card */}
+              <AnimatedSection animation="slide-up" delay={200}>
+                <Card className="border-0 shadow-xl bg-gradient-to-br from-primary to-primary/80 text-primary-foreground overflow-hidden">
+                  <CardContent className="p-8">
+                    <h4 className="font-bold text-lg mb-6 flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5" />
+                      Projektdetails
+                    </h4>
+                    
+                    <div className="space-y-4">
+                      {[
+                        { icon: Ruler, label: "Dimension", value: caseStudy.specs.size },
+                        { icon: Package, label: "Material", value: caseStudy.specs.material },
+                        { icon: Clock, label: "Lieferzeit", value: caseStudy.specs.time }
+                      ].map((spec, index) => (
+                        <div 
+                          key={index}
+                          className="flex items-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm"
+                        >
+                          <spec.icon className="w-6 h-6 text-primary-foreground/80" />
+                          <div>
+                            <div className="text-xs text-primary-foreground/70">{spec.label}</div>
+                            <div className="font-bold">{spec.value}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+
+              {/* Quote card */}
+              {caseStudy.quote && (
+                <AnimatedSection animation="slide-up" delay={300}>
+                  <Card className="border-0 shadow-xl bg-card overflow-hidden">
+                    <CardContent className="p-8 relative">
+                      {/* Large decorative quote mark */}
+                      <Quote className="absolute top-4 right-4 w-16 h-16 text-primary/10" />
+                      
+                      <p className="text-lg italic leading-relaxed mb-4 relative z-10">
+                        "{caseStudy.quote}"
+                      </p>
+                      
                       <div className="flex items-center gap-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                          <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                         ))}
                       </div>
-                    </div>
-                  )}
-                </div>
+                    </CardContent>
+                  </Card>
+                </AnimatedSection>
+              )}
 
-                {/* Right: Specs & CTA */}
-                <div className="lg:col-span-2 bg-muted/30 p-8 md:p-10 flex flex-col">
-                  <h4 className="font-bold text-lg mb-6">Projektdetails</h4>
-                  
-                  <div className="space-y-4 flex-1">
-                    <div className="flex items-center gap-4 p-4 bg-background rounded-xl">
-                      <Ruler className="w-8 h-8 text-primary" />
-                      <div>
-                        <div className="text-sm text-muted-foreground">Größe</div>
-                        <div className="font-bold">{caseStudy.specs.size}</div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-4 p-4 bg-background rounded-xl">
-                      <Package className="w-8 h-8 text-primary" />
-                      <div>
-                        <div className="text-sm text-muted-foreground">Material</div>
-                        <div className="font-bold">{caseStudy.specs.material}</div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-4 p-4 bg-background rounded-xl">
-                      <Clock className="w-8 h-8 text-primary" />
-                      <div>
-                        <div className="text-sm text-muted-foreground">Lieferzeit</div>
-                        <div className="font-bold">{caseStudy.specs.time}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-6 border-t border-border">
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Ähnliches Projekt geplant?
-                    </p>
-                    <Button asChild className="w-full">
-                      <Link to="/kontakt">
-                        Jetzt anfragen
-                        <ArrowRight className="ml-2 w-4 h-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              {/* CTA */}
+              <AnimatedSection animation="fade-in" delay={400}>
+                <Button asChild size="lg" className="w-full shadow-xl">
+                  <Link to="/kontakt">
+                    Ähnliches Projekt starten
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+              </AnimatedSection>
+            </div>
+          </div>
         </div>
       </div>
     </section>
