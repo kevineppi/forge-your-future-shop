@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import AnimatedSection from "@/components/AnimatedSection";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
@@ -21,7 +22,9 @@ import {
   CheckCircle, 
   ArrowRight,
   MapPin,
-  Truck
+  Truck,
+  Sparkles,
+  Star
 } from "lucide-react";
 
 const MessemodellRegion = () => {
@@ -175,68 +178,100 @@ const MessemodellRegion = () => {
       <Breadcrumbs items={breadcrumbs} />
 
       <main className="min-h-screen bg-background">
-        {/* Hero Section */}
-        <section className="relative py-16 md:py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10" />
-          <div className="absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        {/* Hero Section - Dramatic and unique */}
+        <section className="relative py-20 md:py-32 overflow-hidden">
+          {/* Multi-layer background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[80px] translate-y-1/4 -translate-x-1/4" />
+          
+          {/* Decorative elements */}
+          <div className="absolute top-20 left-10 w-24 h-24 border border-primary/10 rounded-full" />
+          <div className="absolute bottom-32 right-20 w-16 h-16 border border-primary/20 rounded-full" />
+          <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-primary/40 rounded-full" />
+          <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-accent/40 rounded-full" />
           
           <div className="container mx-auto px-4 relative">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <AnimatedSection animation="fade-in">
+                {/* Location badge */}
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-accent/20 backdrop-blur-sm border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-semibold mb-8 shadow-lg">
                   <MapPin className="w-4 h-4" />
                   {regionData.type === 'bundesland' ? 'Bundesland' : 'Stadt'} {regionData.name}
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
                   {regionData.title}
                 </h1>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
+                
+                <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
                   {regionData.heroSubtitle}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" variant="hero" className="text-base">
+                
+                <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                  <Button asChild size="lg" className="text-base shadow-xl shadow-primary/20">
                     <Link to="/kontakt">
                       Anfrage stellen
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline">
-                    <Link to="/messemodelle">Alle Infos zu Messemodellen</Link>
+                  <Button asChild size="lg" variant="outline" className="backdrop-blur-sm">
+                    <Link to="/messemodelle">Alle Infos</Link>
                   </Button>
                 </div>
-                <div className="flex items-center gap-6 mt-8 pt-6 border-t border-border">
-                  <div className="flex items-center gap-2">
+                
+                {/* Trust indicators */}
+                <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-border/50">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border/50">
                     <Truck className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-medium">Lieferzeit: {regionData.deliveryTime}</span>
+                    <span className="text-sm font-medium">{regionData.deliveryTime}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Zap className="w-4 h-4" />
-                    Express 24h möglich
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 backdrop-blur-sm border border-border/50">
+                    <Zap className="w-4 h-4 text-amber-500" />
+                    <span className="text-sm">Express 24h</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    ))}
+                    <span className="text-sm font-medium ml-1">5.0</span>
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
               
-              {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-4">
-                <Card className="bg-primary text-primary-foreground border-0 shadow-lg">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-3xl font-bold mb-1">{regionData.stats.messen}</div>
-                    <div className="text-sm text-primary-foreground/80">Messen beliefert</div>
+              {/* Stats Grid - Bento style */}
+              <AnimatedSection animation="slide-up" delay={200} className="grid grid-cols-2 gap-4">
+                {/* Large featured stat */}
+                <Card className="col-span-2 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground border-0 shadow-2xl shadow-primary/20 overflow-hidden relative">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+                  <CardContent className="p-8 text-center relative">
+                    <Sparkles className="w-8 h-8 mx-auto mb-3 opacity-80" />
+                    <div className="text-5xl font-bold mb-2">{regionData.stats.messen}</div>
+                    <div className="text-primary-foreground/80">Messen erfolgreich beliefert</div>
                   </CardContent>
                 </Card>
-                <Card className="bg-card border-2 shadow-lg">
+                
+                {/* Secondary stats */}
+                <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm">
                   <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                      <Clock className="w-6 h-6 text-primary" />
+                    </div>
                     <div className="text-3xl font-bold text-primary mb-1">{regionData.stats.lieferzeit}</div>
                     <div className="text-sm text-muted-foreground">Lieferzeit</div>
                   </CardContent>
                 </Card>
-                <Card className="bg-card border-2 shadow-lg">
+                
+                <Card className="border-0 shadow-xl bg-card/80 backdrop-blur-sm">
                   <CardContent className="p-6 text-center">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-3">
+                      <CheckCircle className="w-6 h-6 text-accent-foreground" />
+                    </div>
                     <div className="text-3xl font-bold text-primary mb-1">{regionData.stats.kunden}</div>
                     <div className="text-sm text-muted-foreground">Kunden in {regionData.name}</div>
                   </CardContent>
                 </Card>
-              </div>
+              </AnimatedSection>
             </div>
           </div>
         </section>
@@ -263,138 +298,172 @@ const MessemodellRegion = () => {
           industryFocus={extendedData.industryFocus}
         />
 
-        {/* Local Advantages */}
-        <section className="py-16 md:py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        {/* Local Advantages - Enhanced */}
+        <section className="py-20 md:py-28 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-muted/50 via-background to-background" />
+          
+          <div className="container mx-auto px-4 relative">
+            <div className="max-w-5xl mx-auto">
+              <AnimatedSection animation="fade-in" className="text-center mb-16">
+                <div className="inline-flex items-center gap-2 bg-card border border-border shadow-lg px-5 py-2.5 rounded-full text-sm font-semibold mb-6">
+                  <CheckCircle className="w-4 h-4 text-primary" />
+                  Regionale Vorteile
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">
                   Ihre Vorteile in {regionData.name}
                 </h2>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
+              </AnimatedSection>
+              
+              <div className="grid md:grid-cols-2 gap-5">
                 {regionData.localAdvantages.map((advantage, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 bg-background rounded-xl border-2">
-                    <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-                    <span className="text-lg">{advantage}</span>
-                  </div>
+                  <AnimatedSection key={index} animation="slide-up" delay={index * 75}>
+                    <div className="group flex items-start gap-4 p-6 bg-card rounded-2xl border border-border/50 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                        <CheckCircle className="w-6 h-6 text-primary" />
+                      </div>
+                      <span className="text-lg font-medium pt-2">{advantage}</span>
+                    </div>
+                  </AnimatedSection>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Delivery Info */}
-        <section className="py-16 md:py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <Truck className="w-16 h-16 text-primary mx-auto mb-6" />
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        {/* Delivery Info - Dramatic redesign */}
+        <section className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/10">
+          <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
+          
+          <div className="container mx-auto px-4 relative">
+            <AnimatedSection animation="fade-in" className="max-w-4xl mx-auto text-center">
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto mb-8 shadow-xl shadow-primary/20">
+                <Truck className="w-10 h-10 text-primary-foreground" />
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Lieferung nach {regionData.name}
               </h2>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
                 {regionData.deliveryNote}
               </p>
-              <div className="grid sm:grid-cols-3 gap-4 mb-8">
-                <Card className="border-2">
-                  <CardContent className="p-6 text-center">
-                    <Clock className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="font-bold mb-1">Standard</div>
-                    <div className="text-2xl font-bold text-primary">{regionData.deliveryTime}</div>
-                  </CardContent>
-                </Card>
-                <Card className="border-2 border-primary bg-primary/5">
-                  <CardContent className="p-6 text-center">
-                    <Zap className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="font-bold mb-1">Express</div>
-                    <div className="text-2xl font-bold text-primary">24-48h</div>
-                  </CardContent>
-                </Card>
-                <Card className="border-2">
-                  <CardContent className="p-6 text-center">
-                    <Package className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="font-bold mb-1">Versandkostenfrei</div>
-                    <div className="text-2xl font-bold text-primary">ab €100</div>
-                  </CardContent>
-                </Card>
+              
+              <div className="grid sm:grid-cols-3 gap-6 mb-12">
+                {[
+                  { icon: Clock, label: "Standard", value: regionData.deliveryTime, highlight: false },
+                  { icon: Zap, label: "Express", value: "24-48h", highlight: true },
+                  { icon: Package, label: "Versandkostenfrei", value: "ab €100", highlight: false }
+                ].map((item, index) => (
+                  <AnimatedSection key={index} animation="scale-in" delay={200 + index * 100}>
+                    <Card className={`border-0 shadow-xl overflow-hidden ${item.highlight ? 'ring-2 ring-primary' : ''}`}>
+                      {item.highlight && (
+                        <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs font-bold py-1 text-center">
+                          EMPFOHLEN
+                        </div>
+                      )}
+                      <CardContent className="p-8 text-center">
+                        <div className={`w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center ${
+                          item.highlight ? 'bg-primary/20' : 'bg-muted'
+                        }`}>
+                          <item.icon className={`w-7 h-7 ${item.highlight ? 'text-primary' : 'text-muted-foreground'}`} />
+                        </div>
+                        <div className="text-sm text-muted-foreground mb-2">{item.label}</div>
+                        <div className={`text-3xl font-bold ${item.highlight ? 'text-primary' : ''}`}>{item.value}</div>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                ))}
               </div>
-              <Button asChild size="lg" variant="hero">
+              
+              <Button asChild size="lg" className="shadow-xl shadow-primary/20">
                 <Link to="/kontakt">
                   Jetzt Anfrage stellen
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
 
-        {/* Nearby Regions */}
+        {/* Nearby Regions - Enhanced */}
         {nearbyRegions.length > 0 && (
-          <section className="py-16 md:py-20 bg-muted/30">
+          <section className="py-20 md:py-28 bg-muted/30">
             <div className="container mx-auto px-4">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              <AnimatedSection animation="fade-in" className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Auch in der Nähe
                 </h2>
                 <p className="text-muted-foreground">
                   Messemodelle für weitere Regionen
                 </p>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                {nearbyRegions.map((nearby) => (
-                  <Link 
-                    key={nearby.slug}
-                    to={`/messemodelle/${nearby.slug}`}
-                    className="group"
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
-                    <Card className="border-2 hover:border-primary/50 hover:shadow-lg transition-all group-hover:scale-105">
-                      <CardContent className="p-5 text-center">
-                        <MapPin className="w-6 h-6 text-primary mx-auto mb-2" />
-                        <div className="font-semibold group-hover:text-primary transition-colors">
-                          {nearby.name}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          {nearby.stats.lieferzeit} Lieferzeit
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
+              </AnimatedSection>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+                {nearbyRegions.map((nearby, index) => (
+                  <AnimatedSection key={nearby.slug} animation="slide-up" delay={index * 75}>
+                    <Link 
+                      to={`/messemodelle/${nearby.slug}`}
+                      className="group block"
+                      onClick={() => window.scrollTo(0, 0)}
+                    >
+                      <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 overflow-hidden">
+                        <div className="h-1 bg-gradient-to-r from-primary/50 to-accent/50 group-hover:from-primary group-hover:to-accent transition-colors" />
+                        <CardContent className="p-6 text-center">
+                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                            <MapPin className="w-6 h-6 text-primary" />
+                          </div>
+                          <div className="font-bold text-lg group-hover:text-primary transition-colors mb-1">
+                            {nearby.name}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            {nearby.stats.lieferzeit} Lieferzeit
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </AnimatedSection>
                 ))}
               </div>
             </div>
           </section>
         )}
 
-        {/* CTA Section */}
-        <section className="py-16 md:py-20">
+        {/* CTA Section - Premium */}
+        <section className="py-20 md:py-28">
           <div className="container mx-auto px-4">
-            <Card className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground border-0 overflow-hidden">
-              <CardContent className="p-8 md:p-12 text-center relative">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                <div className="relative">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                    Messemodelle für {regionData.name}?
-                  </h2>
-                  <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-                    Kontaktieren Sie uns für ein unverbindliches Angebot. Express-Lieferung nach {regionData.name} in {regionData.deliveryTime}.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button asChild size="lg" variant="secondary" className="text-base">
-                      <Link to="/kontakt">
-                        Anfrage stellen
-                        <ArrowRight className="ml-2 w-5 h-5" />
-                      </Link>
-                    </Button>
-                    <Button asChild size="lg" variant="outline" className="text-base bg-transparent border-primary-foreground/30 hover:bg-primary-foreground/10">
-                      <Link to="/referenzen">
-                        Referenzen ansehen
-                      </Link>
-                    </Button>
+            <AnimatedSection animation="fade-in">
+              <Card className="bg-gradient-to-br from-primary via-primary to-primary/80 text-primary-foreground border-0 overflow-hidden shadow-2xl shadow-primary/20">
+                <CardContent className="p-10 md:p-16 text-center relative">
+                  {/* Decorative elements */}
+                  <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                  <div className="absolute bottom-0 left-0 w-60 h-60 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+                  <div className="absolute top-10 left-10 w-20 h-20 border border-white/10 rounded-full" />
+                  <div className="absolute bottom-10 right-10 w-16 h-16 border border-white/10 rounded-full" />
+                  
+                  <div className="relative">
+                    <Sparkles className="w-12 h-12 mx-auto mb-6 opacity-80" />
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                      Messemodelle für {regionData.name}?
+                    </h2>
+                    <p className="text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+                      Kontaktieren Sie uns für ein unverbindliches Angebot. Express-Lieferung nach {regionData.name} in {regionData.deliveryTime}.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button asChild size="lg" variant="secondary" className="text-base shadow-xl">
+                        <Link to="/kontakt">
+                          Anfrage stellen
+                          <ArrowRight className="ml-2 w-5 h-5" />
+                        </Link>
+                      </Button>
+                      <Button asChild size="lg" variant="outline" className="text-base bg-transparent border-primary-foreground/30 hover:bg-primary-foreground/10">
+                        <Link to="/referenzen">
+                          Referenzen ansehen
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
           </div>
         </section>
 
