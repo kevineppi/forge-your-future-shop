@@ -75,9 +75,9 @@ const Firmenkunden = () => {
     {
       icon: Euro,
       title: "Transparente Preise",
-      description: "Online-Konfigurator liefert sofortige, verbindliche Preise ohne versteckte Kosten.",
-      highlight: "Keine Wartezeit auf Angebote",
-      stats: "Sofortpreis in Sekunden"
+      description: "Individuelle Angebote innerhalb von 24h. Keine versteckten Kosten.",
+      highlight: "Schnelle Kalkulation",
+      stats: "Angebot in 24h"
     },
     {
       icon: HeartHandshake,
@@ -138,16 +138,16 @@ const Firmenkunden = () => {
     { 
       step: "1", 
       title: "Anfrage", 
-      description: "3D-Datei hochladen oder Projekt beschreiben. Unser Online-Konfigurator zeigt sofort den Preis.",
+      description: "3D-Datei hochladen oder Projekt beschreiben. Wir erstellen ein individuelles Angebot.",
       icon: FileText,
       time: "2 Minuten"
     },
     { 
       step: "2", 
-      title: "Angebot", 
-      description: "Sofortpreis im Konfigurator oder individuelles Angebot innerhalb von 24h bei Sonderwünschen.",
+      title: "Beratung & Angebot", 
+      description: "Persönliche Beratung und detailliertes Angebot innerhalb von 24 Stunden.",
       icon: BarChart3,
-      time: "Sofort / 24h"
+      time: "24h"
     },
     { 
       step: "3", 
@@ -256,12 +256,8 @@ const Firmenkunden = () => {
       answer: "Ja, für Firmenkunden gibt es direkte Kommunikation per E-Mail und Telefon – ohne Warteschleifen, Tickets oder Chatbots. Sie erhalten persönliche Beratung und schnelle Antworten auf Ihre Fragen. Bei regelmäßigen Projekten kennen wir Ihre Präferenzen."
     },
     {
-      question: "Wie funktioniert der Express-Service?",
-      answer: "Bei dringenden Projekten bieten wir Express-Fertigung in 24-48 Stunden an. Wählen Sie einfach die Express-Option im Konfigurator oder kontaktieren Sie uns direkt. Der Aufpreis beträgt 50%, dafür erhalten Sie absolute Priorität in unserer Produktion."
-    },
-    {
-      question: "Was passiert, wenn etwas nicht passt?",
-      answer: "Qualität steht bei uns an erster Stelle. Sollte dennoch einmal etwas nicht Ihren Erwartungen entsprechen, finden wir gemeinsam eine Lösung – sei es Nachbesserung, Neuproduktion oder Erstattung. Ihre Zufriedenheit ist unser Ziel."
+      question: "Wie erhalte ich Express-Fertigung?",
+      answer: "Bei dringenden Projekten bieten wir Express-Fertigung in 24-48 Stunden an. Kontaktieren Sie uns direkt per Telefon oder E-Mail. Der Aufpreis beträgt 50%, dafür erhalten Sie absolute Priorität in unserer Produktion."
     }
   ];
 

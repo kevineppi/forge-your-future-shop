@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Palette, PenTool, Clock, Gift, Home, Sparkles, FileCheck } from "lucide-react";
+import { Palette, PenTool, Clock, Gift, Home, Sparkles, FileCheck, MessageCircle, Wrench, ClipboardList } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Services = () => {
@@ -40,6 +40,24 @@ const Services = () => {
     description: "Schnelle Fertigung für dringende Messe- und Präsentationstermine.",
     features: ["24-48h Lieferung", "Kostenlose Beratung", "Faire Preise", "Priorität"],
     link: "/kontakt"
+  }, {
+    icon: MessageCircle,
+    title: "Materialberatung",
+    description: "Persönliche Beratung zur optimalen Materialwahl für Ihr Projekt.",
+    features: ["PLA, PETG, ASA", "Farbberatung", "Oberflächenoptionen", "Nachbearbeitung"],
+    link: "/materialien"
+  }, {
+    icon: Wrench,
+    title: "Konzept-Beratung",
+    description: "Von der Idee zum fertigen Modell – wir beraten bei der Umsetzung.",
+    features: ["Machbarkeitsanalyse", "Design-Tipps", "Größenoptimierung", "Kosteneffizienz"],
+    link: "/kontakt"
+  }, {
+    icon: ClipboardList,
+    title: "Projektmanagement",
+    description: "Koordination größerer Projekte mit mehreren Modellen oder Phasen.",
+    features: ["Terminkoordination", "Qualitätskontrolle", "Statusupdates", "Persönlicher Kontakt"],
+    link: "/firmenkunden"
   }];
 
   return (
