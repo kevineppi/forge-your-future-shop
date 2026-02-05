@@ -80,27 +80,28 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Regional Pages */}
+        {/* Messemodelle Regional - Wichtigste SEO-Seiten */}
         <div className="mt-12 pt-8 border-t border-border">
-          <h4 className="font-semibold mb-4">3D-Druck in Österreich</h4>
+          <h4 className="font-semibold mb-4">Messemodelle in Österreich</h4>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm text-muted-foreground">
-            <a href="/3d-druck-oberoesterreich" className="hover:text-primary transition-colors">Oberösterreich</a>
-            <a href="/3d-druck-wien" className="hover:text-primary transition-colors">Wien</a>
-            <a href="/3d-druck-niederoesterreich" className="hover:text-primary transition-colors">Niederösterreich</a>
-            <a href="/3d-druck-steiermark" className="hover:text-primary transition-colors">Steiermark</a>
-            <a href="/3d-druck-kaernten" className="hover:text-primary transition-colors">Kärnten</a>
-            <a href="/3d-druck-vorarlberg" className="hover:text-primary transition-colors">Vorarlberg</a>
-            <a href="/3d-druck-burgenland" className="hover:text-primary transition-colors">Burgenland</a>
-            <a href="/3d-druck-linz" className="hover:text-primary transition-colors">Linz</a>
-            <a href="/3d-druck-graz" className="hover:text-primary transition-colors">Graz</a>
-            <a href="/3d-druck-salzburg" className="hover:text-primary transition-colors">Salzburg</a>
-            <a href="/3d-druck-innsbruck" className="hover:text-primary transition-colors">Innsbruck</a>
-            <a href="/3d-druck-klagenfurt" className="hover:text-primary transition-colors">Klagenfurt</a>
-            <a href="/3d-druck-villach" className="hover:text-primary transition-colors">Villach</a>
-            <a href="/3d-druck-wels" className="hover:text-primary transition-colors">Wels</a>
-            <a href="/3d-druck-st-poelten" className="hover:text-primary transition-colors">St. Pölten</a>
-            <a href="/3d-druck-dornbirn" className="hover:text-primary transition-colors">Dornbirn</a>
-            <a href="/3d-druck-gunskirchen" className="hover:text-primary transition-colors">Gunskirchen</a>
+            <a href="/messemodelle/wien" className="hover:text-primary transition-colors">Wien</a>
+            <a href="/messemodelle/oberoesterreich" className="hover:text-primary transition-colors">Oberösterreich</a>
+            <a href="/messemodelle/niederoesterreich" className="hover:text-primary transition-colors">Niederösterreich</a>
+            <a href="/messemodelle/steiermark" className="hover:text-primary transition-colors">Steiermark</a>
+            <a href="/messemodelle/salzburg" className="hover:text-primary transition-colors">Salzburg</a>
+            <a href="/messemodelle/kaernten" className="hover:text-primary transition-colors">Kärnten</a>
+            <a href="/messemodelle/tirol" className="hover:text-primary transition-colors">Tirol</a>
+            <a href="/messemodelle/vorarlberg" className="hover:text-primary transition-colors">Vorarlberg</a>
+            <a href="/messemodelle/burgenland" className="hover:text-primary transition-colors">Burgenland</a>
+            <a href="/messemodelle/linz" className="hover:text-primary transition-colors">Linz</a>
+            <a href="/messemodelle/graz" className="hover:text-primary transition-colors">Graz</a>
+            <a href="/messemodelle/innsbruck" className="hover:text-primary transition-colors">Innsbruck</a>
+            <a href="/messemodelle/klagenfurt" className="hover:text-primary transition-colors">Klagenfurt</a>
+            <a href="/messemodelle/villach" className="hover:text-primary transition-colors">Villach</a>
+            <a href="/messemodelle/wels" className="hover:text-primary transition-colors">Wels</a>
+            <a href="/messemodelle/st-poelten" className="hover:text-primary transition-colors">St. Pölten</a>
+            <a href="/messemodelle/dornbirn" className="hover:text-primary transition-colors">Dornbirn</a>
+            <a href="/messemodelle/gunskirchen" className="hover:text-primary transition-colors">Gunskirchen</a>
           </div>
         </div>
 
