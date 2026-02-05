@@ -157,15 +157,22 @@ const MessemodellRegion = () => {
       <Helmet>
         <title>{regionData.metaTitle}</title>
         <meta name="description" content={regionData.metaDescription} />
-        <meta name="keywords" content={`messemodelle ${regionData.name.toLowerCase()}, 3d-druck ${regionData.name.toLowerCase()}, messebau ${regionData.name.toLowerCase()}, präsentationsmodelle ${regionData.name.toLowerCase()}, messe ${regionData.name.toLowerCase()}`} />
-        <link rel="canonical" href={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
+        <meta name="keywords" content={`messemodelle ${regionData.name.toLowerCase()}, 3d-druck ${regionData.name.toLowerCase()}, messebau ${regionData.name.toLowerCase()}, präsentationsmodelle ${regionData.name.toLowerCase()}, messe ${regionData.name.toLowerCase()}, messemodelle deutschland`} />
+        <link rel="canonical" href={`https://ek-druck.at/messemodelle/${regionData.slug}`} />
+        
+        {/* hreflang for AT/DE targeting */}
+        <link rel="alternate" hrefLang="de-AT" href={`https://ek-druck.at/messemodelle/${regionData.slug}`} />
+        <link rel="alternate" hrefLang="de-DE" href={`https://ek-druck.at/messemodelle/${regionData.slug}`} />
+        <link rel="alternate" hrefLang="de" href={`https://ek-druck.at/messemodelle/${regionData.slug}`} />
+        <link rel="alternate" hrefLang="x-default" href={`https://ek-druck.at/messemodelle/${regionData.slug}`} />
         
         {/* Open Graph */}
         <meta property="og:title" content={regionData.metaTitle} />
         <meta property="og:description" content={regionData.metaDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
+        <meta property="og:url" content={`https://ek-druck.at/messemodelle/${regionData.slug}`} />
         <meta property="og:locale" content="de_AT" />
+        <meta property="og:locale:alternate" content="de_DE" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -200,7 +207,7 @@ const MessemodellRegion = () => {
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-                  {regionData.title}
+                  {regionData.h1Title || `3D-Messemodelle ${regionData.name}`}
                 </h1>
                 
                 <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">

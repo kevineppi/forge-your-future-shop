@@ -190,10 +190,16 @@ const Messemodelle = () => {
   return (
     <>
       <Helmet>
-        <title>3D-Druck Messemodelle | Express 24h | Produktmodelle für Events | ekdruck.at</title>
+        <title>3D-Druck Messemodelle | Express 24h | Produktmodelle für Events | ek-druck.at</title>
         <meta name="description" content="Beeindruckende 3D-gedruckte Messemodelle und Präsentationsobjekte. Express-Fertigung in 24-48h für kurzfristige Termine. Produktmodelle bis 2m Größe." />
-        <meta name="keywords" content="Messemodell 3D-Druck, Präsentationsmodell, Messebau, Event Dekoration, Produktmodell, Express Messemodell, Messestand Objekte" />
+        <meta name="keywords" content="Messemodell 3D-Druck, Präsentationsmodell, Messebau, Event Dekoration, Produktmodell, Express Messemodell, Messestand Objekte, Messemodelle Deutschland, Messemodelle Österreich" />
         <link rel="canonical" href="https://ek-druck.at/messemodelle" />
+        
+        {/* hreflang for AT/DE targeting */}
+        <link rel="alternate" hrefLang="de-AT" href="https://ek-druck.at/messemodelle" />
+        <link rel="alternate" hrefLang="de-DE" href="https://ek-druck.at/messemodelle" />
+        <link rel="alternate" hrefLang="de" href="https://ek-druck.at/messemodelle" />
+        <link rel="alternate" hrefLang="x-default" href="https://ek-druck.at/messemodelle" />
       </Helmet>
 
       <Navigation />
@@ -213,8 +219,8 @@ const Messemodelle = () => {
                   Für Messebau & Events
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Messemodelle<br />
-                  <span className="text-primary">die Aufmerksamkeit gewinnen</span>
+                  3D-Druck Messemodelle<br />
+                  <span className="text-primary">Express-Fertigung für Events</span>
                 </h1>
                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
                   Beeindrucken Sie Messebesucher mit individuellen 3D-Objekten. 
