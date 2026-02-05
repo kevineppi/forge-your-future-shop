@@ -80,31 +80,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Messemodelle Regional - Wichtigste SEO-Seiten */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <h4 className="font-semibold mb-4">Messemodelle in Österreich</h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm text-muted-foreground">
-            <a href="/messemodelle/wien" className="hover:text-primary transition-colors">Wien</a>
-            <a href="/messemodelle/oberoesterreich" className="hover:text-primary transition-colors">Oberösterreich</a>
-            <a href="/messemodelle/niederoesterreich" className="hover:text-primary transition-colors">Niederösterreich</a>
-            <a href="/messemodelle/steiermark" className="hover:text-primary transition-colors">Steiermark</a>
-            <a href="/messemodelle/salzburg" className="hover:text-primary transition-colors">Salzburg</a>
-            <a href="/messemodelle/kaernten" className="hover:text-primary transition-colors">Kärnten</a>
-            <a href="/messemodelle/tirol" className="hover:text-primary transition-colors">Tirol</a>
-            <a href="/messemodelle/vorarlberg" className="hover:text-primary transition-colors">Vorarlberg</a>
-            <a href="/messemodelle/burgenland" className="hover:text-primary transition-colors">Burgenland</a>
-            <a href="/messemodelle/linz" className="hover:text-primary transition-colors">Linz</a>
-            <a href="/messemodelle/graz" className="hover:text-primary transition-colors">Graz</a>
-            <a href="/messemodelle/innsbruck" className="hover:text-primary transition-colors">Innsbruck</a>
-            <a href="/messemodelle/klagenfurt" className="hover:text-primary transition-colors">Klagenfurt</a>
-            <a href="/messemodelle/villach" className="hover:text-primary transition-colors">Villach</a>
-            <a href="/messemodelle/wels" className="hover:text-primary transition-colors">Wels</a>
-            <a href="/messemodelle/st-poelten" className="hover:text-primary transition-colors">St. Pölten</a>
-            <a href="/messemodelle/dornbirn" className="hover:text-primary transition-colors">Dornbirn</a>
-            <a href="/messemodelle/gunskirchen" className="hover:text-primary transition-colors">Gunskirchen</a>
-          </div>
-        </div>
-
         <Separator className="my-8" />
         
         <div className="flex flex-col md:flex-row justify-between items-center">
