@@ -30,6 +30,7 @@ const RegionalCoverage = ({ serviceName, description, baseUrl = '3d-druck' }: Re
     { name: "St. Pölten", slug: "st-poelten" },
     { name: "Dornbirn", slug: "dornbirn" },
     { name: "Villach", slug: "villach" },
+    { name: "Gunskirchen", slug: "gunskirchen" },
   ];
 
   // Build URLs based on baseUrl prop
