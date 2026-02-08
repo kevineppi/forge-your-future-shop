@@ -17,6 +17,8 @@ import SectionDivider from "@/components/landing/SectionDivider";
 import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
 import { getArchitekturRegionBySlug, regionalArchitekturData } from "@/data/regionalArchitekturData";
 import { getArchitekturExtendedDataBySlug } from "@/data/regionalArchitekturExtendedData";
+import { getGermanArchitekturBySlug, germanArchitekturData } from "@/data/germanArchitekturData";
+import { getGermanArchitekturExtendedBySlug } from "@/data/germanArchitekturExtendedData";
 import { 
   Building2, 
   Clock, 
@@ -31,8 +33,11 @@ import {
 
 const ArchitekturmodellRegion = () => {
   const { region } = useParams<{ region: string }>();
-  const regionData = region ? getArchitekturRegionBySlug(region) : undefined;
-  const extendedData = region ? getArchitekturExtendedDataBySlug(region) : undefined;
+  const atRegion = region ? getArchitekturRegionBySlug(region) : undefined;
+  const deRegion = region ? getGermanArchitekturBySlug(region) : undefined;
+  const regionData = atRegion || deRegion;
+  const isGerman = !!deRegion && !atRegion;
+  const extendedData = region ? (isGerman ? getGermanArchitekturExtendedBySlug(region) : getArchitekturExtendedDataBySlug(region)) : undefined;
 
   if (!regionData || !extendedData) {
     return <Navigate to="/architekturmodelle" replace />;
@@ -62,7 +67,7 @@ const ArchitekturmodellRegion = () => {
       "name": regionData.name,
       "containedInPlace": {
         "@type": "Country",
-        "name": "Österreich"
+        "name": isGerman ? "Deutschland" : "Österreich"
       }
     },
     "serviceType": "3D-Druck Architekturmodelle",
@@ -130,7 +135,7 @@ const ArchitekturmodellRegion = () => {
   ];
 
   const nearbyRegions = regionData.nearbyRegions
-    .map(slug => regionalArchitekturData[slug])
+    .map(slug => regionalArchitekturData[slug] || germanArchitekturData[slug])
     .filter(Boolean)
     .slice(0, 4);
 
