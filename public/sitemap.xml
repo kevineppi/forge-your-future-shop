@@ -3,191 +3,96 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://www.ek-druck.at/</loc>
+    <loc>https://ek-druck.at/</loc>
     <lastmod>2025-02-05</lastmod>
     <changefreq>daily</changefreq>
   </url>
   
   <!-- Hauptseiten -->
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/architekturmodelle</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/firmenkunden</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/kunstobjekte</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/einzelanfertigungen</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/kontakt</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/referenzen</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
+  <url><loc>https://ek-druck.at/messemodelle</loc><lastmod>2025-02-05</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/architekturmodelle</loc><lastmod>2025-02-05</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/firmenkunden</loc><lastmod>2025-02-05</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/kunstobjekte</loc><lastmod>2025-02-05</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/einzelanfertigungen</loc><lastmod>2025-02-05</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/kontakt</loc><lastmod>2025-02-05</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ek-druck.at/referenzen</loc><lastmod>2025-02-05</lastmod><changefreq>weekly</changefreq></url>
 
-  <!-- Messemodelle Regional - Bundesländer -->
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/wien</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/oberoesterreich</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/niederoesterreich</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/steiermark</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/salzburg</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/kaernten</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/tirol</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/vorarlberg</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/burgenland</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
+  <!-- Messemodelle Österreich - Bundesländer -->
+  <url><loc>https://ek-druck.at/messemodelle/wien</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/oberoesterreich</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/niederoesterreich</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/steiermark</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/salzburg</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/kaernten</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/tirol</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/vorarlberg</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/burgenland</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
 
-  <!-- Messemodelle Regional - Städte -->
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/linz</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/wels</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/graz</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/klagenfurt</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/villach</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/innsbruck</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/st-poelten</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/dornbirn</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/messemodelle/gunskirchen</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
+  <!-- Messemodelle Österreich - Städte -->
+  <url><loc>https://ek-druck.at/messemodelle/linz</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/wels</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/graz</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/klagenfurt</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/villach</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/innsbruck</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/st-poelten</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/dornbirn</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+
+  <!-- Messemodelle Deutschland - Bundesländer (16) -->
+  <url><loc>https://ek-druck.at/messemodelle/bayern</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/baden-wuerttemberg</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/nordrhein-westfalen</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/hessen</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/niedersachsen</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/sachsen</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/rheinland-pfalz</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/schleswig-holstein</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/brandenburg</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/thueringen</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/sachsen-anhalt</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/mecklenburg-vorpommern</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/saarland</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/berlin</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/hamburg</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/bremen</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+
+  <!-- Messemodelle Deutschland - Hauptstädte & wichtige Messestädte -->
+  <url><loc>https://ek-druck.at/messemodelle/muenchen</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/nuernberg</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/augsburg</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/stuttgart</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/friedrichshafen</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/karlsruhe</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/duesseldorf</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/koeln</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/essen</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/dortmund</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/frankfurt</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/wiesbaden</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/hannover</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/dresden</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/leipzig</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/mainz</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/kiel</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/potsdam</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/erfurt</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/magdeburg</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/schwerin</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/messemodelle/saarbruecken</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq></url>
 
   <!-- Services -->
-  <url>
-    <loc>https://www.ek-druck.at/fdm-3d-druck</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/3d-druck-materialien</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
+  <url><loc>https://ek-druck.at/fdm-3d-druck</loc><lastmod>2025-02-05</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/3d-druck-materialien</loc><lastmod>2025-02-05</lastmod><changefreq>monthly</changefreq></url>
   
   <!-- Ratgeber -->
-  <url>
-    <loc>https://www.ek-druck.at/ratgeber</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/ratgeber/kosten-guide</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/ratgeber/material-guide</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/ratgeber/verfahrens-vergleich</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/ratgeber/prototyping-guide</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.ek-druck.at/glossar</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
+  <url><loc>https://ek-druck.at/ratgeber</loc><lastmod>2025-02-05</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://ek-druck.at/ratgeber/kosten-guide</loc><lastmod>2025-02-05</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ek-druck.at/ratgeber/material-guide</loc><lastmod>2025-02-05</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ek-druck.at/ratgeber/verfahrens-vergleich</loc><lastmod>2025-02-05</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ek-druck.at/ratgeber/prototyping-guide</loc><lastmod>2025-02-05</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://ek-druck.at/glossar</loc><lastmod>2025-02-05</lastmod><changefreq>monthly</changefreq></url>
   
   <!-- Legal -->
-  <url>
-    <loc>https://www.ek-druck.at/impressum</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
+  <url><loc>https://ek-druck.at/impressum</loc><lastmod>2025-02-05</lastmod><changefreq>yearly</changefreq></url>
   
 </urlset>

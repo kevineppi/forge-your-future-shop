@@ -15,8 +15,10 @@ import MesseValueProposition from "@/components/landing/MesseValueProposition";
 import StickyCTA from "@/components/landing/StickyCTA";
 import SectionDivider from "@/components/landing/SectionDivider";
 import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
-import { getRegionBySlug, regionalMesseData } from "@/data/regionalMesseData";
+import { getRegionBySlug, regionalMesseData, RegionalMesseData } from "@/data/regionalMesseData";
 import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
+import { getGermanRegionBySlug, germanMesseData } from "@/data/germanMesseData";
+import { getGermanExtendedDataBySlug } from "@/data/germanMesseExtendedData";
 import { 
   Zap, 
   Clock, 
@@ -31,8 +33,17 @@ import {
 
 const MessemodellRegion = () => {
   const { region } = useParams<{ region: string }>();
-  const regionData = region ? getRegionBySlug(region) : undefined;
-  const extendedData = region ? getExtendedDataBySlug(region) : undefined;
+  
+  // Try Austrian data first, then German
+  const atRegion = region ? getRegionBySlug(region) : undefined;
+  const deRegion = region ? getGermanRegionBySlug(region) : undefined;
+  const regionData = atRegion || deRegion;
+  const isGerman = !atRegion && !!deRegion;
+  const countryName = isGerman ? 'Deutschland' : 'Österreich';
+  
+  const extendedData = region 
+    ? (getExtendedDataBySlug(region) || getGermanExtendedDataBySlug(region)) 
+    : undefined;
 
   // Redirect to main messemodelle page if region not found
   if (!regionData || !extendedData) {
@@ -64,7 +75,7 @@ const MessemodellRegion = () => {
       "name": regionData.name,
       "containedInPlace": {
         "@type": "Country",
-        "name": "Österreich"
+        "name": countryName
       }
     },
     "serviceType": "3D-Druck Messemodelle",
@@ -146,9 +157,10 @@ const MessemodellRegion = () => {
     { name: regionData.name, url: `/messemodelle/${regionData.slug}` }
   ];
 
-  // Get nearby regions for internal linking
+  // Get nearby regions for internal linking (check both AT and DE data)
+  const allRegionsData: Record<string, RegionalMesseData> = { ...regionalMesseData, ...germanMesseData };
   const nearbyRegions = regionData.nearbyRegions
-    .map(slug => regionalMesseData[slug])
+    .map(slug => allRegionsData[slug])
     .filter(Boolean)
     .slice(0, 4);
 
