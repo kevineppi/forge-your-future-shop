@@ -39,6 +39,7 @@ import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
 import Referenzen from "./pages/Referenzen";
 import Architekturmodelle from "./pages/Architekturmodelle";
+import ArchitekturmodellRegion from "./pages/ArchitekturmodellRegion";
 import Messemodelle from "./pages/Messemodelle";
 import MessemodellRegion from "./pages/MessemodellRegion";
 import Kunstobjekte from "./pages/Kunstobjekte";
@@ -70,6 +71,7 @@ const App = () => (
             <Route path="/glossar" element={<Glossar />} />
             <Route path="/referenzen" element={<Referenzen />} />
             <Route path="/architekturmodelle" element={<Architekturmodelle />} />
+            <Route path="/architekturmodelle/:region" element={<ArchitekturmodellRegion />} />
             <Route path="/messemodelle" element={<Messemodelle />} />
             <Route path="/messemodelle/:region" element={<MessemodellRegion />} />
             <Route path="/kunstobjekte" element={<Kunstobjekte />} />
