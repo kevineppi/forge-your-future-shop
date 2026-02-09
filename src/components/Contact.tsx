@@ -197,6 +197,16 @@ const Contact = () => {
       setUploadedFiles([]);
       setUploadProgress({});
 
+      // GTM Custom Event – feuert NUR nach erfolgreicher DB-Speicherung
+      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+        (window as any).dataLayer.push({
+          event: 'form_submit_success',
+          form_name: 'contact_inquiry',
+          project_type: validatedData.project || 'nicht angegeben',
+          timeline: validatedData.timeline || 'nicht angegeben'
+        });
+      }
+
       toast({
         title: "Anfrage gesendet!",
         description: "Wir melden uns innerhalb von 6 Stunden bei Ihnen.",
