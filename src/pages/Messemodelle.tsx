@@ -193,13 +193,13 @@ const Messemodelle = () => {
         <title>3D-Druck Messemodelle | Express 24h | Produktmodelle für Events | ek-druck.at</title>
         <meta name="description" content="Beeindruckende 3D-gedruckte Messemodelle und Präsentationsobjekte. Express-Fertigung in 24-48h für kurzfristige Termine. Produktmodelle bis 2m Größe." />
         <meta name="keywords" content="Messemodell 3D-Druck, Präsentationsmodell, Messebau, Event Dekoration, Produktmodell, Express Messemodell, Messestand Objekte, Messemodelle Deutschland, Messemodelle Österreich" />
-        <link rel="canonical" href="https://ek-druck.at/messemodelle" />
+        <link rel="canonical" href="https://www.ek-druck.at/messemodelle" />
         
         {/* hreflang for AT/DE targeting */}
-        <link rel="alternate" hrefLang="de-AT" href="https://ek-druck.at/messemodelle" />
-        <link rel="alternate" hrefLang="de-DE" href="https://ek-druck.at/messemodelle" />
-        <link rel="alternate" hrefLang="de" href="https://ek-druck.at/messemodelle" />
-        <link rel="alternate" hrefLang="x-default" href="https://ek-druck.at/messemodelle" />
+        <link rel="alternate" hrefLang="de-AT" href="https://www.ek-druck.at/messemodelle" />
+        <link rel="alternate" hrefLang="de-DE" href="https://www.ek-druck.at/messemodelle" />
+        <link rel="alternate" hrefLang="de" href="https://www.ek-druck.at/messemodelle" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.ek-druck.at/messemodelle" />
       </Helmet>
 
       <Navigation />
