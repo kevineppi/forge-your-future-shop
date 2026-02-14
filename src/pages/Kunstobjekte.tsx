@@ -175,7 +175,7 @@ const Kunstobjekte = () => {
         <title>3D-Druck Kunstobjekte | Skulpturen & Installationen für Künstler | ekdruck.at</title>
         <meta name="description" content="Verwandeln Sie digitale Entwürfe in einzigartige Kunstobjekte. 3D-Druck für Skulpturen, Installationen und Design-Objekte. Grenzenlose kreative Möglichkeiten ab €20." />
         <meta name="keywords" content="3D-Druck Kunst, Skulpturen drucken, Kunstobjekte, Design-Objekte, 3D-Druck Künstler, Installation, Plastiken, Bildhauer" />
-        <link rel="canonical" href="https://ek-druck.at/kunstobjekte" />
+        <link rel="canonical" href="https://www.ek-druck.at/kunstobjekte" />
       </Helmet>
 
       <Navigation />

@@ -272,11 +272,11 @@ const Firmenkunden = () => {
         <title>3D-Druck für Firmenkunden | Architekturmodelle & Messemodelle | ekdruck.at</title>
         <meta name="description" content="3D-Druck für Architekturbüros, Agenturen und Messebau. Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände. Keine Funktionsteile. Express 24h." />
         <meta name="keywords" content="architekturmodelle b2b, messemodelle 3d-druck, anschauungsmodelle firmenkunden, dekorationsobjekte unternehmen, 3d-druck architekturbüro" />
-        <link rel="canonical" href="https://ek-druck.at/firmenkunden" />
+        <link rel="canonical" href="https://www.ek-druck.at/firmenkunden" />
         <meta property="og:title" content="3D-Druck für Firmenkunden | Modelle & Dekoration" />
         <meta property="og:description" content="Architekturmodelle, Messemodelle und Dekorationsobjekte für Unternehmen. Keine Funktionsteile." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ek-druck.at/firmenkunden" />
+        <meta property="og:url" content="https://www.ek-druck.at/firmenkunden" />
       </Helmet>
 
       <Navigation />

@@ -158,7 +158,7 @@ const Architekturmodelle = () => {
         <title>3D-Druck Architekturmodelle | 80% günstiger als handgefertigt | ekdruck.at</title>
         <meta name="description" content="Präzise 3D-gedruckte Architekturmodelle für Wettbewerbe, Kundenpräsentationen und Studien. Bis zu 80% günstiger als traditioneller Modellbau. Ab €20, Express 24h." />
         <meta name="keywords" content="Architekturmodell 3D-Druck, Architekturmodelle drucken lassen, Wettbewerbsmodell, Präsentationsmodell, Gebäudemodell, Architektur Modellbau Österreich" />
-        <link rel="canonical" href="https://ek-druck.at/architekturmodelle" />
+        <link rel="canonical" href="https://www.ek-druck.at/architekturmodelle" />
       </Helmet>
 
       <Navigation />
