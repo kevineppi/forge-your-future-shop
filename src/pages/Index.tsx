@@ -22,10 +22,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const Index = () => {
   return <>
       <SEOHead 
-        title="3D-Druck Service Österreich ab €20 ✓ Express 24h | ekdruck" 
-        description="★ 5/5 bei Google | 3D-Druck Dienstleister aus Österreich. Ab €20, versandkostenfrei ab €100. ✓ Express 24h ✓ Made in Austria → Jetzt Preis berechnen" 
-        keywords="3d druck service, 3d druck österreich, 3d druck dienstleister, 3d-druck österreich, fdm 3d-druck, modellbau, dekoration, geschenke" 
-        path="/" 
+        title="3D-Druck Messemodelle & Architekturmodelle | Express 24h | ekdruck.at" 
+        description="★ 5/5 Google | Professionelle 3D-gedruckte Messemodelle & Architekturmodelle. Ab €20, Angebot in 6h, versandkostenfrei ab €100. Express 24h ✓ Made in Austria → Jetzt anfragen" 
+        keywords="messemodelle 3d-druck, architekturmodelle 3d-druck, 3d druck österreich, messemodell express, architekturmodell kaufen, 3d-druck dienstleister österreich" 
+        path="/"
         preloadResources={[{
           href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
           as: "image",

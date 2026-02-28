@@ -32,10 +32,15 @@ const AggregateRatingSchema = ({
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": ratingValue,
-        "ratingCount": ratingCount,
+        "reviewCount": ratingCount,
         "bestRating": bestRating,
         "worstRating": worstRating
-      }
+      },
+      "priceRange": "€€",
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "sameAs": [
+        "https://www.google.com/maps?cid=ekdruck"
+      ]
     };
 
     const scriptId = 'aggregate-rating-schema';

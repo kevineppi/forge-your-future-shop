@@ -190,8 +190,8 @@ const Messemodelle = () => {
   return (
     <>
       <Helmet>
-        <title>3D-Druck Messemodelle | Express 24h | Produktmodelle für Events | ek-druck.at</title>
-        <meta name="description" content="Beeindruckende 3D-gedruckte Messemodelle und Präsentationsobjekte. Express-Fertigung in 24-48h für kurzfristige Termine. Produktmodelle bis 2m Größe." />
+        <title>3D-Druck Messemodelle kaufen | Express 24h ab €30 | Eyecatcher für Messen</title>
+        <meta name="description" content="Messemodelle im 3D-Druck: Express 24-48h ✓ Bis 2m Größe ✓ Corporate-Farben ✓ 70% leichter als Holz. Hannover Messe, BAU München & alle Events. Jetzt Angebot anfragen!" />
         <meta name="keywords" content="Messemodell 3D-Druck, Präsentationsmodell, Messebau, Event Dekoration, Produktmodell, Express Messemodell, Messestand Objekte, Messemodelle Deutschland, Messemodelle Österreich" />
         <link rel="canonical" href="https://www.ek-druck.at/messemodelle" />
         
