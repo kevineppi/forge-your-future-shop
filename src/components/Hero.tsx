@@ -48,16 +48,16 @@ const Hero = () => {
           {/* Left Column */}
           <div className="max-w-xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
-              3D-Druck für <span className="text-primary">Messe, Architektur & Präsentation</span> aus Oberösterreich
+              3D-Druck Messemodelle & <span className="text-primary">Architekturmodelle</span> – Express ab 24h
             </h1>
             
             <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-              Professionelle Anschauungsmodelle für Messen, Architektur und Industrie. 
-              FDM-Druck mit österreichischem Filament – präzise und termingerecht.
+              Professionelle 3D-gedruckte Präsentationsmodelle für Messen und Architektur. 
+              Ab €20, Angebot in 6 Stunden – Made in Austria.
             </p>
             
             <p className="text-muted-foreground mb-6">
-              Über 100+ zufriedene Kunden vertrauen uns.
+              ★ 5/5 Google · 100+ zufriedene Kunden · Versandkostenfrei ab €100
             </p>
 
             {/* Trust Badges */}
@@ -85,7 +85,7 @@ const Hero = () => {
                 asChild
               >
                 <Link to="/kontakt">
-                  Anfrage stellen
+                  Kostenloses Angebot in 6h
                   <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                 </Link>
               </Button>
@@ -96,11 +96,16 @@ const Hero = () => {
                 asChild
               >
                 <Link to="/referenzen">
-                  Referenzen ansehen
+                  Projekte ansehen
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
             </div>
+            {/* Urgency signal */}
+            <p className="text-xs text-muted-foreground mt-3 flex items-center gap-1.5">
+              <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
+              Heute noch anfragen – Angebot noch heute erhalten
+            </p>
           </div>
 
           {/* Right Column - Feature Cards */}
