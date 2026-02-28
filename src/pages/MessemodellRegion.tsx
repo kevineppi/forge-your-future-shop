@@ -15,6 +15,8 @@ import MesseValueProposition from "@/components/landing/MesseValueProposition";
 import StickyCTA from "@/components/landing/StickyCTA";
 import SectionDivider from "@/components/landing/SectionDivider";
 import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
+import LocalMessenSection from "@/components/landing/LocalMessenSection";
+import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import { getRegionBySlug, regionalMesseData, RegionalMesseData } from "@/data/regionalMesseData";
 import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
 import { getGermanRegionBySlug, germanMesseData } from "@/data/germanMesseData";
@@ -322,6 +324,13 @@ const MessemodellRegion = () => {
           industryFocus={extendedData.industryFocus}
         />
 
+        {/* Local Messen - Unique content per region */}
+        <LocalMessenSection 
+          messen={regionData.localMessen}
+          regionName={regionData.name}
+          type="messe"
+        />
+
         {/* Personal Delivery Service */}
         <PersonalDeliveryInfo regionName={regionData.name} />
 
@@ -501,6 +510,9 @@ const MessemodellRegion = () => {
           subtitle={`Antworten rund um Lieferung und Service für ${regionData.name}`}
           schemaId={`messemodelle-${regionData.slug}`}
         />
+
+        {/* All Regions - Full internal linking */}
+        <AllRegionsLinks currentSlug={regionData.slug} type="messe" />
 
         {/* Related Pages */}
         <RelatedPages currentPage={`/messemodelle/${regionData.slug}`} />

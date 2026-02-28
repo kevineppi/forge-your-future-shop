@@ -15,6 +15,8 @@ import ArchitekturValueProposition from "@/components/landing/ArchitekturValuePr
 import StickyCTA from "@/components/landing/StickyCTA";
 import SectionDivider from "@/components/landing/SectionDivider";
 import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
+import LocalMessenSection from "@/components/landing/LocalMessenSection";
+import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import { getArchitekturRegionBySlug, regionalArchitekturData } from "@/data/regionalArchitekturData";
 import { getArchitekturExtendedDataBySlug } from "@/data/regionalArchitekturExtendedData";
 import { getGermanArchitekturBySlug, germanArchitekturData } from "@/data/germanArchitekturData";
@@ -281,6 +283,13 @@ const ArchitekturmodellRegion = () => {
           industryFocus={extendedData.industryFocus}
         />
 
+        {/* Local projects/events - Unique content per region */}
+        <LocalMessenSection 
+          messen={regionData.localArchitekturContext}
+          regionName={regionData.name}
+          type="architektur"
+        />
+
         <PersonalDeliveryInfo regionName={regionData.name} />
 
         {/* Local Advantages */}
@@ -457,6 +466,9 @@ const ArchitekturmodellRegion = () => {
           subtitle={`Antworten rund um Lieferung und Service für ${regionData.name}`}
           schemaId={`architekturmodelle-${regionData.slug}`}
         />
+
+        {/* All Regions - Full internal linking */}
+        <AllRegionsLinks currentSlug={regionData.slug} type="architektur" />
 
         <RelatedPages currentPage={`/architekturmodelle/${regionData.slug}`} />
       </main>
