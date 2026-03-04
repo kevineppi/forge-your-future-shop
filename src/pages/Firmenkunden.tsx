@@ -269,8 +269,8 @@ const Firmenkunden = () => {
   return (
     <>
       <Helmet>
-        <title>3D-Druck für Firmenkunden | Architekturmodelle & Messemodelle | ekdruck.at</title>
-        <meta name="description" content="3D-Druck für Architekturbüros, Agenturen und Messebau. Anschauungsmodelle, Dekorationsobjekte und Kunstgegenstände. Keine Funktionsteile. Express 24h." />
+        <title>3D-Druck Firmenkunden | Messemodelle & Architekturmodelle | Angebot 6h</title>
+        <meta name="description" content="3D-Druck B2B: Messemodelle & Architekturmodelle für Architekturbüros & Agenturen. Persönlicher Kontakt ✓ Angebot in 6h ✓ Express 24h ✓ Mengenrabatt. Jetzt anfragen!" />
         <meta name="keywords" content="architekturmodelle b2b, messemodelle 3d-druck, anschauungsmodelle firmenkunden, dekorationsobjekte unternehmen, 3d-druck architekturbüro" />
         <link rel="canonical" href="https://www.ek-druck.at/firmenkunden" />
         <meta property="og:title" content="3D-Druck für Firmenkunden | Modelle & Dekoration" />
@@ -331,7 +331,7 @@ const Firmenkunden = () => {
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <Button asChild size="lg" className="text-base shadow-lg hover:shadow-xl transition-all bg-primary hover:bg-primary/90 group">
                     <Link to="/kontakt">
-                      Anfrage stellen
+                      Kostenloses Angebot in 6h
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>

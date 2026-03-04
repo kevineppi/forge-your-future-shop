@@ -155,8 +155,8 @@ const Architekturmodelle = () => {
   return (
     <>
       <Helmet>
-        <title>Architekturmodelle 3D-Druck | 80% günstiger | Ab €20 | Express 24h</title>
-        <meta name="description" content="Architekturmodelle drucken lassen: 80% günstiger als Handarbeit ✓ 0,1mm Präzision ✓ Maßstab 1:50–1:500 ✓ ArchiCAD & Revit Export. Für Wettbewerbe, Kundenpräsentation. Jetzt anfragen!" />
+        <title>Architekturmodell drucken lassen | Ab €20 | Angebot in 6h | ekdruck.at</title>
+        <meta name="description" content="Architekturmodelle drucken lassen: 80% günstiger ✓ Angebot in 6h ✓ Maßstab 1:50–1:500 ✓ ArchiCAD & Revit Export ✓ Made in Austria. Für Wettbewerbe & Bauherren. Jetzt anfragen!" />
         <meta name="keywords" content="Architekturmodell 3D-Druck, Architekturmodelle drucken lassen, Wettbewerbsmodell, Präsentationsmodell, Gebäudemodell, Architektur Modellbau Österreich" />
         <link rel="canonical" href="https://www.ek-druck.at/architekturmodelle" />
       </Helmet>
@@ -189,7 +189,7 @@ const Architekturmodelle = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" variant="hero" className="text-base">
                     <Link to="/kontakt">
-                      Anfrage stellen
+                      Kostenloses Angebot in 6h
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>

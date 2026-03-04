@@ -11,6 +11,24 @@ import AIChatWidget from "@/components/AIChatWidget";
 const Ratgeber = () => {
   const articles = [
     {
+      title: "Messemodelle im 3D-Druck: Kosten, Planung & Tipps 2025",
+      description: "Schritt-für-Schritt Guide für Messeaussteller: Was kostet ein Messemodell? Wie plane ich rechtzeitig? Materialwahl und echte Preisbeispiele aus der Praxis.",
+      link: "/ratgeber/messemodell-guide",
+      icon: TrendingUp,
+      category: "Messemodelle",
+      readTime: "10 Min. Lesezeit",
+      date: "Oktober 2025"
+    },
+    {
+      title: "Architekturmodelle 3D-Druck: Maßstäbe, Kosten & CAD-Export",
+      description: "Der komplette Guide für Architekten: Welcher Maßstab für welchen Zweck? Export aus ArchiCAD, Revit & SketchUp. Kosten von Studienmodell bis Städtebau.",
+      link: "/ratgeber/architekturmodell-guide",
+      icon: Palette,
+      category: "Architekturmodelle",
+      readTime: "12 Min. Lesezeit",
+      date: "Oktober 2025"
+    },
+    {
       title: "3D-Druck Kosten in Österreich: Der ultimative Preisguide 2025",
       description: "Erfahren Sie alles über 3D-Druck Preise, Kostenfaktoren und wie Sie bei Ihrem nächsten Projekt Geld sparen können. Inklusive echter Preisbeispiele und Kalkulationshilfen.",
       link: "/ratgeber/kosten-guide",
@@ -161,6 +179,8 @@ const Ratgeber = () => {
                   <CardContent>
                     <Button asChild className="w-full md:w-auto">
                       <a href={article.link}>
+                      {article.category === 'Messemodelle' && 'Messemodell-Guide lesen'}
+                        {article.category === 'Architekturmodelle' && 'Architekturmodell-Guide lesen'}
                         {article.category === 'Kosten & Preise' && '3D-Druck Kosten-Guide lesen'}
                         {article.category === 'Technologie' && 'Verfahrens-Vergleich lesen'}
                         {article.category === 'Materialien' && 'Material-Guide lesen'}
