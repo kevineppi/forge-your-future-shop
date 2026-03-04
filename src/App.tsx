@@ -35,6 +35,8 @@ import KostenGuide from "./pages/ratgeber/KostenGuide";
 import VerfahrensVergleich from "./pages/ratgeber/VerfahrensVergleich";
 import MaterialGuide from "./pages/ratgeber/MaterialGuide";
 import PrototypingGuide from "./pages/ratgeber/PrototypingGuide";
+import MessemodellGuide from "./pages/ratgeber/MessemodellGuide";
+import ArchitekturmodellGuide from "./pages/ratgeber/ArchitekturmodellGuide";
 import Prototypen from "./pages/Prototypen";
 import Glossar from "./pages/Glossar";
 import Referenzen from "./pages/Referenzen";
@@ -68,6 +70,8 @@ const App = () => (
             <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />
             <Route path="/ratgeber/material-guide" element={<MaterialGuide />} />
             <Route path="/ratgeber/prototyping-guide" element={<PrototypingGuide />} />
+            <Route path="/ratgeber/messemodell-guide" element={<MessemodellGuide />} />
+            <Route path="/ratgeber/architekturmodell-guide" element={<ArchitekturmodellGuide />} />
             <Route path="/glossar" element={<Glossar />} />
             <Route path="/referenzen" element={<Referenzen />} />
             <Route path="/architekturmodelle" element={<Architekturmodelle />} />

@@ -190,9 +190,9 @@ const Messemodelle = () => {
   return (
     <>
       <Helmet>
-        <title>3D-Druck Messemodelle kaufen | Express 24h ab €30 | Eyecatcher für Messen</title>
-        <meta name="description" content="Messemodelle im 3D-Druck: Express 24-48h ✓ Bis 2m Größe ✓ Corporate-Farben ✓ 70% leichter als Holz. Hannover Messe, BAU München & alle Events. Jetzt Angebot anfragen!" />
-        <meta name="keywords" content="Messemodell 3D-Druck, Präsentationsmodell, Messebau, Event Dekoration, Produktmodell, Express Messemodell, Messestand Objekte, Messemodelle Deutschland, Messemodelle Österreich" />
+        <title>Messemodelle 3D-Druck | Express 24h | Angebot in 6h | ekdruck.at</title>
+        <meta name="description" content="Messemodelle 3D-Druck: Angebot in 6h ✓ Express 24h ✓ Ab €30 ✓ Bis 2m Größe. Für Hannover Messe, BAU München & alle Fachmessen – Made in Austria. Jetzt kostenlos anfragen!" />
+        <meta name="keywords" content="Messemodell 3D-Druck kaufen, Messemodelle Express, Präsentationsmodell Messe, Messebau 3D-Druck, Eyecatcher Messestand, Messemodelle Österreich, Messemodelle Deutschland" />
         <link rel="canonical" href="https://www.ek-druck.at/messemodelle" />
         
         {/* hreflang for AT/DE targeting */}
@@ -228,9 +228,9 @@ const Messemodelle = () => {
                   Express in 24h auch bei kurzfristigen Terminen.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" variant="hero" className="text-base">
+                 <Button asChild size="lg" variant="hero" className="text-base">
                     <Link to="/kontakt">
-                      Anfrage stellen
+                      Kostenloses Angebot in 6h
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
