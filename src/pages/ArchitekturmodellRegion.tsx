@@ -483,42 +483,16 @@ const ArchitekturmodellRegion = () => {
         )}
 
         {/* CTA Section */}
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-in">
-              <Card className="bg-primary text-primary-foreground border-0 overflow-hidden shadow-xl haptic-scale">
-                <CardContent className="p-10 md:p-16 text-center relative">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary-foreground/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-foreground/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-                  
-                  <div className="relative">
-                    <Sparkles className="w-10 h-10 mx-auto mb-6 opacity-80 animate-pulse" />
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                      Architekturmodell für {regionData.name}?
-                    </h2>
-                    <p className="text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-                      Kontaktieren Sie uns für ein unverbindliches Angebot. Express-Lieferung nach {regionData.name} in {regionData.deliveryTime}.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button asChild size="lg" variant="secondary" className="text-base shadow-lg group">
-                        <Link to="/kontakt">
-                          Anfrage stellen
-                          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                      <Button asChild size="lg" variant="outline" className="text-base bg-transparent border-primary-foreground/30 hover:bg-primary-foreground/10 group">
-                        <Link to="/referenzen">
-                          Referenzen ansehen
-                          <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-          </div>
-        </section>
+        <CTASection
+          headline={`Architekturmodell für ${regionData.name} – Angebot in 6h`}
+          subline={`Schicken Sie uns Ihre CAD-Datei oder beschreiben Sie Ihr Projekt. Wir antworten persönlich mit einem verbindlichen Angebot. Express-Lieferung nach ${regionData.name} in ${regionData.deliveryTime}.`}
+          ctaLabel="Jetzt kostenlos anfragen"
+          ctaHref="/kontakt"
+          secondaryLabel="Referenzen ansehen"
+          secondaryHref="/referenzen"
+          badge={`Service für ${regionData.name}`}
+          urgencyText={`⚡ Express 24h für Wettbewerbstermine · Lieferung nach ${regionData.name}: ${regionData.deliveryTime}`}
+        />
 
         <FAQSection 
           faqs={faqs} 
