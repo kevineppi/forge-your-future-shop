@@ -8,18 +8,75 @@ import ServiceSchema from "@/components/ServiceSchema";
 import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
+import FAQSection from "@/components/landing/FAQSection";
+import RelatedPages from "@/components/landing/RelatedPages";
+import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Box, Zap, DollarSign, Wrench, CheckCircle, ArrowRight, Palette, Home } from "lucide-react";
+
+const faqs = [
+  {
+    question: "Was ist FDM 3D-Druck und wie funktioniert er?",
+    answer: "FDM steht für Fused Deposition Modeling – das am weitesten verbreitete 3D-Druckverfahren. Ein thermoplastisches Filament wird erhitzt, durch eine Düse extrudiert und Schicht für Schicht zu einem 3D-Objekt aufgebaut. FDM ist ideal für Architekturmodelle, Dekorationsobjekte, Messemodelle und Prototypen."
+  },
+  {
+    question: "Wie genau ist FDM 3D-Druck für Modellbau?",
+    answer: "Unsere FDM-Drucker erreichen Schichtauflösungen bis 0,1mm und Maßgenauigkeiten von ±0,2mm. Für Architekturmodelle im Maßstab 1:100 bis 1:500 ist das mehr als ausreichend. Feine Details wie Fensterzargen, Geländer oder Fassadenstrukturen werden präzise abgebildet."
+  },
+  {
+    question: "Welche Maximalgröße ist beim FDM-Druck möglich?",
+    answer: "Unser Druckbett ermöglicht Objekte bis 30×30×40cm in einem Stück. Größere Modelle – etwa für Städtebaumodelle, Messeblickfänger oder Architekturmodelle ab 1:50 – werden modular gefertigt und nahtlos zusammengefügt. Maximalgrößen bis 2m+ sind so realisierbar."
+  },
+  {
+    question: "Welche Materialien eignen sich für Architekturmodelle?",
+    answer: "PLA ist das Standardmaterial für Architekturmodelle: günstig, detailreich, in 20+ Farben verfügbar und gut lackierbar. Für besondere Optiken empfehlen wir Weiß-PLA (klassisches Architekturmodell), Transparentes PETG (Verglasung) oder Holz-Filament (Naturmaterialien-Optik)."
+  },
+  {
+    question: "Was kostet FDM 3D-Druck für Dekorationsobjekte?",
+    answer: "Kleine Dekorationsobjekte starten ab ca. €15–30. Mittelgroße Stücke (20–30cm) liegen typischerweise bei €50–150. Große Objekte und komplexe Formen auf Anfrage. Faktoren sind: Größe, Druckzeit, Material und Infill-Dichte. Senden Sie uns Ihre Datei für ein kostenloses Angebot."
+  },
+  {
+    question: "Wie nachhaltig ist FDM 3D-Druck?",
+    answer: "FDM mit PLA-Filament ist eine der nachhaltigeren Fertigungsoptionen: PLA ist biologisch abbaubar (aus Maisstärke), es entsteht kein Materialabfall durch subtraktive Verfahren, und lokale Fertigung in Österreich reduziert Transportwege. Wir verwenden europäisches Filament für kurze Lieferketten."
+  },
+  {
+    question: "Kann ich FDM-Objekte nachbearbeiten oder lackieren?",
+    answer: "Ja. PLA- und ASA-Objekte lassen sich gut schleifen, grundieren und lackieren. Für glatte Oberflächen empfehlen wir Schleifen (Körnung 120→240→400) und Kunststoffgrundierung. Wir bieten Nachbearbeitung auf Anfrage an. PETG ist weniger gut lackierbar – hier ist Einbrennlack nötig."
+  }
+];
+
+const keywordContent = {
+  title: "FDM 3D-Druck für Modellbau & Dekoration in Österreich",
+  intro: "FDM (Fused Deposition Modeling) ist das vielseitigste und wirtschaftlichste 3D-Druckverfahren für Architekturmodelle, Dekorationsobjekte, Messemodelle und künstlerische Objekte. Als Spezialist in Oberösterreich beliefern wir Architekten, Innenarchitekten, Eventplaner und Künstler aus Wien bis Bregenz.",
+  blocks: [
+    {
+      title: "FDM vs. andere 3D-Druckverfahren",
+      content: "Im Vergleich zu SLA (Resin) bietet FDM größere Bauräume, günstigere Materialkosten und robustere Teile. Gegenüber SLS (Pulver) ist FDM kostengünstiger für Einzelstücke und Kleinserien. Für Architekturmodelle, Dekorationsobjekte und Messepräsentationen ist FDM die erste Wahl."
+    },
+    {
+      title: "Materialvielfalt: Weit mehr als Standard-Plastik",
+      content: "Modern FDM-Filamente sind weit mehr als einfaches Plastik: Holz-Filament für natürliche Maserung, Marmor-Look für elegante Steinoptik, Metallic-Filamente für industrielle Ästhetik, transparentes PETG für Lichteffekte. Jedes Material hat eigene Druckparameter – unsere Erfahrung garantiert optimale Ergebnisse."
+    },
+    {
+      title: "Nachhaltigkeit durch additive Fertigung",
+      content: "Additiver Aufbau bedeutet: kein Materialverschnitt. Im Gegensatz zu CNC-Fräsen, wo bis zu 90% des Rohmaterials wegfällt, verwendet FDM-Druck nur das Material, das im Objekt steckt. PLA aus nachwachsenden Rohstoffen und lokale Fertigung in Österreich machen unseren Service besonders nachhaltig."
+    },
+    {
+      title: "Von Gunskirchen in die ganze Welt",
+      content: "Unser Standort in Gunskirchen, Oberösterreich, ermöglicht Expresslieferungen in ganz Österreich innerhalb von 24h und nach Deutschland in 48h. Für internationale Projekte arbeiten wir mit zuverlässigen Versandpartnern. Kurze Kommunikationswege auf Deutsch und persönlicher Service sind unser Vorteil."
+    }
+  ]
+};
 
 const FdmDruck = () => {
   return (
     <>
       <SEOHead 
         title="FDM 3D-Druck für Modellbau & Dekoration | ekdruck.at"
-        description="FDM 3D-Druck für Anschauungsmodelle, Architekturmodelle und Dekorationsobjekte aus Oberösterreich. Nachhaltige Materialien, präzise Fertigung."
-        keywords="fdm 3d-druck österreich, 3d-druck modellbau, architekturmodelle 3d-druck, dekoration 3d-druck, anschauungsmodelle"
+        description="FDM 3D-Druck für Architekturmodelle, Dekorationsobjekte und Messemodelle aus Oberösterreich. Ab €15, Angebot in 6h, nachhaltige Materialien, österreichweit."
+        keywords="fdm 3d-druck österreich, 3d-druck modellbau, architekturmodelle 3d-druck, dekoration 3d-druck, anschauungsmodelle, fdm verfahren"
         path="/fdm-3d-druck"
         breadcrumbs={[
           {name: "Home", url: "/"},
@@ -51,7 +108,7 @@ const FdmDruck = () => {
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
             <div className="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl animate-pulse delay-1000"></div>
           </div>
@@ -66,7 +123,7 @@ const FdmDruck = () => {
                 <span className="block text-2xl lg:text-3xl mt-2 text-primary font-normal">für Modellbau, Dekoration & Kunst</span>
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-                Präzise Anschauungsmodelle, hochwertige Dekorationsobjekte und individuelle Kunstgegenstände 
+                Präzise Architekturmodelle, hochwertige Dekorationsobjekte und individuelle Kunstgegenstände 
                 aus nachhaltigen Materialien – gefertigt in Oberösterreich.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -74,7 +131,7 @@ const FdmDruck = () => {
                   <Link to="/kontakt">Anfrage stellen <ArrowRight className="ml-2 h-5 w-5" /></Link>
                 </Button>
                 <Button size="lg" variant="outline" className="hover-scale animate-fade-in" asChild>
-                  <Link to="/kontakt">Beratung anfordern</Link>
+                  <Link to="/ratgeber/verfahrens-vergleich">FDM vs. SLA vs. SLS</Link>
                 </Button>
               </div>
             </div>
@@ -106,33 +163,21 @@ const FdmDruck = () => {
                 <div>
                   <h3 className="text-2xl font-bold mb-6">So funktioniert FDM 3D-Druck</h3>
                   <div className="space-y-4">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-primary/20 p-2 rounded-lg flex-shrink-0">
-                        <div className="w-6 h-6 bg-primary rounded text-white flex items-center justify-center text-sm font-bold">1</div>
+                    {[
+                      { step: "1", title: "Material-Extrusion", desc: "Thermoplastisches Filament wird erhitzt und durch eine Düse extrudiert." },
+                      { step: "2", title: "Schicht für Schicht", desc: "Das Material wird präzise Schicht für Schicht aufgetragen und verbindet sich." },
+                      { step: "3", title: "Fertiges Objekt", desc: "Nach dem Abkühlen entstehen hochwertige, detailreiche 3D-Objekte – bereit zum Einsatz." }
+                    ].map((item) => (
+                      <div key={item.step} className="flex items-start gap-4">
+                        <div className="bg-primary/20 p-2 rounded-lg flex-shrink-0">
+                          <div className="w-6 h-6 bg-primary rounded text-primary-foreground flex items-center justify-center text-sm font-bold">{item.step}</div>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">{item.title}</h4>
+                          <p className="text-muted-foreground">{item.desc}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-semibold mb-2">Material-Extrusion</h4>
-                        <p className="text-muted-foreground">Thermoplastisches Filament wird erhitzt und durch eine Düse extrudiert.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <div className="bg-primary/20 p-2 rounded-lg flex-shrink-0">
-                        <div className="w-6 h-6 bg-primary rounded text-white flex items-center justify-center text-sm font-bold">2</div>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-2">Schicht für Schicht</h4>
-                        <p className="text-muted-foreground">Das Material wird präzise Schicht für Schicht aufgetragen und verbindet sich.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <div className="bg-primary/20 p-2 rounded-lg flex-shrink-0">
-                        <div className="w-6 h-6 bg-primary rounded text-white flex items-center justify-center text-sm font-bold">3</div>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-2">Fertiges Objekt</h4>
-                        <p className="text-muted-foreground">Nach dem Abkühlen entstehen hochwertige, detailreiche 3D-Objekte.</p>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
                 <div className="bg-gradient-card p-8 rounded-2xl">
@@ -181,6 +226,9 @@ const FdmDruck = () => {
                     <p className="text-muted-foreground">
                       Maßstabsgetreue Architekturmodelle für Präsentationen, Wettbewerbe und Visualisierungen.
                     </p>
+                    <Link to="/architekturmodelle" className="text-primary text-sm font-medium hover:underline mt-3 inline-block">
+                      Mehr erfahren →
+                    </Link>
                   </CardContent>
                 </Card>
 
@@ -193,6 +241,9 @@ const FdmDruck = () => {
                     <p className="text-muted-foreground">
                       Individuelle Dekorationen für Wohnräume, Messen, Events und Schaufenster.
                     </p>
+                    <Link to="/einzelanfertigungen" className="text-primary text-sm font-medium hover:underline mt-3 inline-block">
+                      Mehr erfahren →
+                    </Link>
                   </CardContent>
                 </Card>
 
@@ -205,6 +256,9 @@ const FdmDruck = () => {
                     <p className="text-muted-foreground">
                       Skulpturen, Kunstinstallationen und einzigartige Objekte für Künstler und Galerien.
                     </p>
+                    <Link to="/kunstobjekte" className="text-primary text-sm font-medium hover:underline mt-3 inline-block">
+                      Mehr erfahren →
+                    </Link>
                   </CardContent>
                 </Card>
               </div>
@@ -275,9 +329,34 @@ const FdmDruck = () => {
                   </CardContent>
                 </Card>
               </div>
+              <div className="text-center mt-8">
+                <Button asChild variant="outline">
+                  <Link to="/3d-druck-materialien">Alle Materialien im Detail <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
+
+        {/* Keyword Rich Content */}
+        <KeywordRichContent
+          title={keywordContent.title}
+          intro={keywordContent.intro}
+          blocks={keywordContent.blocks}
+          ctaText="FDM-Druck anfragen"
+          ctaLink="/kontakt"
+        />
+
+        {/* FAQ Section */}
+        <FAQSection
+          faqs={faqs}
+          title="Häufige Fragen zu FDM 3D-Druck"
+          subtitle="Technische Antworten für Architekten, Designer und Kreative"
+          schemaId="fdm-3d-druck"
+        />
+
+        {/* Related Pages */}
+        <RelatedPages currentPage="/fdm-3d-druck" title="Weitere Services" />
 
         {/* CTA Section */}
         <section className="py-16 lg:py-20 relative">

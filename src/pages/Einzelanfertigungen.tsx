@@ -7,18 +7,75 @@ import ServiceSchema from "@/components/ServiceSchema";
 import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
+import FAQSection from "@/components/landing/FAQSection";
+import RelatedPages from "@/components/landing/RelatedPages";
+import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Sparkles, Users, Lightbulb, Target, CheckCircle, ArrowRight, Clock, Home, Palette } from "lucide-react";
+import { Sparkles, Users, Lightbulb, Target, CheckCircle, ArrowRight, Clock, Home, Palette, MapPin } from "lucide-react";
+
+const faqs = [
+  {
+    question: "Was ist der Unterschied zwischen Einzelanfertigung und Seriendruck?",
+    answer: "Einzelanfertigungen sind individuell gestaltete Unikate oder Kleinstserien ab 1 Stück – maßgeschneidert für Ihren genauen Zweck. Seriendruck bezeichnet identische Teile in größerer Stückzahl. Für Messemodelle, Architekturmodelle und spezielle Präsentationsobjekte ist die Einzelanfertigung meist die optimale Wahl."
+  },
+  {
+    question: "Welche Formate werden für Einzelanfertigungen akzeptiert?",
+    answer: "Wir verarbeiten STL, STEP, OBJ, 3MF und alle gängigen 3D-CAD-Formate. Haben Sie nur eine Skizze oder ein Foto? Unser Team unterstützt Sie auf Anfrage auch bei der 3D-Modellierung. Senden Sie uns einfach Ihre Idee – wir finden gemeinsam die beste Umsetzung."
+  },
+  {
+    question: "Wie lange dauert die Fertigung einer Einzelanfertigung?",
+    answer: "Standardmäßig liefern wir in 3–7 Werktagen. Bei Express-Bedarf auch in 24–48 Stunden möglich. Nach Eingang Ihrer Datei erhalten Sie innerhalb von 6 Arbeitsstunden ein Angebot mit konkretem Liefertermin."
+  },
+  {
+    question: "Ab welcher Größe sind Einzelanfertigungen möglich?",
+    answer: "Wir fertigen Objekte von wenigen Zentimetern bis zu über 2 Metern Größe. Größere Objekte werden modular konstruiert und nahtlos zusammengefügt. Für XXL-Anschauungsmodelle, Messeblickfänge oder Architekturmodelle im Maßstab 1:50 haben wir die passende Lösung."
+  },
+  {
+    question: "Welche Materialien sind für Einzelanfertigungen verfügbar?",
+    answer: "PLA, PLA+, PETG, ASA, TPU und Spezialfilamente wie Holz-Optik, Marmor-Look, Metallic oder Glow-in-the-dark. Über 20 Farben in PLA verfügbar. Wir beraten Sie zum optimalen Material für Optik, Haptik und Einsatzzweck Ihrer Einzelanfertigung."
+  },
+  {
+    question: "Sind Nachbearbeitungen wie Lackierung oder Beschriftung möglich?",
+    answer: "Ja. Auf Anfrage bieten wir Schmirgeln, Grundieren und Lackierung in Wunschfarbe an. Beschriftungen können direkt eingedruckt oder aufgebracht werden. Sprechen Sie uns auf Ihre spezifischen Anforderungen an – wir koordinieren auch externe Nachbearbeitungs-Schritte."
+  },
+  {
+    question: "Gibt es Mindestbestellmengen?",
+    answer: "Nein – wir fertigen bereits ab 1 Stück. Das macht uns besonders attraktiv für Unikate, Prototypen, Messemodelle und individuelle Geschenke. Auch für Kleinstserien von 2–20 Stück sind wir die wirtschaftlichste Wahl."
+  }
+];
+
+const keywordContent = {
+  title: "3D-Druck Einzelanfertigungen: Vom Konzept zur Realität",
+  intro: "Ob Messemodell für Wien, Architekturmodell für ein Wettbewerbsprojekt in Graz oder ein individuelles Präsentationsobjekt für Linz – als Österreichs Spezialist für 3D-Druck Einzelanfertigungen realisieren wir Projekte, die von der Stange nicht erhältlich sind.",
+  blocks: [
+    {
+      title: "Vorteile gegenüber klassischem Modellbau",
+      content: "Traditioneller Modellbau ist teuer, zeitaufwändig und schwer skalierbar. 3D-Druck Einzelanfertigungen starten ab €20, sind in 24h lieferbar und ermöglichen beliebige Geometrien. Änderungswünsche kosten nur eine neue Datei – keine teuren Nachjustierungen an Werkzeugen."
+    },
+    {
+      title: "Präzision für anspruchsvolle Projekte",
+      content: "Unsere FDM-Drucker erreichen Schichtauflösungen bis 0,1mm. Das ist ausreichend für detaillierte Architekturmodelle, technische Anschauungsobjekte und hochwertige Messepräsentationen. Für noch feinere Details empfehlen wir SLA-Druck auf Anfrage."
+    },
+    {
+      title: "Nachhaltigkeit durch lokale Fertigung",
+      content: "Unsere Einzelanfertigungen entstehen in Gunskirchen, Oberösterreich – mit regionalem Filament aus Europa. Kurze Transportwege schonen die Umwelt. PLA-Materialien sind biologisch abbaubar. Nachhaltiges Wirtschaften ist uns als österreichischem Unternehmen wichtig."
+    },
+    {
+      title: "Vertraulichkeit & professionelle Abwicklung",
+      content: "NDA auf Anfrage, sichere Datenhaltung und diskreter Umgang mit Ihren Konstruktionsdaten ist für uns selbstverständlich. Firmenkunden erhalten Rechnung mit Mehrwertsteuer für den Vorsteuerabzug."
+    }
+  ]
+};
 
 const Einzelanfertigungen = () => {
   return (
     <>
-<SEOHead 
+      <SEOHead 
         title="Individuelle Anschauungsobjekte | Messe & Präsentation | ekdruck.at"
-        description="Individuelle Anschauungsmodelle für Messen, Architektur und Industrie. Maßanfertigung aus Oberösterreich."
-        keywords="3d-druck anschauungsmodelle, messemodelle, präsentationsmodelle, architekturmodelle 3d-druck, industriemodelle"
+        description="Individuelle Anschauungsmodelle für Messen, Architektur und Industrie. Maßanfertigung aus Oberösterreich. Ab €20, Angebot in 6h, Lieferung österreichweit."
+        keywords="3d-druck anschauungsmodelle, messemodelle, präsentationsmodelle, architekturmodelle 3d-druck, industriemodelle, einzelanfertigungen 3d-druck"
         path="/einzelanfertigungen"
         breadcrumbs={[
           {name: "Home", url: "/"},
@@ -50,7 +107,7 @@ const Einzelanfertigungen = () => {
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-tr from-background via-primary/5 to-accent/10 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
             <div className="absolute top-16 left-16 w-32 h-32 border-2 border-primary rounded-lg rotate-12 animate-pulse"></div>
             <div className="absolute top-32 right-32 w-24 h-24 border-2 border-accent rounded-full animate-pulse delay-300"></div>
           </div>
@@ -71,6 +128,9 @@ const Einzelanfertigungen = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="hero" className="hover-scale" asChild>
                   <Link to="/kontakt">Projekt besprechen <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                </Button>
+                <Button size="lg" variant="outline" className="hover-scale" asChild>
+                  <Link to="/referenzen">Referenzen ansehen</Link>
                 </Button>
               </div>
             </div>
@@ -116,7 +176,7 @@ const Einzelanfertigungen = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold mb-2">Präzise Umsetzung</h4>
-                        <p className="text-muted-foreground">Millimetergenaue Fertigung mit modernster FDM 3D-Druck Technologie.</p>
+                        <p className="text-muted-foreground">Millimetergenaue Fertigung mit modernster FDM 3D-Druck Technologie – Schichtauflösung bis 0,1mm.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -144,8 +204,8 @@ const Einzelanfertigungen = () => {
                         <div className="text-primary">verfügbar</div>
                       </div>
                       <div className="bg-background/50 p-3 rounded-lg">
-                        <div className="font-semibold">Individuelle</div>
-                        <div className="text-primary">Maßstäbe</div>
+                        <div className="font-semibold">Ab 1 Stück</div>
+                        <div className="text-primary">keine Mindestmenge</div>
                       </div>
                     </div>
                   </div>
@@ -243,11 +303,11 @@ const Einzelanfertigungen = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• Skulpturen</li>
+                      <li>• Skulpturen & Unikate</li>
                       <li>• Kunstinstallationen</li>
                       <li>• Designstudien</li>
                       <li>• Ausstellungsstücke</li>
-                      <li>• Künstlerische Unikate</li>
+                      <li>• Limitierte Editionen</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -272,6 +332,45 @@ const Einzelanfertigungen = () => {
             </div>
           </div>
         </section>
+
+        {/* Liefergebiet */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <MapPin className="h-12 w-12 text-primary mx-auto mb-6" />
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">Österreichweit & nach Deutschland</h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Gefertigt in Gunskirchen, Oberösterreich – geliefert per Expressversand in ganz Österreich und Deutschland. 
+                Persönliche Abholung möglich.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                {["Wien", "Graz", "Linz", "Salzburg", "Innsbruck", "Klagenfurt", "Wels", "München"].map((city) => (
+                  <div key={city} className="bg-muted/50 rounded-lg p-3 font-medium">{city}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Keyword Rich Content */}
+        <KeywordRichContent
+          title={keywordContent.title}
+          intro={keywordContent.intro}
+          blocks={keywordContent.blocks}
+          ctaText="Einzelanfertigung anfragen"
+          ctaLink="/kontakt"
+        />
+
+        {/* FAQ Section */}
+        <FAQSection
+          faqs={faqs}
+          title="Häufige Fragen zu Einzelanfertigungen"
+          subtitle="Alles was Sie über individuelle 3D-Druck Aufträge wissen müssen"
+          schemaId="einzelanfertigungen"
+        />
+
+        {/* Related Pages */}
+        <RelatedPages currentPage="/einzelanfertigungen" title="Weitere Services" />
 
         {/* CTA Section */}
         <section className="py-16 lg:py-20 relative">
