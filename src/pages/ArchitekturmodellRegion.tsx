@@ -17,6 +17,7 @@ import SectionDivider from "@/components/landing/SectionDivider";
 import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
 import LocalMessenSection from "@/components/landing/LocalMessenSection";
 import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
+import RegionalUniqueContent from "@/components/landing/RegionalUniqueContent";
 import { getArchitekturRegionBySlug, regionalArchitekturData } from "@/data/regionalArchitekturData";
 import { getArchitekturExtendedDataBySlug } from "@/data/regionalArchitekturExtendedData";
 import { getGermanArchitekturBySlug, germanArchitekturData } from "@/data/germanArchitekturData";
