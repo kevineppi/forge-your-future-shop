@@ -228,12 +228,12 @@ const RapidPrototyping = () => {
                 </p>
 
                 {/* Prominent WKO Notice */}
-                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8">
+                <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <AlertTriangle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
                     <div className="text-sm">
-                      <span className="font-semibold text-amber-900">Wichtiger Hinweis: </span>
-                      <span className="text-amber-800">Wir fertigen ausschließlich <strong>Designprototypen zu Anschauungszwecken</strong>. Funktionsteile, Ersatzteile und technische Bauteile liegen nicht in unserem Leistungsumfang.</span>
+                      <span className="font-semibold text-foreground">Wichtiger Hinweis: </span>
+                      <span className="text-muted-foreground">Wir fertigen ausschließlich <strong className="text-foreground">Designprototypen zu Anschauungszwecken</strong>. Funktionsteile, Ersatzteile und technische Bauteile liegen nicht in unserem Leistungsumfang.</span>
                     </div>
                   </div>
                 </div>
