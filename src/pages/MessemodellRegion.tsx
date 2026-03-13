@@ -17,6 +17,7 @@ import SectionDivider from "@/components/landing/SectionDivider";
 import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
 import LocalMessenSection from "@/components/landing/LocalMessenSection";
 import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
+import RegionalUniqueContent from "@/components/landing/RegionalUniqueContent";
 import { getRegionBySlug, regionalMesseData, RegionalMesseData } from "@/data/regionalMesseData";
 import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
 import { getGermanRegionBySlug, germanMesseData } from "@/data/germanMesseData";
@@ -103,6 +104,32 @@ const MessemodellRegion = () => {
     }
   };
 
+  // AggregateRating Schema
+  const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ekdruck e.U.",
+    "description": `3D-Druck Messemodelle für ${regionData.name} – maßgefertigt, Express-Lieferung möglich`,
+    "url": `https://www.ek-druck.at/messemodelle/${regionData.slug}`,
+    "telephone": "+43 660 9691150",
+    "email": "office@ek-druck.at",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wegscheid 25",
+      "addressLocality": "Gunskirchen",
+      "postalCode": "4623",
+      "addressRegion": "Oberösterreich",
+      "addressCountry": "AT"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
+
   // Breadcrumb Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -151,8 +178,30 @@ const MessemodellRegion = () => {
     {
       question: "Wie werden die Modelle transportiert?",
       answer: "Unsere PLA- und PETG-Objekte sind bis zu 70% leichter als Holz- oder Metallmodelle. Wir verwenden sichere Verpackung mit Versandtracking. Express-Versand ist für dringende Messetermine verfügbar."
+    },
+    {
+      question: `Was kostet ein Messemodell für ${regionData.name}?`,
+      answer: `Die Kosten hängen von Größe, Komplexität und Material ab. Kleine Displaymodelle starten ab ca. €30, große Messeobjekte (über 50cm) ab €150. Lieferung nach ${regionData.name} in ${regionData.deliveryTime}. Angebot innerhalb von 6 Stunden nach Dateieinsendung.`
+    },
+    {
+      question: "Welche Dateiformate werden für Messemodelle akzeptiert?",
+      answer: "Wir verarbeiten STL, OBJ und 3MF Dateien sowie gängige CAD-Exporte. Bei Fragen zur Dateivorbereitung helfen wir gerne weiter."
     }
   ];
+
+  // FAQPage Schema for Rich Snippets
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
 
   const breadcrumbs = [
     { name: "Messemodelle", url: "/messemodelle" },
@@ -194,6 +243,12 @@ const MessemodellRegion = () => {
         </script>
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(aggregateRatingSchema)}
         </script>
       </Helmet>
 
@@ -329,6 +384,16 @@ const MessemodellRegion = () => {
           messen={regionData.localMessen}
           regionName={regionData.name}
           type="messe"
+        />
+
+        {/* Unique regional text content – prevents thin content / not indexed */}
+        <RegionalUniqueContent
+          regionName={regionData.name}
+          regionSlug={regionData.slug}
+          deliveryTime={regionData.deliveryTime}
+          type="messe"
+          localMessen={regionData.localMessen}
+          isGerman={isGerman}
         />
 
         {/* Personal Delivery Service */}

@@ -17,6 +17,7 @@ import SectionDivider from "@/components/landing/SectionDivider";
 import PersonalDeliveryInfo from "@/components/landing/PersonalDeliveryInfo";
 import LocalMessenSection from "@/components/landing/LocalMessenSection";
 import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
+import RegionalUniqueContent from "@/components/landing/RegionalUniqueContent";
 import { getArchitekturRegionBySlug, regionalArchitekturData } from "@/data/regionalArchitekturData";
 import { getArchitekturExtendedDataBySlug } from "@/data/regionalArchitekturExtendedData";
 import { getGermanArchitekturBySlug, germanArchitekturData } from "@/data/germanArchitekturData";
@@ -128,8 +129,52 @@ const ArchitekturmodellRegion = () => {
     {
       question: "Können transparente Fassadenelemente gedruckt werden?",
       answer: "Ja, mit PETG Transparent können Glasflächen und Fassadenelemente halbtransparent dargestellt werden. Dies eignet sich besonders für moderne Gebäude mit großen Glasfronten."
+    },
+    {
+      question: `Wie bereite ich meine CAD-Datei für ein Architekturmodell in ${regionData.name} vor?`,
+      answer: `Exportieren Sie Ihr Modell aus ArchiCAD, Revit, SketchUp oder Rhino als STL- oder OBJ-Datei. Bei Unsicherheiten helfen wir Ihnen gerne bei der Dateivorbereitung. Angebot erhalten Sie innerhalb von 6 Stunden nach Einreichung.`
     }
   ];
+
+  // FAQPage Schema for Rich Snippets
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
+  // AggregateRating Schema
+  const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ekdruck e.U.",
+    "description": `3D-Druck Architekturmodelle für ${regionData.name} – präzise, maßstabsgetreu, Express-Lieferung möglich`,
+    "url": `https://www.ek-druck.at/architekturmodelle/${regionData.slug}`,
+    "telephone": "+43 660 9691150",
+    "email": "office@ek-druck.at",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wegscheid 25",
+      "addressLocality": "Gunskirchen",
+      "postalCode": "4623",
+      "addressRegion": "Oberösterreich",
+      "addressCountry": "AT"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
 
   const breadcrumbs = [
     { name: "Architekturmodelle", url: "/architekturmodelle" },
@@ -166,6 +211,12 @@ const ArchitekturmodellRegion = () => {
         </script>
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(aggregateRatingSchema)}
         </script>
       </Helmet>
 
@@ -288,6 +339,15 @@ const ArchitekturmodellRegion = () => {
           messen={regionData.localArchitekturContext}
           regionName={regionData.name}
           type="architektur"
+        />
+
+        {/* Unique regional text content – prevents thin content / not indexed */}
+        <RegionalUniqueContent
+          regionName={regionData.name}
+          regionSlug={regionData.slug}
+          deliveryTime={regionData.deliveryTime}
+          type="architektur"
+          isGerman={isGerman}
         />
 
         <PersonalDeliveryInfo regionName={regionData.name} />

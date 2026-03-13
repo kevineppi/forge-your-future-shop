@@ -21,9 +21,9 @@ const AllRegionsLinks = ({ currentSlug, type }: AllRegionsLinksProps) => {
   const atRegions = Object.values(atData).filter(r => r.slug !== currentSlug);
   const deRegions = Object.values(deData).filter(r => r.slug !== currentSlug);
 
-  // Show only top 8 AT + top 10 DE to not overwhelm
-  const atTop = atRegions.slice(0, 8);
-  const deTop = deRegions.slice(0, 10);
+  // Show ALL regions for maximum internal linking / PageRank signal
+  const atTop = atRegions;
+  const deTop = deRegions;
 
   return (
     <section className="py-16 md:py-20 bg-muted/30">
