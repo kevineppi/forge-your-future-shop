@@ -291,6 +291,15 @@ const ArchitekturmodellRegion = () => {
           type="architektur"
         />
 
+        {/* Unique regional text content – prevents thin content / not indexed */}
+        <RegionalUniqueContent
+          regionName={regionData.name}
+          regionSlug={regionData.slug}
+          deliveryTime={regionData.deliveryTime}
+          type="architektur"
+          isGerman={isGerman}
+        />
+
         <PersonalDeliveryInfo regionName={regionData.name} />
 
         {/* Local Advantages */}

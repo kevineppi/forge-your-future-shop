@@ -386,6 +386,16 @@ const MessemodellRegion = () => {
           type="messe"
         />
 
+        {/* Unique regional text content – prevents thin content / not indexed */}
+        <RegionalUniqueContent
+          regionName={regionData.name}
+          regionSlug={regionData.slug}
+          deliveryTime={regionData.deliveryTime}
+          type="messe"
+          localMessen={regionData.localMessen}
+          isGerman={isGerman}
+        />
+
         {/* Personal Delivery Service */}
         <PersonalDeliveryInfo regionName={regionData.name} />
 
