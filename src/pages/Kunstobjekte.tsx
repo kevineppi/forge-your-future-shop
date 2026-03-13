@@ -179,6 +179,10 @@ const Kunstobjekte = () => {
         <link rel="canonical" href="https://www.ek-druck.at/kunstobjekte" />
       </Helmet>
 
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: "Kunstobjekte", url: "/kunstobjekte" }
+      ]} />
       <Navigation />
       <Breadcrumbs items={breadcrumbs} />
 
