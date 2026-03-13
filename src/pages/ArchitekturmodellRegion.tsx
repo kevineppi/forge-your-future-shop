@@ -338,13 +338,6 @@ const ArchitekturmodellRegion = () => {
           industryFocus={extendedData.industryFocus}
         />
 
-        {/* Local projects/events - Unique content per region */}
-        <LocalMessenSection 
-          messen={regionData.localArchitekturContext}
-          regionName={regionData.name}
-          type="architektur"
-        />
-
         {/* Unique regional text content – prevents thin content / not indexed */}
         <RegionalUniqueContent
           regionName={regionData.name}
