@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import RegionalCoverage from "@/components/landing/RegionalCoverage";
