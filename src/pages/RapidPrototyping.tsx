@@ -22,9 +22,7 @@ import {
   Package,
   AlertTriangle,
   X,
-  RotateCcw,
   Clock,
-  TrendingUp,
   Cpu,
   BarChart3
 } from "lucide-react";
@@ -418,36 +416,47 @@ const RapidPrototyping = () => {
           </div>
         </section>
 
-        {/* ── Keyword-Content ───────────────────────────────────────── */}
+        {/* ── Keyword-Content (ohne CTA) ────────────────────────────── */}
         <KeywordRichContent
           title={keywordContent.title}
           intro={keywordContent.intro}
           blocks={keywordContent.blocks}
-          ctaText="Designprototyp anfragen"
-          ctaLink="/kontakt"
         />
 
-        {/* ── CTA Banner ────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4 text-center">
-            <TrendingUp className="w-12 h-12 mx-auto mb-4 opacity-90" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Machen Sie Ihr Design greifbar</h2>
-            <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-4 text-lg">
-              Anschauungsprototyp anfragen – Angebot innerhalb von 6 Stunden, kostenlos und unverbindlich.
-            </p>
-            <p className="text-primary-foreground/60 max-w-xl mx-auto mb-8 text-sm">
-              Nur Anschauungsmodelle zu Designzwecken. Keine Funktionsteile oder technischen Bauteile.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary">
-                <Link to="/kontakt">
-                  Jetzt anfragen
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                <Link to="/einzelanfertigungen">Alle Einzelanfertigungen</Link>
-              </Button>
+        {/* ── Einziger CTA ──────────────────────────────────────────── */}
+        <section className="py-20 md:py-28">
+          <div className="container mx-auto px-4">
+            <div className="relative max-w-4xl mx-auto rounded-3xl overflow-hidden bg-primary text-primary-foreground shadow-2xl">
+              {/* Decorative blobs */}
+              <div className="absolute -top-24 -right-24 w-72 h-72 bg-primary-foreground/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-primary-foreground/10 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="relative px-8 py-16 md:px-16 md:py-20 text-center">
+                <div className="inline-flex items-center gap-2 bg-primary-foreground/15 text-primary-foreground px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+                  <Clock className="w-4 h-4" />
+                  Angebot in 6 Stunden — kostenlos & unverbindlich
+                </div>
+                <h2 className="text-3xl md:text-5xl font-black mb-5 leading-tight">
+                  Machen Sie Ihr Design<br className="hidden md:block" /> greifbar
+                </h2>
+                <p className="text-primary-foreground/80 max-w-xl mx-auto mb-2 text-lg">
+                  Senden Sie uns Ihre Designdatei — wir kalkulieren, produzieren und liefern österreichweit.
+                </p>
+                <p className="text-primary-foreground/50 text-sm mb-10">
+                  Nur Anschauungsmodelle · keine Funktionsteile · keine Ersatzteile
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold text-base shadow-lg">
+                    <Link to="/kontakt">
+                      Designprototyp anfragen
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </Link>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-base">
+                    <Link to="/referenzen">Referenzprojekte ansehen</Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
