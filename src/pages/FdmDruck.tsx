@@ -5,16 +5,18 @@ import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ServiceSchema from "@/components/ServiceSchema";
-import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
+import CTASection from "@/components/landing/CTASection";
+import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Box, Zap, DollarSign, Wrench, CheckCircle, ArrowRight, Palette, Home } from "lucide-react";
+import { Box, Zap, CheckCircle, ArrowRight, Palette, Home, Layers, Cpu, Ruler, Star, MapPin, Package, Clock } from "lucide-react";
 
 const faqs = [
   {
