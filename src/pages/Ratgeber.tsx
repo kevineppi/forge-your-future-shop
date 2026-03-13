@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, TrendingUp, Clock, Award, Palette } from "lucide-react";
+import { BookOpen, TrendingUp, Clock, Award, Palette, Wrench } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
@@ -11,13 +11,13 @@ import AIChatWidget from "@/components/AIChatWidget";
 const Ratgeber = () => {
   const articles = [
     {
-      title: "Messemodelle im 3D-Druck: Kosten, Planung & Tipps 2025",
+      title: "Messemodelle im 3D-Druck: Kosten, Planung & Tipps 2026",
       description: "Schritt-für-Schritt Guide für Messeaussteller: Was kostet ein Messemodell? Wie plane ich rechtzeitig? Materialwahl und echte Preisbeispiele aus der Praxis.",
       link: "/ratgeber/messemodell-guide",
       icon: TrendingUp,
       category: "Messemodelle",
       readTime: "10 Min. Lesezeit",
-      date: "Oktober 2025"
+      date: "März 2026"
     },
     {
       title: "Architekturmodelle 3D-Druck: Maßstäbe, Kosten & CAD-Export",
@@ -26,16 +26,25 @@ const Ratgeber = () => {
       icon: Palette,
       category: "Architekturmodelle",
       readTime: "12 Min. Lesezeit",
-      date: "Oktober 2025"
+      date: "März 2026"
     },
     {
-      title: "3D-Druck Kosten in Österreich: Der ultimative Preisguide 2025",
+      title: "Rapid Prototyping mit 3D-Druck: Der ultimative Guide 2026",
+      description: "Funktionsprototypen in 24h, Materialwahl für Ingenieure, CAD-Formate und Toleranzen – alles was Produktentwickler wissen müssen.",
+      link: "/ratgeber/prototyping-guide",
+      icon: Wrench,
+      category: "Prototypen",
+      readTime: "10 Min. Lesezeit",
+      date: "März 2026"
+    },
+    {
+      title: "3D-Druck Kosten in Österreich: Der ultimative Preisguide 2026",
       description: "Erfahren Sie alles über 3D-Druck Preise, Kostenfaktoren und wie Sie bei Ihrem nächsten Projekt Geld sparen können. Inklusive echter Preisbeispiele und Kalkulationshilfen.",
       link: "/ratgeber/kosten-guide",
       icon: TrendingUp,
       category: "Kosten & Preise",
       readTime: "8 Min. Lesezeit",
-      date: "Oktober 2025"
+      date: "März 2026"
     },
     {
       title: "FDM vs. SLA vs. SLS: Welches 3D-Druckverfahren ist das richtige?",
@@ -44,7 +53,7 @@ const Ratgeber = () => {
       icon: Award,
       category: "Technologie",
       readTime: "12 Min. Lesezeit",
-      date: "Oktober 2025"
+      date: "März 2026"
     },
     {
       title: "PLA, PETG oder ASA? Der wissenschaftliche Material-Guide",
@@ -53,16 +62,7 @@ const Ratgeber = () => {
       icon: BookOpen,
       category: "Materialien",
       readTime: "10 Min. Lesezeit",
-      date: "Oktober 2025"
-    },
-    {
-      title: "3D-Druck für Architekturmodelle: Tipps & Materialwahl",
-      description: "Erfahren Sie, wie Sie beeindruckende Architekturmodelle mit 3D-Druck erstellen. Materialwahl, Skalierung und Präsentationstechniken für Architekten und Modellbauer.",
-      link: "/modellbau-dekoration",
-      icon: Palette,
-      category: "Modellbau",
-      readTime: "8 Min. Lesezeit",
-      date: "Januar 2025"
+      date: "März 2026"
     }
   ];
 
@@ -89,7 +89,7 @@ const Ratgeber = () => {
       <SEOHead
         title="3D-Druck Wissen: Kosten sparen & Fehler vermeiden | Gratis"
         description="Sparen Sie €500+ bei Ihrem ersten Projekt! Kostenlose Guides: Was kostet 3D-Druck wirklich? Welches Material? → Experten-Tipps sofort anwenden"
-        keywords="3d-druck ratgeber, 3d-druck kosten, fdm verfahren, 3d-druck tipps österreich, 3d-druck guide, modellbau guide"
+        keywords="3d-druck ratgeber, 3d-druck kosten, fdm verfahren, 3d-druck tipps österreich, 3d-druck guide, modellbau guide, rapid prototyping guide"
         path="/ratgeber"
         schemaType="article"
       />
@@ -145,7 +145,7 @@ const Ratgeber = () => {
               <Card className="text-center">
                 <CardContent className="pt-6">
                   <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-foreground">2025</div>
+                  <div className="text-2xl font-bold text-foreground">2026</div>
                   <div className="text-sm text-muted-foreground">Aktuell & relevant</div>
                 </CardContent>
               </Card>
@@ -178,14 +178,14 @@ const Ratgeber = () => {
                   </CardHeader>
                   <CardContent>
                     <Button asChild className="w-full md:w-auto">
-                      <a href={article.link}>
-                      {article.category === 'Messemodelle' && 'Messemodell-Guide lesen'}
+                      <Link to={article.link}>
+                        {article.category === 'Messemodelle' && 'Messemodell-Guide lesen'}
                         {article.category === 'Architekturmodelle' && 'Architekturmodell-Guide lesen'}
+                        {article.category === 'Prototypen' && 'Prototyping-Guide lesen'}
                         {article.category === 'Kosten & Preise' && '3D-Druck Kosten-Guide lesen'}
                         {article.category === 'Technologie' && 'Verfahrens-Vergleich lesen'}
                         {article.category === 'Materialien' && 'Material-Guide lesen'}
-                        {article.category === 'Modellbau' && 'Modellbau-Guide lesen'}
-                      </a>
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>

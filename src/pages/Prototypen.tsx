@@ -5,7 +5,7 @@ const Prototypen = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 301 Redirect to the merged page
+    // 301 Redirect to the full Rapid Prototyping landing page
     navigate('/rapid-prototyping', { replace: true });
   }, [navigate]);
 
