@@ -75,7 +75,7 @@ const Architekturmodelle = () => {
     {
       title: "Bauherren-Präsentationen",
       badge: "Mehr Abschlüsse",
-      badgeColor: "bg-green-500/10 text-green-600",
+      badgeColor: "bg-secondary text-secondary-foreground",
       description: "Bauherren, die ein physisches Modell sehen, entscheiden schneller und häufiger positiv. Architekten berichten von spürbar weniger Rückfragen nach der Präsentation.",
       details: [
         "Detailreiche Fassadenstrukturen",
@@ -88,7 +88,7 @@ const Architekturmodelle = () => {
     {
       title: "Baueinreichungs-Modelle",
       badge: "Behörden & Gemeinden",
-      badgeColor: "bg-blue-500/10 text-blue-600",
+      badgeColor: "bg-muted text-muted-foreground",
       description: "Behörden und Gemeinderäte genehmigen schneller, wenn sie das Projekt physisch vor sich haben. Geländemodelle zeigen die Einbettung in die Umgebung auf einen Blick.",
       details: [
         "Topografische Geländemodelle",
@@ -101,7 +101,7 @@ const Architekturmodelle = () => {
     {
       title: "Investoren-Präsentationen",
       badge: "Höhere Abschlussquote",
-      badgeColor: "bg-amber-500/10 text-amber-600",
+      badgeColor: "bg-primary/10 text-primary",
       description: "Investoren reagieren auf physische Modelle. Was abstrakt in Plänen wirkt, wird im Modell greifbar – Volumina, Lage, Proportion. Mehrere Büros berichten von schnelleren Zusagen.",
       details: [
         "Hochglanz-Oberflächen optional",
@@ -114,7 +114,7 @@ const Architekturmodelle = () => {
     {
       title: "Studien- & Entwurfsmodelle",
       badge: "Schnelle Iteration",
-      badgeColor: "bg-purple-500/10 text-purple-600",
+      badgeColor: "bg-accent text-accent-foreground",
       description: "In der frühen Entwurfsphase sind Geschwindigkeit und geringe Kosten entscheidend. Konzeptmodelle bereits ab €20 – ideal für Bürointernen Entwurfsprozess.",
       details: [
         "Ab €20 pro Modell",
@@ -127,7 +127,7 @@ const Architekturmodelle = () => {
     {
       title: "Städtebauliche Modelle",
       badge: "Für Gemeinden & Planer",
-      badgeColor: "bg-teal-500/10 text-teal-600",
+      badgeColor: "bg-muted text-foreground",
       description: "Quartiere, Bebauungspläne und städtebauliche Zusammenhänge visualisieren. Modularer Aufbau ermöglicht spätere Erweiterungen und flexible Phasendarstellungen.",
       details: [
         "Modularer Aufbau für Erweiterungen",
