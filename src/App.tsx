@@ -44,6 +44,7 @@ const PrototypingGuide       = lazy(() => import("./pages/ratgeber/PrototypingGu
 const MessemodellGuide       = lazy(() => import("./pages/ratgeber/MessemodellGuide"));
 const ArchitekturmodellGuide = lazy(() => import("./pages/ratgeber/ArchitekturmodellGuide"));
 const Prototypen             = lazy(() => import("./pages/Prototypen"));
+const RapidPrototyping       = lazy(() => import("./pages/RapidPrototyping"));
 const Glossar                = lazy(() => import("./pages/Glossar"));
 const Referenzen             = lazy(() => import("./pages/Referenzen"));
 const Architekturmodelle     = lazy(() => import("./pages/Architekturmodelle"));
