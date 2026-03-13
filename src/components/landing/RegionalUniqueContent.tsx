@@ -233,6 +233,7 @@ const RegionalUniqueContent = ({
                 </p>
                 <Link
                   to="/kontakt"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-primary/90 transition-colors shrink-0"
                 >
                   Jetzt anfragen
