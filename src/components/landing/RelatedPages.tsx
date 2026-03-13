@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Building2, Presentation, Palette, Users } from "lucide-react";
+import { ArrowRight, Building2, Presentation, Palette, Users, Wrench, Sparkles } from "lucide-react";
 
 interface RelatedPage {
   title: string;
@@ -23,10 +23,22 @@ const allPages: RelatedPage[] = [
     icon: Presentation
   },
   {
+    title: "Rapid Prototyping",
+    description: "Funktionsprototypen in 24–48h für Produktentwickler",
+    url: "/rapid-prototyping",
+    icon: Wrench
+  },
+  {
     title: "Kunstobjekte",
     description: "Grenzenlose kreative Möglichkeiten für Künstler",
     url: "/kunstobjekte",
     icon: Palette
+  },
+  {
+    title: "Einzelanfertigungen",
+    description: "Individuelle Anschauungsmodelle ab 1 Stück",
+    url: "/einzelanfertigungen",
+    icon: Sparkles
   },
   {
     title: "Firmenkunden",
