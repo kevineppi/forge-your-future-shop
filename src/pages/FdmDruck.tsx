@@ -5,16 +5,18 @@ import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ServiceSchema from "@/components/ServiceSchema";
-import Contact from "@/components/Contact";
 import AIChatWidget from "@/components/AIChatWidget";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
+import CTASection from "@/components/landing/CTASection";
+import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Box, Zap, DollarSign, Wrench, CheckCircle, ArrowRight, Palette, Home } from "lucide-react";
+import { Box, Zap, CheckCircle, ArrowRight, Palette, Home, Layers, Cpu, Ruler, Star, MapPin, Package, Clock } from "lucide-react";
 
 const faqs = [
   {
@@ -104,8 +106,9 @@ const FdmDruck = () => {
       ]} />
       
       <Navigation />
+      <Breadcrumbs items={[{ name: "Services", url: "#" }, { name: "FDM 3D-Druck", url: "/fdm-3d-druck" }]} />
       
-      <main className="pt-20">
+      <main className="pt-20 bg-background min-h-screen">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
           <div className="absolute inset-0 opacity-5 pointer-events-none">
@@ -338,16 +341,96 @@ const FdmDruck = () => {
           </div>
         </section>
 
-        {/* Keyword Rich Content */}
+        {/* ── Verfahrensvergleich Tabelle ───────────────────────────── */}
+        <section className="py-16 lg:py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-in">
+              <div className="text-center mb-10">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">FDM vs. SLA vs. SLS – der Vergleich</h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">Welches Verfahren ist für Ihr Anschauungsmodell das richtige?</p>
+              </div>
+              <div className="max-w-4xl mx-auto overflow-x-auto rounded-2xl border border-border shadow-md">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-primary text-primary-foreground">
+                      <th className="p-4 text-left font-semibold">Merkmal</th>
+                      <th className="p-4 text-center font-semibold">FDM ✓ Wir</th>
+                      <th className="p-4 text-center font-semibold text-primary-foreground/70">SLA (Resin)</th>
+                      <th className="p-4 text-center font-semibold text-primary-foreground/70">SLS (Pulver)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["Baugröße", "Bis 2m+ modular", "Bis 30cm", "Bis 40cm"],
+                      ["Materialkosten", "€15–150", "€50–300+", "€100–500+"],
+                      ["Materialvielfalt", "Sehr hoch (PLA, PETG, Holz, Marmor…)", "Mittel (Resin)", "Gering (PA12, PA11)"],
+                      ["Auflösung", "0,1–0,3mm Schichthöhe", "0,025–0,1mm", "0,1mm"],
+                      ["Nachbearbeitung", "Lackierbar, schleifbar", "Aufwändig, giftig", "Sandstrahlen nötig"],
+                      ["Lieferzeit", "24–48h Express", "3–7 Tage", "5–10 Tage"],
+                      ["Nachhaltigkeit", "PLA biologisch abbaubar", "Resin-Entsorgung problematisch", "Pulverreste aufwändig"],
+                      ["Ideal für", "Architektur-, Messemodelle, Kunst", "Schmuck, Zahntechnik", "Komplexe Funktionsteile"],
+                    ].map(([feat, fdm, sla, sls], i) => (
+                      <tr key={i} className={i % 2 === 0 ? "bg-background" : "bg-muted/20"}>
+                        <td className="p-4 font-medium text-foreground">{feat}</td>
+                        <td className="p-4 text-center text-primary font-medium">{fdm}</td>
+                        <td className="p-4 text-center text-muted-foreground">{sla}</td>
+                        <td className="p-4 text-center text-muted-foreground">{sls}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-center text-sm text-muted-foreground mt-4">
+                Für Anschauungsmodelle, Messeexponate und Architekturmodelle ist FDM die wirtschaftlichste Wahl.{" "}
+                <Link to="/ratgeber/verfahrens-vergleich" className="text-primary hover:underline">Detaillierter Verfahrensvergleich →</Link>
+              </p>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* ── Einsatzbereiche mit Verlinkung ────────────────────────── */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="slide-up">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">FDM 3D-Druck für Ihre Branche</h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">Architekten, Messebauer, Künstler und Unternehmen nutzen FDM für ihre Anschauungsmodelle</p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                {[
+                  { icon: Home, title: "Architekturmodelle", desc: "Maßstabsgetreue Architektur- und Stadtmodelle für Wettbewerbe, Investorenpräsentationen und Genehmigungsverfahren. Maßstäbe 1:50 bis 1:500. CAD-Export aus ArchiCAD, Revit und Rhino direkt verarbeitbar.", link: "/architekturmodelle", badge: "1:50 – 1:500" },
+                  { icon: Layers, title: "Messemodelle", desc: "XXL-Blickfänger für Messestände, Produktnachbildungen und Standdekorationen. Express in 24h für kurzfristige Messetermine. Objekte bis 2m+ durch modulare Fertigung.", link: "/messemodelle", badge: "Express 24h" },
+                  { icon: Palette, title: "Kunstobjekte", desc: "Skulpturen, Installationen und Designobjekte mit Holz-Optik, Marmor-Look oder Metallic-Finish. Vom Konzeptmodell bis zur Galerie-Skulptur – grenzenlose Formfreiheit.", link: "/kunstobjekte", badge: "Grenzenlos" }
+                ].map((area, i) => (
+                  <Card key={i} className="group hover:shadow-lg hover:border-primary/40 transition-all">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <area.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">{area.badge}</span>
+                      </div>
+                      <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{area.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{area.desc}</p>
+                      <Link to={area.link} className="text-sm text-primary font-medium hover:underline inline-flex items-center gap-1">
+                        Mehr erfahren <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* ── Keyword Rich Content ──────────────────────────────────── */}
         <KeywordRichContent
           title={keywordContent.title}
           intro={keywordContent.intro}
           blocks={keywordContent.blocks}
-          ctaText="FDM-Druck anfragen"
-          ctaLink="/kontakt"
         />
 
-        {/* FAQ Section */}
+        {/* ── FAQ ───────────────────────────────────────────────────── */}
         <FAQSection
           faqs={faqs}
           title="Häufige Fragen zu FDM 3D-Druck"
@@ -355,39 +438,19 @@ const FdmDruck = () => {
           schemaId="fdm-3d-druck"
         />
 
-        {/* Related Pages */}
+        {/* ── CTA ───────────────────────────────────────────────────── */}
+        <CTASection
+          headline="FDM-Druck anfragen – Angebot in 6 Stunden"
+          subline="Senden Sie uns Ihre Datei oder beschreiben Sie Ihr Projekt für ein Architektur-, Messe- oder Kunstobjekt. Kostenlose Beratung und verbindliches Angebot."
+          ctaLabel="Jetzt anfragen"
+          secondaryLabel="Verfahren vergleichen"
+          secondaryHref="/ratgeber/verfahrens-vergleich"
+          urgencyText="⚡ Express 24h · PLA biologisch abbaubar · Made in Austria"
+          legalNote="Ausschließlich Anschauungsmodelle zu Präsentationszwecken – keine Funktionsteile, keine Ersatzteile."
+        />
+
         <RelatedPages currentPage="/fdm-3d-druck" title="Weitere Services" />
 
-        {/* CTA Section */}
-        <section className="py-16 lg:py-20 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
-                <CheckCircle className="h-8 w-8 text-primary" />
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Ihr Projekt für Modellbau oder Dekoration
-              </h2>
-              <p className="text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
-                Kostenlose Beratung für Architekturmodelle, Dekorationsobjekte und Kunstgegenstände. 
-                Wir prüfen die Machbarkeit Ihres Projekts!
-              </p>
-              <LegalDisclaimer variant="compact" className="max-w-2xl mx-auto mb-8" />
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="hero" className="hover-scale" asChild>
-                  <Link to="/kontakt">Anfrage stellen <ArrowRight className="ml-2 h-5 w-5" /></Link>
-                </Button>
-                <Button size="lg" variant="outline" className="hover-scale" asChild>
-                  <Link to="/kontakt">Beratung anfordern</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <Contact />
       </main>
 
       <AIChatWidget />
