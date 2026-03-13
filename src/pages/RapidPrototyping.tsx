@@ -10,6 +10,7 @@ import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
+import CTASection from "@/components/landing/CTASection";
 import AIChatWidget from "@/components/AIChatWidget";
 import {
   Zap,
