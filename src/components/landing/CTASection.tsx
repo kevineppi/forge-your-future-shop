@@ -77,13 +77,13 @@ const CTASection = ({
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button asChild size="lg" variant="hero" className="text-base w-full sm:w-auto px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow">
-                <Link to={ctaHref}>
+                <Link to={ctaHref} onClick={() => window.scrollTo(0, 0)}>
                   {ctaLabel}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="text-base w-full sm:w-auto px-8 border-2 hover:bg-muted/50">
-                <Link to={secondaryHref}>
+                <Link to={secondaryHref} onClick={() => window.scrollTo(0, 0)}>
                   {secondaryLabel}
                 </Link>
               </Button>
