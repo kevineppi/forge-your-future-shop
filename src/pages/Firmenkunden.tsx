@@ -280,6 +280,10 @@ const Firmenkunden = () => {
         <meta property="og:url" content="https://www.ek-druck.at/firmenkunden" />
       </Helmet>
 
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: "Firmenkunden", url: "/firmenkunden" }
+      ]} />
       <Navigation />
       <Breadcrumbs items={breadcrumbs} />
 
