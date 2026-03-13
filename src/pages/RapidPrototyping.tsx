@@ -15,6 +15,7 @@ import AIChatWidget from "@/components/AIChatWidget";
 import {
   Zap,
   CheckCircle,
+  ArrowRight,
   Star,
   Lightbulb,
   Eye,
