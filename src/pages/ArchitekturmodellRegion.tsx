@@ -112,28 +112,32 @@ const ArchitekturmodellRegion = () => {
   const faqs = [
     {
       question: `Was kostet ein 3D-gedrucktes Architekturmodell in ${regionData.name}?`,
-      answer: `Die Kosten hängen von Größe, Maßstab und Detailgrad ab. Einfache Studienmodelle starten ab ca. €20, komplexe Präsentationsmodelle im Maßstab 1:100 liegen typischerweise zwischen €80-200. Lieferung nach ${regionData.name}: ${regionData.deliveryTime}.`
+      answer: `Die Kosten hängen von Größe, Maßstab und Detailgrad ab. Einfache Studienmodelle (Baukörperstudie) starten ab ca. €20, Präsentationsmodelle im Maßstab 1:100 liegen typischerweise zwischen €80–200, Wettbewerbsmodelle mit Umgebung €150–500. Lieferung nach ${regionData.name}: ${regionData.deliveryTime}. Kostenloses Angebot erhalten Sie innerhalb von 6 Stunden.`
     },
     {
       question: `Wie schnell können Architekturmodelle nach ${regionData.name} geliefert werden?`,
-      answer: `Standardlieferung nach ${regionData.name}: ${regionData.deliveryTime}. ${regionData.deliveryNote}. Express-Fertigung in 24h ist für dringende Wettbewerbstermine möglich.`
+      answer: `Standardlieferung nach ${regionData.name}: ${regionData.deliveryTime}. ${regionData.deliveryNote}. Express-Fertigung in 24h ist für Wettbewerbstermine möglich (50% Aufpreis). Wir empfehlen 7 Tage Vorlauf für entspannte Planung ohne Aufpreis.`
     },
     {
-      question: `Welcher Maßstab eignet sich für Architekturmodelle?`,
-      answer: `Die gängigsten Maßstäbe: 1:50 für detaillierte Innenräume, 1:100 für Einzelgebäude und Präsentationen, 1:200 bis 1:500 für städtebauliche Modelle. Wir beraten Sie gerne zur optimalen Wahl für Ihr Projekt.`
+      question: `Welche CAD-Programme werden für Architekturmodelle in ${regionData.name} unterstützt?`,
+      answer: `Wir verarbeiten STL-, OBJ- und 3MF-Dateien aus allen gängigen Architektursoftware-Programmen: ArchiCAD, Autodesk Revit, SketchUp, Rhino und Vectorworks. Bei Problemen mit dem Export helfen wir kostenlos. Auch native Dateiformate nehmen wir auf Anfrage entgegen und konvertieren für Sie.`
     },
     {
-      question: "Welche Dateiformate werden akzeptiert?",
-      answer: "Wir verarbeiten STL, OBJ und 3MF Dateien. Diese können direkt aus ArchiCAD, Revit, SketchUp, Rhino oder anderen CAD-Programmen exportiert werden."
+      question: `Welcher Maßstab eignet sich für Architekturmodelle in ${regionData.name}?`,
+      answer: `1:100 ist das beliebteste Format für Bauherren-Präsentationen und Einzelgebäude. 1:200 eignet sich für Wettbewerbe mit Umgebungsdarstellung. 1:500 für städtebauliche Studien und Quartiersentwicklungen. Für detaillierte Schnittmodelle 1:50. Wir beraten Sie gerne zur optimalen Wahl für Ihr konkretes Projekt.`
     },
     {
-      question: "Können transparente Fassadenelemente gedruckt werden?",
-      answer: "Ja, mit PETG Transparent können Glasflächen und Fassadenelemente halbtransparent dargestellt werden. Dies eignet sich besonders für moderne Gebäude mit großen Glasfronten."
+      question: "Können transparente Glasfassaden und Fensterflächen dargestellt werden?",
+      answer: "Ja – mit PETG Transparent drucken wir Glasflächen, Fensterbänder und Glasdächer halbtransparent. Diese Elemente werden typischerweise separat gedruckt und eingesetzt. Besonders wirkungsvoll bei modernen Gebäuden mit großen Glasfronten – z.B. Bürogebäude, Kulturbau oder Wintergärten."
     },
     {
       question: `Wie bereite ich meine CAD-Datei für ein Architekturmodell in ${regionData.name} vor?`,
-      answer: `Exportieren Sie Ihr Modell aus ArchiCAD, Revit, SketchUp oder Rhino als STL- oder OBJ-Datei. Bei Unsicherheiten helfen wir Ihnen gerne bei der Dateivorbereitung. Angebot erhalten Sie innerhalb von 6 Stunden nach Einreichung.`
-    }
+      answer: `Exportieren Sie Ihr Modell als STL-Datei in Millimeter. Wichtig: Das Modell sollte 'wasserdicht' sein (keine offenen Flächen). Details unter 0.8mm bitte leicht aufdicken. Glaselemente als separate STL exportieren. Angebot erhalten Sie innerhalb von 6 Stunden – wir prüfen Ihre Datei kostenlos.`
+    },
+    {
+      question: "Kann ich mehrere Entwurfsvarianten gleichzeitig bestellen?",
+      answer: `Ja – das ist einer der größten Vorteile des 3D-Drucks. Mehrere Varianten parallel drucken kostet ca. 20% mehr als ein Modell, ermöglicht aber direkten Vergleich beim Bauherrn oder bei der Jury. Besonders für Wettbewerbe in ${regionData.name} empfohlen: Zwei Varianten geben der Jury eine echte Entscheidungsgrundlage.`
+    },
   ];
 
   // FAQPage Schema for Rich Snippets
