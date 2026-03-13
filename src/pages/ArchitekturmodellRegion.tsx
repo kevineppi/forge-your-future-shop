@@ -22,6 +22,7 @@ import { getArchitekturRegionBySlug, regionalArchitekturData } from "@/data/regi
 import { getArchitekturExtendedDataBySlug } from "@/data/regionalArchitekturExtendedData";
 import { getGermanArchitekturBySlug, germanArchitekturData } from "@/data/germanArchitekturData";
 import { getGermanArchitekturExtendedBySlug } from "@/data/germanArchitekturExtendedData";
+import CTASection from "@/components/landing/CTASection";
 import { 
   Building2, 
   Clock, 
@@ -30,7 +31,6 @@ import {
   ArrowRight,
   MapPin,
   Truck,
-  Sparkles,
   Star
 } from "lucide-react";
 
