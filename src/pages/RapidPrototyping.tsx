@@ -22,9 +22,7 @@ import {
   Package,
   AlertTriangle,
   X,
-  RotateCcw,
   Clock,
-  TrendingUp,
   Cpu,
   BarChart3
 } from "lucide-react";
