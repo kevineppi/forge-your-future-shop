@@ -106,8 +106,9 @@ const FdmDruck = () => {
       ]} />
       
       <Navigation />
+      <Breadcrumbs items={[{ name: "Services", url: "#" }, { name: "FDM 3D-Druck", url: "/fdm-3d-druck" }]} />
       
-      <main className="pt-20">
+      <main className="pt-20 bg-background min-h-screen">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
           <div className="absolute inset-0 opacity-5 pointer-events-none">
