@@ -18,6 +18,27 @@
     <link rel="apple-touch-icon" href="/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png">
 
+    <!-- ═══ PERFORMANCE: preconnect & dns-prefetch ═══ -->
+    <!-- Google APIs (GTM, GA4, Ads, Fonts) -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Supabase (API calls start early) -->
+    <link rel="preconnect" href="https://tnsxoaqatahxobffamqb.supabase.co" crossorigin />
+    <link rel="dns-prefetch" href="https://tnsxoaqatahxobffamqb.supabase.co" />
+    <!-- Storage / CDN -->
+    <link rel="dns-prefetch" href="https://storage.googleapis.com" />
+    <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+    <link rel="dns-prefetch" href="https://maps.gstatic.com" />
+
+    <!-- ═══ PERFORMANCE: LCP hero image preload ═══ -->
+    <link rel="preload" href="/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png" as="image" fetchpriority="high" />
+
+    <!-- ═══ PERFORMANCE: Critical CSS hint ═══ -->
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
