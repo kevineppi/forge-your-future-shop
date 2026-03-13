@@ -646,29 +646,17 @@ const Architekturmodelle = () => {
           blocks={keywordContent.blocks}
         />
 
-        {/* ── CTA BAND ── */}
-        <section className="py-16 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Bereit für Ihr nächstes Modell?</h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto text-lg">
-              Schicken Sie uns Ihre CAD-Datei – wir antworten mit einem verbindlichen Angebot in unter 6 Stunden.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="text-base font-semibold">
-                <Link to="/kontakt">
-                  Jetzt anfragen – kostenlos & unverbindlich
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
-                <Link to="/referenzen">Referenzprojekte ansehen</Link>
-              </Button>
-            </div>
-            <p className="text-primary-foreground/60 text-sm mt-6">
-              Express-Service ⚡ 24h Lieferung für Wettbewerbstermine möglich
-            </p>
-          </div>
-        </section>
+        {/* ── CTA ── */}
+        <CTASection
+          headline="Projekt anfragen – Angebot in 6 Stunden"
+          subline="Schicken Sie uns Ihre CAD-Datei (STL, OBJ, 3MF) oder beschreiben Sie Ihr Vorhaben kurz. Wir melden uns persönlich mit einem verbindlichen Angebot – kostenlos und unverbindlich."
+          ctaLabel="Jetzt kostenlos anfragen"
+          ctaHref="/kontakt"
+          secondaryLabel="Referenzprojekte ansehen"
+          secondaryHref="/referenzen"
+          badge="Für Architekten & Planer"
+          urgencyText="⚡ Express 24h für Wettbewerbstermine · Persönliche Abholung in Gunskirchen möglich"
+        />
 
         {/* ── REGIONAL COVERAGE ── */}
         <RegionalCoverage serviceName="Architekturmodelle" />
