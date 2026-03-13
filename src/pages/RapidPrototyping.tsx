@@ -253,7 +253,7 @@ const RapidPrototyping = () => {
                   <div className="flex items-center gap-2">
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                       ))}
                     </div>
                     <span className="text-sm font-medium">5.0 Google Bewertung</span>
