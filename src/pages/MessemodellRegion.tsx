@@ -104,6 +104,32 @@ const MessemodellRegion = () => {
     }
   };
 
+  // AggregateRating Schema
+  const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ekdruck e.U.",
+    "description": `3D-Druck Messemodelle für ${regionData.name} – maßgefertigt, Express-Lieferung möglich`,
+    "url": `https://www.ek-druck.at/messemodelle/${regionData.slug}`,
+    "telephone": "+43 660 9691150",
+    "email": "office@ek-druck.at",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wegscheid 25",
+      "addressLocality": "Gunskirchen",
+      "postalCode": "4623",
+      "addressRegion": "Oberösterreich",
+      "addressCountry": "AT"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
+
   // Breadcrumb Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
