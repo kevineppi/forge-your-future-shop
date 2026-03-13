@@ -9,111 +9,94 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
+import LegalDisclaimer from "@/components/LegalDisclaimer";
 import AIChatWidget from "@/components/AIChatWidget";
 import {
   Zap,
-  Clock,
   CheckCircle,
   ArrowRight,
-  Target,
-  Layers,
-  RotateCcw,
-  Package,
   Star,
-  TrendingUp,
-  Wrench,
   Lightbulb,
-  Shield,
-  BarChart3,
+  Eye,
+  Palette,
+  Package,
+  AlertTriangle,
+  X,
+  RotateCcw,
+  Clock,
+  TrendingUp,
   Cpu,
-  Settings
+  BarChart3
 } from "lucide-react";
 
 const RapidPrototyping = () => {
   const stats = [
-    { value: "24h", label: "Lieferzeit", description: "Schnellstes Prototyping" },
+    { value: "24h", label: "Express", description: "Schnellste Lieferzeit" },
     { value: "€20", label: "Ab Preis", description: "Günstiger Einstieg" },
-    { value: "0,1mm", label: "Genauigkeit", description: "Schichtauflösung" },
+    { value: "0,1mm", label: "Detailgenauigkeit", description: "Schichtauflösung" },
     { value: "100%", label: "Termintreue", description: "Verlässliche Lieferung" }
   ];
 
-  const benefits = [
+  const whatWeDo = [
     {
-      icon: Zap,
-      title: "Rapid Prototyping in 24–48h",
-      description: "Von der STL-Datei zum physischen Prototypen innerhalb eines Werktages. Ideal für Produktentwickler, Ingenieure und Startups, die schnelle Iterationszyklen benötigen."
+      icon: Eye,
+      title: "Anschauungsprototypen",
+      description: "Physische Darstellungen Ihres Produktdesigns für Präsentationen, Investorengespräche und interne Design-Reviews. Das Modell zeigt Form, Proportionen und Ästhetik – greifbar statt nur als 3D-Rendering.",
+      highlight: "Für Präsentationen"
     },
     {
-      icon: RotateCcw,
-      title: "Iterative Entwicklung",
-      description: "Testen, verfeinern, optimieren. Mehrere Designiterationen in kurzer Zeit – physische Tests ersetzen aufwändige Simulationen und decken Fehler früh auf."
+      icon: Palette,
+      title: "Designprototypen & Konzeptmodelle",
+      description: "Frühe Designmodelle zur Visualisierung von Ideen. Testen Sie verschiedene Formvarianten, Proportionen und Farbkonzepte physisch – ideal für Produktdesigner, Agenturen und Startups.",
+      highlight: "Formfindung"
     },
     {
-      icon: Target,
-      title: "Passgenau nach Ihren Specs",
-      description: "Enge Toleranzen bis ±0,2mm möglich. Jeder Prototyp wird nach Ihren CAD-Daten gefertigt – präzise, wiederholbar, dokumentiert."
-    },
-    {
-      icon: Package,
-      title: "Vielfältige Materialien",
-      description: "PLA, PETG, ASA, TPU und mehr. Wir wählen gemeinsam mit Ihnen das optimale Material für Funktion, Ästhetik und Belastungstest Ihres Prototypen."
-    }
-  ];
-
-  const useCases = [
-    {
-      title: "Funktionsprototypen",
-      description: "Erste physische Modelle zur Überprüfung von Passform, Funktion und Zusammenbau. Identifizieren Sie Konstruktionsfehler, bevor teure Werkzeuge oder Formen gebaut werden.",
-      details: ["Form-Fit-Function Tests", "Montagetests mit Gegenstücken", "Erstmuster vor Serienproduktion"],
-      icon: Wrench,
-      highlight: "Engineering-Qualität"
-    },
-    {
-      title: "Design-Validierungsmodelle",
-      description: "Ästhetische Muster für Kundenpräsentationen, Marketingfotos und Investor-Pitches. Überzeugen Sie mit einem greifbaren Produkt statt mit 3D-Renderings.",
-      details: ["Präsentationsfertige Oberflächen", "Lackier- und Nachbearbeitbar", "Hochwertige Optik"],
       icon: Star,
+      title: "Präsentationsmuster & Werbemittel",
+      description: "Hochwertige Anschauungsmuster für Messen, Marketingfotos und Showrooms. Zeigen Sie Kunden ein greifbares Objekt, das Form und Design Ihres geplanten Produkts kommuniziert.",
       highlight: "Investor-Ready"
     },
     {
-      title: "Konzept- & Studienmodelle",
-      description: "Frühe Entwurfsmodelle für interne Reviews und Designentscheidungen. Günstige, schnelle Varianten um das Konzept zu greifen und zu diskutieren.",
-      details: ["Ab €20 pro Modell", "Schnelle Abwandlungen", "Maßstabsmodelle 1:1 bis 1:10"],
       icon: Lightbulb,
-      highlight: "Cost-Efficient"
-    },
-    {
-      title: "Montagehilfen & Vorrichtungen",
-      description: "Individuell gefertigte Jigs, Lehren und Montagevorrichtungen für Fertigung und Qualitätskontrolle. Exakt auf Ihr Produkt und Ihren Prozess abgestimmt.",
-      details: ["Bohrschablonen & Lehren", "Haltevorrichtungen", "Prüf- & Messhilfen"],
-      icon: Settings,
-      highlight: "Prozessoptimierung"
+      title: "Konzept- & Studienmmodelle",
+      description: "Günstige, schnelle Entwurfsmodelle für Besprechungen und Designentscheidungen. Mehrere Varianten parallel möglich – ideal für iterative Designprozesse in frühen Entwicklungsphasen.",
+      highlight: "Iteratives Design"
     }
+  ];
+
+  // WKO: Klare Abgrenzung was NICHT möglich ist
+  const whatWeDoNOT = [
+    "Funktionsfähige Bauteile für technische Geräte oder Maschinen",
+    "Ersatzteile oder sicherheitsrelevante Komponenten",
+    "Technische Prüf- und Montagehilfen",
+    "Prototypen für lebensmittelberührenden Einsatz",
+    "Teile für medizinische Anwendungen",
+    "Serienfertigungsaufträge oder Erstmuster für Produktion"
   ];
 
   const process = [
     {
       step: "01",
-      title: "CAD-Datei senden",
-      description: "Senden Sie uns Ihre STL, STEP, OBJ oder andere 3D-Formate per E-Mail oder über das Kontaktformular.",
+      title: "Designdaten senden",
+      description: "Senden Sie uns Ihre STL, OBJ, STEP oder andere 3D-Daten. Auch Skizzen und Referenzbilder für die Modellerstellung möglich.",
       icon: Cpu
     },
     {
       step: "02",
       title: "Angebot in 6 Stunden",
-      description: "Sie erhalten innerhalb von 6 Werkszeiten ein detailliertes Angebot mit Material-, Preis- und Zeitplan-Empfehlung.",
+      description: "Wir prüfen die Designdaten und senden innerhalb von 6 Werkszeiten ein kostenloses Angebot mit Preis und Liefertermin.",
       icon: BarChart3
     },
     {
       step: "03",
-      title: "Fertigung startet sofort",
-      description: "Nach Auftragsbestätigung beginnen wir umgehend mit der Fertigung. Bei Express-Aufträgen noch am selben Tag.",
+      title: "Fertigung & Qualitätskontrolle",
+      description: "Nach Auftragsbestätigung beginnt die Fertigung. Jedes Anschauungsmodell wird vor dem Versand geprüft.",
       icon: Zap
     },
     {
       step: "04",
       title: "Lieferung österreichweit",
-      description: "Versand per DHL/GLS oder persönliche Übergabe in Gunskirchen/OÖ. Tracking und sichere Verpackung inklusive.",
+      description: "Versand per DHL/GLS in ganz Österreich und Deutschland. Persönliche Abholung in Gunskirchen/OÖ möglich.",
       icon: Package
     }
   ];
@@ -121,105 +104,101 @@ const RapidPrototyping = () => {
   const materials = [
     {
       name: "PLA / PLA+",
-      description: "Ideales Standardmaterial für Anschauungsmodelle, Konzeptprototypen und geometrisch komplexe Bauteile. Hohe Detailgenauigkeit, über 20 Farben.",
-      properties: ["Temperatur bis 60°C", "Sehr gute Druckbarkeit", "Biologisch abbaubar", "20+ Farben"],
-      use: "Konzeptmodelle, Anschauungsobjekte"
+      description: "Ideales Material für Designprototypen und Konzeptmodelle. Hohe Detailgenauigkeit, über 20 Farben, gut lackierbar.",
+      properties: ["20+ Farben", "Hohe Details", "Gut lackierbar", "Biologisch abbaubar"],
+      use: "Designmodelle, Konzepte"
     },
     {
       name: "PETG",
-      description: "Zäh, chemikalienbeständig und lebensmittelecht. Für Prototypen mit erhöhten mechanischen Anforderungen und schlagzähe Bauteile.",
-      properties: ["Temperatur bis 80°C", "Schlagzäh & flexibel", "Lebensmittelecht", "Transparent möglich"],
-      use: "Funktionsprototypen, Behälter"
+      description: "Für Präsentationsmodelle mit glasklaren oder transluzenten Bereichen. Schlagzäh und hochglänzend.",
+      properties: ["Transparent möglich", "Hochglanz-Optik", "Schlagzäh", "UV-beständig"],
+      use: "Showroom, Messe"
     },
     {
-      name: "ASA / ABS",
-      description: "UV- und witterungsbeständig – perfekt für Outdoor-Prototypen und Teile, die später lackiert oder chemisch nachbehandelt werden.",
-      properties: ["UV-stabil", "Temperatur bis 100°C", "Lackierbar", "Schleifbar"],
-      use: "Outdoor-Einsatz, Automotive"
+      name: "ASA",
+      description: "Für Designmodelle, die auch im Freien präsentiert werden. UV-stabil, lackierbar, witterungsbeständig.",
+      properties: ["UV-stabil", "Außeneinsatz", "Lackierbar", "Schleifbar"],
+      use: "Outdoor-Präsentationen"
     },
     {
-      name: "TPU (Flexibel)",
-      description: "Elastomeres Material für flexible Bauteile, Dichtungen, Griffe oder Teile mit Dämpfungseigenschaften.",
-      properties: ["Shore 95A Härte", "Reiß- & abriebfest", "Gummiartige Haptik", "Medizinisch unbedenklich"],
-      use: "Dichtungen, Griffe, Dämpfer"
+      name: "Spezialfilamente",
+      description: "Holz-Optik, Marmor-Look, Metallic oder Seidenmatt für besondere ästhetische Wirkung Ihrer Designmodelle.",
+      properties: ["Holz-Look", "Marmor-Optik", "Metallic", "Seidenmatt"],
+      use: "Premium-Präsentationen"
     }
   ];
 
   const faqs = [
     {
-      question: "Was ist Rapid Prototyping mit 3D-Druck?",
-      answer: "Rapid Prototyping bezeichnet die schnelle Herstellung von physischen Prototypen direkt aus digitalen 3D-Daten. Mit FDM 3D-Druck können wir innerhalb von 24–48 Stunden nach Auftragsbestätigung funktionsfähige Prototypen liefern – ohne teure Werkzeuge oder Formen. Das ermöglicht schnelle Iterationszyklen in der Produktentwicklung."
+      question: "Was ist ein Designprototyp – und was nicht?",
+      answer: "Ein Designprototyp ist ein physisches Anschauungsmodell, das Form, Proportionen und Ästhetik eines Produktentwurfs darstellt. Er dient der visuellen Kommunikation in Präsentationen, Designreviews und Marketingmaßnahmen. Wir fertigen ausschließlich solche Anschauungsmodelle – keine funktionsfähigen Bauteile, Ersatzteile oder technisch belastbare Teile."
     },
     {
-      question: "Wie schnell kann ich einen Prototypen erhalten?",
-      answer: "Standard-Prototypen sind in 3–5 Werktagen fertig. Mit unserem Express-Service liefern wir in 24–48 Stunden nach Auftragsbestätigung. Für dringende Termine sprechen Sie uns direkt an – wir finden eine Lösung. Das Angebot erhalten Sie bereits innerhalb von 6 Arbeitsstunden."
+      question: "Kann ich Prototypen für Funktionstest bestellen?",
+      answer: "Nein. Gemäß unserer Gewerbeberechtigung fertigen wir ausschließlich Modelle zu Anschauungszwecken. Funktionsteile, Prüfteile, Ersatzteile oder technische Bauteile liegen nicht in unserem Leistungsumfang. Bei Fragen beraten wir Sie gerne und empfehlen gegebenenfalls geeignete Partner."
+    },
+    {
+      question: "Für wen sind Designprototypen geeignet?",
+      answer: "Designprototypen aus dem 3D-Druck sind ideal für Produktdesigner, Agenturen, Startups und Unternehmen, die ein physisches Anschauungsmodell für Präsentationen, Investorengespräche, Messeauftritte oder interne Designreviews benötigen. Das Modell kommuniziert Form und Ästhetik – greifbar und überzeugend."
     },
     {
       question: "Welche Dateiformate werden akzeptiert?",
-      answer: "Wir verarbeiten STL, STEP, OBJ, 3MF und weitere gängige 3D-Formate aus allen CAD-Programmen (SolidWorks, Fusion 360, Inventor, CATIA, FreeCAD etc.). Haben Sie nur ein 2D-Zeichnung oder eine Skizze? Unser Team unterstützt Sie auch bei der 3D-Modellierung auf Anfrage."
+      answer: "Wir verarbeiten STL, OBJ, 3MF und gängige CAD-Exportformate. Haben Sie nur eine Skizze oder ein Konzeptfoto? Auf Anfrage unterstützen wir auch bei der 3D-Modellierung Ihres Designentwurfs."
     },
     {
-      question: "Welche Maßtoleranzen sind möglich?",
-      answer: "Mit FDM 3D-Druck erreichen wir Maßtoleranzen von typischerweise ±0,2–0,5mm je nach Bauteilgröße, Geometrie und Material. Bei Passungen (z.B. Schraublöcher, Steckverbinder) empfehlen wir spezielle Toleranz-Kompensation bereits im CAD. Bei kritischen Passmaßen besprechen wir dies vorab mit Ihnen."
+      question: "Wie schnell erhalte ich ein Designprototyp-Modell?",
+      answer: "Standardmodelle liefern wir in 3–5 Werktagen. Mit Express-Service auch in 24–48 Stunden nach Auftragsbestätigung. Das Angebot erhalten Sie innerhalb von 6 Arbeitsstunden nach Dateieneingang – kostenlos und unverbindlich."
     },
     {
-      question: "Was kostet ein Prototyp?",
-      answer: "Die Kosten hängen von Größe, Material, Qualitätsstufe und Menge ab. Kleine Konzeptmodelle starten ab ca. €20. Mittelgroße Funktionsprototypen liegen typischerweise zwischen €50–200. Größere Baugruppen auf Anfrage. Senden Sie uns Ihre Datei – Sie erhalten ein kostenloses Angebot innerhalb von 6 Stunden."
+      question: "Was kostet ein Designprototyp?",
+      answer: "Kleine Konzeptmodelle starten ab ca. €20. Mittelgroße Präsentationsmodelle (15–25cm) liegen typischerweise bei €50–150. Größere oder aufwändigere Modelle auf Anfrage. Senden Sie uns Ihre Designdatei – wir kalkulieren kostenfrei."
     },
     {
-      question: "Sind die Prototypen funktionsfähig?",
-      answer: "Ja. FDM-Prototypen können für Form-Fit-Function-Tests, Montagetests und Präsentationen eingesetzt werden. Für mechanisch hochbelastete Teile empfehlen wir PETG oder ASA. Thermisch belastete Bauteile (über 100°C) sind für FDM weniger geeignet – hier beraten wir Sie zu alternativen Verfahren."
-    },
-    {
-      question: "Gibt es NDA und Vertraulichkeit?",
-      answer: "Ja, wir unterzeichnen auf Anfrage Vertraulichkeitsvereinbarungen (NDA) für Entwicklungsprojekte. Ihre CAD-Daten werden nur zur Fertigung verwendet und nicht an Dritte weitergegeben. Professionelle Diskretion ist für uns selbstverständlich."
-    },
-    {
-      question: "Kann ich mehrere Iterationen bestellen?",
-      answer: "Selbstverständlich. Rapid Prototyping lebt von schnellen Iterationen. Wir empfehlen, Designänderungen möglichst in einer neuen STL-Datei zu liefern. Bei häufigen Iterationen können wir auch Rahmenvereinbarungen treffen für schnellere Abwicklung und günstigere Konditionen."
+      question: "Kann ich mehrere Designvarianten bestellen?",
+      answer: "Ja, mehrere Formvarianten für A/B-Vergleiche im Designprozess sind möglich. Gerade in frühen Entwicklungsphasen ist das Drucken von 2–3 Varianten kostengünstiger als später aufwändige Korrekturen. Wir beraten Sie zur sinnvollsten Vorgehensweise."
     }
   ];
 
   const keywordContent = {
-    title: "Rapid Prototyping in Österreich: Schneller vom Konzept zum Produkt",
-    intro: "Jede Produktentwicklung durchläuft denselben kritischen Moment: die erste physische Verkörperung einer Idee. Rapid Prototyping mit 3D-Druck beschleunigt diesen Schritt dramatisch – von Wochen auf Stunden. Unternehmen in Wien, Graz, Linz und ganz Österreich nutzen unseren Service, um Entwicklungskosten zu senken und Markteinführungszeiten zu verkürzen.",
+    title: "Designprototypen aus dem 3D-Druck: Ideen greifbar machen",
+    intro: "Ein gutes Produktdesign muss man spüren können – nicht nur auf dem Bildschirm sehen. Designprototypen aus dem 3D-Druck überbrücken die Lücke zwischen digitaler Idee und physischer Wirklichkeit. Produktdesigner, Startups und Agenturen in Wien, Graz, Linz und ganz Österreich nutzen unseren Service, um Designpräsentationen zu stärken.",
     blocks: [
       {
-        title: "Warum physische Prototypen unersetzlich sind",
-        content: "Selbst die fortschrittlichsten CAD-Simulationen können den Griff in der Hand, die Passung zweier Bauteile oder die Reaktion eines Kunden auf ein echtes Produkt nicht ersetzen. Physische Prototypen decken Konstruktionsfehler auf, bevor teure Werkzeuge gefertigt werden – und das zahlt sich aus: Studien zeigen, dass jeder Fehler der in der Konzeptphase entdeckt wird, 100-fach günstiger ist als in der Produktion."
+        title: "Warum physische Designmodelle überzeugen",
+        content: "Ein 3D-Rendering auf dem Bildschirm zeigt viel – aber ein physisches Modell in den Händen eines Investors oder Kunden kommuniziert in Sekunden was Wochen an Designarbeit bedeuten. Form, Proportion, Haptik: ein Anschauungsprototyp transportiert Designintention auf eine Weise, die kein Rendering erreicht."
       },
       {
-        title: "FDM-Druck vs. SLA vs. SLS für Prototypen",
-        content: "FDM (Fused Deposition Modeling) ist für die meisten Prototypen-Anwendungen die wirtschaftlichste Wahl: günstig, schnell und mit einer breiten Materialpalette. SLA liefert glattere Oberflächen für ästhetische Designmodelle. SLS eignet sich für komplexe Funktionsbauteile ohne Supportstrukturen. Wir beraten Sie zum optimalen Verfahren für Ihr Projekt."
+        title: "Iteratives Designen leicht gemacht",
+        content: "Statt monatelang an einem Konzept zu arbeiten, können Sie mit günstigen 3D-Druck-Designmodellen ab €20 schnell verschiedene Richtungen physisch testen und verwerfen. Mehrere Formvarianten parallel, Feedback einholen, verbessern – das ist modernes Produktdesign."
       },
       {
-        title: "Iterationszyklus: Wie schnell können Sie entwickeln?",
-        content: "Mit unserem 24h Express-Service können Sie morgens eine CAD-Änderung senden und nachmittags den neuen Prototypen in den Händen halten. In der Praxis bedeutet das: bis zu 5 Iterationen pro Woche sind möglich – ein Entwicklungsrhythmus, der mit traditionellen Fertigungsverfahren undenkbar wäre."
+        title: "Vom Skizzenblock zum Messemodell",
+        content: "Ob frühe Rohskizze oder ausgereiftes CAD-Modell – wir begleiten Ihren Designprozess. Aus einer Handskizze erstellen wir auf Anfrage ein 3D-Modell. Aus dem finalen Design wird ein messefertiges Anschauungsmodell für Ihren Produktlaunch oder Investorenpitch."
       },
       {
-        title: "Österreichischer Partner für internationale Projekte",
-        content: "Als Unternehmen in Gunskirchen, Oberösterreich, sind wir ideal positioniert für Kunden aus dem gesamten deutschsprachigen Raum. Kurze Transportwege, schnelle Kommunikation auf Deutsch und tiefes Verständnis für österreichische und deutsche Industriestandards machen uns zum verlässlichen Partner für Ihre Produktentwicklung."
+        title: "Österreichischer Service, deutschlandweit verfügbar",
+        content: "Gefertigt in Gunskirchen, Oberösterreich – geliefert in 24–48h per Express. Kurze Kommunikationswege, Beratung auf Deutsch und tiefes Verständnis für die Anforderungen von Produktdesignern und Agenturen im DACH-Raum."
       }
     ]
   };
 
   const breadcrumbs = [
     { name: "Services", url: "#" },
-    { name: "Rapid Prototyping", url: "/rapid-prototyping" }
+    { name: "Designprototypen", url: "/rapid-prototyping" }
   ];
 
   return (
     <>
       <Helmet>
-        <title>Rapid Prototyping 3D-Druck Österreich | 24h Express | ekdruck.at</title>
-        <meta name="description" content="Rapid Prototyping mit 3D-Druck ab €20. Funktionsprototypen in 24–48h. Angebot in 6h. Alle Materialien: PLA, PETG, ASA, TPU. Österreichweit & nach Deutschland." />
-        <meta name="keywords" content="rapid prototyping österreich, 3d-druck prototypen, funktionsprototypen, prototyp 24h, prototyp kosten, 3d-druck entwicklung, industrieprototypen" />
+        <title>Designprototypen 3D-Druck Österreich | Anschauungsmodelle | ekdruck.at</title>
+        <meta name="description" content="Designprototypen & Anschauungsmodelle im 3D-Druck ab €20. Express in 24–48h. Für Präsentationen, Investorenpitches & Designreviews. Nur Anschauungszwecke – keine Funktionsteile." />
+        <meta name="keywords" content="designprototypen 3d-druck österreich, anschauungsprototypen, konzeptmodelle, produktdesign prototyp, 3d-druck designmodell, präsentationsprototyp" />
         <link rel="canonical" href="https://www.ek-druck.at/rapid-prototyping" />
       </Helmet>
 
       <BreadcrumbSchema items={[
         { name: "Home", url: "/" },
-        { name: "Rapid Prototyping", url: "/rapid-prototyping" }
+        { name: "Designprototypen", url: "/rapid-prototyping" }
       ]} />
 
       <Navigation />
@@ -227,7 +206,7 @@ const RapidPrototyping = () => {
 
       <main className="min-h-screen bg-background">
 
-        {/* ── Hero ────────────────────────────────────────────────── */}
+        {/* ── Hero ─────────────────────────────────────────────────── */}
         <section className="relative py-20 md:py-28 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10" />
           <div className="absolute top-20 right-0 w-96 h-96 bg-primary/8 rounded-full blur-3xl pointer-events-none" />
@@ -236,41 +215,48 @@ const RapidPrototyping = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-                  <Zap className="w-4 h-4" />
-                  Für Produktentwickler & Ingenieure
+                  <Eye className="w-4 h-4" />
+                  Nur Anschauungsmodelle – keine Funktionsteile
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Rapid Prototyping<br />
-                  <span className="text-primary">in 24 Stunden</span>
+                  Designprototypen<br />
+                  <span className="text-primary">die überzeugen</span>
                 </h1>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                  Von der CAD-Datei zum funktionsfähigen Prototypen – schneller als
-                  jede andere Fertigungsmethode. Iterieren Sie Ihre Produktentwicklung
-                  in Tagen statt Wochen.
+                <p className="text-lg text-muted-foreground mb-6 leading-relaxed max-w-xl">
+                  Physische Anschauungsmodelle für Designpräsentationen, Investorenpitches 
+                  und Produktreviews. Wir machen Ihre Designidee greifbar – in 24 Stunden.
                 </p>
+
+                {/* Prominent WKO Notice */}
+                <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-4 mb-8">
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+                    <div className="text-sm">
+                      <span className="font-semibold text-foreground">Wichtiger Hinweis: </span>
+                      <span className="text-muted-foreground">Wir fertigen ausschließlich <strong className="text-foreground">Designprototypen zu Anschauungszwecken</strong>. Funktionsteile, Ersatzteile und technische Bauteile liegen nicht in unserem Leistungsumfang.</span>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" variant="hero" className="text-base">
                     <Link to="/kontakt">
-                      Prototyp anfragen
+                      Designprototyp anfragen
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
                   <Button asChild size="lg" variant="outline">
-                    <Link to="/ratgeber/prototyping-guide">Prototyping-Guide lesen</Link>
+                    <Link to="/referenzen">Projekte ansehen</Link>
                   </Button>
                 </div>
                 <div className="flex items-center gap-6 mt-8 pt-6 border-t border-border">
                   <div className="flex items-center gap-2">
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                       ))}
                     </div>
                     <span className="text-sm font-medium">5.0 Google Bewertung</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Shield className="w-4 h-4 text-primary" />
-                    NDA auf Anfrage
                   </div>
                 </div>
               </div>
@@ -278,10 +264,7 @@ const RapidPrototyping = () => {
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-4">
                 {stats.map((stat, index) => (
-                  <Card
-                    key={index}
-                    className={`${index === 0 ? "bg-primary text-primary-foreground" : "bg-card"} border-0 shadow-lg hover:shadow-xl transition-shadow`}
-                  >
+                  <Card key={index} className={`${index === 0 ? "bg-primary text-primary-foreground" : "bg-card"} border-0 shadow-lg hover:shadow-xl transition-shadow`}>
                     <CardContent className="p-6">
                       <div className={`text-3xl md:text-4xl font-bold mb-1 ${index !== 0 ? "text-primary" : ""}`}>
                         {stat.value}
@@ -300,26 +283,36 @@ const RapidPrototyping = () => {
           </div>
         </section>
 
-        {/* ── Benefits ─────────────────────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-muted/30">
+        {/* ── Legal Disclaimer (full) ───────────────────────────────── */}
+        <section className="py-6">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <LegalDisclaimer />
+            </div>
+          </div>
+        </section>
+
+        {/* ── Was wir machen ───────────────────────────────────────── */}
+        <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Warum 3D-Druck für Prototypen?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Was wir für Sie fertigen</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                Schneller, günstiger, flexibler als jede andere Methode
+                Anschauungsmodelle für Design, Präsentation und Kommunikation
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {benefits.map((benefit, index) => (
+              {whatWeDo.map((item, index) => (
                 <Card key={index} className="border-2 hover:border-primary/50 hover:shadow-lg transition-all group">
                   <CardContent className="p-6">
                     <div className="flex gap-4">
                       <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                        <benefit.icon className="w-7 h-7 text-primary" />
+                        <item.icon className="w-7 h-7 text-primary" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
-                        <p className="text-muted-foreground">{benefit.description}</p>
+                        <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">{item.highlight}</div>
+                        <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                        <p className="text-muted-foreground text-sm">{item.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -329,53 +322,43 @@ const RapidPrototyping = () => {
           </div>
         </section>
 
-        {/* ── Anwendungsfälle ───────────────────────────────────────── */}
-        <section className="py-16 md:py-24">
+        {/* ── Was wir NICHT machen ─────────────────────────────────── */}
+        <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Einsatzbereiche</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Von der ersten Idee bis zum serienreifen Produkt
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              {useCases.map((useCase, index) => (
-                <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow group">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                        <useCase.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">
-                          {useCase.highlight}
-                        </div>
-                        <h3 className="text-xl font-bold">{useCase.title}</h3>
-                      </div>
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-card border-2 border-border rounded-2xl p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-destructive/10 rounded-xl flex items-center justify-center">
+                    <AlertTriangle className="w-5 h-5 text-destructive" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold">Was wir nicht fertigen können</h2>
+                    <p className="text-sm text-muted-foreground">Gemäß unserer Gewerbeberechtigung</p>
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {whatWeDoNOT.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3 p-3 bg-destructive/5 rounded-lg border border-destructive/10">
+                      <X className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground">{item}</span>
                     </div>
-                    <p className="text-muted-foreground mb-4">{useCase.description}</p>
-                    <ul className="space-y-1.5">
-                      {useCase.details.map((detail, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground mt-6 border-t border-border pt-4">
+                  Bei Fragen zur Machbarkeit Ihres Projekts beraten wir Sie vorab kostenlos und empfehlen gegebenenfalls geeignete Partner für technische Bauteile.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── Prozess ───────────────────────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-muted/30">
+        <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">So funktioniert's</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">So einfach geht's</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Vom ersten Kontakt bis zur Lieferung – einfach und transparent
+                Vom Designentwurf zum physischen Anschauungsmodell in 4 Schritten
               </p>
             </div>
             <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -403,12 +386,12 @@ const RapidPrototyping = () => {
         </section>
 
         {/* ── Materialien ───────────────────────────────────────────── */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Materialien für Prototypen</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Materialien für Designmodelle</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Das richtige Material für jeden Anwendungsfall
+                Vielfältige Optionen für jede Designanforderung
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -432,55 +415,6 @@ const RapidPrototyping = () => {
                 </Card>
               ))}
             </div>
-            <div className="text-center mt-10">
-              <Button asChild variant="outline">
-                <Link to="/3d-druck-materialien">
-                  Alle Materialien im Detail
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Vergleich mit Alternativen ────────────────────────────── */}
-        <section className="py-16 md:py-24 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">3D-Druck vs. klassische Prototypen-Methoden</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Warum immer mehr Unternehmen auf additives Rapid Prototyping setzen
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="text-left p-4 font-semibold">Kriterium</th>
-                    <th className="p-4 font-semibold text-primary">3D-Druck FDM</th>
-                    <th className="p-4 font-semibold text-muted-foreground">CNC-Fräsen</th>
-                    <th className="p-4 font-semibold text-muted-foreground">Spritzguss</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ["Lieferzeit", "24–48h", "5–10 Tage", "4–8 Wochen"],
-                    ["Kosten Erstteil", "Ab €20", "Ab €200", "Ab €5.000"],
-                    ["Geometriefreiheit", "Sehr hoch", "Mittel", "Eingeschränkt"],
-                    ["Design-Änderungen", "Kostenlos", "Aufwändig", "Sehr teuer"],
-                    ["Mindestmenge", "1 Stück", "1 Stück", "500–5.000"],
-                    ["Materialvielfalt", "Hoch", "Sehr hoch", "Sehr hoch"],
-                  ].map(([criteria, fdm, cnc, spritz], i) => (
-                    <tr key={i} className="border-b border-border/50 hover:bg-muted/30 transition-colors">
-                      <td className="p-4 font-medium">{criteria}</td>
-                      <td className="p-4 text-center bg-primary/5 text-primary font-medium">{fdm}</td>
-                      <td className="p-4 text-center text-muted-foreground">{cnc}</td>
-                      <td className="p-4 text-center text-muted-foreground">{spritz}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
           </div>
         </section>
 
@@ -489,7 +423,7 @@ const RapidPrototyping = () => {
           title={keywordContent.title}
           intro={keywordContent.intro}
           blocks={keywordContent.blocks}
-          ctaText="Kostenloses Angebot anfordern"
+          ctaText="Designprototyp anfragen"
           ctaLink="/kontakt"
         />
 
@@ -497,20 +431,22 @@ const RapidPrototyping = () => {
         <section className="py-16 md:py-20 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
             <TrendingUp className="w-12 h-12 mx-auto mb-4 opacity-90" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Starten Sie Ihre Produktentwicklung jetzt</h2>
-            <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8 text-lg">
-              Senden Sie uns Ihre CAD-Datei – wir antworten innerhalb von 6 Stunden
-              mit einem detaillierten Angebot. Kostenlos und unverbindlich.
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Machen Sie Ihr Design greifbar</h2>
+            <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-4 text-lg">
+              Anschauungsprototyp anfragen – Angebot innerhalb von 6 Stunden, kostenlos und unverbindlich.
+            </p>
+            <p className="text-primary-foreground/60 max-w-xl mx-auto mb-8 text-sm">
+              Nur Anschauungsmodelle zu Designzwecken. Keine Funktionsteile oder technischen Bauteile.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="secondary">
                 <Link to="/kontakt">
-                  Prototyp anfragen
+                  Jetzt anfragen
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                <Link to="/ratgeber/prototyping-guide">Ratgeber lesen</Link>
+                <Link to="/einzelanfertigungen">Alle Einzelanfertigungen</Link>
               </Button>
             </div>
           </div>
@@ -519,10 +455,19 @@ const RapidPrototyping = () => {
         {/* ── FAQ ───────────────────────────────────────────────────── */}
         <FAQSection
           faqs={faqs}
-          title="Häufige Fragen zum Rapid Prototyping"
-          subtitle="Alles was Entwickler und Ingenieure wissen müssen"
+          title="Häufige Fragen zu Designprototypen"
+          subtitle="Was ist möglich – und was nicht?"
           schemaId="rapid-prototyping"
         />
+
+        {/* ── Legal Disclaimer (compact) ────────────────────────────── */}
+        <section className="pb-8">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <LegalDisclaimer variant="compact" />
+            </div>
+          </div>
+        </section>
 
         {/* ── Related Pages ─────────────────────────────────────────── */}
         <RelatedPages currentPage="/rapid-prototyping" title="Weitere Services" />
