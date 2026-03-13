@@ -77,6 +77,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/fdm-3d-druck" element={<FdmDruck />} />
               <Route path="/prototypen" element={<Prototypen />} />
+              <Route path="/rapid-prototyping" element={<RapidPrototyping />} />
               <Route path="/3d-druck-materialien" element={<Materialien />} />
               <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
               <Route path="/modellbau-dekoration" element={<ModellbauDekoration />} />
