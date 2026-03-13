@@ -15,7 +15,6 @@ import AIChatWidget from "@/components/AIChatWidget";
 import {
   Zap,
   CheckCircle,
-  ArrowRight,
   Star,
   Lightbulb,
   Eye,
@@ -23,7 +22,6 @@ import {
   Package,
   AlertTriangle,
   X,
-  Clock,
   Cpu,
   BarChart3
 } from "lucide-react";
