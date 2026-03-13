@@ -214,33 +214,41 @@ const Navigation = () => {
                   className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Box className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span className="text-sm font-medium truncate">FDM 3D-Druck</span>
-                </a>
-                <a 
-                  href="/einzelanfertigungen" 
-                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Sparkles className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span className="text-sm font-medium truncate">Einzelanfertigungen</span>
-                </a>
-                <a 
-                  href="/glossar" 
-                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Book className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span className="text-sm font-medium truncate">Glossar</span>
-                </a>
-                <a 
-                  href="/referenzen" 
-                  className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Sparkles className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span className="text-sm font-medium truncate">Referenzen</span>
-                </a>
+                 <Box className="h-4 w-4 text-primary flex-shrink-0" />
+                   <span className="text-sm font-medium truncate">FDM 3D-Druck</span>
+                 </a>
+                 <a 
+                   href="/einzelanfertigungen" 
+                   className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                   onClick={() => setIsOpen(false)}
+                 >
+                   <Sparkles className="h-4 w-4 text-primary flex-shrink-0" />
+                   <span className="text-sm font-medium truncate">Einzelanfertigungen</span>
+                 </a>
+                 <a 
+                   href="/rapid-prototyping" 
+                   className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                   onClick={() => setIsOpen(false)}
+                 >
+                   <Layers className="h-4 w-4 text-primary flex-shrink-0" />
+                   <span className="text-sm font-medium truncate">Designprototypen</span>
+                 </a>
+                 <a 
+                   href="/glossar" 
+                   className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                   onClick={() => setIsOpen(false)}
+                 >
+                   <Book className="h-4 w-4 text-primary flex-shrink-0" />
+                   <span className="text-sm font-medium truncate">Glossar</span>
+                 </a>
+                 <a 
+                   href="/referenzen" 
+                   className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:bg-primary/20 active:scale-[0.98] transition-all"
+                   onClick={() => setIsOpen(false)}
+                 >
+                   <Sparkles className="h-4 w-4 text-primary flex-shrink-0" />
+                   <span className="text-sm font-medium truncate">Referenzen</span>
+                 </a>
               </div>
             </div>
 
