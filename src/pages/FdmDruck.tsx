@@ -77,7 +77,7 @@ const FdmDruck = () => {
     <>
       <SEOHead 
         title="FDM 3D-Druck für Modellbau & Dekoration | ekdruck.at"
-        description="FDM 3D-Druck für Architekturmodelle, Dekorationsobjekte und Messemodelle aus Oberösterreich. Ab €15, Angebot in 6h, nachhaltige Materialien, österreichweit."
+        description="FDM 3D-Druck mit österreichischem Filament: PLA, PETG, ASA – ab €15 pro Objekt. Für Architekturmodelle, Deko & Messemodelle. Nachhaltig produziert in OÖ, Lieferung österreichweit."
         keywords="fdm 3d-druck österreich, 3d-druck modellbau, architekturmodelle 3d-druck, dekoration 3d-druck, anschauungsmodelle, fdm verfahren"
         path="/fdm-3d-druck"
         breadcrumbs={[

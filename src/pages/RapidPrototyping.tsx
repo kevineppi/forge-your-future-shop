@@ -189,7 +189,7 @@ const RapidPrototyping = () => {
     <>
       <Helmet>
         <title>Designprototypen 3D-Druck Österreich | Anschauungsmodelle | ekdruck.at</title>
-        <meta name="description" content="Designprototypen & Anschauungsmodelle im 3D-Druck ab €20. Express in 24–48h. Für Präsentationen, Investorenpitches & Designreviews. Nur Anschauungszwecke – keine Funktionsteile." />
+        <meta name="description" content="Idee greifbar machen: Designprototypen & Anschauungsmodelle ab €20 in 24–48h. Überzeugen Sie Investoren, Kunden & Teams mit echten Modellen statt Renderings – Angebot in 6h!" />
         <meta name="keywords" content="designprototypen 3d-druck österreich, anschauungsprototypen, konzeptmodelle, produktdesign prototyp, 3d-druck designmodell, präsentationsprototyp" />
         <link rel="canonical" href="https://www.ek-druck.at/rapid-prototyping" />
       </Helmet>
