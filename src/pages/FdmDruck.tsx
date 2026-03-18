@@ -9,6 +9,7 @@ import AIChatWidget from "@/components/AIChatWidget";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
+import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import CTASection from "@/components/landing/CTASection";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
@@ -450,6 +451,8 @@ const FdmDruck = () => {
         />
 
         <RelatedPages currentPage="/fdm-3d-druck" title="Weitere Services" />
+
+        <AllRegionsLinks currentSlug="" type="messe" />
 
       </main>
 

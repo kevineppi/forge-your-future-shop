@@ -6,7 +6,7 @@
   ═══════════════════════════════════════════════════════════ -->
   <url>
     <loc>https://www.ek-druck.at/</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,17 +14,17 @@
   <!-- ═══════════════════════════════════════════════════════════
        HAUPT-SERVICES  (priority 0.9)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/messemodelle</loc><lastmod>2026-03-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle</loc><lastmod>2026-03-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ek-druck.at/rapid-prototyping</loc><lastmod>2026-03-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ek-druck.at/fdm-3d-druck</loc><lastmod>2026-03-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ek-druck.at/einzelanfertigungen</loc><lastmod>2026-03-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle</loc><lastmod>2026-03-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle</loc><lastmod>2026-03-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/rapid-prototyping</loc><lastmod>2026-03-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/fdm-3d-druck</loc><lastmod>2026-03-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/einzelanfertigungen</loc><lastmod>2026-03-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.ek-druck.at/firmenkunden</loc><lastmod>2026-03-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
   <!-- ═══════════════════════════════════════════════════════════
        WEITERE SERVICE-SEITEN  (priority 0.8)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/kunstobjekte</loc><lastmod>2026-03-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.ek-druck.at/kunstobjekte</loc><lastmod>2026-03-18</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.ek-druck.at/modellbau-dekoration</loc><lastmod>2026-03-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.ek-druck.at/3d-druck-materialien</loc><lastmod>2026-03-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.ek-druck.at/referenzen</loc><lastmod>2026-03-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
