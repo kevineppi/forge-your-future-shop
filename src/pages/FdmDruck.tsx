@@ -451,6 +451,8 @@ const FdmDruck = () => {
 
         <RelatedPages currentPage="/fdm-3d-druck" title="Weitere Services" />
 
+        <AllRegionsLinks currentSlug="" type="messe" />
+
       </main>
 
       <AIChatWidget />

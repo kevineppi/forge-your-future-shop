@@ -658,8 +658,10 @@ const Architekturmodelle = () => {
           urgencyText="⚡ Express 24h für Wettbewerbstermine · Persönliche Abholung in Gunskirchen möglich"
         />
 
-        {/* ── REGIONAL COVERAGE ── */}
+        {/* ── REGIONAL COVERAGE + All Regions Links ── */}
         <RegionalCoverage serviceName="Architekturmodelle" />
+
+        <AllRegionsLinks currentSlug="" type="architektur" />
 
         {/* ── FAQ ── */}
         <FAQSection 
