@@ -46,7 +46,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Rapid Prototyping",
     category: "Verfahren",
-    definition: "Schnelle Herstellung physischer Modelle oder Prototypen direkt aus CAD-Daten. Ziel ist die möglichst schnelle Überprüfung von Design, Funktion und Maßhaltigkeit vor der Serienfertigung. 3D-Druck (FDM, SLA, SLS) ist die dominierende Rapid-Prototyping-Technologie. Reduziert Entwicklungszeit um 50–90 % gegenüber traditionellen Verfahren.",
+    definition: "Schnelle Herstellung physischer Anschauungsmodelle oder Designprototypen direkt aus CAD-Daten. Ziel ist die möglichst schnelle Visualisierung von Design und Formgebung. 3D-Druck (FDM, SLA, SLS) ist die dominierende Rapid-Prototyping-Technologie. Reduziert Entwicklungszeit um 50–90 % gegenüber traditionellen Verfahren.",
     relatedLinks: [{ label: "Prototypen Service", href: "/prototypen" }]
   },
   {
