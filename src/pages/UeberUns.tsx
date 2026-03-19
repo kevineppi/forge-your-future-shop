@@ -512,6 +512,9 @@ const UeberUns = () => {
           </div>
         </section>
 
+        {/* ── GOOGLE BEWERTUNGEN ────────────────────────────────── */}
+        <GoogleReviewsSection />
+
         {/* ── CTA ───────────────────────────────────────────────── */}
         <section className="py-20 md:py-28 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-primary/8 pointer-events-none" />
