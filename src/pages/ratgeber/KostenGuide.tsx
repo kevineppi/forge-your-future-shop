@@ -129,8 +129,8 @@ const KostenGuide = () => {
             </div>
 
             {/* Introduction */}
-            <section className="prose prose-lg max-w-none mb-12">
-              <p className="text-3xl font-bold mb-6 text-foreground">Wie setzen sich 3D-Druck Kosten zusammen?</p>
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-foreground">Wie setzen sich 3D-Druck Kosten zusammen?</h2>
               <p className="text-muted-foreground mb-6">
                 Die Kosten für 3D-gedruckte Teile hängen von mehreren Faktoren ab. Anders als bei traditionellen Fertigungsverfahren spielt die Stückzahl beim FDM 3D-Druck eine untergeordnete Rolle – ein einzelnes Teil kostet pro Stück fast genauso viel wie mehrere Teile. Das macht 3D-Druck besonders attraktiv für Prototypen und Einzelanfertigungen.
               </p>
