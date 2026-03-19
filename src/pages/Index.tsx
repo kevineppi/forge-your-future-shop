@@ -12,10 +12,8 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 import FAQSchema from "@/components/FAQSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import SEOHead from "@/components/SEOHead";
-
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
-
 import ReferencesTeaser from "@/components/ReferencesTeaser";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const Index = () => {
