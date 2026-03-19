@@ -41,7 +41,7 @@ const UeberUns = () => {
           <div className="container mx-auto px-4">
             <AnimatedSection animation="fade-in" className="max-w-4xl mx-auto text-center">
               <Badge variant="secondary" className="mb-4 text-xs font-semibold tracking-wider uppercase">
-                Seit 2020 · Gunskirchen, Oberösterreich
+                Gegründet 2024 · Gunskirchen, Oberösterreich
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Über <span className="text-gradient">ekdruck e.U.</span>
@@ -60,7 +60,7 @@ const UeberUns = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
               {[
                 { value: "10+", label: "FDM-Drucker", icon: Printer },
-                { value: "2020", label: "Gegründet", icon: Award },
+                { value: "2024", label: "Firmengründung", icon: Award },
                 { value: "6h", label: "Angebot-Garantie", icon: Zap },
                 { value: "100+", label: "Kundenprojekte", icon: Users },
               ].map(({ value, label, icon: Icon }) => (
@@ -86,35 +86,44 @@ const UeberUns = () => {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div>
                     <Badge variant="outline" className="mb-4 text-xs">Unsere Geschichte</Badge>
-                    <h2 className="text-3xl font-bold mb-6">Von der Idee zum spezialisierten 3D-Druck Betrieb</h2>
+                    <h2 className="text-3xl font-bold mb-6">Vom Hobby zur spezialisierten 3D-Druck Manufaktur</h2>
                     <div className="space-y-4 text-muted-foreground leading-relaxed">
                       <p>
-                        ekdruck e.U. entstand 2020 aus einer einfachen Überzeugung: Hochwertige 3D-gedruckte Modelle 
-                        sollten für Architekten, Messe-Aussteller und kreative Köpfe in Österreich zugänglich sein – 
-                        ohne lange Wartezeiten, ohne versteckte Kosten.
+                        Alles begann 2022 mit echter Begeisterung: Die ersten Drucker, erste Fehldrucke, erste 
+                        Erfolgserlebnisse – und die wachsende Überzeugung, dass FDM-Druck weit mehr kann, als die 
+                        meisten ahnen. Was als privates Hobby startete, wurde schnell zur Leidenschaft.
                       </p>
                       <p>
-                        Was als Einzelunternehmen in Gunskirchen, Oberösterreich begann, ist heute ein spezialisierter 
-                        FDM-Druckbetrieb mit über 10 Druckern, der Kunden österreichweit und in Deutschland betreut. 
-                        Der Fokus liegt auf Anschauungsmodellen – von präzisen Architekturmodellen bis zu 
-                        maßgefertigten Messeexponaten.
+                        Mit dem Erwerb von CAD-Kenntnissen in Autodesk Fusion und AutoCAD ab 2023 kam die nächste 
+                        Dimension dazu: Nicht nur drucken, sondern auch konstruieren. Eigene Modelle entwerfen, 
+                        Kundenwünsche direkt in druckfertige Dateien übersetzen – das unterscheidet uns bis heute 
+                        von reinen Druckdienstleistern.
                       </p>
                       <p>
-                        Unser Anspruch: Jedes Projekt bekommt persönliche Betreuung, transparente Preise und 
-                        ein verbindliches Angebot innerhalb von 6 Stunden.
+                        2024 folgte der logische nächste Schritt: die offizielle Firmengründung als ekdruck e.U. 
+                        Anfangs mit Fokus auf Privatkunden – Menschen, die ein besonderes Geschenk, ein 
+                        Dekorationsstück oder ein individuelles Einzelteil suchten. Dieser direkte Kontakt zu 
+                        Menschen mit kreativen Ideen hat uns geprägt, und wir sind nach wie vor stolz darauf, 
+                        auch Privatkunden persönlich zu betreuen.
+                      </p>
+                      <p>
+                        Seit Anfang 2025 kommen immer mehr große Firmenprojekte dazu – Architekturmodelle für 
+                        Planungsbüros, Messeexponate für Aussteller im DACH-Raum, Designprototypen für 
+                        Produktentwickler. Die Wurzeln als handwerklicher Betrieb mit persönlichem Anspruch 
+                        bleiben dabei immer sichtbar.
                       </p>
                     </div>
                   </div>
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {[
-                      { year: "2020", text: "Gründung in Gunskirchen, erste FDM-Drucker in Betrieb" },
-                      { year: "2021", text: "Spezialisierung auf Architektur- und Messemodelle" },
-                      { year: "2022", text: "Erweiterung auf 5+ Drucker, erste Firmenkunden-Projekte" },
-                      { year: "2023", text: "10+ Drucker, Lieferungen nach Deutschland & österreichweit" },
-                      { year: "2024", text: "Express-Service 24-48h etabliert, 100+ abgeschlossene Projekte" },
+                      { year: "2022", text: "Erste Schritte: privat mit FDM-Druck begonnen, Technik und Materialien intensiv erprobt" },
+                      { year: "2023", text: "CAD-Kenntnisse in Autodesk Fusion & AutoCAD aufgebaut – vom Drucker zum Konstrukteur" },
+                      { year: "2024", text: "Offizielle Firmengründung als ekdruck e.U. – Start mit Privatkunden & Einzelanfertigungen" },
+                      { year: "Früh 2025", text: "Erste große Firmenprojekte: Architektur- & Messemodelle für Unternehmen im DACH-Raum" },
+                      { year: "Heute", text: "10+ Drucker, österreichweit & Deutschland, B2B & B2C – persönlich & zuverlässig" },
                     ].map(({ year, text }) => (
                       <div key={year} className="flex gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors">
-                        <div className="text-primary font-bold text-sm min-w-[40px]">{year}</div>
+                        <div className="text-primary font-bold text-sm min-w-[52px] leading-tight pt-0.5">{year}</div>
                         <div className="text-sm text-muted-foreground">{text}</div>
                       </div>
                     ))}
