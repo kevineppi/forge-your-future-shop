@@ -64,7 +64,7 @@ const Index = () => {
         },
         {
           question: "Für welche Branchen und Anwendungsfälle ist ekdruck geeignet?",
-          answer: "Unsere Kernzielgruppen sind Architekten und Planer (maßstabsgetreue Architekturmodelle 1:50–1:500), Messeaussteller (Exponate und Anschauungsmodelle für Messen), Künstler und Galerien (Skulpturen und Kunstobjekte) sowie Firmenkunden und Industriebetriebe (Prototypen, Ersatzteile, Schulungsmodelle). Wir fertigen ausschließlich Anschauungsmodelle – keine Funktionsteile oder sicherheitsrelevante Bauteile."
+          answer: "Unsere Kernzielgruppen sind Architekten und Planer (maßstabsgetreue Architekturmodelle 1:50–1:500), Messeaussteller (Exponate und Anschauungsmodelle für Messen), Künstler und Galerien (Skulpturen und Dekorationsobjekte) sowie Firmenkunden (Präsentationsmodelle, Schulungsmodelle, Messe-Exponate). Wir fertigen ausschließlich Anschauungsmodelle zu Präsentationszwecken – keine Funktionsteile oder sicherheitsrelevante Bauteile."
         },
         {
           question: "Warum österreichisches Filament statt günstigeren Importen?",
