@@ -56,13 +56,7 @@ const ArchitekturmodellRegion = () => {
       "name": "ekdruck e.U.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Wegscheid 25",
-        "addressLocality": "Gunskirchen",
-        "postalCode": "4623",
-        "addressRegion": "Oberösterreich",
-        "addressCountry": "AT"
-      },
-      "telephone": "+43 676 5517197",
+        "streetAddress": "Negrellistraße 15",
       "email": "office@ek-druck.at"
     },
     "areaServed": {
