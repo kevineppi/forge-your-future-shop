@@ -83,6 +83,8 @@ const App = () => (
               <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
               <Route path="/modellbau-dekoration" element={<ModellbauDekoration />} />
               <Route path="/impressum" element={<Impressum />} />
+              {/* Redirect trailing-slash variant to avoid canonical mismatch */}
+              <Route path="/impressum/" element={<Navigate to="/impressum" replace />} />
               <Route path="/ratgeber" element={<Ratgeber />} />
               <Route path="/ratgeber/kosten-guide" element={<KostenGuide />} />
               <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />
