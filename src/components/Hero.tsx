@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Zap, Shield, Clock, Star } from "lucide-react";
+import { ArrowRight, Zap, Shield, Clock, Star, MapPin } from "lucide-react";
 import { lazy, Suspense } from "react";
 
 const Hero3DAnimation = lazy(() => import("@/components/Hero3DAnimation"));
@@ -51,33 +51,13 @@ const Hero = () => {
               3D-Druck Messemodelle & <span className="text-primary">Architekturmodelle</span> – Express ab 24h
             </h1>
             
-            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               Professionelle 3D-gedruckte Präsentationsmodelle für Messen und Architektur. 
-              Ab €20, Angebot in 6 Stunden – Made in Austria.
+              Made in Austria – Angebot in 6 Stunden.
             </p>
-            
-            <p className="text-muted-foreground mb-6">
-              ★ 5/5 Google · 100+ zufriedene Kunden · Versandkostenfrei ab €100
-            </p>
-
-            {/* Trust Badges */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
-                <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                <span>Messemodelle</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
-                <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                <span>Architekturmodelle</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-sm">
-                <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                <span>Anschauungsobjekte</span>
-              </div>
-            </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 mb-4">
               <Button 
                 variant="default" 
                 size="lg" 
@@ -85,7 +65,7 @@ const Hero = () => {
                 asChild
               >
                 <Link to="/kontakt">
-                  Kostenloses Angebot in 6h
+                  Kostenloses Angebot – ab €20
                   <ArrowRight className="ml-2 w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                 </Link>
               </Button>
@@ -101,11 +81,41 @@ const Hero = () => {
                 </Link>
               </Button>
             </div>
-            {/* Urgency signal */}
-            <p className="text-xs text-muted-foreground mt-3 flex items-center gap-1.5">
-              <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Heute noch anfragen – Angebot noch heute erhalten
-            </p>
+
+            {/* Social proof + urgency – compact row */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-6">
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                ))}
+                <span className="ml-1 font-medium text-foreground">5.0</span>
+                <span>(28 Google-Bewertungen)</span>
+              </div>
+              <span className="flex items-center gap-1">
+                <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
+                Angebot noch heute erhalten
+              </span>
+            </div>
+
+            {/* Trust Badges – 4 icons, clean row */}
+            <div className="flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-xs">
+                <Zap className="w-3.5 h-3.5 text-primary" />
+                Express 24h
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-xs">
+                <MapPin className="w-3.5 h-3.5 text-primary" />
+                Made in Austria
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-xs">
+                <Shield className="w-3.5 h-3.5 text-primary" />
+                WKO-konform
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-background/50 text-xs">
+                <Clock className="w-3.5 h-3.5 text-primary" />
+                Versandkostenfrei ab €100
+              </span>
+            </div>
           </div>
 
           {/* Right Column - Feature Cards */}
@@ -115,7 +125,7 @@ const Hero = () => {
               <div className="rounded-xl border border-border bg-card/80 backdrop-blur-sm p-4">
                 <h3 className="font-semibold text-base mb-1">Spezialisiert auf Messe & Architektur</h3>
                 <p className="text-muted-foreground text-sm">
-                  Messemodelle, Architekturmodelle und Anschauungsobjekte für Industrie.
+                  Messemodelle, Architekturmodelle und Anschauungsobjekte für professionelle Präsentationen.
                 </p>
               </div>
 
@@ -155,16 +165,6 @@ const Hero = () => {
                 <p className="text-sm text-muted-foreground">
                   Versandkostenfrei ab €100
                 </p>
-              </div>
-
-              {/* Google Rating */}
-              <div className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground mt-1">
-                <div className="flex items-center gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <span>5.0 Google Bewertungen</span>
               </div>
             </div>
           </div>
