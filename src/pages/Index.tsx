@@ -16,6 +16,10 @@ import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
 import ReferencesTeaser from "@/components/ReferencesTeaser";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
+import { Building2, Presentation, Palette, Users, Check, X, MapPin, TrendingDown, Clock, Repeat2, Layers } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 const Index = () => {
   return <>
       <SEOHead 
@@ -586,9 +590,179 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Sektion B – Warum 3D-Druck vs. traditioneller Modellbau */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+                <TrendingDown className="w-4 h-4" /> Vergleich
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Warum 3D-Druck statt <span className="text-gradient">traditionellem Modellbau?</span>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                Wo herkömmlicher Handmodellbau an seine Grenzen stößt, liefert FDM 3D-Druck messbare Vorteile – in Zeit, Kosten und Präzision.
+              </p>
+            </div>
+
+            {/* Comparison Table */}
+            <div className="overflow-x-auto rounded-2xl border border-border mb-10">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-muted/60">
+                    <th className="text-left p-4 font-semibold text-muted-foreground">Kriterium</th>
+                    <th className="text-center p-4 font-bold text-primary">ekdruck 3D-Druck</th>
+                    <th className="text-center p-4 font-semibold text-muted-foreground">Traditioneller Modellbau</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><TrendingDown className="w-4 h-4 text-primary shrink-0" /> Kosten ab</td>
+                    <td className="p-4 text-center font-bold text-primary">ab €20 / Modell</td>
+                    <td className="p-4 text-center text-muted-foreground">€200–€2.000+</td>
+                  </tr>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><Clock className="w-4 h-4 text-primary shrink-0" /> Lieferzeit</td>
+                    <td className="p-4 text-center font-bold text-primary">24–48h Express möglich</td>
+                    <td className="p-4 text-center text-muted-foreground">1–4 Wochen</td>
+                  </tr>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><Layers className="w-4 h-4 text-primary shrink-0" /> Geometrie-Komplexität</td>
+                    <td className="p-4 text-center font-bold text-primary">
+                      <span className="inline-flex items-center gap-1"><Check className="w-4 h-4 text-accent" /> Unbegrenzt</span>
+                    </td>
+                    <td className="p-4 text-center text-muted-foreground">
+                      <span className="inline-flex items-center justify-center gap-1"><X className="w-4 h-4 text-destructive" /> Stark limitiert</span>
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><Repeat2 className="w-4 h-4 text-primary shrink-0" /> Wiederholbarkeit</td>
+                    <td className="p-4 text-center font-bold text-primary">
+                      <span className="inline-flex items-center gap-1"><Check className="w-4 h-4 text-accent" /> 1:1 identische Kopien</span>
+                    </td>
+                    <td className="p-4 text-center text-muted-foreground">
+                      <span className="inline-flex items-center justify-center gap-1"><X className="w-4 h-4 text-destructive" /> Handarbeit variiert</span>
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><Layers className="w-4 h-4 text-primary shrink-0" /> Gewicht</td>
+                    <td className="p-4 text-center font-bold text-primary">Bis zu 80% leichter (Waben-Infill)</td>
+                    <td className="p-4 text-center text-muted-foreground">Massiv &amp; schwer</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Body text */}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-muted/30 rounded-2xl p-7">
+                <h3 className="font-bold text-lg mb-3">Kosteneffizienz durch additive Fertigung</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  Traditioneller Modellbau erfordert Handarbeit, teure Werkzeuge und viel Material-Verschnitt. FDM 3D-Druck ist ein additives Verfahren: Es wird nur das Material aufgetragen, das tatsächlich gebraucht wird – kein Abfall, kein Werkzeugverschleiß. Das Ergebnis sind erheblich niedrigere Stückkosten, insbesondere bei kleinen Serien und Einzelstücken ab 1 Stück. Für Architekten und Messeaussteller bedeutet das: Mehr Budget für Design statt Fertigung.
+                </p>
+              </div>
+              <div className="bg-muted/30 rounded-2xl p-7">
+                <h3 className="font-bold text-lg mb-3">Schnelligkeit &amp; Reproduzierbarkeit entscheiden</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  Bei Messe-Deadlines oder Wettbewerbsabgaben zählt jede Stunde. Mit unserem Express-Service liefern wir österreichweit in 24–48 Stunden. Gleichzeitig sichert die digitale CAD-Basis, dass jedes Modell – egal ob erstes oder fünfzigstes Exemplar – exakt identisch ist. Korrekturen am Modell kosten keine Neuanfertigung, sondern nur eine Datei-Änderung und einen neuen Druckauftrag. Vergleichen Sie alle Druckverfahren in unserem <Link to="/ratgeber/verfahrens-vergleich" className="text-primary hover:underline font-semibold">Verfahrens-Vergleich Ratgeber</Link>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <About />
-      
+
+      {/* Sektion A – Zielgruppen-Hub */}
+      <section className="py-20 md:py-28 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+              <Users className="w-4 h-4" /> Für wen ist ekdruck?
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              3D-Druck für jede <span className="text-gradient">Branche & Zielgruppe</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Ob Architekt, Messeaussteller, Künstler oder Firmenkunde – unsere FDM-Drucklösungen sind auf Ihre spezifischen Anforderungen zugeschnitten.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Architekten */}
+            <Link to="/architekturmodelle" className="group">
+              <Card className="h-full hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-7 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Building2 className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Architekten & Planer</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                    Maßstabsgetreue Architekturmodelle im Maßstab 1:50 bis 1:500 für Wettbewerbe, Baugenehmigungen und Kundenpräsentationen. Kompatibel mit ArchiCAD, Revit und allen gängigen CAD-Formaten. Präzision bis 0,1 mm, Express-Fertigung für Wettbewerbs-Deadlines.
+                  </p>
+                  <span className="mt-5 text-primary text-sm font-semibold group-hover:underline inline-flex items-center gap-1">
+                    Zu Architekturmodellen →
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+            {/* Messeaussteller */}
+            <Link to="/messemodelle" className="group">
+              <Card className="h-full hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-7 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Presentation className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Messeaussteller</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                    Express-Fertigung in 24–48 Stunden für Wien Messe, Messezentrum Salzburg, Messe Graz und alle großen österreichischen Messeplätze. Leichtbau durch FDM-Technologie spart Transportkosten. Große Objekte bis 2 m+ durch Segment-Montage realisierbar.
+                  </p>
+                  <span className="mt-5 text-primary text-sm font-semibold group-hover:underline inline-flex items-center gap-1">
+                    Zu Messemodellen →
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+            {/* Künstler */}
+            <Link to="/kunstobjekte" className="group">
+              <Card className="h-full hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-7 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Palette className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Künstler & Kreative</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                    Komplexe organische Formen und Skulpturen, die mit traditionellen Methoden unmöglich wären. Spezialfilamente wie Holz-Filament, Marmor-Look und Metallic-Optik für einzigartige Kunstobjekte. Ideal für Galerien, Installationen und exklusive Kunsteditionen.
+                  </p>
+                  <span className="mt-5 text-primary text-sm font-semibold group-hover:underline inline-flex items-center gap-1">
+                    Zu Kunstobjekten →
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+            {/* Firmenkunden */}
+            <Link to="/firmenkunden" className="group">
+              <Card className="h-full hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-7 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Firmenkunden & B2B</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                    Professionelle B2B-Abwicklung mit Rechnung und UID-Nummer. NDA auf Anfrage, Mengenrabatte ab 10 Einheiten, dedizierter Ansprechpartner. Serienfertigung von Prototypen, Messedisplays, Industriemodellen und Ersatzteilen – zuverlässig und termintreu.
+                  </p>
+                  <span className="mt-5 text-primary text-sm font-semibold group-hover:underline inline-flex items-center gap-1">
+                    Zu Firmenkunden →
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Google Reviews Section */}
       <GoogleReviewsSection />
       
@@ -600,6 +774,108 @@ const Index = () => {
       </section>
       
       {/* Contact Section */}
+      {/* Sektion C – Regionaler Partner für ganz Österreich & Deutschland */}
+      <section className="py-20 md:py-28 bg-muted/30 border-t border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+                <MapPin className="w-4 h-4" /> Regionaler Partner
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-5">
+                3D-Druck-Partner für ganz <span className="text-gradient">Österreich & Deutschland</span>
+              </h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Unser Produktionsstandort in Gunskirchen (Oberösterreich) liegt zentral in der DACH-Region: nur 20 Minuten von Linz, 1,5 Stunden von Wien, rund 2 Stunden von Graz und Salzburg entfernt. Österreichweit versenden wir per Express in 24–48 Stunden, nach Deutschland in 2–4 Werktagen. Persönliche Abholung vor Ort ist nach Vereinbarung jederzeit möglich. Egal ob kleines Architekturmodell oder großes Messeexponat – wir liefern pünktlich und sicher an.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              {/* Austria */}
+              <div className="bg-card rounded-2xl border border-border p-7">
+                <h3 className="font-bold mb-5 flex items-center gap-2">
+                  <span className="text-xl">🇦🇹</span> Bundesländer Österreich
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { name: "Wien", url: "/3d-druck-wien" },
+                    { name: "Oberösterreich", url: "/3d-druck-oberoesterreich" },
+                    { name: "Niederösterreich", url: "/3d-druck-niederoesterreich" },
+                    { name: "Steiermark", url: "/3d-druck-steiermark" },
+                    { name: "Salzburg", url: "/3d-druck-salzburg" },
+                    { name: "Tirol", url: "/3d-druck-innsbruck" },
+                    { name: "Kärnten", url: "/3d-druck-kaernten" },
+                    { name: "Vorarlberg", url: "/3d-druck-vorarlberg" },
+                    { name: "Burgenland", url: "/3d-druck-burgenland" },
+                  ].map((r) => (
+                    <Link key={r.url} to={r.url} onClick={() => window.scrollTo(0, 0)}
+                      className="bg-muted/50 hover:bg-primary/10 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors font-medium">
+                      {r.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {[
+                    { name: "Linz", url: "/3d-druck-linz" },
+                    { name: "Graz", url: "/3d-druck-graz" },
+                    { name: "Innsbruck", url: "/3d-druck-innsbruck" },
+                    { name: "Klagenfurt", url: "/3d-druck-klagenfurt" },
+                    { name: "Wels", url: "/3d-druck-wels" },
+                    { name: "St. Pölten", url: "/3d-druck-st-poelten" },
+                    { name: "Dornbirn", url: "/3d-druck-dornbirn" },
+                    { name: "Villach", url: "/3d-druck-villach" },
+                    { name: "Gunskirchen", url: "/3d-druck-gunskirchen" },
+                  ].map((c) => (
+                    <Link key={c.url} to={c.url} onClick={() => window.scrollTo(0, 0)}
+                      className="bg-muted/50 hover:bg-primary/10 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors">
+                      {c.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Germany */}
+              <div className="bg-card rounded-2xl border border-border p-7">
+                <h3 className="font-bold mb-5 flex items-center gap-2">
+                  <span className="text-xl">🇩🇪</span> Regionen Deutschland
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { name: "Bayern", url: "/messemodelle/muenchen" },
+                    { name: "Baden-Württemberg", url: "/messemodelle/stuttgart" },
+                    { name: "München", url: "/messemodelle/muenchen" },
+                    { name: "Stuttgart", url: "/messemodelle/stuttgart" },
+                    { name: "Nürnberg", url: "/messemodelle/nuernberg" },
+                    { name: "Augsburg", url: "/messemodelle/augsburg" },
+                    { name: "Ulm", url: "/messemodelle/ulm" },
+                    { name: "Freiburg", url: "/messemodelle/freiburg" },
+                    { name: "Regensburg", url: "/messemodelle/regensburg" },
+                    { name: "Passau", url: "/messemodelle/passau" },
+                  ].map((r) => (
+                    <Link key={r.url + r.name} to={r.url} onClick={() => window.scrollTo(0, 0)}
+                      className="bg-muted/50 hover:bg-primary/10 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors font-medium">
+                      {r.name}
+                    </Link>
+                  ))}
+                </div>
+                <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
+                  Lieferung nach Deutschland in 2–4 Werktagen via DHL/GLS. Zuverlässige Zustellung für Messeauftritte auf der IAA, Bauma, denkmal, und weitere Fachmessen – auch kurzfristig buchbar.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-card border border-primary/20 rounded-2xl p-7 text-center max-w-3xl mx-auto">
+              <p className="text-muted-foreground leading-relaxed mb-5">
+                <strong className="text-foreground">Standort Gunskirchen, OÖ:</strong> Zentraler Knotenpunkt für schnelle Lieferung nach Wien (1,5h), Linz (20min), Salzburg (1,5h), Graz (2h) und in die gesamte DACH-Region. Express-Versand österreichweit in 24–48h, persönliche Abholung jederzeit nach Vereinbarung.
+              </p>
+              <Button asChild size="lg">
+                <Link to="/kontakt">Anfrage stellen – Angebot in 6h</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Contact />
       <Footer />
       
