@@ -50,12 +50,30 @@ const Index = () => {
     />
     <FAQSchema
       faqs={[
-        { question: "Was kostet 3D-Druck bei ekdruck?", answer: "Die Kosten hängen von Material, Größe und Druckdauer ab. 3D-Druck ab €20, Express-Service und Mengenrabatte verfügbar." },
-        { question: "Wie schnell erhalte ich mein 3D-gedrucktes Teil?", answer: "Standard-Lieferung 3-5 Werktage österreichweit. Mit unserem Express-Service erhalten Sie Ihre Teile bereits in 24-48 Stunden." },
-        { question: "Welche Dateiformate werden akzeptiert?", answer: "Wir akzeptieren alle gängigen CAD-Formate: STL, OBJ, STEP, IGES, 3MF und mehr. Haben Sie keine CAD-Datei? Wir erstellen diese gerne für Sie." },
-        { question: "Für welche Bereiche bietet ekdruck 3D-Druck an?", answer: "Modellbau & Architektur, Messemodelle, Kunst & Design sowie Firmenkunden. Wir realisieren Ihre individuellen Ideen." },
-        { question: "Warum österreichisches Filament verwenden?", answer: "Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, hohe Qualitätsstandards und Unterstützung der lokalen Wirtschaft." },
-        { question: "Welche Garantie bietet ekdruck auf 3D-gedruckte Teile?", answer: "Wir garantieren höchste Qualität durch sorgfältige Prüfung jedes Bauteils. Bei Mängeln kostenlose Nachbesserung oder Ersatzlieferung innerhalb von 30 Tagen." }
+        {
+          question: "Was kostet 3D-Druck bei ekdruck?",
+          answer: "Unsere Preise starten ab €20 pro Modell. Die genauen Kosten hängen von drei Faktoren ab: Material (PLA, PETG, ABS oder TPU), Druckvolumen und gewählter Qualitätsstufe. Express-Service ist gegen einen Aufpreis jederzeit buchbar. Mengenrabatte gewähren wir ab 5 Einheiten. Ein transparentes, individuelles Angebot erhalten Sie bei uns in unter 6 Stunden."
+        },
+        {
+          question: "Wie schnell erhalte ich mein 3D-gedrucktes Teil?",
+          answer: "Standard-Lieferung beträgt 3–5 Werktage österreichweit, inklusive versandkostenfreier Lieferung ab €100 Bestellwert. Mit unserem Express-Service fertigen und liefern wir bereits in 24–48 Stunden – ideal für kurzfristige Messe-Deadlines oder Wettbewerbsabgaben. Nach Deutschland liefern wir in 2–4 Werktagen via DHL oder GLS."
+        },
+        {
+          question: "Welche Dateiformate werden akzeptiert?",
+          answer: "Wir akzeptieren alle gängigen 3D-Formate: STL, OBJ, STEP, IGES, 3MF, STP sowie native CAD-Formate aus ArchiCAD, Revit, SolidWorks und Fusion 360. Keine CAD-Datei vorhanden? Kein Problem – wir erstellen das 3D-Modell nach Ihren Skizzen, Fotos oder technischen Zeichnungen kostenlos im Rahmen der Auftragsberatung."
+        },
+        {
+          question: "Für welche Branchen und Anwendungsfälle ist ekdruck geeignet?",
+          answer: "Unsere Kernzielgruppen sind Architekten und Planer (maßstabsgetreue Architekturmodelle 1:50–1:500), Messeaussteller (Exponate und Anschauungsmodelle für Messen), Künstler und Galerien (Skulpturen und Kunstobjekte) sowie Firmenkunden und Industriebetriebe (Prototypen, Ersatzteile, Schulungsmodelle). Wir fertigen ausschließlich Anschauungsmodelle – keine Funktionsteile oder sicherheitsrelevante Bauteile."
+        },
+        {
+          question: "Warum österreichisches Filament statt günstigeren Importen?",
+          answer: "Österreichische Filamente werden aus recycelten Industrieabfällen unter strengen Qualitätsstandards gefertigt, betrieben mit Ökostrom und geprüft auf gleichmäßige Extrusionsqualität. Das bedeutet konsistente Druckergebnisse, geringere Fehlerquote, und ein CO₂-Fußabdruck um bis zu 80 % niedriger als bei Importware aus Asien. Kurzlieferwege bedeuten auch, dass wir schneller auf Sonderwünsche reagieren können."
+        },
+        {
+          question: "Welche Nachbearbeitungs- und Finishing-Optionen gibt es?",
+          answer: "ekdruck bietet ein breites Spektrum an Nachbearbeitung: Schleifen und Glätten für glatte Oberflächen, Grundieren als Vorbereitung für Lackierung, Lackieren in RAL-Farben oder Sonderfarben, Aceton-Dampf-Glättung für ABS-Modelle sowie Klebeverbindungen für Segmentmodelle. So erhalten Sie ein Endprodukt, das direkt präsentationsbereit ist – ohne zusätzliche Schritte auf Ihrer Seite."
+        }
       ]}
     />
     <BreadcrumbSchema items={[{ name: "Home", url: "/" }]} />
