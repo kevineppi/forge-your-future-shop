@@ -60,7 +60,7 @@ const UeberUns = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
               {[
                 { value: "10+", label: "FDM-Drucker", icon: Printer },
-                { value: "2020", label: "Gegründet", icon: Award },
+                { value: "2024", label: "Firmengründung", icon: Award },
                 { value: "6h", label: "Angebot-Garantie", icon: Zap },
                 { value: "100+", label: "Kundenprojekte", icon: Users },
               ].map(({ value, label, icon: Icon }) => (
