@@ -157,6 +157,20 @@ const Auth = () => {
     }
   };
 
+  // Noindex: Login-Seite soll nicht in Google erscheinen
+  useEffect(() => {
+    let metaRobots = document.querySelector('meta[name="robots"]');
+    if (!metaRobots) {
+      metaRobots = document.createElement('meta');
+      metaRobots.setAttribute('name', 'robots');
+      document.head.appendChild(metaRobots);
+    }
+    metaRobots.setAttribute('content', 'noindex, nofollow');
+    return () => {
+      metaRobots?.setAttribute('content', 'index, follow');
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-background to-primary/5">
       <Navigation />

@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
 import ScrollToTop from "./components/ScrollToTop";
 import { lazy, Suspense } from "react";
@@ -83,6 +83,8 @@ const App = () => (
               <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
               <Route path="/modellbau-dekoration" element={<ModellbauDekoration />} />
               <Route path="/impressum" element={<Impressum />} />
+              {/* Redirect trailing-slash variant to avoid canonical mismatch */}
+              <Route path="/impressum/" element={<Navigate to="/impressum" replace />} />
               <Route path="/ratgeber" element={<Ratgeber />} />
               <Route path="/ratgeber/kosten-guide" element={<KostenGuide />} />
               <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />

@@ -4,5 +4,9 @@
 User-agent: *
 Allow: /
 
+# Interne/private Seiten nicht indexieren
+Disallow: /auth
+Disallow: /admin
+
 # Sitemap
 Sitemap: https://www.ek-druck.at/sitemap.xml
