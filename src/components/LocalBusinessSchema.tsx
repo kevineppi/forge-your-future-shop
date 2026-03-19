@@ -100,7 +100,7 @@ const LocalBusinessSchema = ({ city, region, latitude, longitude, deliveryTime =
         "ratingValue": "5.0",
         "bestRating": "5",
         "worstRating": "1",
-        "reviewCount": "21"
+        "reviewCount": "28"
       }
     };
 
