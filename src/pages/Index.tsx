@@ -774,6 +774,108 @@ const Index = () => {
       </section>
       
       {/* Contact Section */}
+      {/* Sektion C – Regionaler Partner für ganz Österreich & Deutschland */}
+      <section className="py-20 md:py-28 bg-muted/30 border-t border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+                <MapPin className="w-4 h-4" /> Regionaler Partner
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-5">
+                3D-Druck-Partner für ganz <span className="text-gradient">Österreich & Deutschland</span>
+              </h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Unser Produktionsstandort in Gunskirchen (Oberösterreich) liegt zentral in der DACH-Region: nur 20 Minuten von Linz, 1,5 Stunden von Wien, rund 2 Stunden von Graz und Salzburg entfernt. Österreichweit versenden wir per Express in 24–48 Stunden, nach Deutschland in 2–4 Werktagen. Persönliche Abholung vor Ort ist nach Vereinbarung jederzeit möglich. Egal ob kleines Architekturmodell oder großes Messeexponat – wir liefern pünktlich und sicher an.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              {/* Austria */}
+              <div className="bg-card rounded-2xl border border-border p-7">
+                <h3 className="font-bold mb-5 flex items-center gap-2">
+                  <span className="text-xl">🇦🇹</span> Bundesländer Österreich
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { name: "Wien", url: "/3d-druck-wien" },
+                    { name: "Oberösterreich", url: "/3d-druck-oberoesterreich" },
+                    { name: "Niederösterreich", url: "/3d-druck-niederoesterreich" },
+                    { name: "Steiermark", url: "/3d-druck-steiermark" },
+                    { name: "Salzburg", url: "/3d-druck-salzburg" },
+                    { name: "Tirol", url: "/3d-druck-innsbruck" },
+                    { name: "Kärnten", url: "/3d-druck-kaernten" },
+                    { name: "Vorarlberg", url: "/3d-druck-vorarlberg" },
+                    { name: "Burgenland", url: "/3d-druck-burgenland" },
+                  ].map((r) => (
+                    <Link key={r.url} to={r.url} onClick={() => window.scrollTo(0, 0)}
+                      className="bg-muted/50 hover:bg-primary/10 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors font-medium">
+                      {r.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {[
+                    { name: "Linz", url: "/3d-druck-linz" },
+                    { name: "Graz", url: "/3d-druck-graz" },
+                    { name: "Innsbruck", url: "/3d-druck-innsbruck" },
+                    { name: "Klagenfurt", url: "/3d-druck-klagenfurt" },
+                    { name: "Wels", url: "/3d-druck-wels" },
+                    { name: "St. Pölten", url: "/3d-druck-st-poelten" },
+                    { name: "Dornbirn", url: "/3d-druck-dornbirn" },
+                    { name: "Villach", url: "/3d-druck-villach" },
+                    { name: "Gunskirchen", url: "/3d-druck-gunskirchen" },
+                  ].map((c) => (
+                    <Link key={c.url} to={c.url} onClick={() => window.scrollTo(0, 0)}
+                      className="bg-muted/50 hover:bg-primary/10 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors">
+                      {c.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Germany */}
+              <div className="bg-card rounded-2xl border border-border p-7">
+                <h3 className="font-bold mb-5 flex items-center gap-2">
+                  <span className="text-xl">🇩🇪</span> Regionen Deutschland
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { name: "Bayern", url: "/messemodelle/muenchen" },
+                    { name: "Baden-Württemberg", url: "/messemodelle/stuttgart" },
+                    { name: "München", url: "/messemodelle/muenchen" },
+                    { name: "Stuttgart", url: "/messemodelle/stuttgart" },
+                    { name: "Nürnberg", url: "/messemodelle/nuernberg" },
+                    { name: "Augsburg", url: "/messemodelle/augsburg" },
+                    { name: "Ulm", url: "/messemodelle/ulm" },
+                    { name: "Freiburg", url: "/messemodelle/freiburg" },
+                    { name: "Regensburg", url: "/messemodelle/regensburg" },
+                    { name: "Passau", url: "/messemodelle/passau" },
+                  ].map((r) => (
+                    <Link key={r.url + r.name} to={r.url} onClick={() => window.scrollTo(0, 0)}
+                      className="bg-muted/50 hover:bg-primary/10 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors font-medium">
+                      {r.name}
+                    </Link>
+                  ))}
+                </div>
+                <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
+                  Lieferung nach Deutschland in 2–4 Werktagen via DHL/GLS. Zuverlässige Zustellung für Messeauftritte auf der IAA, Bauma, denkmal, und weitere Fachmessen – auch kurzfristig buchbar.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-card border border-primary/20 rounded-2xl p-7 text-center max-w-3xl mx-auto">
+              <p className="text-muted-foreground leading-relaxed mb-5">
+                <strong className="text-foreground">Standort Gunskirchen, OÖ:</strong> Zentraler Knotenpunkt für schnelle Lieferung nach Wien (1,5h), Linz (20min), Salzburg (1,5h), Graz (2h) und in die gesamte DACH-Region. Express-Versand österreichweit in 24–48h, persönliche Abholung jederzeit nach Vereinbarung.
+              </p>
+              <Button asChild size="lg">
+                <Link to="/kontakt">Anfrage stellen – Angebot in 6h</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Contact />
       <Footer />
       
