@@ -176,7 +176,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Firmenkunden & B2B</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                  Rechnung mit UID, NDA auf Anfrage, Mengenrabatte ab 10 Einheiten. Zuverlässiger Partner für Serienfertigung und Industriemodelle.
+                  Rechnung mit UID, NDA auf Anfrage, Mengenrabatte ab 10 Einheiten. Zuverlässiger Partner für Architektur-, Messe- und Präsentationsmodelle.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold group-hover:gap-2.5 transition-all">
                   Mehr erfahren <ArrowRight className="w-4 h-4" />
