@@ -99,6 +99,7 @@ const App = () => (
               <Route path="/kunstobjekte" element={<Kunstobjekte />} />
               <Route path="/firmenkunden" element={<Firmenkunden />} />
               <Route path="/kontakt" element={<Kontakt />} />
+              <Route path="/ueber-uns" element={<UeberUns />} />
               <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
               <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
               <Route path="/3d-druck-graz" element={<Graz3DDruck />} />
