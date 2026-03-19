@@ -149,10 +149,6 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             <Link to="/ueber-uns" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</Link>
-            <Link to="/kontakt" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
-              <Calculator className="w-4 h-4" />
-              Anfrage stellen
-            </Link>
             <Link to="/kontakt" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</Link>
             
             {user ? (
