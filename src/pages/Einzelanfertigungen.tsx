@@ -192,7 +192,7 @@ const Einzelanfertigungen = () => {
                   <span className="text-primary">nach Maß</span>
                 </h1>
                 <p className="text-lg text-muted-foreground mb-6 leading-relaxed max-w-xl">
-                  Messemodelle, Architekturmodelle, Industriemodelle – wir fertigen Ihre
+                  Messemodelle, Architekturmodelle, Präsentationsmodelle – wir fertigen Ihre
                   individuellen Anschauungsobjekte präzise und termingerecht. Angebot in 6 Stunden,
                   kostenlos & unverbindlich.
                 </p>
