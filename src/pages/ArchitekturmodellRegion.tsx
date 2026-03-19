@@ -57,6 +57,12 @@ const ArchitekturmodellRegion = () => {
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Negrellistraße 15",
+        "addressLocality": "Gunskirchen",
+        "postalCode": "4623",
+        "addressRegion": "Oberösterreich",
+        "addressCountry": "AT"
+      },
+      "telephone": "+43 676 5517197",
       "email": "office@ek-druck.at"
     },
     "areaServed": {
