@@ -52,7 +52,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Rapid Manufacturing",
     category: "Verfahren",
-    definition: "Direkter Einsatz von Additive-Manufacturing-Technologien für die Serienproduktion, nicht nur für Prototypen. Ermöglicht Kleinserien ab Stückzahl 1 ohne Werkzeugkosten, individualisierte Produkte und On-Demand-Fertigung. Besonders attraktiv für Ersatzteile, Jigs & Fixtures und Low-Volume-Produkte.",
+    definition: "Einsatz von Additive-Manufacturing-Technologien für individuelle Anfertigungen ohne Werkzeugkosten. Ermöglicht maßgefertigte Anschauungsmodelle ab Stückzahl 1, individualisierte Präsentationsobjekte und bedarfsorientierte Fertigung. Besonders attraktiv für Architekturmodelle, Messeexponate und Dekorationsobjekte.",
     relatedLinks: [{ label: "Einzelanfertigungen", href: "/einzelanfertigungen" }, { label: "Firmenkunden", href: "/firmenkunden" }]
   },
 
