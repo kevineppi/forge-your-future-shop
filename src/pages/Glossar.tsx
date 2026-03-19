@@ -84,7 +84,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Funktionsprototyp",
     category: "Modellbau",
-    definition: "Prototyp, der nicht nur optisch dem Endprodukt entspricht, sondern auch funktionale Eigenschaften testet – bewegliche Teile, Passung von Baugruppen, Druckfestigkeit. Höhere Materialanforderungen als beim Sichtmodell (PETG, ABS, Nylon statt PLA). Wichtiger Entwicklungsschritt vor Serienfertigung.",
+    definition: "Anschauungsmodell, das primär der visuellen Präsentation dient – nicht als funktionaler Prototyp. Kann bewegliche Elemente zur Demonstration enthalten. Typisch für Architektur, Stadtplanung, Maschinenbau-Präsentationen und Produktdesign. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
     relatedLinks: [{ label: "Prototypen", href: "/prototypen" }]
   },
   {
