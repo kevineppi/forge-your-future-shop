@@ -16,6 +16,10 @@ import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
 import ReferencesTeaser from "@/components/ReferencesTeaser";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
+import { Building2, Presentation, Palette, Users, Check, X, MapPin, TrendingDown, Clock, Repeat2, Layers } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 const Index = () => {
   return <>
       <SEOHead 
