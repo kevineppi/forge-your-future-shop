@@ -54,6 +54,7 @@ const Footer = () => {
               <li><a href="/ratgeber/kosten-guide" className="hover:text-primary transition-colors">Kosten-Guide</a></li>
               <li><a href="/ratgeber/material-guide" className="hover:text-primary transition-colors">Material-Guide</a></li>
               <li><a href="/glossar" className="hover:text-primary transition-colors">3D-Druck Glossar</a></li>
+              <li><a href="/ueber-uns" className="hover:text-primary transition-colors">Über uns</a></li>
             </ul>
           </div>
 
