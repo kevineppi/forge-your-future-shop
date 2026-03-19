@@ -630,7 +630,7 @@ const Index = () => {
                   <tr className="border-t border-border hover:bg-muted/20 transition-colors">
                     <td className="p-4 font-medium flex items-center gap-2"><Layers className="w-4 h-4 text-primary shrink-0" /> Geometrie-Komplexität</td>
                     <td className="p-4 text-center font-bold text-primary">
-                      <span className="inline-flex items-center gap-1"><Check className="w-4 h-4 text-green-600" /> Unbegrenzt</span>
+                      <span className="inline-flex items-center gap-1"><Check className="w-4 h-4 text-accent" /> Unbegrenzt</span>
                     </td>
                     <td className="p-4 text-center text-muted-foreground">
                       <span className="inline-flex items-center justify-center gap-1"><X className="w-4 h-4 text-destructive" /> Stark limitiert</span>
