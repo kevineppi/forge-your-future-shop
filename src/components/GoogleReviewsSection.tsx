@@ -172,7 +172,7 @@ const GoogleReviewsSection = () => {
                         referrerPolicy="no-referrer"
                       />
                     ) : (
-                      <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center text-primary font-bold text-sm flex-shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm flex-shrink-0">
                         {review.author_name.charAt(0)}
                       </div>
                     )}
