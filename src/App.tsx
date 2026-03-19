@@ -54,6 +54,7 @@ const MessemodellRegion      = lazy(() => import("./pages/MessemodellRegion"));
 const Kunstobjekte           = lazy(() => import("./pages/Kunstobjekte"));
 const Firmenkunden           = lazy(() => import("./pages/Firmenkunden"));
 const Kontakt                = lazy(() => import("./pages/Kontakt"));
+const UeberUns               = lazy(() => import("./pages/UeberUns"));
 
 // ─── Minimal fallback shown during chunk fetch ────────────────────────────────
 const PageLoader = () => (
