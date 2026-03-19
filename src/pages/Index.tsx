@@ -64,7 +64,7 @@ const Index = () => {
         },
         {
           question: "Für welche Branchen und Anwendungsfälle ist ekdruck geeignet?",
-          answer: "Unsere Kernzielgruppen sind Architekten und Planer (maßstabsgetreue Architekturmodelle 1:50–1:500), Messeaussteller (Exponate und Anschauungsmodelle für Messen), Künstler und Galerien (Skulpturen und Kunstobjekte) sowie Firmenkunden und Industriebetriebe (Prototypen, Ersatzteile, Schulungsmodelle). Wir fertigen ausschließlich Anschauungsmodelle – keine Funktionsteile oder sicherheitsrelevante Bauteile."
+          answer: "Unsere Kernzielgruppen sind Architekten und Planer (maßstabsgetreue Architekturmodelle 1:50–1:500), Messeaussteller (Exponate und Anschauungsmodelle für Messen), Künstler und Galerien (Skulpturen und Dekorationsobjekte) sowie Firmenkunden (Präsentationsmodelle, Schulungsmodelle, Messe-Exponate). Wir fertigen ausschließlich Anschauungsmodelle zu Präsentationszwecken – keine Funktionsteile oder sicherheitsrelevante Bauteile."
         },
         {
           question: "Warum österreichisches Filament statt günstigeren Importen?",
@@ -159,7 +159,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Einzelanfertigungen</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                  Unikate nach Maß – vom CAD-Entwurf bis zum fertigen Teil. Für Prototypen, Ersatzteile, Geschenke und individuelle Sonderwünsche. Ab 1 Stück.
+                  Unikate nach Maß – vom CAD-Entwurf bis zum fertigen Anschauungsmodell. Für Präsentationen, Architektur, Messe und individuelle Sonderwünsche. Ab 1 Stück.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold group-hover:gap-2.5 transition-all">
                   Mehr erfahren <ArrowRight className="w-4 h-4" />
@@ -176,7 +176,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Firmenkunden & B2B</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                  Rechnung mit UID, NDA auf Anfrage, Mengenrabatte ab 10 Einheiten. Zuverlässiger Partner für Serienfertigung und Industriemodelle.
+                  Rechnung mit UID, NDA auf Anfrage, Mengenrabatte ab 10 Einheiten. Zuverlässiger Partner für Architektur-, Messe- und Präsentationsmodelle.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold group-hover:gap-2.5 transition-all">
                   Mehr erfahren <ArrowRight className="w-4 h-4" />

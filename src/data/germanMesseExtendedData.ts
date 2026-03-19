@@ -231,8 +231,8 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
     materials: [
       {
         name: "PLA Industrial",
-        description: "Für technische Industriemodelle. Präzise Oberflächen für Maschinenkomponenten.",
-        bestFor: ["Produktionslinien", "Maschinenmodelle", "Automationskomponenten"],
+        description: "Für technische Präsentationsmodelle. Präzise Oberflächen für Anschauungsexponate.",
+        bestFor: ["Produktionslinien-Modelle", "Maschinenmodelle (Anschauung)", "Ausstellungsexponate"],
         icon: "palette"
       },
       {

@@ -40,19 +40,19 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "SLS (Selektives Lasersintern)",
     category: "Verfahren",
-    definition: "Pulverbasiertes Verfahren, bei dem ein Laserstrahl Kunststoff- oder Metallpulver selektiv verschmilzt. Keine Stützstrukturen nötig, da unverarbeitetes Pulver als Stütze dient. Sehr robuste Bauteile mit isotropen Eigenschaften. Hauptsächlich für Industrie und Serienfertigung genutzt. Kosten deutlich höher als FDM.",
+    definition: "Pulverbasiertes Verfahren, bei dem ein Laserstrahl Kunststoff- oder Metallpulver selektiv verschmilzt. Keine Stützstrukturen nötig, da unverarbeitetes Pulver als Stütze dient. Sehr robuste Bauteile mit isotropen Eigenschaften. Hauptsächlich in der Industrie für hochpräzise Anschauungsmodelle genutzt. Kosten deutlich höher als FDM.",
     relatedLinks: [{ label: "Prototypen & Serien", href: "/prototypen" }]
   },
   {
     term: "Rapid Prototyping",
     category: "Verfahren",
-    definition: "Schnelle Herstellung physischer Modelle oder Prototypen direkt aus CAD-Daten. Ziel ist die möglichst schnelle Überprüfung von Design, Funktion und Maßhaltigkeit vor der Serienfertigung. 3D-Druck (FDM, SLA, SLS) ist die dominierende Rapid-Prototyping-Technologie. Reduziert Entwicklungszeit um 50–90 % gegenüber traditionellen Verfahren.",
+    definition: "Schnelle Herstellung physischer Anschauungsmodelle oder Designprototypen direkt aus CAD-Daten. Ziel ist die möglichst schnelle Visualisierung von Design und Formgebung. 3D-Druck (FDM, SLA, SLS) ist die dominierende Rapid-Prototyping-Technologie. Reduziert Entwicklungszeit um 50–90 % gegenüber traditionellen Verfahren.",
     relatedLinks: [{ label: "Prototypen Service", href: "/prototypen" }]
   },
   {
     term: "Rapid Manufacturing",
     category: "Verfahren",
-    definition: "Direkter Einsatz von Additive-Manufacturing-Technologien für die Serienproduktion, nicht nur für Prototypen. Ermöglicht Kleinserien ab Stückzahl 1 ohne Werkzeugkosten, individualisierte Produkte und On-Demand-Fertigung. Besonders attraktiv für Ersatzteile, Jigs & Fixtures und Low-Volume-Produkte.",
+    definition: "Einsatz von Additive-Manufacturing-Technologien für individuelle Anfertigungen ohne Werkzeugkosten. Ermöglicht maßgefertigte Anschauungsmodelle ab Stückzahl 1, individualisierte Präsentationsobjekte und bedarfsorientierte Fertigung. Besonders attraktiv für Architekturmodelle, Messeexponate und Dekorationsobjekte.",
     relatedLinks: [{ label: "Einzelanfertigungen", href: "/einzelanfertigungen" }, { label: "Firmenkunden", href: "/firmenkunden" }]
   },
 
@@ -84,7 +84,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Funktionsprototyp",
     category: "Modellbau",
-    definition: "Prototyp, der nicht nur optisch dem Endprodukt entspricht, sondern auch funktionale Eigenschaften testet – bewegliche Teile, Passung von Baugruppen, Druckfestigkeit. Höhere Materialanforderungen als beim Sichtmodell (PETG, ABS, Nylon statt PLA). Wichtiger Entwicklungsschritt vor Serienfertigung.",
+    definition: "Anschauungsmodell, das primär der visuellen Präsentation dient – nicht als funktionaler Prototyp. Kann bewegliche Elemente zur Demonstration enthalten. Typisch für Architektur, Stadtplanung, Maschinenbau-Präsentationen und Produktdesign. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
     relatedLinks: [{ label: "Prototypen", href: "/prototypen" }]
   },
   {

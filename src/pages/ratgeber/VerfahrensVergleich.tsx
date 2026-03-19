@@ -301,7 +301,7 @@ const VerfahrensVergleich = () => {
                     <p>✓ Mechanische Belastbarkeit wichtiger ist als Oberflächenqualität</p>
                     <p>✓ Große Bauteile (20x20x20cm+) gedruckt werden sollen</p>
                     <p>✓ Nachhaltige, recycelbare Materialien verwendet werden sollen</p>
-                    <p className="pt-4 font-semibold text-foreground">Beispiele: Gehäuse, Halterungen, Werkzeuge, Ersatzteile, Vorrichtungen</p>
+                    <p className="pt-4 font-semibold text-foreground">Beispiele: Architekturmodelle, Messeexponate, Präsentationsmodelle, Designstudien</p>
                   </CardContent>
                 </Card>
 

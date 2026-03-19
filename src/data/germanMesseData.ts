@@ -176,7 +176,7 @@ export const germanMesseData: Record<string, GermanRegionalMesseData> = {
     ],
     localAdvantages: [
       'Erfahrung mit Leipziger Messe',
-      'Kompetenz für Industriemodelle',
+      'Kompetenz für Präsentationsmodelle',
       'Zuverlässiger Versand nach Ostdeutschland',
       'Wettbewerbsfähige Preise',
     ],
@@ -539,7 +539,7 @@ export const germanMesseData: Record<string, GermanRegionalMesseData> = {
     ],
     localAdvantages: [
       'Kurze Lieferwege über A8',
-      'Kompetenz für Industriemodelle',
+      'Kompetenz für Präsentationsmodelle',
       'Express-Option verfügbar',
       'Wettbewerbsfähige Preise',
     ],

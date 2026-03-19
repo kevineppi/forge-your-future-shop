@@ -32,14 +32,14 @@ const KostenGuide = () => {
     material: "PLA",
     time: "3 Stunden",
     price: "18-25€",
-    description: "Ideal für erste Prototypen, Anschauungsmodelle, kleine Ersatzteile"
+    description: "Ideal für erste Anschauungsmodelle und Präsentationsmodelle"
   }, {
-    title: "Mittleres Funktionsbauteil",
+    title: "Mittleres Präsentationsmodell",
     size: "10x10x8cm",
     material: "PETG",
     time: "8 Stunden",
     price: "45-65€",
-    description: "Perfekt für funktionale Prototypen, Gehäuse, mechanische Teile"
+    description: "Perfekt für Architekturmodelle, Messeexponate und Designmodelle"
   }, {
     title: "Großes technisches Teil",
     size: "20x15x12cm",
