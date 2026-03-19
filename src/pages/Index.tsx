@@ -591,11 +591,8 @@ const Index = () => {
       {/* About Section */}
       <About />
       
-      {/* Reviews Section - Enhanced Visual Separation */}
-      <div className="bg-gradient-to-b from-background to-muted/30">
-        
-        <ReviewsWidget />
-      </div>
+      {/* Google Reviews Section */}
+      <GoogleReviewsSection />
       
       {/* Trust Badges Section */}
       <section className="py-16 bg-background">
