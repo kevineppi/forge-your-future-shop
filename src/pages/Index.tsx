@@ -317,8 +317,108 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── SEKTION 5: FAQ ────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-background">
+      {/* ── SEKTION 5: EXPERTISE & TECHNOLOGIE ───────────────────────────── */}
+      <section className="py-20 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+
+            <div className="text-center mb-14">
+              <p className="inline-flex items-center gap-2 text-primary font-semibold text-xs uppercase tracking-widest mb-3 bg-primary/8 px-4 py-1.5 rounded-full border border-primary/20">
+                Technologie & Materialien
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                FDM 3D-Druck: Präzision aus <span className="text-gradient">österreichischer Produktion</span>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Als spezialisierter <a href="/fdm-3d-druck" className="text-primary hover:underline font-semibold">FDM-Dienstleister</a> aus Gunskirchen (OÖ) kombinieren wir modernste Fertigungstechnologie mit nachhaltigen österreichischen Materialien – für Ergebnisse, die handwerklichen Modellbau in Präzision, Geschwindigkeit und Kosteneffizienz übertreffen.
+              </p>
+            </div>
+
+            {/* Asymmetric layout: Text left, Material cards right */}
+            <div className="grid lg:grid-cols-5 gap-10 items-start mb-12">
+
+              {/* Left: Technology text block */}
+              <div className="lg:col-span-2 space-y-5">
+                <div>
+                  <h3 className="font-bold text-lg mb-2">Was ist FDM-Technologie?</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    FDM (Fused Deposition Modeling) ist das führende additive Fertigungsverfahren für Anschauungsmodelle und Präsentationsobjekte. Schicht für Schicht wird hochpräzise Kunststoff-Filament aufgetragen – mit Auflösungen bis 0,1 mm. Das Ergebnis: komplexe Geometrien, die mit Fräsen oder Handmodellbau nicht realisierbar wären. Kein Materialverschnitt, kein teures Werkzeug, keine Mindestmengen.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-2">Nachhaltigkeit durch kurze Wege</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Wir beziehen ausschließlich Filamente österreichischer Hersteller, produziert aus recycelten Industrieabfällen und betrieben mit Ökostrom. Kurze Lieferwege reduzieren den CO₂-Fußabdruck gegenüber Importen aus Asien um bis zu 80 %. Additive Fertigung erzeugt grundsätzlich keinen Verschnitt – es wird nur gedruckt, was tatsächlich benötigt wird. Nachhaltigkeit ist bei ekdruck kein Marketing-Versprechen, sondern integraler Teil jedes Auftrags.
+                  </p>
+                </div>
+                <a href="/3d-druck-materialien" className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:underline">
+                  Alle Materialien & Spezifikationen <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+
+              {/* Right: Material cards grid */}
+              <div className="lg:col-span-3 grid grid-cols-2 gap-4">
+                {[
+                  {
+                    name: "PLA",
+                    full: "Polylactic Acid",
+                    badge: "Bestseller",
+                    color: "bg-primary/8 border-primary/20",
+                    desc: "Biologisch abbaubar, aus nachwachsenden Rohstoffen. Ideal für Architekturmodelle und Präsentationsobjekte. Schichtauflösung bis 0,1 mm, 20+ Farben verfügbar.",
+                    props: ["60°C temp.-beständig", "Biologisch abbaubar", "Hochdetailliert"],
+                  },
+                  {
+                    name: "PETG",
+                    full: "Polyethylenterephthalat",
+                    badge: "Outdoor",
+                    color: "bg-muted/50 border-border",
+                    desc: "UV-beständig und langlebig – perfekt für Außen-Exponate und Messemodelle, die Transportbelastungen standhalten müssen.",
+                    props: ["80°C temp.-beständig", "UV-beständig", "Schlagfest"],
+                  },
+                  {
+                    name: "ABS",
+                    full: "Acrylnitril-Butadien-Styrol",
+                    badge: "Robust",
+                    color: "bg-muted/50 border-border",
+                    desc: "Hochwertiger Industriestandard für robuste Modelle. Nachbearbeitbar durch Schleifen, Grundieren und Lackieren – für optisch perfekte Exponate.",
+                    props: ["100°C temp.-beständig", "Lackierbar", "Schleifbar"],
+                  },
+                  {
+                    name: "TPU",
+                    full: "Thermoplastisches Polyurethan",
+                    badge: "Flexibel",
+                    color: "bg-muted/50 border-border",
+                    desc: "Elastisches, gummimähnliches Material für spezielle Anwendungen. Shore-Härte 95A, Dehnung bis 500 %. Für Dichtungen, flexible Verbindungselemente und haptische Modelle.",
+                    props: ["Shore 95A", "500% dehnbar", "Abriebfest"],
+                  },
+                ].map(({ name, full, badge, color, desc, props }) => (
+                  <div key={name} className={`rounded-xl border p-5 ${color}`}>
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <p className="font-bold text-base">{name}</p>
+                        <p className="text-xs text-muted-foreground">{full}</p>
+                      </div>
+                      <span className="text-xs font-semibold bg-primary/10 text-primary px-2 py-0.5 rounded-full border border-primary/20">{badge}</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">{desc}</p>
+                    <div className="space-y-1">
+                      {props.map(p => (
+                        <div key={p} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                          <Check className="w-3 h-3 text-primary shrink-0" />{p}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── SEKTION 6: FAQ ────────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
@@ -330,48 +430,59 @@ const Index = () => {
               </h2>
             </div>
             <Accordion type="single" collapsible className="space-y-3">
-              {[
-                {
-                  q: "Was kostet 3D-Druck bei ekdruck?",
-                  a: "Ab €20 pro Modell. Die genauen Kosten hängen von Material, Größe und Komplexität ab. Express-Service und Mengenrabatte verfügbar. Mehr im",
-                  link: { text: "Preis-Ratgeber", url: "/ratgeber/kosten-guide" }
-                },
-                {
-                  q: "Wie schnell erhalte ich mein Teil?",
-                  a: "Standard österreichweit 3–5 Werktage. Mit unserem Express-Service in 24–48 Stunden. Mehr zur",
-                  link: { text: "Express-Fertigung", url: "/rapid-prototyping" }
-                },
-                {
-                  q: "Welche Dateiformate werden akzeptiert?",
-                  a: "STL, OBJ, STEP, IGES, 3MF und mehr. Keine CAD-Datei? Wir erstellen sie nach Skizze oder Foto. Mehr zu",
-                  link: { text: "Einzelanfertigungen", url: "/einzelanfertigungen" }
-                },
-                {
-                  q: "Für welche Branchen bietet ekdruck an?",
-                  a: "Architektur & Modellbau, Messen & Events, Kunst & Design sowie B2B-Firmenkunden. Details zu den",
-                  link: { text: "Materialien", url: "/3d-druck-materialien" }
-                },
-                {
-                  q: "Warum österreichisches Filament?",
-                  a: "Nachhaltige Produktion aus Industrieabfällen, kurze Lieferwege, Ökostrom und hohe Qualität. Mehr im",
-                  link: { text: "Material-Guide", url: "/ratgeber/material-guide" }
-                },
-                {
-                  q: "Bietet ekdruck Nachbearbeitung an?",
-                  a: "Ja – Schleifen, Grundieren, Lackieren, Aceton-Glättung und weitere Finishing-Optionen. Details unter",
-                  link: { text: "Einzelanfertigungen", url: "/einzelanfertigungen" }
-                },
-              ].map(({ q, a, link }, i) => (
-                <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-6 hover:border-primary/30 transition-colors">
-                  <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">
-                    {q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
-                    {a}{" "}
-                    <Link to={link.url} className="text-primary hover:underline font-semibold">{link.text}</Link>.
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
+              <AccordionItem value="faq-0" className="bg-card border border-border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">
+                  Was kostet 3D-Druck bei ekdruck?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  Unsere Preise starten ab €20 pro Modell. Die genauen Kosten hängen von drei Faktoren ab: Material (PLA, PETG, ABS oder TPU), Druckvolumen und gewählter Qualitätsstufe. Express-Service ist gegen einen Aufpreis jederzeit buchbar. Mengenrabatte gewähren wir ab 5 Einheiten. Ein transparentes, individuelles Angebot erhalten Sie bei uns in unter 6 Stunden. Alle Details im <Link to="/ratgeber/kosten-guide" className="text-primary hover:underline font-semibold">Preis-Ratgeber</Link>.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-1" className="bg-card border border-border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">
+                  Wie schnell erhalte ich mein 3D-gedrucktes Teil?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  Standard-Lieferung beträgt 3–5 Werktage österreichweit, inklusive versandkostenfreier Lieferung ab €100 Bestellwert. Mit unserem <Link to="/rapid-prototyping" className="text-primary hover:underline font-semibold">Express-Service</Link> fertigen und liefern wir bereits in 24–48 Stunden – ideal für kurzfristige Messe-Deadlines oder Wettbewerbsabgaben. Nach Deutschland liefern wir in 2–4 Werktagen via DHL oder GLS.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-2" className="bg-card border border-border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">
+                  Welche Dateiformate werden akzeptiert?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  Wir akzeptieren alle gängigen 3D-Formate: STL, OBJ, STEP, IGES, 3MF, STP sowie native CAD-Formate aus ArchiCAD, Revit, SolidWorks und Fusion 360. Keine CAD-Datei vorhanden? Kein Problem – wir erstellen das 3D-Modell nach Ihren Skizzen, Fotos oder technischen Zeichnungen. Mehr zu unserem <Link to="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Modellierungsservice</Link>.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-3" className="bg-card border border-border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">
+                  Für welche Branchen und Anwendungsfälle ist ekdruck geeignet?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  Unsere Kernzielgruppen sind Architekten und Planer (maßstabsgetreue Architekturmodelle 1:50–1:500), Messeaussteller (Exponate und Anschauungsmodelle für Messen), Künstler und Galerien (Skulpturen und Kunstobjekte) sowie Firmenkunden und Industriebetriebe (Prototypen, Ersatzteile, Schulungsmodelle). Wir fertigen ausschließlich Anschauungsmodelle – keine Funktionsteile oder sicherheitsrelevante Bauteile. Details zu den <Link to="/3d-druck-materialien" className="text-primary hover:underline font-semibold">Materialien und Anwendungen</Link>.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-4" className="bg-card border border-border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">
+                  Warum österreichisches Filament statt günstigeren Importen?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  Österreichische Filamente werden aus recycelten Industrieabfällen unter strengen Qualitätsstandards gefertigt, betrieben mit Ökostrom und geprüft auf gleichmäßige Extrusionsqualität. Das bedeutet für Sie: konsistente Druckergebnisse, geringere Fehlerquote, und ein CO₂-Fußabdruck um bis zu 80 % niedriger als bei Importware aus Asien. Kurzlieferwege bedeuten auch, dass wir schneller reagieren können. Alles zum Thema im <Link to="/ratgeber/material-guide" className="text-primary hover:underline font-semibold">Material-Guide</Link>.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="faq-5" className="bg-card border border-border rounded-xl px-6 hover:border-primary/30 transition-colors">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">
+                  Welche Nachbearbeitungs- und Finishing-Optionen gibt es?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  Ja – ekdruck bietet ein breites Spektrum an Nachbearbeitung: Schleifen und Glätten für glatte Oberflächen, Grundieren als Vorbereitung für Lackierung, Lackieren in RAL-Farben oder Sonderfarben, Aceton-Dampf-Glättung für ABS-Modelle sowie Klebeverbindungen für Segmentmodelle. So erhalten Sie ein Endprodukt, das direkt präsentationsbereit ist. Details zu allen Optionen unter <Link to="/einzelanfertigungen" className="text-primary hover:underline font-semibold">Einzelanfertigungen</Link>.
+                </AccordionContent>
+              </AccordionItem>
             </Accordion>
             <div className="mt-6 p-5 bg-primary/5 border border-primary/15 rounded-xl text-center">
               <p className="text-sm text-muted-foreground">
