@@ -590,6 +590,89 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Sektion B – Warum 3D-Druck vs. traditioneller Modellbau */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+                <TrendingDown className="w-4 h-4" /> Vergleich
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Warum 3D-Druck statt <span className="text-gradient">traditionellem Modellbau?</span>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                Wo herkömmlicher Handmodellbau an seine Grenzen stößt, liefert FDM 3D-Druck messbare Vorteile – in Zeit, Kosten und Präzision.
+              </p>
+            </div>
+
+            {/* Comparison Table */}
+            <div className="overflow-x-auto rounded-2xl border border-border mb-10">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-muted/60">
+                    <th className="text-left p-4 font-semibold text-muted-foreground">Kriterium</th>
+                    <th className="text-center p-4 font-bold text-primary">ekdruck 3D-Druck</th>
+                    <th className="text-center p-4 font-semibold text-muted-foreground">Traditioneller Modellbau</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><TrendingDown className="w-4 h-4 text-primary shrink-0" /> Kosten ab</td>
+                    <td className="p-4 text-center font-bold text-primary">ab €20 / Modell</td>
+                    <td className="p-4 text-center text-muted-foreground">€200–€2.000+</td>
+                  </tr>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><Clock className="w-4 h-4 text-primary shrink-0" /> Lieferzeit</td>
+                    <td className="p-4 text-center font-bold text-primary">24–48h Express möglich</td>
+                    <td className="p-4 text-center text-muted-foreground">1–4 Wochen</td>
+                  </tr>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><Layers className="w-4 h-4 text-primary shrink-0" /> Geometrie-Komplexität</td>
+                    <td className="p-4 text-center font-bold text-primary">
+                      <span className="inline-flex items-center gap-1"><Check className="w-4 h-4 text-green-600" /> Unbegrenzt</span>
+                    </td>
+                    <td className="p-4 text-center text-muted-foreground">
+                      <span className="inline-flex items-center justify-center gap-1"><X className="w-4 h-4 text-destructive" /> Stark limitiert</span>
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><Repeat2 className="w-4 h-4 text-primary shrink-0" /> Wiederholbarkeit</td>
+                    <td className="p-4 text-center font-bold text-primary">
+                      <span className="inline-flex items-center gap-1"><Check className="w-4 h-4 text-green-600" /> 1:1 identische Kopien</span>
+                    </td>
+                    <td className="p-4 text-center text-muted-foreground">
+                      <span className="inline-flex items-center justify-center gap-1"><X className="w-4 h-4 text-destructive" /> Handarbeit variiert</span>
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border hover:bg-muted/20 transition-colors">
+                    <td className="p-4 font-medium flex items-center gap-2"><Layers className="w-4 h-4 text-primary shrink-0" /> Gewicht</td>
+                    <td className="p-4 text-center font-bold text-primary">Bis zu 80% leichter (Waben-Infill)</td>
+                    <td className="p-4 text-center text-muted-foreground">Massiv &amp; schwer</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Body text */}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-muted/30 rounded-2xl p-7">
+                <h3 className="font-bold text-lg mb-3">Kosteneffizienz durch additive Fertigung</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  Traditioneller Modellbau erfordert Handarbeit, teure Werkzeuge und viel Material-Verschnitt. FDM 3D-Druck ist ein additives Verfahren: Es wird nur das Material aufgetragen, das tatsächlich gebraucht wird – kein Abfall, kein Werkzeugverschleiß. Das Ergebnis sind erheblich niedrigere Stückkosten, insbesondere bei kleinen Serien und Einzelstücken ab 1 Stück. Für Architekten und Messeaussteller bedeutet das: Mehr Budget für Design statt Fertigung.
+                </p>
+              </div>
+              <div className="bg-muted/30 rounded-2xl p-7">
+                <h3 className="font-bold text-lg mb-3">Schnelligkeit &amp; Reproduzierbarkeit entscheiden</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  Bei Messe-Deadlines oder Wettbewerbsabgaben zählt jede Stunde. Mit unserem Express-Service liefern wir österreichweit in 24–48 Stunden. Gleichzeitig sichert die digitale CAD-Basis, dass jedes Modell – egal ob erstes oder fünfzigstes Exemplar – exakt identisch ist. Korrekturen am Modell kosten keine Neuanfertigung, sondern nur eine Datei-Änderung und einen neuen Druckauftrag. Vergleichen Sie alle Druckverfahren in unserem <Link to="/ratgeber/verfahrens-vergleich" className="text-primary hover:underline font-semibold">Verfahrens-Vergleich Ratgeber</Link>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <About />
 
