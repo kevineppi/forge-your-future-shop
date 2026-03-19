@@ -548,7 +548,6 @@ const UeberUns = () => {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };
