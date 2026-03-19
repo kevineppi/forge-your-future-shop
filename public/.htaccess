@@ -16,9 +16,8 @@
   RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
 
   # Redirects für alte/nicht-existierende URLs
-  RewriteRule ^angebot/?$ / [R=301,L]
-  RewriteRule ^3d-druck-angebot/?$ / [R=301,L]
-  RewriteRule ^kontakt/?$ /#contact [R=301,L,NE]
+  RewriteRule ^angebot/?$ /kontakt [R=301,L]
+  RewriteRule ^3d-druck-angebot/?$ /kontakt [R=301,L]
   RewriteRule ^info/?$ / [R=301,L]
   RewriteRule ^leistungen/?$ / [R=301,L]
   

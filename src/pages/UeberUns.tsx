@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
 import AnimatedSection from "@/components/AnimatedSection";
 import GoogleReviewsSection from "@/components/GoogleReviewsSection";
 import { Button } from "@/components/ui/button";
@@ -548,7 +548,6 @@ const UeberUns = () => {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };

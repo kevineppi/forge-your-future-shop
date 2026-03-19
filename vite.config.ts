@@ -16,16 +16,34 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    // Minimize CSS
+    cssMinify: true,
+    // Smaller chunks = faster loading
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
         manualChunks: {
+          // Core React runtime – tiny, always needed
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
+          // Radix UI – large but only needed for interactive components
+          'ui-vendor': [
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-tooltip',
+            '@radix-ui/react-select',
+            '@radix-ui/react-tabs',
+          ],
+          // Forms
           'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
+          // Supabase – only used in pages that need auth/DB
           'supabase': ['@supabase/supabase-js'],
+          // Three.js – very large, isolated so it never blocks initial paint
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
+          // Charts
+          'chart-vendor': ['recharts'],
         },
       },
     },
-    chunkSizeWarningLimit: 1000,
   },
 }));

@@ -2,7 +2,6 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Kontakt = () => {
   return (
@@ -20,7 +19,6 @@ const Kontakt = () => {
       </main>
       
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };
