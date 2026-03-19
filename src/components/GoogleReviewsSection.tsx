@@ -158,8 +158,8 @@ const GoogleReviewsSection = () => {
           </AnimatedSection>
 
           {/* Reviews Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {reviews.slice(0, 5).map((review, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            {reviews.slice(0, 3).map((review, i) => (
               <AnimatedSection key={i} animation="fade-in">
                 <div className="group h-full flex flex-col p-5 rounded-2xl bg-background border border-border/60 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300">
                   {/* Header */}
