@@ -40,7 +40,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "SLS (Selektives Lasersintern)",
     category: "Verfahren",
-    definition: "Pulverbasiertes Verfahren, bei dem ein Laserstrahl Kunststoff- oder Metallpulver selektiv verschmilzt. Keine Stützstrukturen nötig, da unverarbeitetes Pulver als Stütze dient. Sehr robuste Bauteile mit isotropen Eigenschaften. Hauptsächlich für Industrie und Serienfertigung genutzt. Kosten deutlich höher als FDM.",
+    definition: "Pulverbasiertes Verfahren, bei dem ein Laserstrahl Kunststoff- oder Metallpulver selektiv verschmilzt. Keine Stützstrukturen nötig, da unverarbeitetes Pulver als Stütze dient. Sehr robuste Bauteile mit isotropen Eigenschaften. Hauptsächlich in der Industrie für hochpräzise Anschauungsmodelle genutzt. Kosten deutlich höher als FDM.",
     relatedLinks: [{ label: "Prototypen & Serien", href: "/prototypen" }]
   },
   {
