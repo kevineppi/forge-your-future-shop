@@ -150,16 +150,16 @@ const Index = () => {
               </div>
             </Link>
 
-            {/* Kunstobjekte */}
-            <Link to="/kunstobjekte" className="group lg:col-span-4">
+            {/* Einzelanfertigungen */}
+            <Link to="/einzelanfertigungen" className="group lg:col-span-4">
               <div className="h-full bg-card border border-border rounded-2xl p-7 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent pointer-events-none" />
                 <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                  <Palette className="w-5 h-5 text-primary" />
+                  <Layers className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Kunstobjekte</h3>
+                <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Einzelanfertigungen</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                  Komplexe organische Formen mit Holz-Filament, Marmor-Look und Metallic-Optik. Für Galerien, Installationen und Kunstprojekte.
+                  Unikate nach Maß – vom CAD-Entwurf bis zum fertigen Teil. Für Prototypen, Ersatzteile, Geschenke und individuelle Sonderwünsche. Ab 1 Stück.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold group-hover:gap-2.5 transition-all">
                   Mehr erfahren <ArrowRight className="w-4 h-4" />
