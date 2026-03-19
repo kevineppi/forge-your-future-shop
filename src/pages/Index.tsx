@@ -40,7 +40,7 @@ const Index = () => {
       <StructuredData type="service" />
       <AggregateRatingSchema 
         ratingValue={5.0}
-        ratingCount={5}
+        ratingCount={28}
         bestRating={5}
         worstRating={5}
       />
