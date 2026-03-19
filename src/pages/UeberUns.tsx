@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimatedSection from "@/components/AnimatedSection";
+import GoogleReviewsSection from "@/components/GoogleReviewsSection";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
@@ -510,6 +511,9 @@ const UeberUns = () => {
             </div>
           </div>
         </section>
+
+        {/* ── GOOGLE BEWERTUNGEN ────────────────────────────────── */}
+        <GoogleReviewsSection />
 
         {/* ── CTA ───────────────────────────────────────────────── */}
         <section className="py-20 md:py-28 relative overflow-hidden">
