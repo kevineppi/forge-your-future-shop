@@ -163,9 +163,9 @@ const KostenGuide = () => {
               
               <div className="grid md:grid-cols-2 gap-6">
                 {priceExamples.map((example, index) => <Card key={index} className="relative">
-                    <CardHeader>
+                  <CardHeader>
                       <CardTitle className="text-xl mb-2">{example.title}</CardTitle>
-                      <CardDescription className="space-y-1">
+                      <div className="space-y-1 text-sm text-muted-foreground mt-1">
                         <div className="flex justify-between">
                           <span>Größe:</span>
                           <span className="font-medium text-foreground">{example.size}</span>
@@ -178,7 +178,7 @@ const KostenGuide = () => {
                           <span>Druckzeit:</span>
                           <span className="font-medium text-foreground">{example.time}</span>
                         </div>
-                      </CardDescription>
+                      </div>
                     </CardHeader>
                     <CardContent>
                       <div className="text-3xl font-bold text-primary mb-3">{example.price}</div>
