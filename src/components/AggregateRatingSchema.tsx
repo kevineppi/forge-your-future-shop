@@ -23,7 +23,7 @@ const AggregateRatingSchema = ({
       "telephone": "+43 676 5517197",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Feldstraße 15",
+        "streetAddress": "Negrellistraße 15",
         "addressLocality": "Gunskirchen",
         "postalCode": "4623",
         "addressRegion": "Oberösterreich",

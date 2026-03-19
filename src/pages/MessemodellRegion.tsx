@@ -64,13 +64,13 @@ const MessemodellRegion = () => {
       "name": "ekdruck e.U.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Wegscheid 25",
+        "streetAddress": "Negrellistraße 15",
         "addressLocality": "Gunskirchen",
         "postalCode": "4623",
         "addressRegion": "Oberösterreich",
         "addressCountry": "AT"
       },
-      "telephone": "+43 660 9691150",
+      "telephone": "+43 676 5517197",
       "email": "office@ek-druck.at"
     },
     "areaServed": {
@@ -111,11 +111,11 @@ const MessemodellRegion = () => {
     "name": "ekdruck e.U.",
     "description": `3D-Druck Messemodelle für ${regionData.name} – maßgefertigt, Express-Lieferung möglich`,
     "url": `https://www.ek-druck.at/messemodelle/${regionData.slug}`,
-    "telephone": "+43 660 9691150",
+    "telephone": "+43 676 5517197",
     "email": "office@ek-druck.at",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Wegscheid 25",
+      "streetAddress": "Negrellistraße 15",
       "addressLocality": "Gunskirchen",
       "postalCode": "4623",
       "addressRegion": "Oberösterreich",
