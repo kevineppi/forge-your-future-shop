@@ -592,7 +592,94 @@ const Index = () => {
 
       {/* About Section */}
       <About />
-      
+
+      {/* Sektion A – Zielgruppen-Hub */}
+      <section className="py-20 md:py-28 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+              <Users className="w-4 h-4" /> Für wen ist ekdruck?
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              3D-Druck für jede <span className="text-gradient">Branche & Zielgruppe</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Ob Architekt, Messeaussteller, Künstler oder Firmenkunde – unsere FDM-Drucklösungen sind auf Ihre spezifischen Anforderungen zugeschnitten.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Architekten */}
+            <Link to="/architekturmodelle" className="group">
+              <Card className="h-full hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-7 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Building2 className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Architekten & Planer</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                    Maßstabsgetreue Architekturmodelle im Maßstab 1:50 bis 1:500 für Wettbewerbe, Baugenehmigungen und Kundenpräsentationen. Kompatibel mit ArchiCAD, Revit und allen gängigen CAD-Formaten. Präzision bis 0,1 mm, Express-Fertigung für Wettbewerbs-Deadlines.
+                  </p>
+                  <span className="mt-5 text-primary text-sm font-semibold group-hover:underline inline-flex items-center gap-1">
+                    Zu Architekturmodellen →
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+            {/* Messeaussteller */}
+            <Link to="/messemodelle" className="group">
+              <Card className="h-full hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-7 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Presentation className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Messeaussteller</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                    Express-Fertigung in 24–48 Stunden für Wien Messe, Messezentrum Salzburg, Messe Graz und alle großen österreichischen Messeplätze. Leichtbau durch FDM-Technologie spart Transportkosten. Große Objekte bis 2 m+ durch Segment-Montage realisierbar.
+                  </p>
+                  <span className="mt-5 text-primary text-sm font-semibold group-hover:underline inline-flex items-center gap-1">
+                    Zu Messemodellen →
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+            {/* Künstler */}
+            <Link to="/kunstobjekte" className="group">
+              <Card className="h-full hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-7 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Palette className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Künstler & Kreative</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                    Komplexe organische Formen und Skulpturen, die mit traditionellen Methoden unmöglich wären. Spezialfilamente wie Holz-Filament, Marmor-Look und Metallic-Optik für einzigartige Kunstobjekte. Ideal für Galerien, Installationen und exklusive Kunsteditionen.
+                  </p>
+                  <span className="mt-5 text-primary text-sm font-semibold group-hover:underline inline-flex items-center gap-1">
+                    Zu Kunstobjekten →
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+            {/* Firmenkunden */}
+            <Link to="/firmenkunden" className="group">
+              <Card className="h-full hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-7 flex flex-col h-full">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">Firmenkunden & B2B</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                    Professionelle B2B-Abwicklung mit Rechnung und UID-Nummer. NDA auf Anfrage, Mengenrabatte ab 10 Einheiten, dedizierter Ansprechpartner. Serienfertigung von Prototypen, Messedisplays, Industriemodellen und Ersatzteilen – zuverlässig und termintreu.
+                  </p>
+                  <span className="mt-5 text-primary text-sm font-semibold group-hover:underline inline-flex items-center gap-1">
+                    Zu Firmenkunden →
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Google Reviews Section */}
       <GoogleReviewsSection />
       
