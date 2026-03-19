@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Zap, Shield, Clock, Star } from "lucide-react";
+import { ArrowRight, Zap, Shield, Clock, Star, MapPin } from "lucide-react";
 import { lazy, Suspense } from "react";
 
 const Hero3DAnimation = lazy(() => import("@/components/Hero3DAnimation"));
