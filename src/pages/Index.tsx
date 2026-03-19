@@ -2,8 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Advantages from "@/components/Advantages";
-import ReviewsWidget from "@/components/ReviewsWidget";
-import Reviews from "@/components/Reviews";
+import GoogleReviewsSection from "@/components/GoogleReviewsSection";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -41,7 +40,7 @@ const Index = () => {
       <StructuredData type="service" />
       <AggregateRatingSchema 
         ratingValue={5.0}
-        ratingCount={5}
+        ratingCount={28}
         bestRating={5}
         worstRating={5}
       />
@@ -592,11 +591,8 @@ const Index = () => {
       {/* About Section */}
       <About />
       
-      {/* Reviews Section - Enhanced Visual Separation */}
-      <div className="bg-gradient-to-b from-background to-muted/30">
-        
-        <ReviewsWidget />
-      </div>
+      {/* Google Reviews Section */}
+      <GoogleReviewsSection />
       
       {/* Trust Badges Section */}
       <section className="py-16 bg-background">
