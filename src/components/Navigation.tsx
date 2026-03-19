@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Clock, Leaf, Sparkles, Factory, Home, TestTube, Calculator, BookOpen, Book, Package, LogOut, User, Building2, Presentation, Palette, Building, Layers } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Sparkles, Book, Package, LogOut, User, Building2, Presentation, Palette, Building, Layers, Calculator } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 
 const Navigation = () => {
@@ -149,10 +149,6 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             <Link to="/ueber-uns" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</Link>
-            <Link to="/kontakt" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
-              <Calculator className="w-4 h-4" />
-              Anfrage stellen
-            </Link>
             <Link to="/kontakt" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</Link>
             
             {user ? (
