@@ -1,4 +1,5 @@
-import { Navigate, useEffect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Oberoesterreich3DDruck = () => {
   useEffect(() => {
