@@ -41,7 +41,7 @@ const UeberUns = () => {
           <div className="container mx-auto px-4">
             <AnimatedSection animation="fade-in" className="max-w-4xl mx-auto text-center">
               <Badge variant="secondary" className="mb-4 text-xs font-semibold tracking-wider uppercase">
-                Seit 2020 · Gunskirchen, Oberösterreich
+                Gegründet 2024 · Gunskirchen, Oberösterreich
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Über <span className="text-gradient">ekdruck e.U.</span>
