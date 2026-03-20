@@ -266,8 +266,8 @@ const Contact = () => {
           <AnimatedSection animation="slide-up" className="lg:col-span-3">
             {isSubmitted ? (
               <div className="rounded-2xl border border-border bg-card p-10 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
-                  <CheckCircle className="h-8 w-8 text-green-600" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
+                  <CheckCircle className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Vielen Dank!</h3>
                 <p className="text-muted-foreground mb-6 max-w-md mx-auto">
