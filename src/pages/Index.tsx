@@ -481,10 +481,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── QUALITÄT & FINISHING — NEU ────────────────────────────────────
-          Was erhalte ich genau? Kunden wollen das sehen, bevor sie kaufen.
-          SEO: "3D Druck Oberfläche", "3D Druck Nachbearbeitung", "Lackieren"
-      ─────────────────────────────────────────────────────────────────── */}
+      {/* ── QUALITÄT & FINISHING ─────────────────────────────────────── */}
       <section className="py-24 bg-muted/40 border-t border-border/50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
