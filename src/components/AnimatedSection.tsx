@@ -34,7 +34,7 @@ const AnimatedSection = ({
           }
         });
       },
-      { threshold: 0.05, rootMargin: "80px 0px" }
+      { threshold: 0, rootMargin: "200px 0px" }
     );
 
     if (ref.current) {
