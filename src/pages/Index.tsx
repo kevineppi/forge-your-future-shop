@@ -481,99 +481,85 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── QUALITÄT & FINISHING ─────────────────────────────────────── */}
-      <section className="py-24 bg-muted/40 border-t border-border/50">
+      {/* ── QUALITÄT & FINISHING — Split-Layout ──────────────────────── */}
+      <section className="py-24 bg-background border-t border-border/50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <AnimatedSection animation="fade-in" className="mb-14">
-              <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Qualität & Finishing</p>
-              <h2 className="text-4xl md:text-5xl font-black leading-[1.05] tracking-tight text-balance mb-4">
-                Was erhalte ich<br />
-                <span className="text-primary">am Ende wirklich?</span>
-              </h2>
-              <p className="text-muted-foreground max-w-xl text-sm leading-relaxed">
-                Vom Rohmodell bis zur präsentationsreifen Oberfläche – wir bieten jede Qualitätsstufe. Sehen Sie, was möglich ist.
-              </p>
-            </AnimatedSection>
-
-            {/* Druckqualitäten */}
-            <AnimatedSection animation="slide-up" delay={0} className="grid md:grid-cols-3 gap-4 mb-10">
-              {[
-                {
-                  level: "Standard",
-                  res: "0,2 mm",
-                  desc: "Solide Qualität für Funktionsmuster und erste Prototypen-Iterationen. Sichtbare Schichtlinien – ideal wenn es schnell und günstig sein muss.",
-                  use: "Prototypen, Erstmuster",
-                  price: "Günstigste Option",
-                  featured: false,
-                },
-                {
-                  level: "Fine",
-                  res: "0,15 mm",
-                  desc: "Unser meistgewähltes Setting. Sehr gute Oberflächenqualität, kaum sichtbare Schichten – für professionelle Präsentationen und Messemodelle.",
-                  use: "Architekturmodelle, Messe",
-                  price: "Beliebteste Wahl",
-                  featured: true,
-                },
-                {
-                  level: "Ultra Fine",
-                  res: "0,1 mm",
-                  desc: "Höchste Präzision. Minimalste Schichtlinien, maximales Detail – für hochwertige Präsentationsmodelle und sichtbare Feinstrukturen.",
-                  use: "Wettbewerbsmodelle, Galerien",
-                  price: "Premium Qualität",
-                  featured: false,
-                },
-              ].map(({ level, res, desc, use, price, featured }) => (
-                <div key={level} className={`rounded-3xl border p-7 flex flex-col transition-all hover:shadow-sm
-                  ${featured ? "bg-primary/8 border-primary/30" : "bg-background border-border hover:border-primary/25"}`}>
-                  <div className="flex items-start justify-between mb-5">
-                    <div>
-                      <p className="font-black text-xl">{level}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5">{price}</p>
-                    </div>
-                    <div className={`text-center px-3 py-2 rounded-xl border
-                      ${featured ? "bg-primary text-primary-foreground border-primary" : "bg-muted border-border"}`}>
-                      <p className="text-lg font-black leading-none">{res}</p>
-                      <p className="text-[10px] font-semibold mt-0.5 opacity-70">Schicht</p>
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{desc}</p>
-                  <div className="flex items-center gap-2 text-xs text-primary font-semibold">
-                    <ScanLine className="w-3.5 h-3.5 shrink-0" />
-                    Ideal für: {use}
+            {/* Druckqualitäten: linke Leiste + rechts gestapelte Zeilen */}
+            <AnimatedSection animation="fade-in" className="mb-16">
+              <div className="grid lg:grid-cols-5 gap-12 items-start">
+                {/* Sticky Header */}
+                <div className="lg:col-span-2 lg:sticky lg:top-8">
+                  <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Druckqualität</p>
+                  <h2 className="text-3xl md:text-4xl font-black leading-[1.05] tracking-tight mb-4">
+                    Welche Qualitätsstufe<br />
+                    <span className="text-primary">brauche ich?</span>
+                  </h2>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    Vom schnellen Erstmuster bis zum präsentationsreifen Wettbewerbsmodell – wählen Sie die passende Schichtstärke.
+                  </p>
+                  <div className="text-xs text-muted-foreground border border-border rounded-xl p-4 bg-muted/30">
+                    <strong className="text-foreground block mb-1">Nicht sicher?</strong>
+                    Wir empfehlen kostenlos die optimale Qualitätsstufe für Ihr Projekt.
                   </div>
                 </div>
-              ))}
+                {/* Quality tiers as stacked rows */}
+                <div className="lg:col-span-3 space-y-3">
+                  {[
+                    { level: "Standard", res: "0,2 mm", desc: "Für Funktionsmuster und erste Iterationen. Sichtbare Schichtlinien – günstig und schnell.", use: "Prototypen, Erstmuster", featured: false },
+                    { level: "Fine",     res: "0,15 mm", desc: "Unser meistgewähltes Setting. Sehr gute Oberflächenqualität – für professionelle Präsentationen und Messemodelle.", use: "Architekturmodelle, Messe", featured: true },
+                    { level: "Ultra Fine", res: "0,1 mm", desc: "Höchste Präzision. Minimalste Schichtlinien für Wettbewerbsmodelle und sichtbare Feinstrukturen.", use: "Wettbewerbe, Galerien", featured: false },
+                  ].map(({ level, res, desc, use, featured }) => (
+                    <div key={level} className={`flex items-start gap-5 p-5 rounded-2xl border transition-all
+                      ${featured ? "bg-primary/5 border-primary/25" : "bg-card border-border hover:border-primary/20"}`}>
+                      <div className={`shrink-0 w-16 text-center rounded-xl border py-2.5
+                        ${featured ? "bg-primary text-primary-foreground border-primary" : "bg-muted border-border"}`}>
+                        <p className="text-base font-black leading-none">{res}</p>
+                        <p className="text-[9px] font-semibold mt-1 opacity-60 uppercase tracking-wide">Schicht</p>
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <p className="font-black text-base">{level}</p>
+                          {featured && <span className="text-[10px] bg-primary text-primary-foreground font-bold px-2 py-0.5 rounded-full">Beliebteste Wahl</span>}
+                        </div>
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-1">{desc}</p>
+                        <p className="text-xs text-primary font-semibold">→ {use}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </AnimatedSection>
 
-            {/* Finishing-Optionen */}
+            {/* Finishing: volle Breite, dunkler Hintergrund */}
             <AnimatedSection animation="fade-in" delay={100}>
-              <div className="rounded-3xl border border-border bg-background p-8 md:p-10">
-                <div className="flex items-start justify-between mb-8 flex-wrap gap-4">
+              <div className="rounded-2xl bg-foreground text-background p-8 md:p-10">
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
                   <div>
-                    <h3 className="font-black text-xl mb-1">Nachbearbeitung & Finishing</h3>
-                    <p className="text-muted-foreground text-sm">Auf Wunsch liefern wir das Modell direkt präsentationsbereit.</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] opacity-50 mb-2">Nachbearbeitung</p>
+                    <h3 className="font-black text-2xl text-background">Fertig zum Auspacken &amp; Präsentieren</h3>
+                    <p className="text-background/60 text-sm mt-1">Wir liefern das Modell direkt präsentationsbereit – auf Wunsch.</p>
                   </div>
-                  <Link to="/einzelanfertigungen" className="text-primary font-bold text-sm hover:underline flex items-center gap-1">
+                  <Link to="/einzelanfertigungen" className="text-background font-bold text-sm border border-background/20 hover:bg-background/10 px-4 py-2 rounded-xl transition-colors flex items-center gap-1 whitespace-nowrap shrink-0">
                     Finishing anfragen <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {[
-                    { icon: ScanLine, title: "Schleifen & Glätten",      desc: "Schichtlinien entfernen. Glatte, lackierfertige Oberfläche." },
-                    { icon: Paintbrush, title: "Lackieren (RAL/Pantone)", desc: "Jede Farbe nach Wunsch. Mattes oder glänzendes Finish." },
-                    { icon: Palette,   title: "Grundierung",             desc: "Professionelle Vorbereitung für Lackierung. Poren versiegelt." },
-                    { icon: Wrench,    title: "Aceton-Dampfglätte",       desc: "Für ABS: chemisch glatte Oberfläche, fast spritzgussgleich." },
-                    { icon: Ruler,     title: "Segmentierung",           desc: "Große Modelle mehrteilig gedruckt, professionell verklebt." },
-                    { icon: Award,     title: "Qualitätsprüfung",        desc: "Jedes Modell wird vor dem Versand manuell geprüft." },
+                    { icon: ScanLine,   title: "Schleifen & Glätten",      desc: "Schichtlinien entfernen. Lackierfertige Oberfläche." },
+                    { icon: Paintbrush, title: "Lackieren (RAL/Pantone)",  desc: "Jede Farbe nach Wunsch. Matt oder glänzend." },
+                    { icon: Palette,    title: "Grundierung",              desc: "Professionelle Vorbereitung. Poren versiegelt." },
+                    { icon: Wrench,     title: "Aceton-Dampfglätte",       desc: "Für ABS: fast spritzgussgleiche Oberfläche." },
+                    { icon: Ruler,      title: "Segmentierung",            desc: "Große Modelle mehrteilig, professionell verklebt." },
+                    { icon: Award,      title: "Qualitätsprüfung",         desc: "Jedes Modell wird vor dem Versand geprüft." },
                   ].map(({ icon: Icon, title, desc }) => (
-                    <div key={title} className="flex gap-3 p-4 rounded-2xl bg-muted/50 border border-border/50 hover:border-primary/25 hover:bg-primary/4 transition-all">
-                      <div className="w-9 h-9 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 mt-0.5">
-                        <Icon className="w-4 h-4 text-primary" />
+                    <div key={title} className="flex gap-3 p-4 rounded-xl bg-background/8 hover:bg-background/12 border border-background/10 transition-all">
+                      <div className="w-8 h-8 bg-background/15 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                        <Icon className="w-4 h-4 text-background" />
                       </div>
                       <div>
-                        <p className="font-bold text-sm">{title}</p>
-                        <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{desc}</p>
+                        <p className="font-bold text-sm text-background">{title}</p>
+                        <p className="text-xs text-background/60 mt-0.5 leading-relaxed">{desc}</p>
                       </div>
                     </div>
                   ))}
@@ -584,45 +570,57 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── PROZESS ───────────────────────────────────────────────────── */}
-      <section className="py-24 bg-background border-t border-border/50">
+      {/* ── PROZESS — vertikale Zeitleiste ───────────────────────────── */}
+      <section className="py-24 bg-muted/40 border-t border-border/50">
         <div className="container mx-auto px-4">
-          <AnimatedSection animation="fade-in" className="mb-14">
-            <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-16 items-start">
+            {/* Left: header */}
+            <AnimatedSection animation="fade-in" className="lg:col-span-2">
               <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Wie es funktioniert</p>
-              <h2 className="text-4xl md:text-5xl font-black leading-[1.05] tracking-tight text-balance">
+              <h2 className="text-3xl md:text-4xl font-black leading-[1.05] tracking-tight mb-4">
                 Von der Anfrage zum<br />
-                <span className="text-primary">fertigen 3D-Druck Modell</span>
+                <span className="text-primary">fertigen Modell</span>
               </h2>
-              <p className="text-muted-foreground mt-4 text-sm max-w-lg leading-relaxed">
-                Vier Schritte. Kein Bürokratie-Chaos, keine Überraschungen beim Preis.
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Vier Schritte, kein Bürokratie-Chaos, keine Preisüberraschungen. Durchschnittliche Gesamtdauer: 3–5 Werktage.
               </p>
-            </div>
-          </AnimatedSection>
+              <div className="inline-flex items-center gap-2 bg-primary/8 border border-primary/20 text-primary px-4 py-2.5 rounded-xl text-sm font-bold">
+                <Zap className="w-4 h-4" />
+                Express: auch in 24h möglich
+              </div>
+            </AnimatedSection>
 
-          <div className="grid md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {[
-              { n: "01", title: "Anfrage senden",     desc: "CAD-Datei oder Projektbeschreibung – Angebot in unter 6h. STL, OBJ, STEP, ArchiCAD, Revit.", highlight: false },
-              { n: "02", title: "Angebot & Freigabe", desc: "Transparenter Festpreis, verbindliche Lieferzeit. Datei-Optimierung kostenlos.",                highlight: false },
-              { n: "03", title: "FDM-Fertigung",      desc: "Produktion mit österreichischem Premium-Filament. Präzision bis 0,1 mm.",                       highlight: false },
-              { n: "04", title: "QC & Versand",       desc: "Manuelle Qualitätsprüfung. Express-Lieferung österreichweit 24–48h, DE 2–4 Tage.",              highlight: true  },
-            ].map(({ n, title, desc, highlight }, i) => (
-              <AnimatedSection key={n} animation="slide-up" delay={i * 80}>
-                <div className={`rounded-3xl border p-7 h-full flex flex-col transition-all hover:shadow-sm
-                  ${highlight ? "bg-primary border-primary" : "bg-card border-border hover:border-primary/30"}`}>
-                  <span className={`text-5xl font-black leading-none mb-6 block
-                    ${highlight ? "text-primary-foreground/20" : "text-primary/12"}`}>{n}</span>
-                  <h3 className={`font-bold text-base mb-2 ${highlight ? "text-primary-foreground" : ""}`}>{title}</h3>
-                  <p className={`text-sm leading-relaxed flex-1 ${highlight ? "text-primary-foreground/75" : "text-muted-foreground"}`}>{desc}</p>
-                  {highlight && (
-                    <div className="mt-5 flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                      <span className="text-xs text-primary-foreground/80 font-semibold">Fertig – Modell in Händen</span>
+            {/* Right: timeline */}
+            <AnimatedSection animation="slide-up" delay={100} className="lg:col-span-3">
+              <div className="relative">
+                {/* connecting line */}
+                <div className="absolute left-5 top-6 bottom-6 w-px bg-border" />
+                <div className="space-y-2">
+                  {[
+                    { n: "01", title: "Anfrage senden",      desc: "CAD-Datei oder Projektbeschreibung schicken – wir antworten mit einem Angebot in unter 6h. STL, OBJ, STEP, ArchiCAD, Revit, Fotos, Skizzen.", time: "< 6h Antwort" },
+                    { n: "02", title: "Angebot & Freigabe",  desc: "Transparenter Festpreis, verbindliche Lieferzeit. Datei-Optimierung kostenlos. Sie geben frei – wir starten sofort.",                           time: "Sofortiger Start" },
+                    { n: "03", title: "FDM-Produktion",      desc: "Fertigung mit österreichischem Filament. Schicht für Schicht, bis zu 0,1 mm Präzision. Auf Wunsch inklusive Nachbearbeitung.",                   time: "1–3 Tage" },
+                    { n: "04", title: "Qualitätsprüfung & Versand", desc: "Manuelle Prüfung jedes Modells. Express-Lieferung 24–48h österreichweit, DE 2–4 Tage. Oder persönliche Abholung in Gunskirchen.", time: "Ihr Modell" },
+                  ].map(({ n, title, desc, time }, i) => (
+                    <div key={n} className="relative flex gap-4 pl-12 py-4">
+                      {/* node */}
+                      <div className={`absolute left-0 top-4 w-10 h-10 rounded-full flex items-center justify-center text-xs font-black shrink-0 z-10
+                        ${i === 3 ? "bg-primary text-primary-foreground shadow-[0_0_0_4px_hsl(var(--primary)/0.15)]" : "bg-background border-2 border-border text-muted-foreground"}`}>
+                        {n}
+                      </div>
+                      <div className="flex-1 bg-background rounded-2xl border border-border p-4 hover:border-primary/25 transition-colors">
+                        <div className="flex items-start justify-between gap-3 mb-1">
+                          <p className="font-bold text-sm">{title}</p>
+                          <span className={`text-[10px] font-bold whitespace-nowrap px-2 py-0.5 rounded-full shrink-0
+                            ${i === 3 ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"}`}>{time}</span>
+                        </div>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+                      </div>
                     </div>
-                  )}
+                  ))}
                 </div>
-              </AnimatedSection>
-            ))}
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
