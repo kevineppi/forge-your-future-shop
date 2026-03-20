@@ -155,7 +155,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 xl:gap-16 items-start">
 
           {/* LEFT – Trust & Info (2 of 5 cols) */}
-          <AnimatedSection animation="slide-up" className="lg:col-span-2 space-y-8">
+          <AnimatedSection animation="slide-up" className="lg:col-span-2 flex flex-col gap-6">
 
             {/* 6h promise card */}
             <div className="rounded-2xl bg-primary/10 border border-primary/20 p-6">
@@ -232,27 +232,6 @@ const Contact = () => {
                   <p className="text-xs text-muted-foreground">Öffnungszeiten</p>
                   <p className="font-semibold text-sm">Mo–Fr 8:00–17:00 Uhr</p>
                 </div>
-              </div>
-            </div>
-
-            {/* Express badge */}
-            <div className="rounded-2xl border border-border bg-card p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <Shield className="w-5 h-5 text-primary" />
-                <span className="font-bold text-sm">Made in Austria</span>
-              </div>
-              <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
-                {[
-                  "Express 24h möglich",
-                  "Österr. Filament",
-                  "200+ Projekte",
-                  "Kostenlos & unverbindlich"
-                ].map(item => (
-                  <div key={item} className="flex items-center gap-1.5">
-                    <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
               </div>
             </div>
           </AnimatedSection>
@@ -416,6 +395,29 @@ const Contact = () => {
               </div>
             )}
           </AnimatedSection>
+
+          {/* Made in Austria – ebenbündig unter dem Formular, rechte Spalte */}
+          <div className="lg:col-span-3 lg:col-start-3">
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Shield className="w-5 h-5 text-primary" />
+                <span className="font-bold text-sm">Made in Austria</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-muted-foreground">
+                {[
+                  "Express 24h möglich",
+                  "Österr. Filament",
+                  "200+ Projekte",
+                  "Kostenlos & unverbindlich"
+                ].map(item => (
+                  <div key={item} className="flex items-center gap-1.5">
+                    <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
