@@ -137,7 +137,7 @@ const Contact = () => {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <div className="bg-foreground text-background py-16 md:py-20">
         <div className="container mx-auto px-4">
-          <AnimatedSection animation="fade-up">
+          <AnimatedSection animation="slide-up">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold tracking-widest uppercase text-background/50 mb-4">
                 Kostenloses Angebot · Keine Verpflichtung
@@ -160,7 +160,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 xl:gap-16 items-start">
 
           {/* LEFT – Trust & Info (2 of 5 cols) */}
-          <AnimatedSection animation="fade-up" className="lg:col-span-2 space-y-8">
+          <AnimatedSection animation="slide-up" className="lg:col-span-2 space-y-8">
 
             {/* 6h promise card */}
             <div className="rounded-2xl bg-primary/10 border border-primary/20 p-6">
@@ -263,7 +263,7 @@ const Contact = () => {
           </AnimatedSection>
 
           {/* RIGHT – Form (3 of 5 cols) */}
-          <AnimatedSection animation="fade-up" className="lg:col-span-3">
+          <AnimatedSection animation="slide-up" className="lg:col-span-3">
             {isSubmitted ? (
               <div className="rounded-2xl border border-border bg-card p-10 text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
@@ -426,13 +426,13 @@ const Contact = () => {
 
       {/* ── MAPS & REVIEWS ───────────────────────────────────────── */}
       <div className="container mx-auto px-4 pb-20 space-y-16">
-        <AnimatedSection animation="fade-up">
+        <AnimatedSection animation="slide-up">
           <h3 className="text-3xl font-bold mb-8 text-center">
             Unser <span className="text-gradient">Standort</span>
           </h3>
           <GoogleMaps />
         </AnimatedSection>
-        <AnimatedSection animation="fade-up">
+        <AnimatedSection animation="slide-up">
           <GoogleReviews />
         </AnimatedSection>
       </div>
