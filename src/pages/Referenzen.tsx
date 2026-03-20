@@ -156,9 +156,9 @@ const Referenzen = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Referenzen & Projekte | ekdruck Österreich"
-        description="Entdecken Sie unsere 3D-Druck Projekte: Dekoration, Modellbau & individuelle Unikate. Mit technischen Daten, Druckzeiten & Kundenfeedback. Made in Austria."
-        keywords="3d-druck referenzen, 3d-druck projekte, 3d-druck beispiele, modellbau österreich, dekoration 3d-druck"
+        title="3D-Druck Referenzen – Messemodelle & Architekturmodelle | ekdruck.at"
+        description="★ 5/5 Google | 500+ realisierte 3D-Druck Projekte: Messemodelle, Architekturmodelle & Einzelanfertigungen. Mit Druckzeiten, Maßen & Kundenstimmen. Made in Austria → Jetzt ansehen!"
+        keywords="3d-druck referenzen österreich, messemodell beispiele, architekturmodell 3d-druck projekte, 3d-druck portfolio, ekdruck referenzen"
         path="/referenzen"
       />
       <BreadcrumbSchema items={[

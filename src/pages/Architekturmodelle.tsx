@@ -316,8 +316,8 @@ const Architekturmodelle = () => {
   return (
     <>
       <Helmet>
-        <title>Architekturmodell drucken lassen | Ab €20 | Angebot in 6h | ekdruck.at</title>
-        <meta name="description" content="Wettbewerbsmodell bis morgen früh? Architekturmodelle ab €20 – Maßstab 1:50 bis 1:500, ArchiCAD & Revit-Export, 80% günstiger als Modellbauer. Angebot in 6h – jetzt anfragen!" />
+        <title>Architekturmodell drucken lassen – ab €20 | Express 24h ✓ | ekdruck.at</title>
+        <meta name="description" content="★ 5/5 Google | Wettbewerb morgen früh? Architekturmodelle ab €20 – Maßstab 1:50–1:500, ArchiCAD & Revit-kompatibel, 80% günstiger als Modellbauer. Angebot in 6h → Jetzt anfragen!" />
         <meta name="keywords" content="Architekturmodell 3D-Druck, Architekturmodelle drucken lassen, Wettbewerbsmodell, Präsentationsmodell, Gebäudemodell, Architektur Modellbau Österreich" />
         <link rel="canonical" href="https://www.ek-druck.at/architekturmodelle" />
       </Helmet>
