@@ -466,12 +466,12 @@ const Referenzen = () => {
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Laden Sie Ihre STL-Datei hoch und erhalten Sie sofort einen Preis. 
-                Von der Idee zum fertigen Teil in 24-48 Stunden.
+                Von der Idee zum fertigen Teil in 24–48 Stunden.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="cta" size="lg" asChild>
                   <Link to="/kontakt">
-                    Jetzt Projekt starten
+                    Kostenloses Angebot in 6h
                   </Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
@@ -484,7 +484,29 @@ const Referenzen = () => {
           </div>
         </section>
 
-        <Footer />
+        {/* Internal linking section */}
+        <section className="py-12 bg-muted/30 border-t border-border">
+          <div className="container mx-auto px-4">
+            <p className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6">Passende Leistungen entdecken</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              {[
+                { to: "/messemodelle", label: "Messemodelle", desc: "Express 24h · ab €30", icon: "🏛️" },
+                { to: "/architekturmodelle", label: "Architekturmodelle", desc: "Maßstab 1:50–1:500 · ab €20", icon: "🏗️" },
+                { to: "/einzelanfertigungen", label: "Einzelanfertigungen", desc: "Unikate nach Maß · ab 1 Stück", icon: "✏️" },
+                { to: "/rapid-prototyping", label: "Rapid Prototyping", desc: "Prototypen in 24–48h", icon: "⚡" },
+              ].map(({ to, label, desc, icon }) => (
+                <Link key={to} to={to}
+                  className="flex items-center gap-3 bg-background border border-border rounded-xl p-4 hover:border-primary/40 hover:shadow-sm transition-all group">
+                  <span className="text-2xl">{icon}</span>
+                  <div>
+                    <p className="font-semibold text-sm group-hover:text-primary transition-colors">{label}</p>
+                    <p className="text-xs text-muted-foreground">{desc}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
 
       {/* Lightbox Dialog with Image Gallery */}
