@@ -134,25 +134,20 @@ const Contact = () => {
   return (
     <section id="contact" className="min-h-screen bg-background">
 
-      {/* ── HERO ─────────────────────────────────────────────────── */}
-      <div className="bg-foreground text-background py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <AnimatedSection animation="slide-up">
-            <div className="max-w-2xl">
-              <p className="text-xs font-semibold tracking-widest uppercase text-background/50 mb-4">
-                Kostenloses Angebot · Keine Verpflichtung
-              </p>
-              <h1 className="text-4xl md:text-6xl font-black leading-[1.0] tracking-tight mb-6">
-                Ihr Angebot<br />
-                <span className="text-primary">in 6 Stunden.</span>
-              </h1>
-              <p className="text-lg text-background/70 max-w-xl leading-relaxed">
-                Projekt beschreiben, Datei hochladen – fertig. Wir melden uns noch heute mit einem
-                konkreten Angebot. Persönlich. Aus Gunskirchen, Oberösterreich.
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
+      {/* ── PAGE HEADER ──────────────────────────────────────────── */}
+      <div className="container mx-auto px-4 pt-12 pb-2">
+        <AnimatedSection animation="slide-up">
+          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
+            Kostenloses Angebot · Keine Verpflichtung
+          </p>
+          <h1 className="text-4xl md:text-5xl font-black leading-[1.05] tracking-tight mb-4">
+            Ihr Angebot <span className="text-primary">in 6 Stunden.</span>
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+            Projekt beschreiben, Datei hochladen – fertig. Wir melden uns noch heute persönlich
+            aus Gunskirchen, Oberösterreich.
+          </p>
+        </AnimatedSection>
       </div>
 
       {/* ── TWO-COLUMN MAIN ──────────────────────────────────────── */}
