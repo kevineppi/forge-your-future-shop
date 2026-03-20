@@ -95,7 +95,7 @@ const Index = () => {
       </div>
 
       {/* ── LEISTUNGEN — BENTO GRID ───────────────────────────────────── */}
-      <section className="py-24 bg-background md:py-[12px]">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <AnimatedSection animation="fade-in" className="mb-16">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
