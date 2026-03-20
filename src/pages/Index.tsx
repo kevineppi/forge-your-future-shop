@@ -272,11 +272,11 @@ const Index = () => {
                 dark: false
               },
               {
-                num: "04",
+               num: "04",
                 icon: Users,
                 title: "Firmenkunden & B2B",
-                headline: "Serienmodelle mit UID-Rechnung und NDA",
-                desc: "Professionelle B2B-Konditionen: UID-konforme Rechnungen, NDA-Vereinbarung, Mengenrabatte ab 5 Stück. Schulungsmodelle, Kundengeschenke, Messeexponate in Serienqualität.",
+                headline: "Präsentationsmodelle mit UID-Rechnung und NDA",
+                desc: "Professionelle B2B-Konditionen: UID-konforme Rechnungen, NDA-Vereinbarung, Mengenrabatte ab 5 Stück. Schulungsmodelle, Kundengeschenke und Messeexponate – maßgeschneidert für Unternehmen.",
                 link: "/firmenkunden",
                 tags: ["UID-Rechnung", "NDA", "Mengenrabatt"],
                 dark: false
