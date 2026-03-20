@@ -219,104 +219,110 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── FÜR WEN IST EKDRUCK? — ZIELGRUPPEN ───────────────────────────
-          Neue Sektion: Kunden sehen sich sofort wieder → Engagement ↑
-          SEO: "3D-Druck Architekt", "Messestand 3D-Druck", "Prototyp 3D"
-      ─────────────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-muted/40 border-t border-border/50">
+      {/* ── FÜR WEN — ZIELGRUPPEN als horizontale Zeilen ─────────────── */}
+      <section className="py-24 bg-background border-t border-border/50">
         <div className="container mx-auto px-4">
-          <AnimatedSection animation="fade-in" className="mb-14">
-            <div className="max-w-6xl mx-auto">
-              <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Für wen?</p>
+          <div className="max-w-6xl mx-auto">
+            <AnimatedSection animation="fade-in" className="mb-16">
+              <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Ihre Branche</p>
               <h2 className="text-4xl md:text-5xl font-black leading-[1.05] tracking-tight text-balance">
-                Wer bestellt bei ekdruck?
+                Für wen ist ekdruck<br />
+                <span className="text-primary">die richtige Wahl?</span>
               </h2>
-              <p className="text-muted-foreground mt-4 max-w-xl text-sm leading-relaxed">
-                Vier Berufsgruppen – ein gemeinsamer Nenner: professionelle Ergebnisse, schnell und bezahlbar.
-              </p>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {[
-              {
-                icon: Building2,
-                title: "Architekten & Planer",
-                link: "/architekturmodelle",
-                problem: "Deadlines für Wettbewerbe sind brutal. Der Modellbauer braucht 3 Wochen.",
-                solution: "Wettbewerbsmodelle in 24–72h. CAD-Datei rein – fertiges Modell raus.",
-                tags: ["1:50–1:500", "Wettbewerbe", "Baueinreichung"],
-                accent: false,
-              },
-              {
-                icon: Presentation,
-                title: "Messeaussteller",
-                link: "/messemodelle",
-                problem: "Die Messe beginnt in 3 Tagen. Das Exponat fehlt noch.",
-                solution: "Express-Fertigung & Lieferung innerhalb von 24–48h. Österreichweit.",
-                tags: ["Express 24h", "Bis 2m+", "Messen & Events"],
-                accent: true,
-              },
-              {
-                icon: FlaskConical,
-                title: "Produktentwickler",
-                link: "/rapid-prototyping",
-                problem: "Für jeden Prototypen-Zyklus wochenlang warten und tausende Euro ausgeben.",
-                solution: "Rapid Prototyping ab €20. Mehrere Iterationen in einer Woche möglich.",
-                tags: ["Rapid Prototyping", "Funktionsmuster", "Iterationen"],
-                accent: false,
-              },
-              {
-                icon: Users,
-                title: "Firmenkunden & B2B",
-                link: "/firmenkunden",
-                problem: "Präsentationsmodelle für Kunden, Schulungen und Messen in Serienqualität.",
-                solution: "B2B-Konditionen, UID-Rechnung, NDA-Vereinbarung, Mengenrabatte ab 5 Stück.",
-                tags: ["B2B Rechnung", "NDA", "Mengenrabatt"],
-                accent: false,
-              },
-            ].map(({ icon: Icon, title, link, problem, solution, tags, accent }) => (
-              <AnimatedSection key={title} animation="slide-up" delay={0}>
-                <Link to={link} className="group block h-full">
-                  <div className={`h-full rounded-3xl border p-7 flex flex-col transition-all duration-300
-                    hover:-translate-y-1 hover:shadow-[0_20px_50px_-15px_hsl(var(--primary)/0.18)]
-                    ${accent
-                      ? "bg-primary border-primary text-primary-foreground"
-                      : "bg-background border-border hover:border-primary/40"
-                    }`}>
-                    <div className={`w-11 h-11 rounded-2xl flex items-center justify-center mb-6
-                      ${accent ? "bg-white/20" : "bg-primary/10 group-hover:bg-primary/20"} transition-colors`}>
-                      <Icon className={`w-6 h-6 ${accent ? "text-primary-foreground" : "text-primary"}`} />
+            <div className="space-y-3">
+              {[
+                {
+                  num: "01",
+                  icon: Building2,
+                  title: "Architekten & Planer",
+                  headline: "Wettbewerbsmodell in 24h statt 3 Wochen",
+                  desc: "Maßstabsgetreue Architekturmodelle 1:50–1:500. CAD-Datei rein, fertiges Modell raus. Revit, ArchiCAD, SolidWorks – alle Formate. Für Wettbewerbe, Baueinreichungen und Kundenpräsentationen.",
+                  link: "/architekturmodelle",
+                  tags: ["1:50–1:500", "CAD-Import", "Wettbewerbsmodelle"],
+                  dark: false,
+                },
+                {
+                  num: "02",
+                  icon: Presentation,
+                  title: "Messeaussteller",
+                  headline: "Exponat fehlt 3 Tage vor der Messe? Kein Problem.",
+                  desc: "Express-Fertigung und Lieferung in 24–48h österreichweit. Messemodelle, Produktexponate und Anschauungsobjekte bis 2m+. Wien, München, Hannover – wir liefern.",
+                  link: "/messemodelle",
+                  tags: ["Express 24h", "Bis 2m+", "Österreichweit"],
+                  dark: true,
+                },
+                {
+                  num: "03",
+                  icon: FlaskConical,
+                  title: "Produktentwickler",
+                  headline: "Prototyp morgen auf dem Tisch, nicht in 3 Wochen",
+                  desc: "Rapid Prototyping ab €20. Funktionsmuster, Anschauungsmodelle und Iterationen in einer Woche. Keine Mindestmenge, kein Werkzeugkostenproblem.",
+                  link: "/rapid-prototyping",
+                  tags: ["Ab €20", "Keine Mindestmenge", "Iterationen"],
+                  dark: false,
+                },
+                {
+                  num: "04",
+                  icon: Users,
+                  title: "Firmenkunden & B2B",
+                  headline: "Serienmodelle mit UID-Rechnung und NDA",
+                  desc: "Professionelle B2B-Konditionen: UID-konforme Rechnungen, NDA-Vereinbarung, Mengenrabatte ab 5 Stück. Schulungsmodelle, Kundengeschenke, Messeexponate in Serienqualität.",
+                  link: "/firmenkunden",
+                  tags: ["UID-Rechnung", "NDA", "Mengenrabatt"],
+                  dark: false,
+                },
+              ].map(({ num, icon: Icon, title, headline, desc, link, tags, dark }, i) => (
+                <AnimatedSection key={num} animation="slide-up" delay={i * 60}>
+                  <Link to={link} className="group block">
+                    <div className={`rounded-2xl border p-6 md:p-8 transition-all duration-300 hover:-translate-y-0.5
+                      hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.15)]
+                      ${dark
+                        ? "bg-foreground border-foreground text-background hover:border-foreground"
+                        : "bg-card border-border hover:border-primary/40"
+                      }`}>
+                      <div className="flex flex-col md:flex-row md:items-center gap-6">
+                        {/* Number + Icon */}
+                        <div className="flex items-center gap-4 md:w-16 shrink-0">
+                          <span className={`text-4xl font-black leading-none tabular-nums
+                            ${dark ? "text-background/20" : "text-primary/15"}`}>{num}</span>
+                        </div>
+                        {/* Icon badge */}
+                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0
+                          ${dark ? "bg-background/15 group-hover:bg-background/25" : "bg-primary/10 group-hover:bg-primary/20"}
+                          transition-colors`}>
+                          <Icon className={`w-6 h-6 ${dark ? "text-background" : "text-primary"}`} />
+                        </div>
+                        {/* Content */}
+                        <div className="flex-1 min-w-0">
+                          <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${dark ? "text-background/50" : "text-muted-foreground"}`}>{title}</p>
+                          <h3 className={`font-black text-lg md:text-xl leading-tight mb-2 ${dark ? "text-background" : "group-hover:text-primary"} transition-colors`}>
+                            {headline}
+                          </h3>
+                          <p className={`text-sm leading-relaxed ${dark ? "text-background/70" : "text-muted-foreground"}`}>{desc}</p>
+                        </div>
+                        {/* Tags + CTA */}
+                        <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
+                          <div className="flex flex-wrap gap-1.5 md:justify-end">
+                            {tags.map(t => (
+                              <span key={t} className={`text-xs px-2.5 py-1 rounded-full font-medium whitespace-nowrap
+                                ${dark ? "bg-background/15 text-background border border-background/20" : "bg-primary/8 text-primary border border-primary/15"}`}>
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+                          <span className={`flex items-center gap-1.5 text-sm font-bold group-hover:gap-2.5 transition-all
+                            ${dark ? "text-background" : "text-primary"}`}>
+                            Mehr erfahren <ArrowRight className="w-4 h-4" />
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <h3 className={`font-black text-lg mb-3 leading-tight ${accent ? "text-primary-foreground" : "group-hover:text-primary"} transition-colors`}>
-                      {title}
-                    </h3>
-                    {/* Problem */}
-                    <div className={`text-xs mb-3 p-3 rounded-xl italic leading-relaxed
-                      ${accent ? "bg-black/10 text-primary-foreground/70" : "bg-muted/60 text-muted-foreground"}`}>
-                      „{problem}"
-                    </div>
-                    {/* Solution */}
-                    <p className={`text-sm leading-relaxed mb-5 flex-1 ${accent ? "text-primary-foreground/85" : "text-muted-foreground"}`}>
-                      <strong className={accent ? "text-primary-foreground" : "text-foreground"}>ekdruck: </strong>
-                      {solution}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 mb-5">
-                      {tags.map(t => (
-                        <span key={t} className={`text-xs px-2.5 py-1 rounded-full font-medium
-                          ${accent ? "bg-white/15 text-primary-foreground border border-white/20" : "bg-primary/8 text-primary border border-primary/15"}`}>
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <span className={`flex items-center gap-1 font-bold text-sm group-hover:gap-2 transition-all
-                      ${accent ? "text-primary-foreground" : "text-primary"}`}>
-                      Mehr erfahren <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            ))}
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </div>
       </section>
