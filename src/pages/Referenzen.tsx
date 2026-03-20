@@ -507,6 +507,8 @@ const Referenzen = () => {
             </div>
           </div>
         </section>
+
+        <Footer />
       </div>
 
       {/* Lightbox Dialog with Image Gallery */}
