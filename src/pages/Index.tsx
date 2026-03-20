@@ -104,20 +104,23 @@ const Index = () => {
             <Link to="/architekturmodelle" className="group lg:col-span-5">
               <div className="h-full bg-card border border-border rounded-2xl p-7 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent pointer-events-none" />
-                <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                  <Building2 className="w-5 h-5 text-primary" />
+                <div className="flex items-start justify-between mb-5">
+                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Building2 className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-xs font-semibold text-muted-foreground bg-muted px-2.5 py-1 rounded-full">ab €20</span>
                 </div>
-                <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Architekturmodelle</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                  Maßstabsgetreue Modelle im Maßstab 1:50 bis 1:500 für Wettbewerbe, Baugenehmigungen und Kundenpräsentationen. Kompatibel mit ArchiCAD, Revit und allen CAD-Formaten. Präzision bis 0,1 mm.
+                <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">Architekturmodelle</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Maßstabsgetreue Modelle 1:50–1:500 für Wettbewerbe, Baueinreichungen & Kundenpräsentationen. ArchiCAD, Revit & alle CAD-Formate – Präzision bis 0,1 mm.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-5">
-                  {["Maßstab 1:50–1:500", "CAD-kompatibel", "Hochdetailliert"].map(t => (
+                  {["Maßstab 1:50–1:500", "CAD-kompatibel", "80% günstiger"].map(t => (
                     <span key={t} className="text-xs bg-primary/8 text-primary px-2.5 py-1 rounded-full border border-primary/15">{t}</span>
                   ))}
                 </div>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold group-hover:gap-2.5 transition-all">
-                  Mehr erfahren <ArrowRight className="w-4 h-4" />
+                  Architekturmodelle ansehen <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
             </Link>
@@ -130,11 +133,14 @@ const Index = () => {
                   <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Presentation className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-xs font-bold bg-primary text-primary-foreground px-3 py-1 rounded-full">Express 24h</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold text-muted-foreground bg-muted px-2.5 py-1 rounded-full">ab €30</span>
+                    <span className="text-xs font-bold bg-primary text-primary-foreground px-3 py-1 rounded-full">Express 24h</span>
+                  </div>
                 </div>
-                <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Messemodelle & Exponate</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                  Express-Fertigung in 24–48 Stunden für Wien Messe, Salzburg, Graz und alle großen Messeplätze. Leichtbau spart Transportkosten. Große Objekte bis 2 m+ durch Segment-Montage realisierbar.
+                <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">Messemodelle & Exponate</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Express-Fertigung in 24–48h für Wien Messe, Hannover, München & alle großen Messeplätze. Bis 2 m+ durch Segment-Montage. Angebot heute – Modell morgen.
                 </p>
                 <div className="grid grid-cols-3 gap-3 mb-5">
                   {[["24h", "Express"], ["2m+", "Objektgröße"], ["bis 90%", "Kostenersparnis"]].map(([val, label]) => (
@@ -145,7 +151,7 @@ const Index = () => {
                   ))}
                 </div>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold group-hover:gap-2.5 transition-all">
-                  Mehr erfahren <ArrowRight className="w-4 h-4" />
+                  Messemodelle ansehen <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
             </Link>
@@ -154,15 +160,18 @@ const Index = () => {
             <Link to="/einzelanfertigungen" className="group lg:col-span-4">
               <div className="h-full bg-card border border-border rounded-2xl p-7 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent pointer-events-none" />
-                <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                  <Layers className="w-5 h-5 text-primary" />
+                <div className="flex items-start justify-between mb-5">
+                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Layers className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-xs font-semibold text-muted-foreground bg-muted px-2.5 py-1 rounded-full">ab 1 Stück</span>
                 </div>
-                <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Einzelanfertigungen</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                  Unikate nach Maß – vom CAD-Entwurf bis zum fertigen Anschauungsmodell. Für Präsentationen, Architektur, Messe und individuelle Sonderwünsche. Ab 1 Stück.
+                <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">Einzelanfertigungen</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Unikate nach Maß – vom ersten Entwurf bis zum fertigen Modell. Für Architektur, Messe, Präsentationen und individuelle Sonderwünsche. 3D-Modellierung inklusive.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold group-hover:gap-2.5 transition-all">
-                  Mehr erfahren <ArrowRight className="w-4 h-4" />
+                  Einzelanfertigungen entdecken <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
             </Link>
@@ -171,15 +180,18 @@ const Index = () => {
             <Link to="/firmenkunden" className="group lg:col-span-4">
               <div className="h-full bg-card border border-border rounded-2xl p-7 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent pointer-events-none" />
-                <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                  <Users className="w-5 h-5 text-primary" />
+                <div className="flex items-start justify-between mb-5">
+                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Users className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-xs font-semibold text-muted-foreground bg-muted px-2.5 py-1 rounded-full">B2B & NDA</span>
                 </div>
-                <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Firmenkunden & B2B</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                  Rechnung mit UID, NDA auf Anfrage, Mengenrabatte ab 10 Einheiten. Zuverlässiger Partner für Architektur-, Messe- und Präsentationsmodelle.
+                <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">Firmenkunden & B2B</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Rechnung mit UID, NDA auf Anfrage, Mengenrabatte ab 10 Einheiten. Ihr verlässlicher Partner für Messe- und Architekturmodelle.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold group-hover:gap-2.5 transition-all">
-                  Mehr erfahren <ArrowRight className="w-4 h-4" />
+                  B2B-Angebot anfragen <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
             </Link>
@@ -188,19 +200,35 @@ const Index = () => {
             <Link to="/rapid-prototyping" className="group lg:col-span-4">
               <div className="h-full bg-card border border-border rounded-2xl p-7 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent pointer-events-none" />
-                <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                  <Zap className="w-5 h-5 text-primary" />
+                <div className="flex items-start justify-between mb-5">
+                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Zap className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-xs font-semibold text-muted-foreground bg-muted px-2.5 py-1 rounded-full">24–48h</span>
                 </div>
-                <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">Rapid Prototyping</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                  Funktionsprototypen und Anschauungsmodelle für Produktentwickler. Iterieren Sie schnell, günstig und präzise – ab 1 Stück.
+                <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">Rapid Prototyping</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Anschauungsmodelle für Produktentwickler. Iterieren Sie schnell und günstig – ab 1 Stück, ohne Mindestmenge oder Werkzeugkosten.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold group-hover:gap-2.5 transition-all">
-                  Mehr erfahren <ArrowRight className="w-4 h-4" />
+                  Rapid Prototyping ansehen <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
             </Link>
 
+          </div>
+
+          {/* Conversion CTA below grid — reduces bounce by giving a clear next action */}
+          <div className="max-w-6xl mx-auto mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-primary/5 border border-primary/15 rounded-2xl px-7 py-5">
+            <div>
+              <p className="font-semibold text-base">Nicht sicher, was Sie brauchen?</p>
+              <p className="text-sm text-muted-foreground">Beschreiben Sie kurz Ihr Projekt – Angebot in unter 6 Stunden. Kostenlos & unverbindlich.</p>
+            </div>
+            <Button asChild size="lg" className="shrink-0">
+              <Link to="/kontakt">
+                Kostenlos anfragen <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
