@@ -22,8 +22,8 @@ import {
   TrendingDown, ArrowRight, Zap, Leaf, Star,
   ChevronRight, Package, Phone, MessageSquare,
   Shield, Award, Paintbrush, ScanLine, Ruler,
-  FlaskConical, Wrench, Palette
-} from "lucide-react";
+  FlaskConical, Wrench, Palette } from
+"lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
@@ -41,20 +41,20 @@ const Index = () => {
         href: "/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
         as: "image",
         type: "image/png"
-      }]}
-    />
+      }]} />
+    
     <OrganizationSchema />
     <StructuredData type="organization" />
     <StructuredData type="service" />
     <AggregateRatingSchema ratingValue={5.0} ratingCount={28} bestRating={5} worstRating={5} />
     <FAQSchema faqs={[
-      { question: "Was kostet 3D-Druck bei ekdruck?", answer: "Unsere Preise starten ab €20 pro Modell. Die genauen Kosten hängen von drei Faktoren ab: Material (PLA, PETG, ABS oder TPU), Druckvolumen und gewählter Qualitätsstufe. Express-Service ist gegen einen Aufpreis jederzeit buchbar. Mengenrabatte gewähren wir ab 5 Einheiten. Ein transparentes, individuelles Angebot erhalten Sie bei uns in unter 6 Stunden." },
-      { question: "Wie schnell erhalte ich mein 3D-gedrucktes Teil?", answer: "Standard-Lieferung beträgt 3–5 Werktage österreichweit, inklusive versandkostenfreier Lieferung ab €100 Bestellwert. Mit unserem Express-Service fertigen und liefern wir bereits in 24–48 Stunden – ideal für kurzfristige Messe-Deadlines oder Wettbewerbsabgaben. Nach Deutschland liefern wir in 2–4 Werktagen via DHL oder GLS." },
-      { question: "Welche Dateiformate werden akzeptiert?", answer: "Wir akzeptieren alle gängigen 3D-Formate: STL, OBJ, STEP, IGES, 3MF, STP sowie native CAD-Formate aus ArchiCAD, Revit, SolidWorks und Fusion 360. Keine CAD-Datei vorhanden? Kein Problem – wir erstellen das 3D-Modell nach Ihren Skizzen, Fotos oder technischen Zeichnungen kostenlos im Rahmen der Auftragsberatung." },
-      { question: "Für welche Branchen und Anwendungsfälle ist ekdruck geeignet?", answer: "Unsere Kernzielgruppen sind Architekten und Planer (maßstabsgetreue Architekturmodelle 1:50–1:500), Messeaussteller (Exponate und Anschauungsmodelle für Messen), Künstler und Galerien (Skulpturen und Dekorationsobjekte) sowie Firmenkunden (Präsentationsmodelle, Schulungsmodelle, Messe-Exponate)." },
-      { question: "Warum österreichisches Filament statt günstigeren Importen?", answer: "Österreichische Filamente werden aus recycelten Industrieabfällen unter strengen Qualitätsstandards gefertigt, betrieben mit Ökostrom und geprüft auf gleichmäßige Extrusionsqualität. Das bedeutet konsistente Druckergebnisse, geringere Fehlerquote, und ein CO₂-Fußabdruck um bis zu 80 % niedriger als bei Importware aus Asien." },
-      { question: "Welche Nachbearbeitungs- und Finishing-Optionen gibt es?", answer: "ekdruck bietet ein breites Spektrum an Nachbearbeitung: Schleifen und Glätten für glatte Oberflächen, Grundieren als Vorbereitung für Lackierung, Lackieren in RAL-Farben oder Sonderfarben, Aceton-Dampf-Glättung für ABS-Modelle sowie Klebeverbindungen für Segmentmodelle." },
-    ]} />
+    { question: "Was kostet 3D-Druck bei ekdruck?", answer: "Unsere Preise starten ab €20 pro Modell. Die genauen Kosten hängen von drei Faktoren ab: Material (PLA, PETG, ABS oder TPU), Druckvolumen und gewählter Qualitätsstufe. Express-Service ist gegen einen Aufpreis jederzeit buchbar. Mengenrabatte gewähren wir ab 5 Einheiten. Ein transparentes, individuelles Angebot erhalten Sie bei uns in unter 6 Stunden." },
+    { question: "Wie schnell erhalte ich mein 3D-gedrucktes Teil?", answer: "Standard-Lieferung beträgt 3–5 Werktage österreichweit, inklusive versandkostenfreier Lieferung ab €100 Bestellwert. Mit unserem Express-Service fertigen und liefern wir bereits in 24–48 Stunden – ideal für kurzfristige Messe-Deadlines oder Wettbewerbsabgaben. Nach Deutschland liefern wir in 2–4 Werktagen via DHL oder GLS." },
+    { question: "Welche Dateiformate werden akzeptiert?", answer: "Wir akzeptieren alle gängigen 3D-Formate: STL, OBJ, STEP, IGES, 3MF, STP sowie native CAD-Formate aus ArchiCAD, Revit, SolidWorks und Fusion 360. Keine CAD-Datei vorhanden? Kein Problem – wir erstellen das 3D-Modell nach Ihren Skizzen, Fotos oder technischen Zeichnungen kostenlos im Rahmen der Auftragsberatung." },
+    { question: "Für welche Branchen und Anwendungsfälle ist ekdruck geeignet?", answer: "Unsere Kernzielgruppen sind Architekten und Planer (maßstabsgetreue Architekturmodelle 1:50–1:500), Messeaussteller (Exponate und Anschauungsmodelle für Messen), Künstler und Galerien (Skulpturen und Dekorationsobjekte) sowie Firmenkunden (Präsentationsmodelle, Schulungsmodelle, Messe-Exponate)." },
+    { question: "Warum österreichisches Filament statt günstigeren Importen?", answer: "Österreichische Filamente werden aus recycelten Industrieabfällen unter strengen Qualitätsstandards gefertigt, betrieben mit Ökostrom und geprüft auf gleichmäßige Extrusionsqualität. Das bedeutet konsistente Druckergebnisse, geringere Fehlerquote, und ein CO₂-Fußabdruck um bis zu 80 % niedriger als bei Importware aus Asien." },
+    { question: "Welche Nachbearbeitungs- und Finishing-Optionen gibt es?", answer: "ekdruck bietet ein breites Spektrum an Nachbearbeitung: Schleifen und Glätten für glatte Oberflächen, Grundieren als Vorbereitung für Lackierung, Lackieren in RAL-Farben oder Sonderfarben, Aceton-Dampf-Glättung für ABS-Modelle sowie Klebeverbindungen für Segmentmodelle." }]
+    } />
     <BreadcrumbSchema items={[{ name: "Home", url: "/" }]} />
 
     <div className="min-h-screen bg-background">
@@ -64,30 +64,30 @@ const Index = () => {
       {/* ── TRUST BAR ─────────────────────────────────────────────────── */}
       <div className="border-y border-border bg-muted/50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center divide-x divide-border">
-            {[
-              { icon: Star,    text: "5,0 Google",       sub: "28 Bewertungen" },
-              { icon: Zap,     text: "Express 24h",      sub: "Lieferung" },
-              { icon: MapPin,  text: "Made in Austria",  sub: "Gunskirchen, OÖ" },
-              { icon: Clock,   text: "Angebot in 6h",    sub: "Kostenlos" },
-              { icon: Package, text: "Versandkostenfrei",sub: "ab €100" },
-            ].map(({ icon: Icon, text, sub }, i) => (
-              <div key={i} className="flex items-center gap-2.5 px-6 py-4 first:pl-0 last:pr-0">
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <Icon className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold leading-none">{text}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </div>
       </div>
 
       {/* ── LEISTUNGEN — BENTO GRID ───────────────────────────────────── */}
-      <section className="py-24 md:py-32 bg-background">
+      <section className="py-24 bg-background md:py-[12px]">
         <div className="container mx-auto px-4">
           <AnimatedSection animation="fade-in" className="mb-16">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
@@ -128,9 +128,9 @@ const Index = () => {
                       Maßstabsgetreue 3D-gedruckte Architekturmodelle im Maßstab 1:50 bis 1:500 – für Wettbewerbe, Baueinreichungen und Kundenpräsentationen. ArchiCAD, Revit & SolidWorks kompatibel. Bis zu 80 % günstiger als traditioneller Modellbau.
                     </p>
                     <div className="flex flex-wrap gap-2 mb-5">
-                      {["1:50–1:500", "CAD-Import", "Wettbewerbsmodelle", "Express 24h"].map(t => (
-                        <span key={t} className="text-xs bg-primary/8 text-primary border border-primary/15 px-2.5 py-1 rounded-full font-medium">{t}</span>
-                      ))}
+                      {["1:50–1:500", "CAD-Import", "Wettbewerbsmodelle", "Express 24h"].map((t) =>
+                      <span key={t} className="text-xs bg-primary/8 text-primary border border-primary/15 px-2.5 py-1 rounded-full font-medium">{t}</span>
+                      )}
                     </div>
                     <span className="flex items-center gap-1 text-primary font-bold text-sm group-hover:gap-2 transition-all">
                       Architekturmodelle entdecken <ArrowRight className="w-4 h-4" />
@@ -199,13 +199,13 @@ const Index = () => {
           <AnimatedSection animation="fade-in" delay={250}>
             <div className="flex flex-wrap gap-3 max-w-6xl mx-auto">
               {[
-                { to: "/firmenkunden",        icon: Users,    label: "Firmenkunden & B2B",  sub: "UID · NDA · Mengenrabatte" },
-                { to: "/rapid-prototyping",   icon: Zap,      label: "Rapid Prototyping",   sub: "Prototypen in 24–48h" },
-                { to: "/fdm-3d-druck",        icon: Award,    label: "FDM Technologie",     sub: "Materialien & Specs" },
-                { to: "/3d-druck-materialien",icon: Layers,   label: "Materialien",         sub: "PLA · PETG · ABS · TPU" },
-              ].map(({ to, icon: Icon, label, sub }) => (
-                <Link key={to} to={to}
-                  className="group flex items-center gap-3 bg-muted/50 hover:bg-primary/8 border border-border hover:border-primary/30 rounded-2xl px-5 py-3 transition-all duration-200 hover:-translate-y-0.5">
+              { to: "/firmenkunden", icon: Users, label: "Firmenkunden & B2B", sub: "UID · NDA · Mengenrabatte" },
+              { to: "/rapid-prototyping", icon: Zap, label: "Rapid Prototyping", sub: "Prototypen in 24–48h" },
+              { to: "/fdm-3d-druck", icon: Award, label: "FDM Technologie", sub: "Materialien & Specs" },
+              { to: "/3d-druck-materialien", icon: Layers, label: "Materialien", sub: "PLA · PETG · ABS · TPU" }].
+              map(({ to, icon: Icon, label, sub }) =>
+              <Link key={to} to={to}
+              className="group flex items-center gap-3 bg-muted/50 hover:bg-primary/8 border border-border hover:border-primary/30 rounded-2xl px-5 py-3 transition-all duration-200 hover:-translate-y-0.5">
                   <Icon className="w-4 h-4 text-primary shrink-0" />
                   <div>
                     <p className="text-sm font-bold group-hover:text-primary transition-colors leading-none">{label}</p>
@@ -213,7 +213,7 @@ const Index = () => {
                   </div>
                   <ChevronRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all ml-auto" />
                 </Link>
-              ))}
+              )}
             </div>
           </AnimatedSection>
         </div>
@@ -233,55 +233,55 @@ const Index = () => {
 
             <div className="space-y-3">
               {[
-                {
-                  num: "01",
-                  icon: Building2,
-                  title: "Architekten & Planer",
-                  headline: "Wettbewerbsmodell in 24h statt 3 Wochen",
-                  desc: "Maßstabsgetreue Architekturmodelle 1:50–1:500. CAD-Datei rein, fertiges Modell raus. Revit, ArchiCAD, SolidWorks – alle Formate. Für Wettbewerbe, Baueinreichungen und Kundenpräsentationen.",
-                  link: "/architekturmodelle",
-                  tags: ["1:50–1:500", "CAD-Import", "Wettbewerbsmodelle"],
-                  dark: false,
-                },
-                {
-                  num: "02",
-                  icon: Presentation,
-                  title: "Messeaussteller",
-                  headline: "Exponat fehlt 3 Tage vor der Messe? Kein Problem.",
-                  desc: "Express-Fertigung und Lieferung in 24–48h österreichweit. Messemodelle, Produktexponate und Anschauungsobjekte bis 2m+. Wien, München, Hannover – wir liefern.",
-                  link: "/messemodelle",
-                  tags: ["Express 24h", "Bis 2m+", "Österreichweit"],
-                  dark: true,
-                },
-                {
-                  num: "03",
-                  icon: FlaskConical,
-                  title: "Produktentwickler",
-                  headline: "Prototyp morgen auf dem Tisch, nicht in 3 Wochen",
-                  desc: "Rapid Prototyping ab €20. Funktionsmuster, Anschauungsmodelle und Iterationen in einer Woche. Keine Mindestmenge, kein Werkzeugkostenproblem.",
-                  link: "/rapid-prototyping",
-                  tags: ["Ab €20", "Keine Mindestmenge", "Iterationen"],
-                  dark: false,
-                },
-                {
-                  num: "04",
-                  icon: Users,
-                  title: "Firmenkunden & B2B",
-                  headline: "Serienmodelle mit UID-Rechnung und NDA",
-                  desc: "Professionelle B2B-Konditionen: UID-konforme Rechnungen, NDA-Vereinbarung, Mengenrabatte ab 5 Stück. Schulungsmodelle, Kundengeschenke, Messeexponate in Serienqualität.",
-                  link: "/firmenkunden",
-                  tags: ["UID-Rechnung", "NDA", "Mengenrabatt"],
-                  dark: false,
-                },
-              ].map(({ num, icon: Icon, title, headline, desc, link, tags, dark }, i) => (
-                <AnimatedSection key={num} animation="slide-up" delay={i * 60}>
+              {
+                num: "01",
+                icon: Building2,
+                title: "Architekten & Planer",
+                headline: "Wettbewerbsmodell in 24h statt 3 Wochen",
+                desc: "Maßstabsgetreue Architekturmodelle 1:50–1:500. CAD-Datei rein, fertiges Modell raus. Revit, ArchiCAD, SolidWorks – alle Formate. Für Wettbewerbe, Baueinreichungen und Kundenpräsentationen.",
+                link: "/architekturmodelle",
+                tags: ["1:50–1:500", "CAD-Import", "Wettbewerbsmodelle"],
+                dark: false
+              },
+              {
+                num: "02",
+                icon: Presentation,
+                title: "Messeaussteller",
+                headline: "Exponat fehlt 3 Tage vor der Messe? Kein Problem.",
+                desc: "Express-Fertigung und Lieferung in 24–48h österreichweit. Messemodelle, Produktexponate und Anschauungsobjekte bis 2m+. Wien, München, Hannover – wir liefern.",
+                link: "/messemodelle",
+                tags: ["Express 24h", "Bis 2m+", "Österreichweit"],
+                dark: true
+              },
+              {
+                num: "03",
+                icon: FlaskConical,
+                title: "Produktentwickler",
+                headline: "Prototyp morgen auf dem Tisch, nicht in 3 Wochen",
+                desc: "Rapid Prototyping ab €20. Funktionsmuster, Anschauungsmodelle und Iterationen in einer Woche. Keine Mindestmenge, kein Werkzeugkostenproblem.",
+                link: "/rapid-prototyping",
+                tags: ["Ab €20", "Keine Mindestmenge", "Iterationen"],
+                dark: false
+              },
+              {
+                num: "04",
+                icon: Users,
+                title: "Firmenkunden & B2B",
+                headline: "Serienmodelle mit UID-Rechnung und NDA",
+                desc: "Professionelle B2B-Konditionen: UID-konforme Rechnungen, NDA-Vereinbarung, Mengenrabatte ab 5 Stück. Schulungsmodelle, Kundengeschenke, Messeexponate in Serienqualität.",
+                link: "/firmenkunden",
+                tags: ["UID-Rechnung", "NDA", "Mengenrabatt"],
+                dark: false
+              }].
+              map(({ num, icon: Icon, title, headline, desc, link, tags, dark }, i) =>
+              <AnimatedSection key={num} animation="slide-up" delay={i * 60}>
                   <Link to={link} className="group block">
                     <div className={`rounded-2xl border p-6 md:p-8 transition-all duration-300 hover:-translate-y-0.5
                       hover:shadow-[0_12px_40px_-10px_hsl(var(--primary)/0.15)]
-                      ${dark
-                        ? "bg-foreground border-foreground text-background hover:border-foreground"
-                        : "bg-card border-border hover:border-primary/40"
-                      }`}>
+                      ${dark ?
+                  "bg-foreground border-foreground text-background hover:border-foreground" :
+                  "bg-card border-border hover:border-primary/40"}`
+                  }>
                       <div className="flex flex-col md:flex-row md:items-center gap-6">
                         {/* Number + Icon */}
                         <div className="flex items-center gap-4 md:w-16 shrink-0">
@@ -305,12 +305,12 @@ const Index = () => {
                         {/* Tags + CTA */}
                         <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
                           <div className="flex flex-wrap gap-1.5 md:justify-end">
-                            {tags.map(t => (
-                              <span key={t} className={`text-xs px-2.5 py-1 rounded-full font-medium whitespace-nowrap
+                            {tags.map((t) =>
+                          <span key={t} className={`text-xs px-2.5 py-1 rounded-full font-medium whitespace-nowrap
                                 ${dark ? "bg-background/15 text-background border border-background/20" : "bg-primary/8 text-primary border border-primary/15"}`}>
                                 {t}
                               </span>
-                            ))}
+                          )}
                           </div>
                           <span className={`flex items-center gap-1.5 text-sm font-bold group-hover:gap-2.5 transition-all
                             ${dark ? "text-background" : "text-primary"}`}>
@@ -321,7 +321,7 @@ const Index = () => {
                     </div>
                   </Link>
                 </AnimatedSection>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -331,8 +331,8 @@ const Index = () => {
       <ReferencesTeaser />
 
       {/* ── EINZIGER MID-PAGE CTA ────────────────────────────────────────
-          Nur 1 klarer Handlungsaufruf in der Seitenmitte
-      ─────────────────────────────────────────────────────────────────── */}
+            Nur 1 klarer Handlungsaufruf in der Seitenmitte
+         ─────────────────────────────────────────────────────────────────── */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <AnimatedSection animation="fade-in">
@@ -366,12 +366,12 @@ const Index = () => {
                 </div>
                 <div className="space-y-3">
                   {[
-                    { icon: Check, text: "Keine versteckten Kosten",    sub: "Transparentes Festpreisangebot" },
-                    { icon: Check, text: "Persönliche Beratung",        sub: "Direkte Ansprechperson – kein Callcenter" },
-                    { icon: Check, text: "Express 24h verfügbar",       sub: "Für kurzfristige Messe-Deadlines" },
-                    { icon: Check, text: "Kostenlose Datei-Optimierung",sub: "STL, OBJ, STEP, ArchiCAD, Revit" },
-                  ].map(({ icon: Icon, text, sub }) => (
-                    <div key={text} className="flex items-start gap-3 bg-background rounded-2xl border border-border p-4">
+                  { icon: Check, text: "Keine versteckten Kosten", sub: "Transparentes Festpreisangebot" },
+                  { icon: Check, text: "Persönliche Beratung", sub: "Direkte Ansprechperson – kein Callcenter" },
+                  { icon: Check, text: "Express 24h verfügbar", sub: "Für kurzfristige Messe-Deadlines" },
+                  { icon: Check, text: "Kostenlose Datei-Optimierung", sub: "STL, OBJ, STEP, ArchiCAD, Revit" }].
+                  map(({ icon: Icon, text, sub }) =>
+                  <div key={text} className="flex items-start gap-3 bg-background rounded-2xl border border-border p-4">
                       <div className="w-7 h-7 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
                         <Icon className="w-3.5 h-3.5 text-primary" />
                       </div>
@@ -380,7 +380,7 @@ const Index = () => {
                         <p className="text-xs text-muted-foreground mt-1">{sub}</p>
                       </div>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
@@ -404,31 +404,31 @@ const Index = () => {
               </p>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { val: "bis 95%", label: "günstiger",  sub: "vs. Handmodellbau" },
-                  { val: "24h",     label: "Express",    sub: "österreichweit" },
-                  { val: "0,1mm",   label: "Präzision",  sub: "Schichtauflösung" },
-                ].map(({ val, label, sub }) => (
-                  <div key={label} className="rounded-2xl border border-border bg-card p-5 text-center hover:border-primary/30 hover:shadow-sm transition-all">
+                { val: "bis 95%", label: "günstiger", sub: "vs. Handmodellbau" },
+                { val: "24h", label: "Express", sub: "österreichweit" },
+                { val: "0,1mm", label: "Präzision", sub: "Schichtauflösung" }].
+                map(({ val, label, sub }) =>
+                <div key={label} className="rounded-2xl border border-border bg-card p-5 text-center hover:border-primary/30 hover:shadow-sm transition-all">
                     <p className="text-3xl font-black text-primary leading-none">{val}</p>
                     <p className="text-sm font-bold mt-1">{label}</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
                   </div>
-                ))}
+                )}
               </div>
             </AnimatedSection>
 
             <AnimatedSection animation="slide-up" delay={120} className="space-y-3">
               {[
-                { icon: TrendingDown, title: "Kein Werkzeugkostenproblem",        desc: "Spritzguss-Werkzeuge kosten ab €10.000. Bei ekdruck zahlen Sie nur für Ihr Modell – ab €20.",       accent: false },
-                { icon: Clock,        title: "Schneller als jeder Handmodellbauer",desc: "Traditioneller Modellbau: 1–4 Wochen. ekdruck Express: 24–48 Stunden österreichweit.",              accent: true  },
-                { icon: Repeat2,      title: "Beliebig reproduzierbar",            desc: "Jede Kopie ist digital identisch. Korrekturen kosten nur eine Dateiänderung.",                        accent: false },
-                { icon: Leaf,         title: "Made in Austria, nachhaltig",        desc: "Österreichische Filamente aus Industrieabfällen. Ökostrom. CO₂-Fußabdruck 80% geringer.",            accent: false },
-              ].map(({ icon: Icon, title, desc, accent }) => (
-                <div key={title} className={`flex gap-4 p-5 rounded-2xl border transition-all duration-200
-                  ${accent
-                    ? "bg-primary border-primary shadow-[0_4px_20px_hsl(var(--primary)/0.25)]"
-                    : "bg-card border-border hover:border-primary/30 hover:shadow-sm"
-                  }`}>
+              { icon: TrendingDown, title: "Kein Werkzeugkostenproblem", desc: "Spritzguss-Werkzeuge kosten ab €10.000. Bei ekdruck zahlen Sie nur für Ihr Modell – ab €20.", accent: false },
+              { icon: Clock, title: "Schneller als jeder Handmodellbauer", desc: "Traditioneller Modellbau: 1–4 Wochen. ekdruck Express: 24–48 Stunden österreichweit.", accent: true },
+              { icon: Repeat2, title: "Beliebig reproduzierbar", desc: "Jede Kopie ist digital identisch. Korrekturen kosten nur eine Dateiänderung.", accent: false },
+              { icon: Leaf, title: "Made in Austria, nachhaltig", desc: "Österreichische Filamente aus Industrieabfällen. Ökostrom. CO₂-Fußabdruck 80% geringer.", accent: false }].
+              map(({ icon: Icon, title, desc, accent }) =>
+              <div key={title} className={`flex gap-4 p-5 rounded-2xl border transition-all duration-200
+                  ${accent ?
+              "bg-primary border-primary shadow-[0_4px_20px_hsl(var(--primary)/0.25)]" :
+              "bg-card border-border hover:border-primary/30 hover:shadow-sm"}`
+              }>
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-0.5
                     ${accent ? "bg-white/20" : "bg-primary/10"}`}>
                     <Icon className={`w-5 h-5 ${accent ? "text-primary-foreground" : "text-primary"}`} />
@@ -438,7 +438,7 @@ const Index = () => {
                     <p className={`text-sm leading-relaxed ${accent ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{desc}</p>
                   </div>
                 </div>
-              ))}
+              )}
             </AnimatedSection>
           </div>
 
@@ -454,13 +454,13 @@ const Index = () => {
                 <div className="p-5 text-muted-foreground text-sm font-semibold text-center">Traditionell</div>
               </div>
               {[
-                { label: "Kosten (Modell)",       icon: TrendingDown, good: "ab €20",          bad: "€200–€10.000+" },
-                { label: "Lieferzeit",            icon: Clock,        good: "24h Express",     bad: "1–4 Wochen"    },
-                { label: "Komplexe Geometrien",   icon: Layers,       good: "Unbegrenzt",      bad: "Stark limitiert"},
-                { label: "Wiederholbarkeit",      icon: Repeat2,      good: "1:1 identisch",   bad: "Handarbeit variiert"},
-                { label: "Gewicht",               icon: Zap,          good: "Bis 80% leichter",bad: "Massiv & schwer"},
-              ].map(({ label, icon: Icon, good, bad }) => (
-                <div key={label} className="grid grid-cols-3 border-t border-border hover:bg-muted/30 transition-colors">
+              { label: "Kosten (Modell)", icon: TrendingDown, good: "ab €20", bad: "€200–€10.000+" },
+              { label: "Lieferzeit", icon: Clock, good: "24h Express", bad: "1–4 Wochen" },
+              { label: "Komplexe Geometrien", icon: Layers, good: "Unbegrenzt", bad: "Stark limitiert" },
+              { label: "Wiederholbarkeit", icon: Repeat2, good: "1:1 identisch", bad: "Handarbeit variiert" },
+              { label: "Gewicht", icon: Zap, good: "Bis 80% leichter", bad: "Massiv & schwer" }].
+              map(({ label, icon: Icon, good, bad }) =>
+              <div key={label} className="grid grid-cols-3 border-t border-border hover:bg-muted/30 transition-colors">
                   <div className="p-5 font-medium text-sm flex items-center gap-2.5">
                     <Icon className="w-4 h-4 text-primary shrink-0 opacity-60" />{label}
                   </div>
@@ -475,7 +475,7 @@ const Index = () => {
                     </span>
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </AnimatedSection>
         </div>
@@ -506,11 +506,11 @@ const Index = () => {
                 {/* Quality tiers as stacked rows */}
                 <div className="lg:col-span-3 space-y-3">
                   {[
-                    { level: "Standard", res: "0,2 mm", desc: "Für Funktionsmuster und erste Iterationen. Sichtbare Schichtlinien – günstig und schnell.", use: "Prototypen, Erstmuster", featured: false },
-                    { level: "Fine",     res: "0,15 mm", desc: "Unser meistgewähltes Setting. Sehr gute Oberflächenqualität – für professionelle Präsentationen und Messemodelle.", use: "Architekturmodelle, Messe", featured: true },
-                    { level: "Ultra Fine", res: "0,1 mm", desc: "Höchste Präzision. Minimalste Schichtlinien für Wettbewerbsmodelle und sichtbare Feinstrukturen.", use: "Wettbewerbe, Galerien", featured: false },
-                  ].map(({ level, res, desc, use, featured }) => (
-                    <div key={level} className={`flex items-start gap-5 p-5 rounded-2xl border transition-all
+                  { level: "Standard", res: "0,2 mm", desc: "Für Funktionsmuster und erste Iterationen. Sichtbare Schichtlinien – günstig und schnell.", use: "Prototypen, Erstmuster", featured: false },
+                  { level: "Fine", res: "0,15 mm", desc: "Unser meistgewähltes Setting. Sehr gute Oberflächenqualität – für professionelle Präsentationen und Messemodelle.", use: "Architekturmodelle, Messe", featured: true },
+                  { level: "Ultra Fine", res: "0,1 mm", desc: "Höchste Präzision. Minimalste Schichtlinien für Wettbewerbsmodelle und sichtbare Feinstrukturen.", use: "Wettbewerbe, Galerien", featured: false }].
+                  map(({ level, res, desc, use, featured }) =>
+                  <div key={level} className={`flex items-start gap-5 p-5 rounded-2xl border transition-all
                       ${featured ? "bg-primary/5 border-primary/25" : "bg-card border-border hover:border-primary/20"}`}>
                       <div className={`shrink-0 w-16 text-center rounded-xl border py-2.5
                         ${featured ? "bg-primary text-primary-foreground border-primary" : "bg-muted border-border"}`}>
@@ -526,7 +526,7 @@ const Index = () => {
                         <p className="text-xs text-primary font-semibold">→ {use}</p>
                       </div>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </AnimatedSection>
@@ -546,14 +546,14 @@ const Index = () => {
                 </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {[
-                    { icon: ScanLine,   title: "Schleifen & Glätten",      desc: "Schichtlinien entfernen. Lackierfertige Oberfläche." },
-                    { icon: Paintbrush, title: "Lackieren (RAL/Pantone)",  desc: "Jede Farbe nach Wunsch. Matt oder glänzend." },
-                    { icon: Palette,    title: "Grundierung",              desc: "Professionelle Vorbereitung. Poren versiegelt." },
-                    { icon: Wrench,     title: "Aceton-Dampfglätte",       desc: "Für ABS: fast spritzgussgleiche Oberfläche." },
-                    { icon: Ruler,      title: "Segmentierung",            desc: "Große Modelle mehrteilig, professionell verklebt." },
-                    { icon: Award,      title: "Qualitätsprüfung",         desc: "Jedes Modell wird vor dem Versand geprüft." },
-                  ].map(({ icon: Icon, title, desc }) => (
-                    <div key={title} className="flex gap-3 p-4 rounded-xl bg-background/8 hover:bg-background/12 border border-background/10 transition-all">
+                  { icon: ScanLine, title: "Schleifen & Glätten", desc: "Schichtlinien entfernen. Lackierfertige Oberfläche." },
+                  { icon: Paintbrush, title: "Lackieren (RAL/Pantone)", desc: "Jede Farbe nach Wunsch. Matt oder glänzend." },
+                  { icon: Palette, title: "Grundierung", desc: "Professionelle Vorbereitung. Poren versiegelt." },
+                  { icon: Wrench, title: "Aceton-Dampfglätte", desc: "Für ABS: fast spritzgussgleiche Oberfläche." },
+                  { icon: Ruler, title: "Segmentierung", desc: "Große Modelle mehrteilig, professionell verklebt." },
+                  { icon: Award, title: "Qualitätsprüfung", desc: "Jedes Modell wird vor dem Versand geprüft." }].
+                  map(({ icon: Icon, title, desc }) =>
+                  <div key={title} className="flex gap-3 p-4 rounded-xl bg-background/8 hover:bg-background/12 border border-background/10 transition-all">
                       <div className="w-8 h-8 bg-background/15 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
                         <Icon className="w-4 h-4 text-background" />
                       </div>
@@ -562,7 +562,7 @@ const Index = () => {
                         <p className="text-xs text-background/60 mt-0.5 leading-relaxed">{desc}</p>
                       </div>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </AnimatedSection>
@@ -597,12 +597,12 @@ const Index = () => {
                 <div className="absolute left-5 top-6 bottom-6 w-px bg-border" />
                 <div className="space-y-2">
                   {[
-                    { n: "01", title: "Anfrage senden",      desc: "CAD-Datei oder Projektbeschreibung schicken – wir antworten mit einem Angebot in unter 6h. STL, OBJ, STEP, ArchiCAD, Revit, Fotos, Skizzen.", time: "< 6h Antwort" },
-                    { n: "02", title: "Angebot & Freigabe",  desc: "Transparenter Festpreis, verbindliche Lieferzeit. Datei-Optimierung kostenlos. Sie geben frei – wir starten sofort.",                           time: "Sofortiger Start" },
-                    { n: "03", title: "FDM-Produktion",      desc: "Fertigung mit österreichischem Filament. Schicht für Schicht, bis zu 0,1 mm Präzision. Auf Wunsch inklusive Nachbearbeitung.",                   time: "1–3 Tage" },
-                    { n: "04", title: "Qualitätsprüfung & Versand", desc: "Manuelle Prüfung jedes Modells. Express-Lieferung 24–48h österreichweit, DE 2–4 Tage. Oder persönliche Abholung in Gunskirchen.", time: "Ihr Modell" },
-                  ].map(({ n, title, desc, time }, i) => (
-                    <div key={n} className="relative flex gap-4 pl-12 py-4">
+                  { n: "01", title: "Anfrage senden", desc: "CAD-Datei oder Projektbeschreibung schicken – wir antworten mit einem Angebot in unter 6h. STL, OBJ, STEP, ArchiCAD, Revit, Fotos, Skizzen.", time: "< 6h Antwort" },
+                  { n: "02", title: "Angebot & Freigabe", desc: "Transparenter Festpreis, verbindliche Lieferzeit. Datei-Optimierung kostenlos. Sie geben frei – wir starten sofort.", time: "Sofortiger Start" },
+                  { n: "03", title: "FDM-Produktion", desc: "Fertigung mit österreichischem Filament. Schicht für Schicht, bis zu 0,1 mm Präzision. Auf Wunsch inklusive Nachbearbeitung.", time: "1–3 Tage" },
+                  { n: "04", title: "Qualitätsprüfung & Versand", desc: "Manuelle Prüfung jedes Modells. Express-Lieferung 24–48h österreichweit, DE 2–4 Tage. Oder persönliche Abholung in Gunskirchen.", time: "Ihr Modell" }].
+                  map(({ n, title, desc, time }, i) =>
+                  <div key={n} className="relative flex gap-4 pl-12 py-4">
                       {/* node */}
                       <div className={`absolute left-0 top-4 w-10 h-10 rounded-full flex items-center justify-center text-xs font-black shrink-0 z-10
                         ${i === 3 ? "bg-primary text-primary-foreground shadow-[0_0_0_4px_hsl(var(--primary)/0.15)]" : "bg-background border-2 border-border text-muted-foreground"}`}>
@@ -617,7 +617,7 @@ const Index = () => {
                         <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
                       </div>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </AnimatedSection>
@@ -652,12 +652,12 @@ const Index = () => {
 
             <AnimatedSection animation="slide-up" delay={100} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { name: "PLA",  badge: "Bestseller", primary: true,  desc: "Biologisch abbaubar. Ideal für Architektur- & Präsentationsmodelle.", props: ["Biologisch abbaubar","0,1 mm Auflösung","20+ Farben"] },
-                { name: "PETG", badge: "Outdoor",    primary: false, desc: "UV-beständig und langlebig – für Außen-Exponate.",                     props: ["UV-beständig","80°C beständig","Schlagfest"]          },
-                { name: "ABS",  badge: "Robust",     primary: false, desc: "Industriestandard. Schleifbar, lackierbar, hochwertig.",                props: ["100°C beständig","Lackierbar","Schleifbar"]           },
-                { name: "TPU",  badge: "Flexibel",   primary: false, desc: "Elastisch für spezielle Anwendungen. Shore 95A.",                       props: ["Shore 95A","500% dehnbar","Abriebfest"]               },
-              ].map(({ name, badge, primary, desc, props }) => (
-                <div key={name} className="rounded-2xl border border-border bg-background p-6 hover:border-primary/30 hover:shadow-sm transition-all">
+              { name: "PLA", badge: "Bestseller", primary: true, desc: "Biologisch abbaubar. Ideal für Architektur- & Präsentationsmodelle.", props: ["Biologisch abbaubar", "0,1 mm Auflösung", "20+ Farben"] },
+              { name: "PETG", badge: "Outdoor", primary: false, desc: "UV-beständig und langlebig – für Außen-Exponate.", props: ["UV-beständig", "80°C beständig", "Schlagfest"] },
+              { name: "ABS", badge: "Robust", primary: false, desc: "Industriestandard. Schleifbar, lackierbar, hochwertig.", props: ["100°C beständig", "Lackierbar", "Schleifbar"] },
+              { name: "TPU", badge: "Flexibel", primary: false, desc: "Elastisch für spezielle Anwendungen. Shore 95A.", props: ["Shore 95A", "500% dehnbar", "Abriebfest"] }].
+              map(({ name, badge, primary, desc, props }) =>
+              <div key={name} className="rounded-2xl border border-border bg-background p-6 hover:border-primary/30 hover:shadow-sm transition-all">
                   <div className="flex items-center justify-between mb-4">
                     <p className="text-2xl font-black">{name}</p>
                     <span className={`text-xs font-bold px-2.5 py-1 rounded-full
@@ -667,15 +667,15 @@ const Index = () => {
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4">{desc}</p>
                   <div className="space-y-1.5">
-                    {props.map(p => (
-                      <div key={p} className="flex items-center gap-2 text-xs">
+                    {props.map((p) =>
+                  <div key={p} className="flex items-center gap-2 text-xs">
                         <Check className="w-3.5 h-3.5 text-primary shrink-0" />
                         <span className="text-muted-foreground">{p}</span>
                       </div>
-                    ))}
+                  )}
                   </div>
                 </div>
-              ))}
+              )}
             </AnimatedSection>
           </div>
         </div>
@@ -701,17 +701,17 @@ const Index = () => {
                 <div className="space-y-2">
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">Ratgeber</p>
                   {[
-                    { to: "/ratgeber/kosten-guide",         label: "3D-Druck Kosten & Preise" },
-                    { to: "/ratgeber/material-guide",       label: "Materialien im Vergleich" },
-                    { to: "/ratgeber/architekturmodell-guide", label: "Architekturmodell Guide" },
-                    { to: "/ratgeber/messemodell-guide",    label: "Messemodell Guide" },
-                    { to: "/ratgeber/verfahrens-vergleich", label: "3D-Druck vs. Modellbau" },
-                  ].map(({ to, label }) => (
-                    <Link key={to} to={to} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                  { to: "/ratgeber/kosten-guide", label: "3D-Druck Kosten & Preise" },
+                  { to: "/ratgeber/material-guide", label: "Materialien im Vergleich" },
+                  { to: "/ratgeber/architekturmodell-guide", label: "Architekturmodell Guide" },
+                  { to: "/ratgeber/messemodell-guide", label: "Messemodell Guide" },
+                  { to: "/ratgeber/verfahrens-vergleich", label: "3D-Druck vs. Modellbau" }].
+                  map(({ to, label }) =>
+                  <Link key={to} to={to} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                       <ChevronRight className="w-3.5 h-3.5 text-primary shrink-0" />
                       {label}
                     </Link>
-                  ))}
+                  )}
                 </div>
               </AnimatedSection>
             </div>
@@ -719,21 +719,21 @@ const Index = () => {
               <AnimatedSection animation="slide-up" delay={100}>
                 <Accordion type="single" collapsible className="space-y-2">
                   {[
-                    { q: "Was kostet 3D-Druck bei ekdruck?",                      a: "Preise starten ab €20 pro Modell. Kosten hängen von Material, Druckvolumen und Qualitätsstufe ab. Mengenrabatte ab 5 Einheiten. Angebot in unter 6 Stunden.", link: { to: "/ratgeber/kosten-guide", text: "Preis-Ratgeber" } },
-                    { q: "Wie schnell erhalte ich mein 3D-gedrucktes Modell?",    a: "Standard: 3–5 Werktage österreichweit, versandkostenfrei ab €100. Express-Service: 24–48 Stunden – ideal für Messe-Deadlines. Deutschland 2–4 Werktage.", link: null },
-                    { q: "Welche Dateiformate werden für 3D-Druck akzeptiert?",   a: "STL, OBJ, STEP, IGES, 3MF sowie ArchiCAD, Revit, SolidWorks, Fusion 360. Keine CAD-Datei? Wir erstellen das Modell kostenlos nach Skizzen oder Fotos.", link: { to: "/einzelanfertigungen", text: "Einzelanfertigungen" } },
-                    { q: "Für welche Branchen eignet sich 3D-Druck bei ekdruck?", a: "Architekten (1:50–1:500 Modelle), Messeaussteller (Express 24h), Produktentwickler (Rapid Prototyping), Firmenkunden (B2B, NDA, Mengenrabatte). Nur Anschauungsmodelle.", link: null },
-                    { q: "Welche Nachbearbeitung ist beim 3D-Druck möglich?",     a: "Schleifen, Grundieren, Lackieren (RAL), Aceton-Dampf-Glättung (ABS), Segmentierung und Klebeverbindungen für große Modelle. Direkter Versand präsentationsbereit.", link: null },
-                    { q: "Warum österreichisches Filament statt Importware?",     a: "Aus recycelten Industrieabfällen, mit Ökostrom. CO₂-Fußabdruck 80% geringer. Gleichmäßige Extrusionsqualität für konsistente Ergebnisse.", link: { to: "/ratgeber/material-guide", text: "Material-Guide" } },
-                  ].map((item, i) => (
-                    <AccordionItem key={i} value={`faq-${i}`}
-                      className="bg-card border border-border rounded-2xl px-6 hover:border-primary/30 transition-colors data-[state=open]:border-primary/40">
+                  { q: "Was kostet 3D-Druck bei ekdruck?", a: "Preise starten ab €20 pro Modell. Kosten hängen von Material, Druckvolumen und Qualitätsstufe ab. Mengenrabatte ab 5 Einheiten. Angebot in unter 6 Stunden.", link: { to: "/ratgeber/kosten-guide", text: "Preis-Ratgeber" } },
+                  { q: "Wie schnell erhalte ich mein 3D-gedrucktes Modell?", a: "Standard: 3–5 Werktage österreichweit, versandkostenfrei ab €100. Express-Service: 24–48 Stunden – ideal für Messe-Deadlines. Deutschland 2–4 Werktage.", link: null },
+                  { q: "Welche Dateiformate werden für 3D-Druck akzeptiert?", a: "STL, OBJ, STEP, IGES, 3MF sowie ArchiCAD, Revit, SolidWorks, Fusion 360. Keine CAD-Datei? Wir erstellen das Modell kostenlos nach Skizzen oder Fotos.", link: { to: "/einzelanfertigungen", text: "Einzelanfertigungen" } },
+                  { q: "Für welche Branchen eignet sich 3D-Druck bei ekdruck?", a: "Architekten (1:50–1:500 Modelle), Messeaussteller (Express 24h), Produktentwickler (Rapid Prototyping), Firmenkunden (B2B, NDA, Mengenrabatte). Nur Anschauungsmodelle.", link: null },
+                  { q: "Welche Nachbearbeitung ist beim 3D-Druck möglich?", a: "Schleifen, Grundieren, Lackieren (RAL), Aceton-Dampf-Glättung (ABS), Segmentierung und Klebeverbindungen für große Modelle. Direkter Versand präsentationsbereit.", link: null },
+                  { q: "Warum österreichisches Filament statt Importware?", a: "Aus recycelten Industrieabfällen, mit Ökostrom. CO₂-Fußabdruck 80% geringer. Gleichmäßige Extrusionsqualität für konsistente Ergebnisse.", link: { to: "/ratgeber/material-guide", text: "Material-Guide" } }].
+                  map((item, i) =>
+                  <AccordionItem key={i} value={`faq-${i}`}
+                  className="bg-card border border-border rounded-2xl px-6 hover:border-primary/30 transition-colors data-[state=open]:border-primary/40">
                       <AccordionTrigger className="text-left font-bold hover:text-primary py-5 text-sm">{item.q}</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground pb-5 leading-relaxed text-sm">
                         {item.a}{item.link && <> <Link to={item.link.to} className="text-primary font-bold hover:underline ml-1">{item.link.text} →</Link></>}
                       </AccordionContent>
                     </AccordionItem>
-                  ))}
+                  )}
                 </Accordion>
               </AnimatedSection>
             </div>
@@ -766,62 +766,62 @@ const Index = () => {
               <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">🏙️ Städte</h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  { name: "Wien",       url: "/3d-druck-wien"        },
-                  { name: "Linz",       url: "/3d-druck-linz"        },
-                  { name: "Graz",       url: "/3d-druck-graz"        },
-                  { name: "Salzburg",   url: "/3d-druck-salzburg"    },
-                  { name: "Innsbruck",  url: "/3d-druck-innsbruck"   },
-                  { name: "Klagenfurt", url: "/3d-druck-klagenfurt"  },
-                  { name: "Wels",       url: "/3d-druck-wels"        },
-                  { name: "St. Pölten", url: "/3d-druck-st-poelten"  },
-                  { name: "Dornbirn",   url: "/3d-druck-dornbirn"    },
-                  { name: "Villach",    url: "/3d-druck-villach"     },
-                ].map(({ name, url }) => (
-                  <Link key={url} to={url} onClick={() => window.scrollTo(0, 0)}
-                    className="bg-background border border-border hover:border-primary/40 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors font-medium">
+                { name: "Wien", url: "/3d-druck-wien" },
+                { name: "Linz", url: "/3d-druck-linz" },
+                { name: "Graz", url: "/3d-druck-graz" },
+                { name: "Salzburg", url: "/3d-druck-salzburg" },
+                { name: "Innsbruck", url: "/3d-druck-innsbruck" },
+                { name: "Klagenfurt", url: "/3d-druck-klagenfurt" },
+                { name: "Wels", url: "/3d-druck-wels" },
+                { name: "St. Pölten", url: "/3d-druck-st-poelten" },
+                { name: "Dornbirn", url: "/3d-druck-dornbirn" },
+                { name: "Villach", url: "/3d-druck-villach" }].
+                map(({ name, url }) =>
+                <Link key={url} to={url} onClick={() => window.scrollTo(0, 0)}
+                className="bg-background border border-border hover:border-primary/40 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors font-medium">
                     {name}
                   </Link>
-                ))}
+                )}
               </div>
             </div>
             <div>
               <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">🇦🇹 Bundesländer</h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  { name: "Oberösterreich",   url: "/3d-druck-oberoesterreich"  },
-                  { name: "Niederösterreich", url: "/3d-druck-niederoesterreich"},
-                  { name: "Steiermark",       url: "/3d-druck-steiermark"       },
-                  { name: "Kärnten",          url: "/3d-druck-kaernten"         },
-                  { name: "Tirol",            url: "/3d-druck-innsbruck"        },
-                  { name: "Vorarlberg",       url: "/3d-druck-vorarlberg"       },
-                  { name: "Burgenland",       url: "/3d-druck-burgenland"       },
-                  { name: "Salzburg",         url: "/3d-druck-salzburg"         },
-                ].map(({ name, url }) => (
-                  <Link key={url} to={url} onClick={() => window.scrollTo(0, 0)}
-                    className="bg-background border border-border hover:border-primary/40 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors">
+                { name: "Oberösterreich", url: "/3d-druck-oberoesterreich" },
+                { name: "Niederösterreich", url: "/3d-druck-niederoesterreich" },
+                { name: "Steiermark", url: "/3d-druck-steiermark" },
+                { name: "Kärnten", url: "/3d-druck-kaernten" },
+                { name: "Tirol", url: "/3d-druck-innsbruck" },
+                { name: "Vorarlberg", url: "/3d-druck-vorarlberg" },
+                { name: "Burgenland", url: "/3d-druck-burgenland" },
+                { name: "Salzburg", url: "/3d-druck-salzburg" }].
+                map(({ name, url }) =>
+                <Link key={url} to={url} onClick={() => window.scrollTo(0, 0)}
+                className="bg-background border border-border hover:border-primary/40 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors">
                     {name}
                   </Link>
-                ))}
+                )}
               </div>
             </div>
             <div>
               <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">🇩🇪 Deutschland</h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  { name: "München",    url: "/messemodelle/muenchen"    },
-                  { name: "Stuttgart",  url: "/messemodelle/stuttgart"   },
-                  { name: "Nürnberg",   url: "/messemodelle/nuernberg"   },
-                  { name: "Augsburg",   url: "/messemodelle/augsburg"    },
-                  { name: "Ulm",        url: "/messemodelle/ulm"         },
-                  { name: "Freiburg",   url: "/messemodelle/freiburg"    },
-                  { name: "Regensburg", url: "/messemodelle/regensburg"  },
-                  { name: "Passau",     url: "/messemodelle/passau"      },
-                ].map(({ name, url }) => (
-                  <Link key={url + name} to={url} onClick={() => window.scrollTo(0, 0)}
-                    className="bg-background border border-border hover:border-primary/40 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors">
+                { name: "München", url: "/messemodelle/muenchen" },
+                { name: "Stuttgart", url: "/messemodelle/stuttgart" },
+                { name: "Nürnberg", url: "/messemodelle/nuernberg" },
+                { name: "Augsburg", url: "/messemodelle/augsburg" },
+                { name: "Ulm", url: "/messemodelle/ulm" },
+                { name: "Freiburg", url: "/messemodelle/freiburg" },
+                { name: "Regensburg", url: "/messemodelle/regensburg" },
+                { name: "Passau", url: "/messemodelle/passau" }].
+                map(({ name, url }) =>
+                <Link key={url + name} to={url} onClick={() => window.scrollTo(0, 0)}
+                className="bg-background border border-border hover:border-primary/40 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-colors">
                     {name}
                   </Link>
-                ))}
+                )}
               </div>
               <div className="flex items-center gap-2.5 mt-5">
                 <div className="flex">
@@ -835,8 +835,8 @@ const Index = () => {
       </section>
 
       {/* ── FINALER CTA — NUR EINMAL, GANZ AM ENDE ───────────────────────
-          Einziger zweiter CTA. Klar, ruhig, ohne Druck.
-      ─────────────────────────────────────────────────────────────────── */}
+            Einziger zweiter CTA. Klar, ruhig, ohne Druck.
+         ─────────────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-background border-t border-border/50">
         <div className="container mx-auto px-4">
           <AnimatedSection animation="scale-in">
@@ -872,19 +872,19 @@ const Index = () => {
                 <div className="bg-muted/40 border-l border-border p-12 md:p-16 flex flex-col justify-center">
                   <div className="space-y-6">
                     {[
-                      { val: "28",  label: "Google Bewertungen",  sub: "⭐⭐⭐⭐⭐ 5,0 / 5,0"       },
-                      { val: "6h",  label: "Angebots-Garantie",   sub: "Kostenlos & unverbindlich" },
-                      { val: "24h", label: "Express-Lieferung",   sub: "Österreichweit möglich"    },
-                      { val: "€20", label: "Preis ab",            sub: "Keine Mindestbestellung"   },
-                    ].map(({ val, label, sub }) => (
-                      <div key={label} className="flex items-center gap-5">
+                    { val: "28", label: "Google Bewertungen", sub: "⭐⭐⭐⭐⭐ 5,0 / 5,0" },
+                    { val: "6h", label: "Angebots-Garantie", sub: "Kostenlos & unverbindlich" },
+                    { val: "24h", label: "Express-Lieferung", sub: "Österreichweit möglich" },
+                    { val: "€20", label: "Preis ab", sub: "Keine Mindestbestellung" }].
+                    map(({ val, label, sub }) =>
+                    <div key={label} className="flex items-center gap-5">
                         <p className="text-3xl font-black text-primary w-16 shrink-0 leading-none">{val}</p>
                         <div>
                           <p className="font-bold text-sm leading-none">{label}</p>
                           <p className="text-xs text-muted-foreground mt-1">{sub}</p>
                         </div>
                       </div>
-                    ))}
+                    )}
                   </div>
                   <div className="mt-8 pt-6 border-t border-border">
                     <p className="text-xs text-muted-foreground leading-relaxed">
