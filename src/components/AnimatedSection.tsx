@@ -17,6 +17,12 @@ const AnimatedSection = ({
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Fallback: if IntersectionObserver not supported, show immediately
+    if (!('IntersectionObserver' in window)) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -28,22 +34,34 @@ const AnimatedSection = ({
           }
         });
       },
-      { threshold: 0.1, rootMargin: "50px" }
+      { threshold: 0, rootMargin: "200px 0px" }
     );
 
     if (ref.current) {
       observer.observe(ref.current);
     }
 
-    return () => observer.disconnect();
+    // Safety fallback: show content after 1.5s regardless
+    const fallback = setTimeout(() => setIsVisible(true), 1500);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
   }, [delay]);
 
   return (
     <div 
       ref={ref} 
-      className={`${className} ${isVisible ? `animate-${animation}` : 'opacity-0'}`}
+      className={`${className} transition-[opacity,transform] ${
+        isVisible 
+          ? `opacity-100 translate-y-0 ${animation === 'slide-up' ? '' : ''}` 
+          : 'opacity-0 translate-y-4'
+      }`}
       style={{ 
-        animationFillMode: 'forwards',
+        transitionDuration: '600ms',
+        transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        transitionDelay: isVisible ? '0ms' : `${delay}ms`,
       }}
     >
       {children}
