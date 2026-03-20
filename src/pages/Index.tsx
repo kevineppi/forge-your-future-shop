@@ -727,12 +727,36 @@ const Index = () => {
               <AnimatedSection animation="slide-up" delay={100}>
                 <Accordion type="single" collapsible className="space-y-2">
                   {[
-                  { q: "Was kostet 3D-Druck bei ekdruck?", a: "Preise starten ab €20 pro Modell. Kosten hängen von Material, Druckvolumen und Qualitätsstufe ab. Mengenrabatte ab 5 Einheiten. Angebot in unter 6 Stunden.", link: { to: "/ratgeber/kosten-guide", text: "Preis-Ratgeber" } },
-                  { q: "Wie schnell erhalte ich mein 3D-gedrucktes Modell?", a: "Standard: 3–5 Werktage österreichweit, versandkostenfrei ab €100. Express-Service: 24–48 Stunden – ideal für Messe-Deadlines. Deutschland 2–4 Werktage.", link: null },
-                  { q: "Welche Dateiformate werden für 3D-Druck akzeptiert?", a: "STL, OBJ, STEP, IGES, 3MF sowie ArchiCAD, Revit, SolidWorks, Fusion 360. Keine CAD-Datei? Wir erstellen das Modell kostenlos nach Skizzen oder Fotos.", link: { to: "/einzelanfertigungen", text: "Einzelanfertigungen" } },
-                  { q: "Für welche Branchen eignet sich 3D-Druck bei ekdruck?", a: "Architekten (1:50–1:500 Modelle), Messeaussteller (Express 24h), Produktentwickler (Rapid Prototyping), Firmenkunden (B2B, NDA, Mengenrabatte). Nur Anschauungsmodelle.", link: null },
-                  { q: "Welche Nachbearbeitung ist beim 3D-Druck möglich?", a: "Schleifen, Grundieren, Lackieren (RAL), Aceton-Dampf-Glättung (ABS), Segmentierung und Klebeverbindungen für große Modelle. Direkter Versand präsentationsbereit.", link: null },
-                  { q: "Warum österreichisches Filament statt Importware?", a: "Aus recycelten Industrieabfällen, mit Ökostrom. CO₂-Fußabdruck 80% geringer. Gleichmäßige Extrusionsqualität für konsistente Ergebnisse.", link: { to: "/ratgeber/material-guide", text: "Material-Guide" } }].
+                  {
+                    q: "Was kostet 3D-Druck bei ekdruck?",
+                    a: "Unsere Preise beginnen ab €20 pro Modell – abhängig von drei Faktoren: dem gewählten Material (PLA ab €20, PETG ab €25, ABS ab €28, TPU auf Anfrage), dem Druckvolumen in cm³ sowie der gewählten Qualitätsstufe (Standard 0,2 mm, Fine 0,15 mm oder Ultra Fine 0,1 mm). Finishing-Leistungen wie Schleifen, Grundieren oder Lackieren werden separat kalkuliert. Ab 5 gleichartigen Modellen gewähren wir automatisch Mengenrabatte. Ein transparentes, verbindliches Festpreisangebot erhalten Sie bei uns in unter 6 Stunden – ohne versteckte Kosten oder Nachkalkulationen.",
+                    link: { to: "/ratgeber/kosten-guide", text: "Vollständiger Preis-Ratgeber →" }
+                  },
+                  {
+                    q: "Wie schnell erhalte ich mein 3D-gedrucktes Modell?",
+                    a: "Die Standard-Lieferzeit beträgt 3–5 Werktage österreichweit (versandkostenfrei ab €100 Bestellwert). Mit unserem Express-Service fertigen und liefern wir innerhalb von 24–48 Stunden – ideal für kurzfristige Messetermine, Wettbewerbsabgaben oder dringende Kundenpräsentationen. Nach Deutschland liefern wir in 2–4 Werktagen via DHL oder GLS. Persönliche Abholung ist ebenfalls möglich – wir befinden uns in Gunskirchen, Oberösterreich, nur 20 Minuten von Linz und gut erreichbar von Wien und Salzburg.",
+                    link: null
+                  },
+                  {
+                    q: "Welche Dateiformate werden für 3D-Druck akzeptiert?",
+                    a: "Wir akzeptieren alle gängigen 3D-Formate: STL, OBJ, STEP, IGES, 3MF und STP sowie native CAD-Formate aus ArchiCAD, Revit, SolidWorks, Rhino und Autodesk Fusion 360. Haben Sie noch keine fertige CAD-Datei? Kein Problem: Im Rahmen unserer Auftragsberatung erstellen wir das 3D-Modell kostenlos nach Ihren technischen Zeichnungen, Skizzen, Fotos oder mündlicher Beschreibung. Dieser Service ist vollständig im Projektpreis enthalten – kein separates Modellierungshonorar.",
+                    link: { to: "/einzelanfertigungen", text: "Zu den Einzelanfertigungen →" }
+                  },
+                  {
+                    q: "Für welche Branchen und Anwendungen eignet sich ekdruck?",
+                    a: "ekdruck ist auf vier Kernzielgruppen spezialisiert: Architekten und Planer erhalten maßstabsgetreue Architekturmodelle im Maßstab 1:50 bis 1:500 für Wettbewerbe, Baueinreichungen und Kundenpräsentationen. Messeaussteller profitieren von unserem Express-Service und erhalten Exponate und Anschauungsmodelle in 24–48 Stunden. Produktentwickler nutzen unseren Rapid-Prototyping-Service für schnelle Iterationszyklen ohne Mindestmenge. Firmenkunden erhalten B2B-konforme Leistungen: UID-Rechnung, NDA auf Wunsch, Mengenrabatte und persönliche Ansprechperson – alles aus einer Hand.",
+                    link: null
+                  },
+                  {
+                    q: "Welche Nachbearbeitungs- und Finishing-Optionen gibt es?",
+                    a: "Für ein präsentationsreifes Ergebnis bieten wir ein vollständiges Finishing-Paket: Schleifen und Glätten entfernt sichtbare Schichtlinien und schafft eine lackierfertige Oberfläche. Grundierung versiegelt Poren und sorgt für gleichmäßige Farbhaftung. Lackierung erfolgt in allen RAL- und Pantone-Farbtönen, matt oder glänzend. Für ABS-Modelle bieten wir Aceton-Dampfglättung – das Ergebnis kommt spritzgussähnlicher Qualität sehr nahe. Große Modelle werden segmentiert und professionell verklebt. Jedes Modell wird vor dem Versand einer manuellen Qualitätsprüfung unterzogen.",
+                    link: null
+                  },
+                  {
+                    q: "Warum österreichisches Filament statt günstigeren Importen?",
+                    a: "Qualität beginnt beim Rohmaterial. Österreichische Filamente werden aus zertifizierten, recycelten Industrieabfällen unter strengen Qualitätsstandards gefertigt und ausschließlich mit Ökostrom produziert. Der CO₂-Fußabdruck liegt damit bis zu 80 % niedriger als bei Importware aus Asien. Technisch bedeutet das: gleichmäßige Extrusionstoleranz von ±0,02 mm für konsistente Druckergebnisse, deutlich geringere Fehlerquote im Druckprozess und höhere Oberflächenqualität. Für Sie bedeutet das: Modelle, die beim ersten Versuch sitzen – kein Nachdrucken, keine Verzögerung.",
+                    link: { to: "/ratgeber/material-guide", text: "Material-Guide lesen →" }
+                  }].
                   map((item, i) =>
                   <AccordionItem key={i} value={`faq-${i}`}
                   className="bg-card border border-border rounded-2xl px-6 hover:border-primary/30 transition-colors data-[state=open]:border-primary/40">
