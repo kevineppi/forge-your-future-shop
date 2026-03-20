@@ -59,7 +59,7 @@ const UeberUns = () => {
                 Anschauungsmodelle – handwerklich präzise, nachhaltig und persönlich aus dem Herzen Oberösterreichs.
               </p>
               <div className="flex flex-wrap gap-3 justify-center mt-8">
-                {["WKO-gewerbeberechtigt", "10+ FDM-Drucker", "Angebot in 6h", "B2B & Privatkunden"].map((tag) => (
+                {["10+ FDM-Drucker", "Angebot in 6h", "B2B & Privatkunden", "Made in Austria"].map((tag) => (
                   <span key={tag} className="px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
                     {tag}
                   </span>
