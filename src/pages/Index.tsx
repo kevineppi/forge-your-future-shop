@@ -66,7 +66,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-4">
             <div className="flex items-center gap-2 text-sm font-semibold">
-              <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}</div>
+              <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-[hsl(48,96%,53%)] text-[hsl(48,96%,53%)]" />)}</div>
               <span>5,0 Google Bewertung</span>
               <span className="text-muted-foreground font-normal">(28 Rezensionen)</span>
             </div>
