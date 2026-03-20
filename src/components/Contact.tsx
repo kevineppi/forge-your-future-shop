@@ -395,6 +395,29 @@ const Contact = () => {
               </div>
             )}
           </AnimatedSection>
+
+          {/* Made in Austria – ebenbündig unter dem Formular, rechte Spalte */}
+          <div className="lg:col-span-3 lg:col-start-3">
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Shield className="w-5 h-5 text-primary" />
+                <span className="font-bold text-sm">Made in Austria</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-muted-foreground">
+                {[
+                  "Express 24h möglich",
+                  "Österr. Filament",
+                  "200+ Projekte",
+                  "Kostenlos & unverbindlich"
+                ].map(item => (
+                  <div key={item} className="flex items-center gap-1.5">
+                    <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
