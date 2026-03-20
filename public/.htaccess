@@ -21,6 +21,10 @@
   RewriteRule ^info/?$ / [R=301,L]
   RewriteRule ^leistungen/?$ / [R=301,L]
   
+  # Tippfehler-Redirects (SEO equity erhalten)
+  RewriteRule ^messemodele/?$ /messemodelle [R=301,L]
+  RewriteRule ^messemodele/(.*)$ /messemodelle/$1 [R=301,L]
+  
   # Alte Shop-URLs auf 404 (oder Homepage)
   RewriteRule ^product-page/ - [R=410,L]
   RewriteRule ^category/all-products/?$ - [R=410,L]

@@ -98,6 +98,9 @@ const App = () => (
               <Route path="/architekturmodelle/:region" element={<ArchitekturmodellRegion />} />
               <Route path="/messemodelle" element={<Messemodelle />} />
               <Route path="/messemodelle/:region" element={<MessemodellRegion />} />
+              {/* Tippfehler-Redirect: /messemodele → /messemodelle */}
+              <Route path="/messemodele" element={<Navigate to="/messemodelle" replace />} />
+              <Route path="/messemodele/:region" element={<Navigate to="/messemodelle/:region" replace />} />
               <Route path="/kunstobjekte" element={<Kunstobjekte />} />
               <Route path="/firmenkunden" element={<Firmenkunden />} />
               <Route path="/kontakt" element={<Kontakt />} />
