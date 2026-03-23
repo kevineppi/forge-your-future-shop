@@ -61,38 +61,6 @@ const Index = () => {
       <Navigation />
       <Hero />
 
-      {/* ── TRUST BAR ─────────────────────────────────────────────────── */}
-      <div className="border-y border-border bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-4">
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-[hsl(48,96%,53%)] text-[hsl(48,96%,53%)]" />)}</div>
-              <span>5,0 Google Bewertung</span>
-              <span className="text-muted-foreground font-normal">(28 Rezensionen)</span>
-            </div>
-            <div className="hidden sm:block w-px h-4 bg-border" />
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              <Zap className="w-4 h-4 text-primary" />
-              Express-Lieferung in 24h
-            </div>
-            <div className="hidden sm:block w-px h-4 bg-border" />
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              <MapPin className="w-4 h-4 text-primary" />
-              Made in Austria – Gunskirchen OÖ
-            </div>
-            <div className="hidden sm:block w-px h-4 bg-border" />
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              <Clock className="w-4 h-4 text-primary" />
-              Angebot in unter 6 Stunden
-            </div>
-            <div className="hidden lg:block w-px h-4 bg-border" />
-            <div className="flex items-center gap-2 text-sm font-semibold">
-              <Package className="w-4 h-4 text-primary" />
-              200+ abgeschlossene Projekte
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* ── LEISTUNGEN — BENTO GRID ───────────────────────────────────── */}
       <section className="py-24 bg-background">
