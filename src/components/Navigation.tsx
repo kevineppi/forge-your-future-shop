@@ -2,17 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Sparkles, Book, Package, LogOut, User, Building2, Presentation, Palette, Building, Layers, Calculator } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
+import { Menu, X, ChevronDown, Box, Sparkles, Book, Layers, Building2, Presentation, Palette, Building, Calculator } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, signOut } = useAuth();
-
-  const handleSignOut = async () => {
-    await signOut();
-    window.location.href = "/";
-  };
 
   return (
     <nav className="fixed top-0 w-full z-[100] bg-background/95 backdrop-blur-lg border-b border-border/50">
@@ -150,41 +143,9 @@ const Navigation = () => {
             </DropdownMenu>
             <Link to="/ueber-uns" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</Link>
             <Link to="/kontakt" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</Link>
-            
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
-                  <User className="w-4 h-4" />
-                  Mein Konto
-                  <ChevronDown className="w-3 h-3" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-64 p-2 bg-card border border-border shadow-2xl" sideOffset={8}>
-                  <div className="px-3 py-3 border-b border-border/50 mb-1">
-                    <p className="text-xs font-medium text-muted-foreground mb-1">Angemeldet als</p>
-                    <p className="text-sm font-semibold text-foreground truncate">{user.email}</p>
-                  </div>
-                  <DropdownMenuItem asChild className="p-0">
-                    <a href="/meine-bestellungen" className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-accent transition-colors group cursor-pointer">
-                      <Package className="w-4 h-4 text-primary" />
-                      <span className="font-medium text-sm">Meine Bestellungen</span>
-                    </a>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleSignOut} className="p-0 mt-1">
-                    <div className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-accent transition-colors group cursor-pointer w-full">
-                      <LogOut className="w-4 h-4 text-destructive" />
-                      <span className="font-medium text-sm text-destructive">Abmelden</span>
-                    </div>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <a href="/referenzen" className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
-                <Sparkles className="w-4 h-4" />
-                Referenzen
-              </a>
-            )}
-            
-            <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" asChild><Link to="/kontakt">Angebot</Link></Button>
+            <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" asChild>
+              <Link to="/kontakt">Angebot</Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -287,6 +248,7 @@ const Navigation = () => {
                 </a>
               </div>
             </div>
+
             {/* Quick Actions */}
             <div className="border-t border-border/50 pt-4 space-y-2">
               <Link 
@@ -300,29 +262,6 @@ const Navigation = () => {
                   <div className="text-xs text-muted-foreground">Projektanfrage & Beratung</div>
                 </div>
               </Link>
-              
-              {user ? (
-                <div className="grid grid-cols-2 gap-2">
-                  <a 
-                    href="/meine-bestellungen" 
-                    className="flex items-center gap-2 p-3 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <Package className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium">Bestellungen</span>
-                  </a>
-                  <button
-                    onClick={() => {
-                      setIsOpen(false);
-                      handleSignOut();
-                    }}
-                    className="flex items-center gap-2 p-3 text-destructive rounded-xl hover:bg-destructive/10 active:scale-[0.98] transition-all"
-                  >
-                    <LogOut className="h-4 w-4" />
-                    <span className="text-sm font-medium">Abmelden</span>
-                  </button>
-                </div>
-              ) : null}
             </div>
             
             <Button
