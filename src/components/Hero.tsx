@@ -52,8 +52,8 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Professionelle 3D-gedruckte Präsentationsmodelle für Messen und Architektur. 
-              Made in Austria – Angebot in 6 Stunden.
+              Professioneller 3D-Druck Service aus Oberösterreich: Messemodelle, Architekturmodelle 
+              und Prototypen. Express 24h – Angebot in 6 Stunden. Made in Austria.
             </p>
 
             {/* CTAs */}
