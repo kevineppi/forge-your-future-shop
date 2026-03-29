@@ -151,9 +151,9 @@ const Kunstobjekte = () => {
   return (
     <>
       <Helmet>
-        <title>3D-Druck Kunstobjekte & Skulpturen | Für Künstler & Galerien | ekdruck.at</title>
-        <meta name="description" content="Kunstobjekte & Skulpturen in 3D-Druck: Holz-Optik, Metallic, Marmor-Look ab €20. Für Galerien, Ausstellungen & Einzelkünstler – jede Form möglich, die Sie sich vorstellen können." />
-        <meta name="keywords" content="3d-druck kunstobjekte österreich, skulpturen 3d-druck, kunstinstallationen, design-objekte 3d-druck, 3d-druck bildhauer, skulpturen drucken wien" />
+        <title>Skulpturen & Kunstobjekte aus dem 3D-Drucker | Ab €20 | ekdruck</title>
+        <meta name="description" content="Ihre Skulptur, digital entworfen – physisch gedruckt. Holz-Optik, Metallic, Marmor-Look. Für Künstler, Galerien & Installationen. Jede Form möglich. Ab €20 →" />
+        <meta name="keywords" content="3d-druck kunstobjekte, skulpturen 3d-druck, kunstinstallationen drucken, design-objekte, 3d-druck bildhauer, skulpturen drucken lassen" />
         <link rel="canonical" href="https://www.ek-druck.at/kunstobjekte" />
       </Helmet>
 

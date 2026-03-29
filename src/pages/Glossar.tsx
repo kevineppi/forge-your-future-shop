@@ -450,8 +450,8 @@ const Glossar = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Glossar | 70+ Fachbegriffe & Definitionen | ekdruck e.U."
-        description="Alle wichtigen 3D-Druck Begriffe verständlich erklärt: FDM, SLA, Infill, Layer Height, Architekturmodelle, Messemodelle und mehr. Das Nachschlagewerk von ekdruck Österreich."
+        title="3D-Druck Glossar: 70+ Begriffe einfach erklärt | ekdruck"
+        description="FDM, Infill, Layer Height, Warping – was bedeutet das alles? 70+ 3D-Druck Fachbegriffe verständlich erklärt. Das Nachschlagewerk für Einsteiger & Profis."
         keywords="3d-druck glossar, 3d-druck fachbegriffe, fdm begriffe, architekturmodell maßstab, messemodell 3d-druck, additive fertigung lexikon, infill, layer height, warping, stringing, slicing"
         path="/glossar"
         schemaType="article"
