@@ -23,25 +23,17 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Core React runtime – tiny, always needed
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          // Radix UI – large but only needed for interactive components
-          'ui-vendor': [
-            '@radix-ui/react-accordion',
-            '@radix-ui/react-dialog',
-            '@radix-ui/react-dropdown-menu',
-            '@radix-ui/react-tooltip',
-            '@radix-ui/react-select',
-            '@radix-ui/react-tabs',
+          // Core vendors – consolidated to minimize JS file count
+          'vendor': [
+            'react', 'react-dom', 'react-router-dom',
+            '@radix-ui/react-accordion', '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu', '@radix-ui/react-tooltip',
+            '@radix-ui/react-select', '@radix-ui/react-tabs',
+            'react-hook-form', '@hookform/resolvers', 'zod',
+            '@supabase/supabase-js',
           ],
-          // Forms
-          'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
-          // Supabase – only used in pages that need auth/DB
-          'supabase': ['@supabase/supabase-js'],
-          // Three.js – very large, isolated so it never blocks initial paint
+          // Three.js – large, lazy-loaded separately
           'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
-          // Charts
-          'chart-vendor': ['recharts'],
         },
       },
     },
