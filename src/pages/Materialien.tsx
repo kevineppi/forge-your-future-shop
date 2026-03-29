@@ -15,9 +15,9 @@ const Materialien = () => {
   return (
     <>
       <SEOHead 
-        title="PLA vs PETG vs ABS – Welches 3D-Druck Material? [2026 Guide]"
-        description="PLA vs PETG vs ABS im direkten Vergleich ✓ Eigenschaften, Kosten & Einsatzgebiete. Welches Filament ist das richtige? Kostenlose Beratung + Muster → Jetzt vergleichen"
-        keywords="pla vs petg, pla vs abs, 3d-druck materialien, filament vergleich, petg vs abs, 3d druck material, pla petg abs vergleich, 3d-druck materialien österreich, asa vs petg"
+        title="PLA vs PETG vs ABS: Welches 3D-Druck Material? [2026 Vergleich]"
+        description="PLA oder PETG? ABS oder ASA? Direkter Vergleich mit Temperaturen, Kosten & Einsatzgebieten. Finden Sie das richtige Filament für Ihr Projekt → Mit Entscheidungshilfe"
+        keywords="pla vs petg, pla vs abs, 3d-druck materialien, filament vergleich, petg vs abs, asa vs petg, welches filament, 3d druck material"
         path="/3d-druck-materialien"
         breadcrumbs={[
           {name: "Home", url: "/"},

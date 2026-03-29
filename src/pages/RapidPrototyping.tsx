@@ -188,9 +188,9 @@ const RapidPrototyping = () => {
   return (
     <>
       <Helmet>
-        <title>3D-Druck Prototypen Österreich | Ab €20 in 24h | ekdruck.at</title>
-        <meta name="description" content="3D-Druck Prototypen ab €20 ✓ Express in 24h ✓ Angebot in 6 Stunden. Designprototypen & Anschauungsmodelle für Präsentationen, Messen & Investoren. Made in Austria." />
-        <meta name="keywords" content="3d druck prototypen, 3d-druck prototypen, rapid prototyping österreich, prototypen 3d druck, designprototypen, anschauungsmodelle 3d-druck, 3d druck prototypen kosten" />
+        <title>3D-Druck Prototypen ab €20 | Morgen auf Ihrem Tisch | ekdruck</title>
+        <meta name="description" content="Idee heute – Prototyp morgen. 3D-Druck Prototypen & Designmodelle ab €20. Für Präsentationen, Investoren & Messen. Keine Mindestmenge. Express 24h ✓ Angebot in 6h →" />
+        <meta name="keywords" content="3d druck prototypen, rapid prototyping österreich, 3d-druck prototypen, prototyp drucken lassen, designprototyp, anschauungsmodell 3d-druck" />
         <link rel="canonical" href="https://www.ek-druck.at/rapid-prototyping" />
       </Helmet>
 
