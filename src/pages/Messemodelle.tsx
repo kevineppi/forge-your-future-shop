@@ -10,6 +10,8 @@ import RelatedPages from "@/components/landing/RelatedPages";
 import RegionalCoverage from "@/components/landing/RegionalCoverage";
 import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
+import ProductOfferSchema from "@/components/ProductOfferSchema";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import { 
   Presentation, 
   Zap, 
@@ -202,6 +204,16 @@ const Messemodelle = () => {
         <link rel="alternate" hrefLang="de" href="https://www.ek-druck.at/messemodelle" />
         <link rel="alternate" hrefLang="x-default" href="https://www.ek-druck.at/messemodelle" />
       </Helmet>
+
+      <ProductOfferSchema
+        name="3D-Druck Messemodelle"
+        description="Professionelle 3D-gedruckte Messemodelle und Eyecatcher für Messestände. Express-Fertigung in 24h, Objekte bis 2m+."
+        url="https://www.ek-druck.at/messemodelle"
+        lowPrice="30"
+        highPrice="1000"
+        category="Messemodelle 3D-Druck"
+      />
+      <SpeakableSchema url="https://www.ek-druck.at/messemodelle" />
 
       <Navigation />
       <Breadcrumbs items={breadcrumbs} />

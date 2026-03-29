@@ -13,6 +13,7 @@ import {
   Layers, Trophy, Users, AlertTriangle, Lightbulb, Leaf, FileCode,
   Quote, Star, TrendingUp
 } from "lucide-react";
+import HowToSchema from "@/components/HowToSchema";
 
 const ArchitekturmodellGuide = () => {
   const faqs = [
@@ -146,6 +147,18 @@ const ArchitekturmodellGuide = () => {
       ]} />
 
       <FAQSchema faqs={faqs} />
+      <HowToSchema
+        name="Architekturmodell per 3D-Druck bestellen"
+        description="So bestellen Sie ein maßstabsgetreues Architekturmodell per 3D-Druck – von der CAD-Datei bis zum fertigen Modell."
+        totalTime="PT15M"
+        steps={[
+          { name: "Maßstab wählen", text: "1:50 für Innenraum, 1:100 für Gesamtgebäude (beliebtester Maßstab), 1:200–1:500 für Städtebau und Wettbewerbe mit Umgebung." },
+          { name: "CAD-Datei exportieren", text: "ArchiCAD: Speichern als STL (Qualität 'Fein'). Revit: STL Exporter Add-In. SketchUp: Export → 3D-Modell → STL. Einheiten auf mm setzen." },
+          { name: "Glas & Beton trennen", text: "Glasfassaden und Betonkörper als separate STL-Dateien exportieren. So können transparente PETG-Elemente separat gedruckt werden." },
+          { name: "Angebot anfordern", text: "STL-Datei an office@ek-druck.at senden. Kostenloses Festpreisangebot in 6 Stunden mit Material- und Maßstabsempfehlung." },
+          { name: "Fertigung & Lieferung", text: "Standard 3–5 Werktage, Express 24h für Wettbewerbstermine. Persönliche Abholung in Gunskirchen (OÖ) möglich." }
+        ]}
+      />
 
       <div className="min-h-screen bg-background">
         <Navigation />
