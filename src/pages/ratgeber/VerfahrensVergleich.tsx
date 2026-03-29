@@ -7,6 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import AIChatWidget from "@/components/AIChatWidget";
+import HowToSchema from "@/components/HowToSchema";
 const VerfahrensVergleich = () => {
   const comparisonData = [{
     aspect: "Schichthöhe / Auflösung",
@@ -52,6 +53,17 @@ const VerfahrensVergleich = () => {
   const slsDisadvantages = ["Sehr hohe Anschaffungskosten", "Höherer Energieverbrauch", "Begrenzte Materialauswahl", "Pulverentsorgung und -handhabung komplex"];
   return <>
       <SEOHead title="FDM vs SLA vs SLS: 3D-Druckverfahren im Vergleich [2026]" description="Welches 3D-Druckverfahren passt zu Ihrem Projekt? FDM (günstig, robust), SLA (glatt, präzise), SLS (komplex, stark). Mit Vergleichstabelle & Empfehlung →" keywords="fdm vs sla, 3d druckverfahren vergleich, fdm vs sls, sla vs sls, 3d-druck verfahren übersicht, additive fertigung vergleich" path="/ratgeber/verfahrens-vergleich" schemaType="article" />
+      <HowToSchema
+        name="Das richtige 3D-Druckverfahren wählen"
+        description="So finden Sie das optimale 3D-Druckverfahren für Ihr Projekt."
+        totalTime="PT5M"
+        steps={[
+          { name: "Anforderungen definieren", text: "Brauchen Sie hohe Detailgenauigkeit (→ SLA), robuste Funktionsteile (→ FDM), oder komplexe Geometrien ohne Stützstrukturen (→ SLS)?" },
+          { name: "Budget bestimmen", text: "FDM: günstigste Option (Material ab €20/kg). SLA: mittlere Kosten (Resin ab €100/L). SLS: höchste Kosten (Pulver ab €60/kg + teure Maschinen)." },
+          { name: "Oberfläche bewerten", text: "Glatte Oberfläche nötig? → SLA. Sichtbare Schichten akzeptabel? → FDM (nachbearbeitbar). Leicht körnig OK? → SLS." },
+          { name: "Anbieter kontaktieren", text: "Für Anschauungsmodelle, Messemodelle und Architekturmodelle ist FDM die wirtschaftlichste Wahl. Kontaktieren Sie uns für ein kostenloses Angebot." }
+        ]}
+      />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

@@ -8,6 +8,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import AIChatWidget from "@/components/AIChatWidget";
+import HowToSchema from "@/components/HowToSchema";
 const KostenGuide = () => {
   const costFactors = [{
     icon: Package,
@@ -58,6 +59,18 @@ const KostenGuide = () => {
   const savingTips = ["Optimieren Sie Ihr 3D-Modell: Reduzieren Sie unnötige Wandstärken und Vollmaterial", "Wählen Sie die richtige Auflösung: Nicht jedes Teil benötigt 0.1mm Schichthöhe", "Mehrere Teile kombinieren: Bestellen Sie mehrere Teile gleichzeitig für bessere Konditionen", "Standardmaterialien nutzen: PLA und PETG sind günstiger als Spezialmaterialien", "Auf Express verzichten: Standardlieferzeit spart 30% gegenüber 24h-Service", "Eigenfinish: Nachbearbeitung selbst übernehmen kann 30-50€ sparen"];
   return <>
       <SEOHead title="Was kostet 3D-Druck? Echte Preise + 6 Spartipps [2026]" description="3D-Druck ab €15 – aber was kostet IHR Projekt? Echte Preisbeispiele: Kleinteil €25, Prototyp €80, Messemodell €150. Plus 6 Spartipps für bis zu 30% weniger →" keywords="3d-druck kosten, was kostet 3d-druck, 3d-druck preise, 3d-druck kosten berechnen, fdm 3d-druck kosten, 3d-druck preis pro stück" path="/ratgeber/kosten-guide" schemaType="article" />
+      <HowToSchema
+        name="3D-Druck Kosten berechnen – Schritt für Schritt"
+        description="So ermitteln Sie die Kosten für Ihr 3D-Druck Projekt in Österreich."
+        totalTime="PT10M"
+        steps={[
+          { name: "Projektgröße bestimmen", text: "Messen Sie die Abmessungen Ihres gewünschten 3D-Druck-Objekts (Länge × Breite × Höhe in cm). Größere Objekte benötigen mehr Material und Druckzeit." },
+          { name: "Material wählen", text: "Wählen Sie das passende Material: PLA (ab €3/100g, ideal für Modellbau), PETG (ab €5/100g, für Outdoor), oder ASA (ab €7/100g, UV-beständig)." },
+          { name: "Qualitätsstufe festlegen", text: "Wählen Sie die Schichthöhe: Standard (0,2mm – günstig), Fine (0,15mm – Präsentation), Ultra Fine (0,1mm – Wettbewerb). Feinere Schichten = längere Druckzeit." },
+          { name: "Express oder Standard?", text: "Standard-Lieferung (3–5 Werktage) ist im Basispreis enthalten. Express 24h kostet ca. 50% Aufpreis – lohnt sich bei Messeterminen und Wettbewerbsabgaben." },
+          { name: "Kostenloses Angebot anfordern", text: "Senden Sie Ihre 3D-Datei (STL, OBJ, STEP) an office@ek-druck.at oder über das Kontaktformular. Sie erhalten innerhalb von 6 Stunden ein verbindliches Festpreisangebot." }
+        ]}
+      />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

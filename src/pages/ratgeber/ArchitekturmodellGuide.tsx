@@ -13,6 +13,7 @@ import {
   Layers, Trophy, Users, AlertTriangle, Lightbulb, Leaf, FileCode,
   Quote, Star, TrendingUp
 } from "lucide-react";
+import HowToSchema from "@/components/HowToSchema";
 
 const ArchitekturmodellGuide = () => {
   const faqs = [

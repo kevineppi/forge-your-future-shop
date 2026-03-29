@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { ArrowRight, CheckCircle, Clock, Euro, Package, Zap, ChevronRight } from "lucide-react";
+import HowToSchema from "@/components/HowToSchema";
 
 const MessemodellGuide = () => {
   const faqs = [
@@ -51,7 +52,18 @@ const MessemodellGuide = () => {
       ]} />
 
       <FAQSchema faqs={faqs} />
-
+      <HowToSchema
+        name="Messemodell im 3D-Druck bestellen – Schritt für Schritt"
+        description="So planen und bestellen Sie Ihr 3D-gedrucktes Messemodell rechtzeitig und stressfrei."
+        totalTime="PT15M"
+        steps={[
+          { name: "Messetermin & Modellgröße festlegen", text: "Bestimmen Sie den Messetermin und die gewünschte Modellgröße. Planen Sie mindestens 7 Tage Vorlauf ein (Express 24h möglich)." },
+          { name: "3D-Datei vorbereiten oder anfragen", text: "Exportieren Sie Ihr 3D-Modell als STL, OBJ oder STEP. Kein 3D-Modell? Wir erstellen es auf Basis von Fotos oder Zeichnungen." },
+          { name: "Material und Farbe wählen", text: "PLA für leichte Indoor-Modelle, PETG für transparente Elemente oder Outdoor. Corporate-Farben durch Speziallackierung möglich." },
+          { name: "Angebot anfordern", text: "Senden Sie Ihre Datei an office@ek-druck.at. Sie erhalten in 6 Stunden ein kostenloses Festpreisangebot mit Liefertermin." },
+          { name: "Fertigung und Lieferung", text: "Nach Bestätigung starten wir sofort. Standard 3–5 Tage, Express 24–48h. Bruchsichere Verpackung für den Messetransport." }
+        ]}
+      />
       <div className="min-h-screen bg-background">
         <Navigation />
 

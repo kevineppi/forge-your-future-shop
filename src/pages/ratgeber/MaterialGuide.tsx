@@ -7,6 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import AIChatWidget from "@/components/AIChatWidget";
+import HowToSchema from "@/components/HowToSchema";
 const MaterialGuide = () => {
   const materialComparison = [{
     property: "Zugfestigkeit",
@@ -59,6 +60,17 @@ const MaterialGuide = () => {
   }];
   return <>
       <SEOHead title="PLA vs PETG vs ABS: Welches Filament für Ihr Projekt? [2026]" description="Falsches Material = Geld verloren. PLA für Modellbau, PETG für Outdoor, ABS für Hitze. Vergleichstabelle mit Temperaturen, Kosten & Empfehlung → Richtig wählen" keywords="pla vs petg, pla vs abs, filament vergleich, 3d-druck materialien, petg vs abs, asa vs petg, welches filament" path="/ratgeber/material-guide" schemaType="article" />
+      <HowToSchema
+        name="Das richtige 3D-Druck Material wählen"
+        description="In 4 Schritten zum optimalen Filament für Ihr 3D-Druck-Projekt."
+        totalTime="PT5M"
+        steps={[
+          { name: "Einsatzort bestimmen", text: "Indoor-Modelle → PLA. Outdoor oder UV-Belastung → ASA. Lebensmittelkontakt oder Transparenz → PETG." },
+          { name: "Temperaturanforderung prüfen", text: "PLA verträgt bis 60°C. PETG bis 80°C. ASA bis 105°C. Wählen Sie das Material passend zur maximalen Einsatztemperatur." },
+          { name: "Optik & Finish definieren", text: "Matte weiße Oberfläche für Architekturmodelle → PLA Premium Weiß. Hochglanz oder transparent → PETG. Lackierbar & schleifbar → ABS oder ASA." },
+          { name: "Budget kalkulieren", text: "PLA: €20–30/kg (günstigst). PETG: €25–35/kg (Mittelklasse). ASA: €35–50/kg (Premium). Tipp: PLA deckt 80% aller Modellbau-Anwendungen optimal ab." }
+        ]}
+      />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"
