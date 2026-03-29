@@ -30,9 +30,9 @@ const UeberUns = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEOHead
-        title="Über uns – ekdruck e.U. | 3D-Druck Experte aus Gunskirchen, OÖ"
-        description="Lernen Sie ekdruck e.U. kennen: WKO-gewerbeberechtigt, 10+ FDM-Drucker, österreichisches Filament. Ihr regionaler 3D-Druck Partner seit 2024 – Angebot in 6h, Express in 24-48h."
-        keywords="ekdruck über uns, 3D-Druck Gunskirchen, ekdruck e.U., 3D-Druck Firma Österreich, WKO Gewerbeberechtigung 3D-Druck"
+        title="Wer steckt hinter ekdruck? | 3D-Druck aus Oberösterreich"
+        description="Kein anonymer Online-Shop – echte Menschen aus Gunskirchen, OÖ. WKO-gewerbeberechtigt, 10+ FDM-Drucker, österreichisches Filament. Persönliche Beratung statt Chatbot."
+        keywords="ekdruck über uns, 3d-druck gunskirchen, ekdruck e.u., 3d-druck firma österreich, 3d-druck oberösterreich"
         path="/ueber-uns"
         schemaType="service"
       />

@@ -152,9 +152,9 @@ const Einzelanfertigungen = () => {
   return (
     <>
       <SEOHead
-        title="Anschauungsmodelle auf Maß | Messe & Architektur | ekdruck.at"
-        description="Ihr Unikat in 24–48h: Maßgefertigte Anschauungsmodelle für Messe & Architektur ab €20. Persönliche Beratung, STL- & CAD-Upload, individuelle Farb- & Materialwahl. Jetzt anfragen!"
-        keywords="anschauungsmodelle einzelanfertigung, 3d-druck messemodelle österreich, architekturmodelle 3d-druck, präsentationsmodelle individuell, designmodelle anschauung"
+        title="3D-Druck Einzelanfertigung ab €20 | Ihr Unikat in 24h | ekdruck"
+        description="Sie brauchen genau 1 Stück? Wir drucken es. Einzelanfertigungen ab €20 – egal ob Messemodell, Architekturmodell oder Sonderform. CAD-Datei oder Skizze reicht. Express 24h ✓"
+        keywords="3d-druck einzelanfertigung, unikat 3d-druck, einzelstück drucken lassen, maßanfertigung 3d-druck, individuelle 3d-druck modelle"
         path="/einzelanfertigungen"
         breadcrumbs={[
           { name: "Home", url: "/" },

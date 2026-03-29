@@ -191,9 +191,9 @@ const Messemodelle = () => {
   return (
     <>
       <Helmet>
-        <title>Messemodelle 3D-Druck – ab €30 | Express 24h ✓ | Angebot in 6h | ekdruck.at</title>
-        <meta name="description" content="★ 5/5 Google | Messemodelle & Eyecatcher bis 2m in 24h – ab €30. Wien Messe, Hannover, München & alle AT/DE Messen. Angebot heute ✓ Termintreue garantiert → Jetzt anfragen!" />
-        <meta name="keywords" content="Messemodell 3D-Druck kaufen, Messemodelle Express, Präsentationsmodell Messe, Messebau 3D-Druck, Eyecatcher Messestand, Messemodelle Österreich, Messemodelle Deutschland" />
+        <title>3D-Druck Messemodelle ab €30 | In 24h am Stand | ekdruck</title>
+        <meta name="description" content="Messe in 3 Tagen und kein Modell? Wir liefern in 24h. 3D-gedruckte Messemodelle & Eyecatcher bis 2m – ab €30. Für Wien, München, Hannover & alle DACH-Messen. ★ 5.0 Google" />
+        <meta name="keywords" content="messemodell 3d-druck, messemodelle kaufen, messemodell express, 3d-druck messe, eyecatcher messestand, messebau 3d-druck, messemodelle österreich" />
         <link rel="canonical" href="https://www.ek-druck.at/messemodelle" />
         
         {/* hreflang for AT/DE targeting */}

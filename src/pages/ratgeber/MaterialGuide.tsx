@@ -58,7 +58,7 @@ const MaterialGuide = () => {
     unit: "Pro Kilogramm"
   }];
   return <>
-      <SEOHead title="PLA vs PETG vs ABS: Welches Material? | Entscheidungshilfe" description="Falsches Material = Geld verbrennen! PLA (günstig), PETG (outdoor), ABS (Hitze). Tabelle + Empfehlung für Ihr Projekt. → Richtige Wahl treffen" keywords="pla petg asa vergleich, 3d-druck materialien, filament eigenschaften, fdm materialien, thermoplastische kunststoffe" path="/ratgeber/material-guide" schemaType="article" />
+      <SEOHead title="PLA vs PETG vs ABS: Welches Filament für Ihr Projekt? [2026]" description="Falsches Material = Geld verloren. PLA für Modellbau, PETG für Outdoor, ABS für Hitze. Vergleichstabelle mit Temperaturen, Kosten & Empfehlung → Richtig wählen" keywords="pla vs petg, pla vs abs, filament vergleich, 3d-druck materialien, petg vs abs, asa vs petg, welches filament" path="/ratgeber/material-guide" schemaType="article" />
       <BreadcrumbSchema items={[{
       name: "Home",
       url: "/"

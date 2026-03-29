@@ -87,8 +87,8 @@ const Ratgeber = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Wissen: Kosten sparen & Fehler vermeiden | Gratis"
-        description="Sparen Sie €500+ bei Ihrem ersten Projekt! Kostenlose Guides: Was kostet 3D-Druck wirklich? Welches Material? → Experten-Tipps sofort anwenden"
+        title="3D-Druck Ratgeber: Kosten, Materialien & Verfahren | Gratis Guides"
+        description="Erstes 3D-Druck Projekt? Diese Guides sparen Ihnen Geld & Fehler: Was kostet es wirklich? PLA oder PETG? FDM oder SLA? → Experten-Wissen kostenlos"
         keywords="3d-druck ratgeber, 3d-druck kosten, fdm verfahren, 3d-druck tipps österreich, 3d-druck guide, modellbau guide, rapid prototyping guide"
         path="/ratgeber"
         schemaType="article"
