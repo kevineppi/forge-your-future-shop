@@ -77,9 +77,9 @@ const FdmDruck = () => {
   return (
     <>
       <SEOHead 
-        title="FDM 3D-Druck für Modellbau & Dekoration | ekdruck.at"
-        description="FDM 3D-Druck mit österreichischem Filament: PLA, PETG, ASA – ab €15 pro Objekt. Für Architekturmodelle, Deko & Messemodelle. Nachhaltig produziert in OÖ, Lieferung österreichweit."
-        keywords="fdm 3d-druck österreich, 3d-druck modellbau, architekturmodelle 3d-druck, dekoration 3d-druck, anschauungsmodelle, fdm verfahren"
+        title="FDM 3D-Druck Verfahren erklärt | Vergleich SLA vs SLS [2026]"
+        description="FDM 3D-Druck: Wie funktioniert es? ✓ FDM vs SLA vs SLS Vergleich ✓ Materialien PLA, PETG, ABS ✓ Ab €15 pro Objekt. Nachhaltig aus Österreich → Jetzt beraten lassen"
+        keywords="fdm 3d-druck, 3d druckverfahren vergleich, fdm verfahren, 3d druck verfahren, fdm vs sla, 3d-druck modellbau, fdm 3d-druck österreich"
         path="/fdm-3d-druck"
         breadcrumbs={[
           {name: "Home", url: "/"},
