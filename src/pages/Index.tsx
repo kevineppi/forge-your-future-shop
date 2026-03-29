@@ -196,7 +196,7 @@ const Index = () => {
       </section>
 
       {/* ── FÜR WEN — ZIELGRUPPEN als horizontale Zeilen ─────────────── */}
-      <section className="py-24 bg-background border-t border-border/50">
+      <section id="zielgruppen" className="py-24 bg-background border-t border-border/50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <AnimatedSection animation="fade-in" className="mb-16">
@@ -458,7 +458,7 @@ const Index = () => {
       </section>
 
       {/* ── QUALITÄT & FINISHING — Split-Layout ──────────────────────── */}
-      <section className="py-24 bg-background border-t border-border/50">
+      <section id="qualitaet" className="py-24 bg-background border-t border-border/50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Druckqualitäten: linke Leiste + rechts gestapelte Zeilen */}
@@ -602,7 +602,7 @@ const Index = () => {
       </section>
 
       {/* ── MATERIALIEN ───────────────────────────────────────────────── */}
-      <section className="py-28 md:py-32 bg-muted/40 border-t border-border/50">
+      <section id="materialien" className="py-28 md:py-32 bg-muted/40 border-t border-border/50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <AnimatedSection animation="fade-in" className="grid md:grid-cols-2 gap-12 items-center mb-16">
@@ -661,7 +661,7 @@ const Index = () => {
       <GoogleReviewsSection />
 
       {/* ── FAQ ───────────────────────────────────────────────────────── */}
-      <section className="py-28 bg-background border-t border-border/50">
+      <section id="faq" className="py-28 bg-background border-t border-border/50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-16 items-start">
             <div className="lg:col-span-2">
