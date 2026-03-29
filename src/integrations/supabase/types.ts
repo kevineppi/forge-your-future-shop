@@ -14,48 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      chat_logs: {
-        Row: {
-          actions: Json | null
-          assistant_message: string
-          created_at: string
-          had_context: boolean | null
-          id: string
-          message_timestamp: string
-          session_id: string
-          sources: Json | null
-          user_agent: string | null
-          user_ip: string | null
-          user_message: string
-        }
-        Insert: {
-          actions?: Json | null
-          assistant_message: string
-          created_at?: string
-          had_context?: boolean | null
-          id?: string
-          message_timestamp?: string
-          session_id: string
-          sources?: Json | null
-          user_agent?: string | null
-          user_ip?: string | null
-          user_message: string
-        }
-        Update: {
-          actions?: Json | null
-          assistant_message?: string
-          created_at?: string
-          had_context?: boolean | null
-          id?: string
-          message_timestamp?: string
-          session_id?: string
-          sources?: Json | null
-          user_agent?: string | null
-          user_ip?: string | null
-          user_message?: string
-        }
-        Relationships: []
-      }
       contact_inquiries: {
         Row: {
           created_at: string
@@ -123,13 +81,6 @@ export type Database = {
             columns: ["discount_code_id"]
             isOneToOne: false
             referencedRelation: "discount_codes"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "discount_code_usage_order_id_fkey"
-            columns: ["order_id"]
-            isOneToOne: false
-            referencedRelation: "orders"
             referencedColumns: ["id"]
           },
         ]
@@ -233,128 +184,6 @@ export type Database = {
           id?: string
           name?: string
           source?: string | null
-        }
-        Relationships: []
-      }
-      order_items: {
-        Row: {
-          color: string
-          created_at: string
-          dimensions: Json
-          file_name: string
-          file_url: string
-          id: string
-          infill: number
-          material: string
-          order_id: string
-          print_time: number
-          quality: string
-          quantity: number
-          total_price: number
-          unit_price: number
-          volume: number
-        }
-        Insert: {
-          color: string
-          created_at?: string
-          dimensions: Json
-          file_name: string
-          file_url: string
-          id?: string
-          infill: number
-          material: string
-          order_id: string
-          print_time: number
-          quality: string
-          quantity?: number
-          total_price: number
-          unit_price: number
-          volume: number
-        }
-        Update: {
-          color?: string
-          created_at?: string
-          dimensions?: Json
-          file_name?: string
-          file_url?: string
-          id?: string
-          infill?: number
-          material?: string
-          order_id?: string
-          print_time?: number
-          quality?: string
-          quantity?: number
-          total_price?: number
-          unit_price?: number
-          volume?: number
-        }
-        Relationships: [
-          {
-            foreignKeyName: "order_items_order_id_fkey"
-            columns: ["order_id"]
-            isOneToOne: false
-            referencedRelation: "orders"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      orders: {
-        Row: {
-          created_at: string
-          customer_email: string | null
-          customer_name: string | null
-          express_service: boolean
-          id: string
-          notes: string | null
-          post_processing: Json | null
-          shipping_city: string | null
-          shipping_country: string | null
-          shipping_postal_code: string | null
-          shipping_street: string | null
-          status: Database["public"]["Enums"]["order_status"]
-          stripe_checkout_session_id: string | null
-          stripe_payment_intent_id: string | null
-          total_price: number
-          updated_at: string
-          user_id: string | null
-        }
-        Insert: {
-          created_at?: string
-          customer_email?: string | null
-          customer_name?: string | null
-          express_service?: boolean
-          id?: string
-          notes?: string | null
-          post_processing?: Json | null
-          shipping_city?: string | null
-          shipping_country?: string | null
-          shipping_postal_code?: string | null
-          shipping_street?: string | null
-          status?: Database["public"]["Enums"]["order_status"]
-          stripe_checkout_session_id?: string | null
-          stripe_payment_intent_id?: string | null
-          total_price: number
-          updated_at?: string
-          user_id?: string | null
-        }
-        Update: {
-          created_at?: string
-          customer_email?: string | null
-          customer_name?: string | null
-          express_service?: boolean
-          id?: string
-          notes?: string | null
-          post_processing?: Json | null
-          shipping_city?: string | null
-          shipping_country?: string | null
-          shipping_postal_code?: string | null
-          shipping_street?: string | null
-          status?: Database["public"]["Enums"]["order_status"]
-          stripe_checkout_session_id?: string | null
-          stripe_payment_intent_id?: string | null
-          total_price?: number
-          updated_at?: string
-          user_id?: string | null
         }
         Relationships: []
       }
@@ -671,15 +500,7 @@ export type Database = {
       }
     }
     Views: {
-      chat_analytics: {
-        Row: {
-          different_answers: string[] | null
-          last_asked: string | null
-          question_count: number | null
-          user_message: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       has_role: {

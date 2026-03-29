@@ -48,12 +48,12 @@ const Hero = () => {
           {/* Left Column */}
           <div className="max-w-xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
-              3D-Druck Messemodelle & <span className="text-primary">Architekturmodelle</span> – Express ab 24h
+              3D-Druck Österreich – <span className="text-primary">Messemodelle & Architekturmodelle</span> ab €20
             </h1>
             
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Professionelle 3D-gedruckte Präsentationsmodelle für Messen und Architektur. 
-              Made in Austria – Angebot in 6 Stunden.
+              Professioneller 3D-Druck Service aus Oberösterreich: Messemodelle, Architekturmodelle 
+              und Prototypen. Express 24h – Angebot in 6 Stunden. Made in Austria.
             </p>
 
             {/* CTAs */}
