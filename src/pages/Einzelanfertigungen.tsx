@@ -15,6 +15,8 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import ProductOfferSchema from "@/components/ProductOfferSchema";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import {
   Sparkles, Lightbulb, Target, CheckCircle, ArrowRight, Clock,
   Home, Palette, MapPin, Package, Star, Layers, Ruler, Truck,
@@ -167,6 +169,15 @@ const Einzelanfertigungen = () => {
         serviceType="Service"
         offers={{ price: "20.00", priceCurrency: "EUR", description: "Einzelanfertigungen ab €20, individuell kalkuliert nach Projekt" }}
       />
+      <ProductOfferSchema
+        name="3D-Druck Einzelanfertigungen"
+        description="Individuelle Anschauungsmodelle und Unikate per 3D-Druck. Messemodelle, Architekturmodelle, Sonderformen – ab 1 Stück."
+        url="https://www.ek-druck.at/einzelanfertigungen"
+        lowPrice="20"
+        highPrice="500"
+        category="Einzelanfertigungen 3D-Druck"
+      />
+      <SpeakableSchema url="https://www.ek-druck.at/einzelanfertigungen" />
       <StructuredData type="organization" />
       <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Einzelanfertigungen", url: "/einzelanfertigungen" }]} />
 

@@ -13,6 +13,8 @@ import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import CTASection from "@/components/landing/CTASection";
 import AnimatedSection from "@/components/AnimatedSection";
+import ProductOfferSchema from "@/components/ProductOfferSchema";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import { 
   Building2, 
   Layers, 
@@ -321,6 +323,16 @@ const Architekturmodelle = () => {
         <meta name="keywords" content="architekturmodell 3d-druck, architekturmodell drucken lassen, wettbewerbsmodell, architekturmodell kosten, gebäudemodell 3d-druck, architekturmodell maßstab" />
         <link rel="canonical" href="https://www.ek-druck.at/architekturmodelle" />
       </Helmet>
+
+      <ProductOfferSchema
+        name="3D-Druck Architekturmodelle"
+        description="Maßstabsgetreue Architekturmodelle per 3D-Druck. Wettbewerbsmodelle, Baueinreichungen, Investorenpräsentationen. Maßstab 1:50–1:500."
+        url="https://www.ek-druck.at/architekturmodelle"
+        lowPrice="20"
+        highPrice="1000"
+        category="Architekturmodelle 3D-Druck"
+      />
+      <SpeakableSchema url="https://www.ek-druck.at/architekturmodelle" />
 
       <Navigation />
       <Breadcrumbs items={breadcrumbs} />

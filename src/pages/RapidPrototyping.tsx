@@ -12,6 +12,8 @@ import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import CTASection from "@/components/landing/CTASection";
 import AIChatWidget from "@/components/AIChatWidget";
+import ProductOfferSchema from "@/components/ProductOfferSchema";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import {
   Zap,
   CheckCircle,
@@ -193,6 +195,16 @@ const RapidPrototyping = () => {
         <meta name="keywords" content="3d druck prototypen, rapid prototyping österreich, 3d-druck prototypen, prototyp drucken lassen, designprototyp, anschauungsmodell 3d-druck" />
         <link rel="canonical" href="https://www.ek-druck.at/rapid-prototyping" />
       </Helmet>
+
+      <ProductOfferSchema
+        name="3D-Druck Designprototypen"
+        description="Designprototypen und Anschauungsmodelle per 3D-Druck. Für Präsentationen, Investoren und Designreviews. Ab €20, Express 24h."
+        url="https://www.ek-druck.at/rapid-prototyping"
+        lowPrice="20"
+        highPrice="500"
+        category="Designprototypen 3D-Druck"
+      />
+      <SpeakableSchema url="https://www.ek-druck.at/rapid-prototyping" />
 
       <BreadcrumbSchema items={[
         { name: "Home", url: "/" },
