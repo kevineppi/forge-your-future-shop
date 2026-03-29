@@ -15,9 +15,9 @@ const Materialien = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Material-Vergleich: PLA vs PETG vs ABS | Guide"
-        description="Welches Material für Ihr Projekt? PLA (günstig), PETG (stabil), ABS (hitzebeständig). Kostenlose Beratung + Muster möglich. → Jetzt Material wählen"
-        keywords="3d-druck materialien österreich, nachhaltiges filament österreich, österreichisches filament oberösterreich, pla petg abs österreich, recyceltes filament oberösterreich, bio-basierte kunststoffe, thermoplastisches filament, additive fertigungsmaterialien"
+        title="PLA vs PETG vs ABS – Welches 3D-Druck Material? [2026 Guide]"
+        description="PLA vs PETG vs ABS im direkten Vergleich ✓ Eigenschaften, Kosten & Einsatzgebiete. Welches Filament ist das richtige? Kostenlose Beratung + Muster → Jetzt vergleichen"
+        keywords="pla vs petg, pla vs abs, 3d-druck materialien, filament vergleich, petg vs abs, 3d druck material, pla petg abs vergleich, 3d-druck materialien österreich, asa vs petg"
         path="/3d-druck-materialien"
         breadcrumbs={[
           {name: "Home", url: "/"},
