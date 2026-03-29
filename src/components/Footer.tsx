@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -16,8 +16,13 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" asChild>
-                <a href="https://www.instagram.com/ekdruck/" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/ekdruck/" target="_blank" rel="noopener noreferrer" aria-label="ekdruck auf Instagram">
                   <Instagram className="h-5 w-5" />
+                </a>
+              </Button>
+              <Button variant="ghost" size="icon" asChild>
+                <a href="https://www.linkedin.com/in/3d-druck/" target="_blank" rel="noopener noreferrer" aria-label="ekdruck auf LinkedIn">
+                  <Linkedin className="h-5 w-5" />
                 </a>
               </Button>
             </div>
