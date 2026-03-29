@@ -6,18 +6,18 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const Impressum = () => {
   useEffect(() => {
-    document.title = "Impressum - ekdruck e.U. | 3D-Druck Oberösterreich";
+    document.title = "Impressum | ekdruck e.U. – 3D-Druck Gunskirchen";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Impressum der ekdruck e.U. aus Gunskirchen, Oberösterreich. Rechtliche Informationen zum 3D-Druck Service in Austria.');
+      metaDescription.setAttribute('content', 'Impressum & rechtliche Informationen zu ekdruck e.U., Gunskirchen (OÖ). Ihr Ansprechpartner für 3D-Druck in Österreich.');
     }
   }, []);
   return (
     <>
       <SEOHead 
-        title="Impressum - ekdruck e.U. | 3D-Druck Oberösterreich"
-        description="Impressum der ekdruck e.U. aus Gunskirchen, Oberösterreich. Rechtliche Informationen zum 3D-Druck Service in Austria."
-        keywords="ekdruck impressum, 3d-druck österreich kontakt, ekdruck kontaktdaten"
+        title="Impressum | ekdruck e.U. – 3D-Druck Gunskirchen"
+        description="Impressum & rechtliche Informationen zu ekdruck e.U., Gunskirchen (OÖ). Ihr Ansprechpartner für 3D-Druck in Österreich."
+        keywords="ekdruck impressum, ekdruck kontaktdaten, ekdruck gunskirchen"
         path="/impressum"
         type="website"
       />

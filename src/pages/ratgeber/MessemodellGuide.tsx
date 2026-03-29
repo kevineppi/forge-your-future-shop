@@ -35,12 +35,12 @@ const MessemodellGuide = () => {
   return (
     <>
       <Helmet>
-        <title>Messemodelle 3D-Druck: Kosten, Planung & Tipps 2025 | ekdruck</title>
-        <meta name="description" content="Messemodell im 3D-Druck planen: Kosten ab €30 ✓ Express 24h ✓ Schritt-für-Schritt Guide für Aussteller. Was kostet ein Messemodell? → Jetzt informieren" />
-        <meta name="keywords" content="messemodell kosten, messemodell 3d-druck guide, messemodell planen, 3d-druck messe österreich, messemodell express" />
+        <title>Messemodell planen: Kosten, Timeline & Material [2026 Guide]</title>
+        <meta name="description" content="Ihr erster Messeauftritt mit 3D-Druck? Schritt-für-Schritt: Was kostet ein Messemodell (ab €30)? Wie früh bestellen? Welches Material? Express 24h möglich →" />
+        <meta name="keywords" content="messemodell kosten, messemodell planen, messemodell 3d-druck, messemodell bestellen, 3d-druck messe guide" />
         <link rel="canonical" href="https://www.ek-druck.at/ratgeber/messemodell-guide" />
-        <meta property="og:title" content="Messemodelle 3D-Druck: Kosten, Planung & Tipps 2025" />
-        <meta property="og:description" content="Schritt-für-Schritt Guide: Wie plane ich ein Messemodell im 3D-Druck? Kosten, Lieferzeiten, Materialien – alles erklärt." />
+        <meta property="og:title" content="Messemodell planen: Kosten, Timeline & Material [2026 Guide]" />
+        <meta property="og:description" content="Schritt-für-Schritt: Wie plane ich ein Messemodell im 3D-Druck? Kosten ab €30, Express 24h, Materialwahl." />
         <meta property="og:type" content="article" />
       </Helmet>
 

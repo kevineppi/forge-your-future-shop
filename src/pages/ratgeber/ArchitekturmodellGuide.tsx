@@ -120,12 +120,12 @@ const ArchitekturmodellGuide = () => {
   return (
     <>
       <Helmet>
-        <title>Architekturmodelle 3D-Druck: Maßstäbe, Kosten, CAD-Export & Fehler 2025</title>
-        <meta name="description" content="Kompletter Guide für Architekten: Welcher Maßstab? Was kostet ein Wettbewerbsmodell? ArchiCAD & Revit Export erklärt. + 5 häufige Fehler die teure Zeit kosten." />
-        <meta name="keywords" content="architekturmodell 3d-druck guide, architekturmodell maßstab, architekturmodell kosten, architekturmodell cad export, wettbewerbsmodell 3d-druck österreich" />
+        <title>Architekturmodell 3D-Druck: Maßstab, Kosten & CAD-Export [2026 Guide]</title>
+        <meta name="description" content="Welcher Maßstab für Ihr Wettbewerbsmodell? Was kostet es? ArchiCAD & Revit Export Schritt für Schritt. Plus: 5 teure Fehler die Sie vermeiden sollten →" />
+        <meta name="keywords" content="architekturmodell maßstab, architekturmodell kosten, architekturmodell cad export, wettbewerbsmodell 3d-druck, architekturmodell revit export" />
         <link rel="canonical" href="https://www.ek-druck.at/ratgeber/architekturmodell-guide" />
-        <meta property="og:title" content="Architekturmodelle 3D-Druck: Maßstäbe, Kosten & CAD-Export – Der Guide für Architekten" />
-        <meta property="og:description" content="Der komplette Guide: Maßstab, Kosten, CAD-Export aus ArchiCAD & Revit, Materialwahl, 5 typische Fehler. Alles für Architekten 2025." />
+        <meta property="og:title" content="Architekturmodell 3D-Druck: Maßstab, Kosten & CAD-Export [2026 Guide]" />
+        <meta property="og:description" content="Welcher Maßstab? Was kostet es? CAD-Export erklärt. Plus 5 teure Fehler vermeiden. Der komplette Guide für Architekten." />
         <meta property="og:type" content="article" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
