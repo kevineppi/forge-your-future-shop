@@ -553,11 +553,15 @@ const Materialien = () => {
           </div>
         </section>
         {/* Contact Section */}
+        <InternalLinks links={[
+          { to: "/fdm-3d-druck", label: "FDM 3D-Druckverfahren", description: "So funktioniert unser Druckprozess im Detail" },
+          { to: "/messemodelle", label: "Messemodelle", description: "Materialempfehlung für Messe-Exponate" },
+          { to: "/architekturmodelle", label: "Architekturmodelle", description: "Ideale Materialien für maßstabsgetreue Modelle" },
+          { to: "/ratgeber/material-guide", label: "Material-Ratgeber", description: "Ausführlicher Guide zur Materialwahl" },
+          { to: "/einzelanfertigungen", label: "Einzelanfertigungen", description: "Individuelle Projekte mit Wunschmaterial" },
+          { to: "/kontakt", label: "Kostenlose Beratung", description: "Wir beraten Sie bei der Materialwahl" },
+        ]} />
         <Contact />
-      </main>
-
-      <AIChatWidget />
-      <Footer />
     </>
   );
 };
