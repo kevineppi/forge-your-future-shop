@@ -562,6 +562,10 @@ const Materialien = () => {
           { to: "/kontakt", label: "Kostenlose Beratung", description: "Wir beraten Sie bei der Materialwahl" },
         ]} />
         <Contact />
+      </main>
+
+      <AIChatWidget />
+      <Footer />
     </>
   );
 };
