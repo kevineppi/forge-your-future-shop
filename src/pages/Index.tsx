@@ -30,7 +30,7 @@ const Index = () => {
   return <>
     <SEOHead
       title="3D-Druck Österreich | Messemodelle & Architektur | ekdruck"
-      description="3D-Druck Service Österreich ★ 5.0/5 Google (28 Bewertungen). Messemodelle, Architekturmodelle & Prototypen ab €20. Express 24h."
+      description="3D-Druck Service Österreich ★ 5.0/5 Google (30 Bewertungen). Messemodelle, Architekturmodelle & Prototypen ab €20. Express 24h."
       keywords="3d druck, 3d druck österreich, 3d drucker, 3d-druck service, messemodelle 3d-druck, architekturmodelle, 3d druck prototypen, 3d druck oberösterreich, 3d-druck dienstleister"
       path="/"
       preloadResources={[{
@@ -46,7 +46,7 @@ const Index = () => {
     <OrganizationSchema />
     <StructuredData type="organization" />
     <StructuredData type="service" />
-    <AggregateRatingSchema ratingValue={5.0} ratingCount={28} bestRating={5} worstRating={5} />
+    <AggregateRatingSchema ratingValue={5.0} ratingCount={30} bestRating={5} worstRating={5} />
     <FAQSchema faqs={[
     { question: "Was kostet 3D-Druck bei ekdruck?", answer: "Unsere Preise beginnen ab €20 pro Modell – abhängig von Material (PLA, PETG, ABS oder TPU), Druckvolumen und Qualitätsstufe (Standard 0,2 mm, Fine 0,15 mm, Ultra Fine 0,1 mm). Mengenrabatte ab 5 Einheiten. Ein transparentes Festpreisangebot erhalten Sie in unter 6 Stunden." },
     { question: "Wie schnell erhalte ich mein 3D-gedrucktes Modell?", answer: "Standard: 3–5 Werktage österreichweit, versandkostenfrei ab €100. Express-Service: 24–48 Stunden – ideal für kurzfristige Messetermine oder Wettbewerbsabgaben. Deutschland 2–4 Werktage via DHL oder GLS. Persönliche Abholung in Gunskirchen (OÖ) möglich." },
@@ -827,7 +827,7 @@ const Index = () => {
                 <div className="flex">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-primary text-primary" />)}
                 </div>
-                <span className="text-xs text-muted-foreground font-medium">28 Bewertungen · 5,0 / 5,0</span>
+                <span className="text-xs text-muted-foreground font-medium">30 Bewertungen · 5,0 / 5,0</span>
               </div>
             </div>
           </div>

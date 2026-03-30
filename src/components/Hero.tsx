@@ -89,7 +89,7 @@ const Hero = () => {
                   <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
                 ))}
                 <span className="ml-1 font-medium text-foreground">5.0</span>
-                <span>(28 Google-Bewertungen)</span>
+                <span>(30 Google-Bewertungen)</span>
               </div>
               <span className="flex items-center gap-1">
                 <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
