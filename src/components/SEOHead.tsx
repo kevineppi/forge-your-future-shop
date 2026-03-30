@@ -68,9 +68,33 @@ const SEOHead = ({
     
     // Update canonical URL
     const canonical = document.querySelector('link[rel="canonical"]');
+    const fullUrl = `https://www.ek-druck.at${path}`;
     if (canonical) {
-      canonical.setAttribute('href', `https://www.ek-druck.at${path}`);
+      canonical.setAttribute('href', fullUrl);
+    } else {
+      const newCanonical = document.createElement('link');
+      newCanonical.rel = 'canonical';
+      newCanonical.href = fullUrl;
+      document.head.appendChild(newCanonical);
     }
+
+    // Add/update hreflang tags for DACH market
+    const hreflangMap: Record<string, string> = {
+      'de-AT': fullUrl,
+      'de-DE': fullUrl,
+      'de': fullUrl,
+      'x-default': fullUrl
+    };
+    Object.entries(hreflangMap).forEach(([lang, url]) => {
+      let hreflang = document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`);
+      if (!hreflang) {
+        hreflang = document.createElement('link');
+        hreflang.setAttribute('rel', 'alternate');
+        hreflang.setAttribute('hreflang', lang);
+        document.head.appendChild(hreflang);
+      }
+      hreflang.setAttribute('href', url);
+    });
     
     // Update Open Graph tags with enhanced properties
     const ogTitle = document.querySelector('meta[property="og:title"]');
