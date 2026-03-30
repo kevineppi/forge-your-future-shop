@@ -32,8 +32,7 @@ const Kontakt = () => {
       
       <main className="pt-20">
         <Breadcrumbs items={[
-          { label: "Home", href: "/" },
-          { label: "Kontakt & Anfrage" }
+          { name: "Kontakt & Anfrage", url: "/kontakt" }
         ]} />
         <Contact />
         <InternalLinks links={contactLinks} title="Unsere Services im Überblick" />
