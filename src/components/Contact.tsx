@@ -183,7 +183,7 @@ const Contact = () => {
                 <span className="ml-2 text-sm font-semibold">5,0</span>
               </div>
               <p className="text-sm text-muted-foreground mb-3">
-                30 verifizierte Google-Bewertungen von Kunden aus ganz Österreich.
+                31 verifizierte Google-Bewertungen von Kunden aus ganz Österreich.
               </p>
               <blockquote className="text-sm italic text-foreground/80 border-l-2 border-primary pl-3">
                 „Superschnelle Lieferung, top Qualität – absolut empfehlenswert!"
