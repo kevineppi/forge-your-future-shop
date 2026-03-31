@@ -87,7 +87,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Innsbruck - Tirol Service mit Preisen',
-        content: 'Professioneller 3D-Druck Service für Innsbruck und Tirol. Koordinaten: 47.2692°N, 11.4041°E. Lieferzeit: Standard 2-4 Werktage, Express 24-48h. Material-Preise: Alle FDM-Materialien verfügbar. Spezialität: Alpine Anwendungen, Outdoor-Bauteile mit UV-beständigen Materialien, winterfeste Compounds für Sportgeräte. Referenzen Tirol: Universität Innsbruck, Tiroler Maschinenbau, Sportgerätehersteller (Ski, Snowboard-Teile). Kostenloser Versand ab €50. Material-Expertise: ASA für UV-Beständigkeit, kältefeste PA-Compounds.',
+        content: 'Professioneller 3D-Druck Service für Innsbruck und Tirol. Lieferzeit: Standard 2-4 Werktage, Express 24-48h. Material-Preise: Alle FDM-Materialien verfügbar. Spezialität: Outdoor-Modelle mit UV-beständigen Materialien, Designstudien für Sportartikel-Branche. Referenzen Tirol: Universität Innsbruck, Tiroler Unternehmen, Designstudien für Outdoor-Marken. Kostenloser Versand ab €50. Material-Expertise: ASA für UV-Beständigkeit, wetterbeständige Materialien.',
         category: 'Regional',
         page_url: '/3d-druck-innsbruck'
       },
