@@ -120,48 +120,39 @@ export const PRICING_CONFIG = {
 
   /** Verfügbare Materialien pro Verfahren */
   processMaterials: {
-    FDM: ['PLA', 'PETG', 'ABS', 'ASA', 'TPU'] as MaterialKey[],
-    SLA: ['RESIN'] as MaterialKey[],
-    SLS: ['PA12'] as MaterialKey[],
+    FDM: ['PLA', 'PLA_PLUS', 'PETG', 'ABS', 'ASA', 'TPU', 'PA6_CF', 'PC'] as MaterialKey[],
   } as Record<ProcessType, MaterialKey[]>,
 
   /** Verfügbare Farben pro Material */
   materialColors: {
-    PLA:  ['Schwarz', 'Weiß', 'Grau', 'Natur'],
-    PETG: ['Schwarz', 'Weiß', 'Grau', 'Transparent'],
-    ABS:  ['Schwarz', 'Weiß', 'Grau'],
-    ASA:  ['Schwarz', 'Weiß', 'Grau'],
-    TPU:  ['Schwarz', 'Weiß', 'Natur'],
-    RESIN: ['Grau', 'Weiß', 'Transparent'],
-    PA12: ['Natur', 'Schwarz'],
+    PLA:      ['Schwarz', 'Weiß', 'Grau', 'Natur', 'Rot', 'Blau', 'Grün'],
+    PLA_PLUS: ['Schwarz', 'Weiß', 'Grau', 'Natur'],
+    PETG:     ['Schwarz', 'Weiß', 'Grau', 'Transparent'],
+    ABS:      ['Schwarz', 'Weiß', 'Grau'],
+    ASA:      ['Schwarz', 'Weiß', 'Grau'],
+    TPU:      ['Schwarz', 'Weiß', 'Natur'],
+    PA6_CF:   ['Schwarz'],
+    PC:       ['Transparent', 'Schwarz'],
   } as Record<MaterialKey, string[]>,
 
-  /** Verfügbare Schichtdicken pro Verfahren */
+  /** Verfügbare Schichtdicken */
   processLayerHeights: {
     FDM: [0.08, 0.12, 0.20, 0.28],
-    SLA: [0.08, 0.12],
-    SLS: [0.08, 0.12],
   } as Record<ProcessType, number[]>,
 
   /** Default Schichtdicke pro Verfahren */
   defaultLayerHeight: {
     FDM: 0.20,
-    SLA: 0.12,
-    SLS: 0.12,
   } as Record<ProcessType, number>,
 
   /** Verfügbare Wandstärken pro Verfahren */
   processWallThicknesses: {
     FDM: [0.8, 1.2, 1.6, 2.0, 2.4],
-    SLA: [0.6, 0.8, 1.0, 1.2],
-    SLS: [0.8, 1.0, 1.2, 1.6],
   } as Record<ProcessType, number[]>,
 
   /** Default Wandstärke pro Verfahren */
   defaultWallThickness: {
     FDM: 1.2,
-    SLA: 0.8,
-    SLS: 1.0,
   } as Record<ProcessType, number>,
 
   /** Material-Labels für die UI */
