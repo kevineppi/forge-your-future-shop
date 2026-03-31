@@ -92,11 +92,6 @@ const Kostenrechner = () => {
       <main className="pt-20">
         <CalculatorHero />
 
-        {/* Breadcrumbs */}
-        <div className="container mx-auto px-4 pt-4 pb-2">
-          <Breadcrumbs items={breadcrumbs} />
-        </div>
-
         {/* ── Calculator Section ────────────────────── */}
         <section id="calculator" className="py-6 md:py-12 scroll-mt-20">
           <div className="container mx-auto px-4">
