@@ -35,6 +35,20 @@ const InquiryForm = ({ calculatorInput, priceBreakdown, onClose, stlFile }: Prop
 
     setIsSubmitting(true);
     try {
+      // Upload STL file if available
+      let fileUrls: string[] = [];
+      if (stlFile) {
+        const fileExt = stlFile.name.split('.').pop()?.toLowerCase() || 'stl';
+        const sanitizedName = name.trim().split(' ').pop() || 'kunde';
+        const filePath = `contact-files/${Date.now()}-${sanitizedName}.${fileExt}`;
+        const { error: uploadError } = await supabase.storage
+          .from('contact-files')
+          .upload(filePath, stlFile);
+        if (!uploadError) {
+          fileUrls.push(filePath);
+        }
+      }
+
       const fullMessage = [
         `--- Konfiguration ---`,
         configSummary,
@@ -42,6 +56,7 @@ const InquiryForm = ({ calculatorInput, priceBreakdown, onClose, stlFile }: Prop
         `Volumen: ${priceBreakdown.volumeCm3.toFixed(2)} cm³`,
         `Oberfläche: ${priceBreakdown.surfaceCm2.toFixed(2)} cm²`,
         `Maße: ${priceBreakdown.boundingBoxMm.x.toFixed(1)} × ${priceBreakdown.boundingBoxMm.y.toFixed(1)} × ${priceBreakdown.boundingBoxMm.z.toFixed(1)} mm`,
+        stlFile ? `Datei: ${stlFile.name} (${(stlFile.size / 1024 / 1024).toFixed(2)} MB)` : null,
         company ? `Firma: ${company}` : null,
         phone ? `Telefon: ${phone}` : null,
         message ? `\n--- Nachricht ---\n${message}` : null,
@@ -52,6 +67,7 @@ const InquiryForm = ({ calculatorInput, priceBreakdown, onClose, stlFile }: Prop
         email: email.trim(),
         message: fullMessage,
         project_type: 'kostenrechner',
+        file_urls: fileUrls.length > 0 ? fileUrls : null,
       });
 
       if (error) throw error;
