@@ -70,7 +70,7 @@ const RegionalUniqueContent = ({
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Besonders für Unternehmen in {regionName}, die regelmäßig Prototypen benötigen, bieten wir attraktive Konditionen: kostenloser Versand ab €100 Bestellwert, persönliche Beratung bei Materialwahl und Druckeinstellungen sowie Nachbearbeitung auf Wunsch (Schleifen, Lackieren, Gewindeeinsätze). Über 500 zufriedene Kunden {countryPrep} vertrauen bereits auf unseren Service.
+                  Besonders für Unternehmen in {regionName}, die regelmäßig Modelle benötigen, bieten wir attraktive Konditionen: kostenloser Versand ab €100 Bestellwert, persönliche Beratung bei Materialwahl und Druckeinstellungen sowie Nachbearbeitung auf Wunsch (Schleifen, Lackieren, Gewindeeinsätze). Über 500 zufriedene Kunden {countryPrep} vertrauen bereits auf unseren Service.
                 </p>
               </div>
             </AnimatedSection>
