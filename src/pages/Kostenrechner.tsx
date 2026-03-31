@@ -53,7 +53,7 @@ const calculatorFaqs = [
   },
   {
     question: "Fertigt ihr auch mechanische Bauteile?",
-    answer: "Nein. Wir sind auf nicht-technische Modelle spezialisiert – Präsentationsmodelle, Designstudien und Showmodelle. Anfragen für mechanische Bauteile, Gehäuse oder Ersatzteile können wir leider nicht bearbeiten."
+    answer: "Nein. Wir sind auf nicht-technische Modelle spezialisiert – Präsentationsmodelle, Designstudien und Showmodelle. Anfragen für mechanische Bauteile oder Ersatzteile können wir leider nicht bearbeiten."
   },
   {
     question: "Was passiert nach dem Absenden meiner Anfrage?",
