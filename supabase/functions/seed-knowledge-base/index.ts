@@ -11,7 +11,7 @@ const knowledgeEntries = [
   // FDM & Grundlagen
   {
     title: "FDM 3D-Druck Verfahren",
-    content: "FDM (Fused Deposition Modeling), auch Schmelzschichtung oder FFF genannt, ist das am weitesten verbreitete 3D-Druckverfahren. Thermoplastisches Filament wird durch eine beheizte Düse geschmolzen und schichtweise auf eine Bauplatte aufgetragen. Die Schichtadhäsion basiert auf der Interdiffusion von Polymerketten bei Temperaturen knapp über der Glasübergangstemperatur. Standard-Schichthöhen liegen zwischen 0,1-0,4mm. FDM ist ideal für Prototypen und Funktionsteile aus Kunststoff und bietet die niedrigsten Kosten bei hoher Materialvielfalt.",
+    content: "FDM (Fused Deposition Modeling), auch Schmelzschichtung oder FFF genannt, ist das am weitesten verbreitete 3D-Druckverfahren. Thermoplastisches Filament wird durch eine beheizte Düse geschmolzen und schichtweise auf eine Bauplatte aufgetragen. Die Schichtadhäsion basiert auf der Interdiffusion von Polymerketten bei Temperaturen knapp über der Glasübergangstemperatur. Standard-Schichthöhen liegen zwischen 0,1-0,4mm. FDM ist ideal für Anschauungsmodelle, Architekturmodelle und Dekorationsobjekte aus Kunststoff und bietet die niedrigsten Kosten bei hoher Materialvielfalt.",
     category: "Verfahren",
     page_url: "/glossar"
   },
