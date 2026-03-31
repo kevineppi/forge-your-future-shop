@@ -194,37 +194,16 @@ const ArchitekturmodellRegion = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{regionData.metaTitle}</title>
-        <meta name="description" content={regionData.metaDescription} />
-        <meta name="keywords" content={`architekturmodelle ${regionData.name.toLowerCase()}, 3d-druck architekturmodell ${regionData.name.toLowerCase()}, wettbewerbsmodell ${regionData.name.toLowerCase()}, architekturmodell drucken ${regionData.name.toLowerCase()}, architekturmodelle deutschland`} />
-        <link rel="canonical" href={`https://www.ek-druck.at/architekturmodelle/${regionData.slug}`} />
-        
-        <link rel="alternate" hrefLang="de-AT" href={`https://www.ek-druck.at/architekturmodelle/${regionData.slug}`} />
-        <link rel="alternate" hrefLang="de-DE" href={`https://www.ek-druck.at/architekturmodelle/${regionData.slug}`} />
-        <link rel="alternate" hrefLang="de" href={`https://www.ek-druck.at/architekturmodelle/${regionData.slug}`} />
-        <link rel="alternate" hrefLang="x-default" href={`https://www.ek-druck.at/architekturmodelle/${regionData.slug}`} />
-        
-        <meta property="og:title" content={regionData.metaTitle} />
-        <meta property="og:description" content={regionData.metaDescription} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://www.ek-druck.at/architekturmodelle/${regionData.slug}`} />
-        <meta property="og:locale" content="de_AT" />
-        <meta property="og:locale:alternate" content="de_DE" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify(serviceSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(aggregateRatingSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        title={regionData.metaTitle}
+        description={regionData.metaDescription}
+        keywords={`architekturmodelle ${regionData.name.toLowerCase()}, 3d-druck architekturmodell ${regionData.name.toLowerCase()}, wettbewerbsmodell ${regionData.name.toLowerCase()}, architekturmodell drucken ${regionData.name.toLowerCase()}, architekturmodelle deutschland`}
+        path={`/architekturmodelle/${regionData.slug}`}
+      />
+      <InlineSchema id={`architektur-service-${regionData.slug}`} schema={serviceSchema} />
+      <InlineSchema id={`architektur-breadcrumb-${regionData.slug}`} schema={breadcrumbSchema} />
+      <InlineSchema id={`architektur-faq-${regionData.slug}`} schema={faqSchema} />
+      <InlineSchema id={`architektur-rating-${regionData.slug}`} schema={aggregateRatingSchema} />
 
       <Navigation />
       <Breadcrumbs items={breadcrumbs} />
