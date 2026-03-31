@@ -1,13 +1,22 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import type { PricingResult } from "@/lib/pricingEngine";
-import { TrendingDown, AlertTriangle, Send, Info, Clock, Maximize2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import type { PricingInput, PricingResult } from "@/lib/pricingEngine";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import {
+  TrendingDown, AlertTriangle, Send, Info, Clock, Maximize2,
+  UserCheck, CheckCircle2, Mail, User, Building2, Phone
+} from "lucide-react";
 
 interface Props {
   result: PricingResult | null;
-  onInquiry: () => void;
+  input: PricingInput | null;
 }
 
 const fmt = (n: number) => n.toFixed(2).replace(".", ",") + " €";
@@ -19,7 +28,61 @@ const mins = (n: number) => {
   return m > 0 ? `${h} Std. ${m} Min.` : `${h} Std.`;
 };
 
-const PriceSummary = ({ result, onInquiry }: Props) => {
+const PriceSummary = ({ result, input }: Props) => {
+  const [showForm, setShowForm] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !result || !input) {
+      toast.error("Bitte Name und E-Mail angeben.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const configSummary = `Verfahren: FDM, Material: ${input.materialKey}, Schichtdicke: ${input.layerHeight} mm, Wandstärke: ${input.wallThickness} mm, Infill: ${input.infillPercent}%, Stückzahl: ${input.quantity}, Richtpreis netto: ${result.finalNet.toFixed(2)} €`;
+      const fullMessage = [
+        `--- Konfiguration ---`,
+        configSummary,
+        `--- Geometrie ---`,
+        `Volumen: ${result.volumeCm3.toFixed(2)} cm³`,
+        `Oberfläche: ${result.surfaceCm2.toFixed(2)} cm²`,
+        `Maße: ${result.boundingBoxMm.x.toFixed(1)} × ${result.boundingBoxMm.y.toFixed(1)} × ${result.boundingBoxMm.z.toFixed(1)} mm`,
+        company ? `Firma: ${company}` : null,
+        phone ? `Telefon: ${phone}` : null,
+        message ? `\n--- Nachricht ---\n${message}` : null,
+      ].filter(Boolean).join('\n');
+
+      const { error } = await supabase.from('contact_inquiries').insert({
+        name: name.trim(),
+        email: email.trim(),
+        message: fullMessage,
+        project_type: 'kostenrechner',
+      });
+      if (error) throw error;
+
+      try {
+        await supabase.functions.invoke('send-contact-notification', {
+          body: { name, email, message: fullMessage, projectType: 'kostenrechner' },
+        });
+      } catch { /* silent */ }
+
+      setSubmitted(true);
+      toast.success("Anfrage gesendet! Wir melden uns innerhalb von 6 Stunden.");
+    } catch {
+      toast.error("Fehler beim Senden. Bitte versuchen Sie es erneut.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   if (!result) {
     return (
       <Card className="border-border/60 shadow-lg bg-muted/30">
@@ -28,10 +91,10 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             <Info className="h-8 w-8 text-primary/60" />
           </div>
           <p className="text-muted-foreground font-medium">
-            Konfigurieren Sie Ihr Bauteil und klicken Sie auf „Richtpreis kalkulieren".
+            Konfigurieren Sie Ihr Modell –<br />der Richtpreis erscheint automatisch.
           </p>
-          <p className="text-sm text-muted-foreground mt-2">
-            Die Preisindikation erscheint hier.
+          <p className="text-xs text-muted-foreground mt-3">
+            Laden Sie eine STL-Datei hoch oder nutzen Sie die Standardmaße.
           </p>
         </CardContent>
       </Card>
@@ -39,7 +102,7 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
   }
 
   return (
-    <Card className="border-primary/30 shadow-lg">
+    <Card className="border-primary/30 shadow-xl">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-xl font-semibold">Preisindikation</CardTitle>
@@ -47,6 +110,10 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             Unverbindlich
           </Badge>
         </div>
+        <p className="text-xs text-muted-foreground flex items-center gap-1">
+          <UserCheck className="h-3 w-3" />
+          Endpreis wird nach persönlicher Prüfung festgelegt
+        </p>
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Detail-Positionen */}
@@ -86,7 +153,6 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             <span>{fmt(result.subtotalNet)}</span>
           </div>
 
-          {/* Rabatte */}
           {result.quantityDiscount > 0 && (
             <div className="flex justify-between text-primary">
               <span className="flex items-center gap-1">
@@ -97,7 +163,6 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             </div>
           )}
 
-          {/* Zuschlag */}
           {result.surcharge > 0 && (
             <div className="flex justify-between text-destructive/80">
               <span className="flex items-center gap-1 text-destructive">
@@ -128,16 +193,18 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
           </div>
         </div>
 
-        {/* Endpreis */}
-        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 text-center">
+        {/* Highlight Price */}
+        <div className="bg-primary/5 border border-primary/20 rounded-xl p-5 text-center">
           <p className="text-xs text-muted-foreground mb-1">Geschätzter Richtpreis (netto)</p>
           <p className="text-3xl font-bold text-foreground">{fmt(result.finalNet)}</p>
-          <p className="text-xs text-muted-foreground mt-1">
-            ca. {fmt(result.scaledUnitCost)} netto / Stück
-          </p>
+          {result.quantity > 1 && (
+            <p className="text-xs text-muted-foreground mt-1">
+              ca. {fmt(result.scaledUnitCost)} / Stück · {result.quantity} Stück
+            </p>
+          )}
         </div>
 
-        {/* Bearbeitungszeit */}
+        {/* Print time */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/40 rounded-lg px-3 py-2">
           <Clock className="h-4 w-4 text-primary" />
           <span>Geschätzte Druckzeit: <strong className="text-foreground">{mins(result.printTimeMin)}</strong></span>
@@ -145,26 +212,85 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
 
         {/* Disclaimer */}
         <p className="text-xs text-muted-foreground text-center leading-relaxed">
-          Unverbindliche Preisindikation auf Basis von Standardwerten.
-          Der endgültige Preis kann nach technischer Prüfung abweichen.
+          Unverbindliche Preisindikation – keine Garantie auf Preis oder Machbarkeit.
+          Jede Anfrage wird persönlich geprüft.
         </p>
 
-        {/* CTA */}
-        <div className="space-y-3 pt-2">
-          <Button
-            onClick={onInquiry}
-            variant="cta"
-            size="lg"
-            className="w-full"
-          >
-            <Send className="h-4 w-4 mr-2" />
-            Unverbindliche Anfrage senden
-          </Button>
-          <p className="text-xs text-center text-muted-foreground">
-            Sie möchten ein exaktes Angebot? Senden Sie uns Ihre Datei und
-            Anforderungen für eine individuelle Prüfung.
-          </p>
-        </div>
+        {/* ── CTA / Inquiry Form ─────────────────────── */}
+        {submitted ? (
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 text-center space-y-2">
+            <CheckCircle2 className="h-10 w-10 text-primary mx-auto" />
+            <p className="font-semibold text-foreground">Anfrage erfolgreich gesendet!</p>
+            <p className="text-sm text-muted-foreground">
+              Wir prüfen Ihr Projekt persönlich und melden uns innerhalb von 6 Stunden mit einem individuellen Angebot.
+            </p>
+          </div>
+        ) : !showForm ? (
+          <div className="space-y-3 pt-2">
+            <Button
+              onClick={() => setShowForm(true)}
+              variant="cta"
+              size="lg"
+              className="w-full"
+            >
+              <Send className="h-4 w-4 mr-2" />
+              Jetzt unverbindlich Angebot anfordern
+            </Button>
+            <p className="text-xs text-center text-muted-foreground">
+              Ihr Richtpreis + Konfiguration wird automatisch übermittelt.
+              Wir prüfen alles persönlich und senden Ihnen ein individuelles Angebot.
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-3 pt-2 border-t border-border/40">
+            <p className="text-sm font-semibold text-foreground flex items-center gap-1.5">
+              <Mail className="h-4 w-4 text-primary" />
+              Angebot anfordern
+            </p>
+            <div className="grid grid-cols-1 gap-3">
+              <div className="space-y-1">
+                <Label htmlFor="ps-name" className="text-xs flex items-center gap-1">
+                  <User className="h-3 w-3" /> Name *
+                </Label>
+                <Input id="ps-name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="Max Mustermann" className="h-9" />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="ps-email" className="text-xs flex items-center gap-1">
+                  <Mail className="h-3 w-3" /> E-Mail *
+                </Label>
+                <Input id="ps-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="max@firma.at" className="h-9" />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1">
+                  <Label htmlFor="ps-company" className="text-xs flex items-center gap-1">
+                    <Building2 className="h-3 w-3" /> Firma
+                  </Label>
+                  <Input id="ps-company" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Optional" className="h-9" />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="ps-phone" className="text-xs flex items-center gap-1">
+                    <Phone className="h-3 w-3" /> Telefon
+                  </Label>
+                  <Input id="ps-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Optional" className="h-9" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="ps-msg" className="text-xs">Nachricht (optional)</Label>
+                <Textarea id="ps-msg" value={message} onChange={(e) => setMessage(e.target.value)} rows={2} placeholder="Besondere Anforderungen, Termine..." className="text-sm" />
+              </div>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-2.5 text-[11px] text-muted-foreground">
+              <strong className="text-foreground">Wird übermittelt:</strong> Material: {input?.materialKey}, Infill: {input?.infillPercent}%, Stückzahl: {input?.quantity}, Richtpreis: {fmt(result.finalNet)}
+            </div>
+            <Button type="submit" variant="cta" size="lg" className="w-full" disabled={isSubmitting}>
+              <Send className="h-4 w-4 mr-2" />
+              {isSubmitting ? "Wird gesendet..." : "Unverbindliche Anfrage senden"}
+            </Button>
+            <p className="text-[10px] text-center text-muted-foreground">
+              Keine Bestellung. Kein Vertragsabschluss. Wir prüfen alles persönlich.
+            </p>
+          </form>
+        )}
       </CardContent>
     </Card>
   );
