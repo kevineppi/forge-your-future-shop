@@ -92,6 +92,7 @@ export function useModelAnalysis() {
         isAnalyzing: false,
         error: null,
         arrayBuffer: buffer,
+        file,
       });
     } catch (err) {
       setState(prev => ({
