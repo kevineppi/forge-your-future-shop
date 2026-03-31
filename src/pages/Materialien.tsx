@@ -299,7 +299,7 @@ const Materialien = () => {
                             <li>• Industriestandard</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Gehäuse, Automotive, Elektronik
+                            <span className="font-medium">Ideal für:</span> Präsentationsgehäuse, Designstudien, Modelle
                           </div>
                         </div>
                       </CardContent>
