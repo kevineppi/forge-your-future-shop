@@ -136,7 +136,12 @@ export function calculatePrice(input: PricingInput): PricingResult {
     (layerCount * cfg.printTime.layerFactor) +
     cfg.printTime.baseMinutes;
 
-  const printTimeMin = rawTime * getLayerHeightFactor(input.layerHeight) * cfg.printTime.fdmFactor;
+  // Infill beeinflusst die Druckzeit: mehr Füllung = mehr Fahrwege = mehr Zeit
+  // Basis: 15% Infill = Faktor 1.0, 100% = Faktor ~1.35
+  const infillTimeFactor = 1 + ((input.infillPercent - 15) / 100) * 0.4;
+  const clampedInfillFactor = Math.max(0.85, Math.min(infillTimeFactor, 1.4));
+
+  const printTimeMin = rawTime * getLayerHeightFactor(input.layerHeight) * cfg.printTime.fdmFactor * clampedInfillFactor;
 
   // ── Schritt 3: Druckkosten ────────────────────────────────
 
