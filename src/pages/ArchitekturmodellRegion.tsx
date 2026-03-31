@@ -230,7 +230,7 @@ const ArchitekturmodellRegion = () => {
                 </h1>
                 
                 <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
-                  {regionData.heroSubtitle}
+                  {extendedData.introText || regionData.heroSubtitle}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
