@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { PriceBreakdown } from "@/lib/priceCalculator";
-import { TrendingDown, AlertTriangle, Send, Info, Clock } from "lucide-react";
+import { TrendingDown, AlertTriangle, Send, Info, Clock, Maximize2 } from "lucide-react";
 
 interface Props {
   result: PriceBreakdown | null;
