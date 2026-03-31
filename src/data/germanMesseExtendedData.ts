@@ -315,7 +315,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
     ],
     industryFocus: "Design, Präsentation & Outdoor in Baden-Württemberg",
     uniqueSellingPoints: [
-      "Kompetenz für Automotive-Modelle",
+      "Kompetenz für Interieur-Designmodelle",
       "Erfahrung mit Messe Stuttgart",
       "Spezialfinishes für realistische Materialimitation"
     ]
