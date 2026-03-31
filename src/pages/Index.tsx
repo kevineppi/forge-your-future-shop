@@ -22,7 +22,7 @@ import {
   TrendingDown, ArrowRight, Zap, Leaf, Star,
   ChevronRight, Package, Phone, MessageSquare,
   Shield, Award, Paintbrush, ScanLine, Ruler,
-  FlaskConical, Wrench, Palette } from
+  FlaskConical, Wrench, Palette, Calculator } from
 "lucide-react";
 import { Button } from "@/components/ui/button";
 
