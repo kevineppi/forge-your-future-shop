@@ -16,6 +16,7 @@ import { useModelAnalysis } from "@/hooks/useModelAnalysis";
 import { type PricingInput, type PricingResult, calculatePrice } from "@/lib/pricingEngine";
 import FAQSection from "@/components/landing/FAQSection";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import HowToSchema from "@/components/HowToSchema";
 import { Link } from "react-router-dom";
 import {
   Box, ArrowRight, ShieldCheck, Clock, UserCheck,
