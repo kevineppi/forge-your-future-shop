@@ -94,7 +94,7 @@ const Kostenrechner = () => {
         </div>
 
         {/* ── Calculator Section ────────────────────── */}
-        <section className="py-6 md:py-12">
+        <section id="calculator" className="py-6 md:py-12 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 

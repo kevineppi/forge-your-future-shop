@@ -332,7 +332,7 @@ const CalculatorForm = ({
 
             {/* Anzahl */}
             <div className="space-y-2">
-              <Label htmlFor="quantity" className="text-sm font-semibold">Stückzahl</Label>
+              <Label htmlFor="quantity" className="text-sm font-semibold">Anzahl / Projektmenge</Label>
               <Input
                 id="quantity"
                 type="number"
