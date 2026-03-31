@@ -18,8 +18,8 @@ export type MaterialKey = 'PLA' | 'PETG' | 'ABS' | 'ASA' | 'TPU' | 'RESIN' | 'PA
 
 // ── Hauptkonfiguration ──────────────────────────────────────
 export const PRICING_CONFIG = {
-  /** Umsatzsteuer (Österreich) */
-  vatRate: 0.20,
+  /** Umsatzsteuer – deaktiviert (Kleinunternehmerregelung o.Ä.) */
+  vatRate: 0,
 
   /** Sicherheitsfaktor auf Materialkosten (Verschnitt, Stützstruktur etc.) */
   materialSafetyFactor: 1.15,
