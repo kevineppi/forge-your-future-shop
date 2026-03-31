@@ -111,7 +111,7 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
     ]
   };
 
-  const faqs = [
+  const fallbackFaqs = [
     {
       question: `Was kostet 3D-Druck in ${regionData.name}?`,
       answer: `Die Kosten hängen von Größe, Material und Komplexität ab. Kleine Modelle (z.B. Designstudien, Präsentationsobjekte) starten ab ca. €20. Modelle im Bereich 10-20cm kosten typischerweise €30-80. Ab 10 Stück erhalten Sie Mengenrabatt. Lieferung nach ${regionData.name}: ${regionData.deliveryTime}. Kostenloses Angebot innerhalb von 6 Stunden.`
@@ -139,6 +139,8 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
         : `Unser Standort ist in Gunskirchen (OÖ). Für ${regionData.name} empfehlen wir unseren Express-Versand mit Tracking. Bei großen Projekten ist persönliche Lieferung nach Absprache möglich.`
     }
   ];
+
+  const faqs = extendedData.faqs || fallbackFaqs;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -190,7 +192,7 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
                 </h1>
 
                 <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
-                  {regionData.heroSubtitle}
+                  {extendedData.introText || regionData.heroSubtitle}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">

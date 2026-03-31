@@ -110,7 +110,7 @@ const ArchitekturmodellRegion = () => {
     ]
   };
 
-  const faqs = [
+  const fallbackFaqs = [
     {
       question: `Was kostet ein 3D-gedrucktes Architekturmodell in ${regionData.name}?`,
       answer: `Die Kosten hängen von Größe, Maßstab und Detailgrad ab. Einfache Studienmodelle (Baukörperstudie) starten ab ca. €20, Präsentationsmodelle im Maßstab 1:100 liegen typischerweise zwischen €80–200, Wettbewerbsmodelle mit Umgebung €150–500. Lieferung nach ${regionData.name}: ${regionData.deliveryTime}. Kostenloses Angebot erhalten Sie innerhalb von 6 Stunden.`
@@ -140,6 +140,8 @@ const ArchitekturmodellRegion = () => {
       answer: `Ja – das ist einer der größten Vorteile des 3D-Drucks. Mehrere Varianten parallel drucken kostet ca. 20% mehr als ein Modell, ermöglicht aber direkten Vergleich beim Bauherrn oder bei der Jury. Besonders für Wettbewerbe in ${regionData.name} empfohlen: Zwei Varianten geben der Jury eine echte Entscheidungsgrundlage.`
     },
   ];
+
+  const faqs = extendedData.faqs || fallbackFaqs;
 
   // FAQPage Schema for Rich Snippets
   const faqSchema = {
@@ -228,7 +230,7 @@ const ArchitekturmodellRegion = () => {
                 </h1>
                 
                 <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
-                  {regionData.heroSubtitle}
+                  {extendedData.introText || regionData.heroSubtitle}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">

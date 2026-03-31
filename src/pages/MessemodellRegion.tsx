@@ -157,7 +157,7 @@ const MessemodellRegion = () => {
     ]
   };
 
-  const faqs = [
+  const fallbackFaqs = [
     {
       question: `Wie schnell können Messemodelle nach ${regionData.name} geliefert werden?`,
       answer: `Standardlieferung nach ${regionData.name}: ${regionData.deliveryTime}. ${regionData.deliveryNote}. Bei dringenden Terminen ist Express-Fertigung in 24h möglich.`
@@ -189,6 +189,8 @@ const MessemodellRegion = () => {
       answer: "Wir verarbeiten STL, OBJ und 3MF Dateien sowie gängige CAD-Exporte. Bei Fragen zur Dateivorbereitung helfen wir gerne weiter."
     }
   ];
+
+  const faqs = extendedData.faqs || fallbackFaqs;
 
   // FAQPage Schema for Rich Snippets
   const faqSchema = {
@@ -257,7 +259,7 @@ const MessemodellRegion = () => {
                 </h1>
                 
                 <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
-                  {regionData.heroSubtitle}
+                  {extendedData.introText || regionData.heroSubtitle}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
