@@ -11,10 +11,12 @@ import MaterialComparisonTable from "@/components/calculator/MaterialComparisonT
 import SEOContentSection from "@/components/calculator/SEOContentSection";
 import DebugPanel from "@/components/calculator/DebugPanel";
 import STLViewer from "@/components/calculator/STLViewer";
+import ProcessSection from "@/components/calculator/ProcessSection";
 import { useModelAnalysis } from "@/hooks/useModelAnalysis";
 import { type PricingInput, type PricingResult, calculatePrice } from "@/lib/pricingEngine";
 import FAQSection from "@/components/landing/FAQSection";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import { Box } from "lucide-react";
 
 const calculatorFaqs = [
   {
@@ -27,7 +29,7 @@ const calculatorFaqs = [
   },
   {
     question: "Was bedeutet Infill (Füllung)?",
-    answer: "Der Infill-Wert bestimmt, wie dicht das Innere Ihres Modells gedruckt wird. 10-15% reicht für leichte Anschauungsmodelle, 30-50% für stabile Ausstellungsstücke, 100% für massive Vollkörper. Die optimale Einstellung besprechen wir gerne individuell."
+    answer: "Der Infill-Wert bestimmt, wie dicht das Innere Ihres Modells gedruckt wird. 10–15 % reicht für leichte Anschauungsmodelle, 30–50 % für stabile Ausstellungsstücke, 100 % für massive Vollkörper. Die optimale Einstellung besprechen wir gerne individuell."
   },
   {
     question: "Welche Materialien bietet ihr an?",
@@ -39,7 +41,7 @@ const calculatorFaqs = [
   },
   {
     question: "Wie lange dauert die Fertigung?",
-    answer: "Die geschätzte Druckzeit wird im Rechner angezeigt. Die tatsächliche Lieferzeit hängt von der Auftragslage und Nachbearbeitung ab – in der Regel 3-7 Werktage nach Auftragsbestätigung. Für eilige Projekte bieten wir nach persönlicher Absprache auch Express-Fertigung an."
+    answer: "Die geschätzte Druckzeit wird im Rechner angezeigt. Die tatsächliche Lieferzeit hängt von der Auftragslage und Nachbearbeitung ab – in der Regel 3–7 Werktage nach Auftragsbestätigung. Für eilige Projekte bieten wir nach persönlicher Absprache auch Express-Fertigung an."
   },
   {
     question: "Fertigt ihr auch Funktionsteile oder Serienteile?",
@@ -83,16 +85,17 @@ const Kostenrechner = () => {
         <CalculatorHero />
 
         {/* Breadcrumbs */}
-        <div className="container mx-auto px-4 pt-4">
+        <div className="container mx-auto px-4 pt-4 pb-2">
           <Breadcrumbs items={breadcrumbs} />
         </div>
 
         {/* ── Calculator Section ────────────────────── */}
-        <section className="py-8 md:py-16">
+        <section className="py-6 md:py-12">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-              {/* Left: Form + 3D Viewer */}
-              <div className="lg:col-span-3 space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+
+              {/* ── Left Column: Form + 3D Viewer ──── */}
+              <div className="lg:col-span-7 space-y-6">
                 <CalculatorForm
                   onCalculate={handleCalculate}
                   geometry={model.geometry}
@@ -104,23 +107,37 @@ const Kostenrechner = () => {
                   onFileClear={model.clearFile}
                 />
 
-                {/* 3D Preview */}
-                {model.arrayBuffer && (
-                  <div className="space-y-2">
-                    <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                {/* 3D Preview – sits below the form */}
+                {model.arrayBuffer ? (
+                  <div className="bg-card border border-border/60 rounded-2xl shadow-lg overflow-hidden">
+                    <div className="px-5 py-3 border-b border-border/40 bg-muted/20 flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                      3D-Vorschau Ihres Modells
-                    </h3>
+                      <span className="text-sm font-semibold text-foreground">3D-Vorschau</span>
+                      <span className="text-xs text-muted-foreground ml-auto">{model.fileName}</span>
+                    </div>
                     <STLViewer
                       buffer={model.arrayBuffer}
-                      className="h-[350px] md:h-[420px]"
+                      className="h-[300px] md:h-[360px] rounded-none border-0"
                     />
+                  </div>
+                ) : (
+                  <div className="bg-card border border-dashed border-border/60 rounded-2xl p-8 md:p-10 text-center">
+                    <div className="w-14 h-14 rounded-2xl bg-muted/60 flex items-center justify-center mx-auto mb-4">
+                      <Box className="h-7 w-7 text-muted-foreground/50" />
+                    </div>
+                    <p className="text-sm font-medium text-muted-foreground mb-1">
+                      3D-Vorschau verfügbar nach Upload
+                    </p>
+                    <p className="text-xs text-muted-foreground/70">
+                      Laden Sie eine STL-Datei in Schritt 1 hoch, um Ihr Modell
+                      hier interaktiv zu betrachten.
+                    </p>
                   </div>
                 )}
               </div>
 
-              {/* Right: Price Summary with integrated inquiry */}
-              <div className="lg:col-span-2 lg:sticky lg:top-24">
+              {/* ── Right Column: Price (sticky) ───── */}
+              <div className="lg:col-span-5 lg:sticky lg:top-24 lg:self-start">
                 <PriceSummary result={result} input={currentInput} />
               </div>
             </div>
@@ -129,12 +146,13 @@ const Kostenrechner = () => {
           </div>
         </section>
 
+        {/* ── Process Visualization ────────────────── */}
+        <ProcessSection />
+
         <CalculatorDisclaimer />
 
-        {/* Material Comparison Table */}
         <MaterialComparisonTable />
 
-        {/* FAQ Section for SEO */}
         <FAQSection
           faqs={calculatorFaqs}
           title="Häufige Fragen zum 3D-Druck Kostenrechner"
@@ -142,10 +160,8 @@ const Kostenrechner = () => {
           schemaId="kostenrechner"
         />
 
-        {/* SEO Content */}
         <SEOContentSection />
 
-        {/* What we do */}
         <CalculatorInfoSection />
       </main>
 
