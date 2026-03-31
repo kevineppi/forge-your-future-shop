@@ -329,7 +329,7 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
       title: "Agrar-Demonstrationsmodell für AB HOF Messe",
       industry: "Landwirtschaft & Direktvermarktung",
       challenge: "Ein niederösterreichischer Agrarbetrieb wollte auf der AB HOF Messe ein neuartiges Verarbeitungskonzept für Direktvermarkter präsentieren.",
-      solution: "Wir erstellten ein funktionales Demonstrationsmodell mit beweglichen Teilen, das den Verarbeitungsprozess visualisiert. Farbcodierte Elemente zeigten die verschiedenen Prozessschritte.",
+      solution: "Wir erstellten ein anschauliches Demonstrationsmodell mit beweglichen Elementen, das den Verarbeitungsprozess visualisiert. Farbcodierte Bereiche zeigten die verschiedenen Prozessschritte.",
       result: "Das interaktive Modell war der Hauptanziehungspunkt am Stand. Zahlreiche Direktvermarkter zeigten Interesse an dem Konzept.",
       specs: {
         size: "55 x 40 x 30 cm",
@@ -398,7 +398,7 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
     caseStudy: {
       title: "Landmaschinen-Demonstrationsmodell für AGRARIA",
       industry: "Landwirtschaft",
-      challenge: "Ein Aussteller auf der AGRARIA Wels benötigte ein maßstabsgetreues Demonstrationsmodell einer neuen Landmaschine. Das Modell sollte funktionale Details zeigen.",
+      challenge: "Ein Aussteller auf der AGRARIA Wels benötigte ein maßstabsgetreues Demonstrationsmodell einer neuen Landmaschine. Das Modell sollte alle wichtigen Details anschaulich darstellen.",
       solution: "Wir fertigten ein detailliertes Modell im Maßstab 1:10 mit beweglichen Elementen. Die Konstruktion ermöglichte das Öffnen wichtiger Komponenten zur Erklärung.",
       result: "Das Modell war leichter und detaillierter als vergleichbare Metallmodelle. Der Kunde setzte es auch nach der Messe für Kundenbesuche ein.",
       specs: {

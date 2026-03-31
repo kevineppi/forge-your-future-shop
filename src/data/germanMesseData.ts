@@ -655,7 +655,7 @@ export const germanMesseData: Record<string, GermanRegionalMesseData> = {
     localAdvantages: [
       'Erfahrung mit internationalen Düsseldorfer Leitmessen',
       'Express-Lieferung zur Messe Düsseldorf',
-      'Kompetenz für Medizintechnik-Modelle',
+      'Kompetenz für Messe-Präsentationsmodelle',
       'Günstigere Preise durch österreichische Fertigung',
     ],
     nearbyRegions: ['nordrhein-westfalen', 'koeln', 'essen', 'dortmund'],
@@ -828,7 +828,7 @@ export const germanMesseData: Record<string, GermanRegionalMesseData> = {
       'Spezialist für Industrie 4.0 Messemodelle',
       'Erfahrung mit der größten Industriemesse der Welt',
       'Express-Versand für kurzfristige Hannover-Messe-Termine',
-      'Kompetenz für Maschinenbau-Modelle',
+      'Kompetenz für Industrie-Präsentationsmodelle',
     ],
     nearbyRegions: ['niedersachsen', 'hamburg', 'bremen'],
     stats: { messen: '40+', lieferzeit: '5-7 Tage', kunden: '20+' },

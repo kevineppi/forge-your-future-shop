@@ -15,9 +15,9 @@ const CrossLinkSection = ({ regionName, regionSlug, currentType }: CrossLinkSect
       type: 'druck' as const,
       icon: Printer,
       title: `3D-Druck ${regionName}`,
-      description: "Prototypen, Gehäuse und Einzelteile für alle Branchen – vom Funktionsmuster bis zur Kleinserie.",
+      description: "Designstudien, Präsentationsmodelle und Einzelstücke für alle Branchen – von der Konzeptstudie bis zur Projektmenge.",
       href: `/3d-druck-${regionSlug}`,
-      keywords: "Prototypen · Gehäuse · Einzelteile"
+      keywords: "Designstudien · Modelle · Einzelstücke"
     },
     {
       type: 'messe' as const,

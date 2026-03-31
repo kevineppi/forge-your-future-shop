@@ -45,7 +45,7 @@ const VerfahrensVergleich = () => {
     sla: "100-200€/L",
     sls: "60-100€/kg"
   }];
-  const fdmAdvantages = ["Niedrigste Anschaffungs- und Betriebskosten", "Breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites)", "Einfache Bedienung und Wartung", "Ideal für funktionale Prototypen und Endteile", "Nachhaltige Materialien verfügbar (recyceltes Filament)"];
+  const fdmAdvantages = ["Niedrigste Anschaffungs- und Betriebskosten", "Breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites)", "Einfache Bedienung und Wartung", "Ideal für Designstudien und Anschauungsmodelle", "Nachhaltige Materialien verfügbar (recyceltes Filament)"];
   const fdmDisadvantages = ["Geringere Oberflächenqualität (sichtbare Schichten)", "Niedrigere Detailauflösung als SLA", "Anisotrope Festigkeit (Schwächere Z-Achse)", "Stützstrukturen hinterlassen Spuren"];
   const slaAdvantages = ["Höchste Detailgenauigkeit (0.025mm Schichthöhe)", "Glatte Oberflächen ohne sichtbare Schichten", "Ideal für feine Details und komplexe Geometrien", "Isotrope mechanische Eigenschaften"];
   const slaDisadvantages = ["Höhere Material- und Gerätekosten", "Aufwendige Nachbearbeitung (Waschen, Aushärten)", "Begrenzte Materialauswahl", "Gesundheits- und Sicherheitsaspekte bei Resinhandhabung"];
@@ -58,7 +58,7 @@ const VerfahrensVergleich = () => {
         description="So finden Sie das optimale 3D-Druckverfahren für Ihr Projekt."
         totalTime="PT5M"
         steps={[
-          { name: "Anforderungen definieren", text: "Brauchen Sie hohe Detailgenauigkeit (→ SLA), robuste Funktionsteile (→ FDM), oder komplexe Geometrien ohne Stützstrukturen (→ SLS)?" },
+          { name: "Anforderungen definieren", text: "Brauchen Sie hohe Detailgenauigkeit (→ SLA), robuste Anschauungsmodelle (→ FDM), oder komplexe Geometrien ohne Stützstrukturen (→ SLS)?" },
           { name: "Budget bestimmen", text: "FDM: günstigste Option (Material ab €20/kg). SLA: mittlere Kosten (Resin ab €100/L). SLS: höchste Kosten (Pulver ab €60/kg + teure Maschinen)." },
           { name: "Oberfläche bewerten", text: "Glatte Oberfläche nötig? → SLA. Sichtbare Schichten akzeptabel? → FDM (nachbearbeitbar). Leicht körnig OK? → SLS." },
           { name: "Anbieter kontaktieren", text: "Für Anschauungsmodelle, Messemodelle und Architekturmodelle ist FDM die wirtschaftlichste Wahl. Kontaktieren Sie uns für ein kostenloses Angebot." }
@@ -309,7 +309,7 @@ const VerfahrensVergleich = () => {
                   </CardHeader>
                   <CardContent className="space-y-2 text-muted-foreground">
                     <p>✓ Kosteneffizienz im Vordergrund steht</p>
-                    <p>✓ Funktionale Prototypen oder Endteile benötigt werden</p>
+                    <p>✓ Robuste Anschauungsmodelle oder Designstudien benötigt werden</p>
                     <p>✓ Mechanische Belastbarkeit wichtiger ist als Oberflächenqualität</p>
                     <p>✓ Große Bauteile (20x20x20cm+) gedruckt werden sollen</p>
                     <p>✓ Nachhaltige, recycelbare Materialien verwendet werden sollen</p>

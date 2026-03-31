@@ -76,10 +76,10 @@ const DruckChecklist = ({ regionName, deliveryTime }: DruckChecklistProps) => {
               So funktioniert's
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              In 4 Schritten zum fertigen Teil
+              In 4 Schritten zum fertigen Modell
             </h2>
             <p className="text-xl text-muted-foreground max-w-xl mx-auto">
-              Von der Datei zum Bauteil – einfach, schnell, transparent
+              Von der Datei zum Anschauungsmodell – einfach, schnell, transparent
             </p>
           </AnimatedSection>
 

@@ -19,7 +19,7 @@ const Services = () => {
   }, {
     icon: PenTool,
     title: "Industrielle Anschauungsmodelle",
-    description: "Präsentationsmodelle für Industrie, Maschinenbau und Produktentwicklung.",
+    description: "Präsentationsmodelle für Industrie, Produktentwicklung und Kundenpräsentationen.",
     features: ["Maßstabsmodelle", "Produktvisualisierung", "Konzeptdarstellung", "Kundenpräsentationen"],
     link: "/kontakt"
   }, {

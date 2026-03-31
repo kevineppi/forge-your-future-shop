@@ -44,7 +44,7 @@ const RegionalUniqueContent = ({
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Unser Leistungsspektrum umfasst Prototypen, Gehäuse, Funktionsmuster, Kleinserien und Einzelanfertigungen. Wir verarbeiten technische Kunststoffe wie PLA+, PETG, ASA und TPU – je nach Anforderung an Festigkeit, Temperaturbeständigkeit oder Flexibilität. Die Lieferung nach {regionName} erfolgt innerhalb von {deliveryTime}. Für zeitkritische Projekte steht unser Express-Service mit 24-Stunden-Fertigung bereit.
+                  Unser Leistungsspektrum umfasst Designstudien, Präsentationsmodelle, Konzeptmodelle, Projektmengen und Einzelanfertigungen. Wir verarbeiten hochwertige Materialien wie PLA+, PETG, ASA und TPU – je nach Anforderung an Oberfläche, Haltbarkeit oder Flexibilität. Die Lieferung nach {regionName} erfolgt innerhalb von {deliveryTime}. Für zeitkritische Projekte steht unser Express-Service mit 24-Stunden-Fertigung bereit.
                 </p>
 
                 <div className="grid sm:grid-cols-3 gap-4 mt-6 not-prose">
