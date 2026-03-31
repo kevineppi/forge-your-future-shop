@@ -1,5 +1,4 @@
 import SEOHead from "@/components/SEOHead";
-import SEOHead from "@/components/SEOHead";
 import InlineSchema from "@/components/InlineSchema";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
