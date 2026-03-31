@@ -464,13 +464,25 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
   },
 
   'villach': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Tourismusmodell für Villacher Kirchtag-Event",
+      industry: "Tourismus & Events",
+      challenge: "Ein Villacher Tourismusbetrieb brauchte ein ansprechendes Modell einer geplanten Thermenanlage als Blickfang bei einer Investorenveranstaltung während des Villacher Kirchtags.",
+      solution: "Wir druckten ein stilisiertes Modell der Thermenanlage mit blau-transparenten PETG-Wasserflächen und weißen Gebäuden. Grüne PLA-Elemente stellten die Gartenlandschaft dar.",
+      result: "Das Modell überzeugte auf der Veranstaltung und wurde anschließend im Foyer des Hotels als Dauerpräsentation eingesetzt.",
+      specs: {
+        size: "60 x 40 x 20 cm",
+        material: "PLA weiß/grün + PETG blau",
+        time: "5 Werktage"
+      },
+      quote: "Das Thermenmodell begeistert unsere Gäste täglich. Ein tolles Gesprächsstück im Hotelfoyer."
+    },
     materials: defaultMaterials,
-    industryFocus: "Regionale Events in Villach",
+    industryFocus: "Tourismus & regionale Events in Villach",
     uniqueSellingPoints: [
       "Zuverlässige Lieferung nach Villach",
-      "Tourismus-Kompetenz für regionale Events",
-      "Flexible Lieferzeiten"
+      "Tourismus-Kompetenz für Kärntner Events",
+      "Modelle auch als Dauerpräsentation einsetzbar"
     ]
   },
 
