@@ -43,7 +43,7 @@ serve(async (req) => {
       },
       {
         title: 'PA6 Nylon 3D-Druck - Robustes Industriematerial Preis',
-        content: 'PA6 Nylon (Polyamid 6) für industrielle Anwendungen. Preis: €4,00-5,00 pro Stunde Druckzeit oder ca. €56/kg. Eigenschaften: Höhere Festigkeit als PA12, bessere Temperaturbeständigkeit bis 120°C, gute chemische Beständigkeit, verschleißfest. Sehr hygroskopisch - muss vor Druck 4-8h bei 80°C getrocknet werden. Zugfestigkeit 80-90 MPa. Ideal für: Industrielle Funktionsteile, Ersatzteile, mechanische Bauteile, Vorrichtungen, Lager, Buchsen. Verfügbar in Natur. Lieferzeit: 3-5 Werktage.',
+        content: 'PA6 Nylon (Polyamid 6) für anspruchsvolle Anwendungen. Preis: €4,00-5,00 pro Stunde Druckzeit oder ca. €56/kg. Eigenschaften: Höhere Festigkeit als PA12, bessere Temperaturbeständigkeit bis 120°C, gute chemische Beständigkeit, verschleißfest. Sehr hygroskopisch - muss vor Druck 4-8h bei 80°C getrocknet werden. Zugfestigkeit 80-90 MPa. Ideal für: Premium-Präsentationsmodelle, hochwertige Anschauungsobjekte, robuste Designstudien. Verfügbar in Natur. Lieferzeit: 3-5 Werktage.',
         category: 'Materialien',
         page_url: '/3d-druck-materialien'
       },
