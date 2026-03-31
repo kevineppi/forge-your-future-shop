@@ -82,9 +82,9 @@ const glossaryTerms: GlossaryTerm[] = [
     relatedLinks: [{ label: "Architekturmodelle", href: "/architekturmodelle" }, { label: "Messemodelle", href: "/messemodelle" }]
   },
   {
-    term: "Funktionsprototyp",
+    term: "Designprototyp",
     category: "Modellbau",
-    definition: "Anschauungsmodell, das primär der visuellen Präsentation dient – nicht als funktionaler Prototyp. Kann bewegliche Elemente zur Demonstration enthalten. Typisch für Architektur, Stadtplanung, Maschinenbau-Präsentationen und Produktdesign. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
+    definition: "Anschauungsmodell, das primär der visuellen Präsentation dient. Kann bewegliche Elemente zur Demonstration enthalten. Typisch für Architektur, Stadtplanung, Industrie-Präsentationen und Produktdesign. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
     relatedLinks: [{ label: "Prototypen", href: "/prototypen" }]
   },
   {
