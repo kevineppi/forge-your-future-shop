@@ -25,13 +25,13 @@ serve(async (req) => {
       // Materialien mit exakten Preisen
       {
         title: '3D-Druck Material ABS - Preis und Eigenschaften',
-        content: 'ABS (Acrylnitril-Butadien-Styrol) ist ein robuster technischer Kunststoff. Preis: €2,50-3,00 pro Stunde Druckzeit oder ca. €28/kg Filament. Eigenschaften: Hitzebeständig bis 90-95°C, hohe Schlagfestigkeit, glatte Oberfläche durch Acetonglättung. Drucktemperatur 230-250°C, Heizbett 90-110°C erforderlich. Ideal für: Funktionsbauteile, Gehäuse, technische Prototypen, Automobilteile, Werkzeuge. Verfügbar in allen Standardfarben. Lieferzeit: 2-3 Werktage Standard, Express 24h möglich (+50% Aufpreis). Chemikalienbeständig gegen Säuren und Laugen.',
+        content: 'ABS (Acrylnitril-Butadien-Styrol) ist ein robuster Kunststoff. Preis: €2,50-3,00 pro Stunde Druckzeit oder ca. €28/kg Filament. Eigenschaften: Hitzebeständig bis 90-95°C, hohe Schlagfestigkeit, glatte Oberfläche durch Acetonglättung. Drucktemperatur 230-250°C, Heizbett 90-110°C erforderlich. Ideal für: Präsentationsgehäuse, Designstudien, robuste Modelle. Verfügbar in allen Standardfarben. Lieferzeit: 2-3 Werktage Standard, Express 24h möglich (+50% Aufpreis). Chemikalienbeständig gegen Säuren und Laugen.',
         category: 'Materialien',
         page_url: '/3d-druck-materialien'
       },
       {
         title: 'PA12 Nylon 3D-Druck - Premium Material mit Preisen',
-        content: 'PA12 Nylon (Polyamid 12) ist das Premium-Material für höchste Ansprüche. Preis: €4,50-5,50 pro Stunde Druckzeit oder ca. €56/kg. Eigenschaften: Sehr hohe Festigkeit und Zähigkeit, chemikalienbeständig gegen Öle und Kraftstoffe, verschleißfest, flexible Anwendungen möglich. Drucktemperatur 240-280°C. Ideal für: Funktionsteile unter hoher Belastung, Zahnräder, Lager, Clips, lebende Scharniere, Verschleißteile. Weniger hygroskopisch als PA6. Verfügbar in Natur und Schwarz. Lieferzeit: 3-5 Werktage.',
+        content: 'PA12 Nylon (Polyamid 12) ist das Premium-Material für höchste Ansprüche. Preis: €4,50-5,50 pro Stunde Druckzeit oder ca. €56/kg. Eigenschaften: Sehr hohe Festigkeit und Zähigkeit, chemikalienbeständig, verschleißfest. Drucktemperatur 240-280°C. Ideal für: anspruchsvolle Anschauungsmodelle, hochwertige Präsentationsobjekte, robuste Designstudien. Weniger hygroskopisch als PA6. Verfügbar in Natur und Schwarz. Lieferzeit: 3-5 Werktage.',
         category: 'Materialien',
         page_url: '/3d-druck-materialien'
       },
@@ -43,7 +43,7 @@ serve(async (req) => {
       },
       {
         title: 'PA6 Nylon 3D-Druck - Robustes Industriematerial Preis',
-        content: 'PA6 Nylon (Polyamid 6) für industrielle Anwendungen. Preis: €4,00-5,00 pro Stunde Druckzeit oder ca. €56/kg. Eigenschaften: Höhere Festigkeit als PA12, bessere Temperaturbeständigkeit bis 120°C, gute chemische Beständigkeit, verschleißfest. Sehr hygroskopisch - muss vor Druck 4-8h bei 80°C getrocknet werden. Zugfestigkeit 80-90 MPa. Ideal für: Industrielle Funktionsteile, Ersatzteile, mechanische Bauteile, Vorrichtungen, Lager, Buchsen. Verfügbar in Natur. Lieferzeit: 3-5 Werktage.',
+        content: 'PA6 Nylon (Polyamid 6) für anspruchsvolle Anwendungen. Preis: €4,00-5,00 pro Stunde Druckzeit oder ca. €56/kg. Eigenschaften: Höhere Festigkeit als PA12, bessere Temperaturbeständigkeit bis 120°C, gute chemische Beständigkeit, verschleißfest. Sehr hygroskopisch - muss vor Druck 4-8h bei 80°C getrocknet werden. Zugfestigkeit 80-90 MPa. Ideal für: Premium-Präsentationsmodelle, hochwertige Anschauungsobjekte, robuste Designstudien. Verfügbar in Natur. Lieferzeit: 3-5 Werktage.',
         category: 'Materialien',
         page_url: '/3d-druck-materialien'
       },
@@ -55,7 +55,7 @@ serve(async (req) => {
       },
       {
         title: 'PETG 3D-Druck Material - Preis und Eigenschaften',
-        content: 'PETG (Polyethylenterephthalat Glycol) ist der beste Allrounder. Preis: €2,00-2,50 pro Stunde Druckzeit. Eigenschaften: Schlagfest, chemikalienbeständig, UV-beständig, lebensmittelecht, glasklare Varianten möglich. Drucktemperatur 220-250°C, Heizbett 70-80°C. Temperaturbeständigkeit bis 75°C. Ideal für: Funktionsteile, mechanisch belastete Teile, Outdoor-Anwendungen, Lebensmittelkontakt. Sehr gute Schichthaftung. Verfügbar in vielen Farben. Lieferzeit: 2-3 Werktage.',
+        content: 'PETG (Polyethylenterephthalat Glycol) ist der beste Allrounder. Preis: €2,00-2,50 pro Stunde Druckzeit. Eigenschaften: Schlagfest, chemikalienbeständig, UV-beständig, glasklare Varianten möglich. Drucktemperatur 220-250°C, Heizbett 70-80°C. Temperaturbeständigkeit bis 75°C. Ideal für: robuste Anschauungsmodelle, Outdoor-Modelle, transparente Schauobjekte. Sehr gute Schichthaftung. Verfügbar in vielen Farben. Lieferzeit: 2-3 Werktage.',
         category: 'Materialien',
         page_url: '/3d-druck-materialien'
       },
@@ -63,49 +63,49 @@ serve(async (req) => {
       // Regionale Verfügbarkeit mit detaillierten Infos
       {
         title: '3D-Druck Wien - Schnelle Lieferung 24-48h mit Preisen',
-        content: 'Professioneller 3D-Druck Service für Wien mit Express-Lieferung. Standort: Gunskirchen, OÖ. Koordinaten: 48.2082°N, 16.3738°E. Lieferzeit nach Wien: Standard 2-3 Werktage, Express 24-48h. Material-Preise: PLA ab €1,50/h, PETG ab €2,00/h, ABS ab €2,50/h, PA12 ab €4,50/h, PA12-CF ab €6,00/h, PA6 ab €4,00/h. Kostenloser Versand ab €50. Lokale Abholung möglich. Kontakt: +43 676 5517197, office@ek-druck.at. Referenzprojekte Wien: Architekturmodelle TU Wien, Prototypen für Wiener Start-ups, Ersatzteile Wiener Industriebetriebe. Spezialgebiet: Medizintechnik-Prototypen, Design-Modelle.',
+        content: 'Professioneller 3D-Druck Service für Wien mit Express-Lieferung. Standort: Gunskirchen, OÖ. Lieferzeit nach Wien: Standard 2-3 Werktage, Express 24-48h. Material-Preise: PLA ab €1,50/h, PETG ab €2,00/h, ABS ab €2,50/h, PA12 ab €4,50/h, PA12-CF ab €6,00/h, PA6 ab €4,00/h. Kostenloser Versand ab €50. Kontakt: +43 676 5517197, office@ek-druck.at. Referenzprojekte Wien: Architekturmodelle, Designstudien für Wiener Start-ups, Messemodelle. Spezialgebiet: Architekturmodelle, Design-Modelle, Präsentationsobjekte.',
         category: 'Regional',
         page_url: '/3d-druck-wien'
       },
       {
         title: '3D-Druck Graz - Service für Steiermark mit Preisen',
-        content: '3D-Druck Dienstleister für Graz und Steiermark. Koordinaten: 47.0707°N, 15.4395°E. Lieferzeit nach Graz: Standard 2-3 Werktage, Express 24-48h. Material-Preise wie Wien. Besondere Expertise: Maschinenbauteile, Industrieprototypen für Automotive-Cluster Steiermark. Referenzen Graz: TU Graz Forschungsprojekte, Automobilzulieferer-Prototypen (AVL, Magna), Medizintechnik-Bauteile MedUni Graz. Versandkosten: Kostenlos ab €50. Kontakt: +43 676 5517197. Services: CAD-Konstruktion, Rapid Prototyping, Serienfertigung.',
+        content: '3D-Druck Dienstleister für Graz und Steiermark. Lieferzeit nach Graz: Standard 2-3 Werktage, Express 24-48h. Material-Preise wie Wien. Besondere Expertise: Architekturmodelle, Designstudien für steirische Unternehmen. Referenzen Graz: TU Graz Forschungsprojekte, Designstudien für Industrieunternehmen, Messemodelle. Versandkosten: Kostenlos ab €50. Kontakt: +43 676 5517197. Services: Modellbau, Designstudien, Präsentationsobjekte.',
         category: 'Regional',
         page_url: '/3d-druck-graz'
       },
       {
         title: '3D-Druck Linz - Lokaler Service Oberösterreich Preise',
-        content: '3D-Druck Service für Linz und Oberösterreich. Als lokaler Anbieter aus Gunskirchen (15km von Linz) besonders schnelle Lieferung. Koordinaten: 48.3069°N, 14.2858°E. Lieferzeit Linz: Express 24h, Standard 1-2 Werktage. Persönliche Abholung in Gunskirchen möglich. Alle Materialien auf Lager. Preise: PLA €1,50/h, PETG €2,00/h, ABS €2,50/h, PA12 €4,50/h. Spezialgebiet: Industrielle Funktionsprototypen für Linzer Maschinenbau, Betriebsmittel, Vorrichtungen. Referenzen: voestalpine Prototypen, JKU Linz Forschungsprojekte, Linzer Industrie. Kostenlose Erstberatung vor Ort.',
+        content: '3D-Druck Service für Linz und Oberösterreich. Als lokaler Anbieter aus Gunskirchen (15km von Linz) besonders schnelle Lieferung. Lieferzeit Linz: Express 24h, Standard 1-2 Werktage. Persönliche Abholung in Gunskirchen möglich. Alle Materialien auf Lager. Preise: PLA €1,50/h, PETG €2,00/h, ABS €2,50/h, PA12 €4,50/h. Spezialgebiet: Architekturmodelle, Messemodelle, Designstudien für Linzer Unternehmen. Referenzen: Anschauungsmodelle für OÖ Industrie, JKU Linz Forschungsprojekte. Kostenlose Erstberatung vor Ort.',
         category: 'Regional',
         page_url: '/3d-druck-linz'
       },
       {
         title: '3D-Druck Salzburg - Schneller Service mit Preisen',
-        content: '3D-Druck für Salzburg Stadt und Land. Koordinaten: 47.8095°N, 13.0550°E. Lieferzeit: Standard 2-3 Werktage, Express 24-48h. Material-Preise: Alle Materialien verfügbar zu Standard-Preisen. Anwendungen Salzburg: Architekturmodelle für Salzburger Planungsbüros, Designprototypen für Kreativwirtschaft, Industrieteile. Services: Nachhaltige Materialien aus Österreich, persönliche Beratung, faire Preisgestaltung. Kontakt: +43 676 5517197, office@ek-druck.at. Versand kostenlos ab €50. Referenzen: Universität Salzburg, Salzburger Industrie.',
+        content: '3D-Druck für Salzburg Stadt und Land. Lieferzeit: Standard 2-3 Werktage, Express 24-48h. Material-Preise: Alle Materialien verfügbar zu Standard-Preisen. Anwendungen Salzburg: Architekturmodelle für Salzburger Planungsbüros, Designstudien für Kreativwirtschaft, Präsentationsmodelle. Services: Nachhaltige Materialien aus Österreich, persönliche Beratung, faire Preisgestaltung. Kontakt: +43 676 5517197, office@ek-druck.at. Versand kostenlos ab €50.',
         category: 'Regional',
         page_url: '/3d-druck-salzburg'
       },
       {
         title: '3D-Druck Innsbruck - Tirol Service mit Preisen',
-        content: 'Professioneller 3D-Druck Service für Innsbruck und Tirol. Koordinaten: 47.2692°N, 11.4041°E. Lieferzeit: Standard 2-4 Werktage, Express 24-48h. Material-Preise: Alle FDM-Materialien verfügbar. Spezialität: Alpine Anwendungen, Outdoor-Bauteile mit UV-beständigen Materialien, winterfeste Compounds für Sportgeräte. Referenzen Tirol: Universität Innsbruck, Tiroler Maschinenbau, Sportgerätehersteller (Ski, Snowboard-Teile). Kostenloser Versand ab €50. Material-Expertise: ASA für UV-Beständigkeit, kältefeste PA-Compounds.',
+        content: 'Professioneller 3D-Druck Service für Innsbruck und Tirol. Lieferzeit: Standard 2-4 Werktage, Express 24-48h. Material-Preise: Alle FDM-Materialien verfügbar. Spezialität: Outdoor-Modelle mit UV-beständigen Materialien, Designstudien für Sportartikel-Branche. Referenzen Tirol: Universität Innsbruck, Tiroler Unternehmen, Designstudien für Outdoor-Marken. Kostenloser Versand ab €50. Material-Expertise: ASA für UV-Beständigkeit, wetterbeständige Materialien.',
         category: 'Regional',
         page_url: '/3d-druck-innsbruck'
       },
       {
         title: '3D-Druck Klagenfurt - Kärnten Service Preise',
-        content: '3D-Druck Dienstleistungen für Klagenfurt und Kärnten. Koordinaten: 46.6244°N, 14.3050°E. Lieferzeit: Standard 3-4 Werktage, Express 48h. Material-Preise: Alle Materialien verfügbar. Anwendungen: Maschinenbau, Prototypenbau, Architektur, Design. Referenzen Kärnten: Alpen-Adria-Universität Forschung, Kärntner Industrie (Infineon Prototypen), Holzbau-Modelle. Kontakt: +43 676 5517197. Versand kostenlos ab €50. Services: Konstruktionsunterstützung, Materialberatung, Nachbearbeitung (Schleifen, Lackieren).',
+        content: '3D-Druck Dienstleistungen für Klagenfurt und Kärnten. Lieferzeit: Standard 3-4 Werktage, Express 48h. Material-Preise: Alle Materialien verfügbar. Anwendungen: Architekturmodelle, Designstudien, Präsentationsmodelle. Referenzen Kärnten: Alpen-Adria-Universität Forschung, Kärntner Unternehmen, Holzbau-Modelle. Kontakt: +43 676 5517197. Versand kostenlos ab €50. Services: Beratung, Materialberatung, Nachbearbeitung (Schleifen, Lackieren).',
         category: 'Regional',
         page_url: '/3d-druck-klagenfurt'
       },
       {
         title: '3D-Druck Villach - Kärnten Süd Service',
-        content: '3D-Druck Service für Villach und Südkärnten. Koordinaten: 46.6167°N, 13.8500°E. Lieferzeit: 3-4 Werktage, Express 48h möglich. Alle Materialien verfügbar. Anwendungen: Elektronik-Prototypen (Infineon Villach), Maschinenbau, Automotive-Teile. Preise: Standard-Tarife, Mengenrabatt ab 10 Stück. Versand kostenlos ab €50. Kontakt: +43 676 5517197.',
+        content: '3D-Druck Service für Villach und Südkärnten. Lieferzeit: 3-4 Werktage, Express 48h möglich. Alle Materialien verfügbar. Anwendungen: Anschauungsmodelle, Designstudien, Präsentationsobjekte. Preise: Standard-Tarife, Mengenrabatt ab 10 Stück. Versand kostenlos ab €50. Kontakt: +43 676 5517197.',
         category: 'Regional',
         page_url: '/3d-druck-villach'
       },
       {
         title: '3D-Druck Wels - Oberösterreich Nähe',
-        content: '3D-Druck Service für Wels (10km von Gunskirchen). Koordinaten: 48.1667°N, 14.0333°E. Lieferzeit: Express 24h, Standard 1 Werktag. Persönliche Abholung möglich. Alle Materialien. Preise: PLA €1,50/h, PETG €2,00/h, PA12 €4,50/h. Spezialgebiet: Messebau-Modelle (Welser Messe), Industrie-Prototypen. Referenzen: Welser Profile, TGW Logistics. Kostenlose Beratung vor Ort.',
+        content: '3D-Druck Service für Wels (10km von Gunskirchen). Lieferzeit: Express 24h, Standard 1 Werktag. Persönliche Abholung möglich. Alle Materialien. Preise: PLA €1,50/h, PETG €2,00/h, PA12 €4,50/h. Spezialgebiet: Messemodelle (Welser Messe), Präsentationsmodelle. Referenzen: Welser Unternehmen. Kostenlose Beratung vor Ort.',
         category: 'Regional',
         page_url: '/3d-druck-wels'
       },
@@ -117,7 +117,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Dornbirn - Vorarlberg Service',
-        content: '3D-Druck für Dornbirn und Vorarlberg. Koordinaten: 47.4167°N, 9.7500°E. Lieferzeit: Standard 3-4 Werktage, Express 48h. Alle Materialien. Anwendungen: Textil-Industrie Prototypen, Maschinenbau. Preise: Standard-Tarife. Versand kostenlos ab €50. Referenzen: Vorarlberger Textilindustrie, FH Vorarlberg.',
+        content: '3D-Druck für Dornbirn und Vorarlberg. Lieferzeit: Standard 3-4 Werktage, Express 48h. Alle Materialien. Anwendungen: Designstudien, Architekturmodelle, Präsentationsobjekte. Preise: Standard-Tarife. Versand kostenlos ab €50. Referenzen: Vorarlberger Unternehmen, FH Vorarlberg.',
         category: 'Regional',
         page_url: '/3d-druck-dornbirn'
       },
@@ -137,13 +137,13 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Einzelanfertigungen - Individuelle Teile Preis',
-        content: 'Individuelle 3D-Druck Einzelanfertigungen. Preise: Basis-Materialpreis + Konstruktion €60/h bei Bedarf. Services: CAD-Konstruktion, 3D-Modellierung, Optimierung, technische Zeichnungen. Anwendungen: Ersatzteile (alte Maschinen, Oldtimer), Sonderanfertigungen, Unikate, Kunstobjekte. Materialauswahl: Alle verfügbar. Lieferzeit: 5-10 Tage inkl. Konstruktion. Erstberatung kostenlos. Beispielprojekte: Restaurierung Maschinenteil €180, individuelles Gehäuse €250, Spezialwerkzeug €320.',
+        content: 'Individuelle 3D-Druck Einzelanfertigungen. Preise: Basis-Materialpreis + 3D-Modellierung €60/h bei Bedarf. Services: 3D-Modellierung, Optimierung. Anwendungen: Anschauungsmodelle, Unikate, Kunstobjekte, Designstudien. Materialauswahl: Alle verfügbar. Lieferzeit: 5-10 Tage inkl. Modellierung. Erstberatung kostenlos. Beispielprojekte: Messemodell €180, individuelles Gehäuse-Modell €250, Designstudie €320.',
         category: 'Services',
         page_url: '/einzelanfertigungen'
       },
       {
         title: '3D-Druck Serienfertigung - Kleinserien Mengenrabatte',
-        content: 'Serienfertigung mit FDM 3D-Druck. Mengenrabatte: 10-49 Stück -10%, 50-99 Stück -20%, 100-499 Stück -30%, ab 500 Stück individuelle Preise. Wirtschaftlich für 10-500 Stück. Anwendungen: Ersatzteilserien, Vorserien, Funktionsbauteile, Zubehör. Qualitätssicherung: Erstmusterprüfung, Maßprüfung, Dokumentation. Materialien: PETG, ABS, PA12 bevorzugt. Beispiel: 50 Teile je 100cm³ PETG: Einzelpreis €35 → Serienpreis €28 (gesamt €1.400). Lieferzeit: Nach Absprache. Kostenlose Machbarkeitsprüfung.',
+        content: 'Mengenproduktion für Projektmengen mit FDM 3D-Druck. Mengenrabatte: 10-49 Stück -10%, 50-99 Stück -20%, 100-499 Stück -30%, ab 500 Stück individuelle Preise. Anwendungen: Messeexponate, Schulungsmodelle, Präsentationsserien, limitierte Editionen. Qualitätssicherung: Prüfung jedes Modells, Dokumentation. Materialien: PLA, PETG, ASA bevorzugt. Beispiel: 50 Modelle je 100cm³ PETG: Einzelpreis €35 → Mengenpreis €28 (gesamt €1.400). Lieferzeit: Nach Absprache. Kostenlose Machbarkeitsprüfung.',
         category: 'Services',
         page_url: '/serienfertigung'
       },

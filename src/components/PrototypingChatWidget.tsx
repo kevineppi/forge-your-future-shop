@@ -61,8 +61,8 @@ const PrototypingChatWidget = () => {
         };
         break;
       case 'cost':
-        userMessage = 'Was kostet ungefähr ein technisches Gehäuse 15x10x8cm in PETG?';
-        assistantMessage = 'Für ein **technisches Gehäuse 15x10x8cm in PETG** kalkuliere ich:\n\n**Material-Kosten:**\n• PETG Filament: ~€8-12\n\n**Produktions-Kosten:**\n• Druckzeit (~16h): ~€25-35\n• Setup & QC: ~€8-10\n\n**Gesamt-Schätzung:**\n💰 **€45-65** (Standard)\n💰 **€65-90** (Express 24-48h)\n\n*Endpreis hängt ab von:*\n- Wandstärke\n- Infill-Dichte\n- Detailgrad\n\nMöchten Sie ein genaues Angebot?';
+        userMessage = 'Was kostet ungefähr ein Präsentationsgehäuse 15x10x8cm in PETG?';
+        assistantMessage = 'Für ein **Präsentationsgehäuse 15x10x8cm in PETG** kalkuliere ich:\n\n**Material-Kosten:**\n• PETG Filament: ~€8-12\n\n**Produktions-Kosten:**\n• Druckzeit (~16h): ~€25-35\n• Setup & QC: ~€8-10\n\n**Gesamt-Schätzung:**\n💰 **€45-65** (Standard)\n💰 **€65-90** (Express 24-48h)\n\n*Endpreis hängt ab von:*\n- Wandstärke\n- Infill-Dichte\n- Detailgrad\n\nMöchten Sie ein genaues Angebot?';
         recommendations = {
           material: 'PETG',
           estimatedCost: '€45-65',

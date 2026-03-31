@@ -76,7 +76,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
         icon: "feather"
       }
     ],
-    industryFocus: "Bau, Maschinenbau & Automotive in Bayern",
+    industryFocus: "Bau, Industrie & Präsentation in Bayern",
     uniqueSellingPoints: [
       "Grenznahe Fertigung – schnellste Lieferung nach Bayern",
       "Erfahrung mit bauma und Messe München",
@@ -86,42 +86,42 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
 
   'nordrhein-westfalen': {
     caseStudy: {
-      title: "Medizintechnik-Modell für MEDICA Düsseldorf",
-      industry: "Medizintechnik",
-      challenge: "Ein NRW-Medizintechnikunternehmen brauchte ein vergrößertes Modell eines neuen Implantats für die MEDICA. Das Modell sollte die interne Struktur zeigen und sterilisierbar aussehen.",
-      solution: "Wir fertigten ein 20-fach vergrößertes Modell mit aufklappbaren Segmenten. Die Oberfläche wurde so veredelt, dass sie den medizinischen Ansprüchen optisch entsprach.",
+      title: "Vergrößertes Produktmodell für MEDICA Düsseldorf",
+      industry: "Fachpräsentation",
+      challenge: "Ein NRW-Unternehmen brauchte ein vergrößertes Anschauungsmodell eines neuen Produkts für die MEDICA. Das Modell sollte die interne Struktur zeigen und professionell aussehen.",
+      solution: "Wir fertigten ein 20-fach vergrößertes Modell mit aufklappbaren Segmenten. Die Oberfläche wurde so veredelt, dass sie den professionellen Ansprüchen optisch entsprach.",
       result: "Das Modell ermöglichte detaillierte Erklärungen, die mit Bildern allein nicht möglich gewesen wären. Der Messestand verzeichnete 40% mehr Fachbesucher.",
       specs: {
         size: "30 x 20 x 15 cm",
-        material: "PLA weiß, medizinische Optik",
+        material: "PLA weiß, professionelle Optik",
         time: "6 Werktage + Expressversand"
       },
-      quote: "Endlich konnten wir Chirurgen unser Implantat dreidimensional erklären. Das Modell hat den Unterschied gemacht."
+      quote: "Endlich konnten wir unser Produkt dreidimensional erklären. Das Modell hat den Unterschied gemacht."
     },
     materials: [
       {
-        name: "PLA Medical White",
-        description: "Reinweißer, glatter Druck für medizinische Anwendungen. Professionelle Optik.",
-        bestFor: ["Medizintechnik-Modelle", "Implantat-Vergrößerungen", "Anatomische Modelle"],
+        name: "PLA Premium Weiß",
+        description: "Reinweißer, glatter Druck für professionelle Präsentationen. Hochwertige Optik.",
+        bestFor: ["Vergrößerte Produktmodelle", "Anatomische Schaumodelle", "Detailmodelle"],
         icon: "palette"
       },
       {
-        name: "PETG Steril-Optik",
-        description: "Halbtransparente Oberfläche für klinische Ästhetik. Robust für häufige Handhabung.",
-        bestFor: ["Gerätegehäuse", "Labormodelle", "Sterilgut-Darstellungen"],
+        name: "PETG Halbtransparent",
+        description: "Halbtransparente Oberfläche für elegante Ästhetik. Robust für häufige Handhabung.",
+        bestFor: ["Gehäuse-Modelle", "Schaumodelle", "Präsentationsobjekte"],
         icon: "shield"
       },
       {
         name: "PLA Mehrfarbig",
         description: "Farbcodierte Modelle für komplexe Strukturen. Ideal für Schulungszwecke.",
-        bestFor: ["Anatomische Modelle", "Schnittdarstellungen", "Funktionsmodelle"],
+        bestFor: ["Schaumodelle", "Schnittdarstellungen", "Präsentationsmodelle"],
         icon: "feather"
       }
     ],
-    industryFocus: "Medizintechnik, Energie & Handel in NRW",
+    industryFocus: "Fachpräsentationen, Energie & Handel in NRW",
     uniqueSellingPoints: [
       "Erfahrung mit MEDICA und Düsseldorfer Leitmessen",
-      "Präzisionsmodelle für medizinische Anwendungen",
+      "Präzisionsmodelle für professionelle Präsentationen",
       "Express-Versand für kurzfristige NRW-Messetermine"
     ]
   },
@@ -260,7 +260,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
     caseStudy: {
       title: "Fertigungstechnik-Modell für Intec Leipzig",
       industry: "Fertigungstechnik",
-      challenge: "Ein sächsisches Maschinenbauunternehmen wollte auf der Intec ein neuartiges Bearbeitungszentrum präsentieren. Das Modell sollte die Spindelanordnung und den Werkzeugwechsler zeigen.",
+      challenge: "Ein sächsisches Unternehmen wollte auf der Intec ein neuartiges Bearbeitungszentrum als Anschauungsmodell präsentieren. Das Modell sollte die Spindelanordnung und den Werkzeugwechsler zeigen.",
       solution: "Wir erstellten ein Schnittmodell im Maßstab 1:5 mit abnehmbarer Verkleidung. Der Werkzeugwechsler wurde mit beweglichen Teilen realisiert.",
       result: "Fachbesucher konnten die Innovation sofort erfassen. Das Modell führte zu intensiven technischen Gesprächen und mehreren Vertriebsanbahnungen.",
       specs: {
@@ -271,11 +271,11 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
       quote: "Komplexe Technik einfach erklärt – das Modell war Gold wert für unsere Vertriebsgespräche."
     },
     materials: defaultMaterials,
-    industryFocus: "Maschinenbau & Halbleiter in Sachsen",
+    industryFocus: "Fertigungstechnik & Halbleiter in Sachsen",
     uniqueSellingPoints: [
       "Erfahrung mit Leipziger Messe",
-      "Kompetenz für Maschinenbau-Modelle",
-      "Präzisionsdruck für technische Anwendungen"
+      "Kompetenz für Präsentationsmodelle von Maschinen",
+      "Präzisionsdruck für hochdetaillierte Anschauungsmodelle"
     ]
   },
 
@@ -283,9 +283,9 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
     caseStudy: {
       title: "Automobil-Interieur für Messe Stuttgart",
       industry: "Automobil & Zulieferer",
-      challenge: "Ein baden-württembergischer Automobilzulieferer brauchte ein maßstabsgetreues Modell eines neuen Fahrzeug-Interieurs für die AMB in Stuttgart. Die Oberflächentextur und Farbgebung mussten dem Original entsprechen.",
+      challenge: "Ein baden-württembergischer Zulieferer brauchte ein maßstabsgetreues Modell eines neuen Fahrzeug-Interieurs für die AMB in Stuttgart. Die Oberflächentextur und Farbgebung mussten dem Original entsprechen.",
       solution: "Wir fertigten ein 1:3 Modell der Fahrzeugkonsole mit allen Bedienelementen. Spezialfinishes simulierten verschiedene Materialien wie Leder, Aluminium und Carbon.",
-      result: "Das Modell überzeugte den OEM-Kunden und führte zu einem Serienauftrag für den Zulieferer.",
+      result: "Das Modell überzeugte den Kunden und führte zu einem Folgeauftrag für den Zulieferer.",
       specs: {
         size: "60 x 40 x 25 cm",
         material: "PLA mit Spezialfinish",
@@ -297,13 +297,13 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
       {
         name: "PLA mit Spezialfinish",
         description: "Verschiedene Oberflächenveredelungen: Carbon-Look, Aluminium-Optik, Leder-Textur.",
-        bestFor: ["Automotive-Interieur", "Premium-Oberflächen", "Haptische Muster"],
+        bestFor: ["Interieur-Designstudien", "Premium-Oberflächen", "Haptische Muster"],
         icon: "palette"
       },
       {
         name: "PETG Industrial",
-        description: "Für robuste Funktionsmodelle. Temperaturbeständig und schlagfest.",
-        bestFor: ["Funktionsprototypen", "Gehäusemodelle", "Belastungstests"],
+        description: "Für robuste Präsentationsmodelle. Temperaturbeständig und schlagfest.",
+        bestFor: ["Designstudien", "Gehäusemodelle", "Anschauungsobjekte"],
         icon: "shield"
       },
       {
@@ -313,9 +313,9 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
         icon: "feather"
       }
     ],
-    industryFocus: "Automobil, Maschinenbau & Outdoor in Baden-Württemberg",
+    industryFocus: "Design, Präsentation & Outdoor in Baden-Württemberg",
     uniqueSellingPoints: [
-      "Kompetenz für Automotive-Modelle",
+      "Kompetenz für Interieur-Designmodelle",
       "Erfahrung mit Messe Stuttgart",
       "Spezialfinishes für realistische Materialimitation"
     ]
@@ -365,9 +365,9 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
 
   'frankfurt': {
     caseStudy: {
-      title: "Automobil-Zulieferermodell für Automechanika Frankfurt",
-      industry: "Automobil-Zulieferer",
-      challenge: "Ein Zulieferer brauchte ein vergrößertes Schnittmodell eines innovativen Bremssystems für die Automechanika. Die inneren Komponenten und Verschleißteile sollten sichtbar und entnehmbar sein.",
+      title: "Zulieferer-Präsentationsmodell für Automechanika Frankfurt",
+      industry: "Automobil-Design & Präsentation",
+      challenge: "Ein Zulieferer brauchte ein vergrößertes Schnittmodell eines innovativen Bremssystems als Anschauungsmodell für die Automechanika. Die inneren Komponenten sollten sichtbar und entnehmbar sein.",
       solution: "Wir fertigten ein 5-fach vergrößertes Schnittmodell mit 12 entnehmbaren Einzelteilen. Jedes Teil wurde farbcodiert und beschriftet.",
       result: "Werkstätten und Händler konnten die Vorteile des neuen Systems sofort verstehen. 300+ Visitenkarten wurden am Stand gesammelt.",
       specs: {
@@ -378,7 +378,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
       quote: "Ein Bild sagt mehr als tausend Worte – ein 3D-Modell sagt mehr als tausend Bilder. Genau so war es auf der Automechanika."
     },
     materials: defaultMaterials,
-    industryFocus: "Automobil, Gebäudetechnik & Konsumgüter in Frankfurt",
+    industryFocus: "Präsentation, Gebäudetechnik & Konsumgüter in Frankfurt",
     uniqueSellingPoints: [
       "Erfahrung mit Messe Frankfurt – eine der größten weltweit",
       "Express-Versand für internationale Leitmessen",
@@ -388,9 +388,9 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
 
   'duesseldorf': {
     caseStudy: {
-      title: "Kunststoff-Spritzgusswerkzeug für K-Messe",
+      title: "Kunststoff-Werkzeugmodell für K-Messe",
       industry: "Kunststofftechnik",
-      challenge: "Ein Werkzeugbauer wollte auf der K-Messe ein komplexes Spritzgusswerkzeug mit Heißkanalsystem präsentieren. Das Modell sollte alle internen Kanäle und Kavitäten zeigen.",
+      challenge: "Ein Werkzeugbauer wollte auf der K-Messe ein komplexes Werkzeugmodell mit Heißkanalsystem als Anschauungsmodell präsentieren. Das Modell sollte alle internen Kanäle und Kavitäten zeigen.",
       solution: "Wir erstellten ein aufgeschnittenes Modell mit transparenten Elementen für die Heißkanalführung. Die Kavitäten wurden farblich hervorgehoben.",
       result: "Das Modell ermöglichte technische Diskussionen auf einem neuen Level. Der Werkzeugbauer gewann drei neue Großkunden.",
       specs: {
@@ -401,7 +401,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
       quote: "Unsere Kunden konnten das Werkzeug von innen sehen, bevor es gefertigt wird. Ein unschätzbarer Vorteil."
     },
     materials: defaultMaterials,
-    industryFocus: "Kunststoff, Medizintechnik & Handel in Düsseldorf",
+    industryFocus: "Kunststoff, Fachpräsentationen & Handel in Düsseldorf",
     uniqueSellingPoints: [
       "Erfahrung mit K-Messe und MEDICA",
       "Kompetenz für Werkzeug-Schnittmodelle",

@@ -78,13 +78,13 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Anschauungsmodell",
     category: "Modellbau",
-    definition: "3D-gedrucktes Modell, das primär der visuellen und haptischen Präsentation dient – nicht als funktionaler Prototyp. Typisch für Architektur, Stadtplanung, Maschinenbau-Präsentationen und Produktdesign. Kann farbig, mehrfarbig oder mit verschiedenen Materialien gestaltet werden. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
+    definition: "3D-gedrucktes Modell, das primär der visuellen und haptischen Präsentation dient – nicht als funktionaler Prototyp. Typisch für Architektur, Stadtplanung, Industrie-Präsentationen und Produktdesign. Kann farbig, mehrfarbig oder mit verschiedenen Materialien gestaltet werden. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
     relatedLinks: [{ label: "Architekturmodelle", href: "/architekturmodelle" }, { label: "Messemodelle", href: "/messemodelle" }]
   },
   {
-    term: "Funktionsprototyp",
+    term: "Designprototyp",
     category: "Modellbau",
-    definition: "Anschauungsmodell, das primär der visuellen Präsentation dient – nicht als funktionaler Prototyp. Kann bewegliche Elemente zur Demonstration enthalten. Typisch für Architektur, Stadtplanung, Maschinenbau-Präsentationen und Produktdesign. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
+    definition: "Anschauungsmodell, das primär der visuellen Präsentation dient. Kann bewegliche Elemente zur Demonstration enthalten. Typisch für Architektur, Stadtplanung, Industrie-Präsentationen und Produktdesign. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
     relatedLinks: [{ label: "Prototypen", href: "/prototypen" }]
   },
   {
@@ -178,20 +178,20 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "ASA (Acrylnitril-Styrol-Acrylester)",
     category: "Material",
-    definition: "UV-beständige Alternative zu ABS, speziell für Außenanwendungen entwickelt. Wetterbeständig, farbstabil auch bei Sonneneinstrahlung, temperaturbeständig bis 95 °C. Druckparameter ähnlich ABS. Ideal für Gehäuse, Automobilteile und Gartenbauanwendungen. Geringere Dämpfentwicklung als ABS.",
+    definition: "UV-beständige Alternative zu ABS, speziell für Außenanwendungen entwickelt. Wetterbeständig, farbstabil auch bei Sonneneinstrahlung, temperaturbeständig bis 95 °C. Druckparameter ähnlich ABS. Ideal für Outdoor-Modelle, Gartendekor und witterungsbeständige Präsentationsobjekte. Geringere Dämpfentwicklung als ABS.",
     relatedLinks: [{ label: "Materialien", href: "/materialien" }]
   },
   {
     term: "TPU (Thermoplastisches Polyurethan)",
     category: "Material",
-    definition: "Flexibles, gummiartiges Filament mit hoher Elastizität und Verschleißfestigkeit. Shore-Härte typisch 85A–95A. Erfordert niedrige Druckgeschwindigkeit (20–30 mm/s) und Direct-Drive-Extruder. Anwendungen: Dichtungen, Schläuche, Stoßdämpfer, Schutzhüllen. Drucktemperatur 210–230 °C.",
+    definition: "Flexibles, gummiartiges Filament mit hoher Elastizität und Verschleißfestigkeit. Shore-Härte typisch 85A–95A. Erfordert niedrige Druckgeschwindigkeit (20–30 mm/s) und Direct-Drive-Extruder. Anwendungen: flexible Designmodelle, Schutzhüllen, elastische Dekorationsobjekte. Drucktemperatur 210–230 °C.",
     relatedLinks: [{ label: "Einzelanfertigungen", href: "/einzelanfertigungen" }]
   },
   {
     term: "Nylon (Polyamid PA6/PA12)",
     category: "Material",
-    definition: "Hochfestes, abriebfestes technisches Material mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch (wasseranziehend) – muss vor Druck getrocknet werden. Drucktemperatur 240–280 °C, Heizbett 70–90 °C. Ideal für anspruchsvolle Modelle und Prototypen. PA12 weniger hygroskopisch als PA6.",
-    relatedLinks: [{ label: "Materialien", href: "/materialien" }, { label: "Prototypen", href: "/prototypen" }]
+    definition: "Hochfestes, abriebfestes technisches Material mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch (wasseranziehend) – muss vor Druck getrocknet werden. Drucktemperatur 240–280 °C, Heizbett 70–90 °C. Ideal für anspruchsvolle Anschauungsmodelle und hochwertige Präsentationsobjekte. PA12 weniger hygroskopisch als PA6.",
+    relatedLinks: [{ label: "Materialien", href: "/materialien" }]
   },
   {
     term: "Österreichisches Filament",
@@ -210,7 +210,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Infill (Füllung)",
     category: "Druckparameter",
-    definition: "Die innere Struktur eines 3D-Drucks, angegeben in Prozent (0–100 %). Höherer Infill bedeutet mehr Material und Festigkeit, aber längere Druckzeit. Typische Werte: 15–20 % für Prototypen und Anschauungsmodelle, 30–50 % für funktionale Teile, 100 % für mechanisch kritische Bauteile. Verschiedene Füllmuster (Grid, Gyroid, Honeycomb) beeinflussen Festigkeit und Materialverbrauch.",
+    definition: "Die innere Struktur eines 3D-Drucks, angegeben in Prozent (0–100 %). Höherer Infill bedeutet mehr Material und Festigkeit, aber längere Druckzeit. Typische Werte: 15–20 % für Anschauungsmodelle, 30–50 % für robuste Präsentationsobjekte, 100 % für besonders stabile Modelle. Verschiedene Füllmuster (Grid, Gyroid, Honeycomb) beeinflussen Festigkeit und Materialverbrauch.",
     relatedLinks: [{ label: "FDM 3D-Druck", href: "/fdm-druck" }]
   },
   {
@@ -260,7 +260,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Post-Processing (Nachbearbeitung)",
     category: "Nachbearbeitung",
-    definition: "Alle Bearbeitungsschritte nach dem 3D-Druck zur Verbesserung von Optik oder Funktion. Umfasst: Support-Entfernung, Schleifen, Grundieren, Lackieren, chemisches Glätten (Aceton-Dampf bei ABS), Einfügen von Gewindeeinsätzen, Bohren, Kleben mehrerer Teile. Professionelles Post-Processing kann 3D-Drucke wie Spritzgussteile aussehen lassen.",
+    definition: "Alle Bearbeitungsschritte nach dem 3D-Druck zur Verbesserung von Optik oder Haptik. Umfasst: Support-Entfernung, Schleifen, Grundieren, Lackieren, chemisches Glätten (Aceton-Dampf bei ABS), Kleben mehrerer Teile. Professionelles Post-Processing verwandelt 3D-Drucke in hochwertige Präsentationsmodelle.",
     relatedLinks: [{ label: "Einzelanfertigungen", href: "/einzelanfertigungen" }]
   },
   {

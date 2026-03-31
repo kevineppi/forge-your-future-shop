@@ -99,7 +99,7 @@ const useCases = [
   {
     icon: Eye,
     title: "Industrielle Anschauungsmodelle",
-    description: "Produktvisualisierungen, Konzeptdarstellungen und Maßstabsmodelle für Kundenpräsentationen und Schulungsunterlagen. Keine Funktionsteile.",
+    description: "Produktvisualisierungen, Konzeptdarstellungen und Maßstabsmodelle für Kundenpräsentationen und Schulungsunterlagen. Ausschließlich zu Anschauungszwecken.",
     details: ["Produktvisualisierungen", "Konzeptmodelle", "Schulungsmodelle", "Kundenpräsentationen"],
     link: "/einzelanfertigungen"
   },

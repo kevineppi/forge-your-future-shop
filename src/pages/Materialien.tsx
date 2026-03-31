@@ -146,7 +146,7 @@ const Materialien = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">Unsere Material-Auswahl</h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Für jede Anwendung das passende Material - von einfachen Prototypen bis zu anspruchsvollen Modellen
+                  Für jede Anwendung das passende Material – von Konzeptmodellen bis zu anspruchsvollen Präsentationsobjekten
                 </p>
               </div>
 
@@ -227,7 +227,7 @@ const Materialien = () => {
                             <li>• Alle Standard-Farben</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Robuste Modelle, Mechanik, Werkzeuge
+                            <span className="font-medium">Ideal für:</span> Robuste Modelle, Präsentationsobjekte, langlebige Dekorationen
                           </div>
                         </div>
                       </CardContent>
@@ -261,7 +261,7 @@ const Materialien = () => {
                             <li>• Recycelbar</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Behälter, Linsen, medizinische Teile
+                            <span className="font-medium">Ideal für:</span> Vitrinen, Lichteffekte, transparente Modelle
                           </div>
                         </div>
                       </CardContent>
@@ -299,7 +299,7 @@ const Materialien = () => {
                             <li>• Industriestandard</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Gehäuse, Automotive, Elektronik
+                            <span className="font-medium">Ideal für:</span> Präsentationsgehäuse, Designstudien, Modelle
                           </div>
                         </div>
                       </CardContent>
@@ -333,7 +333,7 @@ const Materialien = () => {
                             <li>• Outdoor-geeignet</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Außenteile, KFZ-Zubehör, Garten
+                            <span className="font-medium">Ideal für:</span> Außenmodelle, Gartendekor, UV-belastete Objekte
                           </div>
                         </div>
                       </CardContent>
@@ -367,7 +367,7 @@ const Materialien = () => {
                             <li>• Ingenieurskunststoff</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Luftfahrt, Medizintechnik, Schutzausrüstung
+                            <span className="font-medium">Ideal für:</span> Hochtemperatur-Modelle, transparente Anschauungsobjekte, Premium-Präsentationen
                           </div>
                         </div>
                       </CardContent>
@@ -383,7 +383,7 @@ const Materialien = () => {
                           <CardTitle className="text-xl">TPU (Flexibel)</CardTitle>
                           <Badge variant="secondary">Flexibel</Badge>
                         </div>
-                        <CardDescription>Gummiartige Flexibilität für elastische Bauteile</CardDescription>
+                        <CardDescription>Gummiartige Flexibilität für elastische Objekte</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-4">
@@ -473,7 +473,7 @@ const Materialien = () => {
                             <li>• Premium-Finish</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Drohnen, Racing-Teile, High-End Prototypen
+                            <span className="font-medium">Ideal für:</span> Leichtbau-Modelle, Carbon-Optik-Objekte, Premium-Designstudien
                           </div>
                         </div>
                       </CardContent>

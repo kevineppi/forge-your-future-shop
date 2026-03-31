@@ -11,7 +11,7 @@ const knowledgeEntries = [
   // FDM & Grundlagen
   {
     title: "FDM 3D-Druck Verfahren",
-    content: "FDM (Fused Deposition Modeling), auch Schmelzschichtung oder FFF genannt, ist das am weitesten verbreitete 3D-Druckverfahren. Thermoplastisches Filament wird durch eine beheizte Düse geschmolzen und schichtweise auf eine Bauplatte aufgetragen. Die Schichtadhäsion basiert auf der Interdiffusion von Polymerketten bei Temperaturen knapp über der Glasübergangstemperatur. Standard-Schichthöhen liegen zwischen 0,1-0,4mm. FDM ist ideal für Prototypen und Funktionsteile aus Kunststoff und bietet die niedrigsten Kosten bei hoher Materialvielfalt.",
+    content: "FDM (Fused Deposition Modeling), auch Schmelzschichtung oder FFF genannt, ist das am weitesten verbreitete 3D-Druckverfahren. Thermoplastisches Filament wird durch eine beheizte Düse geschmolzen und schichtweise auf eine Bauplatte aufgetragen. Die Schichtadhäsion basiert auf der Interdiffusion von Polymerketten bei Temperaturen knapp über der Glasübergangstemperatur. Standard-Schichthöhen liegen zwischen 0,1-0,4mm. FDM ist ideal für Anschauungsmodelle, Architekturmodelle und Dekorationsobjekte aus Kunststoff und bietet die niedrigsten Kosten bei hoher Materialvielfalt.",
     category: "Verfahren",
     page_url: "/glossar"
   },
@@ -23,7 +23,7 @@ const knowledgeEntries = [
   },
   {
     title: "3D-Druck Materialien - PETG",
-    content: "PETG (Polyethylenterephthalat-Glycol) ist ein robuster, schlagfester Kunststoff mit hervorragenden mechanischen Eigenschaften. Drucktemperatur: 230-250°C, Heizbett 70-80°C empfohlen. Zugfestigkeit: 50-60 MPa, Bruchdehnung: 30-100% (vs. 2-5% bei PLA). Glasübergangstemperatur: 75-80°C, einsetzbar bis 70°C. UV- und chemikalienbeständig, lebensmittelecht (FDA-approved), ideal für Funktionsteile. Höhere Festigkeit als PLA bei guter Druckbarkeit. Neigt zu Stringing. Preis: 25-35€/kg. Perfekt für mechanisch belastete Teile, Gehäuse, Werkzeuge.",
+    content: "PETG (Polyethylenterephthalat-Glycol) ist ein robuster, schlagfester Kunststoff mit hervorragenden mechanischen Eigenschaften. Drucktemperatur: 230-250°C, Heizbett 70-80°C empfohlen. Zugfestigkeit: 50-60 MPa, Bruchdehnung: 30-100% (vs. 2-5% bei PLA). Glasübergangstemperatur: 75-80°C, einsetzbar bis 70°C. UV- und chemikalienbeständig, ideal für langlebige Anschauungsmodelle und Präsentationsobjekte. Höhere Festigkeit als PLA bei guter Druckbarkeit. Neigt zu Stringing. Preis: 25-35€/kg. Perfekt für robuste Modelle, Gehäuse-Designs und transparente Schauobjekte.",
     category: "Materialien",
     page_url: "/ratgeber/material-guide"
   },
@@ -35,7 +35,7 @@ const knowledgeEntries = [
   },
   {
     title: "3D-Druck Materialien - Nylon & TPU",
-    content: "Nylon (Polyamid PA6/PA12) ist hochfest, abriebfest mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch - muss vor Druck getrocknet werden. Drucktemperatur 240-280°C. Ideal für mechanisch belastete Funktionsteile, Zahnräder, Lager. PA12 weniger hygroskopisch als PA6. TPU (Thermoplastisches Polyurethan) ist flexibles, gummiartiges Filament mit hoher Elastizität. Shore-Härte 85A-95A. Erfordert niedrige Druckgeschwindigkeit (20-30mm/s) und Direct-Drive-Extruder. Anwendungen: Dichtungen, Schläuche, Stoßdämpfer, Schutzhüllen. Drucktemperatur 210-230°C.",
+    content: "Nylon (Polyamid PA6/PA12) ist hochfest, abriebfest mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch - muss vor Druck getrocknet werden. Drucktemperatur 240-280°C. Ideal für anspruchsvolle Anschauungsmodelle und hochwertige Präsentationsobjekte. PA12 weniger hygroskopisch als PA6. TPU (Thermoplastisches Polyurethan) ist flexibles, gummiartiges Filament mit hoher Elastizität. Shore-Härte 85A-95A. Erfordert niedrige Druckgeschwindigkeit (20-30mm/s) und Direct-Drive-Extruder. Anwendungen: flexible Designmodelle, Schutzhüllen, elastische Dekorationsobjekte. Drucktemperatur 210-230°C.",
     category: "Materialien",
     page_url: "/glossar"
   },
@@ -54,7 +54,7 @@ const knowledgeEntries = [
   },
   {
     title: "Druckparameter - Infill & Perimeter",
-    content: "Infill ist die innere Füllstruktur eines 3D-Drucks in Prozent (0-100%). Höherer Infill = mehr Festigkeit und Material. Typische Werte: 15-20% für Prototypen, 30-50% für funktionale Teile, 100% für kritische Bauteile. Füllmuster (Grid, Gyroid, Honeycomb) beeinflussen Festigkeit. Perimeter sind die äußeren Wandungen, meist 2-4 Schichten. Mehr Perimeter erhöhen Festigkeit, Wasserdichtigkeit und Wandstabilität. Bei dünnen Wänden können Perimeter das gesamte Bauteil ausfüllen (0% Infill sinnvoll). Optimale Balance zwischen Festigkeit, Gewicht und Druckzeit entscheidend.",
+    content: "Infill ist die innere Füllstruktur eines 3D-Drucks in Prozent (0-100%). Höherer Infill = mehr Festigkeit und Material. Typische Werte: 15-20% für Anschauungsmodelle, 30-50% für robuste Präsentationsobjekte, 100% für besonders stabile Modelle. Füllmuster (Grid, Gyroid, Honeycomb) beeinflussen Festigkeit. Perimeter sind die äußeren Wandungen, meist 2-4 Schichten. Mehr Perimeter erhöhen Festigkeit und Wandstabilität. Bei dünnen Wänden können Perimeter das gesamte Objekt ausfüllen (0% Infill sinnvoll). Optimale Balance zwischen Festigkeit, Gewicht und Druckzeit entscheidend.",
     category: "Technische Details",
     page_url: "/glossar"
   },
@@ -73,13 +73,13 @@ const knowledgeEntries = [
   },
   {
     title: "3D-Druck Preisbeispiele",
-    content: "Konkrete Preisbeispiele: Kleines Prototypen-Teil (5x5x5cm, PLA, 3h): 18-25€. Mittleres Funktionsbauteil (10x10x8cm, PETG, 8h): 45-65€. Großes technisches Teil (20x15x12cm, Carbon-PETG, 24h): 120-180€. Komplexes Architekturmodell (25x25x15cm, PLA weiß, 36h): 200-280€. Alle Preise inkl. Material, Druckzeit und Standardversand in Österreich. Mengenrabatte: Ab 5 Teile 10% Rabatt, ab 20 Teile 15%, ab 50 Teile 20%. Standardversand (2-3 Tage) ab 50€ kostenlos, sonst 4,90€. Express (24h) +12,90€.",
+    content: "Konkrete Preisbeispiele: Kleines Anschauungsmodell (5x5x5cm, PLA, 3h): 18-25€. Mittleres Präsentationsmodell (10x10x8cm, PETG, 8h): 45-65€. Großes Modell (20x15x12cm, Carbon-PETG, 24h): 120-180€. Komplexes Architekturmodell (25x25x15cm, PLA weiß, 36h): 200-280€. Alle Preise inkl. Material, Druckzeit und Standardversand in Österreich. Mengenrabatte: Ab 5 Teile 10% Rabatt, ab 20 Teile 15%, ab 50 Teile 20%. Standardversand (2-3 Tage) ab 50€ kostenlos, sonst 4,90€. Express (24h) +12,90€.",
     category: "Preise",
     page_url: "/ratgeber/kosten-guide"
   },
   {
     title: "Kostenvergleich Fertigungsverfahren",
-    content: "FDM 3D-Druck vs. traditionelle Fertigung: CNC-Fräsen Prototyp 800-2.000€, Kleinserie 300-800€/Stk, 2-4 Wochen Lieferzeit. Spritzguss Werkzeug 15.000-50.000€, dann 2-10€/Stk, 8-12 Wochen Lieferzeit. FDM 3D-Druck Prototyp 50-300€, Kleinserie 40-250€/Stk, 2-5 Tage Lieferzeit. Break-Even liegt bei 50-500 Stück abhängig von Komplexität. Für Prototypen und <100 Stück ist FDM fast immer günstiger. Bei >1000 Stück wird Spritzguss wirtschaftlicher. FDM spart 50-80% bei Prototypen gegenüber CNC.",
+    content: "FDM 3D-Druck vs. traditionelle Fertigung: CNC-Fräsen Modell 800-2.000€, 2-4 Wochen Lieferzeit. FDM 3D-Druck Modell 50-300€, 2-5 Tage Lieferzeit. Für Anschauungsmodelle und Projektmengen unter 100 Stück ist FDM fast immer günstiger. FDM spart 50-80% bei Designmodellen gegenüber CNC-Fräsen.",
     category: "Preise",
     page_url: "/ratgeber/verfahrens-vergleich"
   },
@@ -92,40 +92,40 @@ const knowledgeEntries = [
   // Verfahrensvergleich
   {
     title: "3D-Druckverfahren Vergleich - FDM vs SLA vs SLS",
-    content: "FDM: Schichthöhe 0,1-0,4mm, Genauigkeit ±0,5%, sichtbare Schichten, breite Materialauswahl, Geräte 500-5.000€, Material 20-50€/kg. Ideal für Funktionsteile, Prototypen, Endteile. SLA: Schichthöhe 0,025-0,1mm, Genauigkeit ±0,1mm, glatte Oberfläche, Photopolymere, Geräte 2.000-10.000€, Material 100-200€/L. Ideal für Details, Schmuck, Dentalmodelle. SLS: Schichthöhe 0,06-0,15mm, Genauigkeit ±0,3%, leicht körnig, keine Supports nötig, Nylon/TPU, Geräte 10.000-100.000€+, Material 60-100€/kg. Ideal für Endprodukte, Kleinserien, höchste Festigkeit.",
+    content: "FDM: Schichthöhe 0,1-0,4mm, Genauigkeit ±0,5%, sichtbare Schichten, breite Materialauswahl, Geräte 500-5.000€, Material 20-50€/kg. Ideal für Anschauungsmodelle, Architekturmodelle, Dekorationsobjekte. SLA: Schichthöhe 0,025-0,1mm, Genauigkeit ±0,1mm, glatte Oberfläche, Photopolymere, Geräte 2.000-10.000€, Material 100-200€/L. Ideal für Details, Schmuck, feinste Miniaturmodelle. SLS: Schichthöhe 0,06-0,15mm, Genauigkeit ±0,3%, leicht körnig, keine Supports nötig, Nylon/TPU, Geräte 10.000-100.000€+, Material 60-100€/kg. Ideal für hochpräzise Anschauungsobjekte.",
     category: "Verfahren",
     page_url: "/ratgeber/verfahrens-vergleich"
   },
   {
     title: "FDM Vorteile und Anwendungen",
-    content: "FDM-Vorteile: Niedrigste Kosten für Geräte und Material, breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites), einfache Bedienung und Wartung, ideal für funktionale Prototypen und Endteile, nachhaltige Materialien verfügbar. Anwendungen: Gehäuse, Halterungen, Werkzeuge, Ersatzteile, Vorrichtungen, technische Prototypen. FDM ist optimal wenn Kosteneffizienz wichtig ist, große Bauteile gedruckt werden, mechanische Belastbarkeit wichtiger ist als Oberflächenqualität, recycelbare Materialien gewünscht sind.",
+    content: "FDM-Vorteile: Niedrigste Kosten für Geräte und Material, breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites), einfache Bedienung und Wartung, ideal für Anschauungsmodelle und Designstudien, nachhaltige Materialien verfügbar. Anwendungen: Architekturmodelle, Messemodelle, Dekorationsobjekte, Designstudien, Präsentationsmodelle. FDM ist optimal wenn Kosteneffizienz wichtig ist, große Objekte gedruckt werden, recycelbare Materialien gewünscht sind.",
     category: "Verfahren",
     page_url: "/ratgeber/verfahrens-vergleich"
   },
   {
     title: "Rapid Prototyping Grundlagen",
-    content: "Rapid Prototyping ist die schnelle Herstellung von Prototypen mittels additiver Fertigung. FDM 3D-Druck ermöglicht 85% schnellere Entwicklung als traditionelle Methoden. Vorteile: Keine Werkzeugkosten, schnelle Iterationen möglich, Designfreiheit, Funktionstest unter realen Bedingungen. Typische Lieferzeit 2-5 Tage vs. 2-4 Wochen bei CNC. Express-Service liefert in 24-48h. Kostenreduktion um bis zu 75% vs. CNC bei Prototypen. Ermöglicht frühzeitige Validierung, Fehlerkorrektur vor Serienfertigung, ROI-Verbesserung durch schnellere Time-to-Market.",
+    content: "Rapid Prototyping ist die schnelle Herstellung von Designprototypen mittels additiver Fertigung. FDM 3D-Druck ermöglicht 85% schnellere Entwicklung als traditionelle Methoden. Vorteile: Keine Werkzeugkosten, schnelle Iterationen möglich, Designfreiheit. Typische Lieferzeit 2-5 Tage vs. 2-4 Wochen bei CNC. Express-Service liefert in 24-48h. Kostenreduktion um bis zu 75% vs. CNC bei Designmodellen. Ermöglicht frühzeitige Visualisierung und schnellere Designentscheidungen.",
     category: "Services",
     page_url: "/rapid-prototyping"
   },
-  // Maschinenbau
+  // Designmodelle
   {
-    title: "3D-Druck im Maschinenbau - Funktionsprototypen",
-    content: "Funktionsprototypen ermöglichen Validierung von Designs vor Serienfertigung. Vorteile: Funktionstest unter realen Bedingungen, iterative Optimierung möglich, Kostenreduktion bis 75% vs. CNC, Lieferzeit 2-5 Tage statt 2-4 Wochen. Materialien: PA12 (Nylon) für hohe Festigkeit und Verschleißfestigkeit, Carbon-Composite für hochbelastete Strukturbauteile, PETG für chemikalienbeständige Teile. Kritische Faktoren: Schichtorientierung beachten (Z-Achse nur 50-70% der XY-Festigkeit), Wandstärke min. 2-3mm für optimale Eigenschaften, Toleranzen ±0,2-0,5mm.",
+    title: "3D-Druck Anschauungsmodelle für Industrie-Präsentationen",
+    content: "Anschauungsmodelle ermöglichen Visualisierung von Designs für Kundenpräsentationen und Vertrieb. Vorteile: Physische Darstellung von Konzepten, iterative Optimierung möglich, Kostenreduktion bis 75% vs. CNC, Lieferzeit 2-5 Tage statt 2-4 Wochen. Materialien: PLA für detaillierte Modelle, PETG für robuste Präsentationsmodelle, ASA für Outdoor-Anschauungsobjekte. Wichtig: Schichtorientierung beachten, Wandstärke min. 2-3mm für optimale Stabilität, Toleranzen ±0,2-0,5mm.",
     category: "Technische Details",
-    page_url: "/ratgeber/maschinenbau"
+    page_url: "/einzelanfertigungen"
   },
   {
-    title: "3D-Druck Ersatzteile & Legacy-Komponenten",
-    content: "Produktion nicht mehr verfügbarer Bauteile per 3D-Druck. Vorteile: Keine Mindestbestellmengen, Reverse Engineering möglich (Vermessung defekter Teile), Lagerhaltung minimieren, On-Demand Produktion. Ideal für auslaufende Produktlinien, Oldtimer-Restaurierung, Industrieanlagen-Wartung. Materialauswahl nach Originalanforderungen: ASA für UV-Beständigkeit, PETG für chemische Beständigkeit, PA12 für mechanische Belastung. Kosteneffizienz besonders bei seltenen Teilen und kleinen Stückzahlen (<50).",
+    title: "3D-Druck Nachbildungen & Konzeptmodelle",
+    content: "Produktion von Nachbildungen und Konzeptmodellen per 3D-Druck. Vorteile: Keine Mindestbestellmengen, Modellierung nach Vorlage möglich, Lagerhaltung minimieren, On-Demand Produktion. Ideal für Präsentationen, Schulungsmaterial, Museumsexponate. Materialauswahl nach Anwendung: ASA für UV-Beständigkeit, PETG für robuste Modelle, PLA für detaillierte Objekte. Kosteneffizienz besonders bei individuellen Projekten und Einzelstücken.",
     category: "Services",
-    page_url: "/ratgeber/maschinenbau"
+    page_url: "/einzelanfertigungen"
   },
   {
-    title: "Qualitätsfaktoren 3D-Druck Maschinenbau",
-    content: "Kritische Qualitätsfaktoren: 1) Schichtorientierung - Anisotropie bedeutet Z-Achse nur 50-70% der XY-Festigkeit, Belastungsrichtung bei Design berücksichtigen. 2) Wandstärke - Minimum 1,2mm für strukturelle Festigkeit, optimal 2-3mm für beste mechanische Eigenschaften. 3) Toleranzen - FDM ±0,2-0,5mm je nach Bauteilgröße, Nachbearbeitung für Passungen einplanen. 4) Verzug - Thermische Kontraktion bei Abkühlung, Lösung: beheiztes Druckbett, Temperaturmanagement, optimierte Druckparameter.",
+    title: "Qualitätsfaktoren 3D-Druck Modellbau",
+    content: "Kritische Qualitätsfaktoren: 1) Schichtorientierung - Anisotropie bedeutet Z-Achse nur 50-70% der XY-Festigkeit, Ausrichtung bei Design berücksichtigen. 2) Wandstärke - Minimum 1,2mm für stabile Modelle, optimal 2-3mm für beste Ergebnisse. 3) Toleranzen - FDM ±0,2-0,5mm je nach Objektgröße. 4) Verzug - Thermische Kontraktion bei Abkühlung, Lösung: beheiztes Druckbett, Temperaturmanagement, optimierte Druckparameter.",
     category: "Technische Details",
-    page_url: "/ratgeber/maschinenbau"
+    page_url: "/ratgeber/material-guide"
   },
   // Druckfehler
   {
@@ -162,7 +162,7 @@ const knowledgeEntries = [
   // Nachbearbeitung
   {
     title: "Nachbearbeitung - Post-Processing",
-    content: "Post-Processing umfasst alle Bearbeitungsschritte nach dem 3D-Druck: Support-Entfernung mit Zangen/Cutter, Schleifen (nass/trocken, Körnung 100-2000), Grundieren für glatte Oberfläche, Lackieren (Sprühdose oder Airbrush), chemisches Glätten (Aceton-Dampf bei ABS, Ethylacetat bei PETG), Einfügen von Gewindeeinsätzen (Heatsets mit Lötkolben), Bohren, Gewindeschneiden, Kleben mehrerer Teile (Cyanacrylat, Epoxy). Professionelles Post-Processing kann 3D-Drucke wie Spritzgussteile aussehen lassen. Zeitaufwand: 10 Min bis mehrere Stunden je nach Qualitätsanforderung.",
+    content: "Post-Processing umfasst alle Bearbeitungsschritte nach dem 3D-Druck: Support-Entfernung mit Zangen/Cutter, Schleifen (nass/trocken, Körnung 100-2000), Grundieren für glatte Oberfläche, Lackieren (Sprühdose oder Airbrush), chemisches Glätten (Aceton-Dampf bei ABS), Kleben mehrerer Teile (Cyanacrylat, Epoxy). Professionelles Post-Processing verwandelt 3D-Drucke in hochwertige Präsentationsmodelle. Zeitaufwand: 10 Min bis mehrere Stunden je nach Qualitätsanforderung.",
     category: "Technische Details",
     page_url: "/glossar"
   },
@@ -181,21 +181,21 @@ const knowledgeEntries = [
   },
   {
     title: "Services - Probeteile & Muster",
-    content: "Probeteile-Service für neue Kunden und Qualitätsprüfung. Kleine Probeteile (bis 5x5x5cm) ab 15€. Ermöglicht Materialtest, Passgenauigkeitsprüfung, Funktionsvalidierung vor Serienbestellung. Kostenloser Kostenvoranschlag innerhalb 24h nach Datei-Upload. Beratung zu Materialwahl, Ausrichtung, Wandstärken inklusive. Online-Kostenrechner verfügbar für Sofortpreise. Eigene Probeteile-Seite mit Upload-Funktion und direkter Anfrage. Ideal für Erstkunden zur Qualitätsbeurteilung. Probeteile werden mit gleicher Sorgfalt wie Serienteile produziert.",
+    content: "Probeteile-Service für neue Kunden und Qualitätsprüfung. Kleine Probeteile (bis 5x5x5cm) ab 15€. Ermöglicht Materialtest, Oberflächenprüfung und Qualitätsbewertung vor größerer Bestellung. Kostenloser Kostenvoranschlag innerhalb 24h nach Datei-Upload. Beratung zu Materialwahl, Ausrichtung, Wandstärken inklusive. Online-Kostenrechner verfügbar für Sofortpreise. Ideal für Erstkunden zur Qualitätsbeurteilung. Probeteile werden mit gleicher Sorgfalt wie alle Aufträge produziert.",
     category: "Services",
     page_url: "/probeteile"
   },
   {
     title: "Services - Einzelanfertigungen",
-    content: "Einzelanfertigungen für Spezialanwendungen, Unikate, Ersatzteile. Keine Mindestbestellmenge - auch einzelne Teile werden produziert. Kosteneffizient da keine Werkzeugkosten. Design-Support und technische Beratung inklusive. Reverse Engineering möglich: Defekte Teile vermessen und nachgebaut. CAD-Erstellung aus Skizzen oder Fotos auf Anfrage. Materialberatung je nach Anwendung. Nachbearbeitung wie Schleifen, Lackieren gegen Aufpreis möglich. Vertraulichkeit garantiert - NDAs auf Anfrage. Ideal für Prototypen, Legacy-Teile, Spezialwerkzeuge, Vorrichtungen.",
+    content: "Einzelanfertigungen für individuelle Anschauungsmodelle, Unikate, Präsentationsobjekte. Keine Mindestbestellmenge - auch einzelne Objekte werden produziert. Kosteneffizient da keine Werkzeugkosten. Design-Support und Beratung inklusive. 3D-Modellierung aus Skizzen oder Fotos auf Anfrage. Materialberatung je nach Anwendung. Nachbearbeitung wie Schleifen, Lackieren gegen Aufpreis möglich. Vertraulichkeit garantiert - NDAs auf Anfrage. Ideal für Messemodelle, Architekturmodelle, Designstudien, Kunstobjekte.",
     category: "Services",
     page_url: "/einzelanfertigungen"
   },
   {
-    title: "Services - Serienfertigung",
-    content: "Serienfertigung für Kleinserien und mittlere Stückzahlen (5-500 Teile). Mengenrabatte: Ab 5 Teile 10%, ab 20 Teile 15%, ab 50 Teile 20%. Gleichbleibende Qualität durch optimierte Druckparameter. Wirtschaftlich bis ca. 500 Stück, darüber Spritzguss erwägen. Vorteile: Keine Werkzeugkosten, schnelle Produktionsänderungen möglich, individuelle Anpassungen in Serie machbar (Massenindividualisierung). Lieferzeit auch bei Serien nur 5-10 Tage. Ideal für Produktionsanlauf, saisonale Produkte, limitierte Editionen. Qualitätskontrolle jedes Teils.",
+    title: "Services - Projektmengen & Mengenrabatte",
+    content: "Mengenproduktion für Projektmengen (5-500 Stück). Mengenrabatte: Ab 5 Stück 10%, ab 20 Stück 15%, ab 50 Stück 20%. Gleichbleibende Qualität durch optimierte Druckparameter. Vorteile: Keine Werkzeugkosten, schnelle Produktionsänderungen möglich, individuelle Anpassungen machbar. Lieferzeit auch bei größeren Mengen nur 5-10 Tage. Ideal für Messeexponate, Schulungsmodelle, limitierte Editionen, Präsentationsserien. Qualitätskontrolle bei jedem einzelnen Modell.",
     category: "Services",
-    page_url: "/serienfertigung"
+    page_url: "/firmenkunden"
   },
   // Software & Design
   {

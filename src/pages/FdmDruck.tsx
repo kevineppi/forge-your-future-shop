@@ -56,7 +56,7 @@ const keywordContent = {
   blocks: [
     {
       title: "FDM vs. andere 3D-Druckverfahren",
-      content: "Im Vergleich zu SLA (Resin) bietet FDM größere Bauräume, günstigere Materialkosten und robustere Teile. Gegenüber SLS (Pulver) ist FDM kostengünstiger für Einzelstücke und Kleinserien. Für Architekturmodelle, Dekorationsobjekte und Messepräsentationen ist FDM die erste Wahl."
+      content: "Im Vergleich zu SLA (Resin) bietet FDM größere Bauräume, günstigere Materialkosten und robustere Modelle. Gegenüber SLS (Pulver) ist FDM kostengünstiger für Einzelstücke und Projektmengen. Für Architekturmodelle, Dekorationsobjekte und Messepräsentationen ist FDM die erste Wahl."
     },
     {
       title: "Materialvielfalt: Weit mehr als Standard-Plastik",
