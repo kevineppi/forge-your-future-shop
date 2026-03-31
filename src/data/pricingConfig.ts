@@ -12,9 +12,9 @@
  */
 
 // ── Verfahren ────────────────────────────────────────────────
-export type ProcessType = 'FDM' | 'SLA' | 'SLS';
+export type ProcessType = 'FDM';
 
-export type MaterialKey = 'PLA' | 'PETG' | 'ABS' | 'ASA' | 'TPU' | 'RESIN' | 'PA12';
+export type MaterialKey = 'PLA' | 'PLA_PLUS' | 'PETG' | 'ABS' | 'ASA' | 'TPU' | 'PA6_CF' | 'PC';
 
 // ── Hauptkonfiguration ──────────────────────────────────────
 export const PRICING_CONFIG = {
@@ -37,8 +37,6 @@ export const PRICING_CONFIG = {
   /** Verfahrensspezifischer Druckzeit-Multiplikator */
   processTimeFactor: {
     FDM: 1,
-    SLA: 2,
-    SLS: 3,
   } as Record<ProcessType, number>,
 
   // ── Stundensätze Druckkosten ──────────────────────────────
@@ -72,32 +70,37 @@ export const PRICING_CONFIG = {
     boundingBoxMm: { x: 50, y: 50, z: 50 },
   },
 
-  /** Infill-Faktor – wie viel % des Restvolumens tatsächlich Material ist (FDM) */
-  infillFactor: 0.20,
+  /** Infill-Faktor – Standard-Infill-Prozentsatz */
+  defaultInfillPercent: 15,
+
+  /** Verfügbare Infill-Stufen in % */
+  infillOptions: [10, 15, 20, 30, 50, 75, 100],
 
   /** Oberflächen-Korrekturfaktor (FDM) */
   surfaceFactor: 0.9,
 
   /** Materialpreise in €/kg */
   materialPricePerKg: {
-    PLA: 30,
-    PETG: 35,
-    ABS: 40,
-    ASA: 45,
-    TPU: 90,
-    RESIN: 120,
-    PA12: 200,
+    PLA: 25,
+    PLA_PLUS: 30,
+    PETG: 30,
+    ABS: 35,
+    ASA: 40,
+    TPU: 80,
+    PA6_CF: 120,
+    PC: 65,
   } as Record<MaterialKey, number>,
 
   /** Dichte in g/cm³ */
   densityFactor: {
     PLA: 1.24,
+    PLA_PLUS: 1.24,
     PETG: 1.27,
     ABS: 1.04,
     ASA: 1.07,
     TPU: 1.21,
-    RESIN: 1.10,
-    PA12: 1.01,
+    PA6_CF: 1.15,
+    PC: 1.20,
   } as Record<MaterialKey, number>,
 
   /** Schichtdickenfaktor – feinere Schichten = teurer */
@@ -117,59 +120,51 @@ export const PRICING_CONFIG = {
 
   /** Verfügbare Materialien pro Verfahren */
   processMaterials: {
-    FDM: ['PLA', 'PETG', 'ABS', 'ASA', 'TPU'] as MaterialKey[],
-    SLA: ['RESIN'] as MaterialKey[],
-    SLS: ['PA12'] as MaterialKey[],
+    FDM: ['PLA', 'PLA_PLUS', 'PETG', 'ABS', 'ASA', 'TPU', 'PA6_CF', 'PC'] as MaterialKey[],
   } as Record<ProcessType, MaterialKey[]>,
 
   /** Verfügbare Farben pro Material */
   materialColors: {
-    PLA:  ['Schwarz', 'Weiß', 'Grau', 'Natur'],
-    PETG: ['Schwarz', 'Weiß', 'Grau', 'Transparent'],
-    ABS:  ['Schwarz', 'Weiß', 'Grau'],
-    ASA:  ['Schwarz', 'Weiß', 'Grau'],
-    TPU:  ['Schwarz', 'Weiß', 'Natur'],
-    RESIN: ['Grau', 'Weiß', 'Transparent'],
-    PA12: ['Natur', 'Schwarz'],
+    PLA:      ['Schwarz', 'Weiß', 'Grau', 'Natur', 'Rot', 'Blau', 'Grün'],
+    PLA_PLUS: ['Schwarz', 'Weiß', 'Grau', 'Natur'],
+    PETG:     ['Schwarz', 'Weiß', 'Grau', 'Transparent'],
+    ABS:      ['Schwarz', 'Weiß', 'Grau'],
+    ASA:      ['Schwarz', 'Weiß', 'Grau'],
+    TPU:      ['Schwarz', 'Weiß', 'Natur'],
+    PA6_CF:   ['Schwarz'],
+    PC:       ['Transparent', 'Schwarz'],
   } as Record<MaterialKey, string[]>,
 
-  /** Verfügbare Schichtdicken pro Verfahren */
+  /** Verfügbare Schichtdicken */
   processLayerHeights: {
     FDM: [0.08, 0.12, 0.20, 0.28],
-    SLA: [0.08, 0.12],
-    SLS: [0.08, 0.12],
   } as Record<ProcessType, number[]>,
 
   /** Default Schichtdicke pro Verfahren */
   defaultLayerHeight: {
     FDM: 0.20,
-    SLA: 0.12,
-    SLS: 0.12,
   } as Record<ProcessType, number>,
 
   /** Verfügbare Wandstärken pro Verfahren */
   processWallThicknesses: {
     FDM: [0.8, 1.2, 1.6, 2.0, 2.4],
-    SLA: [0.6, 0.8, 1.0, 1.2],
-    SLS: [0.8, 1.0, 1.2, 1.6],
   } as Record<ProcessType, number[]>,
 
   /** Default Wandstärke pro Verfahren */
   defaultWallThickness: {
     FDM: 1.2,
-    SLA: 0.8,
-    SLS: 1.0,
   } as Record<ProcessType, number>,
 
   /** Material-Labels für die UI */
   materialLabels: {
     PLA: 'PLA',
+    PLA_PLUS: 'PLA+',
     PETG: 'PETG',
     ABS: 'ABS',
-    ASA: 'ASA',
-    TPU: 'TPU',
-    RESIN: 'Standard Resin',
-    PA12: 'PA12 (Nylon)',
+    ASA: 'ASA (UV-beständig)',
+    TPU: 'TPU (flexibel)',
+    PA6_CF: 'PA6-CF (Carbonfaser)',
+    PC: 'Polycarbonat',
   } as Record<MaterialKey, string>,
 } as const;
 

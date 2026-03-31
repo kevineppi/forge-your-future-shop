@@ -28,6 +28,7 @@ export interface CalculatorInput {
   materialKey: MaterialKey;
   layerHeight: number;      // mm
   wallThickness: number;    // mm
+  infillPercent: number;    // 0-100
   quantity: number;
   /** Volumen in cm³ – aus STL oder Platzhalter */
   volumeCm3?: number;
@@ -101,7 +102,7 @@ function getLayerHeightFactor(layerHeight: number): number {
 
 // ── 1. Materialkosten ──────────────────────────────────────
 
-function calculateMaterialCost(volumeCm3: number, materialKey: MaterialKey): {
+function calculateMaterialCost(volumeCm3: number, materialKey: MaterialKey, infillPercent: number): {
   materialWeightG: number;
   materialCostRaw: number;
   materialCost: number;
@@ -110,7 +111,13 @@ function calculateMaterialCost(volumeCm3: number, materialKey: MaterialKey): {
   const density = cfg.densityFactor[materialKey];
   const pricePerKg = cfg.materialPricePerKg[materialKey];
 
-  const materialWeightG = volumeCm3 * density;
+  // Effektives Volumen: Wände (ca. 30% des Volumens, immer solid) + Infill (Rest)
+  const wallFraction = 0.30;
+  const infillFraction = infillPercent / 100;
+  const effectiveVolumeFactor = wallFraction + (1 - wallFraction) * infillFraction;
+  const effectiveVolume = volumeCm3 * effectiveVolumeFactor;
+
+  const materialWeightG = effectiveVolume * density;
   const materialCostRaw = (materialWeightG / 1000) * pricePerKg;
   const materialCost = materialCostRaw * cfg.materialSafetyFactor;
 
@@ -196,8 +203,8 @@ export function calculateFinalPrice(input: CalculatorInput): PriceBreakdown {
   const boundingBoxMm = input.boundingBoxMm ?? cfg.placeholderGeometry.boundingBoxMm;
   const maxDimensionMm = Math.max(boundingBoxMm.x, boundingBoxMm.y, boundingBoxMm.z);
 
-  // 1. Materialkosten
-  const mat = calculateMaterialCost(volumeCm3, input.materialKey);
+  // 1. Materialkosten (mit Infill)
+  const mat = calculateMaterialCost(volumeCm3, input.materialKey, input.infillPercent);
 
   // 2. Druckzeit
   const time = calculatePrintTime(volumeCm3, surfaceCm2, boundingBoxMm, input.layerHeight, input.process);
@@ -287,43 +294,47 @@ export interface TestCase {
 
 export const TEST_CASES: TestCase[] = [
   {
-    label: 'FDM / PLA / 0.12mm / 1 Stk',
+    label: 'PLA / 0.12mm / 15% Infill / 1 Stk',
     input: {
       process: 'FDM',
       materialKey: 'PLA',
       layerHeight: 0.12,
       wallThickness: 1.2,
+      infillPercent: 15,
       quantity: 1,
     },
   },
   {
-    label: 'FDM / PLA / 0.20mm / 1 Stk',
+    label: 'PETG / 0.20mm / 20% Infill / 1 Stk',
     input: {
       process: 'FDM',
-      materialKey: 'PLA',
+      materialKey: 'PETG',
       layerHeight: 0.20,
       wallThickness: 1.6,
+      infillPercent: 20,
       quantity: 1,
     },
   },
   {
-    label: 'SLA / Resin / 5 Stk',
+    label: 'ABS / 0.20mm / 30% Infill / 5 Stk',
     input: {
-      process: 'SLA',
-      materialKey: 'RESIN',
-      layerHeight: 0.12,
-      wallThickness: 0.8,
+      process: 'FDM',
+      materialKey: 'ABS',
+      layerHeight: 0.20,
+      wallThickness: 1.2,
+      infillPercent: 30,
       quantity: 5,
     },
   },
   {
-    label: 'SLS / PA12 / 20 Stk',
+    label: 'PA6-CF / 0.12mm / 50% Infill / 10 Stk',
     input: {
-      process: 'SLS',
-      materialKey: 'PA12',
+      process: 'FDM',
+      materialKey: 'PA6_CF',
       layerHeight: 0.12,
-      wallThickness: 1.0,
-      quantity: 20,
+      wallThickness: 1.6,
+      infillPercent: 50,
+      quantity: 10,
     },
   },
 ];
