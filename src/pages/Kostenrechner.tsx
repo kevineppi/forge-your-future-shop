@@ -88,6 +88,17 @@ const Kostenrechner = () => {
         breadcrumbs={breadcrumbs}
         schemaType="service"
       />
+      <HowToSchema
+        name="3D-Druck Richtpreis berechnen – In 4 Schritten zum Angebot"
+        description="So berechnen Sie unverbindlich den Richtpreis für Ihr 3D-gedrucktes Modell und fordern ein persönliches Angebot an."
+        totalTime="PT5M"
+        steps={[
+          { name: "STL-Datei hochladen", text: "Laden Sie Ihre 3D-Datei (STL-Format, bis 100 MB) hoch. Volumen, Oberfläche und Abmessungen werden sekundenschnell im Browser analysiert – ohne dass Ihre Datei einen Server verlässt." },
+          { name: "Material und Parameter wählen", text: "Wählen Sie aus 8 FDM-Materialien (PLA, PETG, ABS, ASA, TPU, PA6-CF, PC) und stellen Sie Schichtdicke, Infill und Wandstärke ein. Der Richtpreis aktualisiert sich bei jeder Änderung in Echtzeit." },
+          { name: "Richtpreis prüfen", text: "Sie sehen sofort eine detaillierte Aufschlüsselung: Materialkosten, Druckkosten, Setup-Pauschale, eventuelle Mengenvorteile und den geschätzten Gesamtpreis." },
+          { name: "Persönliches Angebot anfordern", text: "Senden Sie eine unverbindliche Anfrage mit Ihrem Namen und Ihrer E-Mail. Unser Team prüft Ihr 3D-Modell persönlich und meldet sich innerhalb von 6 Stunden mit einem individuellen Angebot." },
+        ]}
+      />
       <Navigation />
 
       <main className="pt-20">
