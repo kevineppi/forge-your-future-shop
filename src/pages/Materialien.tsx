@@ -333,7 +333,7 @@ const Materialien = () => {
                             <li>• Outdoor-geeignet</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Außenteile, KFZ-Zubehör, Garten
+                            <span className="font-medium">Ideal für:</span> Außenmodelle, Gartendekor, UV-belastete Objekte
                           </div>
                         </div>
                       </CardContent>
