@@ -70,8 +70,11 @@ export const PRICING_CONFIG = {
     boundingBoxMm: { x: 50, y: 50, z: 50 },
   },
 
-  /** Infill-Faktor – wie viel % des Restvolumens tatsächlich Material ist (FDM) */
-  infillFactor: 0.20,
+  /** Infill-Faktor – Standard-Infill-Prozentsatz */
+  defaultInfillPercent: 15,
+
+  /** Verfügbare Infill-Stufen in % */
+  infillOptions: [10, 15, 20, 30, 50, 75, 100],
 
   /** Oberflächen-Korrekturfaktor (FDM) */
   surfaceFactor: 0.9,
