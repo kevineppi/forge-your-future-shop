@@ -11,7 +11,7 @@ const CalculatorDisclaimer = () => (
         <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed">
           <li className="flex items-start gap-2">
             <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 flex-shrink-0" />
-            Die dargestellten Preise sind <strong className="text-foreground">unverbindliche Richtwerte</strong> und dienen ausschließlich als Orientierung für Anschauungsmodelle.
+            Die dargestellten Preise sind <strong className="text-foreground">unverbindliche Richtwerte</strong> und dienen ausschließlich als Orientierung.
           </li>
           <li className="flex items-start gap-2">
             <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 flex-shrink-0" />
@@ -31,7 +31,7 @@ const CalculatorDisclaimer = () => (
             <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-destructive/60 flex-shrink-0" />
             <span className="flex items-start gap-1">
               <AlertTriangle className="h-3.5 w-3.5 text-destructive/70 shrink-0 mt-0.5" />
-              <span>Wir fertigen ausschließlich <strong className="text-foreground">Anschauungsmodelle, Designstudien und Präsentationsmodelle</strong>. Keine Funktionsteile, keine Serienproduktion, keine technischen Bauteile.</span>
+              <span>Wir fertigen ausschließlich <strong className="text-foreground">nicht-technische Modelle</strong> – Präsentationsmodelle, Designstudien, Schaumodelle und Ausstellungsobjekte. Keine mechanischen Bauteile, keine Ersatzteile, keine Gehäuse.</span>
             </span>
           </li>
         </ul>

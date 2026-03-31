@@ -29,23 +29,27 @@ const calculatorFaqs = [
   },
   {
     question: "Was bedeutet Infill (Füllung)?",
-    answer: "Der Infill-Wert bestimmt, wie dicht das Innere Ihres Modells gedruckt wird. 10–15 % reicht für leichte Anschauungsmodelle, 30–50 % für stabile Ausstellungsstücke, 100 % für massive Vollkörper. Die optimale Einstellung besprechen wir gerne individuell."
+    answer: "Der Infill-Wert bestimmt, wie dicht das Innere Ihres Modells gedruckt wird. 10–15 % reicht für leichte Präsentationsmodelle, 30–50 % für stabile Showmodelle, 100 % für massive Vollkörper. Die optimale Einstellung besprechen wir gerne individuell."
   },
   {
     question: "Welche Materialien bietet ihr an?",
-    answer: "Wir drucken mit PLA, PLA+, PETG, ABS, ASA, TPU (flexibel), PA6-CF (Carbonfaser-verstärkt) und Polycarbonat. Jedes Material hat spezifische Eigenschaften – von günstigem PLA für Designstudien bis zu Premium-Carbon für hochwertige Präsentationsmodelle."
+    answer: "Wir drucken mit PLA, PLA+, PETG, ABS, ASA, TPU (flexibel), PA6-CF (Carbonfaser-verstärkt) und Polycarbonat. Jedes Material hat spezifische Eigenschaften – von günstigem PLA für Designstudien bis zu Premium-Carbon für hochwertige Showmodelle."
   },
   {
     question: "Kann ich direkt über den Rechner bestellen?",
     answer: "Nein. Der Rechner dient ausschließlich zur unverbindlichen Preisindikation. Über das integrierte Formular können Sie eine Anfrage senden – Ihr Projekt wird dann persönlich von uns geprüft. Erst nach individueller Begutachtung erhalten Sie ein verbindliches Angebot."
   },
   {
+    question: "Sind auch größere Stückzahlen möglich?",
+    answer: "Ja, wir fertigen regelmäßig Kleinauflagen und größere Projektmengen – ob 10 Messemodelle, 50 Schulungsmodelle oder 200+ Exemplare für eine Produktpräsentation. Ab 10 Stück erhalten Sie automatisch Mengenvorteile. Für individuelle Chargen erstellen wir gerne ein maßgeschneidertes Angebot."
+  },
+  {
     question: "Wie lange dauert die Fertigung?",
     answer: "Die geschätzte Druckzeit wird im Rechner angezeigt. Die tatsächliche Lieferzeit hängt von der Auftragslage und Nachbearbeitung ab – in der Regel 3–7 Werktage nach Auftragsbestätigung. Für eilige Projekte bieten wir nach persönlicher Absprache auch Express-Fertigung an."
   },
   {
-    question: "Fertigt ihr auch Funktionsteile oder Serienteile?",
-    answer: "Nein. Wir sind auf Anschauungsmodelle, Designstudien und Präsentationsobjekte spezialisiert. Anfragen für Funktionsteile, technische Bauteile oder industrielle Serienfertigung können wir leider nicht bearbeiten."
+    question: "Fertigt ihr auch mechanische Bauteile?",
+    answer: "Nein. Wir sind auf nicht-technische Modelle spezialisiert – Präsentationsmodelle, Designstudien und Showmodelle. Anfragen für mechanische Bauteile, Gehäuse oder Ersatzteile können wir leider nicht bearbeiten."
   },
   {
     question: "Was passiert nach dem Absenden meiner Anfrage?",
@@ -72,10 +76,10 @@ const Kostenrechner = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="3D-Druck Kostenrechner Österreich – Richtpreis für Anschauungsmodelle [2026]"
-        description="Berechnen Sie unverbindlich den Richtpreis für Ihr 3D-gedrucktes Anschauungsmodell: PLA, PETG, ABS & mehr. Persönliche Prüfung jeder Anfrage. Angebot in 6h."
+        title="3D-Druck Kostenrechner Österreich – Richtpreis berechnen [2026]"
+        description="Berechnen Sie unverbindlich den Richtpreis für Ihr 3D-gedrucktes Modell: PLA, PETG, ABS & mehr. Einzelstück oder Kleinauflage. Persönliche Prüfung. Angebot in 6h."
         path="/kostenrechner"
-        keywords="3d druck kostenrechner, 3d druck kosten österreich, 3d druck preis berechnen, anschauungsmodell kosten, fdm druck kosten, 3d druck richtpreis, kostenrechner 3d modell"
+        keywords="3d druck kostenrechner, 3d druck kosten österreich, 3d druck preis berechnen, 3d modell kosten, fdm druck kosten, 3d druck richtpreis, kostenrechner 3d modell, kleinauflage 3d druck"
         breadcrumbs={breadcrumbs}
         schemaType="service"
       />
@@ -90,7 +94,7 @@ const Kostenrechner = () => {
         </div>
 
         {/* ── Calculator Section ────────────────────── */}
-        <section className="py-6 md:py-12">
+        <section id="calculator" className="py-6 md:py-12 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
