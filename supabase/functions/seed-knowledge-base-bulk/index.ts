@@ -63,7 +63,7 @@ serve(async (req) => {
       // Regionale Verfügbarkeit mit detaillierten Infos
       {
         title: '3D-Druck Wien - Schnelle Lieferung 24-48h mit Preisen',
-        content: 'Professioneller 3D-Druck Service für Wien mit Express-Lieferung. Standort: Gunskirchen, OÖ. Koordinaten: 48.2082°N, 16.3738°E. Lieferzeit nach Wien: Standard 2-3 Werktage, Express 24-48h. Material-Preise: PLA ab €1,50/h, PETG ab €2,00/h, ABS ab €2,50/h, PA12 ab €4,50/h, PA12-CF ab €6,00/h, PA6 ab €4,00/h. Kostenloser Versand ab €50. Lokale Abholung möglich. Kontakt: +43 676 5517197, office@ek-druck.at. Referenzprojekte Wien: Architekturmodelle TU Wien, Prototypen für Wiener Start-ups, Ersatzteile Wiener Industriebetriebe. Spezialgebiet: Medizintechnik-Prototypen, Design-Modelle.',
+        content: 'Professioneller 3D-Druck Service für Wien mit Express-Lieferung. Standort: Gunskirchen, OÖ. Lieferzeit nach Wien: Standard 2-3 Werktage, Express 24-48h. Material-Preise: PLA ab €1,50/h, PETG ab €2,00/h, ABS ab €2,50/h, PA12 ab €4,50/h, PA12-CF ab €6,00/h, PA6 ab €4,00/h. Kostenloser Versand ab €50. Kontakt: +43 676 5517197, office@ek-druck.at. Referenzprojekte Wien: Architekturmodelle, Designstudien für Wiener Start-ups, Messemodelle. Spezialgebiet: Architekturmodelle, Design-Modelle, Präsentationsobjekte.',
         category: 'Regional',
         page_url: '/3d-druck-wien'
       },
