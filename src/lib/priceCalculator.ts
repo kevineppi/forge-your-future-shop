@@ -28,6 +28,7 @@ export interface CalculatorInput {
   materialKey: MaterialKey;
   layerHeight: number;      // mm
   wallThickness: number;    // mm
+  infillPercent: number;    // 0-100
   quantity: number;
   /** Volumen in cm³ – aus STL oder Platzhalter */
   volumeCm3?: number;
