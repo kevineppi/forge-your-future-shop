@@ -260,7 +260,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
     caseStudy: {
       title: "Fertigungstechnik-Modell für Intec Leipzig",
       industry: "Fertigungstechnik",
-      challenge: "Ein sächsisches Maschinenbauunternehmen wollte auf der Intec ein neuartiges Bearbeitungszentrum präsentieren. Das Modell sollte die Spindelanordnung und den Werkzeugwechsler zeigen.",
+      challenge: "Ein sächsisches Unternehmen wollte auf der Intec ein neuartiges Bearbeitungszentrum als Anschauungsmodell präsentieren. Das Modell sollte die Spindelanordnung und den Werkzeugwechsler zeigen.",
       solution: "Wir erstellten ein Schnittmodell im Maßstab 1:5 mit abnehmbarer Verkleidung. Der Werkzeugwechsler wurde mit beweglichen Teilen realisiert.",
       result: "Fachbesucher konnten die Innovation sofort erfassen. Das Modell führte zu intensiven technischen Gesprächen und mehreren Vertriebsanbahnungen.",
       specs: {
