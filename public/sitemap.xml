@@ -7,7 +7,7 @@
   ═══════════════════════════════════════════════════════════ -->
   <url>
     <loc>https://www.ek-druck.at/</loc>
-    <lastmod>2026-03-30</lastmod>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,195 +15,195 @@
   <!-- ═══════════════════════════════════════════════════════════
        HAUPT-SERVICES  (priority 0.9)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/messemodelle</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ek-druck.at/rapid-prototyping</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ek-druck.at/fdm-3d-druck</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ek-druck.at/einzelanfertigungen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ek-druck.at/firmenkunden</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/rapid-prototyping</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/fdm-3d-druck</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/einzelanfertigungen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ek-druck.at/firmenkunden</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.ek-druck.at/kostenrechner</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
   <!-- ═══════════════════════════════════════════════════════════
        WEITERE SERVICE-SEITEN  (priority 0.8)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/kunstobjekte</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ek-druck.at/ueber-uns</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ek-druck.at/modellbau-dekoration</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-materialien</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ek-druck.at/referenzen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ek-druck.at/kontakt</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.ek-druck.at/kunstobjekte</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.ek-druck.at/ueber-uns</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.ek-druck.at/modellbau-dekoration</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-materialien</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.ek-druck.at/referenzen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.ek-druck.at/kontakt</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   
 
   <!-- ═══════════════════════════════════════════════════════════
        RATGEBER / CONTENT-HUB  (priority 0.8–0.7)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/ratgeber</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ek-druck.at/ratgeber/messemodell-guide</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/ratgeber/architekturmodell-guide</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/ratgeber/kosten-guide</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/ratgeber/material-guide</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/ratgeber/verfahrens-vergleich</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/ratgeber/prototyping-guide</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/glossar</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/ratgeber</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.ek-druck.at/ratgeber/messemodell-guide</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/ratgeber/architekturmodell-guide</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/ratgeber/kosten-guide</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/ratgeber/material-guide</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/ratgeber/verfahrens-vergleich</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/ratgeber/prototyping-guide</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/glossar</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- ═══════════════════════════════════════════════════════════
        3D-DRUCK STADTSEITEN ÖSTERREICH  (priority 0.7)
        NOTE: /3d-druck-oberoesterreich intentionally excluded (redirect → noindex)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/3d-druck-wien</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-linz</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-graz</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-salzburg</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-innsbruck</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-klagenfurt</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-villach</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-wels</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-st-poelten</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-dornbirn</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-gunskirchen</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-burgenland</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-steiermark</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-niederoesterreich</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-vorarlberg</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/3d-druck-kaernten</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-wien</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-linz</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-graz</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-salzburg</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-innsbruck</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-klagenfurt</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-villach</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-wels</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-st-poelten</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-dornbirn</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-gunskirchen</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-burgenland</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-steiermark</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-niederoesterreich</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-vorarlberg</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/3d-druck-kaernten</loc><lastmod>2026-03-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- ═══════════════════════════════════════════════════════════
        MESSEMODELLE – ÖSTERREICH Bundesländer  (priority 0.7)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/messemodelle/wien</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/oberoesterreich</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/niederoesterreich</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/steiermark</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/salzburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/kaernten</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/tirol</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/vorarlberg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/burgenland</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/wien</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/oberoesterreich</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/niederoesterreich</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/steiermark</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/salzburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/kaernten</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/tirol</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/vorarlberg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/burgenland</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
   <!-- MESSEMODELLE – ÖSTERREICH Städte  (priority 0.7) -->
-  <url><loc>https://www.ek-druck.at/messemodelle/linz</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/wels</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/graz</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/klagenfurt</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/villach</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/innsbruck</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/st-poelten</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/dornbirn</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/linz</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/wels</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/graz</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/klagenfurt</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/villach</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/innsbruck</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/st-poelten</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/dornbirn</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
   <!-- ═══════════════════════════════════════════════════════════
        MESSEMODELLE – DEUTSCHLAND Bundesländer  (priority 0.6)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/messemodelle/bayern</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/baden-wuerttemberg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/nordrhein-westfalen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/hessen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/niedersachsen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/sachsen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/rheinland-pfalz</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/schleswig-holstein</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/brandenburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/thueringen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/sachsen-anhalt</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/mecklenburg-vorpommern</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/saarland</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/berlin</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/hamburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/bremen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/bayern</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/baden-wuerttemberg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/nordrhein-westfalen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/hessen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/niedersachsen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/sachsen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/rheinland-pfalz</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/schleswig-holstein</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/brandenburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/thueringen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/sachsen-anhalt</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/mecklenburg-vorpommern</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/saarland</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/berlin</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/hamburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/bremen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
 
   <!-- MESSEMODELLE – DEUTSCHLAND Messestädte  (priority 0.6) -->
-  <url><loc>https://www.ek-druck.at/messemodelle/muenchen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/nuernberg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/augsburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/stuttgart</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/friedrichshafen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/karlsruhe</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/duesseldorf</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/koeln</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/essen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/dortmund</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/frankfurt</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/wiesbaden</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/hannover</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/dresden</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/leipzig</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/mainz</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/kiel</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/potsdam</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/erfurt</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/magdeburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/schwerin</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/messemodelle/saarbruecken</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/muenchen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/nuernberg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/augsburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/stuttgart</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/friedrichshafen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/karlsruhe</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/duesseldorf</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/koeln</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/essen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/dortmund</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/frankfurt</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/wiesbaden</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/hannover</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/dresden</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/leipzig</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/mainz</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/kiel</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/potsdam</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/erfurt</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/magdeburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/schwerin</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/messemodelle/saarbruecken</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
 
   <!-- ═══════════════════════════════════════════════════════════
        ARCHITEKTURMODELLE – ÖSTERREICH Bundesländer  (priority 0.7)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/architekturmodelle/wien</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/oberoesterreich</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/niederoesterreich</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/steiermark</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/salzburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/kaernten</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/tirol</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/vorarlberg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/burgenland</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/wien</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/oberoesterreich</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/niederoesterreich</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/steiermark</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/salzburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/kaernten</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/tirol</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/vorarlberg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/burgenland</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
   <!-- ARCHITEKTURMODELLE – ÖSTERREICH Städte  (priority 0.7) -->
-  <url><loc>https://www.ek-druck.at/architekturmodelle/linz</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/wels</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/graz</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/klagenfurt</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/villach</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/innsbruck</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/st-poelten</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/dornbirn</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/linz</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/wels</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/graz</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/klagenfurt</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/villach</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/innsbruck</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/st-poelten</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/dornbirn</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
   <!-- ═══════════════════════════════════════════════════════════
        ARCHITEKTURMODELLE – DEUTSCHLAND Bundesländer  (priority 0.6)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/architekturmodelle/bayern</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/baden-wuerttemberg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/nordrhein-westfalen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/hessen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/niedersachsen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/sachsen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/rheinland-pfalz</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/schleswig-holstein</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/brandenburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/thueringen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/sachsen-anhalt</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/mecklenburg-vorpommern</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/saarland</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/berlin</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/hamburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/bremen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/bayern</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/baden-wuerttemberg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/nordrhein-westfalen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/hessen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/niedersachsen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/sachsen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/rheinland-pfalz</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/schleswig-holstein</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/brandenburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/thueringen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/sachsen-anhalt</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/mecklenburg-vorpommern</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/saarland</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/berlin</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/hamburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/bremen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
 
   <!-- ARCHITEKTURMODELLE – DEUTSCHLAND Städte  (priority 0.6) -->
-  <url><loc>https://www.ek-druck.at/architekturmodelle/muenchen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/nuernberg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/augsburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/stuttgart</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/friedrichshafen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/karlsruhe</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/duesseldorf</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/koeln</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/essen</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/dortmund</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/frankfurt</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/wiesbaden</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/hannover</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/dresden</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/leipzig</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/mainz</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/kiel</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/potsdam</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/erfurt</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/magdeburg</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/schwerin</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.ek-druck.at/architekturmodelle/saarbruecken</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/muenchen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/nuernberg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/augsburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/stuttgart</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/friedrichshafen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/karlsruhe</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/duesseldorf</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/koeln</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/essen</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/dortmund</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/frankfurt</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/wiesbaden</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/hannover</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/dresden</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/leipzig</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/mainz</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/kiel</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/potsdam</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/erfurt</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/magdeburg</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/schwerin</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.ek-druck.at/architekturmodelle/saarbruecken</loc><lastmod>2026-03-31</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
 
   <!-- ═══════════════════════════════════════════════════════════
        LEGAL  (priority 0.2 – kein indexierungsrelevanter Content)
   ═══════════════════════════════════════════════════════════ -->
-  <url><loc>https://www.ek-druck.at/impressum</loc><lastmod>2026-03-30</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://www.ek-druck.at/impressum</loc><lastmod>2026-03-31</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
 
 </urlset>
