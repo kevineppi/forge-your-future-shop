@@ -110,7 +110,7 @@ const ArchitekturmodellRegion = () => {
     ]
   };
 
-  const faqs = [
+  const fallbackFaqs = [
     {
       question: `Was kostet ein 3D-gedrucktes Architekturmodell in ${regionData.name}?`,
       answer: `Die Kosten hängen von Größe, Maßstab und Detailgrad ab. Einfache Studienmodelle (Baukörperstudie) starten ab ca. €20, Präsentationsmodelle im Maßstab 1:100 liegen typischerweise zwischen €80–200, Wettbewerbsmodelle mit Umgebung €150–500. Lieferung nach ${regionData.name}: ${regionData.deliveryTime}. Kostenloses Angebot erhalten Sie innerhalb von 6 Stunden.`
