@@ -7,7 +7,7 @@ import CalculatorForm from "@/components/calculator/CalculatorForm";
 import PriceSummary from "@/components/calculator/PriceSummary";
 import CalculatorDisclaimer from "@/components/calculator/CalculatorDisclaimer";
 import CalculatorInfoSection from "@/components/calculator/CalculatorInfoSection";
-import MaterialComparisonTable from "@/components/calculator/MaterialComparisonTable";
+import MaterialOverviewCompact from "@/components/calculator/MaterialOverviewCompact";
 import SEOContentSection from "@/components/calculator/SEOContentSection";
 import DebugPanel from "@/components/calculator/DebugPanel";
 import STLViewer from "@/components/calculator/STLViewer";
