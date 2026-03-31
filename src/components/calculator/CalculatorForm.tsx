@@ -96,12 +96,11 @@ const CalculatorForm = ({
     setColor(matColors[0] ?? "Schwarz");
   };
 
-  // Material descriptions for informed decisions
   const materialHints: Record<string, string> = {
-    PLA: "Ideal für Anschauungsmodelle. Gute Oberfläche, einfach zu drucken.",
-    "PLA+": "Etwas zäher als PLA. Gut für Modelle, die transportiert werden.",
+    PLA: "Ideal für Präsentationsmodelle und Designstudien. Gute Oberfläche, einfach zu drucken.",
+    "PLA+": "Etwas zäher als PLA. Gut für Modelle, die transportiert oder oft angefasst werden.",
     PETG: "UV-beständig, chemisch resistent. Für Outdoor-Exponate und Messemodelle.",
-    ABS: "Lässt sich glätten und lackieren. Für nachbearbeitete Ausstellungsstücke.",
+    ABS: "Lässt sich glätten und lackieren. Für nachbearbeitete Showmodelle.",
     ASA: "Wie ABS, aber UV-beständig. Für Modelle im Außenbereich.",
     TPU: "Flexibel und stoßfest. Für haptische Muster und biegsame Modelle.",
     "PA6-CF": "Carbonfaser-verstärkt. Leicht, steif, Premium-Optik.",
