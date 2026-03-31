@@ -344,7 +344,7 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
         {/* Cross-Links to Messe & Architektur */}
         <CrossLinkSection regionName={regionData.name} regionSlug={regionData.slug} currentType="druck" />
 
-        <FAQSection faqs={faqs} city={regionData.name} />
+        <FAQSection faqs={faqs} schemaId={regionData.name} />
 
         <CTASection
           headline={`3D-Druck Projekt in ${regionData.name} starten`}

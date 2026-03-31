@@ -7,7 +7,7 @@ interface RegionalUniqueContentProps {
   regionName: string;
   regionSlug: string;
   deliveryTime: string;
-  type: 'messe' | 'architektur';
+  type: 'messe' | 'architektur' | 'druck';
   localMessen?: { name: string; location: string; type: string }[];
   isGerman?: boolean;
 }
