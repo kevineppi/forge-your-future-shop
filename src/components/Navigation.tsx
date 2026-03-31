@@ -141,6 +141,10 @@ const Navigation = () => {
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
+            <Link to="/kostenrechner" className="flex items-center gap-1.5 text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">
+              <Calculator className="h-4 w-4" />
+              Rechner
+            </Link>
             <Link to="/ueber-uns" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</Link>
             <Link to="/kontakt" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</Link>
             <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" asChild>
