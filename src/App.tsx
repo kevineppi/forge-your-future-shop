@@ -55,7 +55,7 @@ const Kunstobjekte           = lazy(() => import("./pages/Kunstobjekte"));
 const Firmenkunden           = lazy(() => import("./pages/Firmenkunden"));
 const Kontakt                = lazy(() => import("./pages/Kontakt"));
 const UeberUns               = lazy(() => import("./pages/UeberUns"));
-
+const Kostenrechner          = lazy(() => import("./pages/Kostenrechner"));
 // ─── Minimal fallback shown during chunk fetch ────────────────────────────────
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -105,6 +105,7 @@ const App = () => (
               <Route path="/firmenkunden" element={<Firmenkunden />} />
               <Route path="/kontakt" element={<Kontakt />} />
               <Route path="/ueber-uns" element={<UeberUns />} />
+              <Route path="/kostenrechner" element={<Kostenrechner />} />
               <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
               <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
               <Route path="/3d-druck-graz" element={<Graz3DDruck />} />
