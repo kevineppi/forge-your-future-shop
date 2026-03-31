@@ -16,7 +16,11 @@ import { useModelAnalysis } from "@/hooks/useModelAnalysis";
 import { type PricingInput, type PricingResult, calculatePrice } from "@/lib/pricingEngine";
 import FAQSection from "@/components/landing/FAQSection";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
-import { Box } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  Box, ArrowRight, ShieldCheck, Clock, UserCheck,
+  MessageSquare, Star
+} from "lucide-react";
 
 const calculatorFaqs = [
   {
@@ -111,7 +115,7 @@ const Kostenrechner = () => {
                   onFileClear={model.clearFile}
                 />
 
-                {/* 3D Preview – sits below the form */}
+                {/* 3D Preview */}
                 {model.arrayBuffer ? (
                   <div className="bg-card border border-border/60 rounded-2xl shadow-lg overflow-hidden">
                     <div className="px-5 py-3 border-b border-border/40 bg-muted/20 flex items-center gap-2">
@@ -150,13 +154,126 @@ const Kostenrechner = () => {
           </div>
         </section>
 
-        {/* ── Process Visualization ────────────────── */}
-        <ProcessSection />
+        {/* ── Inline Trust Strip — directly after calculator ──────────── */}
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="h-4 w-4 text-primary" />
+              Kein Webshop – keine Bestellung
+            </span>
+            <span className="flex items-center gap-1.5">
+              <UserCheck className="h-4 w-4 text-primary" />
+              Persönliche Prüfung jeder Anfrage
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Clock className="h-4 w-4 text-primary" />
+              Angebot in 6 Stunden
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Star className="h-4 w-4 text-primary" />
+              5,0 ★ Google (31 Bewertungen)
+            </span>
+          </div>
+        </div>
 
+        {/* ── Kostenfaktoren — woven into the flow ────────────────────── */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                {/* Left: SEO content about cost factors */}
+                <div>
+                  <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Preistransparenz</p>
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5 leading-tight">
+                    5 Faktoren, die Ihren<br />Richtpreis bestimmen
+                  </h2>
+                  <div className="space-y-4">
+                    {[
+                      { title: "Materialverbrauch", text: "PLA ab €25/kg bis PA6-CF €120/kg. Wandstärke und Infill bestimmen den tatsächlichen Materialanteil." },
+                      { title: "Druckzeit", text: "Volumen, Oberfläche, Schichtdicke und Infill-Dichte beeinflussen die Maschinenzeit." },
+                      { title: "Baugröße", text: "Ab 170 mm max. Ausdehnung greift ein Größenzuschlag – größere Drucke brauchen mehr Plattenbelegung." },
+                      { title: "Setup & Vorbereitung", text: "€12,99 Pauschale pro Projekt – Slicing, Orientierung und Qualitätskontrolle durch Fachpersonal." },
+                      { title: "Nachbearbeitung", text: "Glätten, Grundieren, Lackieren – wird individuell besprochen und separat kalkuliert." },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3 group">
+                        <span className="shrink-0 w-7 h-7 rounded-lg bg-primary/8 flex items-center justify-center text-xs font-bold text-primary mt-0.5 group-hover:bg-primary/15 transition-colors">
+                          {i + 1}
+                        </span>
+                        <div>
+                          <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: Process steps */}
+                <div className="bg-card border border-border/60 rounded-2xl p-6 md:p-8 space-y-6">
+                  <div>
+                    <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-2">So funktioniert's</p>
+                    <h3 className="text-xl font-bold text-foreground">In 4 Schritten zum Angebot</h3>
+                  </div>
+                  {[
+                    { step: "01", title: "3D-Datei hochladen", text: "STL-Analyse direkt im Browser – Ihre Datei bleibt lokal." },
+                    { step: "02", title: "Material & Parameter wählen", text: "8 FDM-Materialien, Echtzeit-Preisindikation bei jeder Änderung." },
+                    { step: "03", title: "Richtpreis prüfen", text: "Detaillierte Aufschlüsselung aller Kostenpositionen." },
+                    { step: "04", title: "Angebot anfordern", text: "Unverbindliche Anfrage – persönliche Rückmeldung in 6h." },
+                  ].map((s, i) => (
+                    <div key={i} className="flex items-start gap-4">
+                      <div className="shrink-0 relative">
+                        <span className="block w-9 h-9 rounded-full border-2 border-primary/20 flex items-center justify-center text-xs font-bold text-primary bg-primary/5">
+                          {s.step}
+                        </span>
+                        {i < 3 && <div className="absolute top-9 left-1/2 -translate-x-1/2 w-px h-6 bg-border/60" />}
+                      </div>
+                      <div className="pt-1">
+                        <h4 className="text-sm font-semibold text-foreground">{s.title}</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{s.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                  <a
+                    href="#calculator"
+                    className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all mt-2"
+                  >
+                    Jetzt Richtpreis berechnen <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Inline disclaimer – compact ─────────────────────────────── */}
         <CalculatorDisclaimer />
 
+        {/* ── Material Comparison ─────────────────────────────────────── */}
         <MaterialComparisonTable />
 
+        {/* ── Mid-page CTA back to calculator ────────────────────────── */}
+        <section className="py-10">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto bg-gradient-to-r from-primary/8 via-primary/5 to-accent/5 border border-primary/15 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-foreground mb-1">Bereit für Ihren Richtpreis?</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Laden Sie Ihre STL-Datei hoch, wählen Sie Material und Parameter –
+                  der Richtpreis berechnet sich in Echtzeit.
+                </p>
+              </div>
+              <a
+                href="#calculator"
+                className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold text-sm hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg"
+              >
+                <Box className="h-4 w-4" />
+                Zum Rechner
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FAQ — integrated, not distant ───────────────────────────── */}
         <FAQSection
           faqs={calculatorFaqs}
           title="Häufige Fragen zum 3D-Druck Kostenrechner"
@@ -164,9 +281,70 @@ const Kostenrechner = () => {
           schemaId="kostenrechner"
         />
 
+        {/* ── Deep SEO content ───────────────────────────────────────── */}
         <SEOContentSection />
 
+        {/* ── Service overview — what we do ───────────────────────────── */}
         <CalculatorInfoSection />
+
+        {/* ── Cross-links — keep visitors on site ────────────────────── */}
+        <section className="py-12 border-t border-border/50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3 text-center">Weiterführende Infos</p>
+              <h2 className="text-2xl font-bold text-foreground text-center mb-8">
+                Informieren Sie sich vor Ihrer Anfrage
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { to: "/architekturmodelle", title: "Architekturmodelle", desc: "Maßstabsgetreue Modelle 1:50–1:500 für Wettbewerbe und Präsentationen.", tag: "ab €20" },
+                  { to: "/messemodelle", title: "Messemodelle", desc: "Showmodelle für Messestand und Ausstellung – auch kurzfristig.", tag: "Express 24h" },
+                  { to: "/3d-druck-materialien", title: "Materialien im Detail", desc: "PLA, PETG, ABS, Carbon – alle Eigenschaften im Überblick.", tag: "8 Materialien" },
+                  { to: "/rapid-prototyping", title: "Rapid Prototyping", desc: "Designstudien und Iterationen in wenigen Tagen.", tag: "ab 1 Stück" },
+                  { to: "/firmenkunden", title: "Firmenkunden & B2B", desc: "UID-Rechnung, NDA, Mengenvorteile für Unternehmen.", tag: "B2B" },
+                  { to: "/kontakt", title: "Direkter Kontakt", desc: "Komplexes Projekt? Wir beraten persönlich und unverbindlich.", tag: "Antwort in 6h" },
+                ].map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className="group relative border border-border/60 rounded-xl p-5 hover:border-primary/30 hover:shadow-lg transition-all duration-300 bg-card"
+                  >
+                    <span className="absolute top-4 right-4 text-[10px] font-bold bg-primary/8 text-primary px-2 py-0.5 rounded-full border border-primary/15">
+                      {item.tag}
+                    </span>
+                    <h3 className="font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors pr-16">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">{item.desc}</p>
+                    <span className="text-xs text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Mehr erfahren <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Final CTA ──────────────────────────────────────────────── */}
+        <section className="py-12 bg-muted/20">
+          <div className="container mx-auto px-4 text-center">
+            <div className="max-w-xl mx-auto">
+              <MessageSquare className="h-8 w-8 text-primary mx-auto mb-4" />
+              <h2 className="text-xl font-bold text-foreground mb-2">
+                Fragen? Komplexeres Projekt?
+              </h2>
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                Der Rechner gibt eine erste Orientierung. Für individuelle Beratung,
+                spezielle Anforderungen oder größere Projektmengen kontaktieren Sie uns direkt.
+              </p>
+              <Link
+                to="/kontakt"
+                className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-xl font-semibold text-sm hover:bg-foreground/90 transition-colors"
+              >
+                Jetzt Kontakt aufnehmen <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />
