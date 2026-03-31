@@ -383,7 +383,7 @@ const Materialien = () => {
                           <CardTitle className="text-xl">TPU (Flexibel)</CardTitle>
                           <Badge variant="secondary">Flexibel</Badge>
                         </div>
-                        <CardDescription>Gummiartige Flexibilität für elastische Bauteile</CardDescription>
+                        <CardDescription>Gummiartige Flexibilität für elastische Objekte</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-4">
