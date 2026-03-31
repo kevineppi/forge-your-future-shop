@@ -81,13 +81,14 @@ export const PRICING_CONFIG = {
 
   /** Materialpreise in €/kg */
   materialPricePerKg: {
-    PLA: 30,
-    PETG: 35,
-    ABS: 40,
-    ASA: 45,
-    TPU: 90,
-    RESIN: 120,
-    PA12: 200,
+    PLA: 25,
+    PLA_PLUS: 30,
+    PETG: 30,
+    ABS: 35,
+    ASA: 40,
+    TPU: 80,
+    PA6_CF: 120,
+    PC: 65,
   } as Record<MaterialKey, number>,
 
   /** Dichte in g/cm³ */
