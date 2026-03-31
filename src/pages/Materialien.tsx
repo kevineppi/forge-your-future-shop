@@ -367,7 +367,7 @@ const Materialien = () => {
                             <li>• Ingenieurskunststoff</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Luftfahrt, Medizintechnik, Schutzausrüstung
+                            <span className="font-medium">Ideal für:</span> Hochtemperatur-Modelle, transparente Anschauungsobjekte, Premium-Präsentationen
                           </div>
                         </div>
                       </CardContent>
