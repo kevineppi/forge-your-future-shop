@@ -104,7 +104,7 @@ const knowledgeEntries = [
   },
   {
     title: "Rapid Prototyping Grundlagen",
-    content: "Rapid Prototyping ist die schnelle Herstellung von Prototypen mittels additiver Fertigung. FDM 3D-Druck ermöglicht 85% schnellere Entwicklung als traditionelle Methoden. Vorteile: Keine Werkzeugkosten, schnelle Iterationen möglich, Designfreiheit, Funktionstest unter realen Bedingungen. Typische Lieferzeit 2-5 Tage vs. 2-4 Wochen bei CNC. Express-Service liefert in 24-48h. Kostenreduktion um bis zu 75% vs. CNC bei Prototypen. Ermöglicht frühzeitige Validierung, Fehlerkorrektur vor Serienfertigung, ROI-Verbesserung durch schnellere Time-to-Market.",
+    content: "Rapid Prototyping ist die schnelle Herstellung von Designprototypen mittels additiver Fertigung. FDM 3D-Druck ermöglicht 85% schnellere Entwicklung als traditionelle Methoden. Vorteile: Keine Werkzeugkosten, schnelle Iterationen möglich, Designfreiheit. Typische Lieferzeit 2-5 Tage vs. 2-4 Wochen bei CNC. Express-Service liefert in 24-48h. Kostenreduktion um bis zu 75% vs. CNC bei Designmodellen. Ermöglicht frühzeitige Visualisierung und schnellere Designentscheidungen.",
     category: "Services",
     page_url: "/rapid-prototyping"
   },
