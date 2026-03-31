@@ -162,7 +162,7 @@ const knowledgeEntries = [
   // Nachbearbeitung
   {
     title: "Nachbearbeitung - Post-Processing",
-    content: "Post-Processing umfasst alle Bearbeitungsschritte nach dem 3D-Druck: Support-Entfernung mit Zangen/Cutter, Schleifen (nass/trocken, Körnung 100-2000), Grundieren für glatte Oberfläche, Lackieren (Sprühdose oder Airbrush), chemisches Glätten (Aceton-Dampf bei ABS, Ethylacetat bei PETG), Einfügen von Gewindeeinsätzen (Heatsets mit Lötkolben), Bohren, Gewindeschneiden, Kleben mehrerer Teile (Cyanacrylat, Epoxy). Professionelles Post-Processing kann 3D-Drucke wie Spritzgussteile aussehen lassen. Zeitaufwand: 10 Min bis mehrere Stunden je nach Qualitätsanforderung.",
+    content: "Post-Processing umfasst alle Bearbeitungsschritte nach dem 3D-Druck: Support-Entfernung mit Zangen/Cutter, Schleifen (nass/trocken, Körnung 100-2000), Grundieren für glatte Oberfläche, Lackieren (Sprühdose oder Airbrush), chemisches Glätten (Aceton-Dampf bei ABS), Kleben mehrerer Teile (Cyanacrylat, Epoxy). Professionelles Post-Processing verwandelt 3D-Drucke in hochwertige Präsentationsmodelle. Zeitaufwand: 10 Min bis mehrere Stunden je nach Qualitätsanforderung.",
     category: "Technische Details",
     page_url: "/glossar"
   },
