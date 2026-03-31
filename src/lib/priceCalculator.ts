@@ -1,13 +1,16 @@
 /**
  * ═══════════════════════════════════════════════════════════════
- * 3D-Druck Kostenrechner – Berechnungslogik (Pricing Engine)
+ * 3D-Druck Kostenrechner – Hybrides Kalkulationsmodell
  * ═══════════════════════════════════════════════════════════════
  *
  * Reine Funktionen ohne Seiteneffekte.
  * Alle Parameter kommen aus pricingConfig.ts.
  *
- * Später erweiterbar mit echten STL-Daten (Volumen, Oberfläche,
- * Bounding Box) – aktuell werden Platzhalterwerte genutzt.
+ * Preistreiber-Hierarchie:
+ *   1. Druckzeit (Haupttreiber)
+ *   2. Materialkosten (sekundär)
+ *   3. Setup/Handling (abgeschwächt, nicht linear)
+ *   4. Größen-Skalierung (große Teile kosten mehr)
  */
 
 import { PRICING_CONFIG, type ProcessType, type MaterialKey } from '@/data/pricingConfig';
@@ -35,51 +38,60 @@ export interface CalculatorInput {
 }
 
 export interface PriceBreakdown {
-  // Kosten pro Stück
-  materialCostPerPart: number;
-  laborCostPerPart: number;
-  rawUnitNet: number;
+  // Geometrie (aufgelöst)
+  volumeCm3: number;
+  surfaceCm2: number;
+  boundingBoxMm: BoundingBox;
+  maxDimensionMm: number;
 
-  // Gesamtbeträge
+  // Materialkosten
+  materialWeightG: number;
+  materialCostRaw: number;
+  materialCost: number; // nach Sicherheitsfaktor
+
+  // Druckzeit
+  layerCount: number;
+  printTimeMin: number;
+  hourlyPrintRate: number;
+  printCost: number;
+
+  // Setup
+  setupCost: number;
+
+  // Größen-Skalierung
+  sizeFactor: number;
+  scaledUnitCost: number;
+
+  // Mengenberechnung
   subtotalNet: number;
   quantityDiscountRate: number;
   quantityDiscountAmount: number;
-  netAfterQuantityDiscount: number;
-  orderValueDiscountRate: number;
-  orderValueDiscountAmount: number;
-  netAfterOrderValueDiscount: number;
+  netAfterDiscount: number;
+
+  // Zuschlag
   minimumOrderSurcharge: number;
+
+  // Endergebnis
   finalNet: number;
   vatAmount: number;
   finalGross: number;
 
-  // Zeitdaten
-  processTimePerPartMin: number;
-  totalProductionTimeMin: number;
+  // Kompatibilität mit PriceSummary
+  materialCostPerPart: number;
+  laborCostPerPart: number;
+  rawUnitNet: number;
   totalTimeMin: number;
-
-  // Debug-Hilfswerte
-  setupCost: number;
-  surfaceVolume: number;
-  infillVolume: number;
-  printVolume: number;
-  materialWeightG: number;
-  wallCost: number;
-  infillCost: number;
-  layerHeightFactorUsed: number;
-  costPerMinute: number;
-  laborCostTotal: number;
+  orderValueDiscountRate: number;
+  orderValueDiscountAmount: number;
 }
 
 // ── Hilfsfunktion: Schichtdickenfaktor ─────────────────────
 
 function getLayerHeightFactor(layerHeight: number): number {
   const factors = PRICING_CONFIG.layerHeightFactor;
-  // Exakter Match?
   if (layerHeight in factors) {
     return factors[layerHeight as keyof typeof factors];
   }
-  // Nächsten verfügbaren Faktor finden
   const heights = Object.keys(factors).map(Number).sort((a, b) => a - b);
   for (let i = 0; i < heights.length; i++) {
     if (layerHeight <= heights[i]) return factors[heights[i] as keyof typeof factors];
@@ -89,179 +101,184 @@ function getLayerHeightFactor(layerHeight: number): number {
 
 // ── 1. Materialkosten ──────────────────────────────────────
 
-export function calculateMaterialCost(input: CalculatorInput): {
-  materialCost: number;
-  surfaceVolume: number;
-  infillVolume: number;
-  printVolume: number;
+function calculateMaterialCost(volumeCm3: number, materialKey: MaterialKey): {
   materialWeightG: number;
-  wallCost: number;
-  infillCost: number;
-  layerHeightFactorUsed: number;
+  materialCostRaw: number;
+  materialCost: number;
 } {
   const cfg = PRICING_CONFIG;
-  const volumeCm3 = input.volumeCm3 ?? cfg.placeholderGeometry.volumeCm3;
-  const surfaceCm2 = input.surfaceCm2 ?? cfg.placeholderGeometry.surfaceCm2;
-  const density = cfg.densityFactor[input.materialKey];
-  const pricePerKg = cfg.materialPricePerKg[input.materialKey];
-  const lhFactor = getLayerHeightFactor(input.layerHeight);
+  const density = cfg.densityFactor[materialKey];
+  const pricePerKg = cfg.materialPricePerKg[materialKey];
 
-  if (input.process === 'FDM') {
-    // FDM: Detaillierte Wand-/Infill-Berechnung
-    const surfaceVolume = surfaceCm2 * (input.wallThickness / 10) * cfg.surfaceFactor;
-    const infillVolume = Math.max(volumeCm3 - surfaceVolume, 0) * cfg.infillFactor;
-    const printVolume = surfaceVolume + infillVolume;
-    const materialWeightG = printVolume * density;
+  const materialWeightG = volumeCm3 * density;
+  const materialCostRaw = (materialWeightG / 1000) * pricePerKg;
+  const materialCost = materialCostRaw * cfg.materialSafetyFactor;
 
-    const wallCost = pricePerKg * ((surfaceVolume * density) / 1000) * lhFactor;
-    const infillCost = pricePerKg * ((infillVolume * density) / 1000) * lhFactor;
-    const materialCost = wallCost + infillCost;
-
-    return { materialCost, surfaceVolume, infillVolume, printVolume, materialWeightG, wallCost, infillCost, layerHeightFactorUsed: lhFactor };
-  } else {
-    // SLA / SLS: Volumenbasiert
-    const surfaceVolume = 0;
-    const infillVolume = 0;
-    const printVolume = volumeCm3;
-    const materialWeightG = printVolume * density;
-    const materialCost = pricePerKg * ((volumeCm3 * density) / 1000);
-
-    return { materialCost, surfaceVolume, infillVolume, printVolume, materialWeightG, wallCost: 0, infillCost: 0, layerHeightFactorUsed: lhFactor };
-  }
+  return { materialWeightG, materialCostRaw, materialCost };
 }
 
-// ── 2. Bearbeitungs-/Maschinenzeit ─────────────────────────
+// ── 2. Druckzeit (realistisch) ─────────────────────────────
 
-export function calculateProcessTime(input: CalculatorInput): {
-  processTimePerPartMin: number;
-  totalProductionTimeMin: number;
-  totalTimeMin: number;
+function calculatePrintTime(
+  volumeCm3: number,
+  surfaceCm2: number,
+  boundingBoxMm: BoundingBox,
+  layerHeight: number,
+  process: ProcessType,
+): {
+  layerCount: number;
+  printTimeMin: number;
 } {
   const cfg = PRICING_CONFIG;
-  const volumeCm3 = input.volumeCm3 ?? cfg.placeholderGeometry.volumeCm3;
 
-  const processTimePerPartMin = Math.max(
-    cfg.processTimeFactor[input.process] * (volumeCm3 / cfg.volumeUnitCm3),
-    cfg.minimumProcessTimeMin[input.process]
+  const layerCount = Math.ceil(boundingBoxMm.z / layerHeight);
+  const lhFactor = getLayerHeightFactor(layerHeight);
+  const processFactor = cfg.processTimeFactor[process];
+
+  const rawTime =
+    (volumeCm3 * cfg.volumeTimeFactor) +
+    (surfaceCm2 * cfg.surfaceTimeFactor) +
+    (layerCount * cfg.layerPenaltyFactor) +
+    cfg.basePrintTimeMin;
+
+  // Schichtdicken- und Verfahrensfaktor anwenden
+  const printTimeMin = rawTime * lhFactor * processFactor;
+
+  return { layerCount, printTimeMin };
+}
+
+// ── 3. Druckkosten pro Stunde ──────────────────────────────
+
+function getHourlyPrintRate(maxDimensionMm: number): number {
+  const cfg = PRICING_CONFIG;
+  return maxDimensionMm >= cfg.largePrintThresholdMm
+    ? cfg.hourlyPrintRateLarge
+    : cfg.hourlyPrintRateSmall;
+}
+
+// ── 4. Setup-/Handlingkosten (abgeschwächt) ────────────────
+
+function calculateSetupCost(volumeCm3: number): number {
+  const cfg = PRICING_CONFIG;
+  return cfg.baseSetupCost * Math.pow(
+    Math.max(volumeCm3, 1) / cfg.setupReferenceVolumeCm3,
+    cfg.setupScalingExponent
   );
-
-  const totalProductionTimeMin = processTimePerPartMin * input.quantity;
-  const totalTimeMin = cfg.setupTimeMin + totalProductionTimeMin;
-
-  return { processTimePerPartMin, totalProductionTimeMin, totalTimeMin };
 }
 
-// ── 3. Personalkosten ──────────────────────────────────────
+// ── 5. Größen-Skalierung ───────────────────────────────────
 
-export function calculateLaborCost(totalTimeMin: number, quantity: number): {
-  costPerMinute: number;
-  laborCostTotal: number;
-  laborCostPerPart: number;
-} {
-  const costPerMinute = PRICING_CONFIG.hourlyRate / 60;
-  const laborCostTotal = totalTimeMin * costPerMinute;
-  const laborCostPerPart = laborCostTotal / quantity;
-
-  return { costPerMinute, laborCostTotal, laborCostPerPart };
+function calculateSizeFactor(maxDimensionMm: number): number {
+  const cfg = PRICING_CONFIG;
+  return 1 + (maxDimensionMm / cfg.sizeFactorReferenceMm) * cfg.sizeFactorSlope;
 }
 
-// ── 4. Mengenrabatt ────────────────────────────────────────
+// ── 6. Mengenrabatt ────────────────────────────────────────
 
-export function applyQuantityDiscount(quantity: number): number {
+function getQuantityDiscount(quantity: number): number {
   for (const tier of PRICING_CONFIG.quantityDiscounts) {
     if (quantity >= tier.minQty) return tier.rate;
   }
   return 0;
 }
 
-// ── 5. Auftragswert-Rabatt ─────────────────────────────────
+// ── 7. Mindermengenzuschlag ────────────────────────────────
 
-export function applyOrderValueDiscount(netValue: number): number {
-  for (const tier of PRICING_CONFIG.orderValueDiscounts) {
-    if (netValue >= tier.minNet) return tier.rate;
-  }
-  return 0;
-}
-
-// ── 6. Mindermengenzuschlag ────────────────────────────────
-
-export function applyMinimumOrderSurcharge(netValue: number): number {
+function getMinimumOrderSurcharge(netValue: number): number {
   const cfg = PRICING_CONFIG;
   return netValue < cfg.minimumOrderThresholdNet ? cfg.minimumOrderSurchargeNet : 0;
-}
-
-// ── 7. Umsatzsteuer ────────────────────────────────────────
-
-export function calculateVat(netTotal: number): number {
-  return netTotal * PRICING_CONFIG.vatRate;
 }
 
 // ── Gesamtberechnung ────────────────────────────────────────
 
 export function calculateFinalPrice(input: CalculatorInput): PriceBreakdown {
-  // 1. Materialkosten pro Stück
-  const matResult = calculateMaterialCost(input);
-  const materialCostPerPart = matResult.materialCost;
+  const cfg = PRICING_CONFIG;
 
-  // 2. Bearbeitungszeit
-  const timeResult = calculateProcessTime(input);
+  // Geometrie auflösen
+  const volumeCm3 = input.volumeCm3 ?? cfg.placeholderGeometry.volumeCm3;
+  const surfaceCm2 = input.surfaceCm2 ?? cfg.placeholderGeometry.surfaceCm2;
+  const boundingBoxMm = input.boundingBoxMm ?? cfg.placeholderGeometry.boundingBoxMm;
+  const maxDimensionMm = Math.max(boundingBoxMm.x, boundingBoxMm.y, boundingBoxMm.z);
 
-  // 3. Personalkosten
-  const laborResult = calculateLaborCost(timeResult.totalTimeMin, input.quantity);
+  // 1. Materialkosten
+  const mat = calculateMaterialCost(volumeCm3, input.materialKey);
 
-  // 4. Rohpreis / Zwischensumme
-  const rawUnitNet = materialCostPerPart + laborResult.laborCostPerPart;
-  const subtotalNet = rawUnitNet * input.quantity;
+  // 2. Druckzeit
+  const time = calculatePrintTime(volumeCm3, surfaceCm2, boundingBoxMm, input.layerHeight, input.process);
 
-  // 5. Mengenrabatt
-  const quantityDiscountRate = applyQuantityDiscount(input.quantity);
+  // 3. Druckkosten
+  const hourlyPrintRate = getHourlyPrintRate(maxDimensionMm);
+  const printCost = (time.printTimeMin / 60) * hourlyPrintRate;
+
+  // 4. Setupkosten
+  const setupCost = calculateSetupCost(volumeCm3);
+
+  // 5. Größen-Skalierung
+  const sizeFactor = calculateSizeFactor(maxDimensionMm);
+  const scaledUnitCost = (mat.materialCost + printCost + setupCost) * sizeFactor;
+
+  // 6. Mengenberechnung
+  const subtotalNet = scaledUnitCost * input.quantity;
+
+  // 7. Mengenrabatt
+  const quantityDiscountRate = getQuantityDiscount(input.quantity);
   const quantityDiscountAmount = subtotalNet * quantityDiscountRate;
-  const netAfterQuantityDiscount = subtotalNet - quantityDiscountAmount;
+  const netAfterDiscount = subtotalNet - quantityDiscountAmount;
 
-  // 6. Auftragswert-Rabatt
-  const orderValueDiscountRate = applyOrderValueDiscount(netAfterQuantityDiscount);
-  const orderValueDiscountAmount = netAfterQuantityDiscount * orderValueDiscountRate;
-  const netAfterOrderValueDiscount = netAfterQuantityDiscount - orderValueDiscountAmount;
+  // 8. Mindermengenzuschlag
+  const minimumOrderSurcharge = getMinimumOrderSurcharge(netAfterDiscount);
 
-  // 7. Mindermengenzuschlag
-  const minimumOrderSurcharge = applyMinimumOrderSurcharge(netAfterOrderValueDiscount);
-  const finalNet = netAfterOrderValueDiscount + minimumOrderSurcharge;
-
-  // 8. USt
-  const vatAmount = calculateVat(finalNet);
+  // 9. Endpreis
+  const finalNet = netAfterDiscount + minimumOrderSurcharge;
+  const vatAmount = finalNet * cfg.vatRate;
   const finalGross = finalNet + vatAmount;
 
-  // Setup-Kosten separat (informativ)
-  const setupCost = (PRICING_CONFIG.setupTimeMin / 60) * PRICING_CONFIG.hourlyRate;
-
   return {
-    materialCostPerPart,
-    laborCostPerPart: laborResult.laborCostPerPart,
-    rawUnitNet,
+    // Geometrie
+    volumeCm3,
+    surfaceCm2,
+    boundingBoxMm,
+    maxDimensionMm,
+
+    // Material
+    materialWeightG: mat.materialWeightG,
+    materialCostRaw: mat.materialCostRaw,
+    materialCost: mat.materialCost,
+
+    // Druckzeit
+    layerCount: time.layerCount,
+    printTimeMin: time.printTimeMin,
+    hourlyPrintRate,
+    printCost,
+
+    // Setup
+    setupCost,
+
+    // Skalierung
+    sizeFactor,
+    scaledUnitCost,
+
+    // Menge
     subtotalNet,
     quantityDiscountRate,
     quantityDiscountAmount,
-    netAfterQuantityDiscount,
-    orderValueDiscountRate,
-    orderValueDiscountAmount,
-    netAfterOrderValueDiscount,
+    netAfterDiscount,
+
+    // Zuschlag
     minimumOrderSurcharge,
+
+    // Endergebnis
     finalNet,
     vatAmount,
     finalGross,
-    processTimePerPartMin: timeResult.processTimePerPartMin,
-    totalProductionTimeMin: timeResult.totalProductionTimeMin,
-    totalTimeMin: timeResult.totalTimeMin,
-    setupCost,
-    surfaceVolume: matResult.surfaceVolume,
-    infillVolume: matResult.infillVolume,
-    printVolume: matResult.printVolume,
-    materialWeightG: matResult.materialWeightG,
-    wallCost: matResult.wallCost,
-    infillCost: matResult.infillCost,
-    layerHeightFactorUsed: matResult.layerHeightFactorUsed,
-    costPerMinute: laborResult.costPerMinute,
-    laborCostTotal: laborResult.laborCostTotal,
+
+    // Kompatibilität mit PriceSummary
+    materialCostPerPart: mat.materialCost,
+    laborCostPerPart: printCost + setupCost,
+    rawUnitNet: scaledUnitCost,
+    totalTimeMin: time.printTimeMin,
+    orderValueDiscountRate: 0,
+    orderValueDiscountAmount: 0,
   };
 }
 

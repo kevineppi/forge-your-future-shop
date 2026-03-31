@@ -58,12 +58,16 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             <span>{fmt(result.materialCostPerPart)}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Bearbeitungskosten / Stück</span>
-            <span>{fmt(result.laborCostPerPart)}</span>
+            <span className="text-muted-foreground">Druckkosten / Stück</span>
+            <span>{fmt(result.printCost)}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Rohpreis / Stück (netto)</span>
-            <span>{fmt(result.rawUnitNet)}</span>
+            <span className="text-muted-foreground">Setup / Stück</span>
+            <span>{fmt(result.setupCost)}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">Stückpreis (netto, skaliert)</span>
+            <span>{fmt(result.scaledUnitCost)}</span>
           </div>
 
           <Separator className="my-2" />
@@ -83,13 +87,13 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
               <span>− {fmt(result.quantityDiscountAmount)}</span>
             </div>
           )}
-          {result.orderValueDiscountAmount > 0 && (
+          {result.quantityDiscountAmount > 0 && (
             <div className="flex justify-between text-primary">
               <span className="flex items-center gap-1">
                 <TrendingDown className="h-3.5 w-3.5" />
-                Wertrabatt ({pct(result.orderValueDiscountRate)})
+                Mengenrabatt ({pct(result.quantityDiscountRate)})
               </span>
-              <span>− {fmt(result.orderValueDiscountAmount)}</span>
+              <span>− {fmt(result.quantityDiscountAmount)}</span>
             </div>
           )}
 
