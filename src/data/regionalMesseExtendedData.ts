@@ -9,6 +9,8 @@ export interface RegionalExtendedData {
   materials: MaterialRecommendation[];
   industryFocus: string;
   uniqueSellingPoints: string[];
+  faqs?: { question: string; answer: string }[];
+  introText?: string;
 }
 
 // Default case study for regions without specific data
