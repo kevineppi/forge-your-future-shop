@@ -9,12 +9,15 @@ import CalculatorDisclaimer from "@/components/calculator/CalculatorDisclaimer";
 import InquiryForm from "@/components/calculator/InquiryForm";
 import CalculatorInfoSection from "@/components/calculator/CalculatorInfoSection";
 import DebugPanel from "@/components/calculator/DebugPanel";
+import { useModelAnalysis } from "@/hooks/useModelAnalysis";
 import { type CalculatorInput, type PriceBreakdown, calculateFinalPrice } from "@/lib/priceCalculator";
 
 const Kostenrechner = () => {
   const [result, setResult] = useState<PriceBreakdown | null>(null);
   const [currentInput, setCurrentInput] = useState<CalculatorInput | null>(null);
   const [showInquiry, setShowInquiry] = useState(false);
+
+  const model = useModelAnalysis();
 
   const handleCalculate = (input: CalculatorInput) => {
     setCurrentInput(input);
@@ -38,7 +41,16 @@ const Kostenrechner = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
               <div className="lg:col-span-3">
-                <CalculatorForm onCalculate={handleCalculate} />
+                <CalculatorForm
+                  onCalculate={handleCalculate}
+                  geometry={model.geometry}
+                  fileName={model.fileName}
+                  fileSize={model.fileSize}
+                  isAnalyzing={model.isAnalyzing}
+                  uploadError={model.error}
+                  onFileSelect={model.analyzeFile}
+                  onFileClear={model.clearFile}
+                />
               </div>
               <div className="lg:col-span-2 lg:sticky lg:top-24">
                 <PriceSummary
