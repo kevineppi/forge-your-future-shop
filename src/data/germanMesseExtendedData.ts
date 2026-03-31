@@ -76,7 +76,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
         icon: "feather"
       }
     ],
-    industryFocus: "Bau, Maschinenbau & Automotive in Bayern",
+    industryFocus: "Bau, Industrie & Präsentation in Bayern",
     uniqueSellingPoints: [
       "Grenznahe Fertigung – schnellste Lieferung nach Bayern",
       "Erfahrung mit bauma und Messe München",
