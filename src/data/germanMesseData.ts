@@ -655,7 +655,7 @@ export const germanMesseData: Record<string, GermanRegionalMesseData> = {
     localAdvantages: [
       'Erfahrung mit internationalen Düsseldorfer Leitmessen',
       'Express-Lieferung zur Messe Düsseldorf',
-      'Kompetenz für Medizintechnik-Modelle',
+      'Kompetenz für Messe-Präsentationsmodelle',
       'Günstigere Preise durch österreichische Fertigung',
     ],
     nearbyRegions: ['nordrhein-westfalen', 'koeln', 'essen', 'dortmund'],
