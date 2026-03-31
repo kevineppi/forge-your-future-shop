@@ -144,25 +144,27 @@ const Index = () => {
                 </Link>
               </AnimatedSection>
 
-              {/* Einzelanfertigungen */}
+              {/* Einzelanfertigungen — prominent with accent bg */}
               <AnimatedSection animation="slide-up" delay={160} className="flex-1">
                 <Link to="/einzelanfertigungen" className="group block h-full min-h-[190px]">
-                  <div className="h-full relative rounded-3xl border border-border bg-card overflow-hidden
-                    hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.12)]
+                  <div className="h-full relative rounded-3xl bg-foreground overflow-hidden
+                    hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.4)]
                     transition-all duration-500 flex flex-col p-7 group-hover:-translate-y-1">
-                    <div className="flex items-start justify-between mb-auto">
-                      <div className="w-11 h-11 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-105 transition-all duration-300">
-                        <Layers className="w-6 h-6 text-primary" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-white/5 pointer-events-none" />
+                    <div className="absolute -bottom-6 -left-6 w-28 h-28 rounded-full bg-primary/10" />
+                    <div className="relative flex items-start justify-between mb-auto">
+                      <div className="w-11 h-11 bg-primary/25 rounded-2xl flex items-center justify-center group-hover:bg-primary/40 group-hover:scale-105 transition-all duration-300">
+                        <Wrench className="w-6 h-6 text-primary-foreground" />
                       </div>
-                      <span className="text-xs font-medium text-muted-foreground bg-muted border border-border px-3 py-1 rounded-full">ab 1 Stück</span>
+                      <span className="text-xs font-bold bg-primary/30 text-primary-foreground border border-primary/40 px-3 py-1 rounded-full">ab 1 Stück</span>
                     </div>
-                    <div className="mt-5">
-                      <h3 className="font-black text-xl group-hover:text-primary transition-colors leading-tight mb-2">Einzelanfertigungen</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                        Unikate nach Maß – 3D-Modellierung aus Skizzen & Fotos inklusive. Keine Mindestmenge.
+                    <div className="relative mt-5">
+                      <h3 className="font-black text-xl text-primary-foreground leading-tight mb-2">Einzelanfertigungen & Unikate</h3>
+                      <p className="text-primary-foreground/75 text-sm leading-relaxed mb-4">
+                        Maßgefertigte 3D-Modelle nach Ihren Vorgaben – aus Skizzen, Fotos oder CAD. Keine Mindestmenge, kein Werkzeug nötig.
                       </p>
-                      <span className="flex items-center gap-1 text-primary font-bold text-sm group-hover:gap-2 transition-all">
-                        Mehr erfahren <ArrowRight className="w-4 h-4" />
+                      <span className="flex items-center gap-1 text-primary-foreground font-bold text-sm group-hover:gap-2 transition-all">
+                        Einzelanfertigungen entdecken <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
                   </div>
