@@ -94,12 +94,13 @@ export const PRICING_CONFIG = {
   /** Dichte in g/cm³ */
   densityFactor: {
     PLA: 1.24,
+    PLA_PLUS: 1.24,
     PETG: 1.27,
     ABS: 1.04,
     ASA: 1.07,
     TPU: 1.21,
-    RESIN: 1.10,
-    PA12: 1.01,
+    PA6_CF: 1.15,
+    PC: 1.20,
   } as Record<MaterialKey, number>,
 
   /** Schichtdickenfaktor – feinere Schichten = teurer */
