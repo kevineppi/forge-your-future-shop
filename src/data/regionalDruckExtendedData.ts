@@ -11,6 +11,8 @@ export interface RegionalDruckExtendedData {
   materials: MaterialRecommendation[];
   industryFocus: string;
   uniqueSellingPoints: string[];
+  faqs?: { question: string; answer: string }[];
+  introText?: string;
 }
 
 const defaultMaterials: MaterialRecommendation[] = [
