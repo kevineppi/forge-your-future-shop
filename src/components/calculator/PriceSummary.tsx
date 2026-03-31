@@ -95,7 +95,7 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
 
           {/* Zuschlag */}
           {result.minimumOrderSurcharge > 0 && (
-            <div className="flex justify-between text-amber-600">
+            <div className="flex justify-between text-destructive/80">
               <span className="flex items-center gap-1 text-destructive">
                 <AlertTriangle className="h-3.5 w-3.5" />
                 Mindermengenzuschlag
