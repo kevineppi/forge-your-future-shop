@@ -181,7 +181,7 @@ const knowledgeEntries = [
   },
   {
     title: "Services - Probeteile & Muster",
-    content: "Probeteile-Service für neue Kunden und Qualitätsprüfung. Kleine Probeteile (bis 5x5x5cm) ab 15€. Ermöglicht Materialtest, Passgenauigkeitsprüfung, Funktionsvalidierung vor Serienbestellung. Kostenloser Kostenvoranschlag innerhalb 24h nach Datei-Upload. Beratung zu Materialwahl, Ausrichtung, Wandstärken inklusive. Online-Kostenrechner verfügbar für Sofortpreise. Eigene Probeteile-Seite mit Upload-Funktion und direkter Anfrage. Ideal für Erstkunden zur Qualitätsbeurteilung. Probeteile werden mit gleicher Sorgfalt wie Serienteile produziert.",
+    content: "Probeteile-Service für neue Kunden und Qualitätsprüfung. Kleine Probeteile (bis 5x5x5cm) ab 15€. Ermöglicht Materialtest, Oberflächenprüfung und Qualitätsbewertung vor größerer Bestellung. Kostenloser Kostenvoranschlag innerhalb 24h nach Datei-Upload. Beratung zu Materialwahl, Ausrichtung, Wandstärken inklusive. Online-Kostenrechner verfügbar für Sofortpreise. Ideal für Erstkunden zur Qualitätsbeurteilung. Probeteile werden mit gleicher Sorgfalt wie alle Aufträge produziert.",
     category: "Services",
     page_url: "/probeteile"
   },
