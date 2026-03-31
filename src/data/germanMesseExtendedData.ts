@@ -390,7 +390,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
     caseStudy: {
       title: "Kunststoff-Werkzeugmodell für K-Messe",
       industry: "Kunststofftechnik",
-      challenge: "Ein Werkzeugbauer wollte auf der K-Messe ein komplexes Spritzgusswerkzeug mit Heißkanalsystem präsentieren. Das Modell sollte alle internen Kanäle und Kavitäten zeigen.",
+      challenge: "Ein Werkzeugbauer wollte auf der K-Messe ein komplexes Werkzeugmodell mit Heißkanalsystem als Anschauungsmodell präsentieren. Das Modell sollte alle internen Kanäle und Kavitäten zeigen.",
       solution: "Wir erstellten ein aufgeschnittenes Modell mit transparenten Elementen für die Heißkanalführung. Die Kavitäten wurden farblich hervorgehoben.",
       result: "Das Modell ermöglichte technische Diskussionen auf einem neuen Level. Der Werkzeugbauer gewann drei neue Großkunden.",
       specs: {
