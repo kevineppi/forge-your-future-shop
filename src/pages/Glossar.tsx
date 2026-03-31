@@ -184,7 +184,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "TPU (Thermoplastisches Polyurethan)",
     category: "Material",
-    definition: "Flexibles, gummiartiges Filament mit hoher Elastizität und Verschleißfestigkeit. Shore-Härte typisch 85A–95A. Erfordert niedrige Druckgeschwindigkeit (20–30 mm/s) und Direct-Drive-Extruder. Anwendungen: Dichtungen, Schläuche, Stoßdämpfer, Schutzhüllen. Drucktemperatur 210–230 °C.",
+    definition: "Flexibles, gummiartiges Filament mit hoher Elastizität und Verschleißfestigkeit. Shore-Härte typisch 85A–95A. Erfordert niedrige Druckgeschwindigkeit (20–30 mm/s) und Direct-Drive-Extruder. Anwendungen: flexible Designmodelle, Schutzhüllen, elastische Dekorationsobjekte. Drucktemperatur 210–230 °C.",
     relatedLinks: [{ label: "Einzelanfertigungen", href: "/einzelanfertigungen" }]
   },
   {
