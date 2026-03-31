@@ -255,8 +255,8 @@ const Kostenrechner = () => {
         {/* ── Inline disclaimer – compact ─────────────────────────────── */}
         <CalculatorDisclaimer />
 
-        {/* ── Material Comparison ─────────────────────────────────────── */}
-        <MaterialComparisonTable />
+        {/* ── Material Overview ──────────────────────────────────────── */}
+        <MaterialOverviewCompact />
 
         {/* ── Mid-page CTA back to calculator ────────────────────────── */}
         <section className="py-10">
