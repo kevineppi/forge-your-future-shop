@@ -294,43 +294,50 @@ export interface TestCase {
 
 export const TEST_CASES: TestCase[] = [
   {
-    label: 'FDM / PLA / 0.12mm / 1 Stk',
+    label: 'PLA / 0.12mm / 15% Infill / 1 Stk',
     input: {
       process: 'FDM',
       materialKey: 'PLA',
       layerHeight: 0.12,
       wallThickness: 1.2,
+      infillPercent: 15,
       quantity: 1,
     },
   },
   {
-    label: 'FDM / PLA / 0.20mm / 1 Stk',
+    label: 'PETG / 0.20mm / 20% Infill / 1 Stk',
     input: {
       process: 'FDM',
-      materialKey: 'PLA',
+      materialKey: 'PETG',
       layerHeight: 0.20,
       wallThickness: 1.6,
+      infillPercent: 20,
       quantity: 1,
     },
   },
   {
-    label: 'SLA / Resin / 5 Stk',
+    label: 'ABS / 0.20mm / 30% Infill / 5 Stk',
     input: {
-      process: 'SLA',
-      materialKey: 'RESIN',
-      layerHeight: 0.12,
-      wallThickness: 0.8,
+      process: 'FDM',
+      materialKey: 'ABS',
+      layerHeight: 0.20,
+      wallThickness: 1.2,
+      infillPercent: 30,
       quantity: 5,
     },
   },
   {
-    label: 'SLS / PA12 / 20 Stk',
+    label: 'PA6-CF / 0.12mm / 50% Infill / 10 Stk',
     input: {
-      process: 'SLS',
-      materialKey: 'PA12',
+      process: 'FDM',
+      materialKey: 'PA6_CF',
       layerHeight: 0.12,
-      wallThickness: 1.0,
-      quantity: 20,
+      wallThickness: 1.6,
+      infillPercent: 50,
+      quantity: 10,
+    },
+  },
+];
     },
   },
 ];
