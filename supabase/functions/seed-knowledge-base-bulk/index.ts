@@ -31,7 +31,7 @@ serve(async (req) => {
       },
       {
         title: 'PA12 Nylon 3D-Druck - Premium Material mit Preisen',
-        content: 'PA12 Nylon (Polyamid 12) ist das Premium-Material für höchste Ansprüche. Preis: €4,50-5,50 pro Stunde Druckzeit oder ca. €56/kg. Eigenschaften: Sehr hohe Festigkeit und Zähigkeit, chemikalienbeständig gegen Öle und Kraftstoffe, verschleißfest, flexible Anwendungen möglich. Drucktemperatur 240-280°C. Ideal für: Funktionsteile unter hoher Belastung, Zahnräder, Lager, Clips, lebende Scharniere, Verschleißteile. Weniger hygroskopisch als PA6. Verfügbar in Natur und Schwarz. Lieferzeit: 3-5 Werktage.',
+        content: 'PA12 Nylon (Polyamid 12) ist das Premium-Material für höchste Ansprüche. Preis: €4,50-5,50 pro Stunde Druckzeit oder ca. €56/kg. Eigenschaften: Sehr hohe Festigkeit und Zähigkeit, chemikalienbeständig, verschleißfest. Drucktemperatur 240-280°C. Ideal für: anspruchsvolle Anschauungsmodelle, hochwertige Präsentationsobjekte, robuste Designstudien. Weniger hygroskopisch als PA6. Verfügbar in Natur und Schwarz. Lieferzeit: 3-5 Werktage.',
         category: 'Materialien',
         page_url: '/3d-druck-materialien'
       },
