@@ -55,7 +55,7 @@ serve(async (req) => {
       },
       {
         title: 'PETG 3D-Druck Material - Preis und Eigenschaften',
-        content: 'PETG (Polyethylenterephthalat Glycol) ist der beste Allrounder. Preis: €2,00-2,50 pro Stunde Druckzeit. Eigenschaften: Schlagfest, chemikalienbeständig, UV-beständig, lebensmittelecht, glasklare Varianten möglich. Drucktemperatur 220-250°C, Heizbett 70-80°C. Temperaturbeständigkeit bis 75°C. Ideal für: Funktionsteile, mechanisch belastete Teile, Outdoor-Anwendungen, Lebensmittelkontakt. Sehr gute Schichthaftung. Verfügbar in vielen Farben. Lieferzeit: 2-3 Werktage.',
+        content: 'PETG (Polyethylenterephthalat Glycol) ist der beste Allrounder. Preis: €2,00-2,50 pro Stunde Druckzeit. Eigenschaften: Schlagfest, chemikalienbeständig, UV-beständig, glasklare Varianten möglich. Drucktemperatur 220-250°C, Heizbett 70-80°C. Temperaturbeständigkeit bis 75°C. Ideal für: robuste Anschauungsmodelle, Outdoor-Modelle, transparente Schauobjekte. Sehr gute Schichthaftung. Verfügbar in vielen Farben. Lieferzeit: 2-3 Werktage.',
         category: 'Materialien',
         page_url: '/3d-druck-materialien'
       },
