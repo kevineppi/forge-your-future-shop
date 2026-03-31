@@ -69,7 +69,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Graz - Service für Steiermark mit Preisen',
-        content: '3D-Druck Dienstleister für Graz und Steiermark. Koordinaten: 47.0707°N, 15.4395°E. Lieferzeit nach Graz: Standard 2-3 Werktage, Express 24-48h. Material-Preise wie Wien. Besondere Expertise: Maschinenbauteile, Industrieprototypen für Automotive-Cluster Steiermark. Referenzen Graz: TU Graz Forschungsprojekte, Automobilzulieferer-Prototypen (AVL, Magna), Medizintechnik-Bauteile MedUni Graz. Versandkosten: Kostenlos ab €50. Kontakt: +43 676 5517197. Services: CAD-Konstruktion, Rapid Prototyping, Serienfertigung.',
+        content: '3D-Druck Dienstleister für Graz und Steiermark. Lieferzeit nach Graz: Standard 2-3 Werktage, Express 24-48h. Material-Preise wie Wien. Besondere Expertise: Architekturmodelle, Designstudien für steirische Unternehmen. Referenzen Graz: TU Graz Forschungsprojekte, Designstudien für Industrieunternehmen, Messemodelle. Versandkosten: Kostenlos ab €50. Kontakt: +43 676 5517197. Services: Modellbau, Designstudien, Präsentationsobjekte.',
         category: 'Regional',
         page_url: '/3d-druck-graz'
       },
