@@ -22,7 +22,7 @@ import {
   TrendingDown, ArrowRight, Zap, Leaf, Star,
   ChevronRight, Package, Phone, MessageSquare,
   Shield, Award, Paintbrush, ScanLine, Ruler,
-  FlaskConical, Wrench, Palette } from
+  FlaskConical, Wrench, Palette, Calculator } from
 "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -191,6 +191,58 @@ const Index = () => {
                 </Link>
               )}
             </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ── KOSTENRECHNER CTA — prominent link ─────────────────────────── */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <AnimatedSection animation="slide-up">
+            <Link to="/kostenrechner" className="group block max-w-6xl mx-auto">
+              <div className="relative rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/6 via-background to-accent/4 overflow-hidden
+                hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.2)]
+                transition-all duration-500 p-8 md:p-10 group-hover:-translate-y-1">
+                {/* Accent circle */}
+                <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-primary/5 group-hover:bg-primary/8 transition-colors" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-accent/5" />
+
+                <div className="relative flex flex-col md:flex-row md:items-center gap-6">
+                  <div className="shrink-0">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                      <Calculator className="w-7 h-7 text-primary" />
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="font-black text-xl md:text-2xl text-foreground group-hover:text-primary transition-colors">
+                        Was kostet Ihr 3D-Modell?
+                      </h3>
+                      <span className="text-xs font-bold bg-primary/10 text-primary border border-primary/20 px-2.5 py-1 rounded-full hidden sm:inline-block">
+                        Richtpreis in Sekunden
+                      </span>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">
+                      STL hochladen, Material wählen, Richtpreis erhalten – unverbindlich und kostenlos.
+                      Jede Anfrage wird persönlich geprüft. Auch Kleinauflagen und größere Projektmengen.
+                    </p>
+                  </div>
+
+                  <div className="shrink-0 flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-3 transition-all">
+                    Kostenrechner öffnen <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
+
+                {/* Trust line */}
+                <div className="relative flex flex-wrap gap-x-6 gap-y-1 mt-6 pt-4 border-t border-border/40 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> 8 FDM-Materialien</span>
+                  <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> Echtzeit-Preisindikation</span>
+                  <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> 3D-Vorschau im Browser</span>
+                  <span className="flex items-center gap-1"><Check className="h-3 w-3 text-primary" /> Angebot in 6 Stunden</span>
+                </div>
+              </div>
+            </Link>
           </AnimatedSection>
         </div>
       </section>
