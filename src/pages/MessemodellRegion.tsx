@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import SEOHead from "@/components/SEOHead";
+import InlineSchema from "@/components/InlineSchema";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
