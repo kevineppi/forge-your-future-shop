@@ -54,7 +54,7 @@ const knowledgeEntries = [
   },
   {
     title: "Druckparameter - Infill & Perimeter",
-    content: "Infill ist die innere Füllstruktur eines 3D-Drucks in Prozent (0-100%). Höherer Infill = mehr Festigkeit und Material. Typische Werte: 15-20% für Prototypen, 30-50% für funktionale Teile, 100% für kritische Bauteile. Füllmuster (Grid, Gyroid, Honeycomb) beeinflussen Festigkeit. Perimeter sind die äußeren Wandungen, meist 2-4 Schichten. Mehr Perimeter erhöhen Festigkeit, Wasserdichtigkeit und Wandstabilität. Bei dünnen Wänden können Perimeter das gesamte Bauteil ausfüllen (0% Infill sinnvoll). Optimale Balance zwischen Festigkeit, Gewicht und Druckzeit entscheidend.",
+    content: "Infill ist die innere Füllstruktur eines 3D-Drucks in Prozent (0-100%). Höherer Infill = mehr Festigkeit und Material. Typische Werte: 15-20% für Anschauungsmodelle, 30-50% für robuste Präsentationsobjekte, 100% für besonders stabile Modelle. Füllmuster (Grid, Gyroid, Honeycomb) beeinflussen Festigkeit. Perimeter sind die äußeren Wandungen, meist 2-4 Schichten. Mehr Perimeter erhöhen Festigkeit und Wandstabilität. Bei dünnen Wänden können Perimeter das gesamte Objekt ausfüllen (0% Infill sinnvoll). Optimale Balance zwischen Festigkeit, Gewicht und Druckzeit entscheidend.",
     category: "Technische Details",
     page_url: "/glossar"
   },
