@@ -158,12 +158,13 @@ export const PRICING_CONFIG = {
   /** Material-Labels für die UI */
   materialLabels: {
     PLA: 'PLA',
+    PLA_PLUS: 'PLA+',
     PETG: 'PETG',
     ABS: 'ABS',
-    ASA: 'ASA',
-    TPU: 'TPU',
-    RESIN: 'Standard Resin',
-    PA12: 'PA12 (Nylon)',
+    ASA: 'ASA (UV-beständig)',
+    TPU: 'TPU (flexibel)',
+    PA6_CF: 'PA6-CF (Carbonfaser)',
+    PC: 'Polycarbonat',
   } as Record<MaterialKey, string>,
 } as const;
 
