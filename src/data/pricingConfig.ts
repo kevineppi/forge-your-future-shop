@@ -37,8 +37,6 @@ export const PRICING_CONFIG = {
   /** Verfahrensspezifischer Druckzeit-Multiplikator */
   processTimeFactor: {
     FDM: 1,
-    SLA: 2,
-    SLS: 3,
   } as Record<ProcessType, number>,
 
   // ── Stundensätze Druckkosten ──────────────────────────────
