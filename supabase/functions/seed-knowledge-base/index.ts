@@ -187,7 +187,7 @@ const knowledgeEntries = [
   },
   {
     title: "Services - Einzelanfertigungen",
-    content: "Einzelanfertigungen für Spezialanwendungen, Unikate, Ersatzteile. Keine Mindestbestellmenge - auch einzelne Teile werden produziert. Kosteneffizient da keine Werkzeugkosten. Design-Support und technische Beratung inklusive. Reverse Engineering möglich: Defekte Teile vermessen und nachgebaut. CAD-Erstellung aus Skizzen oder Fotos auf Anfrage. Materialberatung je nach Anwendung. Nachbearbeitung wie Schleifen, Lackieren gegen Aufpreis möglich. Vertraulichkeit garantiert - NDAs auf Anfrage. Ideal für Prototypen, Legacy-Teile, Spezialwerkzeuge, Vorrichtungen.",
+    content: "Einzelanfertigungen für individuelle Anschauungsmodelle, Unikate, Präsentationsobjekte. Keine Mindestbestellmenge - auch einzelne Objekte werden produziert. Kosteneffizient da keine Werkzeugkosten. Design-Support und Beratung inklusive. 3D-Modellierung aus Skizzen oder Fotos auf Anfrage. Materialberatung je nach Anwendung. Nachbearbeitung wie Schleifen, Lackieren gegen Aufpreis möglich. Vertraulichkeit garantiert - NDAs auf Anfrage. Ideal für Messemodelle, Architekturmodelle, Designstudien, Kunstobjekte.",
     category: "Services",
     page_url: "/einzelanfertigungen"
   },
