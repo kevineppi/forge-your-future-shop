@@ -313,7 +313,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
         icon: "feather"
       }
     ],
-    industryFocus: "Automobil, Maschinenbau & Outdoor in Baden-Württemberg",
+    industryFocus: "Design, Präsentation & Outdoor in Baden-Württemberg",
     uniqueSellingPoints: [
       "Kompetenz für Automotive-Modelle",
       "Erfahrung mit Messe Stuttgart",
