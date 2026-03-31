@@ -58,12 +58,16 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             <span>{fmt(result.materialCostPerPart)}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Bearbeitungskosten / Stück</span>
-            <span>{fmt(result.laborCostPerPart)}</span>
+            <span className="text-muted-foreground">Druckkosten / Stück</span>
+            <span>{fmt(result.printCost)}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Rohpreis / Stück (netto)</span>
-            <span>{fmt(result.rawUnitNet)}</span>
+            <span className="text-muted-foreground">Setup / Stück</span>
+            <span>{fmt(result.setupCost)}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">Stückpreis (netto, skaliert)</span>
+            <span>{fmt(result.scaledUnitCost)}</span>
           </div>
 
           <Separator className="my-2" />
