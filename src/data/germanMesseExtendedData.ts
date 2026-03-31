@@ -378,7 +378,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
       quote: "Ein Bild sagt mehr als tausend Worte – ein 3D-Modell sagt mehr als tausend Bilder. Genau so war es auf der Automechanika."
     },
     materials: defaultMaterials,
-    industryFocus: "Automobil, Gebäudetechnik & Konsumgüter in Frankfurt",
+    industryFocus: "Präsentation, Gebäudetechnik & Konsumgüter in Frankfurt",
     uniqueSellingPoints: [
       "Erfahrung mit Messe Frankfurt – eine der größten weltweit",
       "Express-Versand für internationale Leitmessen",
