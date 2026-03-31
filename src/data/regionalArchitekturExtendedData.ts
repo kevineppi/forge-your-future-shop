@@ -364,13 +364,25 @@ export const regionalArchitekturExtendedData: Record<string, RegionalArchitektur
   },
 
   'graz': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Smart-City-Quartier-Modell für Grazer Wettbewerb",
+      industry: "Stadtplanung & Innovation",
+      challenge: "Ein Grazer Architekturbüro entwarf ein Smart-City-Quartier für die Grazer Stadtentwicklung und brauchte ein Modell, das die innovative Infrastruktur und Gebäudetypologie zeigt.",
+      solution: "Wir fertigten ein modulares Modell im Maßstab 1:200 mit farbcodierten Nutzungszonen: Wohnen (weiß), Gewerbe (hellgrau), Grünflächen (grün). Die Smart-Infrastruktur wurde durch feine Linienstrukturen angedeutet.",
+      result: "Das Modell wurde in der Jury-Sitzung als 'besonders gut lesbar' gelobt. Das Büro erreichte Platz 2 im Wettbewerb.",
+      specs: {
+        size: "70 x 50 x 15 cm",
+        material: "PLA mehrfarbig, modular",
+        time: "6 Werktage"
+      },
+      quote: "Durch die Farbcodierung war der Entwurf sofort verständlich. Das Modell hat den Unterschied gemacht."
+    },
     materials: defaultMaterials,
-    industryFocus: "Architektur & Stadtplanung in Graz",
+    industryFocus: "Smart City & Stadtplanung in Graz",
     uniqueSellingPoints: [
       "Express-Lieferung nach Graz",
       "TU Graz Kooperationserfahrung",
-      "Flexible Terminplanung"
+      "Modulare Modelle für Quartiersprojekte"
     ]
   },
 
