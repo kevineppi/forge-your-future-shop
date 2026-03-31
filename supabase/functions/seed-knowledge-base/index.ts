@@ -79,7 +79,7 @@ const knowledgeEntries = [
   },
   {
     title: "Kostenvergleich Fertigungsverfahren",
-    content: "FDM 3D-Druck vs. traditionelle Fertigung: CNC-Fräsen Prototyp 800-2.000€, Kleinserie 300-800€/Stk, 2-4 Wochen Lieferzeit. Spritzguss Werkzeug 15.000-50.000€, dann 2-10€/Stk, 8-12 Wochen Lieferzeit. FDM 3D-Druck Prototyp 50-300€, Kleinserie 40-250€/Stk, 2-5 Tage Lieferzeit. Break-Even liegt bei 50-500 Stück abhängig von Komplexität. Für Prototypen und <100 Stück ist FDM fast immer günstiger. Bei >1000 Stück wird Spritzguss wirtschaftlicher. FDM spart 50-80% bei Prototypen gegenüber CNC.",
+    content: "FDM 3D-Druck vs. traditionelle Fertigung: CNC-Fräsen Modell 800-2.000€, 2-4 Wochen Lieferzeit. FDM 3D-Druck Modell 50-300€, 2-5 Tage Lieferzeit. Für Anschauungsmodelle und Projektmengen unter 100 Stück ist FDM fast immer günstiger. FDM spart 50-80% bei Designmodellen gegenüber CNC-Fräsen.",
     category: "Preise",
     page_url: "/ratgeber/verfahrens-vergleich"
   },
