@@ -114,16 +114,12 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             <span>Netto-Richtpreis</span>
             <span>{fmt(result.finalNet)}</span>
           </div>
-          <div className="flex justify-between text-sm text-muted-foreground">
-            <span>zzgl. 20 % USt</span>
-            <span>{fmt(result.vatAmount)}</span>
-          </div>
         </div>
 
-        {/* Brutto */}
+        {/* Endpreis */}
         <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 text-center">
-          <p className="text-xs text-muted-foreground mb-1">Geschätzter Bruttopreis</p>
-          <p className="text-3xl font-bold text-foreground">{fmt(result.finalGross)}</p>
+          <p className="text-xs text-muted-foreground mb-1">Geschätzter Richtpreis (netto)</p>
+          <p className="text-3xl font-bold text-foreground">{fmt(result.finalNet)}</p>
           <p className="text-xs text-muted-foreground mt-1">
             ca. {fmt(result.rawUnitNet)} netto / Stück
           </p>
