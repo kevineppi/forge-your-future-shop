@@ -102,17 +102,27 @@ function getLayerHeightFactor(layerHeight: number): number {
 
 // ── 1. Materialkosten ──────────────────────────────────────
 
-function calculateMaterialCost(volumeCm3: number, materialKey: MaterialKey, infillPercent: number): {
+function calculateMaterialCost(
+  volumeCm3: number,
+  surfaceCm2: number,
+  wallThickness: number,
+  materialKey: MaterialKey,
+  infillPercent: number,
+): {
   materialWeightG: number;
   materialCostRaw: number;
   materialCost: number;
+  wallFraction: number;
 } {
   const cfg = PRICING_CONFIG;
   const density = cfg.densityFactor[materialKey];
   const pricePerKg = cfg.materialPricePerKg[materialKey];
 
-  // Effektives Volumen: Wände (ca. 30% des Volumens, immer solid) + Infill (Rest)
-  const wallFraction = 0.30;
+  // Dynamischer Wandanteil: Oberfläche × Wandstärke / Volumen
+  const wallThicknessCm = wallThickness / 10; // mm → cm
+  const wallVolumeCm3 = surfaceCm2 * wallThicknessCm;
+  const wallFraction = Math.min(wallVolumeCm3 / volumeCm3, 0.95);
+
   const infillFraction = infillPercent / 100;
   const effectiveVolumeFactor = wallFraction + (1 - wallFraction) * infillFraction;
   const effectiveVolume = volumeCm3 * effectiveVolumeFactor;
@@ -121,7 +131,7 @@ function calculateMaterialCost(volumeCm3: number, materialKey: MaterialKey, infi
   const materialCostRaw = (materialWeightG / 1000) * pricePerKg;
   const materialCost = materialCostRaw * cfg.materialSafetyFactor;
 
-  return { materialWeightG, materialCostRaw, materialCost };
+  return { materialWeightG, materialCostRaw, materialCost, wallFraction };
 }
 
 // ── 2. Druckzeit (realistisch) ─────────────────────────────
