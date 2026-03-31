@@ -80,7 +80,7 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "ekdruck e.U.",
-    "description": `3D-Druck Service für ${regionData.name} – Prototypen, Gehäuse, Einzelteile`,
+    "description": `3D-Druck Service für ${regionData.name} – Designstudien, Präsentationsmodelle, Einzelstücke`,
     "url": `https://www.ek-druck.at/3d-druck-${regionData.slug}`,
     "telephone": "+43 676 5517197",
     "email": "office@ek-druck.at",
