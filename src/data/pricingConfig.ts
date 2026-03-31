@@ -3,67 +3,79 @@
  * 3D-Druck Kostenrechner – Zentrale Preiskonfiguration
  * ═══════════════════════════════════════════════════════════════
  *
- * Hybrides Kalkulationsmodell:
- *   1. Materialkosten (physikalisch)
- *   2. Druckzeitkosten (realistisch angenähert)
- *   3. Setup-/Handlingkosten (abgeschwächt, nicht linear)
- *   4. Größen-Skalierung
- *   5. Mindestpreis / Mindermengenzuschlag
+ * Hybrides Kalkulationsmodell – Baseline-Konfiguration.
+ * Alle Parameter werden von pricingEngine.ts konsumiert.
  */
 
-// ── Verfahren ────────────────────────────────────────────────
-export type ProcessType = 'FDM';
-
-export type MaterialKey = 'PLA' | 'PLA_PLUS' | 'PETG' | 'ABS' | 'ASA' | 'TPU' | 'PA6_CF' | 'PC';
-
-// ── Hauptkonfiguration ──────────────────────────────────────
-export const PRICING_CONFIG = {
-  /** Umsatzsteuer – deaktiviert (Kleinunternehmerregelung o.Ä.) */
+export const pricingConfig = {
   vatRate: 0,
 
-  /** Sicherheitsfaktor auf Materialkosten (Verschnitt, Stützstruktur etc.) */
+  density: {
+    PLA: 1.24,
+    "PLA+": 1.24,
+    PETG: 1.27,
+    ABS: 1.04,
+    ASA: 1.07,
+    TPU: 1.21,
+    "PA6-CF": 1.15,
+    PC: 1.2,
+  } as Record<string, number>,
+
+  pricePerKg: {
+    PLA: 25,
+    "PLA+": 30,
+    PETG: 30,
+    ABS: 35,
+    ASA: 40,
+    TPU: 80,
+    "PA6-CF": 120,
+    PC: 65,
+  } as Record<string, number>,
+
+  layerHeightFactor: {
+    0.08: 1.25,
+    0.12: 1.1,
+    0.2: 1.0,
+    0.28: 0.9,
+  } as Record<number, number>,
+
   materialSafetyFactor: 1.15,
 
-  // ── Druckzeit-Parameter ───────────────────────────────────
-  /** Minuten pro cm³ Druckvolumen */
-  volumeTimeFactor: 2.5,
-  /** Minuten pro cm² Oberfläche (Wandfahrwege) */
-  surfaceTimeFactor: 0.08,
-  /** Minuten pro Layer (Schichtwechsel-Penalty) */
-  layerPenaltyFactor: 0.06,
-  /** Basis-Druckzeit in Minuten (Aufheizen, Kalibrieren etc.) */
-  basePrintTimeMin: 8,
+  printTime: {
+    volumeFactor: 2.5,
+    surfaceFactor: 0.08,
+    layerFactor: 0.06,
+    baseMinutes: 8,
+    fdmFactor: 1.0,
+  },
 
-  /** Verfahrensspezifischer Druckzeit-Multiplikator */
-  processTimeFactor: {
-    FDM: 1,
-  } as Record<ProcessType, number>,
+  hourlyRate: {
+    small: 3,
+    large: 6,
+    largeFromMm: 260,
+  },
 
-  // ── Stundensätze Druckkosten ──────────────────────────────
-  /** Druckkosten €/h für kleine/mittlere Teile (maxDim < 260mm) */
-  hourlyPrintRateSmall: 3,
-  /** Druckkosten €/h für große Teile (maxDim 260–350mm) */
-  hourlyPrintRateLarge: 6,
-  /** Schwellenwert in mm ab dem der höhere Stundensatz gilt */
-  largePrintThresholdMm: 260,
+  setupCost: 12.99,
 
-  // ── Setup-/Handlingkosten ─────────────────────────────────
-  /** Fixe Setupkosten pro Stück in € */
-  fixedSetupCost: 12.99,
+  sizeFactor: {
+    startFromMm: 170,
+    divisor: 300,
+    slope: 0.5,
+    min: 1.0,
+  },
 
-  // ── Größen-Skalierung ─────────────────────────────────────
-  /** Schwellenwert ab dem der Größenfaktor greift (mm) */
-  sizeFactorThresholdMm: 170,
-  /** Referenz-Dimension für sizeFactor (mm) */
-  sizeFactorReferenceMm: 300,
-  /** Steigung des Größenfaktors */
-  sizeFactorSlope: 0.5,
+  quantityDiscounts: [
+    { minQty: 100, rate: 0.10 },
+    { minQty: 50, rate: 0.08 },
+    { minQty: 10, rate: 0.05 },
+  ],
 
-  // ── Mindestauftragswert ───────────────────────────────────
-  /** Mindestauftragswert netto (€) – darunter wird Zuschlag berechnet */
-  minimumOrderThresholdNet: 40,
-  /** Mindermengenzuschlag netto (€) */
-  minimumOrderSurchargeNet: 8.90,
+  minimumOrder: {
+    thresholdNet: 40,
+    surcharge: 8.9,
+  },
+
+  // ── UI-Konfiguration ──────────────────────────────────────
 
   /** Platzhalter-Geometriedaten (wenn keine STL hochgeladen) */
   placeholderGeometry: {
@@ -72,103 +84,50 @@ export const PRICING_CONFIG = {
     boundingBoxMm: { x: 50, y: 50, z: 50 },
   },
 
-  /** Infill-Faktor – Standard-Infill-Prozentsatz */
+  /** Standard-Infill */
   defaultInfillPercent: 15,
 
   /** Verfügbare Infill-Stufen in % */
   infillOptions: [10, 15, 20, 30, 50, 75, 100],
 
-  /** Oberflächen-Korrekturfaktor (FDM) */
-  surfaceFactor: 0.9,
-
-  /** Materialpreise in €/kg */
-  materialPricePerKg: {
-    PLA: 25,
-    PLA_PLUS: 30,
-    PETG: 30,
-    ABS: 35,
-    ASA: 40,
-    TPU: 80,
-    PA6_CF: 120,
-    PC: 65,
-  } as Record<MaterialKey, number>,
-
-  /** Dichte in g/cm³ */
-  densityFactor: {
-    PLA: 1.24,
-    PLA_PLUS: 1.24,
-    PETG: 1.27,
-    ABS: 1.04,
-    ASA: 1.07,
-    TPU: 1.21,
-    PA6_CF: 1.15,
-    PC: 1.20,
-  } as Record<MaterialKey, number>,
-
-  /** Schichtdickenfaktor – feinere Schichten = teurer */
-  layerHeightFactor: {
-    0.08: 1.25,
-    0.12: 1.10,
-    0.20: 1.00,
-    0.28: 0.90,
-  } as Record<number, number>,
-
-  /** Staffelrabatte nach Stückzahl (absteigend sortiert!) */
-  quantityDiscounts: [
-    { minQty: 100, rate: 0.10 },
-    { minQty: 50,  rate: 0.08 },
-    { minQty: 10,  rate: 0.05 },
-  ],
-
-  /** Verfügbare Materialien pro Verfahren */
-  processMaterials: {
-    FDM: ['PLA', 'PLA_PLUS', 'PETG', 'ABS', 'ASA', 'TPU', 'PA6_CF', 'PC'] as MaterialKey[],
-  } as Record<ProcessType, MaterialKey[]>,
+  /** Verfügbare Materialien (FDM) */
+  materialKeys: ['PLA', 'PLA+', 'PETG', 'ABS', 'ASA', 'TPU', 'PA6-CF', 'PC'] as string[],
 
   /** Verfügbare Farben pro Material */
   materialColors: {
     PLA:      ['Schwarz', 'Weiß', 'Grau', 'Natur', 'Rot', 'Blau', 'Grün'],
-    PLA_PLUS: ['Schwarz', 'Weiß', 'Grau', 'Natur'],
+    "PLA+":   ['Schwarz', 'Weiß', 'Grau', 'Natur'],
     PETG:     ['Schwarz', 'Weiß', 'Grau', 'Transparent'],
     ABS:      ['Schwarz', 'Weiß', 'Grau'],
     ASA:      ['Schwarz', 'Weiß', 'Grau'],
     TPU:      ['Schwarz', 'Weiß', 'Natur'],
-    PA6_CF:   ['Schwarz'],
+    "PA6-CF": ['Schwarz'],
     PC:       ['Transparent', 'Schwarz'],
-  } as Record<MaterialKey, string[]>,
+  } as Record<string, string[]>,
 
-  /** Verfügbare Schichtdicken */
-  processLayerHeights: {
-    FDM: [0.08, 0.12, 0.20, 0.28],
-  } as Record<ProcessType, number[]>,
+  /** Verfügbare Schichtdicken (mm) */
+  layerHeights: [0.08, 0.12, 0.20, 0.28],
 
-  /** Default Schichtdicke pro Verfahren */
-  defaultLayerHeight: {
-    FDM: 0.20,
-  } as Record<ProcessType, number>,
+  /** Default Schichtdicke */
+  defaultLayerHeight: 0.20,
 
-  /** Verfügbare Wandstärken pro Verfahren */
-  processWallThicknesses: {
-    FDM: [0.8, 1.2, 1.6, 2.0, 2.4],
-  } as Record<ProcessType, number[]>,
+  /** Verfügbare Wandstärken (mm) */
+  wallThicknesses: [0.8, 1.2, 1.6, 2.0, 2.4],
 
-  /** Default Wandstärke pro Verfahren */
-  defaultWallThickness: {
-    FDM: 1.2,
-  } as Record<ProcessType, number>,
+  /** Default Wandstärke */
+  defaultWallThickness: 1.2,
 
   /** Material-Labels für die UI */
   materialLabels: {
     PLA: 'PLA',
-    PLA_PLUS: 'PLA+',
+    "PLA+": 'PLA+',
     PETG: 'PETG',
     ABS: 'ABS',
     ASA: 'ASA (UV-beständig)',
     TPU: 'TPU (flexibel)',
-    PA6_CF: 'PA6-CF (Carbonfaser)',
+    "PA6-CF": 'PA6-CF (Carbonfaser)',
     PC: 'Polycarbonat',
-  } as Record<MaterialKey, string>,
+  } as Record<string, string>,
 } as const;
 
-// ── Type-Helfer ─────────────────────────────────────────────
-export type PricingConfig = typeof PRICING_CONFIG;
+export type PricingConfig = typeof pricingConfig;
