@@ -55,7 +55,7 @@ const Kunstobjekte           = lazy(() => import("./pages/Kunstobjekte"));
 const Firmenkunden           = lazy(() => import("./pages/Firmenkunden"));
 const Kontakt                = lazy(() => import("./pages/Kontakt"));
 const UeberUns               = lazy(() => import("./pages/UeberUns"));
-
+const Kostenrechner          = lazy(() => import("./pages/Kostenrechner"));
 // ─── Minimal fallback shown during chunk fetch ────────────────────────────────
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
