@@ -269,16 +269,12 @@ const Firmenkunden = () => {
 
   return (
     <>
-      <Helmet>
-        <title>3D-Druck für Unternehmen | UID-Rechnung · NDA · Mengenrabatt | ekdruck</title>
-        <meta name="description" content="B2B 3D-Druck mit allem was Sie brauchen: UID-Rechnung ✓ NDA ✓ Mengenrabatt ab 5 Stk ✓ Persönlicher Ansprechpartner. Messemodelle, Schulungsmodelle & Prototypen für Firmen." />
-        <meta name="keywords" content="3d-druck firmenkunden, 3d-druck b2b, 3d-druck unternehmen, messemodelle firma, uid rechnung 3d-druck, 3d-druck mengenrabatt" />
-        <link rel="canonical" href="https://www.ek-druck.at/firmenkunden" />
-        <meta property="og:title" content="3D-Druck für Firmenkunden | Modelle & Dekoration" />
-        <meta property="og:description" content="Architekturmodelle, Messemodelle und Dekorationsobjekte für Unternehmen. Keine Funktionsteile." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.ek-druck.at/firmenkunden" />
-      </Helmet>
+      <SEOHead
+        title="3D-Druck für Unternehmen | UID-Rechnung · NDA · Mengenrabatt | ekdruck"
+        description="B2B 3D-Druck mit allem was Sie brauchen: UID-Rechnung ✓ NDA ✓ Mengenrabatt ab 5 Stk ✓ Persönlicher Ansprechpartner. Messemodelle, Schulungsmodelle & Prototypen für Firmen."
+        keywords="3d-druck firmenkunden, 3d-druck b2b, 3d-druck unternehmen, messemodelle firma, uid rechnung 3d-druck, 3d-druck mengenrabatt"
+        path="/firmenkunden"
+      />
 
       <BreadcrumbSchema items={[
         { name: "Home", url: "/" },

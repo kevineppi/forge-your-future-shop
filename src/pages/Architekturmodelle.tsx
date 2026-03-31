@@ -317,12 +317,12 @@ const Architekturmodelle = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Architekturmodell 3D-Druck ab €20 | Wettbewerb morgen? Wir liefern. | ekdruck</title>
-        <meta name="description" content="Wettbewerbsabgabe übermorgen? Architekturmodelle ab €20 per 3D-Druck – Maßstab 1:50–1:500. ArchiCAD & Revit direkt druckbar. 80% günstiger als Modellbauer. Angebot in 6h →" />
-        <meta name="keywords" content="architekturmodell 3d-druck, architekturmodell drucken lassen, wettbewerbsmodell, architekturmodell kosten, gebäudemodell 3d-druck, architekturmodell maßstab" />
-        <link rel="canonical" href="https://www.ek-druck.at/architekturmodelle" />
-      </Helmet>
+      <SEOHead
+        title="Architekturmodell 3D-Druck ab €20 | Wettbewerb morgen? Wir liefern. | ekdruck"
+        description="Wettbewerbsabgabe übermorgen? Architekturmodelle ab €20 per 3D-Druck – Maßstab 1:50–1:500. ArchiCAD & Revit direkt druckbar. 80% günstiger als Modellbauer. Angebot in 6h →"
+        keywords="architekturmodell 3d-druck, architekturmodell drucken lassen, wettbewerbsmodell, architekturmodell kosten, gebäudemodell 3d-druck, architekturmodell maßstab"
+        path="/architekturmodelle"
+      />
 
       <ProductOfferSchema
         name="3D-Druck Architekturmodelle"
