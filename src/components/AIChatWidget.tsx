@@ -118,7 +118,7 @@ const AIChatWidget = () => {
     switch (type) {
       case 'material':
         userMessage = 'Welches Material empfehlt ihr für mein Projekt?';
-        assistantMessage = 'Die Material-Wahl hängt von Ihrer Anwendung ab:\n\n🟢 PLA: Günstig, einfach zu drucken, ideal für Prototypen (nicht hitzebeständig)\n🔵 PETG: Robust, chemikalienbeständig, für funktionale Teile\n🟡 ASA: UV-beständig, witterungsbeständig, perfekt für Outdoor\n🟣 TPU: Flexibel, elastisch, für Dichtungen & Griffe\n\nWofür möchten Sie das Teil verwenden?';
+        assistantMessage = 'Die Material-Wahl hängt von Ihrer Anwendung ab:\n\n🟢 PLA: Günstig, einfach zu drucken, ideal für Designstudien und Modelle\n🔵 PETG: Robust, chemikalienbeständig, für langlebige Schaumodelle\n🟡 ASA: UV-beständig, witterungsbeständig, perfekt für Outdoor-Modelle\n🟣 TPU: Flexibel, elastisch, für flexible Konzeptmuster\n\nWofür möchten Sie das Modell verwenden?';
         actions = [
           { label: 'Material-Guide ansehen', url: '/ratgeber/material-guide', icon: 'material' },
           { label: 'Beratung anfragen', url: '/kontakt', icon: 'contact' }

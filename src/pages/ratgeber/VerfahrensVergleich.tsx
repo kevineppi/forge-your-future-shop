@@ -309,7 +309,7 @@ const VerfahrensVergleich = () => {
                   </CardHeader>
                   <CardContent className="space-y-2 text-muted-foreground">
                     <p>✓ Kosteneffizienz im Vordergrund steht</p>
-                    <p>✓ Funktionale Prototypen oder Endteile benötigt werden</p>
+                    <p>✓ Robuste Anschauungsmodelle oder Designstudien benötigt werden</p>
                     <p>✓ Mechanische Belastbarkeit wichtiger ist als Oberflächenqualität</p>
                     <p>✓ Große Bauteile (20x20x20cm+) gedruckt werden sollen</p>
                     <p>✓ Nachhaltige, recycelbare Materialien verwendet werden sollen</p>
