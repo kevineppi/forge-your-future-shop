@@ -29,7 +29,7 @@ const mins = (n: number) => {
   return m > 0 ? `${h} Std. ${m} Min.` : `${h} Std.`;
 };
 
-const PriceSummary = ({ result, input }: Props) => {
+const PriceSummary = ({ result, input, stlFile }: Props) => {
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
