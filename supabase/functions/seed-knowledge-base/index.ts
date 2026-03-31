@@ -92,7 +92,7 @@ const knowledgeEntries = [
   // Verfahrensvergleich
   {
     title: "3D-Druckverfahren Vergleich - FDM vs SLA vs SLS",
-    content: "FDM: Schichthöhe 0,1-0,4mm, Genauigkeit ±0,5%, sichtbare Schichten, breite Materialauswahl, Geräte 500-5.000€, Material 20-50€/kg. Ideal für Funktionsteile, Prototypen, Endteile. SLA: Schichthöhe 0,025-0,1mm, Genauigkeit ±0,1mm, glatte Oberfläche, Photopolymere, Geräte 2.000-10.000€, Material 100-200€/L. Ideal für Details, Schmuck, Dentalmodelle. SLS: Schichthöhe 0,06-0,15mm, Genauigkeit ±0,3%, leicht körnig, keine Supports nötig, Nylon/TPU, Geräte 10.000-100.000€+, Material 60-100€/kg. Ideal für Endprodukte, Kleinserien, höchste Festigkeit.",
+    content: "FDM: Schichthöhe 0,1-0,4mm, Genauigkeit ±0,5%, sichtbare Schichten, breite Materialauswahl, Geräte 500-5.000€, Material 20-50€/kg. Ideal für Anschauungsmodelle, Architekturmodelle, Dekorationsobjekte. SLA: Schichthöhe 0,025-0,1mm, Genauigkeit ±0,1mm, glatte Oberfläche, Photopolymere, Geräte 2.000-10.000€, Material 100-200€/L. Ideal für Details, Schmuck, feinste Miniaturmodelle. SLS: Schichthöhe 0,06-0,15mm, Genauigkeit ±0,3%, leicht körnig, keine Supports nötig, Nylon/TPU, Geräte 10.000-100.000€+, Material 60-100€/kg. Ideal für hochpräzise Anschauungsobjekte.",
     category: "Verfahren",
     page_url: "/ratgeber/verfahrens-vergleich"
   },
