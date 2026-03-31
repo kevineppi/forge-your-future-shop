@@ -1,7 +1,3 @@
-import { Navigate } from "react-router-dom";
-
-const Steiermark3DDruck = () => {
-  return <Navigate to="/" replace />;
-};
-
+import DruckRegion from "./DruckRegion";
+const Steiermark3DDruck = () => <DruckRegion region="steiermark" />;
 export default Steiermark3DDruck;

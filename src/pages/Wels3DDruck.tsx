@@ -1,7 +1,3 @@
-import { Navigate } from "react-router-dom";
-
-const Wels3DDruck = () => {
-  return <Navigate to="/" replace />;
-};
-
+import DruckRegion from "./DruckRegion";
+const Wels3DDruck = () => <DruckRegion region="wels" />;
 export default Wels3DDruck;

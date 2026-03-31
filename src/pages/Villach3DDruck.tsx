@@ -1,7 +1,3 @@
-import { Navigate } from "react-router-dom";
-
-const Villach3DDruck = () => {
-  return <Navigate to="/" replace />;
-};
-
+import DruckRegion from "./DruckRegion";
+const Villach3DDruck = () => <DruckRegion region="villach" />;
 export default Villach3DDruck;

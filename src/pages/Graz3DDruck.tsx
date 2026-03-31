@@ -1,7 +1,3 @@
-import { Navigate } from "react-router-dom";
-
-const Graz3DDruck = () => {
-  return <Navigate to="/" replace />;
-};
-
+import DruckRegion from "./DruckRegion";
+const Graz3DDruck = () => <DruckRegion region="graz" />;
 export default Graz3DDruck;
