@@ -1,4 +1,5 @@
-import { Helmet } from "react-helmet";
+import SEOHead from "@/components/SEOHead";
+import InlineSchema from "@/components/InlineSchema";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -217,40 +218,16 @@ const MessemodellRegion = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{regionData.metaTitle}</title>
-        <meta name="description" content={regionData.metaDescription} />
-        <meta name="keywords" content={`messemodelle ${regionData.name.toLowerCase()}, 3d-druck ${regionData.name.toLowerCase()}, messebau ${regionData.name.toLowerCase()}, präsentationsmodelle ${regionData.name.toLowerCase()}, messe ${regionData.name.toLowerCase()}, messemodelle deutschland`} />
-        <link rel="canonical" href={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
-        
-        {/* hreflang for AT/DE targeting */}
-        <link rel="alternate" hrefLang="de-AT" href={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
-        <link rel="alternate" hrefLang="de-DE" href={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
-        <link rel="alternate" hrefLang="de" href={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
-        <link rel="alternate" hrefLang="x-default" href={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content={regionData.metaTitle} />
-        <meta property="og:description" content={regionData.metaDescription} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://www.ek-druck.at/messemodelle/${regionData.slug}`} />
-        <meta property="og:locale" content="de_AT" />
-        <meta property="og:locale:alternate" content="de_DE" />
-        
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(serviceSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(aggregateRatingSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        title={regionData.metaTitle}
+        description={regionData.metaDescription}
+        keywords={`messemodelle ${regionData.name.toLowerCase()}, 3d-druck ${regionData.name.toLowerCase()}, messebau ${regionData.name.toLowerCase()}, präsentationsmodelle ${regionData.name.toLowerCase()}, messe ${regionData.name.toLowerCase()}, messemodelle deutschland`}
+        path={`/messemodelle/${regionData.slug}`}
+      />
+      <InlineSchema id={`messe-service-${regionData.slug}`} schema={serviceSchema} />
+      <InlineSchema id={`messe-breadcrumb-${regionData.slug}`} schema={breadcrumbSchema} />
+      <InlineSchema id={`messe-faq-${regionData.slug}`} schema={faqSchema} />
+      <InlineSchema id={`messe-rating-${regionData.slug}`} schema={aggregateRatingSchema} />
 
       <Navigation />
       <Breadcrumbs items={breadcrumbs} />

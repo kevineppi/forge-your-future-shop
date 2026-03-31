@@ -1,5 +1,4 @@
 # ekdruck e.U. - 3D-Druck Service Österreich
-# Alle Bots dürfen alles crawlen
 
 User-agent: *
 Allow: /
@@ -8,15 +7,5 @@ Allow: /
 Disallow: /auth
 Disallow: /admin
 
-# Statische Assets nicht crawlen
-Disallow: /assets/
-Disallow: /*.js$
-Disallow: /*.css$
-
 # Sitemap
 Sitemap: https://www.ek-druck.at/sitemap.xml
-
-# Google-specific
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1

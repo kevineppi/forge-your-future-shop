@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 import AnimatedSection from "@/components/AnimatedSection";
 import GoogleReviewsSection from "@/components/GoogleReviewsSection";
@@ -36,6 +37,10 @@ const UeberUns = () => {
         path="/ueber-uns"
         schemaType="service"
       />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: "Über uns", url: "/ueber-uns" }
+      ]} />
       <Navigation />
 
       <main className="pt-20">

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -192,18 +192,12 @@ const Messemodelle = () => {
 
   return (
     <>
-      <Helmet>
-        <title>3D-Druck Messemodelle ab €30 | In 24h am Stand | ekdruck</title>
-        <meta name="description" content="Messe in 3 Tagen und kein Modell? Wir liefern in 24h. 3D-gedruckte Messemodelle & Eyecatcher bis 2m – ab €30. Für Wien, München, Hannover & alle DACH-Messen. ★ 5.0 Google" />
-        <meta name="keywords" content="messemodell 3d-druck, messemodelle kaufen, messemodell express, 3d-druck messe, eyecatcher messestand, messebau 3d-druck, messemodelle österreich" />
-        <link rel="canonical" href="https://www.ek-druck.at/messemodelle" />
-        
-        {/* hreflang for AT/DE targeting */}
-        <link rel="alternate" hrefLang="de-AT" href="https://www.ek-druck.at/messemodelle" />
-        <link rel="alternate" hrefLang="de-DE" href="https://www.ek-druck.at/messemodelle" />
-        <link rel="alternate" hrefLang="de" href="https://www.ek-druck.at/messemodelle" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.ek-druck.at/messemodelle" />
-      </Helmet>
+      <SEOHead
+        title="3D-Druck Messemodelle ab €30 | In 24h am Stand | ekdruck"
+        description="Messe in 3 Tagen und kein Modell? Wir liefern in 24h. 3D-gedruckte Messemodelle & Eyecatcher bis 2m – ab €30. Für Wien, München, Hannover & alle DACH-Messen. ★ 5.0 Google"
+        keywords="messemodell 3d-druck, messemodelle kaufen, messemodell express, 3d-druck messe, eyecatcher messestand, messebau 3d-druck, messemodelle österreich"
+        path="/messemodelle"
+      />
 
       <ProductOfferSchema
         name="3D-Druck Messemodelle"

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -189,12 +189,12 @@ const RapidPrototyping = () => {
 
   return (
     <>
-      <Helmet>
-        <title>3D-Druck Prototypen ab €20 | Morgen auf Ihrem Tisch | ekdruck</title>
-        <meta name="description" content="Idee heute – Prototyp morgen. 3D-Druck Prototypen & Designmodelle ab €20. Für Präsentationen, Investoren & Messen. Keine Mindestmenge. Express 24h ✓ Angebot in 6h →" />
-        <meta name="keywords" content="3d druck prototypen, rapid prototyping österreich, 3d-druck prototypen, prototyp drucken lassen, designprototyp, anschauungsmodell 3d-druck" />
-        <link rel="canonical" href="https://www.ek-druck.at/rapid-prototyping" />
-      </Helmet>
+      <SEOHead
+        title="3D-Druck Prototypen ab €20 | Morgen auf Ihrem Tisch | ekdruck"
+        description="Idee heute – Prototyp morgen. 3D-Druck Prototypen & Designmodelle ab €20. Für Präsentationen, Investoren & Messen. Keine Mindestmenge. Express 24h ✓ Angebot in 6h →"
+        keywords="3d druck prototypen, rapid prototyping österreich, 3d-druck prototypen, prototyp drucken lassen, designprototyp, anschauungsmodell 3d-druck"
+        path="/rapid-prototyping"
+      />
 
       <ProductOfferSchema
         name="3D-Druck Designprototypen"
