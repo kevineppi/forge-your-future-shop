@@ -283,7 +283,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
     caseStudy: {
       title: "Automobil-Interieur für Messe Stuttgart",
       industry: "Automobil & Zulieferer",
-      challenge: "Ein baden-württembergischer Automobilzulieferer brauchte ein maßstabsgetreues Modell eines neuen Fahrzeug-Interieurs für die AMB in Stuttgart. Die Oberflächentextur und Farbgebung mussten dem Original entsprechen.",
+      challenge: "Ein baden-württembergischer Zulieferer brauchte ein maßstabsgetreues Modell eines neuen Fahrzeug-Interieurs für die AMB in Stuttgart. Die Oberflächentextur und Farbgebung mussten dem Original entsprechen.",
       solution: "Wir fertigten ein 1:3 Modell der Fahrzeugkonsole mit allen Bedienelementen. Spezialfinishes simulierten verschiedene Materialien wie Leder, Aluminium und Carbon.",
       result: "Das Modell überzeugte den OEM-Kunden und führte zu einem Serienauftrag für den Zulieferer.",
       specs: {
