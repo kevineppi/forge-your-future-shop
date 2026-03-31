@@ -41,9 +41,9 @@ export const PRICING_CONFIG = {
 
   // ── Stundensätze Druckkosten ──────────────────────────────
   /** Druckkosten €/h für kleine/mittlere Teile (maxDim < 260mm) */
-  hourlyPrintRateSmall: 2,
+  hourlyPrintRateSmall: 3,
   /** Druckkosten €/h für große Teile (maxDim 260–350mm) */
-  hourlyPrintRateLarge: 4,
+  hourlyPrintRateLarge: 6,
   /** Schwellenwert in mm ab dem der höhere Stundensatz gilt */
   largePrintThresholdMm: 260,
 
