@@ -216,7 +216,7 @@ export function calculateFinalPrice(input: CalculatorInput): PriceBreakdown {
   const maxDimensionMm = Math.max(boundingBoxMm.x, boundingBoxMm.y, boundingBoxMm.z);
 
   // 1. Materialkosten (mit Infill)
-  const mat = calculateMaterialCost(volumeCm3, input.materialKey, input.infillPercent);
+  const mat = calculateMaterialCost(volumeCm3, surfaceCm2, input.wallThickness, input.materialKey, input.infillPercent);
 
   // 2. Druckzeit
   const time = calculatePrintTime(volumeCm3, surfaceCm2, boundingBoxMm, input.layerHeight, input.process);
