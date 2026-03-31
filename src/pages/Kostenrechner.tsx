@@ -15,7 +15,7 @@ import ProcessSection from "@/components/calculator/ProcessSection";
 import { useModelAnalysis } from "@/hooks/useModelAnalysis";
 import { type PricingInput, type PricingResult, calculatePrice } from "@/lib/pricingEngine";
 import FAQSection from "@/components/landing/FAQSection";
-import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Link } from "react-router-dom";
 import {
   Box, ArrowRight, ShieldCheck, Clock, UserCheck,
@@ -53,7 +53,7 @@ const calculatorFaqs = [
   },
   {
     question: "Fertigt ihr auch mechanische Bauteile?",
-    answer: "Nein. Wir sind auf nicht-technische Modelle spezialisiert – Präsentationsmodelle, Designstudien und Showmodelle. Anfragen für mechanische Bauteile, Gehäuse oder Ersatzteile können wir leider nicht bearbeiten."
+    answer: "Nein. Wir sind auf nicht-technische Modelle spezialisiert – Präsentationsmodelle, Designstudien und Showmodelle. Anfragen für mechanische Bauteile oder Ersatzteile können wir leider nicht bearbeiten."
   },
   {
     question: "Was passiert nach dem Absenden meiner Anfrage?",
@@ -91,11 +91,6 @@ const Kostenrechner = () => {
 
       <main className="pt-20">
         <CalculatorHero />
-
-        {/* Breadcrumbs */}
-        <div className="container mx-auto px-4 pt-4 pb-2">
-          <Breadcrumbs items={breadcrumbs} />
-        </div>
 
         {/* ── Calculator Section ────────────────────── */}
         <section id="calculator" className="py-6 md:py-12 scroll-mt-20">

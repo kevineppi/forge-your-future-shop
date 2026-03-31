@@ -222,7 +222,7 @@ const SEOContentSection = () => (
           <p className="text-sm text-muted-foreground leading-relaxed">
             Unser Fokus liegt auf <strong className="text-foreground">nicht-technischen Modellen</strong> –
             Präsentationsmodelle, Designstudien, Showmodelle und Ausstellungsobjekte.
-            Anfragen für mechanische Bauteile, Gehäuse, Ersatzteile oder industrielle
+            Anfragen für mechanische Bauteile, Ersatzteile oder industrielle
             Massenfertigung können wir nicht bearbeiten. Wenn Ihr Modell in unseren
             Leistungsbereich fällt, erhalten Sie innerhalb von 6 Stunden ein
             individuelles Angebot. Wenn nicht, sagen wir Ihnen das ehrlich –
