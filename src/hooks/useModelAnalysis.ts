@@ -31,6 +31,7 @@ export function useModelAnalysis() {
     isAnalyzing: false,
     error: null,
     arrayBuffer: null,
+    file: null,
   });
 
   const analyzeFile = useCallback(async (file: File) => {
