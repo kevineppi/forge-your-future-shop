@@ -108,24 +108,24 @@ const knowledgeEntries = [
     category: "Services",
     page_url: "/rapid-prototyping"
   },
-  // Maschinenbau
+  // Designmodelle
   {
-    title: "3D-Druck im Maschinenbau - Funktionsprototypen",
-    content: "Funktionsprototypen ermöglichen Validierung von Designs vor Serienfertigung. Vorteile: Funktionstest unter realen Bedingungen, iterative Optimierung möglich, Kostenreduktion bis 75% vs. CNC, Lieferzeit 2-5 Tage statt 2-4 Wochen. Materialien: PA12 (Nylon) für hohe Festigkeit und Verschleißfestigkeit, Carbon-Composite für hochbelastete Strukturbauteile, PETG für chemikalienbeständige Teile. Kritische Faktoren: Schichtorientierung beachten (Z-Achse nur 50-70% der XY-Festigkeit), Wandstärke min. 2-3mm für optimale Eigenschaften, Toleranzen ±0,2-0,5mm.",
+    title: "3D-Druck Anschauungsmodelle für Industrie-Präsentationen",
+    content: "Anschauungsmodelle ermöglichen Visualisierung von Designs für Kundenpräsentationen und Vertrieb. Vorteile: Physische Darstellung von Konzepten, iterative Optimierung möglich, Kostenreduktion bis 75% vs. CNC, Lieferzeit 2-5 Tage statt 2-4 Wochen. Materialien: PLA für detaillierte Modelle, PETG für robuste Präsentationsmodelle, ASA für Outdoor-Anschauungsobjekte. Wichtig: Schichtorientierung beachten, Wandstärke min. 2-3mm für optimale Stabilität, Toleranzen ±0,2-0,5mm.",
     category: "Technische Details",
-    page_url: "/ratgeber/maschinenbau"
+    page_url: "/einzelanfertigungen"
   },
   {
-    title: "3D-Druck Ersatzteile & Legacy-Komponenten",
-    content: "Produktion nicht mehr verfügbarer Bauteile per 3D-Druck. Vorteile: Keine Mindestbestellmengen, Reverse Engineering möglich (Vermessung defekter Teile), Lagerhaltung minimieren, On-Demand Produktion. Ideal für auslaufende Produktlinien, Oldtimer-Restaurierung, Industrieanlagen-Wartung. Materialauswahl nach Originalanforderungen: ASA für UV-Beständigkeit, PETG für chemische Beständigkeit, PA12 für mechanische Belastung. Kosteneffizienz besonders bei seltenen Teilen und kleinen Stückzahlen (<50).",
+    title: "3D-Druck Nachbildungen & Konzeptmodelle",
+    content: "Produktion von Nachbildungen und Konzeptmodellen per 3D-Druck. Vorteile: Keine Mindestbestellmengen, Modellierung nach Vorlage möglich, Lagerhaltung minimieren, On-Demand Produktion. Ideal für Präsentationen, Schulungsmaterial, Museumsexponate. Materialauswahl nach Anwendung: ASA für UV-Beständigkeit, PETG für robuste Modelle, PLA für detaillierte Objekte. Kosteneffizienz besonders bei individuellen Projekten und Einzelstücken.",
     category: "Services",
-    page_url: "/ratgeber/maschinenbau"
+    page_url: "/einzelanfertigungen"
   },
   {
-    title: "Qualitätsfaktoren 3D-Druck Maschinenbau",
-    content: "Kritische Qualitätsfaktoren: 1) Schichtorientierung - Anisotropie bedeutet Z-Achse nur 50-70% der XY-Festigkeit, Belastungsrichtung bei Design berücksichtigen. 2) Wandstärke - Minimum 1,2mm für strukturelle Festigkeit, optimal 2-3mm für beste mechanische Eigenschaften. 3) Toleranzen - FDM ±0,2-0,5mm je nach Bauteilgröße, Nachbearbeitung für Passungen einplanen. 4) Verzug - Thermische Kontraktion bei Abkühlung, Lösung: beheiztes Druckbett, Temperaturmanagement, optimierte Druckparameter.",
+    title: "Qualitätsfaktoren 3D-Druck Modellbau",
+    content: "Kritische Qualitätsfaktoren: 1) Schichtorientierung - Anisotropie bedeutet Z-Achse nur 50-70% der XY-Festigkeit, Ausrichtung bei Design berücksichtigen. 2) Wandstärke - Minimum 1,2mm für stabile Modelle, optimal 2-3mm für beste Ergebnisse. 3) Toleranzen - FDM ±0,2-0,5mm je nach Objektgröße. 4) Verzug - Thermische Kontraktion bei Abkühlung, Lösung: beheiztes Druckbett, Temperaturmanagement, optimierte Druckparameter.",
     category: "Technische Details",
-    page_url: "/ratgeber/maschinenbau"
+    page_url: "/ratgeber/material-guide"
   },
   // Druckfehler
   {
