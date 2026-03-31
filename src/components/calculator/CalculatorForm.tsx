@@ -37,8 +37,8 @@ const CalculatorForm = ({
 
   const [materialKey, setMaterialKey] = useState("PLA");
   const [color, setColor] = useState("Schwarz");
-  const [layerHeight, setLayerHeight] = useState(cfg.defaultLayerHeight);
-  const [wallThickness, setWallThickness] = useState(cfg.defaultWallThickness);
+  const [layerHeight, setLayerHeight] = useState<number>(cfg.defaultLayerHeight);
+  const [wallThickness, setWallThickness] = useState<number>(cfg.defaultWallThickness);
   const [infillPercent, setInfillPercent] = useState<number>(cfg.defaultInfillPercent);
   const [quantity, setQuantity] = useState(1);
   const [showTests, setShowTests] = useState(false);
