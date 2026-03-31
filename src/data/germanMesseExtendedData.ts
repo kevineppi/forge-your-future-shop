@@ -367,7 +367,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
     caseStudy: {
       title: "Zulieferer-Präsentationsmodell für Automechanika Frankfurt",
       industry: "Automobil-Design & Präsentation",
-      challenge: "Ein Zulieferer brauchte ein vergrößertes Schnittmodell eines innovativen Bremssystems für die Automechanika. Die inneren Komponenten und Verschleißteile sollten sichtbar und entnehmbar sein.",
+      challenge: "Ein Zulieferer brauchte ein vergrößertes Schnittmodell eines innovativen Bremssystems als Anschauungsmodell für die Automechanika. Die inneren Komponenten sollten sichtbar und entnehmbar sein.",
       solution: "Wir fertigten ein 5-fach vergrößertes Schnittmodell mit 12 entnehmbaren Einzelteilen. Jedes Teil wurde farbcodiert und beschriftet.",
       result: "Werkstätten und Händler konnten die Vorteile des neuen Systems sofort verstehen. 300+ Visitenkarten wurden am Stand gesammelt.",
       specs: {
