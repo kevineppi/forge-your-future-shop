@@ -15,7 +15,7 @@ import ProcessSection from "@/components/calculator/ProcessSection";
 import { useModelAnalysis } from "@/hooks/useModelAnalysis";
 import { type PricingInput, type PricingResult, calculatePrice } from "@/lib/pricingEngine";
 import FAQSection from "@/components/landing/FAQSection";
-import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Link } from "react-router-dom";
 import {
   Box, ArrowRight, ShieldCheck, Clock, UserCheck,
