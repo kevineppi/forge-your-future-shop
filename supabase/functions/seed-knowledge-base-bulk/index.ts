@@ -117,7 +117,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Dornbirn - Vorarlberg Service',
-        content: '3D-Druck für Dornbirn und Vorarlberg. Koordinaten: 47.4167°N, 9.7500°E. Lieferzeit: Standard 3-4 Werktage, Express 48h. Alle Materialien. Anwendungen: Textil-Industrie Prototypen, Maschinenbau. Preise: Standard-Tarife. Versand kostenlos ab €50. Referenzen: Vorarlberger Textilindustrie, FH Vorarlberg.',
+        content: '3D-Druck für Dornbirn und Vorarlberg. Lieferzeit: Standard 3-4 Werktage, Express 48h. Alle Materialien. Anwendungen: Designstudien, Architekturmodelle, Präsentationsobjekte. Preise: Standard-Tarife. Versand kostenlos ab €50. Referenzen: Vorarlberger Unternehmen, FH Vorarlberg.',
         category: 'Regional',
         page_url: '/3d-druck-dornbirn'
       },
