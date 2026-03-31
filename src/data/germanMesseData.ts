@@ -828,7 +828,7 @@ export const germanMesseData: Record<string, GermanRegionalMesseData> = {
       'Spezialist für Industrie 4.0 Messemodelle',
       'Erfahrung mit der größten Industriemesse der Welt',
       'Express-Versand für kurzfristige Hannover-Messe-Termine',
-      'Kompetenz für Maschinenbau-Modelle',
+      'Kompetenz für Industrie-Präsentationsmodelle',
     ],
     nearbyRegions: ['niedersachsen', 'hamburg', 'bremen'],
     stats: { messen: '40+', lieferzeit: '5-7 Tage', kunden: '20+' },

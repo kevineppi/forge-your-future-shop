@@ -58,7 +58,7 @@ const VerfahrensVergleich = () => {
         description="So finden Sie das optimale 3D-Druckverfahren für Ihr Projekt."
         totalTime="PT5M"
         steps={[
-          { name: "Anforderungen definieren", text: "Brauchen Sie hohe Detailgenauigkeit (→ SLA), robuste Funktionsteile (→ FDM), oder komplexe Geometrien ohne Stützstrukturen (→ SLS)?" },
+          { name: "Anforderungen definieren", text: "Brauchen Sie hohe Detailgenauigkeit (→ SLA), robuste Anschauungsmodelle (→ FDM), oder komplexe Geometrien ohne Stützstrukturen (→ SLS)?" },
           { name: "Budget bestimmen", text: "FDM: günstigste Option (Material ab €20/kg). SLA: mittlere Kosten (Resin ab €100/L). SLS: höchste Kosten (Pulver ab €60/kg + teure Maschinen)." },
           { name: "Oberfläche bewerten", text: "Glatte Oberfläche nötig? → SLA. Sichtbare Schichten akzeptabel? → FDM (nachbearbeitbar). Leicht körnig OK? → SLS." },
           { name: "Anbieter kontaktieren", text: "Für Anschauungsmodelle, Messemodelle und Architekturmodelle ist FDM die wirtschaftlichste Wahl. Kontaktieren Sie uns für ein kostenloses Angebot." }
