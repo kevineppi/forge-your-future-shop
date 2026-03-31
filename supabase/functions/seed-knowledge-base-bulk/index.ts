@@ -143,7 +143,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Serienfertigung - Kleinserien Mengenrabatte',
-        content: 'Serienfertigung mit FDM 3D-Druck. Mengenrabatte: 10-49 Stück -10%, 50-99 Stück -20%, 100-499 Stück -30%, ab 500 Stück individuelle Preise. Wirtschaftlich für 10-500 Stück. Anwendungen: Ersatzteilserien, Vorserien, Funktionsbauteile, Zubehör. Qualitätssicherung: Erstmusterprüfung, Maßprüfung, Dokumentation. Materialien: PETG, ABS, PA12 bevorzugt. Beispiel: 50 Teile je 100cm³ PETG: Einzelpreis €35 → Serienpreis €28 (gesamt €1.400). Lieferzeit: Nach Absprache. Kostenlose Machbarkeitsprüfung.',
+        content: 'Mengenproduktion für Projektmengen mit FDM 3D-Druck. Mengenrabatte: 10-49 Stück -10%, 50-99 Stück -20%, 100-499 Stück -30%, ab 500 Stück individuelle Preise. Anwendungen: Messeexponate, Schulungsmodelle, Präsentationsserien, limitierte Editionen. Qualitätssicherung: Prüfung jedes Modells, Dokumentation. Materialien: PLA, PETG, ASA bevorzugt. Beispiel: 50 Modelle je 100cm³ PETG: Einzelpreis €35 → Mengenpreis €28 (gesamt €1.400). Lieferzeit: Nach Absprache. Kostenlose Machbarkeitsprüfung.',
         category: 'Services',
         page_url: '/serienfertigung'
       },
