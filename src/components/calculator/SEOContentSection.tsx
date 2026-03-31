@@ -8,14 +8,16 @@ const SEOContentSection = () => (
         {/* ── Lead ─────────────────────────────── */}
         <div>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">
-            3D-Druck Kosten berechnen – was kostet ein Anschauungsmodell?
+            3D-Druck Kosten berechnen – was kostet Ihr Modell?
           </h2>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             Die Frage nach den Kosten steht bei jedem 3D-Druck-Projekt am Anfang. Unser
             Richtpreis-Rechner gibt Ihnen innerhalb von Sekunden eine fundierte Ersteinschätzung –
             basierend auf der tatsächlichen Geometrie Ihrer STL-Datei, dem gewählten Material und
-            Ihren Druckparametern. Dabei ist jede Kalkulation unverbindlich: Der endgültige Preis
-            wird erst nach persönlicher Prüfung durch unser Team festgelegt.
+            Ihren Druckparametern. Ob Einzelstück oder Kleinauflage mit 50, 100 oder mehr
+            Exemplaren: Die Kalkulation passt sich automatisch an. Jede Preisindikation ist
+            unverbindlich – der endgültige Preis wird erst nach persönlicher Prüfung durch
+            unser Team festgelegt.
           </p>
         </div>
 
@@ -73,6 +75,37 @@ const SEOContentSection = () => (
           </div>
         </div>
 
+        {/* ── Stückzahlen / Kleinauflagen ────────── */}
+        <div>
+          <h3 className="text-xl font-bold text-foreground mb-4">
+            Auch größere Projektmengen und Kleinauflagen
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+            Sie benötigen nicht nur ein einzelnes Modell, sondern gleich mehrere Exemplare?
+            Kein Problem. Wir fertigen regelmäßig größere Chargen und Projektmengen –
+            ob 10 identische Showmodelle für eine Messe, 50 Schulungsmodelle für
+            eine Akademie oder 200+ Modelle für eine Produktpräsentation.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="border border-border/60 rounded-xl p-4 text-center">
+              <p className="text-2xl font-bold text-primary mb-1">ab 10</p>
+              <p className="text-xs text-muted-foreground">5 % Mengenvorteil</p>
+            </div>
+            <div className="border border-border/60 rounded-xl p-4 text-center">
+              <p className="text-2xl font-bold text-primary mb-1">ab 50</p>
+              <p className="text-xs text-muted-foreground">8 % Mengenvorteil</p>
+            </div>
+            <div className="border border-border/60 rounded-xl p-4 text-center">
+              <p className="text-2xl font-bold text-primary mb-1">ab 100</p>
+              <p className="text-xs text-muted-foreground">10 % Mengenvorteil</p>
+            </div>
+          </div>
+          <p className="text-xs text-muted-foreground mt-3">
+            Mengenvorteile werden automatisch im Rechner berücksichtigt. Für individuelle
+            Projektmengen erstellen wir gerne ein maßgeschneidertes Angebot.
+          </p>
+        </div>
+
         {/* ── Warum unverbindlich ──────────────── */}
         <div className="bg-muted/30 border border-border/60 rounded-xl p-6 md:p-8">
           <h3 className="text-xl font-bold text-foreground mb-4">
@@ -110,9 +143,10 @@ const SEOContentSection = () => (
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 shrink-0" />
               <span>
-                <strong className="text-foreground">Leistungsgrenzen:</strong> Wir fertigen
-                ausschließlich Anschauungsmodelle. Wenn ein Modell eher ein Funktionsteil ist,
-                sagen wir das ehrlich – statt es einfach zu drucken und Probleme in Kauf zu nehmen.
+                <strong className="text-foreground">Ehrliche Einschätzung:</strong> Wir fertigen
+                nicht-technische Modelle für Präsentation und Gestaltung. Wenn Ihr Vorhaben
+                eher in Richtung mechanische Bauteile geht, sagen wir das offen – statt
+                einfach zu drucken und Probleme in Kauf zu nehmen.
               </span>
             </li>
           </ul>
@@ -141,7 +175,7 @@ const SEOContentSection = () => (
                 <Link to="/messemodelle" className="text-primary hover:underline">
                   Messemodelle
                 </Link>{" "}
-                und Standexponate. Für den Außenbereich empfehlen wir ASA oder PETG.
+                und Standexponate – auch in größeren Auflagen. Für den Außenbereich empfehlen wir ASA oder PETG.
               </p>
             </div>
             <div className="border border-border/60 rounded-xl p-5">
@@ -152,10 +186,10 @@ const SEOContentSection = () => (
               </p>
             </div>
             <div className="border border-border/60 rounded-xl p-5">
-              <h4 className="font-semibold text-foreground mb-2">Modellbau & Lehre</h4>
+              <h4 className="font-semibold text-foreground mb-2">Schulung & Lehre</h4>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Transparente Preisübersicht für Lehr- und Schulungsmodelle, Anschauungsobjekte
-                für Unterricht und Präsentationen.
+                Transparente Preisübersicht für Lehr- und Schulungsmodelle – auch bei
+                größeren Projektmengen für Klassen oder Kurse.
               </p>
             </div>
           </div>
@@ -186,19 +220,21 @@ const SEOContentSection = () => (
             Was wir nicht fertigen
           </h4>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Wir sind spezialisiert auf <strong className="text-foreground">Anschauungsmodelle,
-            Designstudien und Präsentationsobjekte</strong>. Anfragen für Funktionsteile,
-            technische Bauteile, Gehäuse, Ersatzteile oder industrielle Serienfertigung können wir
-            nicht bearbeiten. Wenn Ihr Modell in unseren Leistungsbereich fällt, erhalten Sie
-            innerhalb von 6 Stunden ein individuelles Angebot. Wenn nicht, sagen wir Ihnen das
-            ehrlich – und empfehlen Ihnen ggf. einen passenden Anbieter.
+            Unser Fokus liegt auf <strong className="text-foreground">nicht-technischen Modellen</strong> –
+            Präsentationsmodelle, Designstudien, Showmodelle und Ausstellungsobjekte.
+            Anfragen für mechanische Bauteile, Gehäuse, Ersatzteile oder industrielle
+            Massenfertigung können wir nicht bearbeiten. Wenn Ihr Modell in unseren
+            Leistungsbereich fällt, erhalten Sie innerhalb von 6 Stunden ein
+            individuelles Angebot. Wenn nicht, sagen wir Ihnen das ehrlich –
+            und empfehlen Ihnen ggf. einen passenden Anbieter.
           </p>
         </div>
 
         {/* ── Schluss-CTA ────────────────────── */}
         <p className="text-sm text-muted-foreground leading-relaxed">
-          Nutzen Sie unseren Richtpreis-Rechner oben für eine erste Einschätzung.
-          Haben Sie Fragen oder ein komplexeres Projekt? Dann{" "}
+          Nutzen Sie unseren Richtpreis-Rechner oben für eine erste Einschätzung –
+          egal ob Einzelstück oder größere Projektmenge.
+          Haben Sie Fragen oder ein komplexeres Vorhaben? Dann{" "}
           <Link to="/kontakt" className="text-primary font-medium hover:underline">
             kontaktieren Sie uns direkt
           </Link>{" "}
