@@ -116,43 +116,43 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
 
   'steiermark': {
     caseStudy: {
-      title: "Demonstrationsmodell für Häuslbauermesse Graz",
-      industry: "Bau & Handwerk",
-      challenge: "Ein steirisches Bauunternehmen wollte auf der Häuslbauermesse ein anschauliches Modell präsentieren, das die Bauweise eines energieeffizienten Hauses zeigt.",
-      solution: "Wir erstellten ein aufklappbares Hausmodell im Maßstab 1:50, das die verschiedenen Dämmschichten und Konstruktionselemente zeigt. Farbcodierte Elemente machten die Bauweise für Laien verständlich.",
-      result: "Das Modell wurde zum Gesprächsstarter für komplexe Beratungen. Viele Interessenten fotografierten das Modell für spätere Referenz.",
+      title: "Großformat-Exponat für Grazer Herbstmesse",
+      industry: "Konsumgüter & Messepräsentation",
+      challenge: "Ein steirisches Unternehmen wollte auf der Grazer Herbstmesse ein überdimensionales Produktmodell als Eyecatcher einsetzen. Das Modell musste von Weitem sichtbar sein und Messebesucher zum Stand ziehen.",
+      solution: "Wir fertigten ein 1,5 Meter hohes Produktmodell in leuchtenden Firmenfarben. Die mehrteilige Konstruktion erlaubte den Transport im PKW. Vor Ort wurde das Modell in 15 Minuten aufgebaut.",
+      result: "Der Aussteller berichtete von doppelt so vielen Standbesuchen im Vergleich zum Vorjahr. Das Modell wurde zum Foto-Hotspot der Messe.",
       specs: {
-        size: "70 x 50 x 40 cm",
-        material: "PLA mehrfarbig + transparente Elemente",
-        time: "6 Werktage"
+        size: "150 x 60 x 60 cm",
+        material: "PLA in Corporate-Farben, mehrteilig",
+        time: "8 Werktage"
       },
-      quote: "Endlich konnten wir unseren Kunden zeigen, was sich hinter den Wänden verbirgt. Das Modell hat komplizierte Dinge einfach gemacht."
+      quote: "Das riesige Modell hat alle Blicke auf sich gezogen. Jeder Besucher wollte ein Foto damit machen."
     },
     materials: [
       {
         name: "PLA Mehrfarbig",
-        description: "Ideal für farbcodierte Schnittmodelle. Unterschiedliche Farben für verschiedene Materialschichten.",
-        bestFor: ["Schnittmodelle", "Lehrmodelle", "Materialvisualisierung"],
+        description: "Ideal für farbkräftige Messeexponate in Corporate-Farben. Leuchtende Optik für maximale Standwirkung.",
+        bestFor: ["Großformat-Exponate", "Corporate-Modelle", "Eyecatcher-Objekte"],
         icon: "palette"
       },
       {
         name: "PETG Robust",
-        description: "Für interaktive Modelle, die häufig angefasst werden. Kratzfest und langlebig.",
-        bestFor: ["Hands-on Exponate", "Demonstrationsmodelle", "Interaktive Präsentationen"],
+        description: "Für interaktive Modelle, die häufig angefasst werden. Kratzfest und langlebig für mehrtägige Messen.",
+        bestFor: ["Hands-on Exponate", "Interaktive Standmodelle", "Dauerbelastbare Objekte"],
         icon: "shield"
       },
       {
         name: "PLA Leichtbau",
-        description: "Für große Architekturmodelle. Einfacher Transport zur Messe Graz.",
-        bestFor: ["Gebäudemodelle", "Hausmodelle", "Großprojekte"],
+        description: "Für große Messemodelle. Einfacher Transport zur Messe Graz.",
+        bestFor: ["Großformat-Modelle", "Transport-optimiert", "XXL-Exponate"],
         icon: "feather"
       }
     ],
-    industryFocus: "Bau & Architektur in der Steiermark",
+    industryFocus: "Messepräsentation & Events in der Steiermark",
     uniqueSellingPoints: [
-      "Erfahrung mit Häuslbauermesse-Ausstellern",
+      "Erfahrung mit Grazer Herbstmesse und Frühjahrsmesse",
       "Express-Lieferung zur Messe Graz",
-      "Spezialist für aufklappbare Schnittmodelle"
+      "XXL-Modelle bis 2 Meter Höhe"
     ]
   },
 
