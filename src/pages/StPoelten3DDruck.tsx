@@ -1,7 +1,3 @@
-import { Navigate } from "react-router-dom";
-
-const StPoelten3DDruck = () => {
-  return <Navigate to="/" replace />;
-};
-
+import DruckRegion from "./DruckRegion";
+const StPoelten3DDruck = () => <DruckRegion region="st-poelten" />;
 export default StPoelten3DDruck;

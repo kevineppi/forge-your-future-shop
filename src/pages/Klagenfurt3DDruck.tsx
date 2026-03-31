@@ -1,7 +1,3 @@
-import { Navigate } from "react-router-dom";
-
-const Klagenfurt3DDruck = () => {
-  return <Navigate to="/" replace />;
-};
-
+import DruckRegion from "./DruckRegion";
+const Klagenfurt3DDruck = () => <DruckRegion region="klagenfurt" />;
 export default Klagenfurt3DDruck;

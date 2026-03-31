@@ -1,7 +1,3 @@
-import { Navigate } from "react-router-dom";
-
-const Dornbirn3DDruck = () => {
-  return <Navigate to="/" replace />;
-};
-
+import DruckRegion from "./DruckRegion";
+const Dornbirn3DDruck = () => <DruckRegion region="dornbirn" />;
 export default Dornbirn3DDruck;
