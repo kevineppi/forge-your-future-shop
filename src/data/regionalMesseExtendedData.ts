@@ -31,13 +31,13 @@ const defaultMaterials: MaterialRecommendation[] = [
   {
     name: "PLA Premium",
     description: "Der Allrounder für Messemodelle. Hervorragende Oberflächenqualität, einfach zu lackieren und umweltfreundlich.",
-    bestFor: ["Architekturmodelle", "Designobjekte", "Detailreiche Präsentationen"],
+    bestFor: ["Präsentationsmodelle", "Designobjekte", "Detailreiche Exponate"],
     icon: "palette"
   },
   {
     name: "PETG",
     description: "Robust und widerstandsfähig. Ideal für Modelle, die häufig transportiert oder angefasst werden.",
-    bestFor: ["Interaktive Exponate", "Outdoor-Modelle", "Langlebige Präsentationsobjekte"],
+    bestFor: ["Interaktive Exponate", "Outdoor-Modelle", "Langlebige Messeobjekte"],
     icon: "shield"
   },
   {
