@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -11,6 +11,34 @@ import CalculatorInfoSection from "@/components/calculator/CalculatorInfoSection
 import DebugPanel from "@/components/calculator/DebugPanel";
 import { useModelAnalysis } from "@/hooks/useModelAnalysis";
 import { type CalculatorInput, type PriceBreakdown, calculateFinalPrice } from "@/lib/priceCalculator";
+import FAQSection from "@/components/landing/FAQSection";
+
+const calculatorFaqs = [
+  {
+    question: "Wie genau ist der Richtpreis?",
+    answer: "Der Richtpreis basiert auf unserer Kalkulationsformel und gibt eine realistische Orientierung. Der endgültige Preis wird nach technischer Prüfung Ihrer Datei individuell festgelegt."
+  },
+  {
+    question: "Welche Dateiformate werden unterstützt?",
+    answer: "Aktuell unterstützen wir STL-Dateien bis 100 MB. Die Datei wird direkt im Browser analysiert – Volumen, Oberfläche und Maße werden automatisch berechnet."
+  },
+  {
+    question: "Was bedeutet Infill (Füllung)?",
+    answer: "Der Infill-Wert bestimmt, wie dicht das Innere Ihres Bauteils gedruckt wird. 15% reicht für Anschauungsmodelle, 50% für stabile Teile, 100% für massive Vollkörper."
+  },
+  {
+    question: "Welche Materialien bietet ihr an?",
+    answer: "Wir drucken mit PLA, PLA+, PETG, ABS, ASA, TPU (flexibel), PA6-CF (Carbonfaser-verstärkt) und Polycarbonat. Jedes Material hat spezifische Eigenschaften für unterschiedliche Anwendungen."
+  },
+  {
+    question: "Kann ich direkt über den Rechner bestellen?",
+    answer: "Nein, der Rechner dient ausschließlich zur unverbindlichen Preisindikation. Für ein verbindliches Angebot senden Sie uns bitte eine Anfrage mit Ihrer 3D-Datei."
+  },
+  {
+    question: "Wie lange dauert die Fertigung?",
+    answer: "Die geschätzte Druckzeit wird im Rechner angezeigt. Die tatsächliche Lieferzeit hängt von der Auftragslage ab – in der Regel 2–5 Werktage nach Auftragsbestätigung."
+  },
+];
 
 const Kostenrechner = () => {
   const [result, setResult] = useState<PriceBreakdown | null>(null);
@@ -19,17 +47,17 @@ const Kostenrechner = () => {
 
   const model = useModelAnalysis();
 
-  const handleCalculate = (input: CalculatorInput) => {
+  const handleCalculate = useCallback((input: CalculatorInput) => {
     setCurrentInput(input);
     setResult(calculateFinalPrice(input));
     setShowInquiry(false);
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="3D-Druck Kostenrechner – Unverbindliche Preiskalkulation | ekdruck e.U."
-        description="Berechnen Sie schnell und unverbindlich einen Richtpreis für Ihr 3D-Druckteil. FDM, SLA & SLS – individuell kalkuliert. Kein Webshop, keine Bestellung."
+        title="3D-Druck Kostenrechner Österreich – FDM Richtpreis online berechnen [2026]"
+        description="Berechnen Sie unverbindlich Ihren FDM-3D-Druck Richtpreis: PLA, PETG, ABS, ASA, TPU & mehr. Infill, Schichtdicke & Wandstärke individuell konfigurieren. Ab €15 – Angebot in 6h."
         path="/kostenrechner"
       />
       <Navigation />
@@ -70,12 +98,25 @@ const Kostenrechner = () => {
               </div>
             )}
 
-            {/* Debug Panel */}
             <DebugPanel result={result} input={currentInput} />
           </div>
         </section>
 
         <CalculatorDisclaimer />
+
+        {/* FAQ Section for SEO */}
+        <section className="py-12 md:py-20 bg-muted/20">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-3">
+              Häufige Fragen zum 3D-Druck Kostenrechner
+            </h2>
+            <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
+              Alles Wichtige zu Preiskalkulation, Materialien und Bestellablauf.
+            </p>
+            <FAQSection faqs={calculatorFaqs} />
+          </div>
+        </section>
+
         <CalculatorInfoSection />
       </main>
 
