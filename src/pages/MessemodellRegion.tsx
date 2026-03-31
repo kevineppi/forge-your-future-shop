@@ -157,7 +157,7 @@ const MessemodellRegion = () => {
     ]
   };
 
-  const faqs = [
+  const fallbackFaqs = [
     {
       question: `Wie schnell können Messemodelle nach ${regionData.name} geliefert werden?`,
       answer: `Standardlieferung nach ${regionData.name}: ${regionData.deliveryTime}. ${regionData.deliveryNote}. Bei dringenden Terminen ist Express-Fertigung in 24h möglich.`
