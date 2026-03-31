@@ -26,13 +26,13 @@ export const PRICING_CONFIG = {
 
   // ── Druckzeit-Parameter ───────────────────────────────────
   /** Minuten pro cm³ Druckvolumen */
-  volumeTimeFactor: 0.4,
+  volumeTimeFactor: 2.5,
   /** Minuten pro cm² Oberfläche (Wandfahrwege) */
-  surfaceTimeFactor: 0.015,
+  surfaceTimeFactor: 0.08,
   /** Minuten pro Layer (Schichtwechsel-Penalty) */
-  layerPenaltyFactor: 0.02,
+  layerPenaltyFactor: 0.06,
   /** Basis-Druckzeit in Minuten (Aufheizen, Kalibrieren etc.) */
-  basePrintTimeMin: 3,
+  basePrintTimeMin: 8,
 
   /** Verfahrensspezifischer Druckzeit-Multiplikator */
   processTimeFactor: {
