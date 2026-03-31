@@ -73,7 +73,7 @@ const knowledgeEntries = [
   },
   {
     title: "3D-Druck Preisbeispiele",
-    content: "Konkrete Preisbeispiele: Kleines Prototypen-Teil (5x5x5cm, PLA, 3h): 18-25€. Mittleres Funktionsbauteil (10x10x8cm, PETG, 8h): 45-65€. Großes technisches Teil (20x15x12cm, Carbon-PETG, 24h): 120-180€. Komplexes Architekturmodell (25x25x15cm, PLA weiß, 36h): 200-280€. Alle Preise inkl. Material, Druckzeit und Standardversand in Österreich. Mengenrabatte: Ab 5 Teile 10% Rabatt, ab 20 Teile 15%, ab 50 Teile 20%. Standardversand (2-3 Tage) ab 50€ kostenlos, sonst 4,90€. Express (24h) +12,90€.",
+    content: "Konkrete Preisbeispiele: Kleines Anschauungsmodell (5x5x5cm, PLA, 3h): 18-25€. Mittleres Präsentationsmodell (10x10x8cm, PETG, 8h): 45-65€. Großes Modell (20x15x12cm, Carbon-PETG, 24h): 120-180€. Komplexes Architekturmodell (25x25x15cm, PLA weiß, 36h): 200-280€. Alle Preise inkl. Material, Druckzeit und Standardversand in Österreich. Mengenrabatte: Ab 5 Teile 10% Rabatt, ab 20 Teile 15%, ab 50 Teile 20%. Standardversand (2-3 Tage) ab 50€ kostenlos, sonst 4,90€. Express (24h) +12,90€.",
     category: "Preise",
     page_url: "/ratgeber/kosten-guide"
   },
