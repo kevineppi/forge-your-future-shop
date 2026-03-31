@@ -29,23 +29,27 @@ const calculatorFaqs = [
   },
   {
     question: "Was bedeutet Infill (Füllung)?",
-    answer: "Der Infill-Wert bestimmt, wie dicht das Innere Ihres Modells gedruckt wird. 10–15 % reicht für leichte Anschauungsmodelle, 30–50 % für stabile Ausstellungsstücke, 100 % für massive Vollkörper. Die optimale Einstellung besprechen wir gerne individuell."
+    answer: "Der Infill-Wert bestimmt, wie dicht das Innere Ihres Modells gedruckt wird. 10–15 % reicht für leichte Präsentationsmodelle, 30–50 % für stabile Showmodelle, 100 % für massive Vollkörper. Die optimale Einstellung besprechen wir gerne individuell."
   },
   {
     question: "Welche Materialien bietet ihr an?",
-    answer: "Wir drucken mit PLA, PLA+, PETG, ABS, ASA, TPU (flexibel), PA6-CF (Carbonfaser-verstärkt) und Polycarbonat. Jedes Material hat spezifische Eigenschaften – von günstigem PLA für Designstudien bis zu Premium-Carbon für hochwertige Präsentationsmodelle."
+    answer: "Wir drucken mit PLA, PLA+, PETG, ABS, ASA, TPU (flexibel), PA6-CF (Carbonfaser-verstärkt) und Polycarbonat. Jedes Material hat spezifische Eigenschaften – von günstigem PLA für Designstudien bis zu Premium-Carbon für hochwertige Showmodelle."
   },
   {
     question: "Kann ich direkt über den Rechner bestellen?",
     answer: "Nein. Der Rechner dient ausschließlich zur unverbindlichen Preisindikation. Über das integrierte Formular können Sie eine Anfrage senden – Ihr Projekt wird dann persönlich von uns geprüft. Erst nach individueller Begutachtung erhalten Sie ein verbindliches Angebot."
   },
   {
+    question: "Sind auch größere Stückzahlen möglich?",
+    answer: "Ja, wir fertigen regelmäßig Kleinauflagen und größere Projektmengen – ob 10 Messemodelle, 50 Schulungsmodelle oder 200+ Exemplare für eine Produktpräsentation. Ab 10 Stück erhalten Sie automatisch Mengenvorteile. Für individuelle Chargen erstellen wir gerne ein maßgeschneidertes Angebot."
+  },
+  {
     question: "Wie lange dauert die Fertigung?",
     answer: "Die geschätzte Druckzeit wird im Rechner angezeigt. Die tatsächliche Lieferzeit hängt von der Auftragslage und Nachbearbeitung ab – in der Regel 3–7 Werktage nach Auftragsbestätigung. Für eilige Projekte bieten wir nach persönlicher Absprache auch Express-Fertigung an."
   },
   {
-    question: "Fertigt ihr auch Funktionsteile oder Serienteile?",
-    answer: "Nein. Wir sind auf Anschauungsmodelle, Designstudien und Präsentationsobjekte spezialisiert. Anfragen für Funktionsteile, technische Bauteile oder industrielle Serienfertigung können wir leider nicht bearbeiten."
+    question: "Fertigt ihr auch mechanische Bauteile?",
+    answer: "Nein. Wir sind auf nicht-technische Modelle spezialisiert – Präsentationsmodelle, Designstudien und Showmodelle. Anfragen für mechanische Bauteile, Gehäuse oder Ersatzteile können wir leider nicht bearbeiten."
   },
   {
     question: "Was passiert nach dem Absenden meiner Anfrage?",
