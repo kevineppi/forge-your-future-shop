@@ -75,7 +75,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Linz - Lokaler Service Oberösterreich Preise',
-        content: '3D-Druck Service für Linz und Oberösterreich. Als lokaler Anbieter aus Gunskirchen (15km von Linz) besonders schnelle Lieferung. Koordinaten: 48.3069°N, 14.2858°E. Lieferzeit Linz: Express 24h, Standard 1-2 Werktage. Persönliche Abholung in Gunskirchen möglich. Alle Materialien auf Lager. Preise: PLA €1,50/h, PETG €2,00/h, ABS €2,50/h, PA12 €4,50/h. Spezialgebiet: Industrielle Funktionsprototypen für Linzer Maschinenbau, Betriebsmittel, Vorrichtungen. Referenzen: voestalpine Prototypen, JKU Linz Forschungsprojekte, Linzer Industrie. Kostenlose Erstberatung vor Ort.',
+        content: '3D-Druck Service für Linz und Oberösterreich. Als lokaler Anbieter aus Gunskirchen (15km von Linz) besonders schnelle Lieferung. Lieferzeit Linz: Express 24h, Standard 1-2 Werktage. Persönliche Abholung in Gunskirchen möglich. Alle Materialien auf Lager. Preise: PLA €1,50/h, PETG €2,00/h, ABS €2,50/h, PA12 €4,50/h. Spezialgebiet: Architekturmodelle, Messemodelle, Designstudien für Linzer Unternehmen. Referenzen: Anschauungsmodelle für OÖ Industrie, JKU Linz Forschungsprojekte. Kostenlose Erstberatung vor Ort.',
         category: 'Regional',
         page_url: '/3d-druck-linz'
       },
