@@ -10,7 +10,7 @@ import InquiryForm from "@/components/calculator/InquiryForm";
 import CalculatorInfoSection from "@/components/calculator/CalculatorInfoSection";
 import DebugPanel from "@/components/calculator/DebugPanel";
 import { useModelAnalysis } from "@/hooks/useModelAnalysis";
-import { type CalculatorInput, type PriceBreakdown, calculateFinalPrice } from "@/lib/priceCalculator";
+import { type PricingInput, type PricingResult, calculatePrice } from "@/lib/pricingEngine";
 import FAQSection from "@/components/landing/FAQSection";
 
 const calculatorFaqs = [
@@ -41,15 +41,15 @@ const calculatorFaqs = [
 ];
 
 const Kostenrechner = () => {
-  const [result, setResult] = useState<PriceBreakdown | null>(null);
-  const [currentInput, setCurrentInput] = useState<CalculatorInput | null>(null);
+  const [result, setResult] = useState<PricingResult | null>(null);
+  const [currentInput, setCurrentInput] = useState<PricingInput | null>(null);
   const [showInquiry, setShowInquiry] = useState(false);
 
   const model = useModelAnalysis();
 
-  const handleCalculate = useCallback((input: CalculatorInput) => {
+  const handleCalculate = useCallback((input: PricingInput) => {
     setCurrentInput(input);
-    setResult(calculateFinalPrice(input));
+    setResult(calculatePrice(input));
     setShowInquiry(false);
   }, []);
 

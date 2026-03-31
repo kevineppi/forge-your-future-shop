@@ -4,14 +4,14 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import type { CalculatorInput, PriceBreakdown } from "@/lib/priceCalculator";
+import type { PricingInput, PricingResult } from "@/lib/pricingEngine";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Send, X } from "lucide-react";
 
 interface Props {
-  calculatorInput: CalculatorInput;
-  priceBreakdown: PriceBreakdown;
+  calculatorInput: PricingInput;
+  priceBreakdown: PricingResult;
   onClose: () => void;
 }
 
@@ -23,41 +23,51 @@ const InquiryForm = ({ calculatorInput, priceBreakdown, onClose }: Props) => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const configSummary = `Verfahren: ${calculatorInput.process}, Material: ${calculatorInput.materialKey}, Schichtdicke: ${calculatorInput.layerHeight} mm, Wandstärke: ${calculatorInput.wallThickness} mm, Stückzahl: ${calculatorInput.quantity}, Richtpreis netto: ${priceBreakdown.finalNet.toFixed(2)} €, Richtpreis brutto: ${priceBreakdown.finalGross.toFixed(2)} €`;
+  const configSummary = `Verfahren: FDM, Material: ${calculatorInput.materialKey}, Schichtdicke: ${calculatorInput.layerHeight} mm, Wandstärke: ${calculatorInput.wallThickness} mm, Stückzahl: ${calculatorInput.quantity}, Richtpreis netto: ${priceBreakdown.finalNet.toFixed(2)} €, Richtpreis brutto: ${priceBreakdown.finalGross.toFixed(2)} €`;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim()) {
-      toast.error("Bitte füllen Sie Name und E-Mail aus.");
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      toast.error("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+      toast.error("Bitte Name und E-Mail angeben.");
       return;
     }
 
     setIsSubmitting(true);
     try {
-      const fullMessage = `[Kostenrechner-Anfrage]\n\n${configSummary}\n\n${company ? `Firma: ${company}\n` : ""}${phone ? `Telefon: ${phone}\n` : ""}\n${message || "(Keine zusätzliche Nachricht)"}`;
+      const fullMessage = [
+        `--- Konfiguration ---`,
+        configSummary,
+        `--- Geometrie ---`,
+        `Volumen: ${priceBreakdown.volumeCm3.toFixed(2)} cm³`,
+        `Oberfläche: ${priceBreakdown.surfaceCm2.toFixed(2)} cm²`,
+        `Maße: ${priceBreakdown.boundingBoxMm.x.toFixed(1)} × ${priceBreakdown.boundingBoxMm.y.toFixed(1)} × ${priceBreakdown.boundingBoxMm.z.toFixed(1)} mm`,
+        company ? `Firma: ${company}` : null,
+        phone ? `Telefon: ${phone}` : null,
+        message ? `\n--- Nachricht ---\n${message}` : null,
+      ].filter(Boolean).join('\n');
 
-      const { error } = await supabase.from("contact_inquiries").insert({
-        name: name.trim().slice(0, 100),
-        email: email.trim().slice(0, 255),
-        message: fullMessage.slice(0, 2000),
-        project_type: "Kostenrechner-Anfrage",
+      const { error } = await supabase.from('contact_inquiries').insert({
+        name: name.trim(),
+        email: email.trim(),
+        message: fullMessage,
+        project_type: 'kostenrechner',
       });
 
       if (error) throw error;
 
-      toast.success("Ihre Anfrage wurde erfolgreich gesendet! Wir melden uns zeitnah.");
-      setName("");
-      setEmail("");
-      setCompany("");
-      setPhone("");
-      setMessage("");
+      // Try to send notification
+      try {
+        await supabase.functions.invoke('send-contact-notification', {
+          body: { name, email, message: fullMessage, projectType: 'kostenrechner' },
+        });
+      } catch {
+        // Notification failed silently
+      }
+
+      toast.success("Anfrage gesendet! Wir melden uns innerhalb von 6 Stunden.");
       onClose();
     } catch {
-      toast.error("Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.");
+      toast.error("Fehler beim Senden. Bitte versuchen Sie es erneut.");
     } finally {
       setIsSubmitting(false);
     }
@@ -65,57 +75,48 @@ const InquiryForm = ({ calculatorInput, priceBreakdown, onClose }: Props) => {
 
   return (
     <Card className="border-primary/30 shadow-lg">
-      <CardHeader>
+      <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-xl">Unverbindliche Anfrage</CardTitle>
-          <Button variant="ghost" size="icon" onClick={onClose}>
+          <CardTitle className="text-lg font-semibold">Unverbindliche Anfrage</CardTitle>
+          <Button variant="ghost" size="icon" onClick={onClose} className="h-8 w-8">
             <X className="h-4 w-4" />
           </Button>
         </div>
         <p className="text-sm text-muted-foreground">
-          Auf Basis Ihrer Konfiguration können Sie jetzt eine unverbindliche Anfrage senden.
+          Richtpreis: <strong>{priceBreakdown.finalNet.toFixed(2)} € netto</strong> · {calculatorInput.quantity} Stk.
         </p>
       </CardHeader>
       <CardContent>
-        <div className="bg-muted/40 rounded-lg p-3 mb-6 text-xs text-muted-foreground space-y-0.5">
-          <p className="font-semibold text-foreground text-sm mb-1">Ihre Konfiguration</p>
-          <p>Verfahren: {calculatorInput.process} · Material: {calculatorInput.materialKey}</p>
-          <p>Schichtdicke: {calculatorInput.layerHeight} mm · Wandstärke: {calculatorInput.wallThickness} mm</p>
-          <p>Stückzahl: {calculatorInput.quantity} · Richtpreis: {priceBreakdown.finalGross.toFixed(2).replace(".", ",")} € brutto</p>
-        </div>
-
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="inq-name">Name *</Label>
-              <Input id="inq-name" value={name} onChange={(e) => setName(e.target.value)} required maxLength={100} placeholder="Max Mustermann" />
+            <div className="space-y-1.5">
+              <Label htmlFor="inq-name" className="text-sm">Name *</Label>
+              <Input id="inq-name" value={name} onChange={(e) => setName(e.target.value)} required />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="inq-email">E-Mail *</Label>
-              <Input id="inq-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={255} placeholder="max@firma.at" />
+            <div className="space-y-1.5">
+              <Label htmlFor="inq-email" className="text-sm">E-Mail *</Label>
+              <Input id="inq-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
             </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="inq-company">Firma (optional)</Label>
-              <Input id="inq-company" value={company} onChange={(e) => setCompany(e.target.value)} maxLength={100} placeholder="Musterfirma GmbH" />
+            <div className="space-y-1.5">
+              <Label htmlFor="inq-company" className="text-sm">Firma (optional)</Label>
+              <Input id="inq-company" value={company} onChange={(e) => setCompany(e.target.value)} />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="inq-phone">Telefon (optional)</Label>
-              <Input id="inq-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={30} placeholder="+43 664 123 4567" />
+            <div className="space-y-1.5">
+              <Label htmlFor="inq-phone" className="text-sm">Telefon (optional)</Label>
+              <Input id="inq-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
             </div>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="inq-message">Nachricht (optional)</Label>
-            <Textarea id="inq-message" value={message} onChange={(e) => setMessage(e.target.value)} maxLength={1000} placeholder="Besondere Anforderungen, gewünschte Toleranzen, Nachbearbeitung…" rows={3} />
+          <div className="space-y-1.5">
+            <Label htmlFor="inq-message" className="text-sm">Nachricht (optional)</Label>
+            <Textarea id="inq-message" value={message} onChange={(e) => setMessage(e.target.value)} rows={3} placeholder="Besondere Anforderungen, Termine, Dateien..." />
+          </div>
+          <div className="bg-muted/50 rounded-lg p-3 text-xs text-muted-foreground">
+            <strong className="text-foreground">Konfiguration:</strong> {configSummary}
           </div>
           <Button type="submit" variant="cta" size="lg" className="w-full" disabled={isSubmitting}>
             <Send className="h-4 w-4 mr-2" />
-            {isSubmitting ? "Wird gesendet…" : "Anfrage senden"}
+            {isSubmitting ? "Wird gesendet..." : "Anfrage senden"}
           </Button>
-          <p className="text-xs text-muted-foreground text-center">
-            Durch das Absenden kommt kein Vertragsabschluss zustande. Sie erhalten ein individuelles Angebot nach technischer Prüfung.
-          </p>
         </form>
       </CardContent>
     </Card>

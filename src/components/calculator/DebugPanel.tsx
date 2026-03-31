@@ -5,13 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { PRICING_CONFIG } from "@/data/pricingConfig";
-import type { PriceBreakdown, CalculatorInput } from "@/lib/priceCalculator";
+import { pricingConfig } from "@/data/pricingConfig";
+import type { PricingResult, PricingInput } from "@/lib/pricingEngine";
 import { Bug, Save, Trash2 } from "lucide-react";
 
 interface Props {
-  result: PriceBreakdown | null;
-  input: CalculatorInput | null;
+  result: PricingResult | null;
+  input: PricingInput | null;
 }
 
 interface ReferenceValues {
@@ -102,6 +102,8 @@ const DebugPanel = ({ result, input }: Props) => {
 
   if (!result || !input) return null;
 
+  const cfg = pricingConfig;
+
   const hasRefValues = refValues.volumeCm3 > 0 || refValues.surfaceCm2 > 0 ||
     refValues.widthMm > 0 || refValues.depthMm > 0 || refValues.heightMm > 0;
 
@@ -160,28 +162,48 @@ const DebugPanel = ({ result, input }: Props) => {
                 <span>Oberfläche:</span><span className="text-foreground">{fmt(result.surfaceCm2)} cm²</span>
                 <span>Maße (X×Y×Z):</span><span className="text-foreground">{fmt(result.boundingBoxMm.x)} × {fmt(result.boundingBoxMm.y)} × {fmt(result.boundingBoxMm.z)} mm</span>
                 <span>Max. Dimension:</span><span className="text-foreground">{fmt(result.maxDimensionMm)} mm</span>
-                <span>Layeranzahl:</span><span className="text-foreground">{result.layerCount}</span>
+              </div>
+            </div>
+
+            {/* Wandanteil & Effektives Volumen */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">🧱 Wandanteil & Effektives Volumen</h4>
+              <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
+                <span>Wandstärke (cm):</span><span className="text-foreground">{result.wallThicknessCm.toFixed(4)}</span>
+                <span>Wandvolumen:</span><span className="text-foreground">{fmt(result.wallVolumeCm3)} cm³</span>
+                <span>wallFraction:</span><span className="text-foreground">{result.wallFraction.toFixed(4)}</span>
+                <span>effectiveVolumeFactor:</span><span className="text-foreground">{result.effectiveVolumeFactor.toFixed(4)}</span>
+                <span>effectiveVolume:</span><span className="text-foreground">{fmt(result.effectiveVolume)} cm³</span>
               </div>
             </div>
 
             {/* Materialkosten */}
             <div>
-              <h4 className="font-semibold text-foreground mb-1">🧱 Materialkosten</h4>
+              <h4 className="font-semibold text-foreground mb-1">💎 Materialkosten</h4>
               <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
-                <span>Gewicht:</span><span className="text-foreground">{fmt(result.materialWeightG)} g</span>
+                <span>Materialgewicht:</span><span className="text-foreground">{fmt(result.materialWeightG)} g</span>
                 <span>Rohkosten:</span><span className="text-foreground">{fmtE(result.materialCostRaw)}</span>
-                <span>× Sicherheitsfaktor ({PRICING_CONFIG.materialSafetyFactor}):</span>
+                <span>× Sicherheitsfaktor ({cfg.materialSafetyFactor}):</span>
                 <span className="text-foreground font-medium">{fmtE(result.materialCost)}</span>
               </div>
             </div>
 
             {/* Druckzeit */}
             <div>
-              <h4 className="font-semibold text-foreground mb-1">⏱️ Druckzeit & Druckkosten</h4>
+              <h4 className="font-semibold text-foreground mb-1">⏱️ Druckzeit</h4>
               <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
-                <span>Druckzeit:</span><span className="text-foreground">{fmt(result.printTimeMin)} Min. ({fmt(result.printTimeMin / 60)} Std.)</span>
-                <span>Stundensatz:</span><span className="text-foreground">{fmtE(result.hourlyPrintRate)}/h {result.maxDimensionMm >= PRICING_CONFIG.largePrintThresholdMm ? "(groß)" : "(klein/mittel)"}</span>
-                <span>Druckkosten:</span><span className="text-foreground font-medium">{fmtE(result.printCost)}</span>
+                <span>layerCount:</span><span className="text-foreground">{result.layerCount}</span>
+                <span>rawTime:</span><span className="text-foreground">{fmt(result.rawTime)} Min.</span>
+                <span>printTimeMin:</span><span className="text-foreground">{fmt(result.printTimeMin)} Min. ({fmt(result.printTimeMin / 60)} Std.)</span>
+              </div>
+            </div>
+
+            {/* Druckkosten */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">🖨️ Druckkosten</h4>
+              <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
+                <span>hourlyPrintRate:</span><span className="text-foreground">{fmtE(result.hourlyPrintRate)}/h {result.maxDimensionMm >= cfg.hourlyRate.largeFromMm ? "(groß)" : "(klein/mittel)"}</span>
+                <span>printCost:</span><span className="text-foreground font-medium">{fmtE(result.printCost)}</span>
               </div>
             </div>
 
@@ -189,18 +211,16 @@ const DebugPanel = ({ result, input }: Props) => {
             <div>
               <h4 className="font-semibold text-foreground mb-1">⚙️ Setup-/Handlingkosten</h4>
               <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
-                <span>Formel:</span><span className="text-foreground">Fix {PRICING_CONFIG.fixedSetupCost} € / Stück</span>
-                <span>Setupkosten:</span><span className="text-foreground font-medium">{fmtE(result.setupCost)}</span>
+                <span>setupCost:</span><span className="text-foreground font-medium">{fmtE(result.setupCost)}</span>
               </div>
             </div>
 
-            {/* Skalierung */}
+            {/* Größen-Skalierung */}
             <div>
               <h4 className="font-semibold text-foreground mb-1">📊 Größen-Skalierung</h4>
               <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
-                <span>Größenfaktor:</span><span className="text-foreground">{result.sizeFactor.toFixed(3)}×</span>
-                <span>Formel:</span><span className="text-foreground">1 + ({fmt(result.maxDimensionMm)}/{PRICING_CONFIG.sizeFactorReferenceMm}) × {PRICING_CONFIG.sizeFactorSlope}</span>
-                <span>Stückpreis (skaliert):</span><span className="text-foreground font-medium">{fmtE(result.scaledUnitCost)}</span>
+                <span>sizeFactor:</span><span className="text-foreground">{result.sizeFactor.toFixed(4)}×</span>
+                <span>scaledUnitCost:</span><span className="text-foreground font-medium">{fmtE(result.scaledUnitCost)}</span>
               </div>
             </div>
 
@@ -212,21 +232,21 @@ const DebugPanel = ({ result, input }: Props) => {
                 <div className="flex justify-between"><span>Druckkosten:</span><span className="text-foreground">{fmtE(result.printCost)}</span></div>
                 <div className="flex justify-between"><span>Setup:</span><span className="text-foreground">{fmtE(result.setupCost)}</span></div>
                 <div className="flex justify-between border-t border-border/50 pt-1"><span>Summe (vor Skalierung):</span><span className="text-foreground">{fmtE(result.materialCost + result.printCost + result.setupCost)}</span></div>
-                <div className="flex justify-between"><span>× Größenfaktor ({result.sizeFactor.toFixed(3)}):</span><span className="text-foreground font-medium">{fmtE(result.scaledUnitCost)}</span></div>
+                <div className="flex justify-between"><span>× Größenfaktor ({result.sizeFactor.toFixed(4)}):</span><span className="text-foreground font-medium">{fmtE(result.scaledUnitCost)}</span></div>
               </div>
             </div>
 
-            {/* Rabatte */}
+            {/* Rabatte & Zuschläge */}
             <div>
               <h4 className="font-semibold text-foreground mb-1">🏷️ Rabatte & Zuschläge</h4>
               <div className="bg-background rounded p-2 space-y-1 text-muted-foreground">
-                <div className="flex justify-between"><span>Zwischensumme ({input.quantity}×):</span><span className="text-foreground">{fmtE(result.subtotalNet)}</span></div>
-                {result.quantityDiscountRate > 0 && (
-                  <div className="flex justify-between text-green-600"><span>Mengenrabatt ({(result.quantityDiscountRate * 100).toFixed(0)}%):</span><span>−{fmtE(result.quantityDiscountAmount)}</span></div>
+                <div className="flex justify-between"><span>Zwischensumme ({result.quantity}×):</span><span className="text-foreground">{fmtE(result.subtotalNet)}</span></div>
+                {result.discountRate > 0 && (
+                  <div className="flex justify-between text-green-600"><span>Mengenrabatt ({(result.discountRate * 100).toFixed(0)}%):</span><span>−{fmtE(result.quantityDiscount)}</span></div>
                 )}
                 <div className="flex justify-between"><span>Nach Rabatt:</span><span className="text-foreground">{fmtE(result.netAfterDiscount)}</span></div>
-                {result.minimumOrderSurcharge > 0 && (
-                  <div className="flex justify-between text-destructive"><span>Mindermengenzuschlag:</span><span>+{fmtE(result.minimumOrderSurcharge)}</span></div>
+                {result.surcharge > 0 && (
+                  <div className="flex justify-between text-destructive"><span>Mindermengenzuschlag:</span><span>+{fmtE(result.surcharge)}</span></div>
                 )}
               </div>
             </div>
@@ -235,9 +255,9 @@ const DebugPanel = ({ result, input }: Props) => {
             <div>
               <h4 className="font-semibold text-foreground mb-1">🧾 Endergebnis</h4>
               <div className="bg-background rounded p-2 space-y-1 text-muted-foreground">
-                <div className="flex justify-between font-medium"><span>Netto:</span><span className="text-foreground">{fmtE(result.finalNet)}</span></div>
-                <div className="flex justify-between"><span>USt ({(PRICING_CONFIG.vatRate * 100).toFixed(0)}%):</span><span className="text-foreground">{fmtE(result.vatAmount)}</span></div>
-                <div className="flex justify-between font-bold text-sm"><span>Brutto:</span><span className="text-foreground">{fmtE(result.finalGross)}</span></div>
+                <div className="flex justify-between font-medium"><span>finalNet:</span><span className="text-foreground">{fmtE(result.finalNet)}</span></div>
+                <div className="flex justify-between"><span>vatAmount ({(cfg.vatRate * 100).toFixed(0)}%):</span><span className="text-foreground">{fmtE(result.vatAmount)}</span></div>
+                <div className="flex justify-between font-bold text-sm"><span>finalGross:</span><span className="text-foreground">{fmtE(result.finalGross)}</span></div>
               </div>
             </div>
 
