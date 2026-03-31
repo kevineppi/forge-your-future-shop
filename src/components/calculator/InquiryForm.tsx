@@ -4,7 +4,6 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { PRICING_CONFIG } from "@/data/pricingConfig";
 import type { CalculatorInput, PriceBreakdown } from "@/lib/priceCalculator";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -24,7 +23,7 @@ const InquiryForm = ({ calculatorInput, priceBreakdown, onClose }: Props) => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const configSummary = `Verfahren: ${calculatorInput.process}, Material: ${calculatorInput.materialKey}, Schichtdicke: ${calculatorInput.layerHeight} mm, Wandstärke: ${calculatorInput.wallThickness} mm, Stückzahl: ${calculatorInput.quantity}, Richtpreis netto: ${priceBreakdown.netTotal.toFixed(2)} €, Richtpreis brutto: ${priceBreakdown.grossTotal.toFixed(2)} €`;
+  const configSummary = `Verfahren: ${calculatorInput.process}, Material: ${calculatorInput.materialKey}, Schichtdicke: ${calculatorInput.layerHeight} mm, Wandstärke: ${calculatorInput.wallThickness} mm, Stückzahl: ${calculatorInput.quantity}, Richtpreis netto: ${priceBreakdown.finalNet.toFixed(2)} €, Richtpreis brutto: ${priceBreakdown.finalGross.toFixed(2)} €`;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,81 +77,44 @@ const InquiryForm = ({ calculatorInput, priceBreakdown, onClose }: Props) => {
         </p>
       </CardHeader>
       <CardContent>
-        {/* Config-Zusammenfassung */}
         <div className="bg-muted/40 rounded-lg p-3 mb-6 text-xs text-muted-foreground space-y-0.5">
           <p className="font-semibold text-foreground text-sm mb-1">Ihre Konfiguration</p>
           <p>Verfahren: {calculatorInput.process} · Material: {calculatorInput.materialKey}</p>
           <p>Schichtdicke: {calculatorInput.layerHeight} mm · Wandstärke: {calculatorInput.wallThickness} mm</p>
-          <p>Stückzahl: {calculatorInput.quantity} · Richtpreis: {priceBreakdown.grossTotal.toFixed(2).replace(".", ",")} € brutto</p>
+          <p>Stückzahl: {calculatorInput.quantity} · Richtpreis: {priceBreakdown.finalGross.toFixed(2).replace(".", ",")} € brutto</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="inq-name">Name *</Label>
-              <Input
-                id="inq-name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                maxLength={100}
-                placeholder="Max Mustermann"
-              />
+              <Input id="inq-name" value={name} onChange={(e) => setName(e.target.value)} required maxLength={100} placeholder="Max Mustermann" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="inq-email">E-Mail *</Label>
-              <Input
-                id="inq-email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                maxLength={255}
-                placeholder="max@firma.at"
-              />
+              <Input id="inq-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={255} placeholder="max@firma.at" />
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="inq-company">Firma (optional)</Label>
-              <Input
-                id="inq-company"
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                maxLength={100}
-                placeholder="Musterfirma GmbH"
-              />
+              <Input id="inq-company" value={company} onChange={(e) => setCompany(e.target.value)} maxLength={100} placeholder="Musterfirma GmbH" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="inq-phone">Telefon (optional)</Label>
-              <Input
-                id="inq-phone"
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                maxLength={30}
-                placeholder="+43 664 123 4567"
-              />
+              <Input id="inq-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={30} placeholder="+43 664 123 4567" />
             </div>
           </div>
           <div className="space-y-2">
             <Label htmlFor="inq-message">Nachricht (optional)</Label>
-            <Textarea
-              id="inq-message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              maxLength={1000}
-              placeholder="Besondere Anforderungen, gewünschte Toleranzen, Nachbearbeitung…"
-              rows={3}
-            />
+            <Textarea id="inq-message" value={message} onChange={(e) => setMessage(e.target.value)} maxLength={1000} placeholder="Besondere Anforderungen, gewünschte Toleranzen, Nachbearbeitung…" rows={3} />
           </div>
           <Button type="submit" variant="cta" size="lg" className="w-full" disabled={isSubmitting}>
             <Send className="h-4 w-4 mr-2" />
             {isSubmitting ? "Wird gesendet…" : "Anfrage senden"}
           </Button>
           <p className="text-xs text-muted-foreground text-center">
-            Durch das Absenden kommt kein Vertragsabschluss zustande.
-            Sie erhalten ein individuelles Angebot nach technischer Prüfung.
+            Durch das Absenden kommt kein Vertragsabschluss zustande. Sie erhalten ein individuelles Angebot nach technischer Prüfung.
           </p>
         </form>
       </CardContent>

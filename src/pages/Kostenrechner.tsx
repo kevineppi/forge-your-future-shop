@@ -8,6 +8,7 @@ import PriceSummary from "@/components/calculator/PriceSummary";
 import CalculatorDisclaimer from "@/components/calculator/CalculatorDisclaimer";
 import InquiryForm from "@/components/calculator/InquiryForm";
 import CalculatorInfoSection from "@/components/calculator/CalculatorInfoSection";
+import DebugPanel from "@/components/calculator/DebugPanel";
 import { type CalculatorInput, type PriceBreakdown, calculateFinalPrice } from "@/lib/priceCalculator";
 
 const Kostenrechner = () => {
@@ -33,16 +34,12 @@ const Kostenrechner = () => {
       <main className="pt-20">
         <CalculatorHero />
 
-        {/* Calculator Section */}
         <section className="py-12 md:py-20">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-              {/* Form – left / top */}
               <div className="lg:col-span-3">
                 <CalculatorForm onCalculate={handleCalculate} />
               </div>
-
-              {/* Result – right / bottom */}
               <div className="lg:col-span-2 lg:sticky lg:top-24">
                 <PriceSummary
                   result={result}
@@ -51,7 +48,6 @@ const Kostenrechner = () => {
               </div>
             </div>
 
-            {/* Inquiry Form */}
             {showInquiry && result && currentInput && (
               <div className="mt-12 max-w-2xl mx-auto" id="anfrage">
                 <InquiryForm
@@ -61,6 +57,9 @@ const Kostenrechner = () => {
                 />
               </div>
             )}
+
+            {/* Debug Panel */}
+            <DebugPanel result={result} input={currentInput} />
           </div>
         </section>
 
