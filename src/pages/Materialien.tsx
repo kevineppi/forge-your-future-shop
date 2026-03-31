@@ -227,7 +227,7 @@ const Materialien = () => {
                             <li>• Alle Standard-Farben</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Robuste Modelle, Mechanik, Werkzeuge
+                            <span className="font-medium">Ideal für:</span> Robuste Modelle, Präsentationsobjekte, langlebige Dekorationen
                           </div>
                         </div>
                       </CardContent>
