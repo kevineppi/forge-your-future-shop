@@ -199,7 +199,7 @@ const CalculatorForm = ({
               <h3 className="text-lg font-semibold text-foreground mb-1">Material & Farbe wählen</h3>
               <p className="text-sm text-muted-foreground">
                 Das Material bestimmt Optik, Haptik und Haltbarkeit Ihres Modells.
-                PLA eignet sich für die meisten Anschauungsmodelle.
+                PLA eignet sich für die meisten Präsentationsmodelle und Designstudien.
               </p>
             </div>
 
