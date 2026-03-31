@@ -261,7 +261,7 @@ const Materialien = () => {
                             <li>• Recycelbar</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Behälter, Linsen, medizinische Teile
+                            <span className="font-medium">Ideal für:</span> Vitrinen, Lichteffekte, transparente Modelle
                           </div>
                         </div>
                       </CardContent>
