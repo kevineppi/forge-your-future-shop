@@ -76,10 +76,10 @@ const Kostenrechner = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="3D-Druck Kostenrechner Österreich – Richtpreis für Anschauungsmodelle [2026]"
-        description="Berechnen Sie unverbindlich den Richtpreis für Ihr 3D-gedrucktes Anschauungsmodell: PLA, PETG, ABS & mehr. Persönliche Prüfung jeder Anfrage. Angebot in 6h."
+        title="3D-Druck Kostenrechner Österreich – Richtpreis berechnen [2026]"
+        description="Berechnen Sie unverbindlich den Richtpreis für Ihr 3D-gedrucktes Modell: PLA, PETG, ABS & mehr. Einzelstück oder Kleinauflage. Persönliche Prüfung. Angebot in 6h."
         path="/kostenrechner"
-        keywords="3d druck kostenrechner, 3d druck kosten österreich, 3d druck preis berechnen, anschauungsmodell kosten, fdm druck kosten, 3d druck richtpreis, kostenrechner 3d modell"
+        keywords="3d druck kostenrechner, 3d druck kosten österreich, 3d druck preis berechnen, 3d modell kosten, fdm druck kosten, 3d druck richtpreis, kostenrechner 3d modell, kleinauflage 3d druck"
         breadcrumbs={breadcrumbs}
         schemaType="service"
       />
