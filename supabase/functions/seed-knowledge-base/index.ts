@@ -23,7 +23,7 @@ const knowledgeEntries = [
   },
   {
     title: "3D-Druck Materialien - PETG",
-    content: "PETG (Polyethylenterephthalat-Glycol) ist ein robuster, schlagfester Kunststoff mit hervorragenden mechanischen Eigenschaften. Drucktemperatur: 230-250°C, Heizbett 70-80°C empfohlen. Zugfestigkeit: 50-60 MPa, Bruchdehnung: 30-100% (vs. 2-5% bei PLA). Glasübergangstemperatur: 75-80°C, einsetzbar bis 70°C. UV- und chemikalienbeständig, lebensmittelecht (FDA-approved), ideal für Funktionsteile. Höhere Festigkeit als PLA bei guter Druckbarkeit. Neigt zu Stringing. Preis: 25-35€/kg. Perfekt für mechanisch belastete Teile, Gehäuse, Werkzeuge.",
+    content: "PETG (Polyethylenterephthalat-Glycol) ist ein robuster, schlagfester Kunststoff mit hervorragenden mechanischen Eigenschaften. Drucktemperatur: 230-250°C, Heizbett 70-80°C empfohlen. Zugfestigkeit: 50-60 MPa, Bruchdehnung: 30-100% (vs. 2-5% bei PLA). Glasübergangstemperatur: 75-80°C, einsetzbar bis 70°C. UV- und chemikalienbeständig, ideal für langlebige Anschauungsmodelle und Präsentationsobjekte. Höhere Festigkeit als PLA bei guter Druckbarkeit. Neigt zu Stringing. Preis: 25-35€/kg. Perfekt für robuste Modelle, Gehäuse-Designs und transparente Schauobjekte.",
     category: "Materialien",
     page_url: "/ratgeber/material-guide"
   },
