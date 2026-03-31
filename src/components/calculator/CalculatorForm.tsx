@@ -5,15 +5,15 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
-import { PRICING_CONFIG, type MaterialKey } from "@/data/pricingConfig";
-import type { CalculatorInput } from "@/lib/priceCalculator";
-import { TEST_CASES } from "@/lib/priceCalculator";
+import { pricingConfig } from "@/data/pricingConfig";
+import type { PricingInput } from "@/lib/pricingEngine";
+import { TEST_CASES } from "@/lib/pricingEngine";
 import type { GeometryData } from "@/lib/stlParser";
 import ModelUpload from "./ModelUpload";
 import { Info, Calculator, FlaskConical, Layers, Box } from "lucide-react";
 
 interface Props {
-  onCalculate: (input: CalculatorInput) => void;
+  onCalculate: (input: PricingInput) => void;
   geometry: GeometryData | null;
   fileName: string | null;
   fileSize: number | null;
@@ -33,36 +33,35 @@ const CalculatorForm = ({
   onFileSelect,
   onFileClear,
 }: Props) => {
-  const cfg = PRICING_CONFIG;
+  const cfg = pricingConfig;
 
-  const [materialKey, setMaterialKey] = useState<MaterialKey>("PLA");
+  const [materialKey, setMaterialKey] = useState("PLA");
   const [color, setColor] = useState("Schwarz");
-  const [layerHeight, setLayerHeight] = useState(cfg.defaultLayerHeight.FDM);
-  const [wallThickness, setWallThickness] = useState(cfg.defaultWallThickness.FDM);
+  const [layerHeight, setLayerHeight] = useState(cfg.defaultLayerHeight);
+  const [wallThickness, setWallThickness] = useState(cfg.defaultWallThickness);
   const [infillPercent, setInfillPercent] = useState<number>(cfg.defaultInfillPercent);
   const [quantity, setQuantity] = useState(1);
   const [showTests, setShowTests] = useState(false);
 
-  const materials = cfg.processMaterials.FDM;
+  const materials = cfg.materialKeys;
   const colors = cfg.materialColors[materialKey] ?? [];
-  const layerHeights = cfg.processLayerHeights.FDM;
-  const wallThicknesses = cfg.processWallThicknesses.FDM;
+  const layerHeights = cfg.layerHeights;
+  const wallThicknesses = cfg.wallThicknesses;
 
-  const buildInput = useCallback((): CalculatorInput => ({
-    process: 'FDM' as const,
-    materialKey,
-    layerHeight,
-    wallThickness,
-    infillPercent,
-    quantity: Math.max(1, quantity),
-    ...(geometry
+  const buildInput = useCallback((): PricingInput => ({
+    geometry: geometry
       ? {
           volumeCm3: geometry.volumeCm3,
           surfaceCm2: geometry.surfaceCm2,
           boundingBoxMm: geometry.boundingBoxMm,
         }
-      : {}),
-  }), [materialKey, layerHeight, wallThickness, infillPercent, quantity, geometry]);
+      : cfg.placeholderGeometry,
+    materialKey,
+    layerHeight,
+    wallThickness,
+    infillPercent,
+    quantity: Math.max(1, quantity),
+  }), [materialKey, layerHeight, wallThickness, infillPercent, quantity, geometry, cfg.placeholderGeometry]);
 
   // Auto-update price on any parameter change
   useEffect(() => {
@@ -70,7 +69,7 @@ const CalculatorForm = ({
     onCalculate(buildInput());
   }, [buildInput, onCalculate]);
 
-  const handleMaterialChange = (key: MaterialKey) => {
+  const handleMaterialChange = (key: string) => {
     setMaterialKey(key);
     const matColors = cfg.materialColors[key] ?? [];
     if (!matColors.includes(color)) {
@@ -105,14 +104,14 @@ const CalculatorForm = ({
             <Box className="h-3.5 w-3.5 text-primary" />
             Material
           </Label>
-          <Select value={materialKey} onValueChange={(v) => handleMaterialChange(v as MaterialKey)}>
+          <Select value={materialKey} onValueChange={(v) => handleMaterialChange(v)}>
             <SelectTrigger id="material">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
               {materials.map((key) => (
                 <SelectItem key={key} value={key}>
-                  {cfg.materialLabels[key]} – €{cfg.materialPricePerKg[key]}/kg
+                  {cfg.materialLabels[key]} – €{cfg.pricePerKg[key]}/kg
                 </SelectItem>
               ))}
             </SelectContent>
