@@ -52,6 +52,8 @@ export const PRICING_CONFIG = {
   fixedSetupCost: 12.99,
 
   // ── Größen-Skalierung ─────────────────────────────────────
+  /** Schwellenwert ab dem der Größenfaktor greift (mm) */
+  sizeFactorThresholdMm: 170,
   /** Referenz-Dimension für sizeFactor (mm) */
   sizeFactorReferenceMm: 300,
   /** Steigung des Größenfaktors */
