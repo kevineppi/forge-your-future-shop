@@ -105,7 +105,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Wels - Oberösterreich Nähe',
-        content: '3D-Druck Service für Wels (10km von Gunskirchen). Koordinaten: 48.1667°N, 14.0333°E. Lieferzeit: Express 24h, Standard 1 Werktag. Persönliche Abholung möglich. Alle Materialien. Preise: PLA €1,50/h, PETG €2,00/h, PA12 €4,50/h. Spezialgebiet: Messebau-Modelle (Welser Messe), Industrie-Prototypen. Referenzen: Welser Profile, TGW Logistics. Kostenlose Beratung vor Ort.',
+        content: '3D-Druck Service für Wels (10km von Gunskirchen). Lieferzeit: Express 24h, Standard 1 Werktag. Persönliche Abholung möglich. Alle Materialien. Preise: PLA €1,50/h, PETG €2,00/h, PA12 €4,50/h. Spezialgebiet: Messemodelle (Welser Messe), Präsentationsmodelle. Referenzen: Welser Unternehmen. Kostenlose Beratung vor Ort.',
         category: 'Regional',
         page_url: '/3d-druck-wels'
       },
