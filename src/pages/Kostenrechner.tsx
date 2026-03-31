@@ -14,7 +14,7 @@ import STLViewer from "@/components/calculator/STLViewer";
 import { useModelAnalysis } from "@/hooks/useModelAnalysis";
 import { type PricingInput, type PricingResult, calculatePrice } from "@/lib/pricingEngine";
 import FAQSection from "@/components/landing/FAQSection";
-import { Breadcrumbs } from "@/components/landing/Breadcrumbs";
+import Breadcrumbs from "@/components/landing/Breadcrumbs";
 
 const calculatorFaqs = [
   {
