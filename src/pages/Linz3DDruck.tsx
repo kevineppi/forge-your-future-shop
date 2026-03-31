@@ -1,7 +1,3 @@
-import { Navigate } from "react-router-dom";
-
-const Linz3DDruck = () => {
-  return <Navigate to="/" replace />;
-};
-
+import DruckRegion from "./DruckRegion";
+const Linz3DDruck = () => <DruckRegion region="linz" />;
 export default Linz3DDruck;
