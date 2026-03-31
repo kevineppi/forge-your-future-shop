@@ -18,8 +18,8 @@ export type MaterialKey = 'PLA' | 'PETG' | 'ABS' | 'ASA' | 'TPU' | 'RESIN' | 'PA
 
 // ── Hauptkonfiguration ──────────────────────────────────────
 export const PRICING_CONFIG = {
-  /** Umsatzsteuer (Österreich) */
-  vatRate: 0.20,
+  /** Umsatzsteuer – deaktiviert (Kleinunternehmerregelung o.Ä.) */
+  vatRate: 0,
 
   /** Sicherheitsfaktor auf Materialkosten (Verschnitt, Stützstruktur etc.) */
   materialSafetyFactor: 1.15,
@@ -50,12 +50,8 @@ export const PRICING_CONFIG = {
   largePrintThresholdMm: 260,
 
   // ── Setup-/Handlingkosten ─────────────────────────────────
-  /** Basis-Setupkosten in € (für ein Referenzteil) */
-  baseSetupCost: 3,
-  /** Referenzvolumen für Setup-Skalierung (cm³) */
-  setupReferenceVolumeCm3: 50,
-  /** Exponent für Setup-Skalierung (0.3 = stark abgeschwächt) */
-  setupScalingExponent: 0.3,
+  /** Fixe Setupkosten pro Stück in € */
+  fixedSetupCost: 12.99,
 
   // ── Größen-Skalierung ─────────────────────────────────────
   /** Referenz-Dimension für sizeFactor (mm) */

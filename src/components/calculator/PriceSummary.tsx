@@ -87,15 +87,6 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
               <span>− {fmt(result.quantityDiscountAmount)}</span>
             </div>
           )}
-          {result.quantityDiscountAmount > 0 && (
-            <div className="flex justify-between text-primary">
-              <span className="flex items-center gap-1">
-                <TrendingDown className="h-3.5 w-3.5" />
-                Mengenrabatt ({pct(result.quantityDiscountRate)})
-              </span>
-              <span>− {fmt(result.quantityDiscountAmount)}</span>
-            </div>
-          )}
 
           {/* Zuschlag */}
           {result.minimumOrderSurcharge > 0 && (
@@ -114,16 +105,12 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             <span>Netto-Richtpreis</span>
             <span>{fmt(result.finalNet)}</span>
           </div>
-          <div className="flex justify-between text-sm text-muted-foreground">
-            <span>zzgl. 20 % USt</span>
-            <span>{fmt(result.vatAmount)}</span>
-          </div>
         </div>
 
-        {/* Brutto */}
+        {/* Endpreis */}
         <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 text-center">
-          <p className="text-xs text-muted-foreground mb-1">Geschätzter Bruttopreis</p>
-          <p className="text-3xl font-bold text-foreground">{fmt(result.finalGross)}</p>
+          <p className="text-xs text-muted-foreground mb-1">Geschätzter Richtpreis (netto)</p>
+          <p className="text-3xl font-bold text-foreground">{fmt(result.finalNet)}</p>
           <p className="text-xs text-muted-foreground mt-1">
             ca. {fmt(result.rawUnitNet)} netto / Stück
           </p>

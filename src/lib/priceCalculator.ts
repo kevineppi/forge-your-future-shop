@@ -156,14 +156,10 @@ function getHourlyPrintRate(maxDimensionMm: number): number {
     : cfg.hourlyPrintRateSmall;
 }
 
-// ── 4. Setup-/Handlingkosten (abgeschwächt) ────────────────
+// ── 4. Setup-/Handlingkosten (fix) ─────────────────────────
 
-function calculateSetupCost(volumeCm3: number): number {
-  const cfg = PRICING_CONFIG;
-  return cfg.baseSetupCost * Math.pow(
-    Math.max(volumeCm3, 1) / cfg.setupReferenceVolumeCm3,
-    cfg.setupScalingExponent
-  );
+function calculateSetupCost(): number {
+  return PRICING_CONFIG.fixedSetupCost;
 }
 
 // ── 5. Größen-Skalierung ───────────────────────────────────
@@ -210,8 +206,8 @@ export function calculateFinalPrice(input: CalculatorInput): PriceBreakdown {
   const hourlyPrintRate = getHourlyPrintRate(maxDimensionMm);
   const printCost = (time.printTimeMin / 60) * hourlyPrintRate;
 
-  // 4. Setupkosten
-  const setupCost = calculateSetupCost(volumeCm3);
+  // 4. Setupkosten (fix)
+  const setupCost = calculateSetupCost();
 
   // 5. Größen-Skalierung
   const sizeFactor = calculateSizeFactor(maxDimensionMm);

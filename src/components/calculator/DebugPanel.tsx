@@ -189,7 +189,7 @@ const DebugPanel = ({ result, input }: Props) => {
             <div>
               <h4 className="font-semibold text-foreground mb-1">⚙️ Setup-/Handlingkosten</h4>
               <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
-                <span>Formel:</span><span className="text-foreground">{PRICING_CONFIG.baseSetupCost}€ × (V/{PRICING_CONFIG.setupReferenceVolumeCm3})^{PRICING_CONFIG.setupScalingExponent}</span>
+                <span>Formel:</span><span className="text-foreground">Fix {PRICING_CONFIG.fixedSetupCost} € / Stück</span>
                 <span>Setupkosten:</span><span className="text-foreground font-medium">{fmtE(result.setupCost)}</span>
               </div>
             </div>
