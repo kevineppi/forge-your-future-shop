@@ -398,7 +398,7 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
     caseStudy: {
       title: "Landmaschinen-Demonstrationsmodell für AGRARIA",
       industry: "Landwirtschaft",
-      challenge: "Ein Aussteller auf der AGRARIA Wels benötigte ein maßstabsgetreues Demonstrationsmodell einer neuen Landmaschine. Das Modell sollte funktionale Details zeigen.",
+      challenge: "Ein Aussteller auf der AGRARIA Wels benötigte ein maßstabsgetreues Demonstrationsmodell einer neuen Landmaschine. Das Modell sollte alle wichtigen Details anschaulich darstellen.",
       solution: "Wir fertigten ein detailliertes Modell im Maßstab 1:10 mit beweglichen Elementen. Die Konstruktion ermöglichte das Öffnen wichtiger Komponenten zur Erklärung.",
       result: "Das Modell war leichter und detaillierter als vergleichbare Metallmodelle. Der Kunde setzte es auch nach der Messe für Kundenbesuche ein.",
       specs: {
