@@ -11,151 +11,155 @@
 // ── Verfahren ────────────────────────────────────────────────
 export type ProcessType = 'FDM' | 'SLA' | 'SLS';
 
-export interface MaterialInfo {
-  label: string;
-  pricePerKg: number;       // €/kg
-  densityGCm3: number;      // g/cm³
-  colors: string[];          // verfügbare Farben
-}
-
-export interface ProcessInfo {
-  label: string;
-  hourlyRate: number;            // €/h Maschinenstunde
-  setupTimeMin: number;          // Rüstzeit in Minuten
-  minPrintTimeMin: number;       // Mindestdruckzeit in Minuten
-  layerHeights: number[];        // verfügbare Schichtdicken in mm
-  defaultLayerHeight: number;    // Standard-Schichtdicke
-  wallThicknesses: number[];     // verfügbare Wandstärken in mm
-  defaultWallThickness: number;
-  materials: Record<string, MaterialInfo>;
-}
+export type MaterialKey = 'PLA' | 'PETG' | 'ABS' | 'ASA' | 'TPU' | 'RESIN' | 'PA12';
 
 // ── Hauptkonfiguration ──────────────────────────────────────
 export const PRICING_CONFIG = {
   /** Umsatzsteuer (Österreich) */
   vatRate: 0.20,
 
-  /** Infill-Faktor – wie viel % des Volumens tatsächlich Material ist */
-  defaultInfillFactor: 0.20,
+  /** Stundensatz für Personal/Maschine (€/h) */
+  hourlyRate: 89,
 
-  /** Oberflächen-Korrekturfaktor (größere Oberfläche = mehr Stützstruktur) */
-  surfaceFactor: 1.0,
+  /** Rüstzeit in Minuten (einmalig pro Auftrag) */
+  setupTimeMin: 12,
 
-  /** Platzhalter-Volumen wenn keine STL hochgeladen (cm³) */
-  placeholderVolumeCm3: 25,
+  /** Referenzvolumen für Zeitberechnung (cm³) */
+  volumeUnitCm3: 50,
 
-  /** Platzhalter-Oberfläche (cm²) */
-  placeholderSurfaceCm2: 100,
+  /** Infill-Faktor – wie viel % des Restvolumens tatsächlich Material ist */
+  infillFactor: 0.20,
+
+  /** Oberflächen-Korrekturfaktor */
+  surfaceFactor: 0.9,
 
   /** Mindestauftragswert netto (€) – darunter wird Zuschlag berechnet */
-  minimumOrderValueNet: 30,
+  minimumOrderThresholdNet: 40,
 
-  /** Mindermengenzuschlag (€) */
-  smallOrderSurcharge: 10,
+  /** Mindermengenzuschlag netto (€) */
+  minimumOrderSurchargeNet: 8.90,
 
-  /** Staffelrabatte nach Stückzahl */
+  /** Platzhalter-Geometriedaten (wenn keine STL hochgeladen) */
+  placeholderGeometry: {
+    volumeCm3: 25,
+    surfaceCm2: 100,
+    boundingBoxMm: { x: 50, y: 50, z: 50 },
+  },
+
+  /** Zeitfaktor pro Verfahren (Multiplikator für Druckzeit) */
+  processTimeFactor: {
+    FDM: 1,
+    SLA: 2,
+    SLS: 3,
+  } as Record<ProcessType, number>,
+
+  /** Mindest-Bearbeitungszeit pro Stück in Minuten */
+  minimumProcessTimeMin: {
+    FDM: 10,
+    SLA: 12,
+    SLS: 15,
+  } as Record<ProcessType, number>,
+
+  /** Materialpreise in €/kg */
+  materialPricePerKg: {
+    PLA: 30,
+    PETG: 35,
+    ABS: 40,
+    ASA: 45,
+    TPU: 90,
+    RESIN: 120,
+    PA12: 200,
+  } as Record<MaterialKey, number>,
+
+  /** Dichte in g/cm³ */
+  densityFactor: {
+    PLA: 1.24,
+    PETG: 1.27,
+    ABS: 1.04,
+    ASA: 1.07,
+    TPU: 1.21,
+    RESIN: 1.10,
+    PA12: 1.01,
+  } as Record<MaterialKey, number>,
+
+  /** Schichtdickenfaktor – feinere Schichten = teurer */
+  layerHeightFactor: {
+    0.08: 1.25,
+    0.12: 1.10,
+    0.20: 1.00,
+    0.28: 0.90,
+  } as Record<number, number>,
+
+  /** Staffelrabatte nach Stückzahl (absteigend sortiert!) */
   quantityDiscounts: [
-    { minQty: 1,   discount: 0 },
-    { minQty: 5,   discount: 0.05 },
-    { minQty: 10,  discount: 0.10 },
-    { minQty: 25,  discount: 0.15 },
-    { minQty: 50,  discount: 0.20 },
-    { minQty: 100, discount: 0.25 },
+    { minQty: 100, rate: 0.10 },
+    { minQty: 50,  rate: 0.08 },
+    { minQty: 10,  rate: 0.05 },
   ],
 
-  /** Rabatte nach Netto-Warenwert */
+  /** Rabatte nach Netto-Warenwert (absteigend sortiert!) */
   orderValueDiscounts: [
-    { minValue: 0,    discount: 0 },
-    { minValue: 200,  discount: 0.03 },
-    { minValue: 500,  discount: 0.05 },
-    { minValue: 1000, discount: 0.08 },
-    { minValue: 2500, discount: 0.10 },
+    { minNet: 1000, rate: 0.14 },
+    { minNet: 250,  rate: 0.08 },
+    { minNet: 100,  rate: 0.05 },
   ],
 
-  /** Verfügbare Farben (Superset) */
-  allColors: ['Schwarz', 'Weiß', 'Grau', 'Transparent', 'Natur'] as const,
+  /** Verfügbare Materialien pro Verfahren */
+  processMaterials: {
+    FDM: ['PLA', 'PETG', 'ABS', 'ASA', 'TPU'] as MaterialKey[],
+    SLA: ['RESIN'] as MaterialKey[],
+    SLS: ['PA12'] as MaterialKey[],
+  } as Record<ProcessType, MaterialKey[]>,
 
-  /** Verfahren mit Materialien */
-  processes: {
-    FDM: {
-      label: 'FDM (Fused Deposition Modeling)',
-      hourlyRate: 25,
-      setupTimeMin: 15,
-      minPrintTimeMin: 30,
-      layerHeights: [0.1, 0.15, 0.2, 0.3],
-      defaultLayerHeight: 0.2,
-      wallThicknesses: [0.8, 1.2, 1.6, 2.0, 2.4],
-      defaultWallThickness: 1.2,
-      materials: {
-        PLA: {
-          label: 'PLA',
-          pricePerKg: 25,
-          densityGCm3: 1.24,
-          colors: ['Schwarz', 'Weiß', 'Grau', 'Natur'],
-        },
-        PETG: {
-          label: 'PETG',
-          pricePerKg: 30,
-          densityGCm3: 1.27,
-          colors: ['Schwarz', 'Weiß', 'Grau', 'Transparent'],
-        },
-        ABS: {
-          label: 'ABS',
-          pricePerKg: 28,
-          densityGCm3: 1.04,
-          colors: ['Schwarz', 'Weiß', 'Grau'],
-        },
-        ASA: {
-          label: 'ASA',
-          pricePerKg: 35,
-          densityGCm3: 1.07,
-          colors: ['Schwarz', 'Weiß', 'Grau'],
-        },
-        TPU: {
-          label: 'TPU',
-          pricePerKg: 45,
-          densityGCm3: 1.21,
-          colors: ['Schwarz', 'Weiß', 'Natur'],
-        },
-      },
-    },
-    SLA: {
-      label: 'SLA (Stereolithografie)',
-      hourlyRate: 40,
-      setupTimeMin: 20,
-      minPrintTimeMin: 45,
-      layerHeights: [0.025, 0.05, 0.1],
-      defaultLayerHeight: 0.05,
-      wallThicknesses: [0.6, 0.8, 1.0, 1.2],
-      defaultWallThickness: 0.8,
-      materials: {
-        StandardResin: {
-          label: 'Standard Resin',
-          pricePerKg: 55,
-          densityGCm3: 1.12,
-          colors: ['Grau', 'Weiß', 'Transparent'],
-        },
-      },
-    },
-    SLS: {
-      label: 'SLS (Selektives Lasersintern)',
-      hourlyRate: 60,
-      setupTimeMin: 30,
-      minPrintTimeMin: 60,
-      layerHeights: [0.06, 0.1, 0.12],
-      defaultLayerHeight: 0.1,
-      wallThicknesses: [0.8, 1.0, 1.2, 1.6],
-      defaultWallThickness: 1.0,
-      materials: {
-        PA12: {
-          label: 'PA12 (Nylon)',
-          pricePerKg: 70,
-          densityGCm3: 1.01,
-          colors: ['Natur', 'Schwarz'],
-        },
-      },
-    },
-  } satisfies Record<ProcessType, ProcessInfo>,
+  /** Verfügbare Farben pro Material */
+  materialColors: {
+    PLA:  ['Schwarz', 'Weiß', 'Grau', 'Natur'],
+    PETG: ['Schwarz', 'Weiß', 'Grau', 'Transparent'],
+    ABS:  ['Schwarz', 'Weiß', 'Grau'],
+    ASA:  ['Schwarz', 'Weiß', 'Grau'],
+    TPU:  ['Schwarz', 'Weiß', 'Natur'],
+    RESIN: ['Grau', 'Weiß', 'Transparent'],
+    PA12: ['Natur', 'Schwarz'],
+  } as Record<MaterialKey, string[]>,
+
+  /** Verfügbare Schichtdicken pro Verfahren */
+  processLayerHeights: {
+    FDM: [0.08, 0.12, 0.20, 0.28],
+    SLA: [0.08, 0.12],
+    SLS: [0.08, 0.12],
+  } as Record<ProcessType, number[]>,
+
+  /** Default Schichtdicke pro Verfahren */
+  defaultLayerHeight: {
+    FDM: 0.20,
+    SLA: 0.12,
+    SLS: 0.12,
+  } as Record<ProcessType, number>,
+
+  /** Verfügbare Wandstärken pro Verfahren */
+  processWallThicknesses: {
+    FDM: [0.8, 1.2, 1.6, 2.0, 2.4],
+    SLA: [0.6, 0.8, 1.0, 1.2],
+    SLS: [0.8, 1.0, 1.2, 1.6],
+  } as Record<ProcessType, number[]>,
+
+  /** Default Wandstärke pro Verfahren */
+  defaultWallThickness: {
+    FDM: 1.2,
+    SLA: 0.8,
+    SLS: 1.0,
+  } as Record<ProcessType, number>,
+
+  /** Material-Labels für die UI */
+  materialLabels: {
+    PLA: 'PLA',
+    PETG: 'PETG',
+    ABS: 'ABS',
+    ASA: 'ASA',
+    TPU: 'TPU',
+    RESIN: 'Standard Resin',
+    PA12: 'PA12 (Nylon)',
+  } as Record<MaterialKey, string>,
 } as const;
 
 // ── Type-Helfer ─────────────────────────────────────────────
