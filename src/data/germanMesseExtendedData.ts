@@ -297,7 +297,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
       {
         name: "PLA mit Spezialfinish",
         description: "Verschiedene Oberflächenveredelungen: Carbon-Look, Aluminium-Optik, Leder-Textur.",
-        bestFor: ["Automotive-Interieur", "Premium-Oberflächen", "Haptische Muster"],
+        bestFor: ["Interieur-Designstudien", "Premium-Oberflächen", "Haptische Muster"],
         icon: "palette"
       },
       {
