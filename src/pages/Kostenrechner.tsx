@@ -154,7 +154,7 @@ const Kostenrechner = () => {
 
               {/* ── Right Column: Price (sticky) ───── */}
               <div className="lg:col-span-5 lg:sticky lg:top-24 lg:self-start">
-                <PriceSummary result={result} input={currentInput} />
+                <PriceSummary result={result} input={currentInput} stlFile={model.file} />
               </div>
             </div>
 

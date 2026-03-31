@@ -19,6 +19,8 @@ export interface ModelAnalysisState {
   error: string | null;
   /** Raw ArrayBuffer für 3D-Viewer */
   arrayBuffer: ArrayBuffer | null;
+  /** Original File object for upload */
+  file: File | null;
 }
 
 export function useModelAnalysis() {
@@ -29,6 +31,7 @@ export function useModelAnalysis() {
     isAnalyzing: false,
     error: null,
     arrayBuffer: null,
+    file: null,
   });
 
   const analyzeFile = useCallback(async (file: File) => {
@@ -42,6 +45,7 @@ export function useModelAnalysis() {
         fileName: null,
         fileSize: null,
         arrayBuffer: null,
+        file: null,
       }));
       return;
     }
@@ -54,6 +58,7 @@ export function useModelAnalysis() {
         fileName: null,
         fileSize: null,
         arrayBuffer: null,
+        file: null,
       }));
       return;
     }
@@ -87,6 +92,7 @@ export function useModelAnalysis() {
         isAnalyzing: false,
         error: null,
         arrayBuffer: buffer,
+        file,
       });
     } catch (err) {
       setState(prev => ({
@@ -97,6 +103,7 @@ export function useModelAnalysis() {
           : 'Die Datei konnte nicht verarbeitet werden.',
         geometry: null,
         arrayBuffer: null,
+        file: null,
       }));
     }
   }, []);
@@ -109,6 +116,7 @@ export function useModelAnalysis() {
       isAnalyzing: false,
       error: null,
       arrayBuffer: null,
+      file: null,
     });
   }, []);
 

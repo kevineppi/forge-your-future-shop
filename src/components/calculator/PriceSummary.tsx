@@ -17,6 +17,7 @@ import {
 interface Props {
   result: PricingResult | null;
   input: PricingInput | null;
+  stlFile?: File | null;
 }
 
 const fmt = (n: number) => n.toFixed(2).replace(".", ",") + " €";
@@ -28,7 +29,7 @@ const mins = (n: number) => {
   return m > 0 ? `${h} Std. ${m} Min.` : `${h} Std.`;
 };
 
-const PriceSummary = ({ result, input }: Props) => {
+const PriceSummary = ({ result, input, stlFile }: Props) => {
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,6 +48,20 @@ const PriceSummary = ({ result, input }: Props) => {
 
     setIsSubmitting(true);
     try {
+      // Upload STL file if available
+      let fileUrls: string[] = [];
+      if (stlFile) {
+        const fileExt = stlFile.name.split('.').pop()?.toLowerCase() || 'stl';
+        const sanitizedName = name.trim().split(' ').pop() || 'kunde';
+        const filePath = `contact-files/${Date.now()}-${sanitizedName}.${fileExt}`;
+        const { error: uploadError } = await supabase.storage
+          .from('contact-files')
+          .upload(filePath, stlFile);
+        if (!uploadError) {
+          fileUrls.push(filePath);
+        }
+      }
+
       const configSummary = `Verfahren: FDM, Material: ${input.materialKey}, Schichtdicke: ${input.layerHeight} mm, Wandstärke: ${input.wallThickness} mm, Infill: ${input.infillPercent}%, Stückzahl: ${input.quantity}, Richtpreis netto: ${result.finalNet.toFixed(2)} €`;
       const fullMessage = [
         `--- Konfiguration ---`,
@@ -55,6 +70,7 @@ const PriceSummary = ({ result, input }: Props) => {
         `Volumen: ${result.volumeCm3.toFixed(2)} cm³`,
         `Oberfläche: ${result.surfaceCm2.toFixed(2)} cm²`,
         `Maße: ${result.boundingBoxMm.x.toFixed(1)} × ${result.boundingBoxMm.y.toFixed(1)} × ${result.boundingBoxMm.z.toFixed(1)} mm`,
+        stlFile ? `Datei: ${stlFile.name} (${(stlFile.size / 1024 / 1024).toFixed(2)} MB)` : null,
         company ? `Firma: ${company}` : null,
         phone ? `Telefon: ${phone}` : null,
         message ? `\n--- Nachricht ---\n${message}` : null,
@@ -65,6 +81,7 @@ const PriceSummary = ({ result, input }: Props) => {
         email: email.trim(),
         message: fullMessage,
         project_type: 'kostenrechner',
+        file_urls: fileUrls.length > 0 ? fileUrls : null,
       });
       if (error) throw error;
 
