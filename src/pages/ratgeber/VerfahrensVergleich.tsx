@@ -45,7 +45,7 @@ const VerfahrensVergleich = () => {
     sla: "100-200€/L",
     sls: "60-100€/kg"
   }];
-  const fdmAdvantages = ["Niedrigste Anschaffungs- und Betriebskosten", "Breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites)", "Einfache Bedienung und Wartung", "Ideal für funktionale Prototypen und Endteile", "Nachhaltige Materialien verfügbar (recyceltes Filament)"];
+  const fdmAdvantages = ["Niedrigste Anschaffungs- und Betriebskosten", "Breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites)", "Einfache Bedienung und Wartung", "Ideal für Designstudien und Anschauungsmodelle", "Nachhaltige Materialien verfügbar (recyceltes Filament)"];
   const fdmDisadvantages = ["Geringere Oberflächenqualität (sichtbare Schichten)", "Niedrigere Detailauflösung als SLA", "Anisotrope Festigkeit (Schwächere Z-Achse)", "Stützstrukturen hinterlassen Spuren"];
   const slaAdvantages = ["Höchste Detailgenauigkeit (0.025mm Schichthöhe)", "Glatte Oberflächen ohne sichtbare Schichten", "Ideal für feine Details und komplexe Geometrien", "Isotrope mechanische Eigenschaften"];
   const slaDisadvantages = ["Höhere Material- und Gerätekosten", "Aufwendige Nachbearbeitung (Waschen, Aushärten)", "Begrenzte Materialauswahl", "Gesundheits- und Sicherheitsaspekte bei Resinhandhabung"];
