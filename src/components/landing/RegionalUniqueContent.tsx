@@ -23,6 +23,63 @@ const RegionalUniqueContent = ({
   const countryText = isGerman ? "Deutschland" : "Österreich";
   const countryPrep = isGerman ? "in Deutschland" : "in Österreich";
 
+  if (type === 'druck') {
+    return (
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection animation="fade-in">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Zap className="w-5 h-5 text-primary" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">
+                  3D-Druck für Unternehmen in {regionName} – Alles Wichtige auf einen Blick
+                </h2>
+              </div>
+
+              <div className="prose prose-lg max-w-none text-foreground space-y-5">
+                <p className="text-muted-foreground leading-relaxed">
+                  Unternehmen in {regionName} setzen zunehmend auf 3D-Druck, um Prototypen schneller zu realisieren, Einzelteile kosteneffizient zu fertigen und Designstudien greifbar zu machen. ekdruck e.U. bietet als spezialisierter FDM-Druckservice {countryPrep} die passende Lösung: Von der ersten Idee bis zum fertigen Bauteil – unkompliziert, schnell und in industrieller Qualität.
+                </p>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  Unser Leistungsspektrum umfasst Prototypen, Gehäuse, Funktionsmuster, Kleinserien und Einzelanfertigungen. Wir verarbeiten technische Kunststoffe wie PLA+, PETG, ASA und TPU – je nach Anforderung an Festigkeit, Temperaturbeständigkeit oder Flexibilität. Die Lieferung nach {regionName} erfolgt innerhalb von {deliveryTime}. Für zeitkritische Projekte steht unser Express-Service mit 24-Stunden-Fertigung bereit.
+                </p>
+
+                <div className="grid sm:grid-cols-3 gap-4 mt-6 not-prose">
+                  {[
+                    { icon: Zap, title: "Express 24h", desc: `Für dringende Projekte in ${regionName}` },
+                    { icon: Layers, title: "4 Materialien", desc: "PLA+, PETG, ASA, TPU – nach Bedarf" },
+                    { icon: Award, title: "Ab Stückzahl 1", desc: "Einzelteile bis Kleinserien" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-muted/40 border border-border/40">
+                      <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <item.icon className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-sm">{item.title}</div>
+                        <div className="text-xs text-muted-foreground mt-0.5">{item.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  Der Prozess ist einfach: Sie senden uns Ihre 3D-Datei (STL, OBJ oder STEP), wir prüfen die Druckbarkeit und erstellen innerhalb von 6 Stunden ein Angebot. Nach Freigabe starten wir die Produktion – je nach Bauteilgröße und Komplexität dauert der Druck wenige Stunden bis maximal 3 Tage. Der Versand nach {regionName} erfolgt versichert mit Sendungsverfolgung.
+                </p>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  Besonders für Unternehmen in {regionName}, die regelmäßig Prototypen benötigen, bieten wir attraktive Konditionen: kostenloser Versand ab €100 Bestellwert, persönliche Beratung bei Materialwahl und Druckeinstellungen sowie Nachbearbeitung auf Wunsch (Schleifen, Lackieren, Gewindeeinsätze). Über 500 zufriedene Kunden {countryPrep} vertrauen bereits auf unseren Service.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   if (type === 'messe') {
     const topMessen = localMessen.slice(0, 3);
     return (
