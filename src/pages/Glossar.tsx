@@ -178,7 +178,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "ASA (Acrylnitril-Styrol-Acrylester)",
     category: "Material",
-    definition: "UV-beständige Alternative zu ABS, speziell für Außenanwendungen entwickelt. Wetterbeständig, farbstabil auch bei Sonneneinstrahlung, temperaturbeständig bis 95 °C. Druckparameter ähnlich ABS. Ideal für Gehäuse, Automobilteile und Gartenbauanwendungen. Geringere Dämpfentwicklung als ABS.",
+    definition: "UV-beständige Alternative zu ABS, speziell für Außenanwendungen entwickelt. Wetterbeständig, farbstabil auch bei Sonneneinstrahlung, temperaturbeständig bis 95 °C. Druckparameter ähnlich ABS. Ideal für Outdoor-Modelle, Gartendekor und witterungsbeständige Präsentationsobjekte. Geringere Dämpfentwicklung als ABS.",
     relatedLinks: [{ label: "Materialien", href: "/materialien" }]
   },
   {
