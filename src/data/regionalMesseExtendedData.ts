@@ -418,13 +418,25 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
   },
 
   'graz': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Produktpräsentation für Grazer Herbstmesse",
+      industry: "Konsumgüter & Präsentation",
+      challenge: "Ein steirisches Unternehmen wollte auf der Grazer Herbstmesse ein neues Produktsortiment mit einem überdimensionalen Schaumodell bewerben. Das Modell musste von Weitem sichtbar und fotografierbar sein.",
+      solution: "Wir fertigten ein 120cm großes Modell mit leuchtenden Farben und glattem Finish. Die mehrteilige Konstruktion ermöglichte den Transport im Lieferwagen zur Messe Graz.",
+      result: "Der Stand gewann den Publikumspreis für die beste Standgestaltung. Das Modell wird seitdem auf drei weiteren Messen eingesetzt.",
+      specs: {
+        size: "120 x 60 x 80 cm",
+        material: "PLA mehrfarbig, lackiert",
+        time: "7 Werktage"
+      },
+      quote: "Ein Modell, drei Messen – die Investition hat sich mehrfach bezahlt gemacht."
+    },
     materials: defaultMaterials,
-    industryFocus: "Bau & Veranstaltungen in Graz",
+    industryFocus: "Messepräsentation & Events in Graz",
     uniqueSellingPoints: [
       "Express-Lieferung zur Messe Graz",
-      "Erfahrung mit Häuslbauermesse",
-      "Flexible Terminplanung"
+      "Erfahrung mit Häuslbauermesse und Herbstmesse",
+      "Großformat-Modelle für maximale Standwirkung"
     ]
   },
 
