@@ -260,7 +260,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Post-Processing (Nachbearbeitung)",
     category: "Nachbearbeitung",
-    definition: "Alle Bearbeitungsschritte nach dem 3D-Druck zur Verbesserung von Optik oder Funktion. Umfasst: Support-Entfernung, Schleifen, Grundieren, Lackieren, chemisches Glätten (Aceton-Dampf bei ABS), Einfügen von Gewindeeinsätzen, Bohren, Kleben mehrerer Teile. Professionelles Post-Processing kann 3D-Drucke wie Spritzgussteile aussehen lassen.",
+    definition: "Alle Bearbeitungsschritte nach dem 3D-Druck zur Verbesserung von Optik oder Haptik. Umfasst: Support-Entfernung, Schleifen, Grundieren, Lackieren, chemisches Glätten (Aceton-Dampf bei ABS), Kleben mehrerer Teile. Professionelles Post-Processing verwandelt 3D-Drucke in hochwertige Präsentationsmodelle.",
     relatedLinks: [{ label: "Einzelanfertigungen", href: "/einzelanfertigungen" }]
   },
   {
