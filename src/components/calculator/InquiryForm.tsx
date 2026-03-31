@@ -13,6 +13,7 @@ interface Props {
   calculatorInput: PricingInput;
   priceBreakdown: PricingResult;
   onClose: () => void;
+  stlFile?: File | null;
 }
 
 const InquiryForm = ({ calculatorInput, priceBreakdown, onClose }: Props) => {
