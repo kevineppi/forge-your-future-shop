@@ -58,6 +58,7 @@ export function useModelAnalysis() {
         fileName: null,
         fileSize: null,
         arrayBuffer: null,
+        file: null,
       }));
       return;
     }
