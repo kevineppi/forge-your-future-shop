@@ -103,6 +103,7 @@ export function useModelAnalysis() {
           : 'Die Datei konnte nicht verarbeitet werden.',
         geometry: null,
         arrayBuffer: null,
+        file: null,
       }));
     }
   }, []);
