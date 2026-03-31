@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 import AnimatedSection from "@/components/AnimatedSection";
 import GoogleReviewsSection from "@/components/GoogleReviewsSection";
