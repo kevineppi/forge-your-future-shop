@@ -190,8 +190,8 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Nylon (Polyamid PA6/PA12)",
     category: "Material",
-    definition: "Hochfestes, abriebfestes technisches Material mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch (wasseranziehend) – muss vor Druck getrocknet werden. Drucktemperatur 240–280 °C, Heizbett 70–90 °C. Ideal für anspruchsvolle Modelle und Prototypen. PA12 weniger hygroskopisch als PA6.",
-    relatedLinks: [{ label: "Materialien", href: "/materialien" }, { label: "Prototypen", href: "/prototypen" }]
+    definition: "Hochfestes, abriebfestes technisches Material mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch (wasseranziehend) – muss vor Druck getrocknet werden. Drucktemperatur 240–280 °C, Heizbett 70–90 °C. Ideal für anspruchsvolle Anschauungsmodelle und hochwertige Präsentationsobjekte. PA12 weniger hygroskopisch als PA6.",
+    relatedLinks: [{ label: "Materialien", href: "/materialien" }]
   },
   {
     term: "Österreichisches Filament",
