@@ -78,7 +78,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Anschauungsmodell",
     category: "Modellbau",
-    definition: "3D-gedrucktes Modell, das primär der visuellen und haptischen Präsentation dient – nicht als funktionaler Prototyp. Typisch für Architektur, Stadtplanung, Maschinenbau-Präsentationen und Produktdesign. Kann farbig, mehrfarbig oder mit verschiedenen Materialien gestaltet werden. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
+    definition: "3D-gedrucktes Modell, das primär der visuellen und haptischen Präsentation dient – nicht als funktionaler Prototyp. Typisch für Architektur, Stadtplanung, Industrie-Präsentationen und Produktdesign. Kann farbig, mehrfarbig oder mit verschiedenen Materialien gestaltet werden. Wichtiges Kommunikationsmittel gegenüber Kunden und Stakeholdern.",
     relatedLinks: [{ label: "Architekturmodelle", href: "/architekturmodelle" }, { label: "Messemodelle", href: "/messemodelle" }]
   },
   {
