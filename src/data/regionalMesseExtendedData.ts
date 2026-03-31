@@ -487,13 +487,25 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
   },
 
   'st-poelten': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Standmodell für Gewerbemesse VAZ St. Pölten",
+      industry: "Gewerbe & Regionalmessen",
+      challenge: "Ein niederösterreichisches Unternehmen brauchte ein kompaktes Produktmodell für eine Gewerbemesse im VAZ St. Pölten. Das Modell sollte auf einem Stehtisch platzierbar und von allen Seiten betrachtet werden können.",
+      solution: "Wir fertigten ein 360°-optimiertes Tischmodell aus weißem PLA+ mit farblichen Akzenten in der Corporate-Farbe. Die Rückseite war genauso detailliert wie die Front.",
+      result: "Das Modell generierte deutlich mehr Gespräche als der bisherige Roll-up. Kunden konnten das Produkt von allen Seiten betrachten und verstehen.",
+      specs: {
+        size: "30 x 20 x 25 cm",
+        material: "PLA+ weiß + farbige Akzente",
+        time: "3 Werktage"
+      },
+      quote: "Klein, aber wirkungsvoll. Das Modell hat mehr Gespräche gebracht als jeder Prospekt."
+    },
     materials: defaultMaterials,
-    industryFocus: "Wirtschaft & Events in St. Pölten",
+    industryFocus: "Regionale Gewerbemessen in St. Pölten",
     uniqueSellingPoints: [
       "Schnelle Lieferung über A1",
       "Partner für VAZ St. Pölten Events",
-      "Zentrale Lage für ganz NÖ"
+      "Kompakte Tischmodelle für Gewerbeausstellungen"
     ]
   },
 
