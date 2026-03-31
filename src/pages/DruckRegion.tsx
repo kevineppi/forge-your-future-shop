@@ -140,6 +140,8 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
     }
   ];
 
+  const faqs = extendedData.faqs || fallbackFaqs;
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
