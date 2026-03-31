@@ -206,8 +206,8 @@ export function calculateFinalPrice(input: CalculatorInput): PriceBreakdown {
   const hourlyPrintRate = getHourlyPrintRate(maxDimensionMm);
   const printCost = (time.printTimeMin / 60) * hourlyPrintRate;
 
-  // 4. Setupkosten
-  const setupCost = calculateSetupCost(volumeCm3);
+  // 4. Setupkosten (fix)
+  const setupCost = calculateSetupCost();
 
   // 5. Größen-Skalierung
   const sizeFactor = calculateSizeFactor(maxDimensionMm);
