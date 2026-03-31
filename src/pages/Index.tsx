@@ -285,6 +285,16 @@ const Index = () => {
               },
               {
                 num: "03",
+                icon: Wrench,
+                title: "Einzelanfertigungen & Sonderprojekte",
+                headline: "Ihr Unikat – maßgefertigt, ab 1 Stück",
+                desc: "Individuelle 3D-Modelle nach Ihren Vorgaben: aus Skizzen, Fotos oder CAD-Dateien. Keine Mindestmenge, keine Werkzeugkosten. Von der Produktidee über Dekorationsobjekte bis zum personalisierten Kundengeschenk.",
+                link: "/einzelanfertigungen",
+                tags: ["Ab 1 Stück", "3D-Modellierung inkl.", "Unikate"],
+                dark: true
+              },
+              {
+                num: "04",
                 icon: FlaskConical,
                 title: "Produktentwickler",
                 headline: "Prototyp morgen auf dem Tisch, nicht in 3 Wochen",
@@ -294,7 +304,7 @@ const Index = () => {
                 dark: false
               },
               {
-               num: "04",
+               num: "05",
                 icon: Users,
                 title: "Firmenkunden & B2B",
                 headline: "Präsentationsmodelle mit UID-Rechnung und NDA",
