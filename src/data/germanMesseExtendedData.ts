@@ -86,42 +86,42 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
 
   'nordrhein-westfalen': {
     caseStudy: {
-      title: "Medizintechnik-Modell für MEDICA Düsseldorf",
-      industry: "Medizintechnik",
-      challenge: "Ein NRW-Medizintechnikunternehmen brauchte ein vergrößertes Modell eines neuen Implantats für die MEDICA. Das Modell sollte die interne Struktur zeigen und sterilisierbar aussehen.",
-      solution: "Wir fertigten ein 20-fach vergrößertes Modell mit aufklappbaren Segmenten. Die Oberfläche wurde so veredelt, dass sie den medizinischen Ansprüchen optisch entsprach.",
+      title: "Vergrößertes Produktmodell für MEDICA Düsseldorf",
+      industry: "Fachpräsentation",
+      challenge: "Ein NRW-Unternehmen brauchte ein vergrößertes Anschauungsmodell eines neuen Produkts für die MEDICA. Das Modell sollte die interne Struktur zeigen und professionell aussehen.",
+      solution: "Wir fertigten ein 20-fach vergrößertes Modell mit aufklappbaren Segmenten. Die Oberfläche wurde so veredelt, dass sie den professionellen Ansprüchen optisch entsprach.",
       result: "Das Modell ermöglichte detaillierte Erklärungen, die mit Bildern allein nicht möglich gewesen wären. Der Messestand verzeichnete 40% mehr Fachbesucher.",
       specs: {
         size: "30 x 20 x 15 cm",
-        material: "PLA weiß, medizinische Optik",
+        material: "PLA weiß, professionelle Optik",
         time: "6 Werktage + Expressversand"
       },
-      quote: "Endlich konnten wir Chirurgen unser Implantat dreidimensional erklären. Das Modell hat den Unterschied gemacht."
+      quote: "Endlich konnten wir unser Produkt dreidimensional erklären. Das Modell hat den Unterschied gemacht."
     },
     materials: [
       {
-        name: "PLA Medical White",
-        description: "Reinweißer, glatter Druck für medizinische Anwendungen. Professionelle Optik.",
-        bestFor: ["Medizintechnik-Modelle", "Implantat-Vergrößerungen", "Anatomische Modelle"],
+        name: "PLA Premium Weiß",
+        description: "Reinweißer, glatter Druck für professionelle Präsentationen. Hochwertige Optik.",
+        bestFor: ["Vergrößerte Produktmodelle", "Anatomische Schaumodelle", "Detailmodelle"],
         icon: "palette"
       },
       {
-        name: "PETG Steril-Optik",
-        description: "Halbtransparente Oberfläche für klinische Ästhetik. Robust für häufige Handhabung.",
-        bestFor: ["Gerätegehäuse", "Labormodelle", "Sterilgut-Darstellungen"],
+        name: "PETG Halbtransparent",
+        description: "Halbtransparente Oberfläche für elegante Ästhetik. Robust für häufige Handhabung.",
+        bestFor: ["Gehäuse-Modelle", "Schaumodelle", "Präsentationsobjekte"],
         icon: "shield"
       },
       {
         name: "PLA Mehrfarbig",
         description: "Farbcodierte Modelle für komplexe Strukturen. Ideal für Schulungszwecke.",
-        bestFor: ["Anatomische Modelle", "Schnittdarstellungen", "Funktionsmodelle"],
+        bestFor: ["Schaumodelle", "Schnittdarstellungen", "Präsentationsmodelle"],
         icon: "feather"
       }
     ],
-    industryFocus: "Medizintechnik, Energie & Handel in NRW",
+    industryFocus: "Fachpräsentationen, Energie & Handel in NRW",
     uniqueSellingPoints: [
       "Erfahrung mit MEDICA und Düsseldorfer Leitmessen",
-      "Präzisionsmodelle für medizinische Anwendungen",
+      "Präzisionsmodelle für professionelle Präsentationen",
       "Express-Versand für kurzfristige NRW-Messetermine"
     ]
   },
