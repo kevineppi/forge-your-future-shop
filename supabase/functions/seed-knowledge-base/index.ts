@@ -192,10 +192,10 @@ const knowledgeEntries = [
     page_url: "/einzelanfertigungen"
   },
   {
-    title: "Services - Serienfertigung",
-    content: "Serienfertigung für Kleinserien und mittlere Stückzahlen (5-500 Teile). Mengenrabatte: Ab 5 Teile 10%, ab 20 Teile 15%, ab 50 Teile 20%. Gleichbleibende Qualität durch optimierte Druckparameter. Wirtschaftlich bis ca. 500 Stück, darüber Spritzguss erwägen. Vorteile: Keine Werkzeugkosten, schnelle Produktionsänderungen möglich, individuelle Anpassungen in Serie machbar (Massenindividualisierung). Lieferzeit auch bei Serien nur 5-10 Tage. Ideal für Produktionsanlauf, saisonale Produkte, limitierte Editionen. Qualitätskontrolle jedes Teils.",
+    title: "Services - Projektmengen & Mengenrabatte",
+    content: "Mengenproduktion für Projektmengen (5-500 Stück). Mengenrabatte: Ab 5 Stück 10%, ab 20 Stück 15%, ab 50 Stück 20%. Gleichbleibende Qualität durch optimierte Druckparameter. Vorteile: Keine Werkzeugkosten, schnelle Produktionsänderungen möglich, individuelle Anpassungen machbar. Lieferzeit auch bei größeren Mengen nur 5-10 Tage. Ideal für Messeexponate, Schulungsmodelle, limitierte Editionen, Präsentationsserien. Qualitätskontrolle bei jedem einzelnen Modell.",
     category: "Services",
-    page_url: "/serienfertigung"
+    page_url: "/firmenkunden"
   },
   // Software & Design
   {
