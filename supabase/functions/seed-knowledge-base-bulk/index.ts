@@ -99,7 +99,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Villach - Kärnten Süd Service',
-        content: '3D-Druck Service für Villach und Südkärnten. Koordinaten: 46.6167°N, 13.8500°E. Lieferzeit: 3-4 Werktage, Express 48h möglich. Alle Materialien verfügbar. Anwendungen: Elektronik-Prototypen (Infineon Villach), Maschinenbau, Automotive-Teile. Preise: Standard-Tarife, Mengenrabatt ab 10 Stück. Versand kostenlos ab €50. Kontakt: +43 676 5517197.',
+        content: '3D-Druck Service für Villach und Südkärnten. Lieferzeit: 3-4 Werktage, Express 48h möglich. Alle Materialien verfügbar. Anwendungen: Anschauungsmodelle, Designstudien, Präsentationsobjekte. Preise: Standard-Tarife, Mengenrabatt ab 10 Stück. Versand kostenlos ab €50. Kontakt: +43 676 5517197.',
         category: 'Regional',
         page_url: '/3d-druck-villach'
       },
