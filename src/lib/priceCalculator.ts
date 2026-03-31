@@ -169,11 +169,13 @@ function calculateSetupCost(): number {
   return PRICING_CONFIG.fixedSetupCost;
 }
 
-// ── 5. Größen-Skalierung ───────────────────────────────────
+// ── 5. Größen-Skalierung (ab sizeFactorThresholdMm) ────────
 
 function calculateSizeFactor(maxDimensionMm: number): number {
   const cfg = PRICING_CONFIG;
-  return 1 + (maxDimensionMm / cfg.sizeFactorReferenceMm) * cfg.sizeFactorSlope;
+  if (maxDimensionMm < cfg.sizeFactorThresholdMm) return 1;
+  const oversize = maxDimensionMm - cfg.sizeFactorThresholdMm;
+  return 1 + (oversize / cfg.sizeFactorReferenceMm) * cfg.sizeFactorSlope;
 }
 
 // ── 6. Mengenrabatt ────────────────────────────────────────
