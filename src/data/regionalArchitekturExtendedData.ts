@@ -364,13 +364,25 @@ export const regionalArchitekturExtendedData: Record<string, RegionalArchitektur
   },
 
   'graz': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Smart-City-Quartier-Modell für Grazer Wettbewerb",
+      industry: "Stadtplanung & Innovation",
+      challenge: "Ein Grazer Architekturbüro entwarf ein Smart-City-Quartier für die Grazer Stadtentwicklung und brauchte ein Modell, das die innovative Infrastruktur und Gebäudetypologie zeigt.",
+      solution: "Wir fertigten ein modulares Modell im Maßstab 1:200 mit farbcodierten Nutzungszonen: Wohnen (weiß), Gewerbe (hellgrau), Grünflächen (grün). Die Smart-Infrastruktur wurde durch feine Linienstrukturen angedeutet.",
+      result: "Das Modell wurde in der Jury-Sitzung als 'besonders gut lesbar' gelobt. Das Büro erreichte Platz 2 im Wettbewerb.",
+      specs: {
+        size: "70 x 50 x 15 cm",
+        material: "PLA mehrfarbig, modular",
+        time: "6 Werktage"
+      },
+      quote: "Durch die Farbcodierung war der Entwurf sofort verständlich. Das Modell hat den Unterschied gemacht."
+    },
     materials: defaultMaterials,
-    industryFocus: "Architektur & Stadtplanung in Graz",
+    industryFocus: "Smart City & Stadtplanung in Graz",
     uniqueSellingPoints: [
       "Express-Lieferung nach Graz",
       "TU Graz Kooperationserfahrung",
-      "Flexible Terminplanung"
+      "Modulare Modelle für Quartiersprojekte"
     ]
   },
 
@@ -398,24 +410,48 @@ export const regionalArchitekturExtendedData: Record<string, RegionalArchitektur
   },
 
   'villach': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Thermenhotel-Modell für Villacher Investorenpräsentation",
+      industry: "Tourismus-Architektur",
+      challenge: "Ein Kärntner Architekturbüro plante ein Thermenhotel am Faaker See und benötigte ein überzeugendes Modell für die Präsentation vor potenziellen Investoren.",
+      solution: "Wir erstellten ein Modell im Maßstab 1:100 mit blau-transparentem PETG für den Poolbereich und weißem PLA für die Gebäudestruktur. Ein Geländemodell zeigte die Seelage.",
+      result: "Die Investoren sagten nach der Präsentation zu. Das Modell war laut Bauherr 'der entscheidende Faktor'.",
+      specs: {
+        size: "60 x 45 x 25 cm",
+        material: "PLA weiß + PETG blau + Geländemodell",
+        time: "6 Werktage"
+      },
+      quote: "Am See gebaut, am Modell verkauft. Die Investoren konnten sich alles sofort vorstellen."
+    },
     materials: defaultMaterials,
-    industryFocus: "Architektur & Tourismus in Villach",
+    industryFocus: "Tourismus-Architektur & Hotelbau in Villach",
     uniqueSellingPoints: [
       "Zuverlässige Lieferung nach Villach",
       "Tourismus-Architektur Kompetenz",
-      "Flexible Lieferzeiten"
+      "Geländemodelle mit Wasserflächen"
     ]
   },
 
   'st-poelten': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Gemeindezentrum-Modell für NÖ Architekturwettbewerb",
+      industry: "Kommunalbau",
+      challenge: "Ein Architekturbüro in St. Pölten nahm an einem Wettbewerb für ein neues Gemeindezentrum teil. Das Modell musste die Integration in den bestehenden Ortskern zeigen.",
+      solution: "Wir fertigten ein Modell im Maßstab 1:200 mit dem Neubau in Weiß und der Umgebungsbebauung in Hellgrau. Der Dorfplatz und die Kirche als Kontextgebäude waren inbegriffen.",
+      result: "Der Entwurf gewann den Wettbewerb. Die Gemeinde hob hervor, dass das Modell die Einbettung in den Ort besonders gut zeigte.",
+      specs: {
+        size: "50 x 40 x 15 cm",
+        material: "PLA weiß + grau",
+        time: "5 Werktage"
+      },
+      quote: "Im Gemeinderat konnte jeder sofort sehen, wie sich der Neubau ins Ortsbild einfügt."
+    },
     materials: defaultMaterials,
-    industryFocus: "Architektur & Verwaltungsbau in St. Pölten",
+    industryFocus: "Kommunalbau & öffentliche Bauten in St. Pölten",
     uniqueSellingPoints: [
       "Schnelle Lieferung über A1",
-      "Erfahrung mit öffentlichen Bauten",
-      "Zentrale Lage für ganz NÖ"
+      "Erfahrung mit öffentlichen Bauten und Gemeindeprojekten",
+      "Kontextmodelle mit Umgebungsbebauung"
     ]
   },
 

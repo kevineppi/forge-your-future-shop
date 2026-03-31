@@ -31,13 +31,13 @@ const defaultMaterials: MaterialRecommendation[] = [
   {
     name: "PLA Premium",
     description: "Der Allrounder für Messemodelle. Hervorragende Oberflächenqualität, einfach zu lackieren und umweltfreundlich.",
-    bestFor: ["Architekturmodelle", "Designobjekte", "Detailreiche Präsentationen"],
+    bestFor: ["Präsentationsmodelle", "Designobjekte", "Detailreiche Exponate"],
     icon: "palette"
   },
   {
     name: "PETG",
     description: "Robust und widerstandsfähig. Ideal für Modelle, die häufig transportiert oder angefasst werden.",
-    bestFor: ["Interaktive Exponate", "Outdoor-Modelle", "Langlebige Präsentationsobjekte"],
+    bestFor: ["Interaktive Exponate", "Outdoor-Modelle", "Langlebige Messeobjekte"],
     icon: "shield"
   },
   {
@@ -51,43 +51,43 @@ const defaultMaterials: MaterialRecommendation[] = [
 export const regionalExtendedData: Record<string, RegionalExtendedData> = {
   'wien': {
     caseStudy: {
-      title: "Architekturmodell für BAUEN & WOHNEN Wien",
-      industry: "Architektur & Bau",
-      challenge: "Ein Wiener Architekturbüro benötigte ein detailreiches Gebäudemodell im Maßstab 1:100 für die BAUEN & WOHNEN Messe. Das Modell musste abnehmbare Etagen haben, um den Innenbereich zu zeigen.",
-      solution: "Wir konstruierten ein mehrstöckiges Modell mit abnehmbaren Etagen. Jedes Stockwerk wurde einzeln gedruckt und perfekt aufeinander abgestimmt. Die Fassade erhielt eine detaillierte Fensterstruktur.",
-      result: "Der Messestand wurde zum Publikumsmagnet. Das interaktive Element der abnehmbaren Etagen führte zu intensiven Gesprächen mit potenziellen Bauherren.",
+      title: "Produktmodell-Eyecatcher für FERIEN-MESSE Wien",
+      industry: "Tourismus & Messepräsentation",
+      challenge: "Ein Wiener Reiseveranstalter wollte auf der FERIEN-MESSE Wien ein aufmerksamkeitsstarkes Modell einer neuen Hotelanlage als Eyecatcher für seinen Stand. Das Modell musste leicht transportierbar und robust genug für 4 Messetage sein.",
+      solution: "Wir fertigten ein farbiges Modell der Hotelanlage mit Pool-Landschaft im Maßstab 1:100. Palmen aus grünem PLA, Wasserflächen aus blau-transparentem PETG. Die modulare Konstruktion passte in zwei Transportkoffer.",
+      result: "Der Stand verzeichnete 60% mehr Besucher als im Vorjahr. Das Modell wurde zum meistfotografierten Objekt der Messe und generierte zahlreiche Social-Media-Posts.",
       specs: {
-        size: "50 x 40 x 35 cm",
-        material: "PLA weiß, Fenster transparent",
-        time: "7 Werktage"
+        size: "80 x 60 x 30 cm",
+        material: "PLA mehrfarbig + PETG blau",
+        time: "6 Werktage"
       },
-      quote: "Die Qualität hat uns und unsere Messebesucher begeistert. Das Modell hat unseren Stand definitiv aufgewertet."
+      quote: "Das Modell hat unseren Stand zur Attraktion gemacht. Die Besucher blieben stehen und wollten alles über die Anlage wissen."
     },
     materials: [
       {
         name: "PLA Premium Weiß",
-        description: "Perfekt für Architekturmodelle. Saubere Oberflächen, ideal für minimalistische Designs typisch für Wiener Architektur.",
-        bestFor: ["Architekturmodelle", "Gebäudeansichten", "Clean Design"],
+        description: "Professionelle Oberfläche für Messeexponate. Leicht, robust und einfach zu transportieren.",
+        bestFor: ["Produktmodelle", "Standexponate", "Clean Design"],
         icon: "palette"
       },
       {
         name: "PETG Transparent",
-        description: "Für Glasfassaden und Fensterelemente. Klare Optik für moderne Architekturvisualisierungen.",
-        bestFor: ["Fassadenelemente", "Glasdächer", "Moderne Architektur"],
+        description: "Für transparente Elemente und Effekte am Messestand. Klare Optik und hohe Schlagfestigkeit.",
+        bestFor: ["Transparente Exponate", "Spezialeffekte", "Interaktive Modelle"],
         icon: "shield"
       },
       {
         name: "PLA Leichtbau",
-        description: "Für großformatige Modelle, die nach Wien transportiert werden müssen. Minimales Gewicht, maximale Wirkung.",
-        bestFor: ["Großmodelle", "Stadtansichten", "Gebäudekomplexe"],
+        description: "Für großformatige Exponate, die nach Wien transportiert werden müssen. Minimales Gewicht, maximale Wirkung.",
+        bestFor: ["Großmodelle", "Messeinstallationen", "Transport-optimiert"],
         icon: "feather"
       }
     ],
-    industryFocus: "Architektur & Immobilien in Wien",
+    industryFocus: "Messepräsentation & Events in Wien",
     uniqueSellingPoints: [
-      "Spezialisiert auf Architekturmodelle für Wiener Architekturbüros",
       "Express-Lieferung direkt zur Reed Messe Wien",
-      "Erfahrung mit BAUEN & WOHNEN Ausstellern"
+      "Erfahrung mit FERIEN-MESSE und BAUEN & WOHNEN Ausstellern",
+      "Modulare Konstruktion für einfachen Messetransport"
     ]
   },
 
@@ -116,43 +116,43 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
 
   'steiermark': {
     caseStudy: {
-      title: "Demonstrationsmodell für Häuslbauermesse Graz",
-      industry: "Bau & Handwerk",
-      challenge: "Ein steirisches Bauunternehmen wollte auf der Häuslbauermesse ein anschauliches Modell präsentieren, das die Bauweise eines energieeffizienten Hauses zeigt.",
-      solution: "Wir erstellten ein aufklappbares Hausmodell im Maßstab 1:50, das die verschiedenen Dämmschichten und Konstruktionselemente zeigt. Farbcodierte Elemente machten die Bauweise für Laien verständlich.",
-      result: "Das Modell wurde zum Gesprächsstarter für komplexe Beratungen. Viele Interessenten fotografierten das Modell für spätere Referenz.",
+      title: "Großformat-Exponat für Grazer Herbstmesse",
+      industry: "Konsumgüter & Messepräsentation",
+      challenge: "Ein steirisches Unternehmen wollte auf der Grazer Herbstmesse ein überdimensionales Produktmodell als Eyecatcher einsetzen. Das Modell musste von Weitem sichtbar sein und Messebesucher zum Stand ziehen.",
+      solution: "Wir fertigten ein 1,5 Meter hohes Produktmodell in leuchtenden Firmenfarben. Die mehrteilige Konstruktion erlaubte den Transport im PKW. Vor Ort wurde das Modell in 15 Minuten aufgebaut.",
+      result: "Der Aussteller berichtete von doppelt so vielen Standbesuchen im Vergleich zum Vorjahr. Das Modell wurde zum Foto-Hotspot der Messe.",
       specs: {
-        size: "70 x 50 x 40 cm",
-        material: "PLA mehrfarbig + transparente Elemente",
-        time: "6 Werktage"
+        size: "150 x 60 x 60 cm",
+        material: "PLA in Corporate-Farben, mehrteilig",
+        time: "8 Werktage"
       },
-      quote: "Endlich konnten wir unseren Kunden zeigen, was sich hinter den Wänden verbirgt. Das Modell hat komplizierte Dinge einfach gemacht."
+      quote: "Das riesige Modell hat alle Blicke auf sich gezogen. Jeder Besucher wollte ein Foto damit machen."
     },
     materials: [
       {
         name: "PLA Mehrfarbig",
-        description: "Ideal für farbcodierte Schnittmodelle. Unterschiedliche Farben für verschiedene Materialschichten.",
-        bestFor: ["Schnittmodelle", "Lehrmodelle", "Materialvisualisierung"],
+        description: "Ideal für farbkräftige Messeexponate in Corporate-Farben. Leuchtende Optik für maximale Standwirkung.",
+        bestFor: ["Großformat-Exponate", "Corporate-Modelle", "Eyecatcher-Objekte"],
         icon: "palette"
       },
       {
         name: "PETG Robust",
-        description: "Für interaktive Modelle, die häufig angefasst werden. Kratzfest und langlebig.",
-        bestFor: ["Hands-on Exponate", "Demonstrationsmodelle", "Interaktive Präsentationen"],
+        description: "Für interaktive Modelle, die häufig angefasst werden. Kratzfest und langlebig für mehrtägige Messen.",
+        bestFor: ["Hands-on Exponate", "Interaktive Standmodelle", "Dauerbelastbare Objekte"],
         icon: "shield"
       },
       {
         name: "PLA Leichtbau",
-        description: "Für große Architekturmodelle. Einfacher Transport zur Messe Graz.",
-        bestFor: ["Gebäudemodelle", "Hausmodelle", "Großprojekte"],
+        description: "Für große Messemodelle. Einfacher Transport zur Messe Graz.",
+        bestFor: ["Großformat-Modelle", "Transport-optimiert", "XXL-Exponate"],
         icon: "feather"
       }
     ],
-    industryFocus: "Bau & Architektur in der Steiermark",
+    industryFocus: "Messepräsentation & Events in der Steiermark",
     uniqueSellingPoints: [
-      "Erfahrung mit Häuslbauermesse-Ausstellern",
+      "Erfahrung mit Grazer Herbstmesse und Frühjahrsmesse",
       "Express-Lieferung zur Messe Graz",
-      "Spezialist für aufklappbare Schnittmodelle"
+      "XXL-Modelle bis 2 Meter Höhe"
     ]
   },
 
@@ -418,13 +418,25 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
   },
 
   'graz': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Produktpräsentation für Grazer Herbstmesse",
+      industry: "Konsumgüter & Präsentation",
+      challenge: "Ein steirisches Unternehmen wollte auf der Grazer Herbstmesse ein neues Produktsortiment mit einem überdimensionalen Schaumodell bewerben. Das Modell musste von Weitem sichtbar und fotografierbar sein.",
+      solution: "Wir fertigten ein 120cm großes Modell mit leuchtenden Farben und glattem Finish. Die mehrteilige Konstruktion ermöglichte den Transport im Lieferwagen zur Messe Graz.",
+      result: "Der Stand gewann den Publikumspreis für die beste Standgestaltung. Das Modell wird seitdem auf drei weiteren Messen eingesetzt.",
+      specs: {
+        size: "120 x 60 x 80 cm",
+        material: "PLA mehrfarbig, lackiert",
+        time: "7 Werktage"
+      },
+      quote: "Ein Modell, drei Messen – die Investition hat sich mehrfach bezahlt gemacht."
+    },
     materials: defaultMaterials,
-    industryFocus: "Bau & Veranstaltungen in Graz",
+    industryFocus: "Messepräsentation & Events in Graz",
     uniqueSellingPoints: [
       "Express-Lieferung zur Messe Graz",
-      "Erfahrung mit Häuslbauermesse",
-      "Flexible Terminplanung"
+      "Erfahrung mit Häuslbauermesse und Herbstmesse",
+      "Großformat-Modelle für maximale Standwirkung"
     ]
   },
 
@@ -452,24 +464,48 @@ export const regionalExtendedData: Record<string, RegionalExtendedData> = {
   },
 
   'villach': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Tourismusmodell für Villacher Kirchtag-Event",
+      industry: "Tourismus & Events",
+      challenge: "Ein Villacher Tourismusbetrieb brauchte ein ansprechendes Modell einer geplanten Thermenanlage als Blickfang bei einer Investorenveranstaltung während des Villacher Kirchtags.",
+      solution: "Wir druckten ein stilisiertes Modell der Thermenanlage mit blau-transparenten PETG-Wasserflächen und weißen Gebäuden. Grüne PLA-Elemente stellten die Gartenlandschaft dar.",
+      result: "Das Modell überzeugte auf der Veranstaltung und wurde anschließend im Foyer des Hotels als Dauerpräsentation eingesetzt.",
+      specs: {
+        size: "60 x 40 x 20 cm",
+        material: "PLA weiß/grün + PETG blau",
+        time: "5 Werktage"
+      },
+      quote: "Das Thermenmodell begeistert unsere Gäste täglich. Ein tolles Gesprächsstück im Hotelfoyer."
+    },
     materials: defaultMaterials,
-    industryFocus: "Regionale Events in Villach",
+    industryFocus: "Tourismus & regionale Events in Villach",
     uniqueSellingPoints: [
       "Zuverlässige Lieferung nach Villach",
-      "Tourismus-Kompetenz für regionale Events",
-      "Flexible Lieferzeiten"
+      "Tourismus-Kompetenz für Kärntner Events",
+      "Modelle auch als Dauerpräsentation einsetzbar"
     ]
   },
 
   'st-poelten': {
-    caseStudy: defaultCaseStudy,
+    caseStudy: {
+      title: "Standmodell für Gewerbemesse VAZ St. Pölten",
+      industry: "Gewerbe & Regionalmessen",
+      challenge: "Ein niederösterreichisches Unternehmen brauchte ein kompaktes Produktmodell für eine Gewerbemesse im VAZ St. Pölten. Das Modell sollte auf einem Stehtisch platzierbar und von allen Seiten betrachtet werden können.",
+      solution: "Wir fertigten ein 360°-optimiertes Tischmodell aus weißem PLA+ mit farblichen Akzenten in der Corporate-Farbe. Die Rückseite war genauso detailliert wie die Front.",
+      result: "Das Modell generierte deutlich mehr Gespräche als der bisherige Roll-up. Kunden konnten das Produkt von allen Seiten betrachten und verstehen.",
+      specs: {
+        size: "30 x 20 x 25 cm",
+        material: "PLA+ weiß + farbige Akzente",
+        time: "3 Werktage"
+      },
+      quote: "Klein, aber wirkungsvoll. Das Modell hat mehr Gespräche gebracht als jeder Prospekt."
+    },
     materials: defaultMaterials,
-    industryFocus: "Wirtschaft & Events in St. Pölten",
+    industryFocus: "Regionale Gewerbemessen in St. Pölten",
     uniqueSellingPoints: [
       "Schnelle Lieferung über A1",
       "Partner für VAZ St. Pölten Events",
-      "Zentrale Lage für ganz NÖ"
+      "Kompakte Tischmodelle für Gewerbeausstellungen"
     ]
   },
 

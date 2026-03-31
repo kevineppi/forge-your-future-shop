@@ -40,7 +40,7 @@ const RegionalUniqueContent = ({
 
               <div className="prose prose-lg max-w-none text-foreground space-y-5">
                 <p className="text-muted-foreground leading-relaxed">
-                  Unternehmen in {regionName} setzen zunehmend auf 3D-Druck, um Prototypen schneller zu realisieren, Einzelteile kosteneffizient zu fertigen und Designstudien greifbar zu machen. ekdruck e.U. bietet als spezialisierter FDM-Druckservice {countryPrep} die passende Lösung: Von der ersten Idee bis zum fertigen Bauteil – unkompliziert, schnell und in industrieller Qualität.
+                  Unternehmen in {regionName} setzen zunehmend auf 3D-Druck, um Designstudien schneller zu realisieren, Präsentationsmodelle kosteneffizient zu fertigen und Konzepte greifbar zu machen. ekdruck e.U. bietet als spezialisierter FDM-Druckservice {countryPrep} die passende Lösung: Von der ersten Idee bis zum fertigen Modell – unkompliziert, schnell und in professioneller Qualität.
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
@@ -66,11 +66,11 @@ const RegionalUniqueContent = ({
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Der Prozess ist einfach: Sie senden uns Ihre 3D-Datei (STL, OBJ oder STEP), wir prüfen die Druckbarkeit und erstellen innerhalb von 6 Stunden ein Angebot. Nach Freigabe starten wir die Produktion – je nach Bauteilgröße und Komplexität dauert der Druck wenige Stunden bis maximal 3 Tage. Der Versand nach {regionName} erfolgt versichert mit Sendungsverfolgung.
+                  Der Prozess ist einfach: Sie senden uns Ihre 3D-Datei (STL, OBJ oder STEP), wir prüfen die Druckbarkeit und erstellen innerhalb von 6 Stunden ein Angebot. Nach Freigabe starten wir die Produktion – je nach Modellgröße und Komplexität dauert der Druck wenige Stunden bis maximal 3 Tage. Der Versand nach {regionName} erfolgt versichert mit Sendungsverfolgung.
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Besonders für Unternehmen in {regionName}, die regelmäßig Prototypen benötigen, bieten wir attraktive Konditionen: kostenloser Versand ab €100 Bestellwert, persönliche Beratung bei Materialwahl und Druckeinstellungen sowie Nachbearbeitung auf Wunsch (Schleifen, Lackieren, Gewindeeinsätze). Über 500 zufriedene Kunden {countryPrep} vertrauen bereits auf unseren Service.
+                  Besonders für Unternehmen in {regionName}, die regelmäßig Modelle benötigen, bieten wir attraktive Konditionen: kostenloser Versand ab €100 Bestellwert, persönliche Beratung bei Materialwahl und Druckeinstellungen sowie Nachbearbeitung auf Wunsch (Schleifen, Lackieren, Gewindeeinsätze). Über 500 zufriedene Kunden {countryPrep} vertrauen bereits auf unseren Service.
                 </p>
               </div>
             </AnimatedSection>
