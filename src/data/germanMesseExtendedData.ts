@@ -302,8 +302,8 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
       },
       {
         name: "PETG Industrial",
-        description: "Für robuste Funktionsmodelle. Temperaturbeständig und schlagfest.",
-        bestFor: ["Funktionsprototypen", "Gehäusemodelle", "Belastungstests"],
+        description: "Für robuste Präsentationsmodelle. Temperaturbeständig und schlagfest.",
+        bestFor: ["Designstudien", "Gehäusemodelle", "Anschauungsobjekte"],
         icon: "shield"
       },
       {
