@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -8,13 +8,32 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { PRICING_CONFIG, type ProcessType, type MaterialKey } from "@/data/pricingConfig";
 import type { CalculatorInput } from "@/lib/priceCalculator";
 import { TEST_CASES } from "@/lib/priceCalculator";
-import { Upload, Info, Calculator, FlaskConical } from "lucide-react";
+import type { GeometryData } from "@/lib/stlParser";
+import ModelUpload from "./ModelUpload";
+import { Info, Calculator, FlaskConical } from "lucide-react";
 
 interface Props {
   onCalculate: (input: CalculatorInput) => void;
+  /** Geometry from STL analysis – passed down from parent */
+  geometry: GeometryData | null;
+  fileName: string | null;
+  fileSize: number | null;
+  isAnalyzing: boolean;
+  uploadError: string | null;
+  onFileSelect: (file: File) => void;
+  onFileClear: () => void;
 }
 
-const CalculatorForm = ({ onCalculate }: Props) => {
+const CalculatorForm = ({
+  onCalculate,
+  geometry,
+  fileName,
+  fileSize,
+  isAnalyzing,
+  uploadError,
+  onFileSelect,
+  onFileClear,
+}: Props) => {
   const cfg = PRICING_CONFIG;
 
   const [process, setProcess] = useState<ProcessType>("FDM");
@@ -37,7 +56,7 @@ const CalculatorForm = ({ onCalculate }: Props) => {
     setMaterialKey(firstMat);
     setLayerHeight(cfg.defaultLayerHeight[val]);
     setWallThickness(cfg.defaultWallThickness[val]);
-    const firstColors = cfg.materialColors[firstMat];
+    const firstColors = cfg.materialColors[firstMat] ?? [];
     setColor(firstColors[0] || "Schwarz");
   };
 
@@ -49,6 +68,21 @@ const CalculatorForm = ({ onCalculate }: Props) => {
     }
   };
 
+  const buildInput = (): CalculatorInput => ({
+    process,
+    materialKey,
+    layerHeight,
+    wallThickness,
+    quantity,
+    ...(geometry
+      ? {
+          volumeCm3: geometry.volumeCm3,
+          surfaceCm2: geometry.surfaceCm2,
+          boundingBoxMm: geometry.boundingBoxMm,
+        }
+      : {}),
+  });
+
   const loadTestCase = (idx: number) => {
     const tc = TEST_CASES[idx].input;
     setProcess(tc.process);
@@ -56,8 +90,9 @@ const CalculatorForm = ({ onCalculate }: Props) => {
     setLayerHeight(tc.layerHeight);
     setWallThickness(tc.wallThickness);
     setQuantity(tc.quantity);
-    const matColors = cfg.materialColors[tc.materialKey];
-    setColor(matColors[0]);
+    const matColors = cfg.materialColors[tc.materialKey] ?? [];
+    setColor(matColors[0] ?? "Schwarz");
+    // Test cases use placeholder geometry (no file override)
     onCalculate(tc);
   };
 
@@ -76,13 +111,7 @@ const CalculatorForm = ({ onCalculate }: Props) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    onCalculate({
-      process,
-      materialKey,
-      layerHeight,
-      wallThickness,
-      quantity,
-    });
+    onCalculate(buildInput());
   };
 
   return (
@@ -204,23 +233,23 @@ const CalculatorForm = ({ onCalculate }: Props) => {
             )}
           </div>
 
-          {/* Datei-Upload Platzhalter */}
-          <div className="space-y-2">
-            <Label className="text-sm font-semibold">3D-Datei (optional)</Label>
-            <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/40 transition-colors">
-              <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-              <p className="text-sm text-muted-foreground">
-                STL, STEP oder OBJ Datei hierher ziehen
-              </p>
-              <p className="text-xs text-muted-foreground mt-1 flex items-center justify-center gap-1">
-                <Info className="h-3 w-3" />
-                Datei-Analyse wird in einem späteren Schritt ergänzt.
-              </p>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                Aktuell wird mit Standardwerten kalkuliert.
-              </p>
-            </div>
-          </div>
+          {/* STL Upload */}
+          <ModelUpload
+            geometry={geometry}
+            fileName={fileName}
+            fileSize={fileSize}
+            isAnalyzing={isAnalyzing}
+            error={uploadError}
+            onFileSelect={onFileSelect}
+            onClear={onFileClear}
+          />
+
+          {!geometry && (
+            <p className="text-xs text-muted-foreground flex items-center gap-1">
+              <Info className="h-3 w-3" />
+              Ohne STL-Datei wird mit Standardwerten kalkuliert.
+            </p>
+          )}
 
           {/* Submit */}
           <Button type="submit" variant="cta" size="lg" className="w-full">
