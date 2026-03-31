@@ -81,7 +81,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Salzburg - Schneller Service mit Preisen',
-        content: '3D-Druck für Salzburg Stadt und Land. Koordinaten: 47.8095°N, 13.0550°E. Lieferzeit: Standard 2-3 Werktage, Express 24-48h. Material-Preise: Alle Materialien verfügbar zu Standard-Preisen. Anwendungen Salzburg: Architekturmodelle für Salzburger Planungsbüros, Designprototypen für Kreativwirtschaft, Industrieteile. Services: Nachhaltige Materialien aus Österreich, persönliche Beratung, faire Preisgestaltung. Kontakt: +43 676 5517197, office@ek-druck.at. Versand kostenlos ab €50. Referenzen: Universität Salzburg, Salzburger Industrie.',
+        content: '3D-Druck für Salzburg Stadt und Land. Lieferzeit: Standard 2-3 Werktage, Express 24-48h. Material-Preise: Alle Materialien verfügbar zu Standard-Preisen. Anwendungen Salzburg: Architekturmodelle für Salzburger Planungsbüros, Designstudien für Kreativwirtschaft, Präsentationsmodelle. Services: Nachhaltige Materialien aus Österreich, persönliche Beratung, faire Preisgestaltung. Kontakt: +43 676 5517197, office@ek-druck.at. Versand kostenlos ab €50.',
         category: 'Regional',
         page_url: '/3d-druck-salzburg'
       },
