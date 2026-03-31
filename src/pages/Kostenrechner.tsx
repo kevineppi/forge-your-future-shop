@@ -26,7 +26,7 @@ const Kostenrechner = () => {
       <SEOHead
         title="3D-Druck Kostenrechner – Unverbindliche Preiskalkulation | ekdruck e.U."
         description="Berechnen Sie schnell und unverbindlich einen Richtpreis für Ihr 3D-Druckteil. FDM, SLA & SLS – individuell kalkuliert. Kein Webshop, keine Bestellung."
-        canonical="/kostenrechner"
+        path="/kostenrechner"
       />
       <Navigation />
 
