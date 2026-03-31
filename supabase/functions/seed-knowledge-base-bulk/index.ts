@@ -137,7 +137,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Einzelanfertigungen - Individuelle Teile Preis',
-        content: 'Individuelle 3D-Druck Einzelanfertigungen. Preise: Basis-Materialpreis + Konstruktion €60/h bei Bedarf. Services: CAD-Konstruktion, 3D-Modellierung, Optimierung, technische Zeichnungen. Anwendungen: Ersatzteile (alte Maschinen, Oldtimer), Sonderanfertigungen, Unikate, Kunstobjekte. Materialauswahl: Alle verfügbar. Lieferzeit: 5-10 Tage inkl. Konstruktion. Erstberatung kostenlos. Beispielprojekte: Restaurierung Maschinenteil €180, individuelles Gehäuse €250, Spezialwerkzeug €320.',
+        content: 'Individuelle 3D-Druck Einzelanfertigungen. Preise: Basis-Materialpreis + 3D-Modellierung €60/h bei Bedarf. Services: 3D-Modellierung, Optimierung. Anwendungen: Anschauungsmodelle, Unikate, Kunstobjekte, Designstudien. Materialauswahl: Alle verfügbar. Lieferzeit: 5-10 Tage inkl. Modellierung. Erstberatung kostenlos. Beispielprojekte: Messemodell €180, individuelles Gehäuse-Modell €250, Designstudie €320.',
         category: 'Services',
         page_url: '/einzelanfertigungen'
       },
