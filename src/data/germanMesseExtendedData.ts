@@ -271,11 +271,11 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
       quote: "Komplexe Technik einfach erklärt – das Modell war Gold wert für unsere Vertriebsgespräche."
     },
     materials: defaultMaterials,
-    industryFocus: "Maschinenbau & Halbleiter in Sachsen",
+    industryFocus: "Fertigungstechnik & Halbleiter in Sachsen",
     uniqueSellingPoints: [
       "Erfahrung mit Leipziger Messe",
-      "Kompetenz für Maschinenbau-Modelle",
-      "Präzisionsdruck für technische Anwendungen"
+      "Kompetenz für Präsentationsmodelle von Maschinen",
+      "Präzisionsdruck für hochdetaillierte Anschauungsmodelle"
     ]
   },
 
