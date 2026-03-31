@@ -35,15 +35,13 @@ const MessemodellGuide = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Messemodell planen: Kosten, Timeline & Material [2026 Guide]</title>
-        <meta name="description" content="Ihr erster Messeauftritt mit 3D-Druck? Schritt-für-Schritt: Was kostet ein Messemodell (ab €30)? Wie früh bestellen? Welches Material? Express 24h möglich →" />
-        <meta name="keywords" content="messemodell kosten, messemodell planen, messemodell 3d-druck, messemodell bestellen, 3d-druck messe guide" />
-        <link rel="canonical" href="https://www.ek-druck.at/ratgeber/messemodell-guide" />
-        <meta property="og:title" content="Messemodell planen: Kosten, Timeline & Material [2026 Guide]" />
-        <meta property="og:description" content="Schritt-für-Schritt: Wie plane ich ein Messemodell im 3D-Druck? Kosten ab €30, Express 24h, Materialwahl." />
-        <meta property="og:type" content="article" />
-      </Helmet>
+      <SEOHead
+        title="Messemodell planen: Kosten, Timeline & Material [2026 Guide]"
+        description="Ihr erster Messeauftritt mit 3D-Druck? Schritt-für-Schritt: Was kostet ein Messemodell (ab €30)? Wie früh bestellen? Welches Material? Express 24h möglich →"
+        keywords="messemodell kosten, messemodell planen, messemodell 3d-druck, messemodell bestellen, 3d-druck messe guide"
+        path="/ratgeber/messemodell-guide"
+        type="article"
+      />
 
       <BreadcrumbSchema items={[
         { name: "Home", url: "/" },

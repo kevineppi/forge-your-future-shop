@@ -120,25 +120,14 @@ const ArchitekturmodellGuide = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Architekturmodell 3D-Druck: Maßstab, Kosten & CAD-Export [2026 Guide]</title>
-        <meta name="description" content="Welcher Maßstab für Ihr Wettbewerbsmodell? Was kostet es? ArchiCAD & Revit Export Schritt für Schritt. Plus: 5 teure Fehler die Sie vermeiden sollten →" />
-        <meta name="keywords" content="architekturmodell maßstab, architekturmodell kosten, architekturmodell cad export, wettbewerbsmodell 3d-druck, architekturmodell revit export" />
-        <link rel="canonical" href="https://www.ek-druck.at/ratgeber/architekturmodell-guide" />
-        <meta property="og:title" content="Architekturmodell 3D-Druck: Maßstab, Kosten & CAD-Export [2026 Guide]" />
-        <meta property="og:description" content="Welcher Maßstab? Was kostet es? CAD-Export erklärt. Plus 5 teure Fehler vermeiden. Der komplette Guide für Architekten." />
-        <meta property="og:type" content="article" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": "Architekturmodelle 3D-Druck: Maßstäbe, Kosten & CAD-Export Guide 2025",
-          "description": "Kompletter Ratgeber für Architekten: Maßstab wählen, Kosten kalkulieren, CAD-Export aus ArchiCAD, Revit, SketchUp und Rhino.",
-          "author": { "@type": "Organization", "name": "ekdruck e.U." },
-          "publisher": { "@type": "Organization", "name": "ekdruck e.U.", "url": "https://www.ek-druck.at" },
-          "dateModified": "2026-03-13",
-          "datePublished": "2025-01-01"
-        })}</script>
-      </Helmet>
+      <SEOHead
+        title="Architekturmodell 3D-Druck: Maßstab, Kosten & CAD-Export [2026 Guide]"
+        description="Welcher Maßstab für Ihr Wettbewerbsmodell? Was kostet es? ArchiCAD & Revit Export Schritt für Schritt. Plus: 5 teure Fehler die Sie vermeiden sollten →"
+        keywords="architekturmodell maßstab, architekturmodell kosten, architekturmodell cad export, wettbewerbsmodell 3d-druck, architekturmodell revit export"
+        path="/ratgeber/architekturmodell-guide"
+        type="article"
+        schemaType="article"
+      />
 
       <BreadcrumbSchema items={[
         { name: "Home", url: "/" },

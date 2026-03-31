@@ -150,12 +150,12 @@ const Kunstobjekte = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Skulpturen & Kunstobjekte aus dem 3D-Drucker | Ab €20 | ekdruck</title>
-        <meta name="description" content="Ihre Skulptur, digital entworfen – physisch gedruckt. Holz-Optik, Metallic, Marmor-Look. Für Künstler, Galerien & Installationen. Jede Form möglich. Ab €20 →" />
-        <meta name="keywords" content="3d-druck kunstobjekte, skulpturen 3d-druck, kunstinstallationen drucken, design-objekte, 3d-druck bildhauer, skulpturen drucken lassen" />
-        <link rel="canonical" href="https://www.ek-druck.at/kunstobjekte" />
-      </Helmet>
+      <SEOHead
+        title="Skulpturen & Kunstobjekte aus dem 3D-Drucker | Ab €20 | ekdruck"
+        description="Ihre Skulptur, digital entworfen – physisch gedruckt. Holz-Optik, Metallic, Marmor-Look. Für Künstler, Galerien & Installationen. Jede Form möglich. Ab €20 →"
+        keywords="3d-druck kunstobjekte, skulpturen 3d-druck, kunstinstallationen drucken, design-objekte, 3d-druck bildhauer, skulpturen drucken lassen"
+        path="/kunstobjekte"
+      />
 
       <BreadcrumbSchema items={[{ name: "Home", url: "/" }, { name: "Kunstobjekte", url: "/kunstobjekte" }]} />
       <Navigation />
