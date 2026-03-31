@@ -16,7 +16,7 @@ interface Props {
   stlFile?: File | null;
 }
 
-const InquiryForm = ({ calculatorInput, priceBreakdown, onClose }: Props) => {
+const InquiryForm = ({ calculatorInput, priceBreakdown, onClose, stlFile }: Props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
