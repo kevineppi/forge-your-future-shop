@@ -245,6 +245,7 @@ const Index = () => {
             </Link>
           </AnimatedSection>
         </div>
+      </section>
 
       {/* ── FÜR WEN — ZIELGRUPPEN als horizontale Zeilen ─────────────── */}
       <section id="zielgruppen" className="py-24 bg-background border-t border-border/50">
