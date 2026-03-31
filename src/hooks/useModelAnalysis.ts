@@ -19,6 +19,8 @@ export interface ModelAnalysisState {
   error: string | null;
   /** Raw ArrayBuffer für 3D-Viewer */
   arrayBuffer: ArrayBuffer | null;
+  /** Original File object for upload */
+  file: File | null;
 }
 
 export function useModelAnalysis() {
