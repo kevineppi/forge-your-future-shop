@@ -51,43 +51,43 @@ const defaultMaterials: MaterialRecommendation[] = [
 export const regionalExtendedData: Record<string, RegionalExtendedData> = {
   'wien': {
     caseStudy: {
-      title: "Architekturmodell für BAUEN & WOHNEN Wien",
-      industry: "Architektur & Bau",
-      challenge: "Ein Wiener Architekturbüro benötigte ein detailreiches Gebäudemodell im Maßstab 1:100 für die BAUEN & WOHNEN Messe. Das Modell musste abnehmbare Etagen haben, um den Innenbereich zu zeigen.",
-      solution: "Wir konstruierten ein mehrstöckiges Modell mit abnehmbaren Etagen. Jedes Stockwerk wurde einzeln gedruckt und perfekt aufeinander abgestimmt. Die Fassade erhielt eine detaillierte Fensterstruktur.",
-      result: "Der Messestand wurde zum Publikumsmagnet. Das interaktive Element der abnehmbaren Etagen führte zu intensiven Gesprächen mit potenziellen Bauherren.",
+      title: "Produktmodell-Eyecatcher für FERIEN-MESSE Wien",
+      industry: "Tourismus & Messepräsentation",
+      challenge: "Ein Wiener Reiseveranstalter wollte auf der FERIEN-MESSE Wien ein aufmerksamkeitsstarkes Modell einer neuen Hotelanlage als Eyecatcher für seinen Stand. Das Modell musste leicht transportierbar und robust genug für 4 Messetage sein.",
+      solution: "Wir fertigten ein farbiges Modell der Hotelanlage mit Pool-Landschaft im Maßstab 1:100. Palmen aus grünem PLA, Wasserflächen aus blau-transparentem PETG. Die modulare Konstruktion passte in zwei Transportkoffer.",
+      result: "Der Stand verzeichnete 60% mehr Besucher als im Vorjahr. Das Modell wurde zum meistfotografierten Objekt der Messe und generierte zahlreiche Social-Media-Posts.",
       specs: {
-        size: "50 x 40 x 35 cm",
-        material: "PLA weiß, Fenster transparent",
-        time: "7 Werktage"
+        size: "80 x 60 x 30 cm",
+        material: "PLA mehrfarbig + PETG blau",
+        time: "6 Werktage"
       },
-      quote: "Die Qualität hat uns und unsere Messebesucher begeistert. Das Modell hat unseren Stand definitiv aufgewertet."
+      quote: "Das Modell hat unseren Stand zur Attraktion gemacht. Die Besucher blieben stehen und wollten alles über die Anlage wissen."
     },
     materials: [
       {
         name: "PLA Premium Weiß",
-        description: "Perfekt für Architekturmodelle. Saubere Oberflächen, ideal für minimalistische Designs typisch für Wiener Architektur.",
-        bestFor: ["Architekturmodelle", "Gebäudeansichten", "Clean Design"],
+        description: "Professionelle Oberfläche für Messeexponate. Leicht, robust und einfach zu transportieren.",
+        bestFor: ["Produktmodelle", "Standexponate", "Clean Design"],
         icon: "palette"
       },
       {
         name: "PETG Transparent",
-        description: "Für Glasfassaden und Fensterelemente. Klare Optik für moderne Architekturvisualisierungen.",
-        bestFor: ["Fassadenelemente", "Glasdächer", "Moderne Architektur"],
+        description: "Für transparente Elemente und Effekte am Messestand. Klare Optik und hohe Schlagfestigkeit.",
+        bestFor: ["Transparente Exponate", "Spezialeffekte", "Interaktive Modelle"],
         icon: "shield"
       },
       {
         name: "PLA Leichtbau",
-        description: "Für großformatige Modelle, die nach Wien transportiert werden müssen. Minimales Gewicht, maximale Wirkung.",
-        bestFor: ["Großmodelle", "Stadtansichten", "Gebäudekomplexe"],
+        description: "Für großformatige Exponate, die nach Wien transportiert werden müssen. Minimales Gewicht, maximale Wirkung.",
+        bestFor: ["Großmodelle", "Messeinstallationen", "Transport-optimiert"],
         icon: "feather"
       }
     ],
-    industryFocus: "Architektur & Immobilien in Wien",
+    industryFocus: "Messepräsentation & Events in Wien",
     uniqueSellingPoints: [
-      "Spezialisiert auf Architekturmodelle für Wiener Architekturbüros",
       "Express-Lieferung direkt zur Reed Messe Wien",
-      "Erfahrung mit BAUEN & WOHNEN Ausstellern"
+      "Erfahrung mit FERIEN-MESSE und BAUEN & WOHNEN Ausstellern",
+      "Modulare Konstruktion für einfachen Messetransport"
     ]
   },
 
