@@ -86,6 +86,9 @@ const DeviationRow = ({ label, actual, reference, unit }: DeviationRowProps) => 
   );
 };
 
+const fmt = (n: number) => n.toFixed(2);
+const fmtE = (n: number) => n.toFixed(2) + " €";
+
 const DebugPanel = ({ result, input }: Props) => {
   const [open, setOpen] = useState(false);
   const [refValues, setRefValues] = useState<ReferenceValues>({
@@ -99,12 +102,6 @@ const DebugPanel = ({ result, input }: Props) => {
 
   if (!result || !input) return null;
 
-  const cfg = PRICING_CONFIG;
-
-  const actualVolume = input.volumeCm3 ?? cfg.placeholderGeometry.volumeCm3;
-  const actualSurface = input.surfaceCm2 ?? cfg.placeholderGeometry.surfaceCm2;
-  const actualBB = input.boundingBoxMm ?? cfg.placeholderGeometry.boundingBoxMm;
-
   const hasRefValues = refValues.volumeCm3 > 0 || refValues.surfaceCm2 > 0 ||
     refValues.widthMm > 0 || refValues.depthMm > 0 || refValues.heightMm > 0;
 
@@ -114,9 +111,9 @@ const DebugPanel = ({ result, input }: Props) => {
       label: `Test ${new Date().toLocaleString("de-AT")}`,
       timestamp: new Date().toISOString(),
       geometry: {
-        volumeCm3: actualVolume,
-        surfaceCm2: actualSurface,
-        boundingBoxMm: { ...actualBB },
+        volumeCm3: result.volumeCm3,
+        surfaceCm2: result.surfaceCm2,
+        boundingBoxMm: { ...result.boundingBoxMm },
       },
       reference: { ...refValues },
     };
@@ -150,100 +147,98 @@ const DebugPanel = ({ result, input }: Props) => {
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-mono flex items-center gap-2">
               <Bug className="h-4 w-4" />
-              Debug / Testdaten
+              Debug / Kalkulations-Aufschlüsselung
               <Badge variant="outline" className="text-[10px]">Intern</Badge>
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-xs font-mono">
-            {/* Eingaben */}
+            {/* Geometrie */}
             <div>
-              <h4 className="font-semibold text-foreground mb-1">Eingaben</h4>
-              <pre className="bg-background rounded p-2 overflow-x-auto whitespace-pre-wrap text-muted-foreground">
-{JSON.stringify({
-  process: input.process,
-  materialKey: input.materialKey,
-  layerHeight: input.layerHeight,
-  wallThickness: input.wallThickness,
-  quantity: input.quantity,
-  volumeCm3: input.volumeCm3 ?? cfg.placeholderGeometry.volumeCm3 + " (Platzhalter)",
-  surfaceCm2: input.surfaceCm2 ?? cfg.placeholderGeometry.surfaceCm2 + " (Platzhalter)",
-}, null, 2)}
-              </pre>
+              <h4 className="font-semibold text-foreground mb-1">📐 Geometrie</h4>
+              <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
+                <span>Volumen:</span><span className="text-foreground">{fmt(result.volumeCm3)} cm³</span>
+                <span>Oberfläche:</span><span className="text-foreground">{fmt(result.surfaceCm2)} cm²</span>
+                <span>Maße (X×Y×Z):</span><span className="text-foreground">{fmt(result.boundingBoxMm.x)} × {fmt(result.boundingBoxMm.y)} × {fmt(result.boundingBoxMm.z)} mm</span>
+                <span>Max. Dimension:</span><span className="text-foreground">{fmt(result.maxDimensionMm)} mm</span>
+                <span>Layeranzahl:</span><span className="text-foreground">{result.layerCount}</span>
+              </div>
             </div>
 
-            {/* Konfiguration */}
+            {/* Materialkosten */}
             <div>
-              <h4 className="font-semibold text-foreground mb-1">Konfigurationswerte</h4>
-              <pre className="bg-background rounded p-2 overflow-x-auto whitespace-pre-wrap text-muted-foreground">
-{JSON.stringify({
-  hourlyRate: cfg.hourlyRate,
-  setupTimeMin: cfg.setupTimeMin,
-  volumeUnitCm3: cfg.volumeUnitCm3,
-  infillFactor: cfg.infillFactor,
-  surfaceFactor: cfg.surfaceFactor,
-  vatRate: cfg.vatRate,
-  minimumOrderThresholdNet: cfg.minimumOrderThresholdNet,
-  minimumOrderSurchargeNet: cfg.minimumOrderSurchargeNet,
-  materialPricePerKg: cfg.materialPricePerKg[input.materialKey],
-  densityFactor: cfg.densityFactor[input.materialKey],
-  processTimeFactor: cfg.processTimeFactor[input.process],
-  minimumProcessTimeMin: cfg.minimumProcessTimeMin[input.process],
-  layerHeightFactor: result.layerHeightFactorUsed,
-}, null, 2)}
-              </pre>
+              <h4 className="font-semibold text-foreground mb-1">🧱 Materialkosten</h4>
+              <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
+                <span>Gewicht:</span><span className="text-foreground">{fmt(result.materialWeightG)} g</span>
+                <span>Rohkosten:</span><span className="text-foreground">{fmtE(result.materialCostRaw)}</span>
+                <span>× Sicherheitsfaktor ({PRICING_CONFIG.materialSafetyFactor}):</span>
+                <span className="text-foreground font-medium">{fmtE(result.materialCost)}</span>
+              </div>
             </div>
 
-            {/* Zwischenergebnisse */}
+            {/* Druckzeit */}
             <div>
-              <h4 className="font-semibold text-foreground mb-1">Zwischenergebnisse</h4>
-              <pre className="bg-background rounded p-2 overflow-x-auto whitespace-pre-wrap text-muted-foreground">
-{JSON.stringify({
-  surfaceVolume: +result.surfaceVolume.toFixed(4),
-  infillVolume: +result.infillVolume.toFixed(4),
-  printVolume: +result.printVolume.toFixed(4),
-  materialWeightG: +result.materialWeightG.toFixed(4),
-  wallCost: +result.wallCost.toFixed(4),
-  infillCost: +result.infillCost.toFixed(4),
-  costPerMinute: +result.costPerMinute.toFixed(4),
-  laborCostTotal: +result.laborCostTotal.toFixed(4),
-  processTimePerPartMin: +result.processTimePerPartMin.toFixed(2),
-  totalProductionTimeMin: +result.totalProductionTimeMin.toFixed(2),
-  totalTimeMin: +result.totalTimeMin.toFixed(2),
-  setupCost: +result.setupCost.toFixed(2),
-}, null, 2)}
-              </pre>
+              <h4 className="font-semibold text-foreground mb-1">⏱️ Druckzeit & Druckkosten</h4>
+              <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
+                <span>Druckzeit:</span><span className="text-foreground">{fmt(result.printTimeMin)} Min. ({fmt(result.printTimeMin / 60)} Std.)</span>
+                <span>Stundensatz:</span><span className="text-foreground">{fmtE(result.hourlyPrintRate)}/h {result.maxDimensionMm >= PRICING_CONFIG.largePrintThresholdMm ? "(groß)" : "(klein/mittel)"}</span>
+                <span>Druckkosten:</span><span className="text-foreground font-medium">{fmtE(result.printCost)}</span>
+              </div>
+            </div>
+
+            {/* Setupkosten */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">⚙️ Setup-/Handlingkosten</h4>
+              <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
+                <span>Formel:</span><span className="text-foreground">{PRICING_CONFIG.baseSetupCost}€ × (V/{PRICING_CONFIG.setupReferenceVolumeCm3})^{PRICING_CONFIG.setupScalingExponent}</span>
+                <span>Setupkosten:</span><span className="text-foreground font-medium">{fmtE(result.setupCost)}</span>
+              </div>
+            </div>
+
+            {/* Skalierung */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">📊 Größen-Skalierung</h4>
+              <div className="bg-background rounded p-2 grid grid-cols-2 gap-x-6 gap-y-1 text-muted-foreground">
+                <span>Größenfaktor:</span><span className="text-foreground">{result.sizeFactor.toFixed(3)}×</span>
+                <span>Formel:</span><span className="text-foreground">1 + ({fmt(result.maxDimensionMm)}/{PRICING_CONFIG.sizeFactorReferenceMm}) × {PRICING_CONFIG.sizeFactorSlope}</span>
+                <span>Stückpreis (skaliert):</span><span className="text-foreground font-medium">{fmtE(result.scaledUnitCost)}</span>
+              </div>
+            </div>
+
+            {/* Preisaufbau */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">💰 Preisaufbau pro Stück</h4>
+              <div className="bg-background rounded p-2 space-y-1 text-muted-foreground">
+                <div className="flex justify-between"><span>Material:</span><span className="text-foreground">{fmtE(result.materialCost)}</span></div>
+                <div className="flex justify-between"><span>Druckkosten:</span><span className="text-foreground">{fmtE(result.printCost)}</span></div>
+                <div className="flex justify-between"><span>Setup:</span><span className="text-foreground">{fmtE(result.setupCost)}</span></div>
+                <div className="flex justify-between border-t border-border/50 pt-1"><span>Summe (vor Skalierung):</span><span className="text-foreground">{fmtE(result.materialCost + result.printCost + result.setupCost)}</span></div>
+                <div className="flex justify-between"><span>× Größenfaktor ({result.sizeFactor.toFixed(3)}):</span><span className="text-foreground font-medium">{fmtE(result.scaledUnitCost)}</span></div>
+              </div>
             </div>
 
             {/* Rabatte */}
             <div>
-              <h4 className="font-semibold text-foreground mb-1">Rabatte & Zuschläge</h4>
-              <pre className="bg-background rounded p-2 overflow-x-auto whitespace-pre-wrap text-muted-foreground">
-{JSON.stringify({
-  quantityDiscountRate: result.quantityDiscountRate,
-  quantityDiscountAmount: +result.quantityDiscountAmount.toFixed(2),
-  netAfterQuantityDiscount: +result.netAfterQuantityDiscount.toFixed(2),
-  orderValueDiscountRate: result.orderValueDiscountRate,
-  orderValueDiscountAmount: +result.orderValueDiscountAmount.toFixed(2),
-  netAfterOrderValueDiscount: +result.netAfterOrderValueDiscount.toFixed(2),
-  minimumOrderSurcharge: +result.minimumOrderSurcharge.toFixed(2),
-}, null, 2)}
-              </pre>
+              <h4 className="font-semibold text-foreground mb-1">🏷️ Rabatte & Zuschläge</h4>
+              <div className="bg-background rounded p-2 space-y-1 text-muted-foreground">
+                <div className="flex justify-between"><span>Zwischensumme ({input.quantity}×):</span><span className="text-foreground">{fmtE(result.subtotalNet)}</span></div>
+                {result.quantityDiscountRate > 0 && (
+                  <div className="flex justify-between text-green-600"><span>Mengenrabatt ({(result.quantityDiscountRate * 100).toFixed(0)}%):</span><span>−{fmtE(result.quantityDiscountAmount)}</span></div>
+                )}
+                <div className="flex justify-between"><span>Nach Rabatt:</span><span className="text-foreground">{fmtE(result.netAfterDiscount)}</span></div>
+                {result.minimumOrderSurcharge > 0 && (
+                  <div className="flex justify-between text-destructive"><span>Mindermengenzuschlag:</span><span>+{fmtE(result.minimumOrderSurcharge)}</span></div>
+                )}
+              </div>
             </div>
 
             {/* Endergebnis */}
             <div>
-              <h4 className="font-semibold text-foreground mb-1">Endergebnis</h4>
-              <pre className="bg-background rounded p-2 overflow-x-auto whitespace-pre-wrap text-muted-foreground">
-{JSON.stringify({
-  materialCostPerPart: +result.materialCostPerPart.toFixed(2),
-  laborCostPerPart: +result.laborCostPerPart.toFixed(2),
-  rawUnitNet: +result.rawUnitNet.toFixed(2),
-  subtotalNet: +result.subtotalNet.toFixed(2),
-  finalNet: +result.finalNet.toFixed(2),
-  vatAmount: +result.vatAmount.toFixed(2),
-  finalGross: +result.finalGross.toFixed(2),
-}, null, 2)}
-              </pre>
+              <h4 className="font-semibold text-foreground mb-1">🧾 Endergebnis</h4>
+              <div className="bg-background rounded p-2 space-y-1 text-muted-foreground">
+                <div className="flex justify-between font-medium"><span>Netto:</span><span className="text-foreground">{fmtE(result.finalNet)}</span></div>
+                <div className="flex justify-between"><span>USt ({(PRICING_CONFIG.vatRate * 100).toFixed(0)}%):</span><span className="text-foreground">{fmtE(result.vatAmount)}</span></div>
+                <div className="flex justify-between font-bold text-sm"><span>Brutto:</span><span className="text-foreground">{fmtE(result.finalGross)}</span></div>
+              </div>
             </div>
 
             <Separator />
@@ -260,67 +255,26 @@ const DebugPanel = ({ result, input }: Props) => {
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-4 font-sans">
                 <div className="space-y-1">
                   <Label className="text-[11px]">Ref. Volumen (cm³)</Label>
-                  <Input
-                    type="number"
-                    step="0.01"
-                    min={0}
-                    value={refValues.volumeCm3 || ""}
-                    onChange={(e) => updateRef("volumeCm3", e.target.value)}
-                    placeholder="z.B. 24.5"
-                    className="h-8 text-xs"
-                  />
+                  <Input type="number" step="0.01" min={0} value={refValues.volumeCm3 || ""} onChange={(e) => updateRef("volumeCm3", e.target.value)} placeholder="z.B. 24.5" className="h-8 text-xs" />
                 </div>
                 <div className="space-y-1">
                   <Label className="text-[11px]">Ref. Oberfläche (cm²)</Label>
-                  <Input
-                    type="number"
-                    step="0.01"
-                    min={0}
-                    value={refValues.surfaceCm2 || ""}
-                    onChange={(e) => updateRef("surfaceCm2", e.target.value)}
-                    placeholder="z.B. 98.2"
-                    className="h-8 text-xs"
-                  />
+                  <Input type="number" step="0.01" min={0} value={refValues.surfaceCm2 || ""} onChange={(e) => updateRef("surfaceCm2", e.target.value)} placeholder="z.B. 98.2" className="h-8 text-xs" />
                 </div>
                 <div className="space-y-1">
                   <Label className="text-[11px]">Ref. Breite (mm)</Label>
-                  <Input
-                    type="number"
-                    step="0.1"
-                    min={0}
-                    value={refValues.widthMm || ""}
-                    onChange={(e) => updateRef("widthMm", e.target.value)}
-                    placeholder="z.B. 50"
-                    className="h-8 text-xs"
-                  />
+                  <Input type="number" step="0.1" min={0} value={refValues.widthMm || ""} onChange={(e) => updateRef("widthMm", e.target.value)} placeholder="z.B. 50" className="h-8 text-xs" />
                 </div>
                 <div className="space-y-1">
                   <Label className="text-[11px]">Ref. Tiefe (mm)</Label>
-                  <Input
-                    type="number"
-                    step="0.1"
-                    min={0}
-                    value={refValues.depthMm || ""}
-                    onChange={(e) => updateRef("depthMm", e.target.value)}
-                    placeholder="z.B. 50"
-                    className="h-8 text-xs"
-                  />
+                  <Input type="number" step="0.1" min={0} value={refValues.depthMm || ""} onChange={(e) => updateRef("depthMm", e.target.value)} placeholder="z.B. 50" className="h-8 text-xs" />
                 </div>
                 <div className="space-y-1">
                   <Label className="text-[11px]">Ref. Höhe (mm)</Label>
-                  <Input
-                    type="number"
-                    step="0.1"
-                    min={0}
-                    value={refValues.heightMm || ""}
-                    onChange={(e) => updateRef("heightMm", e.target.value)}
-                    placeholder="z.B. 50"
-                    className="h-8 text-xs"
-                  />
+                  <Input type="number" step="0.1" min={0} value={refValues.heightMm || ""} onChange={(e) => updateRef("heightMm", e.target.value)} placeholder="z.B. 50" className="h-8 text-xs" />
                 </div>
               </div>
 
-              {/* Abweichungstabelle */}
               {hasRefValues && (
                 <div className="space-y-1 mb-4">
                   <div className="grid grid-cols-5 gap-2 px-2 py-1 text-[10px] text-muted-foreground font-semibold uppercase tracking-wide">
@@ -330,40 +284,22 @@ const DebugPanel = ({ result, input }: Props) => {
                     <span className="text-right">Abweichung</span>
                     <span className="text-right">Abw. %</span>
                   </div>
-                  {refValues.volumeCm3 > 0 && (
-                    <DeviationRow label="Volumen" actual={actualVolume} reference={refValues.volumeCm3} unit="cm³" />
-                  )}
-                  {refValues.surfaceCm2 > 0 && (
-                    <DeviationRow label="Oberfläche" actual={actualSurface} reference={refValues.surfaceCm2} unit="cm²" />
-                  )}
-                  {refValues.widthMm > 0 && (
-                    <DeviationRow label="Breite (X)" actual={actualBB.x} reference={refValues.widthMm} unit="mm" />
-                  )}
-                  {refValues.depthMm > 0 && (
-                    <DeviationRow label="Tiefe (Y)" actual={actualBB.y} reference={refValues.depthMm} unit="mm" />
-                  )}
-                  {refValues.heightMm > 0 && (
-                    <DeviationRow label="Höhe (Z)" actual={actualBB.z} reference={refValues.heightMm} unit="mm" />
-                  )}
+                  {refValues.volumeCm3 > 0 && <DeviationRow label="Volumen" actual={result.volumeCm3} reference={refValues.volumeCm3} unit="cm³" />}
+                  {refValues.surfaceCm2 > 0 && <DeviationRow label="Oberfläche" actual={result.surfaceCm2} reference={refValues.surfaceCm2} unit="cm²" />}
+                  {refValues.widthMm > 0 && <DeviationRow label="Breite (X)" actual={result.boundingBoxMm.x} reference={refValues.widthMm} unit="mm" />}
+                  {refValues.depthMm > 0 && <DeviationRow label="Tiefe (Y)" actual={result.boundingBoxMm.y} reference={refValues.depthMm} unit="mm" />}
+                  {refValues.heightMm > 0 && <DeviationRow label="Höhe (Z)" actual={result.boundingBoxMm.z} reference={refValues.heightMm} unit="mm" />}
                 </div>
               )}
 
-              {/* Speichern-Button */}
               {hasRefValues && (
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  className="text-xs"
-                  onClick={handleSaveTest}
-                >
+                <Button type="button" variant="outline" size="sm" className="text-xs" onClick={handleSaveTest}>
                   <Save className="h-3.5 w-3.5 mr-1.5" />
                   Aktuelle Datei als Referenztest speichern
                 </Button>
               )}
             </div>
 
-            {/* Gespeicherte Referenztests */}
             {savedTests.length > 0 && (
               <>
                 <Separator />
@@ -373,23 +309,12 @@ const DebugPanel = ({ result, input }: Props) => {
                   </h4>
                   <div className="space-y-2">
                     {savedTests.map((test) => (
-                      <div
-                        key={test.id}
-                        className="bg-background rounded-lg p-3 border border-border/50"
-                      >
+                      <div key={test.id} className="bg-background rounded-lg p-3 border border-border/50">
                         <div className="flex items-center justify-between mb-2 font-sans">
                           <span className="text-xs font-medium text-foreground">{test.label}</span>
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px] text-muted-foreground">
-                              {new Date(test.timestamp).toLocaleString("de-AT")}
-                            </span>
-                            <Button
-                              type="button"
-                              variant="ghost"
-                              size="icon"
-                              className="h-6 w-6"
-                              onClick={() => handleDeleteTest(test.id)}
-                            >
+                            <span className="text-[10px] text-muted-foreground">{new Date(test.timestamp).toLocaleString("de-AT")}</span>
+                            <Button type="button" variant="ghost" size="icon" className="h-6 w-6" onClick={() => handleDeleteTest(test.id)}>
                               <Trash2 className="h-3 w-3 text-destructive" />
                             </Button>
                           </div>

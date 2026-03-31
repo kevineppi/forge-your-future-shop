@@ -3,9 +3,12 @@
  * 3D-Druck Kostenrechner – Zentrale Preiskonfiguration
  * ═══════════════════════════════════════════════════════════════
  *
- * Alle Preise, Rabatte und Parameter an EINER Stelle.
- * Zum Anpassen einfach die Werte hier ändern – der Rechner
- * greift automatisch auf diese Konfiguration zu.
+ * Hybrides Kalkulationsmodell:
+ *   1. Materialkosten (physikalisch)
+ *   2. Druckzeitkosten (realistisch angenähert)
+ *   3. Setup-/Handlingkosten (abgeschwächt, nicht linear)
+ *   4. Größen-Skalierung
+ *   5. Mindestpreis / Mindermengenzuschlag
  */
 
 // ── Verfahren ────────────────────────────────────────────────
@@ -18,24 +21,51 @@ export const PRICING_CONFIG = {
   /** Umsatzsteuer (Österreich) */
   vatRate: 0.20,
 
-  /** Stundensatz für Personal/Maschine (€/h) */
-  hourlyRate: 89,
+  /** Sicherheitsfaktor auf Materialkosten (Verschnitt, Stützstruktur etc.) */
+  materialSafetyFactor: 1.15,
 
-  /** Rüstzeit in Minuten (einmalig pro Auftrag) */
-  setupTimeMin: 12,
+  // ── Druckzeit-Parameter ───────────────────────────────────
+  /** Minuten pro cm³ Druckvolumen */
+  volumeTimeFactor: 0.4,
+  /** Minuten pro cm² Oberfläche (Wandfahrwege) */
+  surfaceTimeFactor: 0.015,
+  /** Minuten pro Layer (Schichtwechsel-Penalty) */
+  layerPenaltyFactor: 0.02,
+  /** Basis-Druckzeit in Minuten (Aufheizen, Kalibrieren etc.) */
+  basePrintTimeMin: 3,
 
-  /** Referenzvolumen für Zeitberechnung (cm³) */
-  volumeUnitCm3: 50,
+  /** Verfahrensspezifischer Druckzeit-Multiplikator */
+  processTimeFactor: {
+    FDM: 1,
+    SLA: 2,
+    SLS: 3,
+  } as Record<ProcessType, number>,
 
-  /** Infill-Faktor – wie viel % des Restvolumens tatsächlich Material ist */
-  infillFactor: 0.20,
+  // ── Stundensätze Druckkosten ──────────────────────────────
+  /** Druckkosten €/h für kleine/mittlere Teile (maxDim < 260mm) */
+  hourlyPrintRateSmall: 2,
+  /** Druckkosten €/h für große Teile (maxDim 260–350mm) */
+  hourlyPrintRateLarge: 4,
+  /** Schwellenwert in mm ab dem der höhere Stundensatz gilt */
+  largePrintThresholdMm: 260,
 
-  /** Oberflächen-Korrekturfaktor */
-  surfaceFactor: 0.9,
+  // ── Setup-/Handlingkosten ─────────────────────────────────
+  /** Basis-Setupkosten in € (für ein Referenzteil) */
+  baseSetupCost: 3,
+  /** Referenzvolumen für Setup-Skalierung (cm³) */
+  setupReferenceVolumeCm3: 50,
+  /** Exponent für Setup-Skalierung (0.3 = stark abgeschwächt) */
+  setupScalingExponent: 0.3,
 
+  // ── Größen-Skalierung ─────────────────────────────────────
+  /** Referenz-Dimension für sizeFactor (mm) */
+  sizeFactorReferenceMm: 300,
+  /** Steigung des Größenfaktors */
+  sizeFactorSlope: 0.5,
+
+  // ── Mindestauftragswert ───────────────────────────────────
   /** Mindestauftragswert netto (€) – darunter wird Zuschlag berechnet */
   minimumOrderThresholdNet: 40,
-
   /** Mindermengenzuschlag netto (€) */
   minimumOrderSurchargeNet: 8.90,
 
@@ -46,19 +76,11 @@ export const PRICING_CONFIG = {
     boundingBoxMm: { x: 50, y: 50, z: 50 },
   },
 
-  /** Zeitfaktor pro Verfahren (Multiplikator für Druckzeit) */
-  processTimeFactor: {
-    FDM: 1,
-    SLA: 2,
-    SLS: 3,
-  } as Record<ProcessType, number>,
+  /** Infill-Faktor – wie viel % des Restvolumens tatsächlich Material ist (FDM) */
+  infillFactor: 0.20,
 
-  /** Mindest-Bearbeitungszeit pro Stück in Minuten */
-  minimumProcessTimeMin: {
-    FDM: 10,
-    SLA: 12,
-    SLS: 15,
-  } as Record<ProcessType, number>,
+  /** Oberflächen-Korrekturfaktor (FDM) */
+  surfaceFactor: 0.9,
 
   /** Materialpreise in €/kg */
   materialPricePerKg: {
@@ -95,13 +117,6 @@ export const PRICING_CONFIG = {
     { minQty: 100, rate: 0.10 },
     { minQty: 50,  rate: 0.08 },
     { minQty: 10,  rate: 0.05 },
-  ],
-
-  /** Rabatte nach Netto-Warenwert (absteigend sortiert!) */
-  orderValueDiscounts: [
-    { minNet: 1000, rate: 0.14 },
-    { minNet: 250,  rate: 0.08 },
-    { minNet: 100,  rate: 0.05 },
   ],
 
   /** Verfügbare Materialien pro Verfahren */
