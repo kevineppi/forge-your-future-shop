@@ -25,7 +25,7 @@ serve(async (req) => {
       // Materialien mit exakten Preisen
       {
         title: '3D-Druck Material ABS - Preis und Eigenschaften',
-        content: 'ABS (Acrylnitril-Butadien-Styrol) ist ein robuster technischer Kunststoff. Preis: €2,50-3,00 pro Stunde Druckzeit oder ca. €28/kg Filament. Eigenschaften: Hitzebeständig bis 90-95°C, hohe Schlagfestigkeit, glatte Oberfläche durch Acetonglättung. Drucktemperatur 230-250°C, Heizbett 90-110°C erforderlich. Ideal für: Funktionsbauteile, Gehäuse, technische Prototypen, Automobilteile, Werkzeuge. Verfügbar in allen Standardfarben. Lieferzeit: 2-3 Werktage Standard, Express 24h möglich (+50% Aufpreis). Chemikalienbeständig gegen Säuren und Laugen.',
+        content: 'ABS (Acrylnitril-Butadien-Styrol) ist ein robuster Kunststoff. Preis: €2,50-3,00 pro Stunde Druckzeit oder ca. €28/kg Filament. Eigenschaften: Hitzebeständig bis 90-95°C, hohe Schlagfestigkeit, glatte Oberfläche durch Acetonglättung. Drucktemperatur 230-250°C, Heizbett 90-110°C erforderlich. Ideal für: Präsentationsgehäuse, Designstudien, robuste Modelle. Verfügbar in allen Standardfarben. Lieferzeit: 2-3 Werktage Standard, Express 24h möglich (+50% Aufpreis). Chemikalienbeständig gegen Säuren und Laugen.',
         category: 'Materialien',
         page_url: '/3d-druck-materialien'
       },
