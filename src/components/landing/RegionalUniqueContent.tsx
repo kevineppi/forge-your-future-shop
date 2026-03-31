@@ -40,7 +40,7 @@ const RegionalUniqueContent = ({
 
               <div className="prose prose-lg max-w-none text-foreground space-y-5">
                 <p className="text-muted-foreground leading-relaxed">
-                  Unternehmen in {regionName} setzen zunehmend auf 3D-Druck, um Prototypen schneller zu realisieren, Einzelteile kosteneffizient zu fertigen und Designstudien greifbar zu machen. ekdruck e.U. bietet als spezialisierter FDM-Druckservice {countryPrep} die passende Lösung: Von der ersten Idee bis zum fertigen Bauteil – unkompliziert, schnell und in industrieller Qualität.
+                  Unternehmen in {regionName} setzen zunehmend auf 3D-Druck, um Designstudien schneller zu realisieren, Präsentationsmodelle kosteneffizient zu fertigen und Konzepte greifbar zu machen. ekdruck e.U. bietet als spezialisierter FDM-Druckservice {countryPrep} die passende Lösung: Von der ersten Idee bis zum fertigen Modell – unkompliziert, schnell und in professioneller Qualität.
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
