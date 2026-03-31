@@ -98,7 +98,7 @@ const knowledgeEntries = [
   },
   {
     title: "FDM Vorteile und Anwendungen",
-    content: "FDM-Vorteile: Niedrigste Kosten für Geräte und Material, breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites), einfache Bedienung und Wartung, ideal für funktionale Prototypen und Endteile, nachhaltige Materialien verfügbar. Anwendungen: Gehäuse, Halterungen, Werkzeuge, Ersatzteile, Vorrichtungen, technische Prototypen. FDM ist optimal wenn Kosteneffizienz wichtig ist, große Bauteile gedruckt werden, mechanische Belastbarkeit wichtiger ist als Oberflächenqualität, recycelbare Materialien gewünscht sind.",
+    content: "FDM-Vorteile: Niedrigste Kosten für Geräte und Material, breite Materialvielfalt (PLA, PETG, ASA, TPU, Composites), einfache Bedienung und Wartung, ideal für Anschauungsmodelle und Designstudien, nachhaltige Materialien verfügbar. Anwendungen: Architekturmodelle, Messemodelle, Dekorationsobjekte, Designstudien, Präsentationsmodelle. FDM ist optimal wenn Kosteneffizienz wichtig ist, große Objekte gedruckt werden, recycelbare Materialien gewünscht sind.",
     category: "Verfahren",
     page_url: "/ratgeber/verfahrens-vergleich"
   },
