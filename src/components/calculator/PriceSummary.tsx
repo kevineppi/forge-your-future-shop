@@ -38,7 +38,7 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
     );
   }
 
-  const pricePerPiece = result.quantity > 0 ? result.finalNet / (result.subtotalNet / result.rawUnitNet) : result.rawUnitNet;
+  // (unused variable removed)
 
   return (
     <Card className="border-primary/30 shadow-lg">
