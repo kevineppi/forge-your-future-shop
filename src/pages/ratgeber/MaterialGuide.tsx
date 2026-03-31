@@ -315,7 +315,7 @@ const MaterialGuide = () => {
               <div className="p-6 bg-primary/10 rounded-lg border border-primary/20">
                 <h4 className="font-semibold text-foreground mb-3">Ideale Anwendungen für ASA:</h4>
                 <p className="text-muted-foreground">
-                  Außenanwendungen, Automobilteile, Gartengeräte, Solaranlagen-Komponenten, Drohnen-Gehäuse, witterungsbeständige Gehäuse, hochtemperaturbelastete Bauteile
+                  Außen-Modelle, Gartendekoration, UV-belastete Präsentationsobjekte, witterungsbeständige Anschauungsmodelle, Outdoor-Messeexponate
                 </p>
               </div>
             </section>

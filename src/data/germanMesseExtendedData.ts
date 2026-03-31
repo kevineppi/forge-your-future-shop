@@ -401,7 +401,7 @@ export const germanExtendedData: Record<string, RegionalExtendedData> = {
       quote: "Unsere Kunden konnten das Werkzeug von innen sehen, bevor es gefertigt wird. Ein unschätzbarer Vorteil."
     },
     materials: defaultMaterials,
-    industryFocus: "Kunststoff, Medizintechnik & Handel in Düsseldorf",
+    industryFocus: "Kunststoff, Fachpräsentationen & Handel in Düsseldorf",
     uniqueSellingPoints: [
       "Erfahrung mit K-Messe und MEDICA",
       "Kompetenz für Werkzeug-Schnittmodelle",
