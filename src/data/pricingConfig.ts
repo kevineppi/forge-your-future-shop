@@ -26,13 +26,13 @@ export const PRICING_CONFIG = {
 
   // ── Druckzeit-Parameter ───────────────────────────────────
   /** Minuten pro cm³ Druckvolumen */
-  volumeTimeFactor: 0.4,
+  volumeTimeFactor: 2.5,
   /** Minuten pro cm² Oberfläche (Wandfahrwege) */
-  surfaceTimeFactor: 0.015,
+  surfaceTimeFactor: 0.08,
   /** Minuten pro Layer (Schichtwechsel-Penalty) */
-  layerPenaltyFactor: 0.02,
+  layerPenaltyFactor: 0.06,
   /** Basis-Druckzeit in Minuten (Aufheizen, Kalibrieren etc.) */
-  basePrintTimeMin: 3,
+  basePrintTimeMin: 8,
 
   /** Verfahrensspezifischer Druckzeit-Multiplikator */
   processTimeFactor: {
@@ -41,9 +41,9 @@ export const PRICING_CONFIG = {
 
   // ── Stundensätze Druckkosten ──────────────────────────────
   /** Druckkosten €/h für kleine/mittlere Teile (maxDim < 260mm) */
-  hourlyPrintRateSmall: 2,
+  hourlyPrintRateSmall: 3,
   /** Druckkosten €/h für große Teile (maxDim 260–350mm) */
-  hourlyPrintRateLarge: 4,
+  hourlyPrintRateLarge: 6,
   /** Schwellenwert in mm ab dem der höhere Stundensatz gilt */
   largePrintThresholdMm: 260,
 
