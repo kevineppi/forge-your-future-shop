@@ -66,7 +66,7 @@ const RegionalUniqueContent = ({
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Der Prozess ist einfach: Sie senden uns Ihre 3D-Datei (STL, OBJ oder STEP), wir prüfen die Druckbarkeit und erstellen innerhalb von 6 Stunden ein Angebot. Nach Freigabe starten wir die Produktion – je nach Bauteilgröße und Komplexität dauert der Druck wenige Stunden bis maximal 3 Tage. Der Versand nach {regionName} erfolgt versichert mit Sendungsverfolgung.
+                  Der Prozess ist einfach: Sie senden uns Ihre 3D-Datei (STL, OBJ oder STEP), wir prüfen die Druckbarkeit und erstellen innerhalb von 6 Stunden ein Angebot. Nach Freigabe starten wir die Produktion – je nach Modellgröße und Komplexität dauert der Druck wenige Stunden bis maximal 3 Tage. Der Versand nach {regionName} erfolgt versichert mit Sendungsverfolgung.
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
