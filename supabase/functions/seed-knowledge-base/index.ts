@@ -35,7 +35,7 @@ const knowledgeEntries = [
   },
   {
     title: "3D-Druck Materialien - Nylon & TPU",
-    content: "Nylon (Polyamid PA6/PA12) ist hochfest, abriebfest mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch - muss vor Druck getrocknet werden. Drucktemperatur 240-280°C. Ideal für mechanisch belastete Funktionsteile, Zahnräder, Lager. PA12 weniger hygroskopisch als PA6. TPU (Thermoplastisches Polyurethan) ist flexibles, gummiartiges Filament mit hoher Elastizität. Shore-Härte 85A-95A. Erfordert niedrige Druckgeschwindigkeit (20-30mm/s) und Direct-Drive-Extruder. Anwendungen: Dichtungen, Schläuche, Stoßdämpfer, Schutzhüllen. Drucktemperatur 210-230°C.",
+    content: "Nylon (Polyamid PA6/PA12) ist hochfest, abriebfest mit ausgezeichneter Schlagzähigkeit. Sehr hygroskopisch - muss vor Druck getrocknet werden. Drucktemperatur 240-280°C. Ideal für anspruchsvolle Anschauungsmodelle und hochwertige Präsentationsobjekte. PA12 weniger hygroskopisch als PA6. TPU (Thermoplastisches Polyurethan) ist flexibles, gummiartiges Filament mit hoher Elastizität. Shore-Härte 85A-95A. Erfordert niedrige Druckgeschwindigkeit (20-30mm/s) und Direct-Drive-Extruder. Anwendungen: flexible Designmodelle, Schutzhüllen, elastische Dekorationsobjekte. Drucktemperatur 210-230°C.",
     category: "Materialien",
     page_url: "/glossar"
   },
