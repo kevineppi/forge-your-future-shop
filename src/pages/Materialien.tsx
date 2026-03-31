@@ -473,7 +473,7 @@ const Materialien = () => {
                             <li>• Premium-Finish</li>
                           </ul>
                           <div className="text-sm">
-                            <span className="font-medium">Ideal für:</span> Drohnen, Racing-Teile, High-End Prototypen
+                            <span className="font-medium">Ideal für:</span> Leichtbau-Modelle, Carbon-Optik-Objekte, Premium-Designstudien
                           </div>
                         </div>
                       </CardContent>
