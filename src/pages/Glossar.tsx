@@ -210,7 +210,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "Infill (Füllung)",
     category: "Druckparameter",
-    definition: "Die innere Struktur eines 3D-Drucks, angegeben in Prozent (0–100 %). Höherer Infill bedeutet mehr Material und Festigkeit, aber längere Druckzeit. Typische Werte: 15–20 % für Prototypen und Anschauungsmodelle, 30–50 % für funktionale Teile, 100 % für mechanisch kritische Bauteile. Verschiedene Füllmuster (Grid, Gyroid, Honeycomb) beeinflussen Festigkeit und Materialverbrauch.",
+    definition: "Die innere Struktur eines 3D-Drucks, angegeben in Prozent (0–100 %). Höherer Infill bedeutet mehr Material und Festigkeit, aber längere Druckzeit. Typische Werte: 15–20 % für Anschauungsmodelle, 30–50 % für robuste Präsentationsobjekte, 100 % für besonders stabile Modelle. Verschiedene Füllmuster (Grid, Gyroid, Honeycomb) beeinflussen Festigkeit und Materialverbrauch.",
     relatedLinks: [{ label: "FDM 3D-Druck", href: "/fdm-druck" }]
   },
   {
