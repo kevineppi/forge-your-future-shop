@@ -12,9 +12,9 @@
  */
 
 // ── Verfahren ────────────────────────────────────────────────
-export type ProcessType = 'FDM' | 'SLA' | 'SLS';
+export type ProcessType = 'FDM';
 
-export type MaterialKey = 'PLA' | 'PETG' | 'ABS' | 'ASA' | 'TPU' | 'RESIN' | 'PA12';
+export type MaterialKey = 'PLA' | 'PLA_PLUS' | 'PETG' | 'ABS' | 'ASA' | 'TPU' | 'PA6_CF' | 'PC';
 
 // ── Hauptkonfiguration ──────────────────────────────────────
 export const PRICING_CONFIG = {
