@@ -102,7 +102,7 @@ function getLayerHeightFactor(layerHeight: number): number {
 
 // ── 1. Materialkosten ──────────────────────────────────────
 
-function calculateMaterialCost(volumeCm3: number, materialKey: MaterialKey): {
+function calculateMaterialCost(volumeCm3: number, materialKey: MaterialKey, infillPercent: number): {
   materialWeightG: number;
   materialCostRaw: number;
   materialCost: number;
@@ -111,7 +111,13 @@ function calculateMaterialCost(volumeCm3: number, materialKey: MaterialKey): {
   const density = cfg.densityFactor[materialKey];
   const pricePerKg = cfg.materialPricePerKg[materialKey];
 
-  const materialWeightG = volumeCm3 * density;
+  // Effektives Volumen: Wände (ca. 30% des Volumens, immer solid) + Infill (Rest)
+  const wallFraction = 0.30;
+  const infillFraction = infillPercent / 100;
+  const effectiveVolumeFactor = wallFraction + (1 - wallFraction) * infillFraction;
+  const effectiveVolume = volumeCm3 * effectiveVolumeFactor;
+
+  const materialWeightG = effectiveVolume * density;
   const materialCostRaw = (materialWeightG / 1000) * pricePerKg;
   const materialCost = materialCostRaw * cfg.materialSafetyFactor;
 
