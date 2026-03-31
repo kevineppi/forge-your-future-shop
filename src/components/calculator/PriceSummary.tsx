@@ -17,6 +17,7 @@ import {
 interface Props {
   result: PricingResult | null;
   input: PricingInput | null;
+  stlFile?: File | null;
 }
 
 const fmt = (n: number) => n.toFixed(2).replace(".", ",") + " €";
