@@ -141,6 +141,8 @@ const ArchitekturmodellRegion = () => {
     },
   ];
 
+  const faqs = extendedData.faqs || fallbackFaqs;
+
   // FAQPage Schema for Rich Snippets
   const faqSchema = {
     "@context": "https://schema.org",
