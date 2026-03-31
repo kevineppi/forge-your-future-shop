@@ -93,7 +93,7 @@ serve(async (req) => {
       },
       {
         title: '3D-Druck Klagenfurt - Kärnten Service Preise',
-        content: '3D-Druck Dienstleistungen für Klagenfurt und Kärnten. Koordinaten: 46.6244°N, 14.3050°E. Lieferzeit: Standard 3-4 Werktage, Express 48h. Material-Preise: Alle Materialien verfügbar. Anwendungen: Maschinenbau, Prototypenbau, Architektur, Design. Referenzen Kärnten: Alpen-Adria-Universität Forschung, Kärntner Industrie (Infineon Prototypen), Holzbau-Modelle. Kontakt: +43 676 5517197. Versand kostenlos ab €50. Services: Konstruktionsunterstützung, Materialberatung, Nachbearbeitung (Schleifen, Lackieren).',
+        content: '3D-Druck Dienstleistungen für Klagenfurt und Kärnten. Lieferzeit: Standard 3-4 Werktage, Express 48h. Material-Preise: Alle Materialien verfügbar. Anwendungen: Architekturmodelle, Designstudien, Präsentationsmodelle. Referenzen Kärnten: Alpen-Adria-Universität Forschung, Kärntner Unternehmen, Holzbau-Modelle. Kontakt: +43 676 5517197. Versand kostenlos ab €50. Services: Beratung, Materialberatung, Nachbearbeitung (Schleifen, Lackieren).',
         category: 'Regional',
         page_url: '/3d-druck-klagenfurt'
       },
