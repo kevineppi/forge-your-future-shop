@@ -116,6 +116,7 @@ export function useModelAnalysis() {
       isAnalyzing: false,
       error: null,
       arrayBuffer: null,
+      file: null,
     });
   }, []);
 
