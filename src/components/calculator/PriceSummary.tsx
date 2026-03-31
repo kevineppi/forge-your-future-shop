@@ -87,13 +87,13 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
               <span>− {fmt(result.quantityDiscountAmount)}</span>
             </div>
           )}
-          {result.orderValueDiscountAmount > 0 && (
+          {result.quantityDiscountAmount > 0 && (
             <div className="flex justify-between text-primary">
               <span className="flex items-center gap-1">
                 <TrendingDown className="h-3.5 w-3.5" />
-                Wertrabatt ({pct(result.orderValueDiscountRate)})
+                Mengenrabatt ({pct(result.quantityDiscountRate)})
               </span>
-              <span>− {fmt(result.orderValueDiscountAmount)}</span>
+              <span>− {fmt(result.quantityDiscountAmount)}</span>
             </div>
           )}
 
