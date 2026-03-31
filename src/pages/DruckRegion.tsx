@@ -114,11 +114,11 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
   const faqs = [
     {
       question: `Was kostet 3D-Druck in ${regionData.name}?`,
-      answer: `Die Kosten hängen von Größe, Material und Komplexität ab. Kleine Teile (z.B. Gehäuse, Halterungen) starten ab ca. €20. Prototypen im Bereich 10-20cm kosten typischerweise €30-80. Kleinserien ab 10 Stück erhalten Mengenrabatt. Lieferung nach ${regionData.name}: ${regionData.deliveryTime}. Kostenloses Angebot innerhalb von 6 Stunden.`
+      answer: `Die Kosten hängen von Größe, Material und Komplexität ab. Kleine Modelle (z.B. Designstudien, Präsentationsobjekte) starten ab ca. €20. Modelle im Bereich 10-20cm kosten typischerweise €30-80. Ab 10 Stück erhalten Sie Mengenrabatt. Lieferung nach ${regionData.name}: ${regionData.deliveryTime}. Kostenloses Angebot innerhalb von 6 Stunden.`
     },
     {
       question: `Welche Materialien sind für 3D-Druck in ${regionData.name} verfügbar?`,
-      answer: `Wir drucken in PLA+ (Allrounder, umweltfreundlich), PETG (schlagzäh, chemisch beständig), ASA (UV-beständig, wetterfest) und TPU (flexibel, stoßdämpfend). Alle Materialien in verschiedenen Farben. Für spezielle Anforderungen beraten wir kostenlos.`
+      answer: `Wir drucken in PLA+ (Allrounder, umweltfreundlich), PETG (robust, chemisch beständig), ASA (UV-beständig, wetterfest) und TPU (flexibel, elastisch). Alle Materialien in verschiedenen Farben. Für spezielle Anforderungen beraten wir kostenlos.`
     },
     {
       question: `Wie schnell kann nach ${regionData.name} geliefert werden?`,
@@ -126,14 +126,14 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
     },
     {
       question: `Welche Dateiformate werden akzeptiert?`,
-      answer: `STL, OBJ, 3MF und STEP-Dateien. Auch native CAD-Formate auf Anfrage. Falls Sie kein 3D-Modell haben: Wir konstruieren nach Zeichnung, Skizze oder Beschreibung – fragen Sie einfach an.`
+      answer: `STL, OBJ, 3MF und STEP-Dateien. Auch native CAD-Formate auf Anfrage. Falls Sie kein 3D-Modell haben: Wir modellieren nach Zeichnung, Skizze oder Beschreibung – fragen Sie einfach an.`
     },
     {
-      question: `Gibt es Mengenrabatt für Kleinserien aus ${regionData.name}?`,
-      answer: `Ja – ab 10 Stück erhalten Sie automatisch 10% Rabatt, ab 50 Stück 15% und ab 100 Stück individuellen Projektpreis. Die Qualität bleibt bei jeder Stückzahl identisch. Ideal für Vorserien und Pilotprojekte.`
+      question: `Gibt es Mengenrabatt für Projektmengen aus ${regionData.name}?`,
+      answer: `Ja – ab 10 Stück erhalten Sie automatisch 10% Rabatt, ab 50 Stück 15% und ab 100 Stück individuellen Projektpreis. Die Qualität bleibt bei jeder Stückzahl identisch. Ideal für Präsentationsmodelle und Konzeptstudien.`
     },
     {
-      question: `Kann ich mein Teil persönlich abholen?`,
+      question: `Kann ich mein Modell persönlich abholen?`,
       answer: regionData.slug === 'gunskirchen' || regionData.slug === 'wels' || regionData.slug === 'linz' || regionData.slug === 'oberoesterreich'
         ? `Ja! Persönliche Abholung in unserem Standort in Gunskirchen (OÖ) ist jederzeit möglich. ${regionData.name} ist nur wenige Minuten entfernt.`
         : `Unser Standort ist in Gunskirchen (OÖ). Für ${regionData.name} empfehlen wir unseren Express-Versand mit Tracking. Bei großen Projekten ist persönliche Lieferung nach Absprache möglich.`
