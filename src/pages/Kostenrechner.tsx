@@ -6,69 +6,93 @@ import CalculatorHero from "@/components/calculator/CalculatorHero";
 import CalculatorForm from "@/components/calculator/CalculatorForm";
 import PriceSummary from "@/components/calculator/PriceSummary";
 import CalculatorDisclaimer from "@/components/calculator/CalculatorDisclaimer";
-import InquiryForm from "@/components/calculator/InquiryForm";
 import CalculatorInfoSection from "@/components/calculator/CalculatorInfoSection";
+import MaterialComparisonTable from "@/components/calculator/MaterialComparisonTable";
+import SEOContentSection from "@/components/calculator/SEOContentSection";
 import DebugPanel from "@/components/calculator/DebugPanel";
+import STLViewer from "@/components/calculator/STLViewer";
 import { useModelAnalysis } from "@/hooks/useModelAnalysis";
 import { type PricingInput, type PricingResult, calculatePrice } from "@/lib/pricingEngine";
 import FAQSection from "@/components/landing/FAQSection";
+import Breadcrumbs from "@/components/landing/Breadcrumbs";
 
 const calculatorFaqs = [
   {
     question: "Wie genau ist der Richtpreis?",
-    answer: "Der Richtpreis basiert auf unserer Kalkulationsformel und gibt eine realistische Orientierung. Der endgültige Preis wird nach technischer Prüfung Ihrer Datei individuell festgelegt."
+    answer: "Der Richtpreis basiert auf unserer Kalkulationsformel und gibt eine realistische Orientierung. Der endgültige Preis wird nach persönlicher technischer Prüfung Ihrer Datei individuell festgelegt. Wir garantieren weder den Richtpreis noch die Machbarkeit – beides wird erst nach Begutachtung bestätigt."
   },
   {
     question: "Welche Dateiformate werden unterstützt?",
-    answer: "Aktuell unterstützen wir STL-Dateien bis 100 MB. Die Datei wird direkt im Browser analysiert – Volumen, Oberfläche und Maße werden automatisch berechnet."
+    answer: "Aktuell unterstützen wir STL-Dateien bis 100 MB. Die Datei wird direkt im Browser analysiert – Volumen, Oberfläche und Maße werden automatisch berechnet und als 3D-Vorschau angezeigt. Für andere Formate (OBJ, STEP, 3MF) senden Sie uns bitte eine Anfrage über unser Kontaktformular."
   },
   {
     question: "Was bedeutet Infill (Füllung)?",
-    answer: "Der Infill-Wert bestimmt, wie dicht das Innere Ihres Bauteils gedruckt wird. 15% reicht für Anschauungsmodelle, 50% für stabile Teile, 100% für massive Vollkörper."
+    answer: "Der Infill-Wert bestimmt, wie dicht das Innere Ihres Modells gedruckt wird. 10-15% reicht für leichte Anschauungsmodelle, 30-50% für stabile Ausstellungsstücke, 100% für massive Vollkörper. Die optimale Einstellung besprechen wir gerne individuell."
   },
   {
     question: "Welche Materialien bietet ihr an?",
-    answer: "Wir drucken mit PLA, PLA+, PETG, ABS, ASA, TPU (flexibel), PA6-CF (Carbonfaser-verstärkt) und Polycarbonat. Jedes Material hat spezifische Eigenschaften für unterschiedliche Anwendungen."
+    answer: "Wir drucken mit PLA, PLA+, PETG, ABS, ASA, TPU (flexibel), PA6-CF (Carbonfaser-verstärkt) und Polycarbonat. Jedes Material hat spezifische Eigenschaften – von günstigem PLA für Designstudien bis zu Premium-Carbon für hochwertige Präsentationsmodelle."
   },
   {
     question: "Kann ich direkt über den Rechner bestellen?",
-    answer: "Nein, der Rechner dient ausschließlich zur unverbindlichen Preisindikation. Für ein verbindliches Angebot senden Sie uns bitte eine Anfrage mit Ihrer 3D-Datei."
+    answer: "Nein. Der Rechner dient ausschließlich zur unverbindlichen Preisindikation. Über das integrierte Formular können Sie eine Anfrage senden – Ihr Projekt wird dann persönlich von uns geprüft. Erst nach individueller Begutachtung erhalten Sie ein verbindliches Angebot."
   },
   {
     question: "Wie lange dauert die Fertigung?",
-    answer: "Die geschätzte Druckzeit wird im Rechner angezeigt. Die tatsächliche Lieferzeit hängt von der Auftragslage ab – in der Regel 2–5 Werktage nach Auftragsbestätigung."
+    answer: "Die geschätzte Druckzeit wird im Rechner angezeigt. Die tatsächliche Lieferzeit hängt von der Auftragslage und Nachbearbeitung ab – in der Regel 3-7 Werktage nach Auftragsbestätigung. Für eilige Projekte bieten wir nach persönlicher Absprache auch Express-Fertigung an."
   },
+  {
+    question: "Fertigt ihr auch Funktionsteile oder Serienteile?",
+    answer: "Nein. Wir sind auf Anschauungsmodelle, Designstudien und Präsentationsobjekte spezialisiert. Anfragen für Funktionsteile, technische Bauteile oder industrielle Serienfertigung können wir leider nicht bearbeiten."
+  },
+  {
+    question: "Was passiert nach dem Absenden meiner Anfrage?",
+    answer: "Unser Team prüft Ihr 3D-Modell persönlich auf Druckbarkeit, optimale Orientierung und Materialeignung. Innerhalb von 6 Stunden erhalten Sie eine Rückmeldung mit einer individuellen Einschätzung – inklusive verbindlichem Angebot, sofern Ihr Projekt in unseren Leistungsbereich fällt."
+  },
+];
+
+const breadcrumbs = [
+  { name: "Startseite", url: "/" },
+  { name: "Kostenrechner", url: "/kostenrechner" },
 ];
 
 const Kostenrechner = () => {
   const [result, setResult] = useState<PricingResult | null>(null);
   const [currentInput, setCurrentInput] = useState<PricingInput | null>(null);
-  const [showInquiry, setShowInquiry] = useState(false);
 
   const model = useModelAnalysis();
 
   const handleCalculate = useCallback((input: PricingInput) => {
     setCurrentInput(input);
     setResult(calculatePrice(input));
-    setShowInquiry(false);
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="3D-Druck Kostenrechner Österreich – FDM Richtpreis online berechnen [2026]"
-        description="Berechnen Sie unverbindlich Ihren FDM-3D-Druck Richtpreis: PLA, PETG, ABS, ASA, TPU & mehr. Infill, Schichtdicke & Wandstärke individuell konfigurieren. Ab €15 – Angebot in 6h."
+        title="3D-Druck Kostenrechner Österreich – Richtpreis für Anschauungsmodelle [2026]"
+        description="Berechnen Sie unverbindlich den Richtpreis für Ihr 3D-gedrucktes Anschauungsmodell: PLA, PETG, ABS & mehr. Persönliche Prüfung jeder Anfrage. Angebot in 6h."
         path="/kostenrechner"
+        keywords="3d druck kostenrechner, 3d druck kosten österreich, 3d druck preis berechnen, anschauungsmodell kosten, fdm druck kosten, 3d druck richtpreis, kostenrechner 3d modell"
+        breadcrumbs={breadcrumbs}
+        schemaType="service"
       />
       <Navigation />
 
       <main className="pt-20">
         <CalculatorHero />
 
-        <section className="py-12 md:py-20">
+        {/* Breadcrumbs */}
+        <div className="container mx-auto px-4 pt-4">
+          <Breadcrumbs items={breadcrumbs} />
+        </div>
+
+        {/* ── Calculator Section ────────────────────── */}
+        <section className="py-8 md:py-16">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-              <div className="lg:col-span-3">
+              {/* Left: Form + 3D Viewer */}
+              <div className="lg:col-span-3 space-y-6">
                 <CalculatorForm
                   onCalculate={handleCalculate}
                   geometry={model.geometry}
@@ -79,24 +103,27 @@ const Kostenrechner = () => {
                   onFileSelect={model.analyzeFile}
                   onFileClear={model.clearFile}
                 />
+
+                {/* 3D Preview */}
+                {model.arrayBuffer && (
+                  <div className="space-y-2">
+                    <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                      3D-Vorschau Ihres Modells
+                    </h3>
+                    <STLViewer
+                      buffer={model.arrayBuffer}
+                      className="h-[350px] md:h-[420px]"
+                    />
+                  </div>
+                )}
               </div>
+
+              {/* Right: Price Summary with integrated inquiry */}
               <div className="lg:col-span-2 lg:sticky lg:top-24">
-                <PriceSummary
-                  result={result}
-                  onInquiry={() => setShowInquiry(true)}
-                />
+                <PriceSummary result={result} input={currentInput} />
               </div>
             </div>
-
-            {showInquiry && result && currentInput && (
-              <div className="mt-12 max-w-2xl mx-auto" id="anfrage">
-                <InquiryForm
-                  calculatorInput={currentInput}
-                  priceBreakdown={result}
-                  onClose={() => setShowInquiry(false)}
-                />
-              </div>
-            )}
 
             <DebugPanel result={result} input={currentInput} />
           </div>
@@ -104,19 +131,21 @@ const Kostenrechner = () => {
 
         <CalculatorDisclaimer />
 
-        {/* FAQ Section for SEO */}
-        <section className="py-12 md:py-20 bg-muted/20">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-3">
-              Häufige Fragen zum 3D-Druck Kostenrechner
-            </h2>
-            <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
-              Alles Wichtige zu Preiskalkulation, Materialien und Bestellablauf.
-            </p>
-            <FAQSection faqs={calculatorFaqs} />
-          </div>
-        </section>
+        {/* Material Comparison Table */}
+        <MaterialComparisonTable />
 
+        {/* FAQ Section for SEO */}
+        <FAQSection
+          faqs={calculatorFaqs}
+          title="Häufige Fragen zum 3D-Druck Kostenrechner"
+          subtitle="Alles Wichtige zu Preiskalkulation, Materialien und dem Ablauf Ihrer Anfrage."
+          schemaId="kostenrechner"
+        />
+
+        {/* SEO Content */}
+        <SEOContentSection />
+
+        {/* What we do */}
         <CalculatorInfoSection />
       </main>
 

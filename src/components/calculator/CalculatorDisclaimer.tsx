@@ -1,4 +1,4 @@
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, UserCheck, AlertTriangle } from "lucide-react";
 
 const CalculatorDisclaimer = () => (
   <section className="py-12 bg-muted/30">
@@ -11,7 +11,7 @@ const CalculatorDisclaimer = () => (
         <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed">
           <li className="flex items-start gap-2">
             <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 flex-shrink-0" />
-            Die dargestellten Preise sind <strong className="text-foreground">unverbindliche Richtwerte</strong> und dienen ausschließlich als Orientierung.
+            Die dargestellten Preise sind <strong className="text-foreground">unverbindliche Richtwerte</strong> und dienen ausschließlich als Orientierung für Anschauungsmodelle.
           </li>
           <li className="flex items-start gap-2">
             <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 flex-shrink-0" />
@@ -19,11 +19,20 @@ const CalculatorDisclaimer = () => (
           </li>
           <li className="flex items-start gap-2">
             <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 flex-shrink-0" />
-            Ein <strong className="text-foreground">verbindliches Angebot</strong> wird erst nach individueller technischer Prüfung erstellt.
+            <span>
+              <strong className="text-foreground flex items-center gap-1"><UserCheck className="h-3.5 w-3.5 inline" /> Jede Anfrage wird persönlich geprüft.</strong> Ein verbindliches Angebot wird erst nach individueller technischer Begutachtung erstellt.
+            </span>
           </li>
           <li className="flex items-start gap-2">
             <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60 flex-shrink-0" />
             Es erfolgt über diese Seite <strong className="text-foreground">keine direkte Bestellung</strong> und kein Vertragsabschluss.
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-destructive/60 flex-shrink-0" />
+            <span className="flex items-start gap-1">
+              <AlertTriangle className="h-3.5 w-3.5 text-destructive/70 shrink-0 mt-0.5" />
+              <span>Wir fertigen ausschließlich <strong className="text-foreground">Anschauungsmodelle, Designstudien und Präsentationsmodelle</strong>. Keine Funktionsteile, keine Serienproduktion, keine technischen Bauteile.</span>
+            </span>
           </li>
         </ul>
       </div>
