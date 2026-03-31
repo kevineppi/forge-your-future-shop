@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { PriceBreakdown } from "@/lib/priceCalculator";
-import { TrendingDown, AlertTriangle, Send, Info } from "lucide-react";
+import { TrendingDown, AlertTriangle, Send, Info, Clock } from "lucide-react";
 
 interface Props {
   result: PriceBreakdown | null;
@@ -12,6 +12,12 @@ interface Props {
 
 const fmt = (n: number) => n.toFixed(2).replace(".", ",") + " €";
 const pct = (n: number) => (n * 100).toFixed(0) + " %";
+const mins = (n: number) => {
+  if (n < 60) return `${Math.round(n)} Min.`;
+  const h = Math.floor(n / 60);
+  const m = Math.round(n % 60);
+  return m > 0 ? `${h} Std. ${m} Min.` : `${h} Std.`;
+};
 
 const PriceSummary = ({ result, onInquiry }: Props) => {
   if (!result) {
@@ -32,6 +38,8 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
     );
   }
 
+  // (unused variable removed)
+
   return (
     <Card className="border-primary/30 shadow-lg">
       <CardHeader className="pb-3">
@@ -47,22 +55,22 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
             <span className="text-muted-foreground">Materialkosten / Stück</span>
-            <span>{fmt(result.materialCostPerPiece)}</span>
+            <span>{fmt(result.materialCostPerPart)}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">Bearbeitungskosten / Stück</span>
-            <span>{fmt(result.processingCostPerPiece)}</span>
+            <span>{fmt(result.laborCostPerPart)}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Rüstkosten (einmalig)</span>
-            <span>{fmt(result.setupCost)}</span>
+            <span className="text-muted-foreground">Rohpreis / Stück (netto)</span>
+            <span>{fmt(result.rawUnitNet)}</span>
           </div>
 
           <Separator className="my-2" />
 
           <div className="flex justify-between font-medium">
-            <span>Zwischensumme</span>
-            <span>{fmt(result.subtotalAll)}</span>
+            <span>Zwischensumme (netto)</span>
+            <span>{fmt(result.subtotalNet)}</span>
           </div>
 
           {/* Rabatte */}
@@ -70,7 +78,7 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             <div className="flex justify-between text-primary">
               <span className="flex items-center gap-1">
                 <TrendingDown className="h-3.5 w-3.5" />
-                Mengenrabatt ({pct(result.quantityDiscountPercent)})
+                Mengenrabatt ({pct(result.quantityDiscountRate)})
               </span>
               <span>− {fmt(result.quantityDiscountAmount)}</span>
             </div>
@@ -79,20 +87,20 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             <div className="flex justify-between text-primary">
               <span className="flex items-center gap-1">
                 <TrendingDown className="h-3.5 w-3.5" />
-                Wertrabatt ({pct(result.orderValueDiscountPercent)})
+                Wertrabatt ({pct(result.orderValueDiscountRate)})
               </span>
               <span>− {fmt(result.orderValueDiscountAmount)}</span>
             </div>
           )}
 
           {/* Zuschlag */}
-          {result.smallOrderSurcharge > 0 && (
-            <div className="flex justify-between text-amber-600">
+          {result.minimumOrderSurcharge > 0 && (
+            <div className="flex justify-between text-destructive/80">
               <span className="flex items-center gap-1 text-destructive">
                 <AlertTriangle className="h-3.5 w-3.5" />
                 Mindermengenzuschlag
               </span>
-              <span>+ {fmt(result.smallOrderSurcharge)}</span>
+              <span>+ {fmt(result.minimumOrderSurcharge)}</span>
             </div>
           )}
 
@@ -100,7 +108,7 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
 
           <div className="flex justify-between font-semibold text-base">
             <span>Netto-Richtpreis</span>
-            <span>{fmt(result.netTotal)}</span>
+            <span>{fmt(result.finalNet)}</span>
           </div>
           <div className="flex justify-between text-sm text-muted-foreground">
             <span>zzgl. 20 % USt</span>
@@ -111,10 +119,16 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
         {/* Brutto */}
         <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 text-center">
           <p className="text-xs text-muted-foreground mb-1">Geschätzter Bruttopreis</p>
-          <p className="text-3xl font-bold text-foreground">{fmt(result.grossTotal)}</p>
+          <p className="text-3xl font-bold text-foreground">{fmt(result.finalGross)}</p>
           <p className="text-xs text-muted-foreground mt-1">
-            ca. {fmt(result.pricePerPiece)} netto / Stück
+            ca. {fmt(result.rawUnitNet)} netto / Stück
           </p>
+        </div>
+
+        {/* Bearbeitungszeit */}
+        <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/40 rounded-lg px-3 py-2">
+          <Clock className="h-4 w-4 text-primary" />
+          <span>Geschätzte Bearbeitungszeit: <strong className="text-foreground">{mins(result.totalTimeMin)}</strong></span>
         </div>
 
         {/* Disclaimer */}

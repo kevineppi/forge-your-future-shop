@@ -5,45 +5,60 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { PRICING_CONFIG, type ProcessType } from "@/data/pricingConfig";
+import { PRICING_CONFIG, type ProcessType, type MaterialKey } from "@/data/pricingConfig";
 import type { CalculatorInput } from "@/lib/priceCalculator";
-import { Upload, Info, Calculator } from "lucide-react";
+import { TEST_CASES } from "@/lib/priceCalculator";
+import { Upload, Info, Calculator, FlaskConical } from "lucide-react";
 
 interface Props {
   onCalculate: (input: CalculatorInput) => void;
 }
 
 const CalculatorForm = ({ onCalculate }: Props) => {
+  const cfg = PRICING_CONFIG;
+
   const [process, setProcess] = useState<ProcessType>("FDM");
-  const [materialKey, setMaterialKey] = useState("PLA");
+  const [materialKey, setMaterialKey] = useState<MaterialKey>("PLA");
   const [color, setColor] = useState("Schwarz");
-  const [layerHeight, setLayerHeight] = useState(PRICING_CONFIG.processes.FDM.defaultLayerHeight);
-  const [wallThickness, setWallThickness] = useState(PRICING_CONFIG.processes.FDM.defaultWallThickness);
+  const [layerHeight, setLayerHeight] = useState(cfg.defaultLayerHeight.FDM);
+  const [wallThickness, setWallThickness] = useState(cfg.defaultWallThickness.FDM);
   const [quantity, setQuantity] = useState(1);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [showTests, setShowTests] = useState(false);
 
-  const currentProcess = PRICING_CONFIG.processes[process];
-  const materials = useMemo(() => Object.entries(currentProcess.materials), [currentProcess]);
-  const currentMaterial = currentProcess.materials[materialKey];
+  const materials = cfg.processMaterials[process];
+  const colors = cfg.materialColors[materialKey] ?? [];
+  const layerHeights = cfg.processLayerHeights[process];
+  const wallThicknesses = cfg.processWallThicknesses[process];
 
-  // Wenn Verfahren wechselt, erstes Material und Defaults setzen
   const handleProcessChange = (val: ProcessType) => {
     setProcess(val);
-    const proc = PRICING_CONFIG.processes[val];
-    const firstMat = Object.keys(proc.materials)[0];
+    const firstMat = cfg.processMaterials[val][0];
     setMaterialKey(firstMat);
-    setLayerHeight(proc.defaultLayerHeight);
-    setWallThickness(proc.defaultWallThickness);
-    const firstMatColors = proc.materials[firstMat].colors;
-    setColor(firstMatColors[0] || "Schwarz");
+    setLayerHeight(cfg.defaultLayerHeight[val]);
+    setWallThickness(cfg.defaultWallThickness[val]);
+    const firstColors = cfg.materialColors[firstMat];
+    setColor(firstColors[0] || "Schwarz");
   };
 
-  const handleMaterialChange = (key: string) => {
+  const handleMaterialChange = (key: MaterialKey) => {
     setMaterialKey(key);
-    const mat = currentProcess.materials[key];
-    if (mat && !mat.colors.includes(color)) {
-      setColor(mat.colors[0]);
+    const matColors = cfg.materialColors[key];
+    if (!matColors.includes(color)) {
+      setColor(matColors[0]);
     }
+  };
+
+  const loadTestCase = (idx: number) => {
+    const tc = TEST_CASES[idx].input;
+    setProcess(tc.process);
+    setMaterialKey(tc.materialKey);
+    setLayerHeight(tc.layerHeight);
+    setWallThickness(tc.wallThickness);
+    setQuantity(tc.quantity);
+    const matColors = cfg.materialColors[tc.materialKey];
+    setColor(matColors[0]);
+    onCalculate(tc);
   };
 
   const validate = (): boolean => {
@@ -88,7 +103,7 @@ const CalculatorForm = ({ onCalculate }: Props) => {
               onValueChange={(v) => handleProcessChange(v as ProcessType)}
               className="grid grid-cols-1 sm:grid-cols-3 gap-3"
             >
-              {(Object.keys(PRICING_CONFIG.processes) as ProcessType[]).map((key) => (
+              {(["FDM", "SLA", "SLS"] as ProcessType[]).map((key) => (
                 <label
                   key={key}
                   className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-all duration-200 ${
@@ -114,14 +129,14 @@ const CalculatorForm = ({ onCalculate }: Props) => {
           {/* Material */}
           <div className="space-y-2">
             <Label htmlFor="material" className="text-sm font-semibold">Material</Label>
-            <Select value={materialKey} onValueChange={handleMaterialChange}>
+            <Select value={materialKey} onValueChange={(v) => handleMaterialChange(v as MaterialKey)}>
               <SelectTrigger id="material">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                {materials.map(([key, mat]) => (
+                {materials.map((key) => (
                   <SelectItem key={key} value={key}>
-                    {mat.label} – €{mat.pricePerKg}/kg
+                    {cfg.materialLabels[key]} – €{cfg.materialPricePerKg[key]}/kg
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -136,7 +151,7 @@ const CalculatorForm = ({ onCalculate }: Props) => {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                {currentMaterial?.colors.map((c) => (
+                {colors.map((c) => (
                   <SelectItem key={c} value={c}>{c}</SelectItem>
                 ))}
               </SelectContent>
@@ -152,7 +167,7 @@ const CalculatorForm = ({ onCalculate }: Props) => {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {currentProcess.layerHeights.map((h) => (
+                  {layerHeights.map((h) => (
                     <SelectItem key={h} value={String(h)}>{h} mm</SelectItem>
                   ))}
                 </SelectContent>
@@ -165,7 +180,7 @@ const CalculatorForm = ({ onCalculate }: Props) => {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {currentProcess.wallThicknesses.map((w) => (
+                  {wallThicknesses.map((w) => (
                     <SelectItem key={w} value={String(w)}>{w} mm</SelectItem>
                   ))}
                 </SelectContent>
@@ -211,6 +226,34 @@ const CalculatorForm = ({ onCalculate }: Props) => {
           <Button type="submit" variant="cta" size="lg" className="w-full">
             Richtpreis kalkulieren
           </Button>
+
+          {/* Testkonfigurationen */}
+          <div className="pt-2 border-t border-border/50">
+            <button
+              type="button"
+              onClick={() => setShowTests(!showTests)}
+              className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <FlaskConical className="h-3.5 w-3.5" />
+              {showTests ? "Testkonfigurationen ausblenden" : "Testkonfiguration laden"}
+            </button>
+            {showTests && (
+              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {TEST_CASES.map((tc, i) => (
+                  <Button
+                    key={i}
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="text-xs justify-start"
+                    onClick={() => loadTestCase(i)}
+                  >
+                    {tc.label}
+                  </Button>
+                ))}
+              </div>
+            )}
+          </div>
         </form>
       </CardContent>
     </Card>
