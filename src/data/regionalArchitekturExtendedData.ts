@@ -7,8 +7,8 @@ export interface RegionalArchitekturExtendedData {
   materials: MaterialRecommendation[];
   industryFocus: string;
   uniqueSellingPoints: string[];
-  faqs: { question: string; answer: string }[];
-  introText: string;
+  faqs?: { question: string; answer: string }[];
+  introText?: string;
 }
 
 const defaultMaterials: MaterialRecommendation[] = [
