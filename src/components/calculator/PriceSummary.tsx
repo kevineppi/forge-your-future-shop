@@ -65,8 +65,19 @@ const PriceSummary = ({ result, onInquiry }: Props) => {
             <span className="text-muted-foreground">Setup / Stück</span>
             <span>{fmt(result.setupCost)}</span>
           </div>
-          <div className="flex justify-between">
-            <span className="text-muted-foreground">Stückpreis (netto, skaliert)</span>
+
+          {result.sizeFactor > 1.01 && (
+            <div className="flex justify-between text-amber-700">
+              <span className="flex items-center gap-1">
+                <Ruler className="h-3.5 w-3.5" />
+                Größenzuschlag (×{result.sizeFactor.toFixed(2)})
+              </span>
+              <span>+ {fmt(result.scaledUnitCost - (result.materialCostPerPart + result.printCost + result.setupCost))}</span>
+            </div>
+          )}
+
+          <div className="flex justify-between font-medium border-t border-border/40 pt-2">
+            <span>Stückpreis (netto)</span>
             <span>{fmt(result.scaledUnitCost)}</span>
           </div>
 
