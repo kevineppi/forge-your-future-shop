@@ -43,9 +43,9 @@ const CalculatorForm = ({ onCalculate }: Props) => {
 
   const handleMaterialChange = (key: MaterialKey) => {
     setMaterialKey(key);
-    const matColors = cfg.materialColors[key];
+    const matColors = cfg.materialColors[key] ?? [];
     if (!matColors.includes(color)) {
-      setColor(matColors[0]);
+      setColor(matColors[0] ?? "Schwarz");
     }
   };
 
