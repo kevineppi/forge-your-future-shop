@@ -37,6 +37,10 @@ const UeberUns = () => {
         path="/ueber-uns"
         schemaType="service"
       />
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "/" },
+        { name: "Über uns", url: "/ueber-uns" }
+      ]} />
       <Navigation />
 
       <main className="pt-20">
