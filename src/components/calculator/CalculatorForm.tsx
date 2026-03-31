@@ -39,7 +39,7 @@ const CalculatorForm = ({
   const [color, setColor] = useState("Schwarz");
   const [layerHeight, setLayerHeight] = useState(cfg.defaultLayerHeight.FDM);
   const [wallThickness, setWallThickness] = useState(cfg.defaultWallThickness.FDM);
-  const [infillPercent, setInfillPercent] = useState(cfg.defaultInfillPercent);
+  const [infillPercent, setInfillPercent] = useState<number>(cfg.defaultInfillPercent);
   const [quantity, setQuantity] = useState(1);
   const [showTests, setShowTests] = useState(false);
 
