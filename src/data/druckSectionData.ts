@@ -56,6 +56,30 @@ export interface InTextLinkData {
   context: string; // sentence around the link
 }
 
+export interface TypicalProjectData {
+  title: string;
+  description: string;
+  whyPrint: string;
+  requirements: string[];
+}
+
+export interface ProjectWorkflowData {
+  headline: string;
+  subheadline: string;
+  steps: { title: string; description: string; context: string }[];
+}
+
+export interface CustomerPriorityData {
+  statement: string;
+  explanation: string;
+}
+
+export interface CommonMistakeData {
+  mistake: string;
+  explanation: string;
+  prevention: string;
+}
+
 export interface DruckSectionDataSet {
   valueProposition: ValuePropositionData;
   checklist: ChecklistData;
@@ -65,6 +89,10 @@ export interface DruckSectionDataSet {
   problemSolution: ProblemSolutionData;
   expressTimeline: TimelineStepData[];
   inTextLinks: InTextLinkData[];
+  typicalProjects: TypicalProjectData[];
+  projectWorkflow: ProjectWorkflowData;
+  customerPriorities: CustomerPriorityData[];
+  commonMistakes: CommonMistakeData[];
 }
 
 // ═══════════════════════════════════════════
