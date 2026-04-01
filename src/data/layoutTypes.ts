@@ -66,63 +66,63 @@ export type SectionId =
 // Section order per Architektur layout type
 export const architekturSectionOrder: Record<ArchitekturLayoutType, SectionId[]> = {
   wettbewerb: [
-    'hero', 'problemSolution', 'caseStudy', 'materials', 'checklist',
-    'localContext', 'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'typicalProjects', 'problemSolution', 'caseStudy', 'projectWorkflow', 'materials', 'checklist',
+    'customerPriorities', 'localContext', 'ctaPrimary', 'commonMistakes', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   kosten: [
-    'hero', 'priceComparison', 'valueProposition', 'checklist', 'caseStudy',
-    'ctaPrimary', 'faq', 'localAdvantages', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'priceComparison', 'typicalProjects', 'valueProposition', 'checklist', 'projectWorkflow',
+    'caseStudy', 'customerPriorities', 'commonMistakes', 'ctaPrimary', 'faq', 'localAdvantages', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   express: [
-    'hero', 'expressTimeline', 'ctaSecondary', 'caseStudy', 'trustSignals',
-    'materials', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'expressTimeline', 'typicalProjects', 'ctaSecondary', 'caseStudy', 'projectWorkflow',
+    'trustSignals', 'customerPriorities', 'materials', 'commonMistakes', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   casestudy: [
-    'hero', 'caseStudy', 'uniqueContent', 'localAdvantages', 'materials',
-    'ctaPrimary', 'faq', 'deliveryInfo', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'caseStudy', 'typicalProjects', 'uniqueContent', 'projectWorkflow', 'localAdvantages',
+    'customerPriorities', 'materials', 'commonMistakes', 'ctaPrimary', 'faq', 'deliveryInfo', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   material: [
-    'hero', 'techSpecs', 'materials', 'checklist', 'caseStudy',
-    'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'techSpecs', 'typicalProjects', 'materials', 'projectWorkflow', 'checklist',
+    'customerPriorities', 'caseStudy', 'commonMistakes', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   behoerden: [
-    'hero', 'trustSignals', 'valueProposition', 'caseStudy', 'localContext',
-    'deliveryInfo', 'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'trustSignals', 'typicalProjects', 'valueProposition', 'projectWorkflow', 'caseStudy',
+    'customerPriorities', 'localContext', 'commonMistakes', 'deliveryInfo', 'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   universitaet: [
-    'hero', 'industryShowcase', 'priceComparison', 'materials', 'caseStudy',
-    'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'typicalProjects', 'industryShowcase', 'priceComparison', 'projectWorkflow', 'materials',
+    'customerPriorities', 'caseStudy', 'commonMistakes', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ]
 };
 
 export const messeSectionOrder: Record<MesseLayoutType, SectionId[]> = {
   eyecatcher: [
-    'hero', 'industryShowcase', 'caseStudy', 'materials', 'localContext',
-    'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'typicalProjects', 'industryShowcase', 'caseStudy', 'projectWorkflow', 'materials',
+    'customerPriorities', 'localContext', 'commonMistakes', 'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   express: [
-    'hero', 'expressTimeline', 'ctaSecondary', 'caseStudy', 'trustSignals',
-    'checklist', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'expressTimeline', 'typicalProjects', 'ctaSecondary', 'projectWorkflow', 'caseStudy',
+    'trustSignals', 'customerPriorities', 'checklist', 'commonMistakes', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   branche: [
-    'hero', 'localContext', 'caseStudy', 'checklist', 'materials',
-    'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'typicalProjects', 'localContext', 'caseStudy', 'projectWorkflow', 'checklist',
+    'customerPriorities', 'materials', 'commonMistakes', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   grossmodell: [
-    'hero', 'techSpecs', 'deliveryInfo', 'caseStudy', 'materials',
-    'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'techSpecs', 'typicalProjects', 'deliveryInfo', 'projectWorkflow', 'caseStudy',
+    'customerPriorities', 'materials', 'commonMistakes', 'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   interaktiv: [
-    'hero', 'techSpecs', 'caseStudy', 'checklist', 'uniqueContent',
-    'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'techSpecs', 'typicalProjects', 'caseStudy', 'projectWorkflow', 'checklist',
+    'customerPriorities', 'uniqueContent', 'commonMistakes', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   budget: [
-    'hero', 'priceComparison', 'valueProposition', 'checklist', 'caseStudy',
-    'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'priceComparison', 'typicalProjects', 'valueProposition', 'projectWorkflow', 'checklist',
+    'customerPriorities', 'caseStudy', 'commonMistakes', 'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   event: [
-    'hero', 'industryShowcase', 'caseStudy', 'materials', 'localContext',
-    'ctaPrimary', 'faq', 'deliveryInfo', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'typicalProjects', 'industryShowcase', 'caseStudy', 'projectWorkflow', 'materials',
+    'customerPriorities', 'localContext', 'commonMistakes', 'ctaPrimary', 'faq', 'deliveryInfo', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ]
 };
 
