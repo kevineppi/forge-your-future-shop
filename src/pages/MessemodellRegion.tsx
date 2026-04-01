@@ -26,10 +26,15 @@ import TechSpecsSection from "@/components/landing/sections/TechSpecsSection";
 import ProblemSolutionSection from "@/components/landing/sections/ProblemSolutionSection";
 import TrustSignalsSection from "@/components/landing/sections/TrustSignalsSection";
 import IndustryShowcaseSection from "@/components/landing/sections/IndustryShowcaseSection";
+import TypicalProjectsSection from "@/components/landing/sections/TypicalProjectsSection";
+import ProjectWorkflowSection from "@/components/landing/sections/ProjectWorkflowSection";
+import CustomerPrioritiesSection from "@/components/landing/sections/CustomerPrioritiesSection";
+import CommonMistakesSection from "@/components/landing/sections/CommonMistakesSection";
 import { getRegionBySlug, regionalMesseData, RegionalMesseData } from "@/data/regionalMesseData";
 import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
 import { getGermanRegionBySlug, germanMesseData } from "@/data/germanMesseData";
 import { getGermanExtendedDataBySlug } from "@/data/germanMesseExtendedData";
+import { getExtendedMesseSections } from "@/data/messeExtendedSections";
 import {
   messeRegionLayouts,
   messeSectionOrder,
@@ -49,6 +54,7 @@ const MessemodellRegion = () => {
   const isGerman = !atRegion && !!deRegion;
   const countryName = isGerman ? 'Deutschland' : 'Österreich';
   const extendedData = region ? (getExtendedDataBySlug(region) || getGermanExtendedDataBySlug(region)) : undefined;
+  const extSections = region ? getExtendedMesseSections(region) : undefined;
 
   if (!regionData || !extendedData) {
     return <Navigate to="/messemodelle" replace />;
@@ -235,6 +241,10 @@ const MessemodellRegion = () => {
       case 'problemSolution': return <ProblemSolutionSection key="ps" regionName={regionData.name} category="messe" />;
       case 'trustSignals': return <TrustSignalsSection key="trust" regionName={regionData.name} />;
       case 'industryShowcase': return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localMessen} category="messe" />;
+      case 'typicalProjects': return extSections ? <TypicalProjectsSection key="tp" regionName={regionData.name} data={extSections.typicalProjects} /> : null;
+      case 'projectWorkflow': return extSections ? <ProjectWorkflowSection key="pw" regionName={regionData.name} data={extSections.projectWorkflow} /> : null;
+      case 'customerPriorities': return extSections ? <CustomerPrioritiesSection key="cp" regionName={regionData.name} data={extSections.customerPriorities} /> : null;
+      case 'commonMistakes': return extSections ? <CommonMistakesSection key="cm" regionName={regionData.name} data={extSections.commonMistakes} /> : null;
       default: return null;
     }
   };

@@ -26,10 +26,15 @@ import TechSpecsSection from "@/components/landing/sections/TechSpecsSection";
 import ProblemSolutionSection from "@/components/landing/sections/ProblemSolutionSection";
 import TrustSignalsSection from "@/components/landing/sections/TrustSignalsSection";
 import IndustryShowcaseSection from "@/components/landing/sections/IndustryShowcaseSection";
+import TypicalProjectsSection from "@/components/landing/sections/TypicalProjectsSection";
+import ProjectWorkflowSection from "@/components/landing/sections/ProjectWorkflowSection";
+import CustomerPrioritiesSection from "@/components/landing/sections/CustomerPrioritiesSection";
+import CommonMistakesSection from "@/components/landing/sections/CommonMistakesSection";
 import { getArchitekturRegionBySlug, regionalArchitekturData } from "@/data/regionalArchitekturData";
 import { getArchitekturExtendedDataBySlug } from "@/data/regionalArchitekturExtendedData";
 import { getGermanArchitekturBySlug, germanArchitekturData } from "@/data/germanArchitekturData";
 import { getGermanArchitekturExtendedBySlug } from "@/data/germanArchitekturExtendedData";
+import { getExtendedArchitekturSections } from "@/data/architekturExtendedSections";
 import {
   architekturRegionLayouts,
   architekturSectionOrder,
@@ -48,6 +53,7 @@ const ArchitekturmodellRegion = () => {
   const regionData = atRegion || deRegion;
   const isGerman = !!deRegion && !atRegion;
   const extendedData = region ? (isGerman ? getGermanArchitekturExtendedBySlug(region) : getArchitekturExtendedDataBySlug(region)) : undefined;
+  const extSections = region ? getExtendedArchitekturSections(region) : undefined;
 
   if (!regionData || !extendedData) {
     return <Navigate to="/architekturmodelle" replace />;
@@ -312,6 +318,15 @@ const ArchitekturmodellRegion = () => {
 
       case 'industryShowcase':
         return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localArchitekturContext} category="architektur" />;
+
+      case 'typicalProjects':
+        return extSections ? <TypicalProjectsSection key="tp" regionName={regionData.name} data={extSections.typicalProjects} /> : null;
+      case 'projectWorkflow':
+        return extSections ? <ProjectWorkflowSection key="pw" regionName={regionData.name} data={extSections.projectWorkflow} /> : null;
+      case 'customerPriorities':
+        return extSections ? <CustomerPrioritiesSection key="cp" regionName={regionData.name} data={extSections.customerPriorities} /> : null;
+      case 'commonMistakes':
+        return extSections ? <CommonMistakesSection key="cm" regionName={regionData.name} data={extSections.commonMistakes} /> : null;
 
       default:
         return null;
