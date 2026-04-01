@@ -304,7 +304,7 @@ export const regionalDruckData: Record<string, RegionalDruckData> = {
     type: 'standort',
     title: '3D-Druck Gunskirchen – Unser Standort',
     h1Title: '3D-Druck Gunskirchen – Direkt vom Hersteller',
-    metaTitle: '3D Druck Gunskirchen – Direkt abholen, kein Versand | ekdruck',
+    metaTitle: '3D Druck Gunskirchen – Direkt abholen | ekdruck',
     metaDescription: 'Unser Standort: Morgens bestellt, abends fertig. Qualitätsprüfung vor Ort, 10+ Materialien, kein Versandrisiko. Jetzt Termin buchen.',
     heroSubtitle: 'Hier werden Ihre Modelle gedruckt. Besuchen Sie uns in Gunskirchen – persönliche Abholung, Beratung vor Ort und Same-Day-Service ohne Umwege.',
     deliveryTime: 'Sofort',
