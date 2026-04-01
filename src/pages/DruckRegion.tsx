@@ -24,6 +24,7 @@ import ProblemSolutionSection from "@/components/landing/sections/ProblemSolutio
 import TrustSignalsSection from "@/components/landing/sections/TrustSignalsSection";
 import IndustryShowcaseSection from "@/components/landing/sections/IndustryShowcaseSection";
 import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
+import InTextLinksSection from "@/components/landing/InTextLinksSection";
 import { getDruckRegionBySlug, regionalDruckData } from "@/data/regionalDruckData";
 import { getDruckExtendedDataBySlug } from "@/data/regionalDruckExtendedData";
 import { getDruckSectionData } from "@/data/druckSectionData";

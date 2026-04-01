@@ -124,31 +124,31 @@ export const messeSectionOrder: Record<MesseLayoutType, SectionId[]> = {
 
 export const druckSectionOrder: Record<DruckLayoutType, SectionId[]> = {
   startup: [
-    'hero', 'industryShowcase', 'caseStudy', 'expressTimeline', 'materials',
+    'hero', 'industryShowcase', 'inTextLinks', 'caseStudy', 'expressTimeline', 'materials',
     'ctaPrimary', 'faq', 'allRegionsLinks', 'crossLinks', 'nearbyRegions'
   ],
   industrie: [
-    'hero', 'valueProposition', 'materials', 'caseStudy', 'localContext',
+    'hero', 'valueProposition', 'materials', 'caseStudy', 'inTextLinks', 'localContext',
     'faq', 'ctaPrimary', 'crossLinks', 'allRegionsLinks', 'nearbyRegions'
   ],
   kreativ: [
     'hero', 'industryShowcase', 'checklist', 'caseStudy', 'allRegionsLinks',
-    'materials', 'ctaPrimary', 'faq', 'crossLinks', 'nearbyRegions'
+    'materials', 'inTextLinks', 'ctaPrimary', 'faq', 'crossLinks', 'nearbyRegions'
   ],
   bildung: [
-    'hero', 'industryShowcase', 'priceComparison', 'materials', 'caseStudy',
+    'hero', 'industryShowcase', 'priceComparison', 'inTextLinks', 'materials', 'caseStudy',
     'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions', 'allRegionsLinks'
   ],
   express: [
     'hero', 'expressTimeline', 'ctaSecondary', 'caseStudy', 'trustSignals',
-    'materials', 'allRegionsLinks', 'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
+    'inTextLinks', 'materials', 'allRegionsLinks', 'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
   ],
   outdoor: [
-    'hero', 'techSpecs', 'materials', 'caseStudy', 'localAdvantages',
+    'hero', 'techSpecs', 'materials', 'inTextLinks', 'caseStudy', 'localAdvantages',
     'faq', 'allRegionsLinks', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
   ],
   serie: [
-    'hero', 'priceComparison', 'valueProposition', 'checklist', 'caseStudy',
+    'hero', 'priceComparison', 'valueProposition', 'checklist', 'inTextLinks', 'caseStudy',
     'ctaPrimary', 'allRegionsLinks', 'faq', 'crossLinks', 'nearbyRegions'
   ]
 };
