@@ -220,6 +220,7 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
       case 'trustSignals': return <TrustSignalsSection key="trust" regionName={regionData.name} data={sectionData.trustSignals} />;
       case 'industryShowcase': return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localIndustries} category="druck" />;
       case 'allRegionsLinks': return <AllRegionsLinks key="arl" currentSlug={regionData.slug} type="druck" />;
+      case 'inTextLinks': return <InTextLinksSection key="itl" regionName={regionData.name} links={sectionData.inTextLinks} />;
       default: return null;
     }
   };
