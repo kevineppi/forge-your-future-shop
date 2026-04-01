@@ -114,7 +114,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'bundesland',
     title: 'Architekturmodelle für die Steiermark',
     h1Title: '3D-Druck Architekturmodelle Steiermark – Express nach Graz',
-    metaTitle: 'Architekturmodelle Steiermark – TU Graz & Smart City | ekdruck',
+    metaTitle: 'Architekturmodelle Steiermark – TU Graz | ekdruck',
     metaDescription: 'Steirische Architekten & TU Graz: Wettbewerbsmodelle, Altstadtsanierungen & Smart-City-Studien. Express über A9, Angebot in 6h.',
     heroSubtitle: 'Hochwertige Architekturmodelle für die Steiermark. Express-Lieferung nach Graz und in alle steirischen Regionen.',
     deliveryTime: '5-7 Tage',
