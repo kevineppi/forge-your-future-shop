@@ -249,7 +249,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'bundesland',
     title: 'Architekturmodelle für das Burgenland',
     h1Title: '3D-Druck Architekturmodelle Burgenland',
-    metaTitle: 'Architekturmodelle Burgenland – Weingut & Wohnbau | ekdruck',
+    metaTitle: 'Architekturmodelle Burgenland – Weingut | ekdruck',
     metaDescription: 'Burgenlands Architekten: Weingut-Architektur am Neusiedlersee, Tourismusprojekte & Ortskern-Sanierungen. Lieferung via Wien/A4. Jetzt anfragen.',
     heroSubtitle: 'Professionelle Architekturmodelle für das Burgenland. Schnelle Lieferung über Wien ins gesamte Bundesland.',
     deliveryTime: '5-7 Tage',
