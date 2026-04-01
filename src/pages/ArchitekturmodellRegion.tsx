@@ -34,6 +34,7 @@ import { getArchitekturRegionBySlug, regionalArchitekturData } from "@/data/regi
 import { getArchitekturExtendedDataBySlug } from "@/data/regionalArchitekturExtendedData";
 import { getGermanArchitekturBySlug, germanArchitekturData } from "@/data/germanArchitekturData";
 import { getGermanArchitekturExtendedBySlug } from "@/data/germanArchitekturExtendedData";
+import { getExtendedArchitekturSections } from "@/data/architekturExtendedSections";
 import {
   architekturRegionLayouts,
   architekturSectionOrder,
