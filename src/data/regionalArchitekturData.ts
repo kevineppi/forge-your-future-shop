@@ -331,7 +331,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'stadt',
     title: 'Architekturmodelle für Graz',
     h1Title: '3D-Druck Architekturmodelle Graz – Express-Lieferung',
-    metaTitle: 'Architekturmodelle Graz – UNESCO Altstadt & Smart City | ekdruck',
+    metaTitle: 'Architekturmodelle Graz – UNESCO & Smart City | ekdruck',
     metaDescription: 'Grazer Architekturbüros: Altstadtsanierungs-Modelle, Smart-City-Studien & TU-Projekte. Express über A9 Pyhrnautobahn. Angebot in 6h.',
     heroSubtitle: 'Hochwertige Architekturmodelle für die steirische Landeshauptstadt. Express-Lieferung für TU Graz und Grazer Architekturbüros.',
     deliveryTime: '5-7 Tage',
