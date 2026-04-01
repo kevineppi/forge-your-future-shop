@@ -332,7 +332,7 @@ export const regionalDruckData: Record<string, RegionalDruckData> = {
     type: 'bundesland',
     title: '3D-Druck Oberösterreich',
     h1Title: '3D-Druck Oberösterreich – Lokale Fertigung in Gunskirchen',
-    metaTitle: '3D Druck Oberösterreich – Lokaler Hersteller OÖ | ekdruck',
+    metaTitle: '3D Druck Oberösterreich – Lokaler Hersteller | ekdruck',
     metaDescription: 'OÖ-Betriebe: Schnittmodelle, Schulungsobjekte & Kunststoff-Konzepte direkt aus Gunskirchen. Same-Day möglich, Abholung vor Ort. Jetzt anfragen.',
     heroSubtitle: 'Ihr lokaler 3D-Druck-Partner in Oberösterreich. Persönliche Abholung in Gunskirchen oder Express-Lieferung in den gesamten Zentralraum – von der Designstudie bis zur Projektmenge.',
     deliveryTime: 'Sofort / Abholung',

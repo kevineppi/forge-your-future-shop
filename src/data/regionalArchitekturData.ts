@@ -463,7 +463,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'stadt',
     title: 'Architekturmodelle für Dornbirn',
     h1Title: '3D-Druck Architekturmodelle Dornbirn – Baukultur Vorarlberg',
-    metaTitle: 'Architekturmodelle Dornbirn – Bregenzerwald & Holz | ekdruck',
+    metaTitle: 'Architekturmodelle Dornbirn – Bregenzerwald | ekdruck',
     metaDescription: 'Dornbirner Architekturbüros: Bregenzerwald-Holzbau, Rheintal-Gewerbe & Wettbewerbsmodelle. Auch Lieferung CH/DE. Angebot in 6h.',
     heroSubtitle: 'Professionelle Architekturmodelle für die Vorarlberger Baukultur. Design-Kompetenz für anspruchsvolle Architekturbüros im Ländle.',
     deliveryTime: '5-7 Tage',

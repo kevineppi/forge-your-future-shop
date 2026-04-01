@@ -438,7 +438,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     type: 'stadt',
     title: 'Messemodelle für Innsbruck',
     h1Title: '3D-Messemodelle Innsbruck – Alpine Messen',
-    metaTitle: 'Messemodelle Innsbruck – Interalpin & Wintersport | ekdruck',
+    metaTitle: 'Messemodelle Innsbruck – Interalpin & Alpin | ekdruck',
     metaDescription: 'Innsbrucker Aussteller: Standmodelle für Interalpin, FAFGA & Tiroler Baumesse. Bruchsichere Verpackung für Alpentransport. Angebot in 6h.',
     heroSubtitle: 'Hochwertige Messemodelle für die Tiroler Landeshauptstadt. Spezialist für alpine Messen und Wintersport-Events.',
     deliveryTime: '5-7 Tage',
