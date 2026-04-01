@@ -45,6 +45,7 @@ interface DruckRegionProps {
 const DruckRegion = ({ region }: DruckRegionProps) => {
   const regionData = getDruckRegionBySlug(region);
   const extendedData = getDruckExtendedDataBySlug(region);
+  const sectionData = getDruckSectionData(region);
 
   if (!regionData) return null;
 
