@@ -141,7 +141,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'bundesland',
     title: 'Architekturmodelle für Kärnten',
     h1Title: '3D-Druck Architekturmodelle Kärnten',
-    metaTitle: 'Architekturmodelle Kärnten – Holzbau & Alpinarchitektur | ekdruck',
+    metaTitle: 'Architekturmodelle Kärnten – Holzbau & Alpin | ekdruck',
     metaDescription: 'Kärntner Architekten: Holzbau-Modelle, Tourismusbauten & alpine Wettbewerbsmodelle. Robuste Alpenlogistik über A10. Jetzt Modell anfragen.',
     heroSubtitle: 'Präzise Architekturmodelle für Kärntner Architekturbüros. Holzbau-Modelle, Tourismusbauten und alpine Architektur.',
     deliveryTime: '5-7 Tage',
