@@ -23,8 +23,10 @@ import TechSpecsSection from "@/components/landing/sections/TechSpecsSection";
 import ProblemSolutionSection from "@/components/landing/sections/ProblemSolutionSection";
 import TrustSignalsSection from "@/components/landing/sections/TrustSignalsSection";
 import IndustryShowcaseSection from "@/components/landing/sections/IndustryShowcaseSection";
+import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import { getDruckRegionBySlug, regionalDruckData } from "@/data/regionalDruckData";
 import { getDruckExtendedDataBySlug } from "@/data/regionalDruckExtendedData";
+import { getDruckSectionData } from "@/data/druckSectionData";
 import {
   druckRegionLayouts,
   druckSectionOrder,
