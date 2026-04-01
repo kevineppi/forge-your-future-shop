@@ -117,7 +117,7 @@ export const regionalMesseData: Record<string, RegionalMesseData> = {
     type: 'bundesland',
     title: 'Messemodelle für die Steiermark',
     h1Title: '3D-Messemodelle Steiermark – Express nach Graz',
-    metaTitle: 'Messemodelle Steiermark – Häuslbauer & Herbstmesse | ekdruck',
+    metaTitle: 'Messemodelle Steiermark – Häuslbauer & Graz | ekdruck',
     metaDescription: 'Steirische Aussteller: Standmodelle für Häuslbauermesse, Herbstmesse Graz & BeSt³. Express über A9 direkt zur Messe Graz. Angebot in 6h.',
     heroSubtitle: 'Hochwertige Messemodelle für das Grüne Herz Österreichs. Express-Lieferung nach Graz und in alle steirischen Regionen.',
     deliveryTime: '5-7 Tage',
