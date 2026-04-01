@@ -195,7 +195,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'bundesland',
     title: 'Architekturmodelle für Tirol',
     h1Title: '3D-Druck Architekturmodelle Tirol – Alpine Architektur',
-    metaTitle: 'Architekturmodelle Tirol – Bergstationen & Gelände | ekdruck',
+    metaTitle: 'Architekturmodelle Tirol – Bergstationen | ekdruck',
     metaDescription: 'Tiroler Architekten: Geländemodelle, Seilbahnstationen & Hotel-Wettbewerbe mit Topografie. Robuste Alpenverpackung inklusive. Jetzt anfragen.',
     heroSubtitle: 'Professionelle Architekturmodelle für Tiroler Architekten. Spezialist für alpine Architektur, Bergstationen und Tourismusbauten.',
     deliveryTime: '5-7 Tage',
