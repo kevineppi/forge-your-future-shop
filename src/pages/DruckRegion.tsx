@@ -227,6 +227,10 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
       case 'industryShowcase': return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localIndustries} category="druck" />;
       case 'allRegionsLinks': return <AllRegionsLinks key="arl" currentSlug={regionData.slug} type="druck" />;
       case 'inTextLinks': return <InTextLinksSection key="itl" regionName={regionData.name} links={sectionData.inTextLinks} />;
+      case 'typicalProjects': return <TypicalProjectsSection key="tp" regionName={regionData.name} data={extSections.typicalProjects} />;
+      case 'projectWorkflow': return <ProjectWorkflowSection key="pw" regionName={regionData.name} data={extSections.projectWorkflow} />;
+      case 'customerPriorities': return <CustomerPrioritiesSection key="cp" regionName={regionData.name} data={extSections.customerPriorities} />;
+      case 'commonMistakes': return <CommonMistakesSection key="cm" regionName={regionData.name} data={extSections.commonMistakes} />;
       default: return null;
     }
   };
