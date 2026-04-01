@@ -277,7 +277,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'stadt',
     title: 'Architekturmodelle für Linz',
     h1Title: '3D-Druck Architekturmodelle Linz – Same Day Delivery',
-    metaTitle: 'Architekturmodelle Linz – Same-Day für Wettbewerbe | ekdruck',
+    metaTitle: 'Architekturmodelle Linz – Same-Day | ekdruck',
     metaDescription: 'Linzer Architekturbüros: Stadtentwicklung, Industriearchitektur & Tabakfabrik-Projekte. Nur 20 Min entfernt, Same-Day möglich. Jetzt anfragen.',
     heroSubtitle: 'Ihr lokaler Partner für Architekturmodelle in Linz. Nur 20 Minuten entfernt – Same-Day-Delivery für dringende Wettbewerbsabgaben.',
     deliveryTime: 'Same Day',
