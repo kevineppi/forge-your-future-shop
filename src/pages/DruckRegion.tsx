@@ -23,11 +23,16 @@ import TechSpecsSection from "@/components/landing/sections/TechSpecsSection";
 import ProblemSolutionSection from "@/components/landing/sections/ProblemSolutionSection";
 import TrustSignalsSection from "@/components/landing/sections/TrustSignalsSection";
 import IndustryShowcaseSection from "@/components/landing/sections/IndustryShowcaseSection";
+import TypicalProjectsSection from "@/components/landing/sections/TypicalProjectsSection";
+import ProjectWorkflowSection from "@/components/landing/sections/ProjectWorkflowSection";
+import CustomerPrioritiesSection from "@/components/landing/sections/CustomerPrioritiesSection";
+import CommonMistakesSection from "@/components/landing/sections/CommonMistakesSection";
 import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import InTextLinksSection from "@/components/landing/InTextLinksSection";
 import { getDruckRegionBySlug, regionalDruckData } from "@/data/regionalDruckData";
 import { getDruckExtendedDataBySlug } from "@/data/regionalDruckExtendedData";
 import { getDruckSectionData } from "@/data/druckSectionData";
+import { getExtendedDruckSections } from "@/data/druckExtendedSections";
 import {
   druckRegionLayouts,
   druckSectionOrder,
