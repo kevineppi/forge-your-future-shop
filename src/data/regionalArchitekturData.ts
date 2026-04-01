@@ -168,7 +168,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'bundesland',
     title: 'Architekturmodelle für Salzburg',
     h1Title: '3D-Druck Architekturmodelle Salzburg – Präzision für Architekten',
-    metaTitle: 'Architekturmodelle Salzburg – UNESCO & Hotelprojekte | ekdruck',
+    metaTitle: 'Architekturmodelle Salzburg – UNESCO & Hotels | ekdruck',
     metaDescription: 'Salzburger Architekten: Altstadtsanierungs-Modelle, Hotel-Präsentationen & Festspielhäuser. Express über A1, Angebot in 6h.',
     heroSubtitle: 'Hochwertige Architekturmodelle für Salzburger Architekten. Von historischen Sanierungen bis zu modernen Neubauten.',
     deliveryTime: '5-7 Tage',
