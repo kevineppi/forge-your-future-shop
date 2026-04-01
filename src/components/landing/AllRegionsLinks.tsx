@@ -16,8 +16,8 @@ interface AllRegionsLinksProps {
 const AllRegionsLinks = ({ currentSlug, type }: AllRegionsLinksProps) => {
   const basePath = type === 'messe' ? '/messemodelle' : type === 'architektur' ? '/architekturmodelle' : '/3d-druck';
   
-  const atData = type === 'messe' ? regionalMesseData : regionalArchitekturData;
-  const deData = type === 'messe' ? germanMesseData : germanArchitekturData;
+  const atData = type === 'messe' ? regionalMesseData : type === 'architektur' ? regionalArchitekturData : regionalDruckData;
+  const deData = type === 'messe' ? germanMesseData : type === 'architektur' ? germanArchitekturData : {};
 
   const atRegions = Object.values(atData).filter(r => r.slug !== currentSlug);
   const deRegions = Object.values(deData).filter(r => r.slug !== currentSlug);
