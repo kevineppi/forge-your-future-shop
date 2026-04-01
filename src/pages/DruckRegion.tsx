@@ -52,6 +52,7 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
   const regionData = getDruckRegionBySlug(region);
   const extendedData = getDruckExtendedDataBySlug(region);
   const sectionData = getDruckSectionData(region);
+  const extSections = getExtendedDruckSections(region);
 
   if (!regionData) return null;
 
