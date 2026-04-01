@@ -56,7 +56,8 @@ export type SectionId =
   | 'techSpecs'           // New: Technical specifications deep-dive
   | 'problemSolution'     // New: Problem → Solution narrative
   | 'trustSignals'        // New: Reviews, certifications, trust badges
-  | 'industryShowcase';   // New: Industry-specific showcase
+  | 'industryShowcase'    // New: Industry-specific showcase
+  | 'inTextLinks';        // Contextual internal links in prose
 
 // Section order per Architektur layout type
 export const architekturSectionOrder: Record<ArchitekturLayoutType, SectionId[]> = {
