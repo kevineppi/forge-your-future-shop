@@ -54,6 +54,7 @@ const MessemodellRegion = () => {
   const isGerman = !atRegion && !!deRegion;
   const countryName = isGerman ? 'Deutschland' : 'Österreich';
   const extendedData = region ? (getExtendedDataBySlug(region) || getGermanExtendedDataBySlug(region)) : undefined;
+  const extSections = region ? getExtendedMesseSections(region) : undefined;
 
   if (!regionData || !extendedData) {
     return <Navigate to="/messemodelle" replace />;
