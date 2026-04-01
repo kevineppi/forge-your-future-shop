@@ -212,12 +212,13 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
           </section>
         );
 
-      case 'priceComparison': return <PriceComparisonSection key="pc" regionName={regionData.name} category="druck" />;
-      case 'expressTimeline': return <ExpressTimelineSection key="et" regionName={regionData.name} deliveryTime={regionData.deliveryTime} />;
-      case 'techSpecs': return <TechSpecsSection key="ts" regionName={regionData.name} category="druck" />;
-      case 'problemSolution': return <ProblemSolutionSection key="ps" regionName={regionData.name} category="druck" />;
-      case 'trustSignals': return <TrustSignalsSection key="trust" regionName={regionData.name} />;
+      case 'priceComparison': return <PriceComparisonSection key="pc" regionName={regionData.name} category="druck" data={sectionData.priceComparison} />;
+      case 'expressTimeline': return <ExpressTimelineSection key="et" regionName={regionData.name} deliveryTime={regionData.deliveryTime} data={sectionData.expressTimeline} />;
+      case 'techSpecs': return <TechSpecsSection key="ts" regionName={regionData.name} category="druck" data={sectionData.techSpecs} />;
+      case 'problemSolution': return <ProblemSolutionSection key="ps" regionName={regionData.name} category="druck" data={sectionData.problemSolution} />;
+      case 'trustSignals': return <TrustSignalsSection key="trust" regionName={regionData.name} data={sectionData.trustSignals} />;
       case 'industryShowcase': return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localIndustries} category="druck" />;
+      case 'allRegionsLinks': return <AllRegionsLinks key="arl" currentSlug={regionData.slug} type="druck" />;
       default: return null;
     }
   };
