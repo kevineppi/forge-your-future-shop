@@ -319,6 +319,15 @@ const ArchitekturmodellRegion = () => {
       case 'industryShowcase':
         return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localArchitekturContext} category="architektur" />;
 
+      case 'typicalProjects':
+        return extSections ? <TypicalProjectsSection key="tp" regionName={regionData.name} data={extSections.typicalProjects} /> : null;
+      case 'projectWorkflow':
+        return extSections ? <ProjectWorkflowSection key="pw" regionName={regionData.name} data={extSections.projectWorkflow} /> : null;
+      case 'customerPriorities':
+        return extSections ? <CustomerPrioritiesSection key="cp" regionName={regionData.name} data={extSections.customerPriorities} /> : null;
+      case 'commonMistakes':
+        return extSections ? <CommonMistakesSection key="cm" regionName={regionData.name} data={extSections.commonMistakes} /> : null;
+
       default:
         return null;
     }

@@ -241,6 +241,10 @@ const MessemodellRegion = () => {
       case 'problemSolution': return <ProblemSolutionSection key="ps" regionName={regionData.name} category="messe" />;
       case 'trustSignals': return <TrustSignalsSection key="trust" regionName={regionData.name} />;
       case 'industryShowcase': return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localMessen} category="messe" />;
+      case 'typicalProjects': return extSections ? <TypicalProjectsSection key="tp" regionName={regionData.name} data={extSections.typicalProjects} /> : null;
+      case 'projectWorkflow': return extSections ? <ProjectWorkflowSection key="pw" regionName={regionData.name} data={extSections.projectWorkflow} /> : null;
+      case 'customerPriorities': return extSections ? <CustomerPrioritiesSection key="cp" regionName={regionData.name} data={extSections.customerPriorities} /> : null;
+      case 'commonMistakes': return extSections ? <CommonMistakesSection key="cm" regionName={regionData.name} data={extSections.commonMistakes} /> : null;
       default: return null;
     }
   };
