@@ -50,6 +50,12 @@ export interface TimelineStepData {
   highlight: boolean;
 }
 
+export interface InTextLinkData {
+  anchor: string;
+  href: string;
+  context: string; // sentence around the link
+}
+
 export interface DruckSectionDataSet {
   valueProposition: ValuePropositionData;
   checklist: ChecklistData;
@@ -58,6 +64,7 @@ export interface DruckSectionDataSet {
   techSpecs: TechSpecData;
   problemSolution: ProblemSolutionData;
   expressTimeline: TimelineStepData[];
+  inTextLinks: InTextLinkData[];
 }
 
 // ═══════════════════════════════════════════
