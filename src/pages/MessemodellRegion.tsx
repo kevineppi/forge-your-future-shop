@@ -34,6 +34,7 @@ import { getRegionBySlug, regionalMesseData, RegionalMesseData } from "@/data/re
 import { getExtendedDataBySlug } from "@/data/regionalMesseExtendedData";
 import { getGermanRegionBySlug, germanMesseData } from "@/data/germanMesseData";
 import { getGermanExtendedDataBySlug } from "@/data/germanMesseExtendedData";
+import { getExtendedMesseSections } from "@/data/messeExtendedSections";
 import {
   messeRegionLayouts,
   messeSectionOrder,
