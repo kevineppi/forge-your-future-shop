@@ -53,6 +53,7 @@ const ArchitekturmodellRegion = () => {
   const regionData = atRegion || deRegion;
   const isGerman = !!deRegion && !atRegion;
   const extendedData = region ? (isGerman ? getGermanArchitekturExtendedBySlug(region) : getArchitekturExtendedDataBySlug(region)) : undefined;
+  const extSections = region ? getExtendedArchitekturSections(region) : undefined;
 
   if (!regionData || !extendedData) {
     return <Navigate to="/architekturmodelle" replace />;
