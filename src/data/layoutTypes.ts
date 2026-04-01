@@ -66,32 +66,32 @@ export type SectionId =
 // Section order per Architektur layout type
 export const architekturSectionOrder: Record<ArchitekturLayoutType, SectionId[]> = {
   wettbewerb: [
-    'hero', 'problemSolution', 'caseStudy', 'materials', 'checklist',
-    'localContext', 'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'typicalProjects', 'problemSolution', 'caseStudy', 'projectWorkflow', 'materials', 'checklist',
+    'customerPriorities', 'localContext', 'ctaPrimary', 'commonMistakes', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   kosten: [
-    'hero', 'priceComparison', 'valueProposition', 'checklist', 'caseStudy',
-    'ctaPrimary', 'faq', 'localAdvantages', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'priceComparison', 'typicalProjects', 'valueProposition', 'checklist', 'projectWorkflow',
+    'caseStudy', 'customerPriorities', 'commonMistakes', 'ctaPrimary', 'faq', 'localAdvantages', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   express: [
-    'hero', 'expressTimeline', 'ctaSecondary', 'caseStudy', 'trustSignals',
-    'materials', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'expressTimeline', 'typicalProjects', 'ctaSecondary', 'caseStudy', 'projectWorkflow',
+    'trustSignals', 'customerPriorities', 'materials', 'commonMistakes', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   casestudy: [
-    'hero', 'caseStudy', 'uniqueContent', 'localAdvantages', 'materials',
-    'ctaPrimary', 'faq', 'deliveryInfo', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'caseStudy', 'typicalProjects', 'uniqueContent', 'projectWorkflow', 'localAdvantages',
+    'customerPriorities', 'materials', 'commonMistakes', 'ctaPrimary', 'faq', 'deliveryInfo', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   material: [
-    'hero', 'techSpecs', 'materials', 'checklist', 'caseStudy',
-    'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'techSpecs', 'typicalProjects', 'materials', 'projectWorkflow', 'checklist',
+    'customerPriorities', 'caseStudy', 'commonMistakes', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   behoerden: [
-    'hero', 'trustSignals', 'valueProposition', 'caseStudy', 'localContext',
-    'deliveryInfo', 'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'trustSignals', 'typicalProjects', 'valueProposition', 'projectWorkflow', 'caseStudy',
+    'customerPriorities', 'localContext', 'commonMistakes', 'deliveryInfo', 'ctaPrimary', 'faq', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ],
   universitaet: [
-    'hero', 'industryShowcase', 'priceComparison', 'materials', 'caseStudy',
-    'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
+    'hero', 'typicalProjects', 'industryShowcase', 'priceComparison', 'projectWorkflow', 'materials',
+    'customerPriorities', 'caseStudy', 'commonMistakes', 'faq', 'ctaPrimary', 'nearbyRegions', 'allRegionsLinks', 'relatedPages'
   ]
 };
 
