@@ -39,25 +39,29 @@ export type SectionId =
   | 'caseStudy'
   | 'checklist'
   | 'materials'
-  | 'localContext'        // Local messen / architektur context / industries
+  | 'localContext'
   | 'uniqueContent'
   | 'personalDelivery'
   | 'localAdvantages'
   | 'deliveryInfo'
   | 'crossLinks'
   | 'ctaPrimary'
-  | 'ctaSecondary'        // Mid-page CTA with different messaging
+  | 'ctaSecondary'
   | 'faq'
   | 'nearbyRegions'
   | 'allRegionsLinks'
   | 'relatedPages'
-  | 'priceComparison'     // New: Price/value focused section
-  | 'expressTimeline'     // New: Express speed visualization
-  | 'techSpecs'           // New: Technical specifications deep-dive
-  | 'problemSolution'     // New: Problem → Solution narrative
-  | 'trustSignals'        // New: Reviews, certifications, trust badges
-  | 'industryShowcase'    // New: Industry-specific showcase
-  | 'inTextLinks';        // Contextual internal links in prose
+  | 'priceComparison'
+  | 'expressTimeline'
+  | 'techSpecs'
+  | 'problemSolution'
+  | 'trustSignals'
+  | 'industryShowcase'
+  | 'inTextLinks'
+  | 'typicalProjects'
+  | 'projectWorkflow'
+  | 'customerPriorities'
+  | 'commonMistakes';
 
 // Section order per Architektur layout type
 export const architekturSectionOrder: Record<ArchitekturLayoutType, SectionId[]> = {
