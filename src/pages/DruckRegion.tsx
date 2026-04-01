@@ -23,11 +23,16 @@ import TechSpecsSection from "@/components/landing/sections/TechSpecsSection";
 import ProblemSolutionSection from "@/components/landing/sections/ProblemSolutionSection";
 import TrustSignalsSection from "@/components/landing/sections/TrustSignalsSection";
 import IndustryShowcaseSection from "@/components/landing/sections/IndustryShowcaseSection";
+import TypicalProjectsSection from "@/components/landing/sections/TypicalProjectsSection";
+import ProjectWorkflowSection from "@/components/landing/sections/ProjectWorkflowSection";
+import CustomerPrioritiesSection from "@/components/landing/sections/CustomerPrioritiesSection";
+import CommonMistakesSection from "@/components/landing/sections/CommonMistakesSection";
 import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import InTextLinksSection from "@/components/landing/InTextLinksSection";
 import { getDruckRegionBySlug, regionalDruckData } from "@/data/regionalDruckData";
 import { getDruckExtendedDataBySlug } from "@/data/regionalDruckExtendedData";
 import { getDruckSectionData } from "@/data/druckSectionData";
+import { getExtendedDruckSections } from "@/data/druckExtendedSections";
 import {
   druckRegionLayouts,
   druckSectionOrder,
@@ -47,6 +52,7 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
   const regionData = getDruckRegionBySlug(region);
   const extendedData = getDruckExtendedDataBySlug(region);
   const sectionData = getDruckSectionData(region);
+  const extSections = getExtendedDruckSections(region);
 
   if (!regionData) return null;
 
@@ -221,6 +227,10 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
       case 'industryShowcase': return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localIndustries} category="druck" />;
       case 'allRegionsLinks': return <AllRegionsLinks key="arl" currentSlug={regionData.slug} type="druck" />;
       case 'inTextLinks': return <InTextLinksSection key="itl" regionName={regionData.name} links={sectionData.inTextLinks} />;
+      case 'typicalProjects': return <TypicalProjectsSection key="tp" regionName={regionData.name} data={extSections.typicalProjects} />;
+      case 'projectWorkflow': return <ProjectWorkflowSection key="pw" regionName={regionData.name} data={extSections.projectWorkflow} />;
+      case 'customerPriorities': return <CustomerPrioritiesSection key="cp" regionName={regionData.name} data={extSections.customerPriorities} />;
+      case 'commonMistakes': return <CommonMistakesSection key="cm" regionName={regionData.name} data={extSections.commonMistakes} />;
       default: return null;
     }
   };

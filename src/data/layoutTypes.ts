@@ -39,25 +39,29 @@ export type SectionId =
   | 'caseStudy'
   | 'checklist'
   | 'materials'
-  | 'localContext'        // Local messen / architektur context / industries
+  | 'localContext'
   | 'uniqueContent'
   | 'personalDelivery'
   | 'localAdvantages'
   | 'deliveryInfo'
   | 'crossLinks'
   | 'ctaPrimary'
-  | 'ctaSecondary'        // Mid-page CTA with different messaging
+  | 'ctaSecondary'
   | 'faq'
   | 'nearbyRegions'
   | 'allRegionsLinks'
   | 'relatedPages'
-  | 'priceComparison'     // New: Price/value focused section
-  | 'expressTimeline'     // New: Express speed visualization
-  | 'techSpecs'           // New: Technical specifications deep-dive
-  | 'problemSolution'     // New: Problem → Solution narrative
-  | 'trustSignals'        // New: Reviews, certifications, trust badges
-  | 'industryShowcase'    // New: Industry-specific showcase
-  | 'inTextLinks';        // Contextual internal links in prose
+  | 'priceComparison'
+  | 'expressTimeline'
+  | 'techSpecs'
+  | 'problemSolution'
+  | 'trustSignals'
+  | 'industryShowcase'
+  | 'inTextLinks'
+  | 'typicalProjects'
+  | 'projectWorkflow'
+  | 'customerPriorities'
+  | 'commonMistakes';
 
 // Section order per Architektur layout type
 export const architekturSectionOrder: Record<ArchitekturLayoutType, SectionId[]> = {
@@ -124,31 +128,38 @@ export const messeSectionOrder: Record<MesseLayoutType, SectionId[]> = {
 
 export const druckSectionOrder: Record<DruckLayoutType, SectionId[]> = {
   startup: [
-    'hero', 'industryShowcase', 'inTextLinks', 'caseStudy', 'expressTimeline', 'materials',
+    'hero', 'typicalProjects', 'industryShowcase', 'projectWorkflow', 'inTextLinks',
+    'caseStudy', 'customerPriorities', 'expressTimeline', 'commonMistakes', 'materials',
     'ctaPrimary', 'faq', 'allRegionsLinks', 'crossLinks', 'nearbyRegions'
   ],
   industrie: [
-    'hero', 'valueProposition', 'materials', 'caseStudy', 'inTextLinks', 'localContext',
+    'hero', 'valueProposition', 'typicalProjects', 'materials', 'projectWorkflow',
+    'caseStudy', 'commonMistakes', 'inTextLinks', 'customerPriorities', 'localContext',
     'faq', 'ctaPrimary', 'crossLinks', 'allRegionsLinks', 'nearbyRegions'
   ],
   kreativ: [
-    'hero', 'industryShowcase', 'checklist', 'caseStudy', 'allRegionsLinks',
+    'hero', 'industryShowcase', 'customerPriorities', 'checklist', 'typicalProjects',
+    'caseStudy', 'projectWorkflow', 'commonMistakes', 'allRegionsLinks',
     'materials', 'inTextLinks', 'ctaPrimary', 'faq', 'crossLinks', 'nearbyRegions'
   ],
   bildung: [
-    'hero', 'industryShowcase', 'priceComparison', 'inTextLinks', 'materials', 'caseStudy',
+    'hero', 'typicalProjects', 'industryShowcase', 'priceComparison', 'projectWorkflow',
+    'inTextLinks', 'commonMistakes', 'materials', 'customerPriorities', 'caseStudy',
     'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions', 'allRegionsLinks'
   ],
   express: [
-    'hero', 'expressTimeline', 'ctaSecondary', 'caseStudy', 'trustSignals',
+    'hero', 'expressTimeline', 'typicalProjects', 'ctaSecondary', 'projectWorkflow',
+    'caseStudy', 'customerPriorities', 'trustSignals', 'commonMistakes',
     'inTextLinks', 'materials', 'allRegionsLinks', 'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
   ],
   outdoor: [
-    'hero', 'techSpecs', 'materials', 'inTextLinks', 'caseStudy', 'localAdvantages',
+    'hero', 'techSpecs', 'typicalProjects', 'materials', 'projectWorkflow',
+    'commonMistakes', 'inTextLinks', 'caseStudy', 'customerPriorities', 'localAdvantages',
     'faq', 'allRegionsLinks', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
   ],
   serie: [
-    'hero', 'priceComparison', 'valueProposition', 'checklist', 'inTextLinks', 'caseStudy',
+    'hero', 'priceComparison', 'typicalProjects', 'valueProposition', 'projectWorkflow',
+    'checklist', 'customerPriorities', 'commonMistakes', 'inTextLinks', 'caseStudy',
     'ctaPrimary', 'allRegionsLinks', 'faq', 'crossLinks', 'nearbyRegions'
   ]
 };
