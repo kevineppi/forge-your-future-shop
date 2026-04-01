@@ -89,10 +89,6 @@ export interface DruckSectionDataSet {
   problemSolution: ProblemSolutionData;
   expressTimeline: TimelineStepData[];
   inTextLinks: InTextLinkData[];
-  typicalProjects: TypicalProjectData[];
-  projectWorkflow: ProjectWorkflowData;
-  customerPriorities: CustomerPriorityData[];
-  commonMistakes: CommonMistakeData[];
 }
 
 // ═══════════════════════════════════════════
