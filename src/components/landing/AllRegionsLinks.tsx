@@ -6,17 +6,18 @@ import { regionalMesseData } from "@/data/regionalMesseData";
 import { germanMesseData } from "@/data/germanMesseData";
 import { regionalArchitekturData } from "@/data/regionalArchitekturData";
 import { germanArchitekturData } from "@/data/germanArchitekturData";
+import { regionalDruckData } from "@/data/regionalDruckData";
 
 interface AllRegionsLinksProps {
   currentSlug: string;
-  type: 'messe' | 'architektur';
+  type: 'messe' | 'architektur' | 'druck';
 }
 
 const AllRegionsLinks = ({ currentSlug, type }: AllRegionsLinksProps) => {
-  const basePath = type === 'messe' ? '/messemodelle' : '/architekturmodelle';
+  const basePath = type === 'messe' ? '/messemodelle' : type === 'architektur' ? '/architekturmodelle' : '/3d-druck';
   
-  const atData = type === 'messe' ? regionalMesseData : regionalArchitekturData;
-  const deData = type === 'messe' ? germanMesseData : germanArchitekturData;
+  const atData = type === 'messe' ? regionalMesseData : type === 'architektur' ? regionalArchitekturData : regionalDruckData;
+  const deData = type === 'messe' ? germanMesseData : type === 'architektur' ? germanArchitekturData : {};
 
   const atRegions = Object.values(atData).filter(r => r.slug !== currentSlug);
   const deRegions = Object.values(deData).filter(r => r.slug !== currentSlug);
@@ -46,7 +47,7 @@ const AllRegionsLinks = ({ currentSlug, type }: AllRegionsLinksProps) => {
             {atTop.map((region) => (
               <Link
                 key={region.slug}
-                to={`${basePath}/${region.slug}`}
+                to={type === 'druck' ? `${basePath}-${region.slug}` : `${basePath}/${region.slug}`}
                 onClick={() => window.scrollTo(0, 0)}
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-card border border-border/60 hover:border-primary/40 hover:bg-primary/5 hover:text-primary text-sm font-medium transition-all duration-200"
               >
@@ -58,26 +59,28 @@ const AllRegionsLinks = ({ currentSlug, type }: AllRegionsLinksProps) => {
           </div>
         </div>
 
-        {/* Germany */}
-        <div>
-          <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 text-center">
-            🇩🇪 Deutschland
-          </h3>
-          <div className="flex flex-wrap gap-2 justify-center max-w-4xl mx-auto">
-            {deTop.map((region) => (
-              <Link
-                key={region.slug}
-                to={`${basePath}/${region.slug}`}
-                onClick={() => window.scrollTo(0, 0)}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-card border border-border/60 hover:border-primary/40 hover:bg-primary/5 hover:text-primary text-sm font-medium transition-all duration-200"
-              >
-                <MapPin className="w-3 h-3" />
-                {region.name}
-                <span className="text-xs text-muted-foreground">({region.stats.lieferzeit})</span>
-              </Link>
-            ))}
+        {/* Germany - only show if deData has entries */}
+        {deTop.length > 0 && (
+          <div>
+            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 text-center">
+              🇩🇪 Deutschland
+            </h3>
+            <div className="flex flex-wrap gap-2 justify-center max-w-4xl mx-auto">
+              {deTop.map((region) => (
+                <Link
+                  key={region.slug}
+                  to={type === 'druck' ? `${basePath}-${region.slug}` : `${basePath}/${region.slug}`}
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-card border border-border/60 hover:border-primary/40 hover:bg-primary/5 hover:text-primary text-sm font-medium transition-all duration-200"
+                >
+                  <MapPin className="w-3 h-3" />
+                  {region.name}
+                  <span className="text-xs text-muted-foreground">({region.stats.lieferzeit})</span>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

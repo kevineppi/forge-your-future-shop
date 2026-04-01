@@ -56,7 +56,8 @@ export type SectionId =
   | 'techSpecs'           // New: Technical specifications deep-dive
   | 'problemSolution'     // New: Problem → Solution narrative
   | 'trustSignals'        // New: Reviews, certifications, trust badges
-  | 'industryShowcase';   // New: Industry-specific showcase
+  | 'industryShowcase'    // New: Industry-specific showcase
+  | 'inTextLinks';        // Contextual internal links in prose
 
 // Section order per Architektur layout type
 export const architekturSectionOrder: Record<ArchitekturLayoutType, SectionId[]> = {
@@ -123,32 +124,32 @@ export const messeSectionOrder: Record<MesseLayoutType, SectionId[]> = {
 
 export const druckSectionOrder: Record<DruckLayoutType, SectionId[]> = {
   startup: [
-    'hero', 'industryShowcase', 'caseStudy', 'expressTimeline', 'materials',
-    'ctaPrimary', 'faq', 'crossLinks', 'nearbyRegions'
+    'hero', 'industryShowcase', 'inTextLinks', 'caseStudy', 'expressTimeline', 'materials',
+    'ctaPrimary', 'faq', 'allRegionsLinks', 'crossLinks', 'nearbyRegions'
   ],
   industrie: [
-    'hero', 'valueProposition', 'materials', 'caseStudy', 'localContext',
-    'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
+    'hero', 'valueProposition', 'materials', 'caseStudy', 'inTextLinks', 'localContext',
+    'faq', 'ctaPrimary', 'crossLinks', 'allRegionsLinks', 'nearbyRegions'
   ],
   kreativ: [
-    'hero', 'industryShowcase', 'checklist', 'caseStudy', 'materials',
-    'ctaPrimary', 'faq', 'crossLinks', 'nearbyRegions'
+    'hero', 'industryShowcase', 'checklist', 'caseStudy', 'allRegionsLinks',
+    'materials', 'inTextLinks', 'ctaPrimary', 'faq', 'crossLinks', 'nearbyRegions'
   ],
   bildung: [
-    'hero', 'industryShowcase', 'priceComparison', 'materials', 'caseStudy',
-    'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
+    'hero', 'industryShowcase', 'priceComparison', 'inTextLinks', 'materials', 'caseStudy',
+    'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions', 'allRegionsLinks'
   ],
   express: [
     'hero', 'expressTimeline', 'ctaSecondary', 'caseStudy', 'trustSignals',
-    'materials', 'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
+    'inTextLinks', 'materials', 'allRegionsLinks', 'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
   ],
   outdoor: [
-    'hero', 'techSpecs', 'materials', 'caseStudy', 'localAdvantages',
-    'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
+    'hero', 'techSpecs', 'materials', 'inTextLinks', 'caseStudy', 'localAdvantages',
+    'faq', 'allRegionsLinks', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
   ],
   serie: [
-    'hero', 'priceComparison', 'valueProposition', 'checklist', 'caseStudy',
-    'ctaPrimary', 'faq', 'crossLinks', 'nearbyRegions'
+    'hero', 'priceComparison', 'valueProposition', 'checklist', 'inTextLinks', 'caseStudy',
+    'ctaPrimary', 'allRegionsLinks', 'faq', 'crossLinks', 'nearbyRegions'
   ]
 };
 
