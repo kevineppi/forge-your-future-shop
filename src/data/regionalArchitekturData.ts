@@ -33,7 +33,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'bundesland',
     title: 'Architekturmodelle für Wien',
     h1Title: '3D-Druck Architekturmodelle Wien – Express-Fertigung',
-    metaTitle: 'Architekturmodelle Wien – Wettbewerbe & Stadtplanung | ekdruck',
+    metaTitle: 'Architekturmodelle Wien – Wettbewerbe | ekdruck',
     metaDescription: 'Wiener Architekturbüros: Wettbewerbsmodelle, Stadtplanungsmodelle & Immobilienpräsentationen. Express in 24h für Abgabetermine. Angebot in 6h.',
     heroSubtitle: 'Präzise Architekturmodelle für Wiener Architekturbüros. Wettbewerbsmodelle, Präsentationsmodelle und Studienmodelle – Express-Lieferung nach Wien.',
     deliveryTime: '5-7 Tage',
