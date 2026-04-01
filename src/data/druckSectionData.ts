@@ -150,6 +150,13 @@ const wien: DruckSectionDataSet = {
     { time: '6h', title: 'Druck startet', description: 'Nach Freigabe: alle Varianten parallel im Druck.', highlight: true },
     { time: '36h', title: 'Pitch-ready in Wien', description: 'Express-Versand über Nacht. Einzeln verpackt, sofort einsatzbereit.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Expressfertigung in Linz', href: '/3d-druck-linz', context: 'Für zeitkritische Projekte bietet unser Standort in Linz Same-Day-Abholung.' },
+    { anchor: 'Designstudien für Messestände', href: '/messemodelle/wien', context: 'Wiener Messemodelle mit kreativer Gestaltung für Ihr nächstes Event.' },
+    { anchor: '3D-gedruckte Architekturmodelle Wien', href: '/architekturmodelle/wien', context: 'Architekten in Wien vertrauen auf unsere maßstabsgetreuen Wettbewerbsmodelle.' },
+    { anchor: 'Modelldruck für Grazer Industriebetriebe', href: '/3d-druck-graz', context: 'Für Serienfertigung und Industrieanwendungen ist unser Grazer Service ideal.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -233,6 +240,13 @@ const linz: DruckSectionDataSet = {
     { time: '2h', title: 'Druck läuft', description: 'Sofort nach Freigabe starten unsere Drucker.', highlight: true },
     { time: '6h', title: 'Abholung in Gunskirchen', description: 'SMS wenn fertig – nur 20 Min von Linz.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: 'Direktabholung am Standort Gunskirchen', href: '/3d-druck-gunskirchen', context: 'Nur 20 Minuten von Linz: persönliche Abholung mit Qualitätsprüfung vor Ort.' },
+    { anchor: '3D-Druck Service für Wiener Startups', href: '/3d-druck-wien', context: 'Pitch-Modelle für die Wiener Startup-Szene – Express-Versand über Nacht.' },
+    { anchor: 'Messemodelle für OÖ-Messen', href: '/messemodelle/oberoesterreich', context: 'Maßgefertigte Messeexponate für Messen in Oberösterreich.' },
+    { anchor: 'Wetterfeste Outdoor-Modelle Dornbirn', href: '/3d-druck-dornbirn', context: 'ASA-Modelle für Außenanwendungen aus unserem Vorarlberg-Service.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -316,6 +330,12 @@ const graz: DruckSectionDataSet = {
     { time: '8h', title: 'Parallelfertigung', description: 'Alle Drucker arbeiten gleichzeitig an Ihren Varianten.', highlight: true },
     { time: '3-5 Tage', title: 'Serie komplett', description: 'Einzeln verpackt, per A9-Express nach Graz.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Kleinserie Steiermark', href: '/3d-druck-steiermark', context: 'Für steiermarkweite Lieferungen nutzen Sie unseren regionalen Expressservice.' },
+    { anchor: 'Startup-Modelle aus Wien', href: '/3d-druck-wien', context: 'Wiener Startups setzen auf Pitch-ready Modelle in 48 Stunden.' },
+    { anchor: 'Architekturmodelle für Grazer Büros', href: '/architekturmodelle/graz', context: 'Maßstabsgetreue Wettbewerbsmodelle für steirische Architekturprojekte.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -399,6 +419,13 @@ const salzburg: DruckSectionDataSet = {
     { time: '48h', title: 'Produktion startet', description: 'Nach Freigabe: alle Teile in einem Durchlauf.', highlight: true },
     { time: '5 Tage', title: 'Lieferung an alle Filialen', description: 'Direkt an jeden Standort über A1 Westautobahn.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Express Oberösterreich', href: '/3d-druck-oberoesterreich', context: 'Über die A1 in 1-2 Tagen – Express aus Gunskirchen nach Salzburg.' },
+    { anchor: 'Messemodelle für Salzburger Events', href: '/messemodelle/salzburg', context: 'Vom Kongresshaus bis zur Messehalle: Event-Modelle nach Maß.' },
+    { anchor: 'Kreativprojekte in Innsbruck', href: '/3d-druck-innsbruck', context: 'Auch Tiroler Kreative profitieren von unserer Designkompetenz.' },
+    { anchor: 'Filialmodelle für Salzburger Ketten', href: '/3d-druck-linz', context: 'Express-Fertigung identischer Modelle für alle Filialen.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -482,6 +509,12 @@ const innsbruck: DruckSectionDataSet = {
     { time: '24h', title: 'Druck & Qualitätskontrolle', description: 'Farbcodiert, zerlegbar, maßstabsgetreu.', highlight: true },
     { time: '48h', title: 'An Ihrem Institut', description: 'Express-Versand mit Alpenverpackung nach Innsbruck.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Lehrmittel Salzburg', href: '/3d-druck-salzburg', context: 'Universitäten in Salzburg nutzen ebenfalls unsere Lehrmittelfertigung.' },
+    { anchor: 'Outdoor-Modelle für Alpen-Projekte', href: '/3d-druck-dornbirn', context: 'Wetterfeste ASA-Modelle für touristische Installationen im Alpenraum.' },
+    { anchor: 'Messemodelle Innsbruck', href: '/messemodelle/tirol', context: 'Interaktive Messeexponate für Tiroler Fachmessen und Events.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -565,6 +598,12 @@ const klagenfurt: DruckSectionDataSet = {
     { time: '24h', title: 'Paralleldruck startet', description: 'Alle Varianten gleichzeitig im ASA-Druck.', highlight: true },
     { time: '5-7 Tage', title: 'Sortiert geliefert', description: 'Varianten einzeln beschriftet, über A10 nach Klagenfurt.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Forschung Villach', href: '/3d-druck-villach', context: 'Infineon-Zulieferer und Tech-Firmen in Villach nutzen unseren Prototypen-Service.' },
+    { anchor: 'Industriemodelle aus Graz', href: '/3d-druck-graz', context: 'Grazer Industriebetriebe vertrauen auf unsere Serienfertigung.' },
+    { anchor: 'Architekturmodelle Kärnten', href: '/architekturmodelle/kaernten', context: 'Kärntner Architekten setzen auf präzise 3D-gedruckte Wettbewerbsmodelle.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -648,6 +687,12 @@ const villach: DruckSectionDataSet = {
     { time: '12h', title: 'Präzisionsdruck', description: '0.12mm Auflösung, Passstifte exakt.', highlight: true },
     { time: '3 Tage', title: 'In Villach', description: 'Lieferung an Technologiepark oder Firmenadresse.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: 'Startup-Modelle Klagenfurt', href: '/3d-druck-klagenfurt', context: 'Klagenfurter Startups aus dem Lakeside Park nutzen unsere Pitch-Modelle.' },
+    { anchor: 'Serienproduktion in Graz', href: '/3d-druck-graz', context: 'Für größere Serien bietet Graz optimale Industrieanbindung.' },
+    { anchor: 'Messemodelle für Kärntner Events', href: '/messemodelle/kaernten', context: 'Professionelle Messeexponate für Kärntner Fachmessen.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -731,6 +776,12 @@ const wels: DruckSectionDataSet = {
     { time: '1h', title: 'Druck startet', description: 'Ihr Projekt ist auf dem Drucker.', highlight: true },
     { time: '4-6h', title: 'Abholung in Gunskirchen', description: 'SMS wenn fertig. 10 Minuten von Wels.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Standort Gunskirchen', href: '/3d-druck-gunskirchen', context: 'Nur 10 Minuten entfernt: persönliche Beratung und Abholung.' },
+    { anchor: 'Express-Fertigung Linz', href: '/3d-druck-linz', context: 'Same-Day Produktion für eilige Projekte im Zentralraum OÖ.' },
+    { anchor: 'Kreativprojekte aus Salzburg', href: '/3d-druck-salzburg', context: 'Salzburger Designer schätzen unsere Designstudien und Mockups.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -814,6 +865,12 @@ const stpoelten: DruckSectionDataSet = {
     { time: '24h', title: 'Druck & Finish', description: 'Mehrfarbig, nachbearbeitet, set-ready.', highlight: true },
     { time: '48h', title: 'An der FH St. Pölten', description: 'Express über A1 – Lieferung ans Institut.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Wien Startup-Szene', href: '/3d-druck-wien', context: 'Nur 60 km entfernt: Wiener Startups profitieren von Express-Lieferung.' },
+    { anchor: 'FDM-Verfahren im Detail', href: '/fdm-3d-druck', context: 'Alle technischen Details zu unserem FDM-Druckverfahren.' },
+    { anchor: 'Architekturmodelle NÖ', href: '/architekturmodelle/niederoesterreich', context: 'Niederösterreichische Architekten nutzen unsere maßstabsgetreuen Modelle.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -897,6 +954,12 @@ const dornbirn: DruckSectionDataSet = {
     { time: '6 Tage', title: 'Iteration 2 fertig', description: 'PETG-Version nach Feedback, robust.', highlight: true },
     { time: '10 Tage', title: 'Finale Version', description: 'ASA-Präsentationsmodell, über A14 geliefert.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Textilmuster Vorarlberg', href: '/3d-druck-vorarlberg', context: 'Vorarlberger Textilbranche setzt auf 3D-gedruckte Prototypen.' },
+    { anchor: 'Express nach Innsbruck', href: '/3d-druck-innsbruck', context: 'Tiroler Kunden profitieren vom selben Alpen-Expressservice.' },
+    { anchor: 'Messemodelle für Dornbirner Messe', href: '/messemodelle/vorarlberg', context: 'Maßgefertigte Exponate für die Dornbirner Herbstmesse und andere Events.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -980,6 +1043,12 @@ const gunskirchen: DruckSectionDataSet = {
     { time: '1h', title: 'Druck gestartet', description: 'Ihr Teil ist auf dem Drucker. Kaffee?', highlight: true },
     { time: '2-4h', title: 'Mitnehmen', description: 'Qualität prüfen, bezahlen, fertig.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: 'Same-Day Abholung Wels', href: '/3d-druck-wels', context: 'Kunden aus Wels holen ihre Modelle oft noch am selben Tag ab.' },
+    { anchor: 'Express-Versand nach Wien', href: '/3d-druck-wien', context: 'Über Nacht von Gunskirchen nach Wien – morgens auf dem Schreibtisch.' },
+    { anchor: 'Materialvergleich FDM', href: '/fdm-3d-druck', context: 'PLA+, PETG, ASA, TPU – alle Materialien im technischen Vergleich.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
@@ -1063,6 +1132,12 @@ const oberoesterreich: DruckSectionDataSet = {
     { time: '1-3 Tage', title: 'Serienfertigung', description: 'Paralleldruck auf 8 Maschinen.', highlight: true },
     { time: '5-7 Tage', title: 'Abholung oder Versand', description: 'Persönlich in Gunskirchen oder OÖ-weiter Versand.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: 'Direktabholung Gunskirchen', href: '/3d-druck-gunskirchen', context: 'Unser Standort in Gunskirchen bietet persönliche Beratung und Sofort-Abholung.' },
+    { anchor: '3D-Druck Linz Express', href: '/3d-druck-linz', context: 'Same-Day Service für Linzer Unternehmen und Bildungseinrichtungen.' },
+    { anchor: 'Messemodelle für OÖ Industriemessen', href: '/messemodelle/oberoesterreich', context: 'Professionelle Exponate für die Welser Messe und andere OÖ-Events.' },
+  ],
+
 };
 
 const niederoesterreich: DruckSectionDataSet = {
@@ -1143,6 +1218,12 @@ const niederoesterreich: DruckSectionDataSet = {
     { time: '24h', title: 'Fertigung startet', description: 'In Gunskirchen, Sonderfarbe und Logo integriert.', highlight: true },
     { time: '3-5 Tage', title: 'Lieferung nach NÖ', description: 'Über A1 Westautobahn, bruchsicher verpackt.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Service St. Pölten', href: '/3d-druck-st-poelten', context: 'Studierende und Forscher an der FH St. Pölten nutzen unseren Bildungs-Service.' },
+    { anchor: 'Wiener Startup-Modelle', href: '/3d-druck-wien', context: 'Viele NÖ-Unternehmen bestellen gemeinsam mit Wiener Partnern.' },
+    { anchor: 'Architekturmodelle für NÖ-Projekte', href: '/architekturmodelle/niederoesterreich', context: 'Kommunale Bauträger in NÖ setzen auf unsere Behördenmodelle.' },
+  ],
+
 };
 
 const steiermark: DruckSectionDataSet = {
@@ -1223,6 +1304,12 @@ const steiermark: DruckSectionDataSet = {
     { time: '24h', title: 'ASA-Druck startet', description: 'Spezialparameter für Outdoor-Festigkeit.', highlight: true },
     { time: '5-7 Tage', title: 'In der Steiermark', description: 'Über A9, verstärkt verpackt.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Graz Serienfertigung', href: '/3d-druck-graz', context: 'Für Grazer Industriebetriebe bieten wir Kleinserien ab 10 Stück.' },
+    { anchor: 'Outdoor-Installationen Kärnten', href: '/3d-druck-kaernten', context: 'Wetterfeste ASA-Modelle für touristische Anwendungen auch in Kärnten.' },
+    { anchor: 'Messemodelle Steiermark', href: '/messemodelle/steiermark', context: 'Großformat-Exponate für steirische Industriemessen und Fachmessen.' },
+  ],
+
 };
 
 const kaernten: DruckSectionDataSet = {
@@ -1303,6 +1390,12 @@ const kaernten: DruckSectionDataSet = {
     { time: '3 Tage', title: 'Seriendruck', description: '25 identische PETG-Modelle in Produktion.', highlight: true },
     { time: '5-7 Tage', title: 'An Ihrer Schule', description: 'Lieferung an Schuladresse über A10.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Bildung Klagenfurt', href: '/3d-druck-klagenfurt', context: 'Klagenfurter Schulen und die Uni Klagenfurt nutzen unsere Lehrmittel.' },
+    { anchor: 'Technologie-Modelle Villach', href: '/3d-druck-villach', context: 'High-Tech Firmen in Villach schätzen unsere Präzisionsfertigung.' },
+    { anchor: 'Outdoor-Modelle Steiermark', href: '/3d-druck-steiermark', context: 'Steirische Tourismusbetriebe setzen auf wetterfeste 3D-Modelle.' },
+  ],
+
 };
 
 const tirol: DruckSectionDataSet = {
@@ -1383,6 +1476,12 @@ const tirol: DruckSectionDataSet = {
     { time: '18 Uhr', title: 'Versand', description: 'Alpenrobust verpackt, Express-Carrier.', highlight: true },
     { time: 'Morgen 12 Uhr', title: 'In Tirol', description: 'An Ihre Adresse, Hotel oder Veranstaltungsort.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Lehrmittel Innsbruck', href: '/3d-druck-innsbruck', context: 'MCI und Uni Innsbruck sind unsere größten Tiroler Bildungskunden.' },
+    { anchor: 'Express-Service Salzburg', href: '/3d-druck-salzburg', context: 'Über die Tauernautobahn in 1-2 Tagen auch nach Salzburg.' },
+    { anchor: 'Wetterfeste Alpen-Modelle', href: '/3d-druck-dornbirn', context: 'ASA-Materialien für dauerhafte Außenanwendungen im Alpenraum.' },
+  ],
+
 };
 
 const vorarlberg: DruckSectionDataSet = {
@@ -1463,6 +1562,12 @@ const vorarlberg: DruckSectionDataSet = {
     { time: '1 Woche', title: 'Runde 2-3: PETG', description: 'Optimierte Version, robust.', highlight: true },
     { time: '2-3 Wochen', title: 'Finale ASA-Version', description: 'Über A14 nach Vorarlberg oder CH.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: 'Designobjekte Dornbirn', href: '/3d-druck-dornbirn', context: 'Dornbirner Designer und Textilunternehmen als Stammkunden.' },
+    { anchor: '3D-Druck Express Tirol', href: '/3d-druck-tirol', context: 'Tiroler Kunden profitieren vom selben Alpen-Expressservice.' },
+    { anchor: 'Messemodelle Vorarlberg', href: '/messemodelle/vorarlberg', context: 'Branchenspezifische Exponate für Vorarlberger Fachmessen.' },
+  ],
+
 };
 
 const burgenland: DruckSectionDataSet = {
@@ -1543,6 +1648,12 @@ const burgenland: DruckSectionDataSet = {
     { time: '2-3 Tage', title: 'Fertigung in Gunskirchen', description: 'ASA für Outdoor, PETG für Displays.', highlight: true },
     { time: '4-5 Tage', title: 'Im Burgenland', description: 'Über A4, bruchsicher verpackt.', highlight: true },
   ],
+  inTextLinks: [
+    { anchor: '3D-Druck Wien Express', href: '/3d-druck-wien', context: 'Wiener Express-Versand erreicht das Burgenland in 1-2 Tagen.' },
+    { anchor: 'Architekturmodelle für burgenländische Projekte', href: '/architekturmodelle/burgenland', context: 'Kommunale Bauvorhaben im Burgenland mit professionellen 3D-Modellen.' },
+    { anchor: 'Outdoor-Modelle für Tourismus', href: '/3d-druck-steiermark', context: 'Auch steirische Tourismusbetriebe nutzen unsere wetterfesten Modelle.' },
+  ],
+
 };
 
 // ═══════════════════════════════════════════
