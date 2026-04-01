@@ -6,14 +6,15 @@ import { regionalMesseData } from "@/data/regionalMesseData";
 import { germanMesseData } from "@/data/germanMesseData";
 import { regionalArchitekturData } from "@/data/regionalArchitekturData";
 import { germanArchitekturData } from "@/data/germanArchitekturData";
+import { regionalDruckData } from "@/data/regionalDruckData";
 
 interface AllRegionsLinksProps {
   currentSlug: string;
-  type: 'messe' | 'architektur';
+  type: 'messe' | 'architektur' | 'druck';
 }
 
 const AllRegionsLinks = ({ currentSlug, type }: AllRegionsLinksProps) => {
-  const basePath = type === 'messe' ? '/messemodelle' : '/architekturmodelle';
+  const basePath = type === 'messe' ? '/messemodelle' : type === 'architektur' ? '/architekturmodelle' : '/3d-druck';
   
   const atData = type === 'messe' ? regionalMesseData : regionalArchitekturData;
   const deData = type === 'messe' ? germanMesseData : germanArchitekturData;
