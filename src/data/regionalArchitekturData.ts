@@ -384,7 +384,7 @@ export const regionalArchitekturData: Record<string, RegionalArchitekturData> = 
     type: 'stadt',
     title: 'Architekturmodelle für Villach',
     h1Title: '3D-Druck Architekturmodelle Villach',
-    metaTitle: 'Architekturmodelle Villach – Thermenregion & Gewerbe | ekdruck',
+    metaTitle: 'Architekturmodelle Villach – Therme & Gewerbe | ekdruck',
     metaDescription: 'Villacher Architekten: Tourismusbauten, Technologiepark-Projekte & Wohnbau-Modelle. Lieferung über A10/A2 in 5–7 Tagen. Jetzt anfragen.',
     heroSubtitle: 'Professionelle Architekturmodelle für Villacher Architekten. Zuverlässige Lieferung für Projekte in der Draustadt.',
     deliveryTime: '5-7 Tage',
