@@ -23,8 +23,10 @@ import TechSpecsSection from "@/components/landing/sections/TechSpecsSection";
 import ProblemSolutionSection from "@/components/landing/sections/ProblemSolutionSection";
 import TrustSignalsSection from "@/components/landing/sections/TrustSignalsSection";
 import IndustryShowcaseSection from "@/components/landing/sections/IndustryShowcaseSection";
+import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import { getDruckRegionBySlug, regionalDruckData } from "@/data/regionalDruckData";
 import { getDruckExtendedDataBySlug } from "@/data/regionalDruckExtendedData";
+import { getDruckSectionData } from "@/data/druckSectionData";
 import {
   druckRegionLayouts,
   druckSectionOrder,
@@ -43,6 +45,7 @@ interface DruckRegionProps {
 const DruckRegion = ({ region }: DruckRegionProps) => {
   const regionData = getDruckRegionBySlug(region);
   const extendedData = getDruckExtendedDataBySlug(region);
+  const sectionData = getDruckSectionData(region);
 
   if (!regionData) return null;
 
@@ -123,9 +126,9 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
           </section>
         );
 
-      case 'valueProposition': return <DruckValueProposition key="vp" regionName={regionData.name} />;
+      case 'valueProposition': return <DruckValueProposition key="vp" regionName={regionData.name} data={sectionData.valueProposition} />;
       case 'caseStudy': return <MesseCaseStudy key="cs" caseStudy={extendedData.caseStudy} regionName={regionData.name} />;
-      case 'checklist': return <DruckChecklist key="cl" regionName={regionData.name} deliveryTime={regionData.deliveryTime} />;
+      case 'checklist': return <DruckChecklist key="cl" regionName={regionData.name} deliveryTime={regionData.deliveryTime} data={sectionData.checklist} />;
       case 'materials': return <MesseMaterialTips key="mat" materials={extendedData.materials} regionName={regionData.name} industryFocus={extendedData.industryFocus} />;
 
       case 'localContext':
@@ -209,12 +212,13 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
           </section>
         );
 
-      case 'priceComparison': return <PriceComparisonSection key="pc" regionName={regionData.name} category="druck" />;
-      case 'expressTimeline': return <ExpressTimelineSection key="et" regionName={regionData.name} deliveryTime={regionData.deliveryTime} />;
-      case 'techSpecs': return <TechSpecsSection key="ts" regionName={regionData.name} category="druck" />;
-      case 'problemSolution': return <ProblemSolutionSection key="ps" regionName={regionData.name} category="druck" />;
-      case 'trustSignals': return <TrustSignalsSection key="trust" regionName={regionData.name} />;
+      case 'priceComparison': return <PriceComparisonSection key="pc" regionName={regionData.name} category="druck" data={sectionData.priceComparison} />;
+      case 'expressTimeline': return <ExpressTimelineSection key="et" regionName={regionData.name} deliveryTime={regionData.deliveryTime} data={sectionData.expressTimeline} />;
+      case 'techSpecs': return <TechSpecsSection key="ts" regionName={regionData.name} category="druck" data={sectionData.techSpecs} />;
+      case 'problemSolution': return <ProblemSolutionSection key="ps" regionName={regionData.name} category="druck" data={sectionData.problemSolution} />;
+      case 'trustSignals': return <TrustSignalsSection key="trust" regionName={regionData.name} data={sectionData.trustSignals} />;
       case 'industryShowcase': return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localIndustries} category="druck" />;
+      case 'allRegionsLinks': return <AllRegionsLinks key="arl" currentSlug={regionData.slug} type="druck" />;
       default: return null;
     }
   };

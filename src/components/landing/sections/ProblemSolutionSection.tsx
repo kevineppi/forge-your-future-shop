@@ -1,12 +1,60 @@
 import AnimatedSection from "@/components/AnimatedSection";
-import { AlertTriangle, ArrowRight, CheckCircle, Lightbulb } from "lucide-react";
+import { AlertTriangle, CheckCircle, Lightbulb } from "lucide-react";
+import type { ProblemSolutionData } from "@/data/druckSectionData";
 
 interface ProblemSolutionSectionProps {
   regionName: string;
   category: 'architektur' | 'messe' | 'druck';
+  data?: ProblemSolutionData;
 }
 
-const ProblemSolutionSection = ({ regionName, category }: ProblemSolutionSectionProps) => {
+const ProblemSolutionSection = ({ regionName, category, data }: ProblemSolutionSectionProps) => {
+  // Data-driven mode
+  if (data) {
+    return (
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+            <AnimatedSection animation="fade-in">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-destructive/10 flex items-center justify-center">
+                  <AlertTriangle className="w-5 h-5 text-destructive" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">{data.problemTitle}</h2>
+              </div>
+              <ul className="space-y-4">
+                {data.problems.map((p, i) => (
+                  <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                    <AlertTriangle className="w-4 h-4 text-destructive/60 mt-1 shrink-0" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </AnimatedSection>
+
+            <AnimatedSection animation="slide-up" delay={150}>
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Lightbulb className="w-5 h-5 text-primary" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">{data.solutionTitle}</h2>
+              </div>
+              <ul className="space-y-4">
+                {data.solutions.map((s, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-4 h-4 text-primary mt-1 shrink-0" />
+                    <span className="font-medium">{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Legacy mode for architektur/messe
   const content = category === 'architektur' ? {
     problemTitle: 'Das Dilemma vieler Architekturbüros',
     problems: [
@@ -22,7 +70,7 @@ const ProblemSolutionSection = ({ regionName, category }: ProblemSolutionSection
       'Änderungen? Neuer Druck in Stunden, nicht Wochen',
       'Digitale Präzision: ±0.2mm Toleranz, maßstabsgetreu aus der CAD-Datei',
     ],
-  } : category === 'messe' ? {
+  } : {
     problemTitle: 'Typische Probleme bei der Messe-Vorbereitung',
     problems: [
       `Modellbauer in ${regionName} liefern oft zu spät – Stress vor der Messe`,
@@ -36,21 +84,6 @@ const ProblemSolutionSection = ({ regionName, category }: ProblemSolutionSection
       'Bis 70% leichter als Holz/Metall – einfacher Transport, kein Bruchrisiko',
       'Digitale Datei = schnelle Varianten in Stunden statt Wochen',
       'Ab €30 für professionelle Display-Modelle – effizient produziert',
-    ],
-  } : {
-    problemTitle: 'Warum klassische Methoden an ihre Grenzen stoßen',
-    problems: [
-      'Handmuster dauern Wochen und kosten Hunderte Euro',
-      `Lokale Anbieter in ${regionName} oft ausgebucht oder teuer`,
-      'Komplexe Geometrien sind manuell nicht darstellbar',
-      'Einzelstücke lohnen sich bei traditioneller Fertigung kaum',
-    ],
-    solutionTitle: 'FDM 3D-Druck als smarte Alternative',
-    solutions: [
-      'Von der CAD-Datei zum Modell in 1-3 Tagen',
-      'Ab €20 – auch Einzelstücke wirtschaftlich sinnvoll',
-      'Jede Geometrie druckbar – keine Werkzeugkosten',
-      'Reproduzierbar: Gleiche Qualität bei jedem Druck',
     ],
   };
 

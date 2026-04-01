@@ -318,26 +318,29 @@ export const messeRegionLayouts: Record<string, MesseLayoutType> = {
   'wuerzburg': 'grossmodell',
 };
 
+// NEIGHBOR RULE ENFORCED: No adjacent regions share the same layout type
+// Wien↔NÖ, OÖ↔Salzburg↔Tirol↔Vorarlberg, Steiermark↔Kärnten, cities≠parent Bundesland
 export const druckRegionLayouts: Record<string, DruckLayoutType> = {
-  'wien': 'startup',
-  'niederoesterreich': 'industrie',
-  'oberoesterreich': 'express',
-  'salzburg': 'kreativ',
-  'steiermark': 'industrie',
-  'kaernten': 'outdoor',
-  'tirol': 'outdoor',
-  'vorarlberg': 'kreativ',
-  'burgenland': 'serie',
-  'graz': 'industrie',
-  'linz': 'express',
-  'innsbruck': 'bildung',
-  'salzburg-stadt': 'kreativ',
-  'klagenfurt': 'outdoor',
-  'villach': 'serie',
-  'wels': 'express',
-  'st-poelten': 'bildung',
-  'dornbirn': 'kreativ',
-  'gunskirchen': 'express',
+  'wien': 'startup',           // NÖ=serie ✓, Bgld=kreativ ✓
+  'niederoesterreich': 'serie',// Wien=startup ✓, Bgld=kreativ ✓, OÖ=industrie ✓
+  'oberoesterreich': 'industrie', // NÖ=serie ✓, Salzburg=kreativ ✓, Stmk=outdoor ✓
+  'salzburg': 'kreativ',       // OÖ=industrie ✓, Tirol=express ✓
+  'steiermark': 'outdoor',     // OÖ=industrie ✓, Kärnten=bildung ✓, Bgld=kreativ ✓
+  'kaernten': 'bildung',       // Stmk=outdoor ✓
+  'tirol': 'express',          // Salzburg=kreativ ✓, Vorarlberg=serie ✓
+  'vorarlberg': 'serie',       // Tirol=express ✓
+  'burgenland': 'kreativ',     // Wien=startup ✓, NÖ=serie ✓, Stmk=outdoor ✓
+  // Cities: must differ from parent Bundesland and neighboring cities
+  'graz': 'serie',             // Stmk=outdoor ✓
+  'linz': 'express',           // OÖ=industrie ✓, Wels=kreativ ✓
+  'innsbruck': 'bildung',      // Tirol=express ✓
+  'salzburg-stadt': 'startup', // Salzburg=kreativ ✓
+  'klagenfurt': 'startup',     // Kärnten=bildung ✓, Villach=industrie ✓
+  'villach': 'industrie',      // Kärnten=bildung ✓, Klagenfurt=startup ✓
+  'wels': 'kreativ',           // OÖ=industrie ✓, Linz=express ✓, Gunskirchen=startup ✓
+  'st-poelten': 'bildung',     // NÖ=serie ✓
+  'dornbirn': 'outdoor',       // Vorarlberg=serie ✓
+  'gunskirchen': 'startup',    // OÖ=industrie ✓, Wels=kreativ ✓, Linz=express ✓
 };
 
 // ═══════════════════════════════════════════
