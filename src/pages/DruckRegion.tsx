@@ -126,9 +126,9 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
           </section>
         );
 
-      case 'valueProposition': return <DruckValueProposition key="vp" regionName={regionData.name} />;
+      case 'valueProposition': return <DruckValueProposition key="vp" regionName={regionData.name} data={sectionData.valueProposition} />;
       case 'caseStudy': return <MesseCaseStudy key="cs" caseStudy={extendedData.caseStudy} regionName={regionData.name} />;
-      case 'checklist': return <DruckChecklist key="cl" regionName={regionData.name} deliveryTime={regionData.deliveryTime} />;
+      case 'checklist': return <DruckChecklist key="cl" regionName={regionData.name} deliveryTime={regionData.deliveryTime} data={sectionData.checklist} />;
       case 'materials': return <MesseMaterialTips key="mat" materials={extendedData.materials} regionName={regionData.name} industryFocus={extendedData.industryFocus} />;
 
       case 'localContext':
