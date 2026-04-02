@@ -1,19 +1,11 @@
-import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const Impressum = () => {
-  useEffect(() => {
-    document.title = "Impressum | ekdruck e.U. – 3D-Druck Gunskirchen";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Impressum & rechtliche Informationen zu ekdruck e.U., Gunskirchen (OÖ). Ihr Ansprechpartner für 3D-Druck in Österreich.');
-    }
-  }, []);
   return (
-    <>
+    <div className="min-h-screen bg-background text-foreground">
       <SEOHead 
         title="Impressum | ekdruck e.U. – 3D-Druck Gunskirchen"
         description="Impressum & rechtliche Informationen zu ekdruck e.U., Gunskirchen (OÖ). Ihr Ansprechpartner für 3D-Druck in Österreich."
@@ -26,16 +18,15 @@ const Impressum = () => {
         {name: "Impressum", url: "/impressum"}
       ]} />
       
-      <div className="min-h-screen">
-        <Navigation />
+      <Navigation />
       
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8">
             Impressum
           </h1>
           
-          <div className="prose prose-lg max-w-none space-y-8 text-foreground">
+          <div className="space-y-8">
             <section>
               <h2 className="text-2xl font-semibold mb-4">
                 Die Vorgaben für in das Firmenbuch eingetragene Unternehmen laut § 14 UGB sind durch folgende Angaben erfüllt.
@@ -120,8 +111,7 @@ const Impressum = () => {
       </main>
       
       <Footer />
-      </div>
-    </>
+    </div>
   );
 };
 
