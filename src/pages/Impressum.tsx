@@ -29,13 +29,13 @@ const Impressum = () => {
       <div className="min-h-screen">
         <Navigation />
       
-      <main className="py-24">
+      <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">
-            <span className="text-gradient">Impressum</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
+            Impressum
           </h1>
           
-          <div className="prose prose-lg max-w-none space-y-8">
+          <div className="prose prose-lg max-w-none space-y-8 text-foreground">
             <section>
               <h2 className="text-2xl font-semibold mb-4">
                 Die Vorgaben für in das Firmenbuch eingetragene Unternehmen laut § 14 UGB sind durch folgende Angaben erfüllt.
