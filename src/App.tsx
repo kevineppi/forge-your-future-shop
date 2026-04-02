@@ -9,13 +9,13 @@ import { lazy, Suspense } from "react";
 
 // ─── Critical pages (loaded eagerly – always visible above fold) ──────────────
 import Index from "./pages/Index";
+import Impressum from "./pages/Impressum";
 
 // ─── All other pages (lazy-loaded – only fetched when navigated to) ──────────
 const FdmDruck               = lazy(() => import("./pages/FdmDruck"));
 const Materialien            = lazy(() => import("./pages/Materialien"));
 const Einzelanfertigungen    = lazy(() => import("./pages/Einzelanfertigungen"));
 const ModellbauDekoration    = lazy(() => import("./pages/ModellbauDekoration"));
-import Impressum from "./pages/Impressum";
 const Wien3DDruck            = lazy(() => import("./pages/Wien3DDruck"));
 const Linz3DDruck            = lazy(() => import("./pages/Linz3DDruck"));
 const Graz3DDruck            = lazy(() => import("./pages/Graz3DDruck"));
@@ -56,7 +56,7 @@ const Firmenkunden           = lazy(() => import("./pages/Firmenkunden"));
 const Kontakt                = lazy(() => import("./pages/Kontakt"));
 const UeberUns               = lazy(() => import("./pages/UeberUns"));
 const Kostenrechner          = lazy(() => import("./pages/Kostenrechner"));
-// ─── Minimal fallback shown during chunk fetch ────────────────────────────────
+
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
     <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
@@ -83,8 +83,8 @@ const App = () => (
               <Route path="/einzelanfertigungen" element={<Einzelanfertigungen />} />
               <Route path="/modellbau-dekoration" element={<ModellbauDekoration />} />
               <Route path="/impressum" element={<Impressum />} />
-              {/* Redirect trailing-slash variant to avoid canonical mismatch */}
-              <Route path="/impressum/" element={<Navigate to="/impressum" replace />} />
+              <Route path="/impressum/" element={<Impressum />} />
+              <Route path="/impressu" element={<Navigate to="/impressum" replace />} />
               <Route path="/ratgeber" element={<Ratgeber />} />
               <Route path="/ratgeber/kosten-guide" element={<KostenGuide />} />
               <Route path="/ratgeber/verfahrens-vergleich" element={<VerfahrensVergleich />} />
@@ -98,7 +98,6 @@ const App = () => (
               <Route path="/architekturmodelle/:region" element={<ArchitekturmodellRegion />} />
               <Route path="/messemodelle" element={<Messemodelle />} />
               <Route path="/messemodelle/:region" element={<MessemodellRegion />} />
-              {/* Tippfehler-Redirect: /messemodele → /messemodelle */}
               <Route path="/messemodele" element={<Navigate to="/messemodelle" replace />} />
               <Route path="/messemodele/:region" element={<Navigate to="/messemodelle/:region" replace />} />
               <Route path="/kunstobjekte" element={<Kunstobjekte />} />
@@ -125,7 +124,6 @@ const App = () => (
               <Route path="/3d-druck-gunskirchen" element={<Gunskirchen3DDruck />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/auth" element={<Auth />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
