@@ -5,7 +5,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const Impressum = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
       <SEOHead 
         title="Impressum | ekdruck e.U. – 3D-Druck Gunskirchen"
         description="Impressum & rechtliche Informationen zu ekdruck e.U., Gunskirchen (OÖ). Ihr Ansprechpartner für 3D-Druck in Österreich."
