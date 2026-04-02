@@ -15,7 +15,7 @@ const FdmDruck               = lazy(() => import("./pages/FdmDruck"));
 const Materialien            = lazy(() => import("./pages/Materialien"));
 const Einzelanfertigungen    = lazy(() => import("./pages/Einzelanfertigungen"));
 const ModellbauDekoration    = lazy(() => import("./pages/ModellbauDekoration"));
-const Impressum              = lazy(() => import("./pages/Impressum"));
+import Impressum from "./pages/Impressum";
 const Wien3DDruck            = lazy(() => import("./pages/Wien3DDruck"));
 const Linz3DDruck            = lazy(() => import("./pages/Linz3DDruck"));
 const Graz3DDruck            = lazy(() => import("./pages/Graz3DDruck"));
