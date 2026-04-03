@@ -92,9 +92,12 @@ const Footer = () => {
           <p className="text-muted-foreground text-sm">
             © 2024 ekdruck e.U. Alle Rechte vorbehalten.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex flex-wrap items-center space-x-6 mt-4 md:mt-0">
             <a href="/impressum" className="text-muted-foreground hover:text-primary text-sm transition-colors">
               Impressum
+            </a>
+            <a href="https://www.webverzeichnis-oesterreich.at" target="_blank" rel="noopener" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+              Webverzeichnis Österreich
             </a>
           </div>
         </div>
