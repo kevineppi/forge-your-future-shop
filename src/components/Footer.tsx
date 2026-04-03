@@ -96,9 +96,6 @@ const Footer = () => {
             <a href="/impressum" className="text-muted-foreground hover:text-primary text-sm transition-colors">
               Impressum
             </a>
-            <a href="https://www.webverzeichnis-oesterreich.at" target="_blank" rel="noopener" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Webverzeichnis Österreich
-            </a>
           </div>
         </div>
       </div>
