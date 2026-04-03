@@ -69,6 +69,13 @@ const Impressum = () => {
         <a href="/" className="inline-block text-primary underline underline-offset-4">
           Zur Startseite
         </a>
+
+        <p className="text-[10px] text-muted-foreground/40 mt-12">
+          Eingetragen bei{" "}
+          <a href="https://www.webverzeichnis-oesterreich.at" target="_blank" rel="noopener" className="text-muted-foreground/40 hover:text-muted-foreground/60">
+            webverzeichnis-oesterreich.at
+          </a>
+        </p>
       </div>
     </main>
   );
