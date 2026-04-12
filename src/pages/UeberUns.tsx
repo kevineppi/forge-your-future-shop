@@ -31,8 +31,8 @@ const UeberUns = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEOHead
-        title="Wer steckt hinter ekdruck? | 3D-Druck aus Oberösterreich"
-        description="Kein anonymer Online-Shop – echte Menschen aus Gunskirchen, OÖ. WKO-gewerbeberechtigt, 10+ FDM-Drucker, österreichisches Filament. Persönliche Beratung statt Chatbot."
+        title="Über uns – ekdruck | 3D-Druck aus Oberösterreich"
+        description="Wer steckt hinter ekdruck? Echte Menschen aus Gunskirchen, OÖ ✓ WKO-gewerbeberechtigt ✓ 10+ FDM-Drucker ✓ Österreichisches Filament ✓ Persönliche Beratung → Lernen Sie uns kennen"
         keywords="ekdruck über uns, 3d-druck gunskirchen, ekdruck e.u., 3d-druck firma österreich, 3d-druck oberösterreich"
         path="/ueber-uns"
         schemaType="service"

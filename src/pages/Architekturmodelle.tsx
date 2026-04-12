@@ -318,8 +318,8 @@ const Architekturmodelle = () => {
   return (
     <>
       <SEOHead
-        title="Architekturmodell 3D-Druck ab €20 | Wettbewerb morgen? Wir liefern. | ekdruck"
-        description="Wettbewerbsabgabe übermorgen? Architekturmodelle ab €20 per 3D-Druck – Maßstab 1:50–1:500. ArchiCAD & Revit direkt druckbar. 80% günstiger als Modellbauer. Angebot in 6h →"
+        title="Architekturmodelle 3D-Druck ab €20 | Express 24h | ekdruck"
+        description="Architekturmodelle per 3D-Druck ab €20 ✓ Maßstab 1:50–1:500 ✓ ArchiCAD & Revit direkt druckbar ✓ 80% günstiger als Modellbauer ✓ Angebot in 6h → Jetzt bestellen"
         keywords="architekturmodell 3d-druck, architekturmodell drucken lassen, wettbewerbsmodell, architekturmodell kosten, gebäudemodell 3d-druck, architekturmodell maßstab"
         path="/architekturmodelle"
       />

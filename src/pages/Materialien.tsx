@@ -16,8 +16,8 @@ const Materialien = () => {
   return (
     <>
       <SEOHead 
-        title="PLA vs PETG vs ABS: Welches 3D-Druck Material? [2026 Vergleich]"
-        description="PLA oder PETG? ABS oder ASA? Direkter Vergleich mit Temperaturen, Kosten & Einsatzgebieten. Finden Sie das richtige Filament für Ihr Projekt → Mit Entscheidungshilfe"
+        title="3D-Druck Materialien: PLA vs PETG vs ABS [2026 Vergleich]"
+        description="Welches 3D-Druck Material passt? PLA (ab €15), PETG (outdoor-fest), ABS (hitzebeständig). Direkter Vergleich mit Temperaturen, Kosten & Empfehlung → Richtig wählen"
         keywords="pla vs petg, pla vs abs, 3d-druck materialien, filament vergleich, petg vs abs, asa vs petg, welches filament, 3d druck material"
         path="/3d-druck-materialien"
         breadcrumbs={[

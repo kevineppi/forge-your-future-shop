@@ -270,8 +270,8 @@ const Firmenkunden = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck für Unternehmen | UID-Rechnung · NDA · Mengenrabatt | ekdruck"
-        description="B2B 3D-Druck mit allem was Sie brauchen: UID-Rechnung ✓ NDA ✓ Mengenrabatt ab 5 Stk ✓ Persönlicher Ansprechpartner. Messemodelle, Schulungsmodelle & Prototypen für Firmen."
+        title="3D-Druck für Firmen | UID · NDA · Mengenrabatt | ekdruck"
+        description="B2B 3D-Druck Service ✓ UID-Rechnung ✓ NDA ✓ Mengenrabatt ab 5 Stk ✓ Persönlicher Ansprechpartner ✓ Messemodelle & Prototypen für Unternehmen → Jetzt B2B-Anfrage stellen"
         keywords="3d-druck firmenkunden, 3d-druck b2b, 3d-druck unternehmen, messemodelle firma, uid rechnung 3d-druck, 3d-druck mengenrabatt"
         path="/firmenkunden"
       />

@@ -156,8 +156,8 @@ const Referenzen = () => {
   return (
     <>
       <SEOHead 
-        title="Unsere 3D-Druck Projekte | Vorher/Nachher & echte Ergebnisse | ekdruck"
-        description="Sehen Sie was wir drucken: Architekturmodelle, Messeexponate & Einzelstücke mit Maßen, Druckzeiten und Kundenfeedback. ★ 5.0 Google (31 Bewertungen) → Projekte ansehen"
+        title="3D-Druck Referenzen & Projekte | ★ 5.0 Google | ekdruck"
+        description="Echte 3D-Druck Projekte mit Fotos, Maßen & Druckzeiten ✓ Architekturmodelle, Messeexponate & Einzelstücke ✓ 31 Google-Bewertungen mit 5.0/5 → Projekte ansehen"
         keywords="3d-druck referenzen, 3d-druck portfolio, messemodell beispiele, architekturmodell projekte, 3d-druck ergebnisse"
         path="/referenzen"
       />

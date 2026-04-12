@@ -151,8 +151,8 @@ const Kunstobjekte = () => {
   return (
     <>
       <SEOHead
-        title="Skulpturen & Kunstobjekte aus dem 3D-Drucker | Ab €20 | ekdruck"
-        description="Ihre Skulptur, digital entworfen – physisch gedruckt. Holz-Optik, Metallic, Marmor-Look. Für Künstler, Galerien & Installationen. Jede Form möglich. Ab €20 →"
+        title="Kunstobjekte & Skulpturen aus dem 3D-Drucker ab €20 | ekdruck"
+        description="Skulpturen & Kunstobjekte per 3D-Druck ✓ Holz-Optik, Metallic, Marmor-Look ✓ Für Künstler, Galerien & Installationen ✓ Jede Form möglich ab €20 → Jetzt gestalten"
         keywords="3d-druck kunstobjekte, skulpturen 3d-druck, kunstinstallationen drucken, design-objekte, 3d-druck bildhauer, skulpturen drucken lassen"
         path="/kunstobjekte"
       />

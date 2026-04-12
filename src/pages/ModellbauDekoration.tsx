@@ -14,8 +14,8 @@ const ModellbauDekoration = () => {
   return (
     <>
       <SEOHead 
-        title="3D-Druck Modellbau & Deko-Objekte | Individuell ab €15 | ekdruck"
-        description="Architekturmodelle, Deko-Objekte & personalisierte Geschenke aus dem 3D-Drucker. Österreichisches Filament, nachhaltig. Ihr Design – wir drucken es. Ab €15 →"
+        title="Modellbau & Dekoration aus dem 3D-Drucker ab €15 | ekdruck"
+        description="3D-Druck für Modellbau & Dekoration ✓ Architekturmodelle, Deko-Objekte & Geschenke ab €15 ✓ Nachhaltiges österreichisches Filament ✓ Ihr Design – wir drucken → Anfragen"
         keywords="3d-druck modellbau, dekoration 3d-druck, personalisierte geschenke 3d-druck, wohnaccessoires, architekturmodelle modellbau"
         path="/modellbau-dekoration"
         breadcrumbs={[
