@@ -29,9 +29,9 @@ import { Button } from "@/components/ui/button";
 const Index = () => {
   return <>
     <SEOHead
-      title="3D-Druck Österreich | Messemodelle & Architektur | ekdruck"
-      description="3D-Druck Service Österreich ★ 5.0/5 Google (31 Bewertungen). Messemodelle, Architekturmodelle & Prototypen ab €20. Express 24h."
-      keywords="3d druck, 3d druck österreich, 3d drucker, 3d-druck service, messemodelle 3d-druck, architekturmodelle, 3d druck prototypen, 3d druck oberösterreich, 3d-druck dienstleister"
+      title="3D-Druck Österreich ★ ab €20 | Express 24h | ekdruck.at"
+      description="3D-Druck Service Österreich ✓ 5.0/5 Google (31 Bewertungen) ✓ Messemodelle, Architekturmodelle & Prototypen ab €20 ✓ Express in 24h ✓ Angebot in 6h → Jetzt anfragen"
+      keywords="3d druck österreich, 3d-druck service, messemodelle 3d-druck, architekturmodelle 3d-druck, 3d druck prototypen, 3d druck oberösterreich, 3d-druck dienstleister, fdm 3d-druck"
       path="/"
       preloadResources={[{
         href: "/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",

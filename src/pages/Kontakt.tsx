@@ -19,8 +19,8 @@ const Kontakt = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEOHead
-        title="Kostenloses 3D-Druck Angebot in 6h | Jetzt anfragen | ekdruck"
-        description="Projekt beschreiben → Angebot in 6 Stunden. Persönliche Beratung, kein Callcenter. Tel: +43 676 5517197 oder Formular ausfüllen. Express 24h möglich ✓"
+        title="Kontakt & Anfrage | 3D-Druck Angebot in 6h | ekdruck"
+        description="3D-Druck Anfrage stellen → Kostenloses Angebot in 6h ✓ Persönliche Beratung ✓ Tel: +43 676 5517197 ✓ Express 24h möglich ✓ Kein Callcenter → Jetzt Projekt beschreiben"
         path="/kontakt"
         keywords="3d-druck anfrage, 3d-druck angebot, 3d-druck beratung österreich, kontakt ekdruck, 3d-druck bestellen"
       />

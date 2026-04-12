@@ -154,8 +154,8 @@ const Einzelanfertigungen = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Einzelanfertigung ab €20 | Ihr Unikat in 24h | ekdruck"
-        description="Sie brauchen genau 1 Stück? Wir drucken es. Einzelanfertigungen ab €20 – egal ob Messemodell, Architekturmodell oder Sonderform. CAD-Datei oder Skizze reicht. Express 24h ✓"
+        title="3D-Druck Einzelanfertigung ab €20 | Unikat in 24h | ekdruck"
+        description="Nur 1 Stück nötig? Einzelanfertigungen ab €20 per 3D-Druck ✓ Messemodelle, Architekturmodelle, Sonderformen ✓ CAD oder Skizze reicht ✓ Express 24h → Jetzt anfragen"
         keywords="3d-druck einzelanfertigung, unikat 3d-druck, einzelstück drucken lassen, maßanfertigung 3d-druck, individuelle 3d-druck modelle"
         path="/einzelanfertigungen"
         breadcrumbs={[

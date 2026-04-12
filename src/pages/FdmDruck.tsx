@@ -77,8 +77,8 @@ const FdmDruck = () => {
   return (
     <>
       <SEOHead 
-        title="FDM 3D-Druck: So funktioniert es | Vergleich mit SLA & SLS | ekdruck"
-        description="Was ist FDM 3D-Druck und für wen eignet es sich? Verständlich erklärt + Vergleich mit SLA & SLS. Materialien: PLA, PETG, ABS. Ab €15 pro Objekt → Jetzt beraten lassen"
+       title="FDM 3D-Druck erklärt: Kosten, Materialien & Vergleich [2026]"
+       description="FDM 3D-Druck verständlich erklärt ✓ PLA, PETG, ABS ab €15 ✓ Vergleich mit SLA & SLS ✓ Wann lohnt sich FDM? Inkl. Preisbeispiele & Materialübersicht → Jetzt informieren"
         keywords="fdm 3d-druck, fdm verfahren, 3d druckverfahren vergleich, fdm vs sla, fused deposition modeling, 3d-druck verfahren, fdm 3d-druck österreich"
         path="/fdm-3d-druck"
         breadcrumbs={[

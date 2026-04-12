@@ -450,8 +450,8 @@ const Glossar = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Glossar: 70+ Begriffe einfach erklärt | ekdruck"
-        description="FDM, Infill, Layer Height, Warping – was bedeutet das alles? 70+ 3D-Druck Fachbegriffe verständlich erklärt. Das Nachschlagewerk für Einsteiger & Profis."
+        title="3D-Druck Glossar: 70+ Fachbegriffe einfach erklärt [2026]"
+        description="FDM, Infill, Layer Height, Warping – was heißt das? 70+ 3D-Druck Begriffe verständlich erklärt. Das Nachschlagewerk für Einsteiger & Profis → Jetzt nachschlagen"
         keywords="3d-druck glossar, 3d-druck fachbegriffe, fdm begriffe, architekturmodell maßstab, messemodell 3d-druck, additive fertigung lexikon, infill, layer height, warping, stringing, slicing"
         path="/glossar"
         schemaType="article"
