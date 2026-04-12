@@ -121,8 +121,8 @@ const ArchitekturmodellGuide = () => {
   return (
     <>
       <SEOHead
-        title="Architekturmodell 3D-Druck: Maßstab, Kosten & CAD-Export [2026 Guide]"
-        description="Welcher Maßstab für Ihr Wettbewerbsmodell? Was kostet es? ArchiCAD & Revit Export Schritt für Schritt. Plus: 5 teure Fehler die Sie vermeiden sollten →"
+        title="Architekturmodell Guide: Maßstab, Kosten & CAD [2026]"
+        description="Architekturmodell per 3D-Druck ✓ Welcher Maßstab? ✓ Was kostet es? ✓ ArchiCAD & Revit Export Schritt für Schritt ✓ 5 teure Fehler vermeiden → Jetzt Guide lesen"
         keywords="architekturmodell maßstab, architekturmodell kosten, architekturmodell cad export, wettbewerbsmodell 3d-druck, architekturmodell revit export"
         path="/ratgeber/architekturmodell-guide"
         type="article"
