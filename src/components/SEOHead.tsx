@@ -13,9 +13,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "3D-Druck für Modellbau & Dekoration | Anschauungsmodelle | ekdruck.at",
-  description = "Architekturmodelle, Dekorationsobjekte und Kunstgegenstände aus Oberösterreich. Nachhaltiger FDM-Druck mit österreichischem Filament. Express 24h.",
-  keywords = "3d-druck modellbau, architekturmodelle 3d-druck, dekoration 3d-druck, anschauungsmodelle, messemodelle, kunstobjekte 3d-druck",
+  title = "3D-Druck Österreich ★ ab €20 | Express 24h | ekdruck.at",
+  description = "3D-Druck Service Österreich ✓ Messemodelle, Architekturmodelle & Prototypen ab €20 ✓ Express in 24h ✓ 5.0/5 Google (31 Bewertungen) → Jetzt anfragen",
+  keywords = "3d-druck österreich, 3d-druck service, messemodelle 3d-druck, architekturmodelle, fdm 3d-druck, rapid prototyping österreich",
   path = "",
   image = "",
   type = "website",
