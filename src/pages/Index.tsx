@@ -250,7 +250,7 @@ const Index = () => {
                 Zahlen, die<br />
                 <span className="text-outline-primary">überzeugen.</span>
               </h2>
-              {/* Giant stats */}
+              {/* Giant stats with animated counters */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
                   { val: "95%", label: "günstiger als Handmodellbau" },
@@ -259,7 +259,7 @@ const Index = () => {
                   { val: "5.0", label: "Google Rating" },
                 ].map(({ val, label }) =>
                   <div key={val}>
-                    <p className="mono text-5xl md:text-7xl font-bold text-foreground leading-none tracking-tighter">{val}</p>
+                    <AnimatedCounter target={val} className="mono text-5xl md:text-7xl font-bold text-foreground leading-none tracking-tighter" />
                     <p className="text-sm text-muted-foreground mt-3 max-w-[160px]">{label}</p>
                   </div>
                 )}
