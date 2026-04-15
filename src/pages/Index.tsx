@@ -199,6 +199,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── 3 SCHRITTE — CONVERSION SECTION ─────────────────────────────── */}
+      <ThreeStepProcess />
+
       {/* ── KOSTENRECHNER CTA — prominent link ─────────────────────────── */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
@@ -969,6 +972,7 @@ const Index = () => {
 
       <Contact />
       <Footer />
+      <StickyCTA />
       <ExitIntentPopup />
     </div>
   </>;
