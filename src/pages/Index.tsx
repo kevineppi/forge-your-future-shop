@@ -28,6 +28,7 @@ import {
   Award, Wrench, Calculator, MapPin, FlaskConical
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import MagneticCard from "@/components/MagneticCard";
 
 const Index = () => {
   return <>
@@ -79,9 +80,8 @@ const Index = () => {
             {/* Service 1: Architekturmodelle — full-width hero card */}
             <AnimatedSection animation="slide-up" className="mb-4">
               <Link to="/architekturmodelle" className="group block">
-                <div className="rounded-3xl border-2 border-border hover:border-primary/40 transition-all duration-500 overflow-hidden group-hover:-translate-y-1" data-cursor="Entdecken">
+                <MagneticCard className="rounded-3xl border-2 border-border hover:border-primary/40 transition-all duration-500 overflow-hidden group-hover:-translate-y-1" data-cursor="Entdecken">
                   <div className="grid md:grid-cols-2">
-                    {/* Left: Content */}
                     <div className="p-10 md:p-16 flex flex-col justify-center">
                       <div className="flex gap-3 mb-6">
                         <span className="sticker border-primary text-primary">Express 24h</span>
@@ -102,7 +102,6 @@ const Index = () => {
                         Mehr erfahren <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
-                    {/* Right: Visual placeholder with large number */}
                     <div className="bg-muted/50 p-10 md:p-16 flex items-center justify-center relative overflow-hidden">
                       <div className="absolute inset-0 flex items-center justify-center">
                         <Building2 className="w-32 h-32 text-primary/[0.06]" />
@@ -112,7 +111,7 @@ const Index = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </MagneticCard>
               </Link>
             </AnimatedSection>
 
@@ -120,53 +119,49 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-4 mb-4">
               <AnimatedSection animation="slide-up" delay={100}>
                 <Link to="/messemodelle" className="group block h-full">
-                  <div className="h-full rounded-3xl bg-foreground p-10 md:p-12 relative overflow-hidden
-                    border-2 border-foreground hover:border-primary transition-all duration-500 group-hover:-translate-y-1">
-                    <p className="mono text-7xl font-bold text-background/[0.05] absolute top-6 right-8 leading-none">02</p>
-                    <div className="relative">
-                      <span className="sticker border-primary text-primary mb-6 inline-flex">ab €30</span>
-                      <h3 className="text-2xl md:text-3xl font-bold text-background mb-3 tracking-tight group-hover:text-primary transition-colors">
-                        Messemodelle & Exponate
-                      </h3>
-                      <p className="text-background/40 leading-relaxed mb-6 text-sm">
-                        Express-Fertigung für Wien, München, Hannover. Angebot heute – Modell morgen. Bis 2m+.
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {["Express 24h", "Bis 2m+", "Segmentiert"].map(t =>
-                          <span key={t} className="mono text-[10px] font-bold text-background/30 uppercase tracking-wider">{t}</span>
-                        )}
-                      </div>
-                      <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
-                        Messemodelle <ArrowRight className="w-4 h-4" />
-                      </span>
+                  <MagneticCard className="h-full rounded-3xl bg-foreground p-10 md:p-12 relative overflow-hidden
+                    border-2 border-foreground hover:border-primary transition-all duration-500 group-hover:-translate-y-1" glowColor="hsl(var(--primary) / 0.15)">
+                    <p className="mono text-7xl font-bold text-background/[0.05] absolute top-6 right-8 leading-none z-[3]">02</p>
+                    <span className="sticker border-primary text-primary mb-6 inline-flex">ab €30</span>
+                    <h3 className="text-2xl md:text-3xl font-bold text-background mb-3 tracking-tight group-hover:text-primary transition-colors">
+                      Messemodelle & Exponate
+                    </h3>
+                    <p className="text-background/40 leading-relaxed mb-6 text-sm">
+                      Express-Fertigung für Wien, München, Hannover. Angebot heute – Modell morgen. Bis 2m+.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {["Express 24h", "Bis 2m+", "Segmentiert"].map(t =>
+                        <span key={t} className="mono text-[10px] font-bold text-background/30 uppercase tracking-wider">{t}</span>
+                      )}
                     </div>
-                  </div>
+                    <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
+                      Messemodelle <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </MagneticCard>
                 </Link>
               </AnimatedSection>
 
               <AnimatedSection animation="slide-up" delay={200}>
                 <Link to="/einzelanfertigungen" className="group block h-full">
-                  <div className="h-full rounded-3xl border-2 border-border hover:border-primary/40 p-10 md:p-12 relative overflow-hidden
+                  <MagneticCard className="h-full rounded-3xl border-2 border-border hover:border-primary/40 p-10 md:p-12 relative overflow-hidden
                     transition-all duration-500 group-hover:-translate-y-1">
-                    <p className="mono text-7xl font-bold text-foreground/[0.04] absolute top-6 right-8 leading-none">03</p>
-                    <div className="relative">
-                      <span className="sticker border-foreground text-foreground mb-6 inline-flex">ab 1 Stück</span>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">
-                        Einzelanfertigungen
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
-                        Maßgefertigt nach Ihren Vorgaben – aus Skizzen, Fotos oder CAD. Keine Mindestmenge.
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {["Unikate", "Nach Skizze", "Alle Größen"].map(t =>
-                          <span key={t} className="mono text-[10px] font-bold text-foreground/30 uppercase tracking-wider">{t}</span>
-                        )}
-                      </div>
-                      <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
-                        Einzelanfertigungen <ArrowRight className="w-4 h-4" />
-                      </span>
+                    <p className="mono text-7xl font-bold text-foreground/[0.04] absolute top-6 right-8 leading-none z-[3]">03</p>
+                    <span className="sticker border-foreground text-foreground mb-6 inline-flex">ab 1 Stück</span>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">
+                      Einzelanfertigungen
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
+                      Maßgefertigt nach Ihren Vorgaben – aus Skizzen, Fotos oder CAD. Keine Mindestmenge.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {["Unikate", "Nach Skizze", "Alle Größen"].map(t =>
+                        <span key={t} className="mono text-[10px] font-bold text-foreground/30 uppercase tracking-wider">{t}</span>
+                      )}
                     </div>
-                  </div>
+                    <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
+                      Einzelanfertigungen <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </MagneticCard>
                 </Link>
               </AnimatedSection>
             </div>
