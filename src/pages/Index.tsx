@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import ThreeStepProcess from "@/components/ThreeStepProcess";
+import StickyCTA from "@/components/landing/StickyCTA";
 import GoogleReviewsSection from "@/components/GoogleReviewsSection";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
