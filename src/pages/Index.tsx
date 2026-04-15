@@ -15,6 +15,9 @@ import TrustBadges from "@/components/TrustBadges";
 import ReferencesTeaser from "@/components/ReferencesTeaser";
 import AnimatedSection from "@/components/AnimatedSection";
 import MarqueeTicker from "@/components/MarqueeTicker";
+import BranchenShowcase from "@/components/BranchenShowcase";
+import LiveProductionBanner from "@/components/LiveProductionBanner";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import {
