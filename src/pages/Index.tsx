@@ -28,6 +28,7 @@ import {
   Award, Wrench, Calculator, MapPin, FlaskConical
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import MagneticCard from "@/components/MagneticCard";
 
 const Index = () => {
   return <>
