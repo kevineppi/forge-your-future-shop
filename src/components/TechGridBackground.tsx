@@ -11,11 +11,14 @@ const TechGridBackground = () => {
 
     let animationId: number;
     let scrollY = 0;
+    let mouseX = 0;
+    let mouseY = 0;
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth * 2;
-      canvas.height = canvas.offsetHeight * 2;
-      ctx.scale(2, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = canvas.offsetWidth * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      ctx.scale(dpr, dpr);
     };
     resize();
     window.addEventListener("resize", resize);
@@ -23,15 +26,36 @@ const TechGridBackground = () => {
     const handleScroll = () => { scrollY = window.scrollY; };
     window.addEventListener("scroll", handleScroll, { passive: true });
 
+    const handleMouse = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+    window.addEventListener("mousemove", handleMouse, { passive: true });
+
+    // Floating orbs — slow, ambient, premium feel
+    const orbs: { x: number; y: number; radius: number; vx: number; vy: number; hue: number; opacity: number }[] = [];
+    for (let i = 0; i < 6; i++) {
+      orbs.push({
+        x: Math.random() * 1400,
+        y: Math.random() * 900,
+        radius: 80 + Math.random() * 160,
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: (Math.random() - 0.5) * 0.15,
+        hue: i % 2 === 0 ? 152 : 38,
+        opacity: 0.025 + Math.random() * 0.02,
+      });
+    }
+
+    // Fine particles
     const particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number }[] = [];
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 30; i++) {
       particles.push({
-        x: Math.random() * 1200,
-        y: Math.random() * 800,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.4 + 0.1,
+        x: Math.random() * 1400,
+        y: Math.random() * 900,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        size: Math.random() * 1.5 + 0.5,
+        opacity: Math.random() * 0.3 + 0.1,
       });
     }
 
@@ -40,30 +64,47 @@ const TechGridBackground = () => {
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
 
-      const scrollOffset = scrollY * 0.15;
-      const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
-      const [pH, pS, pL] = primaryColor.split(' ').map(v => parseFloat(v));
+      const scrollOffset = scrollY * 0.12;
+      const time = Date.now() * 0.001;
 
-      // Grid lines that shift with scroll
-      ctx.strokeStyle = `hsla(${pH}, ${pS}%, ${pL}%, 0.04)`;
-      ctx.lineWidth = 0.5;
-      const gridSize = 60;
-      for (let x = -gridSize; x < w + gridSize; x += gridSize) {
-        const offset = (scrollOffset * 0.5) % gridSize;
+      // Ambient orbs
+      orbs.forEach((orb) => {
+        orb.x += orb.vx;
+        orb.y += orb.vy;
+        if (orb.x < -orb.radius) orb.x = w + orb.radius;
+        if (orb.x > w + orb.radius) orb.x = -orb.radius;
+        if (orb.y < -orb.radius) orb.y = h + orb.radius;
+        if (orb.y > h + orb.radius) orb.y = -orb.radius;
+
+        const pulseFactor = Math.sin(time * 0.5 + orb.x * 0.01) * 0.3 + 0.7;
+        const gradient = ctx.createRadialGradient(
+          orb.x, orb.y - scrollOffset * 0.15, 0,
+          orb.x, orb.y - scrollOffset * 0.15, orb.radius
+        );
+        gradient.addColorStop(0, `hsla(${orb.hue}, 35%, 50%, ${orb.opacity * pulseFactor})`);
+        gradient.addColorStop(1, `hsla(${orb.hue}, 35%, 50%, 0)`);
+        ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.moveTo(x + offset, 0);
-        ctx.lineTo(x + offset, h);
-        ctx.stroke();
-      }
-      for (let y = -gridSize; y < h + gridSize; y += gridSize) {
-        const offset = (scrollOffset * 0.3) % gridSize;
-        ctx.beginPath();
-        ctx.moveTo(0, y + offset);
-        ctx.lineTo(w, y + offset);
-        ctx.stroke();
+        ctx.arc(orb.x, orb.y - scrollOffset * 0.15, orb.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Subtle grid with dot intersections
+      const gridSize = 80;
+      const gridOpacity = 0.035;
+      ctx.fillStyle = `hsla(152, 20%, 40%, ${gridOpacity})`;
+
+      for (let x = 0; x < w + gridSize; x += gridSize) {
+        const xOffset = (scrollOffset * 0.3) % gridSize;
+        for (let y = 0; y < h + gridSize; y += gridSize) {
+          const yOffset = (scrollOffset * 0.2) % gridSize;
+          ctx.beginPath();
+          ctx.arc(x + xOffset, y + yOffset, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
 
-      // Animated particles
+      // Fine connecting lines from mouse proximity
       particles.forEach((p, i) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -72,45 +113,28 @@ const TechGridBackground = () => {
         if (p.y < 0) p.y = h;
         if (p.y > h) p.y = 0;
 
-        const pulse = Math.sin(Date.now() * 0.002 + i) * 0.5 + 0.5;
-        ctx.fillStyle = `hsla(${pH}, ${pS}%, ${pL}%, ${p.opacity * pulse})`;
+        const pulse = Math.sin(time * 1.5 + i * 0.8) * 0.5 + 0.5;
+        ctx.fillStyle = `hsla(152, 30%, 45%, ${p.opacity * pulse * 0.7})`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y - scrollOffset * 0.1, p.size, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y - scrollOffset * 0.08, p.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Connect nearby particles
+        // Connect nearby particles with thin lines
         particles.forEach((p2, j) => {
           if (j <= i) return;
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.strokeStyle = `hsla(${pH}, ${pS}%, ${pL}%, ${0.06 * (1 - dist / 120)})`;
+          if (dist < 140) {
+            ctx.strokeStyle = `hsla(152, 25%, 45%, ${0.04 * (1 - dist / 140)})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
-            ctx.moveTo(p.x, p.y - scrollOffset * 0.1);
-            ctx.lineTo(p2.x, p2.y - scrollOffset * 0.1);
+            ctx.moveTo(p.x, p.y - scrollOffset * 0.08);
+            ctx.lineTo(p2.x, p2.y - scrollOffset * 0.08);
             ctx.stroke();
           }
         });
       });
-
-      // Floating geometric shapes
-      const time = Date.now() * 0.001;
-      for (let i = 0; i < 5; i++) {
-        const cx = w * (0.2 + i * 0.15) + Math.sin(time + i * 1.5) * 30;
-        const cy = h * 0.5 + Math.cos(time * 0.7 + i) * 40 - scrollOffset * 0.2;
-        const size = 15 + i * 5;
-        const rotation = time * 0.3 + i;
-
-        ctx.save();
-        ctx.translate(cx, cy);
-        ctx.rotate(rotation);
-        ctx.strokeStyle = `hsla(${pH}, ${pS}%, ${pL}%, ${0.06 + Math.sin(time + i) * 0.03})`;
-        ctx.lineWidth = 0.8;
-        ctx.strokeRect(-size / 2, -size / 2, size, size);
-        ctx.restore();
-      }
 
       animationId = requestAnimationFrame(draw);
     };
@@ -121,6 +145,7 @@ const TechGridBackground = () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouse);
     };
   }, []);
 
@@ -128,7 +153,7 @@ const TechGridBackground = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.7 }}
     />
   );
 };
