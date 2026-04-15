@@ -227,6 +227,11 @@ const Index = () => {
       <ThreeStepProcess />
 
       {/* ══════════════════════════════════════════════════════
+          LIVE PRODUCTION BANNER
+         ══════════════════════════════════════════════════════ */}
+      <LiveProductionBanner />
+
+      {/* ══════════════════════════════════════════════════════
           REVERSE MARQUEE
          ══════════════════════════════════════════════════════ */}
       <div className="border-y border-border py-4 bg-background">
