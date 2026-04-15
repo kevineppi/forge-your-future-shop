@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import ThreeStepProcess from "@/components/ThreeStepProcess";
+import StickyCTA from "@/components/landing/StickyCTA";
 import GoogleReviewsSection from "@/components/GoogleReviewsSection";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -197,6 +199,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── 3 SCHRITTE — CONVERSION SECTION ─────────────────────────────── */}
+      <ThreeStepProcess />
+
       {/* ── KOSTENRECHNER CTA — prominent link ─────────────────────────── */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
@@ -389,15 +394,15 @@ const Index = () => {
                     Beschreiben Sie uns kurz Ihr Projekt. Wir antworten schnell, unverbindlich und persönlich – kein Callcenter, kein Autoresponder.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button asChild size="lg" className="group rounded-2xl px-8 font-bold">
+                    <Button asChild size="lg" variant="cta" className="group rounded-2xl px-8 font-bold shadow-[0_6px_25px_hsl(var(--primary)/0.3)]">
                       <Link to="/kontakt">
                         <MessageSquare className="mr-2 w-4 h-4" />
                         Jetzt anfragen
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-primary/30 hover:bg-primary/8">
-                      <a href="tel:+4367655171897">
+                    <Button asChild size="lg" variant="cta-outline" className="rounded-2xl px-8">
+                      <a href="tel:+436765517197">
                         <Phone className="mr-2 w-4 h-4" />
                         +43 676 5517197
                       </a>
@@ -919,13 +924,13 @@ const Index = () => {
                     Angebot in 6 Stunden. Kostenlos. Ohne Callcenter. Direkte Ansprechperson aus Gunskirchen, Österreich.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button asChild size="lg" className="group rounded-2xl px-8 font-bold shadow-[0_4px_20px_hsl(var(--primary)/0.25)] hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] transition-shadow">
+                    <Button asChild size="lg" variant="cta" className="group rounded-2xl px-8 font-bold shadow-[0_6px_25px_hsl(var(--primary)/0.3)]">
                       <Link to="/kontakt">
                         Kostenloses Angebot anfragen
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 hover:border-primary/40">
+                    <Button asChild size="lg" variant="cta-outline" className="rounded-2xl px-8">
                       <Link to="/referenzen">Referenzen ansehen</Link>
                     </Button>
                   </div>
@@ -967,6 +972,7 @@ const Index = () => {
 
       <Contact />
       <Footer />
+      <StickyCTA />
       <ExitIntentPopup />
     </div>
   </>;
