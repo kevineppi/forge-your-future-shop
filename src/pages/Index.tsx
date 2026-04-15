@@ -15,6 +15,9 @@ import TrustBadges from "@/components/TrustBadges";
 import ReferencesTeaser from "@/components/ReferencesTeaser";
 import AnimatedSection from "@/components/AnimatedSection";
 import MarqueeTicker from "@/components/MarqueeTicker";
+import BranchenShowcase from "@/components/BranchenShowcase";
+import LiveProductionBanner from "@/components/LiveProductionBanner";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import {
@@ -76,7 +79,7 @@ const Index = () => {
             {/* Service 1: Architekturmodelle — full-width hero card */}
             <AnimatedSection animation="slide-up" className="mb-4">
               <Link to="/architekturmodelle" className="group block">
-                <div className="rounded-3xl border-2 border-border hover:border-primary/40 transition-all duration-500 overflow-hidden group-hover:-translate-y-1">
+                <div className="rounded-3xl border-2 border-border hover:border-primary/40 transition-all duration-500 overflow-hidden group-hover:-translate-y-1" data-cursor="Entdecken">
                   <div className="grid md:grid-cols-2">
                     {/* Left: Content */}
                     <div className="p-10 md:p-16 flex flex-col justify-center">
@@ -224,6 +227,11 @@ const Index = () => {
       <ThreeStepProcess />
 
       {/* ══════════════════════════════════════════════════════
+          LIVE PRODUCTION BANNER
+         ══════════════════════════════════════════════════════ */}
+      <LiveProductionBanner />
+
+      {/* ══════════════════════════════════════════════════════
           REVERSE MARQUEE
          ══════════════════════════════════════════════════════ */}
       <div className="border-y border-border py-4 bg-background">
@@ -242,7 +250,7 @@ const Index = () => {
                 Zahlen, die<br />
                 <span className="text-outline-primary">überzeugen.</span>
               </h2>
-              {/* Giant stats */}
+              {/* Giant stats with animated counters */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
                   { val: "95%", label: "günstiger als Handmodellbau" },
@@ -251,7 +259,7 @@ const Index = () => {
                   { val: "5.0", label: "Google Rating" },
                 ].map(({ val, label }) =>
                   <div key={val}>
-                    <p className="mono text-5xl md:text-7xl font-bold text-foreground leading-none tracking-tighter">{val}</p>
+                    <AnimatedCounter target={val} className="mono text-5xl md:text-7xl font-bold text-foreground leading-none tracking-tighter" />
                     <p className="text-sm text-muted-foreground mt-3 max-w-[160px]">{label}</p>
                   </div>
                 )}
@@ -435,6 +443,11 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════
+          BRANCHEN SHOWCASE
+         ══════════════════════════════════════════════════════ */}
+      <BranchenShowcase />
 
       {/* ══════════════════════════════════════════════════════
           REFERENZEN

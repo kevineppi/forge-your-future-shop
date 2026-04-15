@@ -7,6 +7,8 @@ import { AuthProvider } from "./hooks/useAuth";
 import ScrollToTop from "./components/ScrollToTop";
 import { lazy, Suspense } from "react";
 
+import CustomCursor from "./components/CustomCursor";
+
 // ─── Critical pages (loaded eagerly – always visible above fold) ──────────────
 import Index from "./pages/Index";
 import Impressum from "./pages/Impressum";
@@ -72,6 +74,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <CustomCursor />
           <ScrollToTop />
           <Suspense fallback={<PageLoader />}>
             <Routes>
