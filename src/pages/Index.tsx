@@ -14,15 +14,15 @@ import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
 import ReferencesTeaser from "@/components/ReferencesTeaser";
 import AnimatedSection from "@/components/AnimatedSection";
+import MarqueeTicker from "@/components/MarqueeTicker";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import {
   Building2, Presentation, Users,
   Check, X, Clock, Repeat2, Layers,
   TrendingDown, ArrowRight, Zap, Leaf, Star,
-  ChevronRight, Phone, MessageSquare,
-  Shield, Award, Paintbrush, ScanLine, Ruler,
-  FlaskConical, Wrench, Calculator, MapPin
+  ChevronRight, Phone,
+  Award, Wrench, Calculator, MapPin, FlaskConical
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -53,297 +53,226 @@ const Index = () => {
       <Hero />
 
       {/* ══════════════════════════════════════════════════════
-          MARQUEE TRUST BAR — full-width dark strip
-         ══════════════════════════════════════════════════════ */}
-      <section className="py-6 bg-foreground border-b border-background/10" aria-label="Vertrauenssignale">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-            {[
-              { icon: Star, text: "5,0 / 5,0 (31 Reviews)", highlight: true },
-              { icon: Zap, text: "Express 24h" },
-              { icon: Clock, text: "Angebot in 6h" },
-              { icon: MapPin, text: "Made in Austria" },
-              { icon: Leaf, text: "Nachhaltiges Filament" },
-            ].map(({ icon: Icon, text, highlight }) => (
-              <div key={text} className="flex items-center gap-2 text-xs font-semibold">
-                <Icon className={`w-4 h-4 ${highlight ? "text-amber-400" : "text-primary"}`} />
-                <span className="text-background/70">{text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
-          LEISTUNGEN — Magazine-style alternating layout
+          LEISTUNGEN — Bold editorial cards
          ══════════════════════════════════════════════════════ */}
       <section id="leistungen" className="py-32 bg-background relative" aria-label="3D-Druck Leistungen">
         <div className="container mx-auto px-4">
-          <AnimatedSection animation="fade-in" className="max-w-6xl mx-auto mb-20">
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.25em] mb-4">Unsere Leistungen</p>
-            <h2 className="text-4xl md:text-6xl font-black leading-[1.0] tracking-[-0.04em]">
-              Was wir für<br />Sie drucken<span className="text-primary">.</span>
-            </h2>
-          </AnimatedSection>
-
-          {/* Service 1: Architekturmodelle - full-width split */}
-          <AnimatedSection animation="slide-up" className="max-w-6xl mx-auto mb-6">
-            <Link to="/architekturmodelle" className="group block">
-              <div className="grid md:grid-cols-2 rounded-[2rem] overflow-hidden bg-card border border-border/50 shadow-card hover:shadow-card-hover transition-all duration-500 group-hover:-translate-y-1">
-                <div className="bg-gradient-to-br from-primary/[0.06] via-muted/40 to-muted/20 p-12 md:p-16 flex flex-col justify-center relative overflow-hidden">
-                  <div className="absolute top-8 right-8 w-[200px] h-[200px] rounded-full border border-primary/10 pointer-events-none" />
-                  <div className="absolute bottom-8 left-8 w-[120px] h-[120px] rounded-full bg-primary/[0.04] blur-[40px] pointer-events-none" />
-                  <div className="relative">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                      <Building2 className="w-8 h-8 text-primary" />
-                    </div>
-                    <div className="flex gap-2 mb-3">
-                      <span className="text-xs font-bold bg-gradient-to-r from-primary to-primary-glow text-primary-foreground px-3 py-1 rounded-full">Express 24h</span>
-                      <span className="text-xs font-bold glass px-3 py-1 rounded-full">ab €20</span>
-                    </div>
-                  </div>
+          <div className="max-w-7xl mx-auto">
+            {/* Section header */}
+            <AnimatedSection animation="fade-in" className="mb-20">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                  <p className="mono text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4">Services</p>
+                  <h2 className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em]">
+                    Was wir<br />für Sie drucken.
+                  </h2>
                 </div>
-                <div className="p-12 md:p-16 flex flex-col justify-center">
-                  <h3 className="text-3xl md:text-4xl font-black mb-4 tracking-tight group-hover:text-primary transition-colors">
-                    Architektur­modelle
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
-                    Maßstabsgetreue 3D-gedruckte Modelle 1:50 bis 1:500 für Wettbewerbe, Baueinreichungen und Kundenpräsentationen. Kompatibel mit ArchiCAD, Revit & SolidWorks.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {["1:50–1:500", "CAD-Import", "Wettbewerbsmodelle"].map(t =>
-                      <span key={t} className="text-xs bg-primary/6 text-primary px-3 py-1.5 rounded-full font-medium">{t}</span>
-                    )}
-                  </div>
-                  <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
-                    Architekturmodelle entdecken <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
+                <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
+                  Von der ersten Idee bis zum fertigen Modell – alles aus einer Hand. Kein Outsourcing, kein Callcenter.
+                </p>
               </div>
-            </Link>
-          </AnimatedSection>
+            </AnimatedSection>
 
-          {/* Service 2+3: Side by side */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto mb-6">
-            <AnimatedSection animation="slide-up" delay={100}>
-              <Link to="/messemodelle" className="group block h-full">
-                <div className="h-full rounded-[2rem] bg-gradient-to-br from-primary via-primary to-primary-glow p-10 md:p-12 text-primary-foreground relative overflow-hidden
-                  hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.5)] transition-all duration-500 group-hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 pointer-events-none" />
-                  <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border border-white/10 pointer-events-none" />
-                  <div className="relative">
-                    <div className="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <Presentation className="w-6 h-6" />
+            {/* Service 1: Architekturmodelle — full-width hero card */}
+            <AnimatedSection animation="slide-up" className="mb-4">
+              <Link to="/architekturmodelle" className="group block">
+                <div className="rounded-3xl border-2 border-border hover:border-primary/40 transition-all duration-500 overflow-hidden group-hover:-translate-y-1">
+                  <div className="grid md:grid-cols-2">
+                    {/* Left: Content */}
+                    <div className="p-10 md:p-16 flex flex-col justify-center">
+                      <div className="flex gap-3 mb-6">
+                        <span className="sticker border-primary text-primary">Express 24h</span>
+                        <span className="mono text-xs font-bold text-muted-foreground tracking-wider">ab €20</span>
+                      </div>
+                      <h3 className="text-3xl md:text-5xl font-bold mb-4 tracking-[-0.03em] group-hover:text-primary transition-colors">
+                        Architektur­modelle
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed mb-6 max-w-md">
+                        Maßstabsgetreue 3D-gedruckte Modelle 1:50 bis 1:500 für Wettbewerbe, Baueinreichungen und Kundenpräsentationen.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {["1:50–1:500", "CAD-Import", "Wettbewerbsmodelle", "ArchiCAD & Revit"].map(t =>
+                          <span key={t} className="mono text-[10px] font-bold text-foreground/50 uppercase tracking-wider bg-muted px-3 py-1.5 rounded-full">{t}</span>
+                        )}
+                      </div>
+                      <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
+                        Mehr erfahren <ArrowRight className="w-4 h-4" />
+                      </span>
                     </div>
-                    <span className="text-xs font-bold bg-white/15 border border-white/20 px-3 py-1 rounded-full inline-block mb-4">ab €30</span>
-                    <h3 className="text-2xl md:text-3xl font-black mb-3 tracking-tight">Messemodelle & Exponate</h3>
-                    <p className="text-primary-foreground/70 leading-relaxed mb-6 text-sm">
-                      Express-Fertigung für Wien, München, Hannover. Angebot heute – Modell morgen. Bis 2m+.
-                    </p>
-                    <span className="flex items-center gap-2 font-bold text-sm group-hover:gap-4 transition-all">
-                      Messemodelle <ArrowRight className="w-4 h-4" />
-                    </span>
+                    {/* Right: Visual placeholder with large number */}
+                    <div className="bg-muted/50 p-10 md:p-16 flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Building2 className="w-32 h-32 text-primary/[0.06]" />
+                      </div>
+                      <div className="relative text-center">
+                        <p className="mono text-8xl md:text-9xl font-bold text-foreground/[0.06] leading-none">01</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>
             </AnimatedSection>
 
-            <AnimatedSection animation="slide-up" delay={200}>
-              <Link to="/einzelanfertigungen" className="group block h-full">
-                <div className="h-full rounded-[2rem] bg-foreground p-10 md:p-12 relative overflow-hidden
-                  hover:shadow-[0_20px_60px_-15px_hsl(var(--foreground)/0.4)] transition-all duration-500 group-hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 pointer-events-none" />
-                  <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full border border-primary/10 pointer-events-none" />
-                  <div className="relative">
-                    <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <Wrench className="w-6 h-6 text-primary" />
+            {/* Service 2+3: Side by side */}
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <AnimatedSection animation="slide-up" delay={100}>
+                <Link to="/messemodelle" className="group block h-full">
+                  <div className="h-full rounded-3xl bg-foreground p-10 md:p-12 relative overflow-hidden
+                    border-2 border-foreground hover:border-primary transition-all duration-500 group-hover:-translate-y-1">
+                    <p className="mono text-7xl font-bold text-background/[0.05] absolute top-6 right-8 leading-none">02</p>
+                    <div className="relative">
+                      <span className="sticker border-primary text-primary mb-6 inline-flex">ab €30</span>
+                      <h3 className="text-2xl md:text-3xl font-bold text-background mb-3 tracking-tight group-hover:text-primary transition-colors">
+                        Messemodelle & Exponate
+                      </h3>
+                      <p className="text-background/40 leading-relaxed mb-6 text-sm">
+                        Express-Fertigung für Wien, München, Hannover. Angebot heute – Modell morgen. Bis 2m+.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {["Express 24h", "Bis 2m+", "Segmentiert"].map(t =>
+                          <span key={t} className="mono text-[10px] font-bold text-background/30 uppercase tracking-wider">{t}</span>
+                        )}
+                      </div>
+                      <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
+                        Messemodelle <ArrowRight className="w-4 h-4" />
+                      </span>
                     </div>
-                    <span className="text-xs font-bold bg-primary/20 text-primary border border-primary/20 px-3 py-1 rounded-full inline-block mb-4">ab 1 Stück</span>
-                    <h3 className="text-2xl md:text-3xl font-black text-background mb-3 tracking-tight">Einzelanfertigungen & Unikate</h3>
-                    <p className="text-background/60 leading-relaxed mb-6 text-sm">
-                      Maßgefertigt nach Ihren Vorgaben – aus Skizzen, Fotos oder CAD. Keine Mindestmenge.
-                    </p>
-                    <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
-                      Einzelanfertigungen <ArrowRight className="w-4 h-4" />
-                    </span>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </AnimatedSection>
+
+              <AnimatedSection animation="slide-up" delay={200}>
+                <Link to="/einzelanfertigungen" className="group block h-full">
+                  <div className="h-full rounded-3xl border-2 border-border hover:border-primary/40 p-10 md:p-12 relative overflow-hidden
+                    transition-all duration-500 group-hover:-translate-y-1">
+                    <p className="mono text-7xl font-bold text-foreground/[0.04] absolute top-6 right-8 leading-none">03</p>
+                    <div className="relative">
+                      <span className="sticker border-foreground text-foreground mb-6 inline-flex">ab 1 Stück</span>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">
+                        Einzelanfertigungen
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
+                        Maßgefertigt nach Ihren Vorgaben – aus Skizzen, Fotos oder CAD. Keine Mindestmenge.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {["Unikate", "Nach Skizze", "Alle Größen"].map(t =>
+                          <span key={t} className="mono text-[10px] font-bold text-foreground/30 uppercase tracking-wider">{t}</span>
+                        )}
+                      </div>
+                      <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
+                        Einzelanfertigungen <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            </div>
+
+            {/* Quick service links */}
+            <AnimatedSection animation="fade-in" delay={250} className="mt-8">
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { to: "/firmenkunden", label: "Firmenkunden & B2B" },
+                  { to: "/rapid-prototyping", label: "Rapid Prototyping" },
+                  { to: "/fdm-3d-druck", label: "FDM Technologie" },
+                  { to: "/3d-druck-materialien", label: "Materialien" },
+                  { to: "/kostenrechner", label: "Kostenrechner" },
+                ].map(({ to, label }) =>
+                  <Link key={to} to={to}
+                    className="group flex items-center gap-2 border-2 border-border hover:border-foreground rounded-full px-5 py-2.5 transition-all duration-300 hover:-translate-y-0.5 text-sm font-medium">
+                    <span className="group-hover:text-foreground transition-colors">{label}</span>
+                    <ArrowRight className="w-3 h-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  </Link>
+                )}
+              </div>
             </AnimatedSection>
           </div>
-
-          {/* Quick service links - pill row */}
-          <AnimatedSection animation="fade-in" delay={250} className="max-w-6xl mx-auto">
-            <div className="flex flex-wrap gap-2">
-              {[
-                { to: "/firmenkunden", icon: Users, label: "Firmenkunden & B2B" },
-                { to: "/rapid-prototyping", icon: Zap, label: "Rapid Prototyping" },
-                { to: "/fdm-3d-druck", icon: Award, label: "FDM Technologie" },
-                { to: "/3d-druck-materialien", icon: Layers, label: "Materialien" },
-                { to: "/kostenrechner", icon: Calculator, label: "Kostenrechner" },
-              ].map(({ to, icon: Icon, label }) =>
-                <Link key={to} to={to}
-                  className="group flex items-center gap-2 bg-card border border-border/50 hover:border-primary/30 hover:bg-primary/5 rounded-full px-5 py-2.5 transition-all duration-300 hover:-translate-y-0.5 text-sm font-medium">
-                  <Icon className="w-3.5 h-3.5 text-primary shrink-0" />
-                  <span className="group-hover:text-primary transition-colors">{label}</span>
-                </Link>
-              )}
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          KOSTENRECHNER CTA — editorial highlight
+          KOSTENRECHNER CTA — Bold strip
          ══════════════════════════════════════════════════════ */}
-      <section className="py-0 relative" aria-label="3D-Druck Kostenrechner">
-        <AnimatedSection animation="fade-in">
-          <Link to="/kostenrechner" className="group block">
-            <div className="bg-muted/50 border-y border-border/50 hover:bg-muted/70 transition-all duration-500">
-              <div className="container mx-auto px-4">
-                <div className="max-w-6xl mx-auto py-14 flex flex-col md:flex-row md:items-center gap-8">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <Calculator className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="font-black text-2xl md:text-3xl tracking-tight mb-2 group-hover:text-primary transition-colors">
-                      Was kostet Ihr 3D-Modell?
-                    </h2>
-                    <p className="text-muted-foreground text-sm">
-                      STL hochladen → Material wählen → Richtpreis erhalten. Kostenlos und unverbindlich.
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all shrink-0">
-                    Kostenrechner öffnen <ArrowRight className="w-5 h-5" />
-                  </div>
+      <section className="border-y-2 border-foreground" aria-label="3D-Druck Kostenrechner">
+        <Link to="/kostenrechner" className="group block">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto py-10 flex flex-col md:flex-row md:items-center gap-6">
+              <div className="flex items-center gap-4 flex-1 min-w-0">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <Calculator className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <h2 className="font-bold text-xl md:text-2xl tracking-tight group-hover:text-primary transition-colors">
+                    Was kostet Ihr 3D-Modell?
+                  </h2>
+                  <p className="mono text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mt-1">
+                    STL hochladen → Material wählen → Richtpreis erhalten
+                  </p>
                 </div>
               </div>
+              <div className="flex items-center gap-2 text-foreground font-bold text-sm group-hover:gap-4 transition-all shrink-0 mono uppercase tracking-wider">
+                Öffnen <ArrowRight className="w-5 h-5" />
+              </div>
             </div>
-          </Link>
-        </AnimatedSection>
+          </div>
+        </Link>
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          3 SCHRITTE — dark section
+          3 SCHRITTE
          ══════════════════════════════════════════════════════ */}
       <ThreeStepProcess />
 
       {/* ══════════════════════════════════════════════════════
-          ZIELGRUPPEN — Horizontal cards
+          REVERSE MARQUEE
          ══════════════════════════════════════════════════════ */}
-      <section className="py-32 bg-background relative" aria-label="Zielgruppen">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <AnimatedSection animation="fade-in" className="mb-16">
-              <p className="text-primary text-xs font-bold uppercase tracking-[0.25em] mb-4">Ihre Branche</p>
-              <h2 className="text-4xl md:text-6xl font-black leading-[1.0] tracking-[-0.04em]">
-                Für wen ist ekdruck<br />
-                die richtige Wahl<span className="text-primary">?</span>
-              </h2>
-            </AnimatedSection>
-
-            <div className="grid md:grid-cols-2 gap-5">
-              {[
-                {
-                  icon: Building2, title: "Architekten & Planer",
-                  headline: "Wettbewerbsmodell in 24h statt 3 Wochen",
-                  desc: "Maßstabsgetreue Modelle 1:50–1:500. ArchiCAD, Revit & SolidWorks kompatibel.",
-                  link: "/architekturmodelle", tags: ["1:50–1:500", "CAD-Import", "Express"],
-                },
-                {
-                  icon: Presentation, title: "Messeaussteller",
-                  headline: "3 Tage vor der Messe? Kein Problem.",
-                  desc: "Express 24–48h österreichweit. Modelle & Exponate bis 2m+.",
-                  link: "/messemodelle", tags: ["Express 24h", "Bis 2m+"],
-                },
-                {
-                  icon: FlaskConical, title: "Produktentwickler",
-                  headline: "Prototyp morgen, nicht in 3 Wochen",
-                  desc: "Rapid Prototyping ab €20. Keine Mindestmenge.",
-                  link: "/rapid-prototyping", tags: ["Ab €20", "Iterationen"],
-                },
-                {
-                  icon: Users, title: "Firmenkunden & B2B",
-                  headline: "UID-Rechnung, NDA, Mengenrabatt",
-                  desc: "Professionelle B2B-Konditionen ab 5 Stück.",
-                  link: "/firmenkunden", tags: ["UID", "NDA", "Rabatte"],
-                },
-              ].map(({ icon: Icon, title, headline, desc, link, tags }, i) =>
-                <AnimatedSection key={title} animation="slide-up" delay={i * 80}>
-                  <Link to={link} className="group block h-full">
-                    <div className="h-full rounded-[1.5rem] bg-card border border-border/50 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-card-hover hover:border-primary/20">
-                      <div className="flex items-start gap-5">
-                        <div className="w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1">{title}</p>
-                          <h3 className="font-black text-lg leading-tight mb-2 tracking-tight group-hover:text-primary transition-colors">{headline}</h3>
-                          <p className="text-sm text-muted-foreground leading-relaxed mb-4">{desc}</p>
-                          <div className="flex flex-wrap gap-1.5 mb-4">
-                            {tags.map(t => <span key={t} className="text-xs bg-primary/6 text-primary px-2.5 py-1 rounded-full font-medium">{t}</span>)}
-                          </div>
-                          <span className="flex items-center gap-1.5 text-primary font-bold text-sm group-hover:gap-3 transition-all">
-                            Mehr erfahren <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </AnimatedSection>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="border-y border-border py-4 bg-background">
+        <MarqueeTicker reverse />
+      </div>
 
       {/* ══════════════════════════════════════════════════════
-          REFERENZEN
-         ══════════════════════════════════════════════════════ */}
-      <ReferencesTeaser />
-
-      {/* ══════════════════════════════════════════════════════
-          WARUM EKDRUCK — Big stat + comparison
+          WARUM EKDRUCK — Big numbers + comparison
          ══════════════════════════════════════════════════════ */}
       <section className="py-32 bg-background relative" aria-label="Vorteile 3D-Druck">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            {/* Big stat headline */}
+          <div className="max-w-7xl mx-auto">
             <AnimatedSection animation="fade-in" className="mb-20">
-              <p className="text-primary text-xs font-bold uppercase tracking-[0.25em] mb-4">Warum ekdruck?</p>
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <p className="mono text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4">Warum ekdruck?</p>
+              <h2 className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em] mb-16">
+                Zahlen, die<br />
+                <span className="text-outline-primary">überzeugen.</span>
+              </h2>
+              {/* Giant stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
                   { val: "95%", label: "günstiger als Handmodellbau" },
                   { val: "24h", label: "Express österreichweit" },
-                  { val: "0,1mm", label: "Schichtauflösung" },
+                  { val: "0.1mm", label: "Schichtauflösung" },
+                  { val: "5.0", label: "Google Rating" },
                 ].map(({ val, label }) =>
-                  <div key={val} className="text-center md:text-left">
-                    <p className="text-6xl md:text-7xl font-black text-primary leading-none tracking-tighter">{val}</p>
-                    <p className="text-sm text-muted-foreground mt-2 font-medium">{label}</p>
+                  <div key={val}>
+                    <p className="mono text-5xl md:text-7xl font-bold text-foreground leading-none tracking-tighter">{val}</p>
+                    <p className="text-sm text-muted-foreground mt-3 max-w-[160px]">{label}</p>
                   </div>
                 )}
               </div>
-              <h2 className="text-3xl md:text-5xl font-black leading-[1.05] tracking-[-0.03em]">
-                3D-Druck schlägt traditionellen Modellbau<span className="text-primary">.</span>
-              </h2>
             </AnimatedSection>
 
             {/* Advantages */}
-            <AnimatedSection animation="slide-up" delay={100} className="grid md:grid-cols-2 gap-4 mb-16">
+            <AnimatedSection animation="slide-up" delay={100} className="grid md:grid-cols-2 gap-3 mb-16">
               {[
-                { icon: TrendingDown, title: "Keine Werkzeugkosten", desc: "Spritzguss ab €10.000. Bei ekdruck ab €20.", accent: false },
-                { icon: Clock, title: "10x schneller", desc: "Handmodellbau: 1–4 Wochen. ekdruck Express: 24h.", accent: true },
-                { icon: Repeat2, title: "Digital reproduzierbar", desc: "Jede Kopie identisch. Korrekturen = Dateiänderung.", accent: false },
-                { icon: Leaf, title: "Nachhaltig aus Österreich", desc: "Filament aus Industrieabfällen, 80% weniger CO₂.", accent: false },
-              ].map(({ icon: Icon, title, desc, accent }) =>
-                <div key={title} className={`flex gap-4 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-0.5
-                  ${accent ? "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground shadow-lg shadow-primary/25" : "bg-card border border-border/50 hover:shadow-card-hover hover:border-primary/20"}`}>
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${accent ? "bg-white/15" : "bg-primary/10"}`}>
-                    <Icon className={`w-5 h-5 ${accent ? "text-primary-foreground" : "text-primary"}`} />
+                { icon: TrendingDown, title: "Keine Werkzeugkosten", desc: "Spritzguss ab €10.000. Bei ekdruck ab €20." },
+                { icon: Clock, title: "10x schneller", desc: "Handmodellbau: 1–4 Wochen. ekdruck Express: 24h." },
+                { icon: Repeat2, title: "Digital reproduzierbar", desc: "Jede Kopie identisch. Korrekturen = Dateiänderung." },
+                { icon: Leaf, title: "Nachhaltig aus Österreich", desc: "Filament aus Industrieabfällen, 80% weniger CO₂." },
+              ].map(({ icon: Icon, title, desc }) =>
+                <div key={title} className="flex gap-4 p-6 rounded-2xl border-2 border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className={`font-bold text-sm mb-1 tracking-tight ${accent ? "" : ""}`}>{title}</p>
-                    <p className={`text-sm leading-relaxed ${accent ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{desc}</p>
+                    <p className="font-bold text-sm mb-1 tracking-tight">{title}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
                   </div>
                 </div>
               )}
@@ -351,13 +280,13 @@ const Index = () => {
 
             {/* Comparison table */}
             <AnimatedSection animation="fade-in" delay={200}>
-              <div className="rounded-[1.5rem] overflow-hidden bg-card border border-border/50 shadow-card">
+              <div className="rounded-3xl overflow-hidden border-2 border-foreground">
                 <div className="grid grid-cols-3 bg-foreground">
-                  <div className="p-5 text-sm font-semibold text-background/50">Kriterium</div>
+                  <div className="p-5 mono text-[10px] font-bold text-background/40 uppercase tracking-[0.2em]">Kriterium</div>
                   <div className="p-5 font-bold text-primary flex items-center justify-center gap-2 text-sm border-x border-background/10">
                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse" /> ekdruck
                   </div>
-                  <div className="p-5 text-background/50 text-sm font-semibold text-center">Traditionell</div>
+                  <div className="p-5 mono text-[10px] font-bold text-background/40 uppercase tracking-[0.2em] text-center">Traditionell</div>
                 </div>
                 {[
                   { label: "Kosten", good: "ab €20", bad: "€200–€10.000+" },
@@ -365,9 +294,9 @@ const Index = () => {
                   { label: "Geometrien", good: "Unbegrenzt", bad: "Stark limitiert" },
                   { label: "Reproduzierbarkeit", good: "1:1 identisch", bad: "Variiert" },
                 ].map(({ label, good, bad }) =>
-                  <div key={label} className="grid grid-cols-3 border-t border-border/50 hover:bg-muted/30 transition-colors">
+                  <div key={label} className="grid grid-cols-3 border-t border-border hover:bg-muted/30 transition-colors">
                     <div className="p-5 font-medium text-sm">{label}</div>
-                    <div className="p-5 text-center border-x border-border/30 bg-primary/[0.02]">
+                    <div className="p-5 text-center border-x border-border/30">
                       <span className="inline-flex items-center gap-1.5 text-primary font-bold text-sm">
                         <Check className="w-4 h-4" />{good}
                       </span>
@@ -386,47 +315,113 @@ const Index = () => {
       </section>
 
       {/* ══════════════════════════════════════════════════════
+          ZIELGRUPPEN
+         ══════════════════════════════════════════════════════ */}
+      <section className="py-32 bg-muted/30 relative" aria-label="Zielgruppen">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <AnimatedSection animation="fade-in" className="mb-16">
+              <p className="mono text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4">Branchen</p>
+              <h2 className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em]">
+                Für wen wir drucken.
+              </h2>
+            </AnimatedSection>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                {
+                  icon: Building2, title: "Architekten & Planer",
+                  headline: "Wettbewerbsmodell in 24h statt 3 Wochen",
+                  desc: "Maßstabsgetreue Modelle 1:50–1:500. ArchiCAD, Revit & SolidWorks kompatibel.",
+                  link: "/architekturmodelle", num: "01",
+                },
+                {
+                  icon: Presentation, title: "Messeaussteller",
+                  headline: "3 Tage vor der Messe? Kein Problem.",
+                  desc: "Express 24–48h österreichweit. Modelle & Exponate bis 2m+.",
+                  link: "/messemodelle", num: "02",
+                },
+                {
+                  icon: FlaskConical, title: "Produktentwickler",
+                  headline: "Prototyp morgen, nicht in 3 Wochen",
+                  desc: "Rapid Prototyping ab €20. Keine Mindestmenge.",
+                  link: "/rapid-prototyping", num: "03",
+                },
+                {
+                  icon: Users, title: "Firmenkunden & B2B",
+                  headline: "UID-Rechnung, NDA, Mengenrabatt",
+                  desc: "Professionelle B2B-Konditionen ab 5 Stück.",
+                  link: "/firmenkunden", num: "04",
+                },
+              ].map(({ icon: Icon, title, headline, desc, link, num }, i) =>
+                <AnimatedSection key={title} animation="slide-up" delay={i * 80}>
+                  <Link to={link} className="group block h-full">
+                    <div className="h-full rounded-3xl border-2 border-border hover:border-primary/40 p-8 md:p-10 transition-all duration-500 group-hover:-translate-y-1 relative overflow-hidden">
+                      <p className="mono text-6xl font-bold text-foreground/[0.04] absolute top-4 right-6 leading-none">{num}</p>
+                      <div className="relative">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                            <Icon className="w-5 h-5 text-primary" />
+                          </div>
+                          <p className="mono text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em]">{title}</p>
+                        </div>
+                        <h3 className="font-bold text-xl md:text-2xl leading-tight mb-3 tracking-tight group-hover:text-primary transition-colors">{headline}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-6">{desc}</p>
+                        <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
+                          Mehr erfahren <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </AnimatedSection>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
           MATERIALIEN
          ══════════════════════════════════════════════════════ */}
-      <section className="py-28 bg-muted/30 relative" aria-label="3D-Druck Materialien">
+      <section className="py-32 bg-background relative" aria-label="3D-Druck Materialien">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <AnimatedSection animation="fade-in" className="mb-14">
-              <div className="grid md:grid-cols-2 gap-12 items-end">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
                 <div>
-                  <p className="text-primary text-xs font-bold uppercase tracking-[0.25em] mb-4">Materialien</p>
-                  <h2 className="text-4xl md:text-5xl font-black leading-[1.05] tracking-[-0.03em]">
+                  <p className="mono text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4">Materialien</p>
+                  <h2 className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em]">
                     FDM-Präzision,<br />
-                    <span className="text-primary">made in Austria.</span>
+                    <span className="text-gradient">made in Austria.</span>
                   </h2>
                 </div>
-                <div>
+                <div className="max-w-sm">
                   <p className="text-muted-foreground text-sm leading-relaxed mb-3">
                     Ausschließlich österreichische Filamente aus recycelten Industrieabfällen. Ökostrom-Produktion, 80% weniger CO₂.
                   </p>
-                  <Link to="/3d-druck-materialien" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                  <Link to="/3d-druck-materialien" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all">
                     Alle Materialien <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             </AnimatedSection>
 
-            <AnimatedSection animation="slide-up" delay={100} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <AnimatedSection animation="slide-up" delay={100} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {[
                 { name: "PLA", badge: "Bestseller", primary: true, desc: "Biologisch abbaubar. Ideal für Architektur & Präsentation.", props: ["Biologisch abbaubar", "0,1 mm Auflösung", "20+ Farben"] },
                 { name: "PETG", badge: "Outdoor", primary: false, desc: "UV-beständig und langlebig – für Außen-Exponate.", props: ["UV-beständig", "80°C beständig", "Schlagfest"] },
                 { name: "ABS", badge: "Robust", primary: false, desc: "Industriestandard. Schleifbar und lackierbar.", props: ["100°C beständig", "Lackierbar", "Schleifbar"] },
                 { name: "TPU", badge: "Flexibel", primary: false, desc: "Elastisch für spezielle Anwendungen.", props: ["Shore 95A", "500% dehnbar", "Abriebfest"] },
               ].map(({ name, badge, primary, desc, props }) =>
-                <div key={name} className="rounded-2xl bg-card border border-border/50 p-6 hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 hover:border-primary/20">
-                  <div className="flex items-center justify-between mb-4">
-                    <p className="text-2xl font-black tracking-tight">{name}</p>
-                    <span className={`text-xs font-bold px-3 py-1 rounded-full ${primary ? "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+                <div key={name} className="rounded-3xl border-2 border-border hover:border-primary/30 p-6 md:p-8 transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center justify-between mb-6">
+                    <p className="text-3xl font-bold tracking-tight">{name}</p>
+                    <span className={`mono text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full ${primary ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
                       {badge}
                     </span>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{desc}</p>
-                  <div className="space-y-1.5">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{desc}</p>
+                  <div className="space-y-2">
                     {props.map(p =>
                       <div key={p} className="flex items-center gap-2 text-xs">
                         <Check className="w-3.5 h-3.5 text-primary shrink-0" />
@@ -442,27 +437,32 @@ const Index = () => {
       </section>
 
       {/* ══════════════════════════════════════════════════════
+          REFERENZEN
+         ══════════════════════════════════════════════════════ */}
+      <ReferencesTeaser />
+
+      {/* ══════════════════════════════════════════════════════
           GOOGLE BEWERTUNGEN
          ══════════════════════════════════════════════════════ */}
       <GoogleReviewsSection />
 
       {/* ══════════════════════════════════════════════════════
-          FAQ — Editorial split
+          FAQ
          ══════════════════════════════════════════════════════ */}
-      <section id="faq" className="py-28 bg-background relative" aria-label="Häufige Fragen zum 3D-Druck">
+      <section id="faq" className="py-32 bg-background relative" aria-label="Häufige Fragen zum 3D-Druck">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-16 items-start">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-5 gap-16 items-start">
             <div className="lg:col-span-2">
               <AnimatedSection animation="fade-in">
-                <p className="text-primary text-xs font-bold uppercase tracking-[0.25em] mb-4">FAQ</p>
-                <h2 className="text-4xl md:text-5xl font-black leading-[1.05] tracking-[-0.03em] mb-5">
-                  Häufige Fragen<br />zum 3D-Druck<span className="text-primary">.</span>
+                <p className="mono text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4">FAQ</p>
+                <h2 className="text-5xl md:text-6xl font-bold leading-[0.95] tracking-[-0.04em] mb-5">
+                  Häufige<br />Fragen.
                 </h2>
-                <p className="text-muted-foreground text-sm mb-6">
+                <p className="text-muted-foreground text-sm mb-8">
                   Nicht gefunden? Rufen Sie uns an.
                 </p>
                 <div className="space-y-1.5">
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">Ratgeber</p>
+                  <p className="mono text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-3">Ratgeber</p>
                   {[
                     { to: "/ratgeber/kosten-guide", label: "Kosten & Preise" },
                     { to: "/ratgeber/material-guide", label: "Materialien" },
@@ -470,7 +470,7 @@ const Index = () => {
                     { to: "/ratgeber/messemodell-guide", label: "Messemodell" },
                     { to: "/ratgeber/verfahrens-vergleich", label: "3D-Druck vs. Modellbau" },
                   ].map(({ to, label }) =>
-                    <Link key={to} to={to} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors py-1">
+                    <Link key={to} to={to} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors py-1.5">
                       <ChevronRight className="w-3.5 h-3.5 text-primary shrink-0" /> {label}
                     </Link>
                   )}
@@ -479,7 +479,7 @@ const Index = () => {
             </div>
             <div className="lg:col-span-3">
               <AnimatedSection animation="slide-up" delay={100}>
-                <Accordion type="single" collapsible className="space-y-2.5">
+                <Accordion type="single" collapsible className="space-y-2">
                   {[
                     { q: "Was kostet 3D-Druck bei ekdruck?", a: "Ab €20 pro Modell. Preis hängt von Material, Volumen und Qualitätsstufe ab. Festpreis in unter 6h.", link: { to: "/ratgeber/kosten-guide", text: "Preis-Ratgeber →" } },
                     { q: "Wie schnell bekomme ich mein Modell?", a: "Standard: 3–5 Werktage (versandkostenfrei ab €100). Express: 24–48h.", link: null },
@@ -489,7 +489,7 @@ const Index = () => {
                     { q: "Warum österreichisches Filament?", a: "Recycelte Industrieabfälle, Ökostrom. 80% weniger CO₂. Toleranz ±0,02 mm.", link: { to: "/ratgeber/material-guide", text: "Material-Guide →" } },
                   ].map((item, i) =>
                     <AccordionItem key={i} value={`faq-${i}`}
-                      className="bg-card border border-border/50 rounded-2xl px-6 hover:border-primary/20 transition-all data-[state=open]:shadow-card data-[state=open]:border-primary/20">
+                      className="border-2 border-border rounded-2xl px-6 hover:border-primary/30 transition-all data-[state=open]:border-primary/30">
                       <AccordionTrigger className="text-left font-bold hover:text-primary py-5 text-sm tracking-tight">{item.q}</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground pb-5 leading-relaxed text-sm">
                         {item.a}{item.link && <> <Link to={item.link.to} className="text-primary font-bold hover:underline ml-1">{item.link.text}</Link></>}
@@ -506,7 +506,7 @@ const Index = () => {
       {/* ══════════════════════════════════════════════════════
           TRUST
          ══════════════════════════════════════════════════════ */}
-      <section className="py-16 bg-muted/30" aria-label="Vertrauen">
+      <section className="py-16 border-y border-border" aria-label="Vertrauen">
         <div className="container mx-auto px-4">
           <TrustBadges variant="full" />
         </div>
@@ -516,9 +516,9 @@ const Index = () => {
           REGIONALE LINKS
          ══════════════════════════════════════════════════════ */}
       <section className="py-20 bg-background relative" aria-label="3D-Druck Standorte">
-        <div className="container mx-auto px-4 max-w-6xl">
+        <div className="container mx-auto px-4 max-w-7xl">
           <AnimatedSection animation="fade-in" className="mb-10">
-            <h2 className="text-3xl md:text-4xl font-black tracking-[-0.03em] mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-[-0.03em] mb-3">
               3D-Druck für <span className="text-primary">ganz Österreich & Deutschland</span>
             </h2>
             <p className="text-muted-foreground text-sm">
@@ -527,27 +527,27 @@ const Index = () => {
           </AnimatedSection>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "🏙️ Städte", links: [
+              { title: "Städte", links: [
                 { n: "Wien", u: "/3d-druck-wien" }, { n: "Linz", u: "/3d-druck-linz" }, { n: "Graz", u: "/3d-druck-graz" },
                 { n: "Salzburg", u: "/3d-druck-salzburg" }, { n: "Innsbruck", u: "/3d-druck-innsbruck" }, { n: "Klagenfurt", u: "/3d-druck-klagenfurt" },
                 { n: "Wels", u: "/3d-druck-wels" }, { n: "St. Pölten", u: "/3d-druck-st-poelten" },
               ]},
-              { title: "🇦🇹 Bundesländer", links: [
+              { title: "Bundesländer", links: [
                 { n: "Oberösterreich", u: "/3d-druck-oberoesterreich" }, { n: "Niederösterreich", u: "/3d-druck-niederoesterreich" },
                 { n: "Steiermark", u: "/3d-druck-steiermark" }, { n: "Kärnten", u: "/3d-druck-kaernten" },
                 { n: "Vorarlberg", u: "/3d-druck-vorarlberg" }, { n: "Burgenland", u: "/3d-druck-burgenland" },
               ]},
-              { title: "🇩🇪 Deutschland", links: [
+              { title: "Deutschland", links: [
                 { n: "München", u: "/messemodelle/muenchen" }, { n: "Stuttgart", u: "/messemodelle/stuttgart" },
                 { n: "Nürnberg", u: "/messemodelle/nuernberg" }, { n: "Passau", u: "/messemodelle/passau" },
               ]},
             ].map(({ title, links }) => (
               <div key={title}>
-                <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">{title}</h3>
+                <h3 className="mono text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-3">{title}</h3>
                 <div className="flex flex-wrap gap-2">
                   {links.map(({ n, u }) =>
                     <Link key={u} to={u} onClick={() => window.scrollTo(0, 0)}
-                      className="bg-card border border-border/50 hover:border-primary/30 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-all duration-200 font-medium hover:-translate-y-0.5">
+                      className="border-2 border-border hover:border-primary/30 hover:text-primary px-3 py-1.5 rounded-full text-sm transition-all duration-200 font-medium hover:-translate-y-0.5">
                       {n}
                     </Link>
                   )}
@@ -559,45 +559,38 @@ const Index = () => {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          FINALER CTA — Dark cinematic
+          FINALER CTA
          ══════════════════════════════════════════════════════ */}
       <section className="py-32 bg-foreground relative overflow-hidden" aria-label="Jetzt anfragen">
-        {/* Geometric decoration */}
-        <div className="absolute top-10 right-10 w-[400px] h-[400px] rounded-full border border-primary/10 pointer-events-none" />
-        <div className="absolute bottom-20 left-20 w-[250px] h-[250px] rounded-full bg-primary/[0.04] blur-[60px] pointer-events-none" />
-
         <div className="container mx-auto px-4 relative">
           <AnimatedSection animation="scale-in">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/20 text-primary px-4 py-2 rounded-full text-xs font-bold mb-10">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                Kostenlos & unverbindlich
-              </div>
-              <h2 className="text-5xl md:text-7xl font-black text-background leading-[0.95] tracking-[-0.04em] mb-6">
+            <div className="max-w-5xl mx-auto text-center">
+              <p className="mono text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-8">Let's go</p>
+              <h2 className="text-5xl md:text-8xl font-bold text-background leading-[0.9] tracking-[-0.04em] mb-4">
                 Bereit für Ihr<br />nächstes Modell<span className="text-primary">?</span>
               </h2>
-              <p className="text-background/50 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
+              <p className="text-background/40 text-base md:text-lg mb-12 max-w-lg mx-auto leading-relaxed">
                 Angebot in 6 Stunden. Direkte Ansprechperson aus Gunskirchen. Kein Callcenter.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
-                <Button asChild size="lg" variant="cta" className="group rounded-2xl px-12 py-7 text-base shadow-[0_8px_40px_hsl(var(--primary)/0.4)]">
+                <Button asChild size="lg" variant="cta" className="group rounded-full px-12 py-7 text-base">
                   <Link to="/kontakt">
                     Kostenloses Angebot
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" className="rounded-2xl px-8 py-7 text-base bg-background/10 border border-background/20 text-background hover:bg-background/20 font-semibold">
+                <Button asChild size="lg" className="rounded-full px-8 py-7 text-base bg-background/10 border-2 border-background/20 text-background hover:bg-background/20 font-semibold">
                   <Link to="/kostenrechner">
                     <Calculator className="mr-2 w-4 h-4" /> Preis berechnen
                   </Link>
                 </Button>
               </div>
-              <p className="text-background/30 text-xs">
-                ✓ Keine Mindestbestellung · ✓ Express 24h · ✓ Made in Austria
+              <p className="mono text-[10px] text-background/20 uppercase tracking-[0.2em]">
+                Keine Mindestbestellung · Express 24h · Made in Austria
               </p>
 
-              {/* Stats row */}
-              <div className="flex items-center justify-center gap-10 mt-14 pt-10 border-t border-background/10">
+              {/* Stats */}
+              <div className="flex items-center justify-center gap-10 mt-16 pt-10 border-t border-background/10">
                 {[
                   { val: "31", label: "Google Reviews" },
                   { val: "6h", label: "Angebots-Garantie" },
@@ -605,8 +598,8 @@ const Index = () => {
                   { val: "€20", label: "ab Preis" },
                 ].map(({ val, label }) =>
                   <div key={label} className="text-center">
-                    <p className="text-3xl font-black text-primary leading-none tracking-tight">{val}</p>
-                    <p className="text-[11px] text-background/40 mt-1.5 font-semibold uppercase tracking-wider">{label}</p>
+                    <p className="mono text-3xl font-bold text-primary leading-none tracking-tight">{val}</p>
+                    <p className="mono text-[9px] text-background/30 mt-2 font-bold uppercase tracking-[0.2em]">{label}</p>
                   </div>
                 )}
               </div>
