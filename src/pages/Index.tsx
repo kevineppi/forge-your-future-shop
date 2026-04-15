@@ -394,15 +394,15 @@ const Index = () => {
                     Beschreiben Sie uns kurz Ihr Projekt. Wir antworten schnell, unverbindlich und persönlich – kein Callcenter, kein Autoresponder.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button asChild size="lg" className="group rounded-2xl px-8 font-bold">
+                    <Button asChild size="lg" variant="cta" className="group rounded-2xl px-8 font-bold shadow-[0_6px_25px_hsl(var(--primary)/0.3)]">
                       <Link to="/kontakt">
                         <MessageSquare className="mr-2 w-4 h-4" />
                         Jetzt anfragen
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-primary/30 hover:bg-primary/8">
-                      <a href="tel:+4367655171897">
+                    <Button asChild size="lg" variant="cta-outline" className="rounded-2xl px-8">
+                      <a href="tel:+436765517197">
                         <Phone className="mr-2 w-4 h-4" />
                         +43 676 5517197
                       </a>
