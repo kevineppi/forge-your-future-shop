@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Star, MapPin, Shield, Clock, Play } from "lucide-react";
+import { ArrowRight, Zap, Star, MapPin, Shield, Clock, Calculator } from "lucide-react";
 import { lazy, Suspense, useEffect, useState } from "react";
 
 const TechGridBackground = lazy(() => import("@/components/TechGridBackground"));
@@ -11,7 +11,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[100svh] flex items-center bg-background pt-24 pb-16 overflow-hidden">
-      {/* Tech grid animation background */}
       <div className="absolute inset-0">
         <Suspense fallback={null}>
           <TechGridBackground />
@@ -21,9 +20,7 @@ const Hero = () => {
       {/* Ambient gradient orbs */}
       <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-accent/[0.08] blur-[100px] pointer-events-none" />
-      <div className="absolute top-[40%] left-[30%] w-[300px] h-[300px] rounded-full bg-primary/[0.04] blur-[80px] pointer-events-none" />
 
-      {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Column */}
@@ -42,23 +39,23 @@ const Hero = () => {
             </div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-foreground mb-6 leading-[1.02] tracking-[-0.03em]">
-              Ihr 3D-Modell –{" "}
+              3D-Druck Service{" "}
               <span className="relative inline-block">
-                <span className="text-gradient">fertig in 24h</span>
+                <span className="text-gradient">Österreich</span>
                 <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-primary/40 via-primary/20 to-transparent rounded-full" />
               </span>
             </h1>
 
             <p className="text-xl sm:text-2xl text-muted-foreground font-medium mb-4 tracking-tight">
-              ab €20 · Made in Austria
+              Messemodelle · Architekturmodelle · Prototypen
             </p>
 
             <p className="text-base text-muted-foreground mb-10 leading-relaxed max-w-lg">
-              Messemodelle, Architekturmodelle und Prototypen – professionell gedruckt in Gunskirchen.{" "}
-              <strong className="text-foreground">Angebot in 6 Stunden.</strong>
+              Professionelle 3D-Modelle ab €20. Express in 24h, Angebot in 6 Stunden.{" "}
+              <strong className="text-foreground">Made in Austria, nachhaltig produziert.</strong>
             </p>
 
-            {/* CTAs */}
+            {/* CTAs - both funneling to conversion */}
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <Button
                 variant="cta"
@@ -77,9 +74,9 @@ const Hero = () => {
                 className="group text-base px-8 py-7 rounded-2xl"
                 asChild
               >
-                <Link to="/referenzen">
-                  <Play className="mr-2 w-4 h-4" />
-                  Projekte ansehen
+                <Link to="/kostenrechner">
+                  <Calculator className="mr-2 w-4 h-4" />
+                  Preis berechnen
                 </Link>
               </Button>
             </div>
@@ -106,22 +103,20 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Premium Feature Stack */}
+          {/* Right Column - Feature Stack */}
           <div
             className="hidden lg:block"
             style={{
               opacity: isLoaded ? 1 : 0,
-              transform: isLoaded ? "translateY(0) translateX(0)" : "translateY(30px) translateX(20px)",
+              transform: isLoaded ? "translateY(0)" : "translateY(30px)",
               transition: "all 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s",
             }}
           >
             <div className="grid gap-4 relative">
-              {/* Ambient glow behind cards */}
               <div className="absolute -inset-8 bg-gradient-to-br from-primary/[0.06] via-transparent to-accent/[0.04] rounded-[3rem] blur-2xl pointer-events-none" />
 
-              {/* Main feature card - glassmorphism */}
-              <div className="relative glass-strong rounded-3xl p-8 shadow-card
-                hover:shadow-card-hover transition-all duration-500 hover:-translate-y-0.5 group">
+              {/* Main feature card */}
+              <div className="relative glass-strong rounded-3xl p-8 shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-0.5 group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/[0.04] rounded-full blur-3xl pointer-events-none" />
                 <div className="relative">
                   <div className="flex items-center gap-3 mb-4">
