@@ -143,27 +143,25 @@ const Index = () => {
 
               <AnimatedSection animation="slide-up" delay={200}>
                 <Link to="/einzelanfertigungen" className="group block h-full">
-                  <div className="h-full rounded-3xl border-2 border-border hover:border-primary/40 p-10 md:p-12 relative overflow-hidden
+                  <MagneticCard className="h-full rounded-3xl border-2 border-border hover:border-primary/40 p-10 md:p-12 relative overflow-hidden
                     transition-all duration-500 group-hover:-translate-y-1">
-                    <p className="mono text-7xl font-bold text-foreground/[0.04] absolute top-6 right-8 leading-none">03</p>
-                    <div className="relative">
-                      <span className="sticker border-foreground text-foreground mb-6 inline-flex">ab 1 Stück</span>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">
-                        Einzelanfertigungen
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
-                        Maßgefertigt nach Ihren Vorgaben – aus Skizzen, Fotos oder CAD. Keine Mindestmenge.
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {["Unikate", "Nach Skizze", "Alle Größen"].map(t =>
-                          <span key={t} className="mono text-[10px] font-bold text-foreground/30 uppercase tracking-wider">{t}</span>
-                        )}
-                      </div>
-                      <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
-                        Einzelanfertigungen <ArrowRight className="w-4 h-4" />
-                      </span>
+                    <p className="mono text-7xl font-bold text-foreground/[0.04] absolute top-6 right-8 leading-none z-[3]">03</p>
+                    <span className="sticker border-foreground text-foreground mb-6 inline-flex">ab 1 Stück</span>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">
+                      Einzelanfertigungen
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
+                      Maßgefertigt nach Ihren Vorgaben – aus Skizzen, Fotos oder CAD. Keine Mindestmenge.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {["Unikate", "Nach Skizze", "Alle Größen"].map(t =>
+                        <span key={t} className="mono text-[10px] font-bold text-foreground/30 uppercase tracking-wider">{t}</span>
+                      )}
                     </div>
-                  </div>
+                    <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all">
+                      Einzelanfertigungen <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </MagneticCard>
                 </Link>
               </AnimatedSection>
             </div>
