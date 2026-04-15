@@ -924,13 +924,13 @@ const Index = () => {
                     Angebot in 6 Stunden. Kostenlos. Ohne Callcenter. Direkte Ansprechperson aus Gunskirchen, Österreich.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button asChild size="lg" className="group rounded-2xl px-8 font-bold shadow-[0_4px_20px_hsl(var(--primary)/0.25)] hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] transition-shadow">
+                    <Button asChild size="lg" variant="cta" className="group rounded-2xl px-8 font-bold shadow-[0_6px_25px_hsl(var(--primary)/0.3)]">
                       <Link to="/kontakt">
                         Kostenloses Angebot anfragen
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 hover:border-primary/40">
+                    <Button asChild size="lg" variant="cta-outline" className="rounded-2xl px-8">
                       <Link to="/referenzen">Referenzen ansehen</Link>
                     </Button>
                   </div>
