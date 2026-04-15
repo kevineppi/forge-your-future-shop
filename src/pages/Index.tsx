@@ -80,9 +80,8 @@ const Index = () => {
             {/* Service 1: Architekturmodelle — full-width hero card */}
             <AnimatedSection animation="slide-up" className="mb-4">
               <Link to="/architekturmodelle" className="group block">
-                <div className="rounded-3xl border-2 border-border hover:border-primary/40 transition-all duration-500 overflow-hidden group-hover:-translate-y-1" data-cursor="Entdecken">
+                <MagneticCard className="rounded-3xl border-2 border-border hover:border-primary/40 transition-all duration-500 overflow-hidden group-hover:-translate-y-1" data-cursor="Entdecken">
                   <div className="grid md:grid-cols-2">
-                    {/* Left: Content */}
                     <div className="p-10 md:p-16 flex flex-col justify-center">
                       <div className="flex gap-3 mb-6">
                         <span className="sticker border-primary text-primary">Express 24h</span>
@@ -103,7 +102,6 @@ const Index = () => {
                         Mehr erfahren <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
-                    {/* Right: Visual placeholder with large number */}
                     <div className="bg-muted/50 p-10 md:p-16 flex items-center justify-center relative overflow-hidden">
                       <div className="absolute inset-0 flex items-center justify-center">
                         <Building2 className="w-32 h-32 text-primary/[0.06]" />
@@ -113,7 +111,7 @@ const Index = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </MagneticCard>
               </Link>
             </AnimatedSection>
 
