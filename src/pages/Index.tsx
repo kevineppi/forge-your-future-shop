@@ -79,7 +79,7 @@ const Index = () => {
             {/* Service 1: Architekturmodelle — full-width hero card */}
             <AnimatedSection animation="slide-up" className="mb-4">
               <Link to="/architekturmodelle" className="group block">
-                <div className="rounded-3xl border-2 border-border hover:border-primary/40 transition-all duration-500 overflow-hidden group-hover:-translate-y-1">
+                <div className="rounded-3xl border-2 border-border hover:border-primary/40 transition-all duration-500 overflow-hidden group-hover:-translate-y-1" data-cursor="Entdecken">
                   <div className="grid md:grid-cols-2">
                     {/* Left: Content */}
                     <div className="p-10 md:p-16 flex flex-col justify-center">
