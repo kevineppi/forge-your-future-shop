@@ -8,6 +8,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import { lazy, Suspense } from "react";
 
 import CustomCursor from "./components/CustomCursor";
+import ScrollProgress from "./components/ScrollProgress";
+import PageTransition from "./components/PageTransition";
 
 // ─── Critical pages (loaded eagerly – always visible above fold) ──────────────
 import Index from "./pages/Index";
@@ -75,8 +77,10 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <CustomCursor />
+          <ScrollProgress />
           <ScrollToTop />
           <Suspense fallback={<PageLoader />}>
+            <PageTransition>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/fdm-3d-druck" element={<FdmDruck />} />
@@ -129,6 +133,7 @@ const App = () => (
               <Route path="/auth" element={<Auth />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </PageTransition>
           </Suspense>
         </BrowserRouter>
       </TooltipProvider>

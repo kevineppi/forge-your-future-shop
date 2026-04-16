@@ -18,6 +18,7 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import BranchenShowcase from "@/components/BranchenShowcase";
 import LiveProductionBanner from "@/components/LiveProductionBanner";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import TextReveal from "@/components/TextReveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import {
@@ -67,9 +68,10 @@ const Index = () => {
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                 <div>
                   <p className="mono text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4">Services</p>
-                  <h2 className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em]">
-                    Was wir<br />für Sie drucken.
-                  </h2>
+                  <TextReveal
+                    text="Was wir für Sie drucken."
+                    className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em]"
+                  />
                 </div>
                 <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
                   Von der ersten Idee bis zum fertigen Modell – alles aus einer Hand. Kein Outsourcing, kein Callcenter.
@@ -241,10 +243,10 @@ const Index = () => {
           <div className="max-w-7xl mx-auto">
             <AnimatedSection animation="fade-in" className="mb-20">
               <p className="mono text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4">Warum ekdruck?</p>
-              <h2 className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em] mb-16">
-                Zahlen, die<br />
-                <span className="text-outline-primary">überzeugen.</span>
-              </h2>
+              <TextReveal
+                text="Zahlen, die überzeugen."
+                className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em] mb-16"
+              />
               {/* Giant stats with animated counters */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
@@ -325,9 +327,10 @@ const Index = () => {
           <div className="max-w-7xl mx-auto">
             <AnimatedSection animation="fade-in" className="mb-16">
               <p className="mono text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4">Branchen</p>
-              <h2 className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em]">
-                Für wen wir drucken.
-              </h2>
+              <TextReveal
+                text="Für wen wir drucken."
+                className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em]"
+              />
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 gap-4">
