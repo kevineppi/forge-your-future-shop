@@ -247,7 +247,6 @@ const Index = () => {
                 text="Zahlen, die überzeugen."
                 className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em] mb-16"
               />
-              </h2>
               {/* Giant stats with animated counters */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
