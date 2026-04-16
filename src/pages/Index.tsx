@@ -331,7 +331,6 @@ const Index = () => {
                 text="Für wen wir drucken."
                 className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-[-0.04em]"
               />
-              </h2>
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 gap-4">
