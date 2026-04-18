@@ -60,6 +60,9 @@ const Firmenkunden           = lazy(() => import("./pages/Firmenkunden"));
 const Kontakt                = lazy(() => import("./pages/Kontakt"));
 const UeberUns               = lazy(() => import("./pages/UeberUns"));
 const Kostenrechner          = lazy(() => import("./pages/Kostenrechner"));
+const DruckFirma             = lazy(() => import("./pages/DruckFirma"));
+const DruckDienstleister     = lazy(() => import("./pages/DruckDienstleister"));
+const RapidPrototypingOesterreich = lazy(() => import("./pages/RapidPrototypingOesterreich"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -112,6 +115,9 @@ const App = () => (
               <Route path="/kontakt" element={<Kontakt />} />
               <Route path="/ueber-uns" element={<UeberUns />} />
               <Route path="/kostenrechner" element={<Kostenrechner />} />
+              <Route path="/3d-druck-firma" element={<DruckFirma />} />
+              <Route path="/3d-druck-dienstleister-oesterreich" element={<DruckDienstleister />} />
+              <Route path="/rapid-prototyping-oesterreich" element={<RapidPrototypingOesterreich />} />
               <Route path="/3d-druck-wien" element={<Wien3DDruck />} />
               <Route path="/3d-druck-linz" element={<Linz3DDruck />} />
               <Route path="/3d-druck-graz" element={<Graz3DDruck />} />
