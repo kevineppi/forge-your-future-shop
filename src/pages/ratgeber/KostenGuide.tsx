@@ -7,8 +7,8 @@ import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import AIChatWidget from "@/components/AIChatWidget";
 import HowToSchema from "@/components/HowToSchema";
+import ContextualLinks from "@/components/ContextualLinks";
 const KostenGuide = () => {
   const costFactors = [{
     icon: Package,
