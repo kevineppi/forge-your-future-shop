@@ -193,9 +193,9 @@ const Messemodelle = () => {
   return (
     <>
       <SEOHead
-        title="Messemodelle 3D-Druck ab €30 | Express in 24h | ekdruck"
-        description="3D-gedruckte Messemodelle & Eyecatcher bis 2m ab €30 ✓ Express-Fertigung in 24h ✓ Für Wien, München, Hannover & alle DACH-Messen ✓ ★ 5.0 Google → Jetzt anfragen"
-        keywords="messemodell 3d-druck, messemodelle kaufen, messemodell express, 3d-druck messe, eyecatcher messestand, messebau 3d-druck, messemodelle österreich"
+        title="Messemodell anfertigen lassen ab €30 | 24h Express | ekdruck"
+        description="Messemodell anfertigen lassen ✓ 3D-gedruckte Eyecatcher bis 2m ab €30 ✓ Express in 24h ✓ Wien, München, Hannover & alle DACH-Messen ✓ ★ 5.0 Google → Jetzt anfragen"
+        keywords="messemodell anfertigen, messemodell drucken lassen, messemodell anfertigen lassen, messemodell bestellen, messeexponat anfertigen, eyecatcher messestand bestellen, 3d druck messemodell express"
         path="/messemodelle"
       />
 
@@ -226,13 +226,13 @@ const Messemodelle = () => {
                   Für Messebau & Events
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  3D-Druck Messemodelle<br />
-                  <span className="text-primary">Express-Fertigung für Events</span>
+                  Messemodell anfertigen lassen –<br />
+                  <span className="text-primary">Express in 24 Stunden</span>
                 </h1>
                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                  Beeindrucken Sie Messebesucher mit individuellen 3D-Objekten. 
-                  Von Produktmodellen bis zu spektakulären Eyecatcher-Elementen – 
-                  Express in 24h auch bei kurzfristigen Terminen.
+                  Sie müssen kurzfristig ein <strong>Messemodell anfertigen lassen</strong>? Wir drucken individuelle 3D-Objekte
+                  von kleinen Produktmodellen bis zu spektakulären Eyecatchern (2 m+) –
+                  auch bei kurzfristigen Messeterminen pünktlich geliefert nach Wien, München, Hannover und ganz DACH.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                  <Button asChild size="lg" variant="hero" className="text-base">
