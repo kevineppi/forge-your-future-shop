@@ -16,6 +16,7 @@ import ReferencesTeaser from "@/components/ReferencesTeaser";
 import AnimatedSection from "@/components/AnimatedSection";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import BranchenShowcase from "@/components/BranchenShowcase";
+import ContextualLinks from "@/components/ContextualLinks";
 import LiveProductionBanner from "@/components/LiveProductionBanner";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import TextReveal from "@/components/TextReveal";
