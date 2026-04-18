@@ -29,6 +29,7 @@ import CustomerPrioritiesSection from "@/components/landing/sections/CustomerPri
 import CommonMistakesSection from "@/components/landing/sections/CommonMistakesSection";
 import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import InTextLinksSection from "@/components/landing/InTextLinksSection";
+import ContextualLinks from "@/components/ContextualLinks";
 import { getDruckRegionBySlug, regionalDruckData } from "@/data/regionalDruckData";
 import { getDruckExtendedDataBySlug } from "@/data/regionalDruckExtendedData";
 import { getDruckSectionData } from "@/data/druckSectionData";
