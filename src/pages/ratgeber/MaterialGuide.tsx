@@ -117,6 +117,16 @@ const MaterialGuide = () => {
               </p>
             </div>
 
+            {/* Conversion Banner – User mit Buying-Intent direkt zum Rechner */}
+            <ConversionBanner
+              headline="Material schon gewählt? Direkt 3D drucken lassen."
+              subline="Wenn Sie Ihr Material kennen: Material wählen, STL-Datei hochladen, Festpreis erhalten – Angebot in 6 Stunden."
+              primaryLabel="Jetzt anfragen"
+              primaryHref="/kostenrechner"
+              secondaryLabel="B2B-Konditionen"
+              secondaryHref="/firmenkunden"
+            />
+
             {/* Introduction */}
             <section className="prose prose-lg max-w-none mb-12">
               <p className="text-3xl font-bold mb-6 text-foreground">Thermoplastische Kunststoffe im FDM-Druck</p>

@@ -142,6 +142,16 @@ const KostenGuide = () => {
               </p>
             </div>
 
+            {/* Conversion Banner – fängt User mit Kaufintention sofort ab */}
+            <ConversionBanner
+              headline="Sie wollen direkt 3D drucken lassen?"
+              subline="STL-Datei hochladen und in 60 Sekunden den exakten Richtpreis für Ihr Modell berechnen – ohne diesen Artikel lesen zu müssen."
+              primaryLabel="Zum Kostenrechner"
+              primaryHref="/kostenrechner"
+              secondaryLabel="Persönliches Angebot"
+              secondaryHref="/kontakt"
+            />
+
             {/* Introduction */}
             <section className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-foreground">Wie setzen sich 3D-Druck Kosten zusammen?</h2>
