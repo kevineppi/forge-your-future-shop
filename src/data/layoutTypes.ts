@@ -58,6 +58,7 @@ export type SectionId =
   | 'trustSignals'
   | 'industryShowcase'
   | 'inTextLinks'
+  | 'moneyPageLinks'
   | 'typicalProjects'
   | 'projectWorkflow'
   | 'customerPriorities'
