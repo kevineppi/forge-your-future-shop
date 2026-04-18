@@ -270,9 +270,9 @@ const Firmenkunden = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck für Firmen | UID · NDA · Mengenrabatt | ekdruck"
-        description="B2B 3D-Druck Service ✓ UID-Rechnung ✓ NDA ✓ Mengenrabatt ab 5 Stk ✓ Persönlicher Ansprechpartner ✓ Messemodelle & Prototypen für Unternehmen → Jetzt B2B-Anfrage stellen"
-        keywords="3d-druck firmenkunden, 3d-druck b2b, 3d-druck unternehmen, messemodelle firma, uid rechnung 3d-druck, 3d-druck mengenrabatt"
+        title="3D-Druck Service Österreich für Firmen | B2B Anbieter | ekdruck"
+        description="Professioneller 3D-Druck Service in Österreich für Unternehmen ✓ B2B Anbieter mit UID-Rechnung ✓ Mengenrabatt ab 5 Stück ✓ NDA ✓ Express 24h → Jetzt Firmen-Anfrage stellen"
+        keywords="3d druck service österreich, 3d druck firma österreich, professioneller 3d druck b2b, 3d druck dienstleister österreich, 3d druck anbieter firma, 3d druck unternehmen österreich, b2b 3d druck service"
         path="/firmenkunden"
       />
 
@@ -297,20 +297,20 @@ const Firmenkunden = () => {
               <div className="order-2 lg:order-1">
                 <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
                   <Building className="w-4 h-4" />
-                  <span>B2B 3D-Druck Partner</span>
+                  <span>3D-Druck Service für Unternehmen</span>
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Ihr zuverlässiger<br />
+                  Professioneller<br />
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    3D-Druck Partner
+                    3D-Druck Service Österreich
                   </span>
                 </h1>
                 
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                  Von Architekturbüros bis Werbeagenturen – über 100 Unternehmen in Österreich 
-                  vertrauen auf uns. Ordentliche Rechnungen, verbindliche Termine, 
-                  gleichbleibende Qualität.
+                  Über 100 Unternehmen in Österreich vertrauen auf unseren <strong>B2B 3D-Druck Service</strong> –
+                  vom Architekturbüro bis zur Werbeagentur. UID-Rechnung, Mengenrabatte ab 5 Stück,
+                  NDA-fähige Abwicklung und ein fester Ansprechpartner.
                 </p>
 
                 {/* Key USPs */}
