@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold text-gradient mb-4">ekdruck e.U.</h3>
@@ -32,22 +32,29 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="/fdm-3d-druck" className="hover:text-primary transition-colors">FDM 3D-Druck</a></li>
-              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">3D-Druck Materialien</a></li>
+              <li><a href="/kostenrechner" className="hover:text-primary transition-colors font-medium text-foreground">3D-Druck Kostenrechner</a></li>
+              <li><a href="/firmenkunden" className="hover:text-primary transition-colors font-medium text-foreground">Firmenkunden &amp; B2B</a></li>
+              <li><a href="/architekturmodelle" className="hover:text-primary transition-colors">Architekturmodelle</a></li>
+              <li><a href="/messemodelle" className="hover:text-primary transition-colors">Messemodelle</a></li>
+              <li><a href="/rapid-prototyping" className="hover:text-primary transition-colors">Rapid Prototyping</a></li>
               <li><a href="/einzelanfertigungen" className="hover:text-primary transition-colors">Einzelanfertigungen</a></li>
-              <li><a href="/kontakt" className="hover:text-primary transition-colors">Kontakt</a></li>
+              <li><a href="/3d-druck-materialien" className="hover:text-primary transition-colors">3D-Druck Materialien</a></li>
+              <li><a href="/fdm-3d-druck" className="hover:text-primary transition-colors">FDM 3D-Druck</a></li>
             </ul>
           </div>
 
-          {/* Target Groups */}
+          {/* Top Regional Pages */}
           <div>
-            <h4 className="font-semibold mb-4">Zielgruppen</h4>
+            <h4 className="font-semibold mb-4">3D-Druck Regionen</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="/architekturmodelle" className="hover:text-primary transition-colors">Architekturmodelle</a></li>
-              <li><a href="/messemodelle" className="hover:text-primary transition-colors">Messemodelle</a></li>
-              <li><a href="/kunstobjekte" className="hover:text-primary transition-colors">Kunstobjekte</a></li>
-              <li><a href="/firmenkunden" className="hover:text-primary transition-colors">Firmenkunden</a></li>
+              <li><a href="/3d-druck-wien" className="hover:text-primary transition-colors">3D-Druck Wien</a></li>
+              <li><a href="/3d-druck-graz" className="hover:text-primary transition-colors">3D-Druck Graz</a></li>
+              <li><a href="/3d-druck-linz" className="hover:text-primary transition-colors">3D-Druck Linz</a></li>
+              <li><a href="/3d-druck-salzburg" className="hover:text-primary transition-colors">3D-Druck Salzburg</a></li>
+              <li><a href="/3d-druck-innsbruck" className="hover:text-primary transition-colors">3D-Druck Innsbruck</a></li>
+              <li><a href="/3d-druck-klagenfurt" className="hover:text-primary transition-colors">3D-Druck Klagenfurt</a></li>
               <li><a href="/referenzen" className="hover:text-primary transition-colors">Referenzen</a></li>
+              <li><a href="/kontakt" className="hover:text-primary transition-colors">Kontakt</a></li>
             </ul>
           </div>
 
@@ -56,8 +63,10 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Wissen</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li><a href="/ratgeber" className="hover:text-primary transition-colors">Ratgeber</a></li>
-              <li><a href="/ratgeber/kosten-guide" className="hover:text-primary transition-colors">Kosten-Guide</a></li>
+              <li><a href="/ratgeber/kosten-guide" className="hover:text-primary transition-colors">3D-Druck Kosten-Guide</a></li>
               <li><a href="/ratgeber/material-guide" className="hover:text-primary transition-colors">Material-Guide</a></li>
+              <li><a href="/ratgeber/architekturmodell-guide" className="hover:text-primary transition-colors">Architekturmodell-Guide</a></li>
+              <li><a href="/ratgeber/messemodell-guide" className="hover:text-primary transition-colors">Messemodell-Guide</a></li>
               <li><a href="/glossar" className="hover:text-primary transition-colors">3D-Druck Glossar</a></li>
               <li><a href="/ueber-uns" className="hover:text-primary transition-colors">Über uns</a></li>
             </ul>

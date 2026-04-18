@@ -29,6 +29,7 @@ import CustomerPrioritiesSection from "@/components/landing/sections/CustomerPri
 import CommonMistakesSection from "@/components/landing/sections/CommonMistakesSection";
 import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import InTextLinksSection from "@/components/landing/InTextLinksSection";
+import ContextualLinks from "@/components/ContextualLinks";
 import { getDruckRegionBySlug, regionalDruckData } from "@/data/regionalDruckData";
 import { getDruckExtendedDataBySlug } from "@/data/regionalDruckExtendedData";
 import { getDruckSectionData } from "@/data/druckSectionData";
@@ -227,6 +228,42 @@ const DruckRegion = ({ region }: DruckRegionProps) => {
       case 'industryShowcase': return <IndustryShowcaseSection key="is" regionName={regionData.name} industries={regionData.localIndustries} category="druck" />;
       case 'allRegionsLinks': return <AllRegionsLinks key="arl" currentSlug={regionData.slug} type="druck" />;
       case 'inTextLinks': return <InTextLinksSection key="itl" regionName={regionData.name} links={sectionData.inTextLinks} />;
+      case 'moneyPageLinks': return (
+        <ContextualLinks
+          key="mpl"
+          eyebrow={`3D-Druck Service ${regionData.name}`}
+          heading={`Mehr 3D-Druck Lösungen für ${regionData.name}`}
+          description={`Sie suchen für Ihr Projekt in ${regionData.name} mehr als nur den Standard-Druck? Hier finden Sie passende Spezialangebote.`}
+          paragraphs={[
+            {
+              parts: [
+                { before: `Für eine schnelle Preisindikation Ihres Projekts in ${regionData.name} nutzen Sie unseren `, anchor: "kostenlosen 3D-Druck Kostenrechner", href: "/kostenrechner", after: " – STL-Datei hochladen, Material wählen, Richtpreis in 60 Sekunden erhalten. Anschließend können Sie direkt eine " },
+                { anchor: "verbindliche Anfrage stellen", href: "/kontakt", after: ` und erhalten Ihr Festpreisangebot innerhalb von 6 Stunden.` },
+              ],
+            },
+            {
+              parts: [
+                { before: `Architekturbüros in ${regionData.name} setzen auf unsere `, anchor: "maßstabsgetreuen Architekturmodelle (1:50–1:500)", href: "/architekturmodelle", after: " für Wettbewerbe und Baueinreichungen. Messeaussteller nutzen unsere " },
+                { anchor: `Express-Messemodelle mit 24h-Lieferung nach ${regionData.name}`, href: "/messemodelle", after: ". Für Produktentwickler bieten wir " },
+                { anchor: "Rapid Prototyping ab €20", href: "/rapid-prototyping", after: " ohne Mindestmenge." },
+              ],
+            },
+            {
+              parts: [
+                { before: `Unternehmen in ${regionData.name} profitieren von unseren `, anchor: "B2B-Konditionen für Firmenkunden", href: "/firmenkunden", after: ": UID-Rechnung, Mengenrabatt ab 5 Stück, NDA-fähige Projektabwicklung. Eine vollständige Übersicht aller verfügbaren " },
+                { anchor: "3D-Druck Materialien (PLA, PETG, ASA, Carbon-PA)", href: "/3d-druck-materialien", after: " finden Sie auf unserer Material-Seite." },
+              ],
+            },
+          ]}
+          actions={[
+            { label: "Preis online berechnen", href: "/kostenrechner", description: `Richtpreis für Ihr Projekt in ${regionData.name} in 60 Sekunden` },
+            { label: "B2B-Anfrage stellen", href: "/firmenkunden", description: "Mengenrabatt, UID-Rechnung, fester Ansprechpartner" },
+            { label: "Architekturmodelle", href: "/architekturmodelle", description: "Wettbewerbsmodelle 1:50–1:500 mit CAD-Import" },
+            { label: "Messe-Express", href: "/messemodelle", description: `Modell in 24–48h nach ${regionData.name}` },
+          ]}
+          variant="muted"
+        />
+      );
       case 'typicalProjects': return <TypicalProjectsSection key="tp" regionName={regionData.name} data={extSections.typicalProjects} />;
       case 'projectWorkflow': return <ProjectWorkflowSection key="pw" regionName={regionData.name} data={extSections.projectWorkflow} />;
       case 'customerPriorities': return <CustomerPrioritiesSection key="cp" regionName={regionData.name} data={extSections.customerPriorities} />;

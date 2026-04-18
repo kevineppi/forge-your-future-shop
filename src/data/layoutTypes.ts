@@ -58,6 +58,7 @@ export type SectionId =
   | 'trustSignals'
   | 'industryShowcase'
   | 'inTextLinks'
+  | 'moneyPageLinks'
   | 'typicalProjects'
   | 'projectWorkflow'
   | 'customerPriorities'
@@ -130,37 +131,37 @@ export const druckSectionOrder: Record<DruckLayoutType, SectionId[]> = {
   startup: [
     'hero', 'typicalProjects', 'industryShowcase', 'projectWorkflow', 'inTextLinks',
     'caseStudy', 'customerPriorities', 'expressTimeline', 'commonMistakes', 'materials',
-    'ctaPrimary', 'faq', 'allRegionsLinks', 'crossLinks', 'nearbyRegions'
+    'moneyPageLinks', 'ctaPrimary', 'faq', 'allRegionsLinks', 'crossLinks', 'nearbyRegions'
   ],
   industrie: [
     'hero', 'valueProposition', 'typicalProjects', 'materials', 'projectWorkflow',
     'caseStudy', 'commonMistakes', 'inTextLinks', 'customerPriorities', 'localContext',
-    'faq', 'ctaPrimary', 'crossLinks', 'allRegionsLinks', 'nearbyRegions'
+    'moneyPageLinks', 'faq', 'ctaPrimary', 'crossLinks', 'allRegionsLinks', 'nearbyRegions'
   ],
   kreativ: [
     'hero', 'industryShowcase', 'customerPriorities', 'checklist', 'typicalProjects',
     'caseStudy', 'projectWorkflow', 'commonMistakes', 'allRegionsLinks',
-    'materials', 'inTextLinks', 'ctaPrimary', 'faq', 'crossLinks', 'nearbyRegions'
+    'materials', 'inTextLinks', 'moneyPageLinks', 'ctaPrimary', 'faq', 'crossLinks', 'nearbyRegions'
   ],
   bildung: [
     'hero', 'typicalProjects', 'industryShowcase', 'priceComparison', 'projectWorkflow',
     'inTextLinks', 'commonMistakes', 'materials', 'customerPriorities', 'caseStudy',
-    'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions', 'allRegionsLinks'
+    'moneyPageLinks', 'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions', 'allRegionsLinks'
   ],
   express: [
     'hero', 'expressTimeline', 'typicalProjects', 'ctaSecondary', 'projectWorkflow',
     'caseStudy', 'customerPriorities', 'trustSignals', 'commonMistakes',
-    'inTextLinks', 'materials', 'allRegionsLinks', 'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
+    'inTextLinks', 'materials', 'allRegionsLinks', 'moneyPageLinks', 'faq', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
   ],
   outdoor: [
     'hero', 'techSpecs', 'typicalProjects', 'materials', 'projectWorkflow',
     'commonMistakes', 'inTextLinks', 'caseStudy', 'customerPriorities', 'localAdvantages',
-    'faq', 'allRegionsLinks', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
+    'moneyPageLinks', 'faq', 'allRegionsLinks', 'ctaPrimary', 'crossLinks', 'nearbyRegions'
   ],
   serie: [
     'hero', 'priceComparison', 'typicalProjects', 'valueProposition', 'projectWorkflow',
     'checklist', 'customerPriorities', 'commonMistakes', 'inTextLinks', 'caseStudy',
-    'ctaPrimary', 'allRegionsLinks', 'faq', 'crossLinks', 'nearbyRegions'
+    'moneyPageLinks', 'ctaPrimary', 'allRegionsLinks', 'faq', 'crossLinks', 'nearbyRegions'
   ]
 };
 

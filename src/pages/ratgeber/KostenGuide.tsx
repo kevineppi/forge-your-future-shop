@@ -7,8 +7,8 @@ import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import AIChatWidget from "@/components/AIChatWidget";
 import HowToSchema from "@/components/HowToSchema";
+import ContextualLinks from "@/components/ContextualLinks";
 const KostenGuide = () => {
   const costFactors = [{
     icon: Package,
@@ -297,24 +297,24 @@ const KostenGuide = () => {
               <div className="grid md:grid-cols-3 gap-4">
                 <Card className="hover:shadow-lg transition-shadow">
                   <CardHeader>
-                    <CardTitle className="text-lg">FDM 3D-Druck</CardTitle>
-                    <CardDescription>Alles über das FDM-Verfahren</CardDescription>
+                    <CardTitle className="text-lg">FDM 3D-Druck Verfahren</CardTitle>
+                    <CardDescription>Alles über das FDM-Verfahren von ekdruck</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Button asChild variant="link" className="p-0">
-                      <a href="/fdm-3d-druck">Mehr erfahren →</a>
+                      <a href="/fdm-3d-druck">FDM-Verfahren entdecken →</a>
                     </Button>
                   </CardContent>
                 </Card>
 
                 <Card className="hover:shadow-lg transition-shadow">
                   <CardHeader>
-                    <CardTitle className="text-lg">Materialien</CardTitle>
-                    <CardDescription>Welches Material passt zu Ihrem Projekt?</CardDescription>
+                    <CardTitle className="text-lg">3D-Druck Materialien</CardTitle>
+                    <CardDescription>PLA, PETG, ASA und Carbon-PA im Vergleich</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Button asChild variant="link" className="p-0">
-                      <a href="/3d-druck-materialien">Mehr erfahren →</a>
+                      <a href="/3d-druck-materialien">Alle Materialien ansehen →</a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -322,11 +322,11 @@ const KostenGuide = () => {
                 <Card className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <CardTitle className="text-lg">Rapid Prototyping</CardTitle>
-                    <CardDescription>Schnelle Prototypen in 24-48h</CardDescription>
+                    <CardDescription>Designprototypen in 24-48h</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Button asChild variant="link" className="p-0">
-                      <a href="/rapid-prototyping">Mehr erfahren →</a>
+                      <a href="/rapid-prototyping">Prototyping starten →</a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -335,9 +335,43 @@ const KostenGuide = () => {
           </div>
         </article>
 
-        <AIChatWidget />
         <Footer />
       </div>
+
+      {/* SEO Internal Linking → Money Pages */}
+      <ContextualLinks
+        eyebrow="Konkrete nächste Schritte"
+        heading="Vom Kostenwissen zur 3D-Druck Anfrage"
+        description="Sie kennen jetzt die Preisfaktoren – nutzen Sie dieses Wissen für Ihr Projekt."
+        paragraphs={[
+          {
+            parts: [
+              { before: "Um die genauen Kosten Ihres Modells zu berechnen, nutzen Sie unseren ", anchor: "interaktiven 3D-Druck Kostenrechner", href: "/kostenrechner", after: " mit STL-Upload und Live-Preisindikation. Bei Fragen zur Materialwahl hilft Ihnen unser " },
+              { anchor: "ausführlicher Material-Guide", href: "/ratgeber/material-guide", after: " mit Vergleichstabellen und Anwendungs-Tipps." },
+            ],
+          },
+          {
+            parts: [
+              { before: "Architekten finden im ", anchor: "Architekturmodell-Guide", href: "/ratgeber/architekturmodell-guide", after: " konkrete Maßstabs-Empfehlungen, Messeaussteller im " },
+              { anchor: "Messemodell-Guide", href: "/ratgeber/messemodell-guide", after: " bewährte Strategien für Last-Minute-Termine. Ein Vergleich aller Verfahren steht im " },
+              { anchor: "Verfahrensvergleich 3D-Druck vs. Modellbau", href: "/ratgeber/verfahrens-vergleich", after: " bereit." },
+            ],
+          },
+          {
+            parts: [
+              { before: "Firmen mit regelmäßigem 3D-Druck-Bedarf erhalten als ", anchor: "B2B-Firmenkunden", href: "/firmenkunden", after: " Mengenrabatte ab 5 Stück, UID-Rechnung und einen festen Ansprechpartner. Persönliche Beratung jederzeit über das " },
+              { anchor: "Kontaktformular", href: "/kontakt", after: " – wir antworten innerhalb von 6 Stunden." },
+            ],
+          },
+        ]}
+        actions={[
+          { label: "Kostenrechner öffnen", href: "/kostenrechner", description: "STL hochladen → Richtpreis in 60 Sekunden" },
+          { label: "Anfrage senden", href: "/kontakt", description: "Festpreisangebot binnen 6 Stunden" },
+          { label: "B2B-Konditionen", href: "/firmenkunden", description: "Mengenrabatte, UID-Rechnung, NDA" },
+          { label: "Material-Guide", href: "/ratgeber/material-guide", description: "PLA, PETG, ASA, Carbon im Detail" },
+        ]}
+        variant="muted"
+      />
     </>;
   };
 export default KostenGuide;
