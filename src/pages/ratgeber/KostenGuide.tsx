@@ -9,6 +9,7 @@ import FAQSchema from "@/components/FAQSchema";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import HowToSchema from "@/components/HowToSchema";
 import ContextualLinks from "@/components/ContextualLinks";
+import ConversionBanner from "@/components/ConversionBanner";
 const KostenGuide = () => {
   const costFactors = [{
     icon: Package,
@@ -140,6 +141,16 @@ const KostenGuide = () => {
                 Sie möchten ein 3D-Druck Projekt umsetzen, aber wissen nicht, mit welchen <strong className="text-foreground">3D-Druck Kosten</strong> Sie rechnen müssen? In diesem umfassenden Guide erklären wir Ihnen alle Kostenfaktoren, zeigen Ihnen reale Preisbeispiele und geben Ihnen praktische Spartipps an die Hand.
               </p>
             </div>
+
+            {/* Conversion Banner – fängt User mit Kaufintention sofort ab */}
+            <ConversionBanner
+              headline="Sie wollen direkt 3D drucken lassen?"
+              subline="STL-Datei hochladen und in 60 Sekunden den exakten Richtpreis für Ihr Modell berechnen – ohne diesen Artikel lesen zu müssen."
+              primaryLabel="Zum Kostenrechner"
+              primaryHref="/kostenrechner"
+              secondaryLabel="Persönliches Angebot"
+              secondaryHref="/kontakt"
+            />
 
             {/* Introduction */}
             <section className="mb-12">

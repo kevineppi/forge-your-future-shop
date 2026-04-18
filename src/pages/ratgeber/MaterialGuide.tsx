@@ -8,6 +8,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import AIChatWidget from "@/components/AIChatWidget";
 import HowToSchema from "@/components/HowToSchema";
+import ConversionBanner from "@/components/ConversionBanner";
 const MaterialGuide = () => {
   const materialComparison = [{
     property: "Zugfestigkeit",
@@ -115,6 +116,16 @@ const MaterialGuide = () => {
                 Die Wahl des richtigen Materials ist entscheidend für den Erfolg Ihres 3D-Druck-Projekts. In diesem wissenschaftlich fundierten Guide vergleichen wir die drei wichtigsten FDM-Materialien anhand ihrer mechanischen Eigenschaften, Temperaturbeständigkeit und praktischen Anwendungsfälle.
               </p>
             </div>
+
+            {/* Conversion Banner – User mit Buying-Intent direkt zum Rechner */}
+            <ConversionBanner
+              headline="Material schon gewählt? Direkt 3D drucken lassen."
+              subline="Wenn Sie Ihr Material kennen: Material wählen, STL-Datei hochladen, Festpreis erhalten – Angebot in 6 Stunden."
+              primaryLabel="Jetzt anfragen"
+              primaryHref="/kostenrechner"
+              secondaryLabel="B2B-Konditionen"
+              secondaryHref="/firmenkunden"
+            />
 
             {/* Introduction */}
             <section className="prose prose-lg max-w-none mb-12">

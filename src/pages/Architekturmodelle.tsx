@@ -318,9 +318,9 @@ const Architekturmodelle = () => {
   return (
     <>
       <SEOHead
-        title="Architekturmodelle 3D-Druck ab €20 | Express 24h | ekdruck"
-        description="Architekturmodelle per 3D-Druck ab €20 ✓ Maßstab 1:50–1:500 ✓ ArchiCAD & Revit direkt druckbar ✓ 80% günstiger als Modellbauer ✓ Angebot in 6h → Jetzt bestellen"
-        keywords="architekturmodell 3d-druck, architekturmodell drucken lassen, wettbewerbsmodell, architekturmodell kosten, gebäudemodell 3d-druck, architekturmodell maßstab"
+        title="Architekturmodell drucken lassen ab €20 | 24h Express | ekdruck"
+        description="Architekturmodell drucken lassen ab €20 ✓ Maßstab 1:50–1:500 ✓ Wettbewerbsmodell, Bauherrenpräsentation, Baueinreichung ✓ ArchiCAD & Revit ✓ Express 24h → Jetzt anfragen"
+        keywords="architekturmodell drucken lassen, architekturmodell anfertigen lassen, architekturmodell bestellen, wettbewerbsmodell drucken lassen, gebäudemodell drucken, architekturmodell 3d druck"
         path="/architekturmodelle"
       />
 
@@ -353,11 +353,11 @@ const Architekturmodelle = () => {
                   Spezialist für Architekten & Planer
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Architekturmodelle –<br />
-                  <span className="text-primary">schnell, präzise, günstig</span>
+                  Architekturmodell<br />
+                  <span className="text-primary">drucken lassen – ab €20</span>
                 </h1>
                 <p className="text-lg text-muted-foreground mb-4 leading-relaxed max-w-xl">
-                  Von der CAD-Datei zum fertigen Modell in 3–5 Werktagen. 
+                  Sie wollen Ihr <strong>Architekturmodell drucken lassen</strong>? Von der CAD-Datei zum fertigen Modell in 3–5 Werktagen.
                   Express in 24h für Wettbewerbsabgaben. Bis zu 80% günstiger als traditioneller Modellbau.
                 </p>
                 <ul className="space-y-2 mb-8">
