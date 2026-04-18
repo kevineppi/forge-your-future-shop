@@ -82,10 +82,10 @@ const Kostenrechner = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="3D-Druck Kostenrechner – Preis online berechnen [2026]"
-        description="3D-Druck Kosten sofort berechnen ✓ PLA, PETG, ABS & mehr ✓ Einzelstück oder Serie ✓ Unverbindlicher Richtpreis ✓ Persönliches Angebot in 6h → Jetzt kalkulieren"
+        title="3D drucken lassen – Kosten online berechnen | ekdruck Österreich"
+        description="3D drucken lassen in Österreich ✓ Kosten in 60 Sekunden online berechnen ✓ STL hochladen, Material wählen, Festpreis erhalten ✓ Angebot in 6h → Jetzt anfragen"
         path="/kostenrechner"
-        keywords="3d druck kostenrechner, 3d druck kosten österreich, 3d druck preis berechnen, 3d modell kosten, fdm druck kosten, 3d druck richtpreis, kostenrechner 3d modell, kleinauflage 3d druck"
+        keywords="3d drucken lassen, 3d drucken lassen kosten, 3d druck preis berechnen, 3d druck online bestellen, 3d druck kosten österreich, 3d modell drucken lassen, 3d druck anbieter österreich"
         breadcrumbs={breadcrumbs}
         schemaType="service"
       />
