@@ -13,9 +13,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "3D-Druck Österreich ★ ab €20 | Express 24h | ekdruck.at",
-  description = "3D-Druck Service Österreich ✓ Messemodelle, Architekturmodelle & Prototypen ab €20 ✓ Express in 24h ✓ 5.0/5 Google (31 Bewertungen) → Jetzt anfragen",
-  keywords = "3d-druck österreich, 3d-druck service, messemodelle 3d-druck, architekturmodelle, fdm 3d-druck, rapid prototyping österreich",
+  title = "3D-Druck Service Österreich – Angebot in 6 h, Lieferung in 5–7 Tagen",
+  description = "3D-Druck Service in Österreich: Modelle, Prototypen und Architekturmodelle drucken lassen. Angebot in 6 Stunden, Express in 24 h. Anbieter aus Gunskirchen, OÖ.",
+  keywords = "3d druck österreich, 3d druck service, 3d druck firma, 3d druck anbieter, 3d druck dienstleister, 3d druck oberösterreich, 3d druck prototypen, architekturmodell drucken lassen, messemodell anfertigen",
   path = "",
   image = "",
   type = "website",

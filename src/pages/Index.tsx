@@ -35,9 +35,9 @@ import MagneticCard from "@/components/MagneticCard";
 const Index = () => {
   return <>
     <SEOHead
-      title="3D-Druck Service Österreich ★ ab €20 | Express 24h | ekdruck.at"
-      description="3D-Druck Österreich ✓ 5.0/5 Google (31 Bewertungen) ✓ Messemodelle, Architekturmodelle & Prototypen ab €20 ✓ Express 24h ✓ Angebot in 6h ✓ FDM aus Gunskirchen → Jetzt anfragen"
-      keywords="3d druck österreich, 3d-druck service, messemodelle 3d-druck, architekturmodelle 3d-druck, 3d druck prototypen, 3d druck oberösterreich, 3d-druck dienstleister, fdm 3d-druck, 3d druck kosten, 3d druck express"
+      title="3D-Druck Service Österreich – Angebot in 6 h, Lieferung in 5–7 Tagen"
+      description="3D-Druck Service in Österreich: Modelle, Prototypen und Architekturmodelle drucken lassen. Angebot in 6 Stunden, Express in 24 h. Anbieter aus Gunskirchen, OÖ."
+      keywords="3d druck, 3d druck österreich, 3d druck service, 3d druck firma, 3d druck anbieter, 3d druck dienstleister, 3d druck oberösterreich, 3d druck prototypen"
       path="/"
     />
     <OrganizationSchema />

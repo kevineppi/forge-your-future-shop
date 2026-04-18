@@ -270,8 +270,8 @@ const Firmenkunden = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Service Österreich für Firmen | B2B Anbieter | ekdruck"
-        description="Professioneller 3D-Druck Service in Österreich für Unternehmen ✓ B2B Anbieter mit UID-Rechnung ✓ Mengenrabatt ab 5 Stück ✓ NDA ✓ Express 24h → Jetzt Firmen-Anfrage stellen"
+        title="3D-Druck Firma für Unternehmen – B2B Service mit UID-Rechnung"
+        description="3D-Druck Anbieter für Firmen in Österreich: Mengenrabatt ab 5 Stück, NDA möglich, Express in 24 h. Verbindliches B2B-Angebot innerhalb von 6 Stunden."
         keywords="3d druck service österreich, 3d druck firma österreich, professioneller 3d druck b2b, 3d druck dienstleister österreich, 3d druck anbieter firma, 3d druck unternehmen österreich, b2b 3d druck service"
         path="/firmenkunden"
       />
