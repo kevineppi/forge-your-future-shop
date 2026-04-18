@@ -525,6 +525,99 @@ const Index = () => {
       </section>
 
       {/* ══════════════════════════════════════════════════════
+          KONTEXTUELLE INTERNE VERLINKUNG (SEO Internal Linking)
+          → Verteilt Link-Juice der Homepage auf Money-Pages
+         ══════════════════════════════════════════════════════ */}
+      <ContextualLinks
+        eyebrow="3D-Druck im Detail"
+        heading="Welche Lösung passt zu Ihrem Projekt?"
+        description="Ob Architekturmodell, Messeexponat oder Prototyp – jedes Projekt beginnt mit der richtigen Strategie. Hier finden Sie den direkten Einstieg."
+        paragraphs={[
+          {
+            title: "Sofort den Preis berechnen",
+            parts: [
+              {
+                before: "Sie wissen bereits, was Sie brauchen? Mit unserem ",
+                anchor: "3D-Druck Kostenrechner",
+                href: "/kostenrechner",
+                after: " ermitteln Sie in unter 60 Sekunden den Richtpreis Ihres Modells. STL-Datei hochladen, Material wählen, Preisindikation erhalten – ohne Anmeldung. Anschließend können Sie über das integrierte Formular direkt eine ",
+              },
+              {
+                anchor: "verbindliche 3D-Druck Anfrage",
+                href: "/kontakt",
+                after: " stellen.",
+              },
+            ],
+          },
+          {
+            title: "Für Architekten und Planungsbüros",
+            parts: [
+              {
+                before: "Wir fertigen ",
+                anchor: "Architekturmodelle im Maßstab 1:50 bis 1:500",
+                href: "/architekturmodelle",
+                after: " für Wettbewerbe, Baueinreichungen und Kundenpräsentationen. Direkter CAD-Import aus ArchiCAD, Revit und SolidWorks. Speziell in ",
+              },
+              {
+                anchor: "Wien",
+                href: "/3d-druck-wien",
+                after: ", ",
+              },
+              {
+                anchor: "Graz",
+                href: "/3d-druck-graz",
+                after: " und ",
+              },
+              {
+                anchor: "Linz",
+                href: "/3d-druck-linz",
+                after: " betreuen wir zahlreiche Architekturbüros mit Express-Lieferung in 24 Stunden.",
+              },
+            ],
+          },
+          {
+            title: "Für Messeaussteller und Eventagenturen",
+            parts: [
+              {
+                before: "Last-Minute vor der Messe? Unsere ",
+                anchor: "Messemodelle und Exponate",
+                href: "/messemodelle",
+                after: " sind in 24–48 Stunden fertig – inklusive Versand österreichweit. Auch für ",
+              },
+              {
+                anchor: "Rapid Prototyping",
+                href: "/rapid-prototyping",
+                after: " im Designprozess die schnellste Lösung am Markt.",
+              },
+            ],
+          },
+          {
+            title: "Für Unternehmen und B2B",
+            parts: [
+              {
+                before: "Als ",
+                anchor: "B2B-Partner für Firmenkunden",
+                href: "/firmenkunden",
+                after: " bieten wir UID-Rechnung, Mengenrabatte ab 5 Stück, NDA-fähige Projektabwicklung und persönliche Ansprechpartner. Wählen Sie aus über zehn ",
+              },
+              {
+                anchor: "professionellen 3D-Druck Materialien",
+                href: "/3d-druck-materialien",
+                after: " – von PLA über PETG bis Carbon-PA.",
+              },
+            ],
+          },
+        ]}
+        actions={[
+          { label: "Preis online berechnen", href: "/kostenrechner", description: "STL hochladen → Richtpreis in 60 Sekunden" },
+          { label: "B2B-Konditionen anfragen", href: "/firmenkunden", description: "UID-Rechnung, Rabatte, NDA, persönlicher Ansprechpartner" },
+          { label: "Architekturmodelle ansehen", href: "/architekturmodelle", description: "Maßstab 1:50–1:500 für Wettbewerb & Präsentation" },
+          { label: "Express für Messen", href: "/messemodelle", description: "Modell in 24–48h für Wien, München, Hannover" },
+        ]}
+        variant="muted"
+      />
+
+      {/* ══════════════════════════════════════════════════════
           REGIONALE LINKS
          ══════════════════════════════════════════════════════ */}
       <section className="py-20 bg-background relative" aria-label="3D-Druck Standorte">
