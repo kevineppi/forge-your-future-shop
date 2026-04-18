@@ -9,6 +9,7 @@ import FAQSchema from "@/components/FAQSchema";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import HowToSchema from "@/components/HowToSchema";
 import ContextualLinks from "@/components/ContextualLinks";
+import ConversionBanner from "@/components/ConversionBanner";
 const KostenGuide = () => {
   const costFactors = [{
     icon: Package,
