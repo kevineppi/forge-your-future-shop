@@ -150,7 +150,7 @@ const DruckFirma = () => {
         <Navigation />
 
         <main>
-          <Breadcrumbs items={[{ label: "3D-Druck Firma Österreich" }]} />
+          <Breadcrumbs items={[{ name: "3D-Druck Firma Österreich", url: "/3d-druck-firma" }]} />
 
           {/* Hero */}
           <section className="relative py-20 md:py-28 bg-gradient-to-br from-background via-secondary/30 to-background">
@@ -346,21 +346,15 @@ const DruckFirma = () => {
           <FAQSection faqs={faqs} title="Häufige Fragen zur 3D-Druck Firma ekdruck" />
 
           <CTASection
-            title="Bereit, Ihr Projekt mit einer eingetragenen 3D-Druck Firma umzusetzen?"
-            description="Senden Sie uns Ihre Anfrage – wir antworten werktags innerhalb von 6 Stunden mit einem verbindlichen Festpreis-Angebot."
-            primaryCTA={{ text: "Anfrage stellen", link: "/kontakt" }}
-            secondaryCTA={{ text: "Richtpreis berechnen", link: "/kostenrechner" }}
+            headline="Bereit, Ihr Projekt mit einer eingetragenen 3D-Druck Firma umzusetzen?"
+            subline="Senden Sie uns Ihre Anfrage – wir antworten werktags innerhalb von 6 Stunden mit einem verbindlichen Festpreis-Angebot."
+            ctaLabel="Anfrage stellen"
+            ctaHref="/kontakt"
+            secondaryLabel="Richtpreis berechnen"
+            secondaryHref="/kostenrechner"
           />
 
-          <RelatedPages
-            currentPath="/3d-druck-firma"
-            relatedPages={[
-              { title: "3D-Druck Service Österreich", path: "/", description: "Hauptseite mit allen Leistungen im Überblick" },
-              { title: "Firmenkunden & B2B", path: "/firmenkunden", description: "Lösungen speziell für Geschäftskunden" },
-              { title: "3D-Druck Dienstleister Österreich", path: "/3d-druck-dienstleister-oesterreich", description: "Detaillierte B2B-Dienstleistungen" },
-              { title: "Über uns", path: "/ueber-uns", description: "Geschäftsführer, Geschichte und Werkstatt" },
-            ]}
-          />
+          <RelatedPages currentPage="/3d-druck-firma" />
         </main>
 
         <Footer />

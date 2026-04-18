@@ -141,7 +141,7 @@ const RapidPrototypingOesterreich = () => {
         <Navigation />
 
         <main>
-          <Breadcrumbs items={[{ label: "Rapid Prototyping Österreich" }]} />
+          <Breadcrumbs items={[{ name: "Rapid Prototyping Österreich", url: "/rapid-prototyping-oesterreich" }]} />
 
           {/* Hero */}
           <section className="relative py-20 md:py-28 bg-gradient-to-br from-background via-secondary/30 to-background">
@@ -312,21 +312,15 @@ const RapidPrototypingOesterreich = () => {
           <FAQSection faqs={faqs} title="Häufige Fragen zum Rapid Prototyping in Österreich" />
 
           <CTASection
-            title="Designprototyp in Österreich gesucht?"
-            description="Senden Sie uns Ihre Datei – Angebot in 6 Stunden, Lieferung in 5–7 Tagen, Express über Nacht."
-            primaryCTA={{ text: "Prototyp anfragen", link: "/kontakt" }}
-            secondaryCTA={{ text: "Richtpreis berechnen", link: "/kostenrechner" }}
+            headline="Designprototyp in Österreich gesucht?"
+            subline="Senden Sie uns Ihre Datei – Angebot in 6 Stunden, Lieferung in 5–7 Tagen, Express über Nacht."
+            ctaLabel="Prototyp anfragen"
+            ctaHref="/kontakt"
+            secondaryLabel="Richtpreis berechnen"
+            secondaryHref="/kostenrechner"
           />
 
-          <RelatedPages
-            currentPath="/rapid-prototyping-oesterreich"
-            relatedPages={[
-              { title: "Rapid Prototyping (Übersicht)", path: "/rapid-prototyping", description: "Allgemeine Informationen zu unserem Prototyping-Service" },
-              { title: "Prototypen drucken lassen", path: "/prototypen", description: "Designprototypen und Anschauungsmodelle" },
-              { title: "Kostenrechner", path: "/kostenrechner", description: "Sofortiger Richtpreis für Ihren Prototyp" },
-              { title: "Materialien", path: "/3d-druck-materialien", description: "PLA, PETG, ABS und mehr" },
-            ]}
-          />
+          <RelatedPages currentPage="/rapid-prototyping-oesterreich" />
         </main>
 
         <Footer />

@@ -142,7 +142,7 @@ const DruckDienstleister = () => {
         <Navigation />
 
         <main>
-          <Breadcrumbs items={[{ label: "3D-Druck Dienstleister Österreich" }]} />
+          <Breadcrumbs items={[{ name: "3D-Druck Dienstleister Österreich", url: "/3d-druck-dienstleister-oesterreich" }]} />
 
           {/* Hero */}
           <section className="relative py-20 md:py-28 bg-gradient-to-br from-background via-secondary/30 to-background">
@@ -274,21 +274,15 @@ const DruckDienstleister = () => {
           <FAQSection faqs={faqs} title="Häufige Fragen an den 3D-Druck Dienstleister" />
 
           <CTASection
-            title="Suchen Sie einen verlässlichen 3D-Druck Dienstleister in Österreich?"
-            description="Senden Sie uns Ihre B2B-Anfrage – Angebot werktags innerhalb von 6 Stunden, Rechnung mit UID, Lieferung in 5–7 Tagen."
-            primaryCTA={{ text: "B2B-Anfrage stellen", link: "/kontakt" }}
-            secondaryCTA={{ text: "Firmenkunden-Service ansehen", link: "/firmenkunden" }}
+            headline="Suchen Sie einen verlässlichen 3D-Druck Dienstleister in Österreich?"
+            subline="Senden Sie uns Ihre B2B-Anfrage – Angebot werktags innerhalb von 6 Stunden, Rechnung mit UID, Lieferung in 5–7 Tagen."
+            ctaLabel="B2B-Anfrage stellen"
+            ctaHref="/kontakt"
+            secondaryLabel="Firmenkunden-Service ansehen"
+            secondaryHref="/firmenkunden"
           />
 
-          <RelatedPages
-            currentPath="/3d-druck-dienstleister-oesterreich"
-            relatedPages={[
-              { title: "Firmenkunden / B2B", path: "/firmenkunden", description: "Spezialisierte Lösungen für Geschäftskunden" },
-              { title: "3D-Druck Firma Österreich", path: "/3d-druck-firma", description: "Firmendaten, Gewerbe, Kontakt" },
-              { title: "Architekturmodelle", path: "/architekturmodelle", description: "Wettbewerbs- und Präsentationsmodelle" },
-              { title: "Messemodelle", path: "/messemodelle", description: "Exponate und Standdekoration" },
-            ]}
-          />
+          <RelatedPages currentPage="/3d-druck-dienstleister-oesterreich" />
         </main>
 
         <Footer />
