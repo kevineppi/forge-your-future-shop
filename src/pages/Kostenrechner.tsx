@@ -82,8 +82,8 @@ const Kostenrechner = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="3D drucken lassen – Kosten online berechnen | ekdruck Österreich"
-        description="3D drucken lassen in Österreich ✓ Kosten in 60 Sekunden online berechnen ✓ STL hochladen, Material wählen, Festpreis erhalten ✓ Angebot in 6h → Jetzt anfragen"
+        title="3D drucken lassen – Kosten in 60 Sekunden online berechnen"
+        description="STL hochladen, Material wählen, Richtpreis erhalten – kostenlos und unverbindlich. Verbindliches Angebot innerhalb von 6 Stunden vom 3D-Druck Anbieter aus Österreich."
         path="/kostenrechner"
         keywords="3d drucken lassen, 3d drucken lassen kosten, 3d druck preis berechnen, 3d druck online bestellen, 3d druck kosten österreich, 3d modell drucken lassen, 3d druck anbieter österreich"
         breadcrumbs={breadcrumbs}

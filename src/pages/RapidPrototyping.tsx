@@ -190,8 +190,8 @@ const RapidPrototyping = () => {
   return (
     <>
       <SEOHead
-        title="Rapid Prototyping & 3D-Druck Prototypen ab €20 | ekdruck"
-        description="Rapid Prototyping per 3D-Druck ✓ Prototypen & Designmodelle ab €20 ✓ Express in 24h ✓ Für Präsentationen & Investoren ✓ Keine Mindestmenge → Angebot in 6h"
+        title="3D-Druck Prototypen drucken lassen – Rapid Prototyping Österreich"
+        description="3D-Druck Prototypen für Präsentationen, Pitches und Investoren – Designmodelle in 24 Stunden anfertigen lassen. Keine Mindestmenge, Angebot in 6 h."
         keywords="3d druck prototypen, rapid prototyping österreich, 3d-druck prototypen, prototyp drucken lassen, designprototyp, anschauungsmodell 3d-druck"
         path="/rapid-prototyping"
       />

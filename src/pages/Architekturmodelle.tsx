@@ -318,8 +318,8 @@ const Architekturmodelle = () => {
   return (
     <>
       <SEOHead
-        title="Architekturmodell drucken lassen ab €20 | 24h Express | ekdruck"
-        description="Architekturmodell drucken lassen ab €20 ✓ Maßstab 1:50–1:500 ✓ Wettbewerbsmodell, Bauherrenpräsentation, Baueinreichung ✓ ArchiCAD & Revit ✓ Express 24h → Jetzt anfragen"
+        title="Architekturmodell drucken lassen – Maßstab 1:50 bis 1:500"
+        description="Architekturmodelle aus dem 3D-Drucker für Wettbewerb, Bauherrenpräsentation und Baueinreichung. ArchiCAD und Revit kompatibel. Express in 24 h, Angebot in 6 h."
         keywords="architekturmodell drucken lassen, architekturmodell anfertigen lassen, architekturmodell bestellen, wettbewerbsmodell drucken lassen, gebäudemodell drucken, architekturmodell 3d druck"
         path="/architekturmodelle"
       />

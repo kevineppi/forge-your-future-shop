@@ -193,8 +193,8 @@ const Messemodelle = () => {
   return (
     <>
       <SEOHead
-        title="Messemodell anfertigen lassen ab €30 | 24h Express | ekdruck"
-        description="Messemodell anfertigen lassen ✓ 3D-gedruckte Eyecatcher bis 2m ab €30 ✓ Express in 24h ✓ Wien, München, Hannover & alle DACH-Messen ✓ ★ 5.0 Google → Jetzt anfragen"
+        title="Messemodell anfertigen lassen – 3D-gedruckte Eyecatcher bis 2 m"
+        description="Messemodelle und Standmodelle für Messen in Wien, München und Hannover anfertigen lassen. Express in 24 h, transportsicher, lackierbar. Angebot in 6 Stunden."
         keywords="messemodell anfertigen, messemodell drucken lassen, messemodell anfertigen lassen, messemodell bestellen, messeexponat anfertigen, eyecatcher messestand bestellen, 3d druck messemodell express"
         path="/messemodelle"
       />
