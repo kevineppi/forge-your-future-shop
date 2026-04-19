@@ -41,8 +41,8 @@ const Hero = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const line1 = useTypewriter("Wir drucken", 600, 55);
-  const line2 = useTypewriter("Ihre Ideen.", 600 + 11 * 55 + 200, 65);
+  const line1 = useTypewriter("Architektur- &", 600, 55);
+  const line2 = useTypewriter("Messemodelle.", 600 + 14 * 55 + 200, 65);
 
   const t = (delay: number) => ({
     opacity: loaded ? 1 : 0,
@@ -107,7 +107,8 @@ const Hero = () => {
           <div style={t(0.4)} className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mt-8 mb-12">
             <div className="max-w-md">
               <p className="text-muted-foreground text-base leading-relaxed">
-                Messemodelle, Architekturmodelle & Prototypen – professionell gefertigt ab €20. Express in 24h. Aus Gunskirchen, für ganz Österreich.
+                Österreichs Spezialist für Architektur- & Messemodelle aus dem 3D-Druck.
+                Express in 24h · AT-weite Lieferung · persönliche Antwort in 6 Stunden.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
