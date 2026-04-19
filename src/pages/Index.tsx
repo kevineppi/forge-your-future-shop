@@ -12,6 +12,8 @@ import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import SEOHead from "@/components/SEOHead";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
+import TrustBarSocialProof from "@/components/TrustBarSocialProof";
+import QuickContactBar from "@/components/QuickContactBar";
 import ReferencesTeaser from "@/components/ReferencesTeaser";
 import AnimatedSection from "@/components/AnimatedSection";
 import MarqueeTicker from "@/components/MarqueeTicker";
@@ -57,6 +59,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+
+      {/* Trust Bar – Sozial-Proof + Aktivierung Multi-Channel direkt unter Hero */}
+      <TrustBarSocialProof />
 
       {/* ══════════════════════════════════════════════════════
           LEISTUNGEN — Bold editorial cards
