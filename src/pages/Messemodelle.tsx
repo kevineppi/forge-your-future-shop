@@ -12,6 +12,9 @@ import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import ProductOfferSchema from "@/components/ProductOfferSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
+import QuickContactBar from "@/components/QuickContactBar";
+import TrustBarSocialProof from "@/components/TrustBarSocialProof";
+import StickyCTA from "@/components/landing/StickyCTA";
 import { 
   Presentation, 
   Zap, 
@@ -279,6 +282,18 @@ const Messemodelle = () => {
           </div>
         </section>
 
+        {/* Trust Bar – Social Proof direkt nach Hero */}
+        <TrustBarSocialProof />
+
+        {/* Quick-Contact: Multi-Channel B2B Direktkontakt direkt nach Hero
+            Senkt Conversion-Hürde – Studien zeigen: Aufrufe ohne Anfragen
+            korrelieren stark mit fehlenden Low-Friction-Kanälen */}
+        <QuickContactBar
+          context="Messemodell"
+          title="Messetermin in Sicht? Lassen Sie uns sprechen."
+          subtitle="Ob Eyecatcher 2 m+ oder Produktmodell 1:5 – wir liefern auch in 24 h. Wählen Sie den schnellsten Kontaktweg."
+        />
+
         {/* Messe-Typen Banner */}
         <section className="py-8 bg-muted/30 border-y border-border overflow-hidden">
           <div className="container mx-auto px-4">
@@ -527,6 +542,7 @@ const Messemodelle = () => {
         <RelatedPages currentPage="/messemodelle" />
       </main>
 
+      <StickyCTA context="Messemodell" />
       <Footer />
     </>
   );
