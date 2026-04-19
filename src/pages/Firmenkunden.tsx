@@ -438,8 +438,6 @@ const Firmenkunden = () => {
           title="B2B-Anfrage: Wählen Sie Ihren Kanal"
           subtitle="UID-Rechnung, NDA und Mengenrabatte ab Stück 1. Direkter Kontakt zum Inhaber – keine Vertriebsschleife."
         />
-          </div>
-        </section>
 
         {/* Benefits Section - Premium Cards */}
         <section className="py-20 md:py-28">
