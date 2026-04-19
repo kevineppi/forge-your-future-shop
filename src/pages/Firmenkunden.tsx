@@ -432,6 +432,15 @@ const Firmenkunden = () => {
           </div>
         </section>
 
+        {/* Quick-Contact: B2B Multi-Channel direkt nach Social Proof */}
+        <QuickContactBar
+          context="B2B / Firmenkundenanfrage"
+          title="B2B-Anfrage: Wählen Sie Ihren Kanal"
+          subtitle="UID-Rechnung, NDA und Mengenrabatte ab Stück 1. Direkter Kontakt zum Inhaber – keine Vertriebsschleife."
+        />
+          </div>
+        </section>
+
         {/* Benefits Section - Premium Cards */}
         <section className="py-20 md:py-28">
           <div className="container mx-auto px-4">
