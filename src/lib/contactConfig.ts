@@ -19,10 +19,8 @@ export const CONTACT = {
   // E-Mail
   email: "office@ek-druck.at",
 
-  // Cal.com Booking-URL
-  // ⚠️ TODO: Sobald der Cal.com-Account erstellt ist, hier den echten Link einsetzen
-  // (z. B. "https://cal.com/ekdruck/15min")
-  calBookingUrl: "https://cal.com/ekdruck/15min",
+  // Cal.com Booking-URL (Standard 15-Min Beratung)
+  calBookingUrl: "https://cal.com/kevin-eppensteiner-nktcfi/15min",
 
   // Antwortzeit-Versprechen (für Conversion-Texte)
   responsePromise: "Antwort in 6 Stunden",
