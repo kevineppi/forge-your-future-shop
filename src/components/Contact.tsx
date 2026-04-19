@@ -123,6 +123,8 @@ const Contact = () => {
       setUploadProgress({});
       (window as any).dataLayer = (window as any).dataLayer || [];
       (window as any).dataLayer.push({ event: 'form_submit_success', form_name: 'contact_inquiry', project_type: validatedData.project || 'nicht angegeben', timeline: validatedData.timeline || 'nicht angegeben' });
+      // Einheitliches Conversion-Event für Channel-Vergleich
+      (window as any).dataLayer.push({ event: 'contact_channel_click', contact_channel: 'form', contact_source: 'kontakt_form', contact_context: validatedData.project || null, conversion: true });
       toast({ title: "Anfrage gesendet!", description: "Wir melden uns innerhalb von 6 Stunden bei Ihnen." });
     } catch (error) {
       toast({ title: "Fehler", description: "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.", variant: "destructive" });
