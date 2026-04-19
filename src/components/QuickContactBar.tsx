@@ -31,7 +31,16 @@ const QuickContactBar = ({
 }: QuickContactBarProps) => {
   const waMessage = `Hallo ekdruck, ich hätte eine Anfrage zu: ${context}. Können wir kurz sprechen?`;
 
-  const channels = [
+  const channels: Array<{
+    icon: typeof Phone;
+    label: string;
+    sublabel: string;
+    href: string;
+    badge: string;
+    external: boolean;
+    primary: boolean;
+    channel: ContactChannel;
+  }> = [
     {
       icon: Phone,
       label: "Sofort anrufen",
@@ -40,6 +49,7 @@ const QuickContactBar = ({
       badge: "Mo–Fr 8–18 Uhr",
       external: true,
       primary: true,
+      channel: "phone",
     },
     {
       icon: MessageCircle,
@@ -49,6 +59,7 @@ const QuickContactBar = ({
       badge: "Antwort < 2h",
       external: true,
       primary: false,
+      channel: "whatsapp",
     },
     {
       icon: Calendar,
@@ -58,6 +69,7 @@ const QuickContactBar = ({
       badge: "Online verfügbar",
       external: true,
       primary: false,
+      channel: "calcom",
     },
     {
       icon: Mail,
@@ -67,6 +79,7 @@ const QuickContactBar = ({
       badge: CONTACT.responsePromise,
       external: false,
       primary: false,
+      channel: "form",
     },
   ];
 
@@ -134,12 +147,18 @@ const QuickContactBar = ({
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  onClick={() => trackContactClick(c.channel, { source: "quick_contact_bar", context })}
                   className="block h-full"
                 >
                   {Inner}
                 </a>
               ) : (
-                <Link key={c.label} to={c.href} className="block h-full">
+                <Link
+                  key={c.label}
+                  to={c.href}
+                  onClick={() => trackContactClick(c.channel, { source: "quick_contact_bar", context })}
+                  className="block h-full"
+                >
                   {Inner}
                 </Link>
               );
