@@ -464,6 +464,15 @@ const Index = () => {
       <GoogleReviewsSection />
 
       {/* ══════════════════════════════════════════════════════
+          QUICK-CONTACT — Multi-Channel B2B Direktkontakt
+          (nach Reviews = Vertrauen aufgebaut → jetzt aktivieren)
+         ══════════════════════════════════════════════════════ */}
+      <QuickContactBar
+        title="Bereit zu starten? Sie wählen den Weg."
+        subtitle="Anrufen, WhatsApp, Termin oder Detail-Anfrage – alle Wege landen direkt beim Inhaber. Kein Vertrieb, kein Callcenter."
+      />
+
+      {/* ══════════════════════════════════════════════════════
           FAQ
          ══════════════════════════════════════════════════════ */}
       <section id="faq" className="py-32 bg-background relative" aria-label="Häufige Fragen zum 3D-Druck">
