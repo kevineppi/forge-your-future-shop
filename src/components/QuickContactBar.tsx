@@ -2,6 +2,7 @@ import { Phone, MessageCircle, Calendar, Mail, ArrowRight, Clock, Check } from "
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CONTACT, getWhatsAppUrl } from "@/lib/contactConfig";
+import { trackContactClick, type ContactChannel } from "@/lib/tracking";
 
 interface QuickContactBarProps {
   /** Kontext für vorgefüllte WhatsApp-Nachricht, z. B. "Messemodell". */
