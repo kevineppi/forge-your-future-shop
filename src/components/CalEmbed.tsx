@@ -24,9 +24,8 @@ const CalEmbed = ({ calLink, height = "640px" }: CalEmbedProps) => {
       cal("ui", {
         theme: "light",
         cssVarsPerTheme: {
-          light: {
-            "cal-brand": "#16a34a", // primary green – passend zum Website-Design
-          },
+          light: { "cal-brand": "#16a34a" },
+          dark: { "cal-brand": "#16a34a" },
         },
         hideEventTypeDetails: false,
         layout: "month_view",
