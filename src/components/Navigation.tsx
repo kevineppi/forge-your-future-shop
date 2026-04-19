@@ -286,24 +286,55 @@ const Navigation = () => {
               </div>
             </div>
 
-            {/* Quick Actions */}
+            {/* Quick Actions – Multi-Channel */}
             <div className="border-t border-border/50 pt-4 space-y-2">
-              <Link 
-                to="/kontakt" 
+              <div className="grid grid-cols-3 gap-2 mb-2">
+                <a
+                  href={`tel:${CONTACT.phone}`}
+                  className="flex flex-col items-center gap-1 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Phone className="h-5 w-5 text-primary" />
+                  <span className="text-[11px] font-semibold">Anrufen</span>
+                </a>
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1 p-3 bg-[#25D366]/10 text-foreground rounded-xl hover:bg-[#25D366]/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <MessageCircle className="h-5 w-5 text-[#25D366]" />
+                  <span className="text-[11px] font-semibold">WhatsApp</span>
+                </a>
+                <a
+                  href={CONTACT.calBookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Calendar className="h-5 w-5 text-primary" />
+                  <span className="text-[11px] font-semibold">Termin</span>
+                </a>
+              </div>
+
+              <Link
+                to="/kontakt"
                 className="flex items-center gap-3 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
                 onClick={() => setIsOpen(false)}
               >
                 <Calculator className="h-5 w-5 text-primary" />
                 <div>
-                  <div className="font-semibold text-sm">Anfrage stellen</div>
-                  <div className="text-xs text-muted-foreground">Projektanfrage & Beratung</div>
+                  <div className="font-semibold text-sm">Detail-Anfrage</div>
+                  <div className="text-xs text-muted-foreground">Mit Datei-Upload (STL, PDF, …)</div>
                 </div>
               </Link>
             </div>
-            
+
             <Button
-              variant="hero" 
-              size="sm" 
+              variant="hero"
+              size="sm"
               className="w-full mt-4"
               asChild
             >
