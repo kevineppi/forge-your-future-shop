@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown, Box, Sparkles, Book, Layers, Building2, Presentation, Palette, Building, Calculator } from "lucide-react";
+import { Menu, X, ChevronDown, Box, Sparkles, Book, Layers, Building2, Presentation, Palette, Building, Calculator, MessageCircle, Calendar, Phone } from "lucide-react";
+import { CONTACT, getWhatsAppUrl } from "@/lib/contactConfig";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -146,8 +147,40 @@ const Navigation = () => {
               Rechner
             </Link>
             <Link to="/ueber-uns" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Über uns</Link>
-            <Link to="/kontakt" className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105">Kontakt</Link>
-            <Button variant="hero" size="sm" className="ml-2 md:ml-4 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" asChild>
+
+            {/* Quick Contact Icons – B2B Direktkontakt */}
+            <div className="flex items-center gap-1 ml-2 pl-3 border-l border-border/50">
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="WhatsApp Chat"
+                aria-label="WhatsApp Business"
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-foreground/70 hover:text-[#25D366] hover:bg-[#25D366]/10 hover:scale-110 active:scale-95 transition-all duration-200"
+              >
+                <MessageCircle className="w-4 h-4" />
+              </a>
+              <a
+                href={CONTACT.calBookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="15-Min Termin buchen"
+                aria-label="Termin buchen"
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-foreground/70 hover:text-primary hover:bg-primary/10 hover:scale-110 active:scale-95 transition-all duration-200"
+              >
+                <Calendar className="w-4 h-4" />
+              </a>
+              <a
+                href={`tel:${CONTACT.phone}`}
+                title={CONTACT.phoneDisplay}
+                aria-label="Anrufen"
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-foreground/70 hover:text-primary hover:bg-primary/10 hover:scale-110 active:scale-95 transition-all duration-200"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+            </div>
+
+            <Button variant="hero" size="sm" className="ml-1 hover:scale-105 transition-transform duration-300 text-xs md:text-base px-2 md:px-6 py-1 md:py-2" asChild>
               <Link to="/kontakt">Angebot</Link>
             </Button>
           </div>
@@ -253,24 +286,55 @@ const Navigation = () => {
               </div>
             </div>
 
-            {/* Quick Actions */}
+            {/* Quick Actions – Multi-Channel */}
             <div className="border-t border-border/50 pt-4 space-y-2">
-              <Link 
-                to="/kontakt" 
+              <div className="grid grid-cols-3 gap-2 mb-2">
+                <a
+                  href={`tel:${CONTACT.phone}`}
+                  className="flex flex-col items-center gap-1 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Phone className="h-5 w-5 text-primary" />
+                  <span className="text-[11px] font-semibold">Anrufen</span>
+                </a>
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1 p-3 bg-[#25D366]/10 text-foreground rounded-xl hover:bg-[#25D366]/20 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <MessageCircle className="h-5 w-5 text-[#25D366]" />
+                  <span className="text-[11px] font-semibold">WhatsApp</span>
+                </a>
+                <a
+                  href={CONTACT.calBookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-1 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Calendar className="h-5 w-5 text-primary" />
+                  <span className="text-[11px] font-semibold">Termin</span>
+                </a>
+              </div>
+
+              <Link
+                to="/kontakt"
                 className="flex items-center gap-3 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
                 onClick={() => setIsOpen(false)}
               >
                 <Calculator className="h-5 w-5 text-primary" />
                 <div>
-                  <div className="font-semibold text-sm">Anfrage stellen</div>
-                  <div className="text-xs text-muted-foreground">Projektanfrage & Beratung</div>
+                  <div className="font-semibold text-sm">Detail-Anfrage</div>
+                  <div className="text-xs text-muted-foreground">Mit Datei-Upload (STL, PDF, …)</div>
                 </div>
               </Link>
             </div>
-            
+
             <Button
-              variant="hero" 
-              size="sm" 
+              variant="hero"
+              size="sm"
               className="w-full mt-4"
               asChild
             >

@@ -12,6 +12,8 @@ import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import SEOHead from "@/components/SEOHead";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import TrustBadges from "@/components/TrustBadges";
+import TrustBarSocialProof from "@/components/TrustBarSocialProof";
+import QuickContactBar from "@/components/QuickContactBar";
 import ReferencesTeaser from "@/components/ReferencesTeaser";
 import AnimatedSection from "@/components/AnimatedSection";
 import MarqueeTicker from "@/components/MarqueeTicker";
@@ -57,6 +59,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+
+      {/* Trust Bar – Sozial-Proof + Aktivierung Multi-Channel direkt unter Hero */}
+      <TrustBarSocialProof />
 
       {/* ══════════════════════════════════════════════════════
           LEISTUNGEN — Bold editorial cards
@@ -457,6 +462,15 @@ const Index = () => {
           GOOGLE BEWERTUNGEN
          ══════════════════════════════════════════════════════ */}
       <GoogleReviewsSection />
+
+      {/* ══════════════════════════════════════════════════════
+          QUICK-CONTACT — Multi-Channel B2B Direktkontakt
+          (nach Reviews = Vertrauen aufgebaut → jetzt aktivieren)
+         ══════════════════════════════════════════════════════ */}
+      <QuickContactBar
+        title="Bereit zu starten? Sie wählen den Weg."
+        subtitle="Anrufen, WhatsApp, Termin oder Detail-Anfrage – alle Wege landen direkt beim Inhaber. Kein Vertrieb, kein Callcenter."
+      />
 
       {/* ══════════════════════════════════════════════════════
           FAQ

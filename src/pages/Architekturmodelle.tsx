@@ -15,6 +15,8 @@ import CTASection from "@/components/landing/CTASection";
 import AnimatedSection from "@/components/AnimatedSection";
 import ProductOfferSchema from "@/components/ProductOfferSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
+import QuickContactBar from "@/components/QuickContactBar";
+import TrustBarSocialProof from "@/components/TrustBarSocialProof";
 import { 
   Building2, 
   Layers, 
@@ -449,6 +451,16 @@ const Architekturmodelle = () => {
             </div>
           </div>
         </section>
+
+        {/* Trust Bar – Social Proof */}
+        <TrustBarSocialProof />
+
+        {/* Quick-Contact: Multi-Channel Direktkontakt für Architekten */}
+        <QuickContactBar
+          context="Architekturmodell"
+          title="Wettbewerb-Deadline? Wählen Sie Ihren Kontaktweg."
+          subtitle="Express in 24 h möglich. Wir verstehen ArchiCAD, Revit, SketchUp – kostenlose Datei-Prüfung vor dem Auftrag."
+        />
 
         {/* ── USE CASES ── */}
         <section className="py-16 md:py-24">
