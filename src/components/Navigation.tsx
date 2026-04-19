@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown, Box, Sparkles, Book, Layers, Building2, Presentation, Palette, Building, Calculator, MessageCircle, Calendar, Phone } from "lucide-react";
 import { CONTACT, getWhatsAppUrl } from "@/lib/contactConfig";
+import { trackContactClick } from "@/lib/tracking";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -156,6 +157,7 @@ const Navigation = () => {
                 rel="noopener noreferrer"
                 title="WhatsApp Chat"
                 aria-label="WhatsApp Business"
+                onClick={() => trackContactClick("whatsapp", { source: "header" })}
                 className="w-9 h-9 rounded-xl flex items-center justify-center text-foreground/70 hover:text-[#25D366] hover:bg-[#25D366]/10 hover:scale-110 active:scale-95 transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -166,6 +168,7 @@ const Navigation = () => {
                 rel="noopener noreferrer"
                 title="15-Min Termin buchen"
                 aria-label="Termin buchen"
+                onClick={() => trackContactClick("calcom", { source: "header" })}
                 className="w-9 h-9 rounded-xl flex items-center justify-center text-foreground/70 hover:text-primary hover:bg-primary/10 hover:scale-110 active:scale-95 transition-all duration-200"
               >
                 <Calendar className="w-4 h-4" />
@@ -174,6 +177,7 @@ const Navigation = () => {
                 href={`tel:${CONTACT.phone}`}
                 title={CONTACT.phoneDisplay}
                 aria-label="Anrufen"
+                onClick={() => trackContactClick("phone", { source: "header" })}
                 className="w-9 h-9 rounded-xl flex items-center justify-center text-foreground/70 hover:text-primary hover:bg-primary/10 hover:scale-110 active:scale-95 transition-all duration-200"
               >
                 <Phone className="w-4 h-4" />
@@ -292,7 +296,7 @@ const Navigation = () => {
                 <a
                   href={`tel:${CONTACT.phone}`}
                   className="flex flex-col items-center gap-1 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => { trackContactClick("phone", { source: "mobile_nav" }); setIsOpen(false); }}
                 >
                   <Phone className="h-5 w-5 text-primary" />
                   <span className="text-[11px] font-semibold">Anrufen</span>
@@ -302,7 +306,7 @@ const Navigation = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-col items-center gap-1 p-3 bg-[#25D366]/10 text-foreground rounded-xl hover:bg-[#25D366]/20 active:scale-[0.98] transition-all"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => { trackContactClick("whatsapp", { source: "mobile_nav" }); setIsOpen(false); }}
                 >
                   <MessageCircle className="h-5 w-5 text-[#25D366]" />
                   <span className="text-[11px] font-semibold">WhatsApp</span>
@@ -312,7 +316,7 @@ const Navigation = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-col items-center gap-1 p-3 bg-primary/5 text-foreground rounded-xl hover:bg-primary/10 active:scale-[0.98] transition-all"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => { trackContactClick("calcom", { source: "mobile_nav" }); setIsOpen(false); }}
                 >
                   <Calendar className="h-5 w-5 text-primary" />
                   <span className="text-[11px] font-semibold">Termin</span>

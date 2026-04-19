@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone, X, Calendar, MessageCircle } from "lucide-react";
 import { CONTACT, getWhatsAppUrl } from "@/lib/contactConfig";
+import { trackContactClick } from "@/lib/tracking";
 
 interface StickyCTAProps {
   regionName?: string;
@@ -70,7 +71,11 @@ const StickyCTA = ({ regionName, deliveryTime, context }: StickyCTAProps) => {
               className="h-9 px-2 md:px-3 hover:bg-primary/10"
               title="Anrufen"
             >
-              <a href={`tel:${CONTACT.phone}`} aria-label="Anrufen">
+              <a
+                href={`tel:${CONTACT.phone}`}
+                aria-label="Anrufen"
+                onClick={() => trackContactClick("phone", { source: "sticky_cta", context })}
+              >
                 <Phone className="w-4 h-4 md:mr-1.5" />
                 <span className="hidden md:inline">Anrufen</span>
               </a>
@@ -89,6 +94,7 @@ const StickyCTA = ({ regionName, deliveryTime, context }: StickyCTAProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp Chat starten"
+                onClick={() => trackContactClick("whatsapp", { source: "sticky_cta", context })}
               >
                 <MessageCircle className="w-4 h-4 md:mr-1.5" />
                 <span className="hidden md:inline">WhatsApp</span>
@@ -108,6 +114,7 @@ const StickyCTA = ({ regionName, deliveryTime, context }: StickyCTAProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="15-Minuten Termin buchen"
+                onClick={() => trackContactClick("calcom", { source: "sticky_cta", context })}
               >
                 <Calendar className="w-4 h-4 md:mr-1.5" />
                 <span className="hidden lg:inline">Termin</span>
@@ -116,7 +123,10 @@ const StickyCTA = ({ regionName, deliveryTime, context }: StickyCTAProps) => {
 
             {/* Primary: Anfrage */}
             <Button asChild size="sm" variant="cta" className="group rounded-xl h-9">
-              <Link to="/kontakt">
+              <Link
+                to="/kontakt"
+                onClick={() => trackContactClick("form", { source: "sticky_cta", context })}
+              >
                 <span className="hidden sm:inline">Anfrage</span>
                 <span className="sm:hidden">Anfragen</span>
                 <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" />
