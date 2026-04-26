@@ -299,7 +299,7 @@ const ArchitekturmodelleAbo = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2"><Star className="h-4 w-4 text-accent fill-accent" /> 5.0 Google (31 Rezensionen)</div>
+              <div className="flex items-center gap-2"><Star className="h-4 w-4 text-primary fill-primary" /> 5.0 Google (31 Rezensionen)</div>
               <div className="flex items-center gap-2"><Zap className="h-4 w-4 text-primary" /> Lieferung in 48 Stunden</div>
               <div className="flex items-center gap-2"><Unlock className="h-4 w-4 text-primary" /> Keine Mindestlaufzeit</div>
               <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Made in Austria</div>
@@ -488,7 +488,7 @@ const ArchitekturmodelleAbo = () => {
               <div key={i} className="bg-secondary-foreground/5 backdrop-blur border border-secondary-foreground/10 rounded-2xl p-7">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, k) => (
-                    <Star key={k} className="h-4 w-4 fill-accent text-accent" />
+                    <Star key={k} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
                 <blockquote className="italic text-secondary-foreground/90 leading-relaxed mb-5">
@@ -529,46 +529,84 @@ const ArchitekturmodelleAbo = () => {
       </section>
 
       {/* SECTION 8 – CONTACT */}
-      <section id="kontakt" className="py-20 md:py-28 bg-primary/95 text-primary-foreground scroll-mt-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 tracking-tight">
-            Jetzt Flatrate anfragen – erstes Modell kostenlos
-          </h2>
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
-            {/* Left */}
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-5">Bereit für planbare Architekturmodelle?</h3>
-              <p className="text-primary-foreground/85 leading-relaxed mb-10 text-lg">
-                Füllen Sie das Formular aus – wir melden uns innerhalb von 6 Stunden mit einem persönlichen Angebot. Das erste Testmodell drucken wir kostenlos für Sie.
+      <section id="kontakt" className="relative py-20 md:py-28 bg-muted/40 scroll-mt-20 overflow-hidden">
+        {/* subtle decorative gradient blobs for premium feel */}
+        <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-semibold mb-5">
+              <Sparkles className="h-3.5 w-3.5" />
+              Erstes Modell kostenlos
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+              Jetzt Flatrate anfragen
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Antwort innerhalb von 6&nbsp;Arbeitsstunden. Persönlich, ohne Verkaufsgespräch.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto items-start">
+            {/* Left – Contact info card */}
+            <Card className="lg:col-span-2 p-7 md:p-8 bg-card border border-border shadow-sm">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                Direkter Draht
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-8 text-sm">
+                Lieber persönlich? Wir sind direkt erreichbar – ohne Warteschleife.
               </p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 flex-shrink-0" />
-                  <a
-                    href={`tel:${CONTACT.phone}`}
-                    onClick={() => trackContactClick("phone", { source: "architektur_abo" })}
-                    className="hover:underline"
-                  >
-                    {CONTACT.phoneDisplay}
-                  </a>
+              <ul className="space-y-5">
+                <li className="flex items-start gap-3">
+                  <div className="h-9 w-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Telefon</div>
+                    <a
+                      href={`tel:${CONTACT.phone}`}
+                      onClick={() => trackContactClick("phone", { source: "architektur_abo" })}
+                      className="text-foreground font-semibold hover:text-primary transition-colors"
+                    >
+                      {CONTACT.phoneDisplay}
+                    </a>
+                  </div>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 flex-shrink-0" />
-                  <a href={`mailto:${CONTACT.email}`} className="hover:underline">{CONTACT.email}</a>
+                <li className="flex items-start gap-3">
+                  <div className="h-9 w-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">E-Mail</div>
+                    <a href={`mailto:${CONTACT.email}`} className="text-foreground font-semibold hover:text-primary transition-colors break-all">
+                      {CONTACT.email}
+                    </a>
+                  </div>
                 </li>
-                <li className="flex items-center gap-3">
-                  <MapPin className="h-5 w-5 flex-shrink-0" />
-                  Gunskirchen, Oberösterreich
+                <li className="flex items-start gap-3">
+                  <div className="h-9 w-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Standort</div>
+                    <div className="text-foreground font-semibold">Gunskirchen, Oberösterreich</div>
+                  </div>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Clock className="h-5 w-5 flex-shrink-0" />
-                  Mo–Fr 8:00–18:00
+                <li className="flex items-start gap-3">
+                  <div className="h-9 w-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Clock className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Erreichbarkeit</div>
+                    <div className="text-foreground font-semibold">Mo–Fr 8:00–18:00</div>
+                  </div>
                 </li>
               </ul>
-            </div>
+            </Card>
 
             {/* Right – Form */}
-            <Card className="p-7 md:p-8 bg-background text-foreground border-0 shadow-2xl">
+            <Card className="lg:col-span-3 p-7 md:p-9 bg-card border border-border shadow-xl">
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="abo-name">Vor- und Nachname</Label>
@@ -636,7 +674,7 @@ const ArchitekturmodelleAbo = () => {
                   onClick={handleSubmit}
                   disabled={submitting}
                   size="lg"
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-[1.01] active:scale-[0.99] transition-transform font-semibold"
+                  className="w-full hover:scale-[1.01] active:scale-[0.99] transition-transform font-semibold shadow-lg"
                 >
                   {submitting ? "Wird gesendet..." : (<>Jetzt kostenlos anfragen <Send className="ml-2 h-4 w-4" /></>)}
                 </Button>
