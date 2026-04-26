@@ -678,11 +678,37 @@ const Architekturmodelle = () => {
           subline="Schicken Sie uns Ihre CAD-Datei (STL, OBJ, 3MF) oder beschreiben Sie Ihr Vorhaben kurz. Wir melden uns persönlich mit einem verbindlichen Angebot – kostenlos und unverbindlich."
           ctaLabel="Jetzt kostenlos anfragen"
           ctaHref="/kontakt"
-          secondaryLabel="Referenzprojekte ansehen"
-          secondaryHref="/referenzen"
+          secondaryLabel="Architektur-Flatrate ansehen"
+          secondaryHref="/architekturmodelle-abo"
           badge="Für Architekten & Planer"
-          urgencyText="⚡ Express 24h für Wettbewerbstermine · Persönliche Abholung in Gunskirchen möglich"
+          urgencyText="⚡ Flatrate ab €199/Mon. · Erstes Modell kostenlos · Kein Vertrag"
         />
+
+        {/* ── FLATRATE BANNER ── */}
+        <section className="py-10 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-6 p-6 md:p-8 rounded-2xl border border-primary/20 bg-background shadow-sm">
+              <div className="flex-1 text-center md:text-left">
+                <div className="text-xs font-bold uppercase tracking-wider text-primary mb-2">Für Büros mit regelmäßigem Bedarf</div>
+                <h3 className="text-2xl font-bold mb-2">Architekturmodell-Flatrate</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">Fixpreis statt Einzelkalkulation. Ab €199/Monat, monatlich kündbar. <strong>Erstes Modell kostenlos zum Testen.</strong></p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <Link to="/architekturmodelle-abo" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors text-sm whitespace-nowrap">
+                  Flatrate entdecken <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a
+                  href={`https://wa.me/436765517197?text=${encodeURIComponent("Hallo ekdruck, ich interessiere mich für die Architekturmodell-Flatrate.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 border border-border px-6 py-3 rounded-xl hover:bg-muted transition-colors text-sm whitespace-nowrap font-medium"
+                >
+                  <span className="text-[#25D366]">●</span> WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ── REGIONAL COVERAGE + All Regions Links ── */}
         <RegionalCoverage serviceName="Architekturmodelle" />

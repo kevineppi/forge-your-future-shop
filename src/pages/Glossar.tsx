@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Search, ArrowRight } from "lucide-react";
+import StickyCTA from "@/components/landing/StickyCTA";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -643,6 +644,7 @@ const Glossar = () => {
           </div>
         </section>
 
+        <StickyCTA context="3D-Druck Glossar" />
         <Footer />
       </div>
     </>
