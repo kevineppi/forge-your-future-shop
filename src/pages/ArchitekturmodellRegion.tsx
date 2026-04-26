@@ -243,8 +243,8 @@ const ArchitekturmodellRegion = () => {
             subline={ctaConfig.subline}
             ctaLabel={ctaConfig.ctaLabel}
             ctaHref="/kontakt"
-            secondaryLabel={ctaConfig.secondaryLabel}
-            secondaryHref="/referenzen"
+            secondaryLabel="Architektur-Flatrate ab €199/Mon."
+            secondaryHref="/architekturmodelle-abo"
             badge={ctaConfig.badge}
             urgencyText={ctaConfig.urgencyText}
             variant={ctaConfig.variant}
