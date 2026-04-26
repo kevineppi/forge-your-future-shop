@@ -10,6 +10,7 @@ import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import CTASection from "@/components/landing/CTASection";
+import StickyCTA from "@/components/landing/StickyCTA";
 import {
   Briefcase,
   CheckCircle,
@@ -285,6 +286,7 @@ const DruckDienstleister = () => {
           <RelatedPages currentPage="/3d-druck-dienstleister-oesterreich" />
         </main>
 
+        <StickyCTA context="3D-Druck Dienstleister Anfrage" />
         <Footer />
       </div>
     </>

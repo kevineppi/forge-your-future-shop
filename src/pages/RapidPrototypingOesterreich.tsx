@@ -10,6 +10,7 @@ import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import CTASection from "@/components/landing/CTASection";
+import StickyCTA from "@/components/landing/StickyCTA";
 import {
   Zap,
   CheckCircle,
@@ -323,6 +324,7 @@ const RapidPrototypingOesterreich = () => {
           <RelatedPages currentPage="/rapid-prototyping-oesterreich" />
         </main>
 
+        <StickyCTA context="Rapid Prototyping Österreich" />
         <Footer />
       </div>
     </>

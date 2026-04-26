@@ -10,6 +10,7 @@ import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import CTASection from "@/components/landing/CTASection";
+import StickyCTA from "@/components/landing/StickyCTA";
 import {
   Building2,
   CheckCircle,
@@ -357,6 +358,7 @@ const DruckFirma = () => {
           <RelatedPages currentPage="/3d-druck-firma" />
         </main>
 
+        <StickyCTA context="3D-Druck Firma Anfrage" />
         <Footer />
       </div>
     </>
