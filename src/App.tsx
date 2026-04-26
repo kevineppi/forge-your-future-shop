@@ -63,6 +63,7 @@ const Kostenrechner          = lazy(() => import("./pages/Kostenrechner"));
 const DruckFirma             = lazy(() => import("./pages/DruckFirma"));
 const DruckDienstleister     = lazy(() => import("./pages/DruckDienstleister"));
 const RapidPrototypingOesterreich = lazy(() => import("./pages/RapidPrototypingOesterreich"));
+const ArchitekturmodelleAbo  = lazy(() => import("./pages/ArchitekturmodelleAbo"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -105,6 +106,7 @@ const App = () => (
               <Route path="/glossar" element={<Glossar />} />
               <Route path="/referenzen" element={<Referenzen />} />
               <Route path="/architekturmodelle" element={<Architekturmodelle />} />
+              <Route path="/architekturmodelle-abo" element={<ArchitekturmodelleAbo />} />
               <Route path="/architekturmodelle/:region" element={<ArchitekturmodellRegion />} />
               <Route path="/messemodelle" element={<Messemodelle />} />
               <Route path="/messemodelle/:region" element={<MessemodellRegion />} />
