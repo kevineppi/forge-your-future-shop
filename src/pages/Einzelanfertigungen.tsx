@@ -6,6 +6,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import CTASection from "@/components/landing/CTASection";
 import AIChatWidget from "@/components/AIChatWidget";
+import StickyCTA from "@/components/landing/StickyCTA";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
@@ -414,6 +415,7 @@ const Einzelanfertigungen = () => {
 
       </main>
 
+      <StickyCTA context="Einzelanfertigung" />
       <AIChatWidget />
       <Footer />
     </>

@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import StickyCTA from "@/components/landing/StickyCTA";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 import AnimatedSection from "@/components/AnimatedSection";
@@ -552,6 +553,7 @@ const UeberUns = () => {
 
       </main>
 
+      <StickyCTA context="ekdruck Anfrage" />
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import StickyCTA from "@/components/landing/StickyCTA";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -510,6 +511,8 @@ const Referenzen = () => {
 
         <Footer />
       </div>
+
+      <StickyCTA context="Referenzprojekt anfragen" />
 
       {/* Lightbox Dialog with Image Gallery */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>

@@ -10,6 +10,7 @@ import FAQSection from "@/components/landing/FAQSection";
 import RelatedPages from "@/components/landing/RelatedPages";
 import RegionalCoverage from "@/components/landing/RegionalCoverage";
 import QuickContactBar from "@/components/QuickContactBar";
+import StickyCTA from "@/components/landing/StickyCTA";
 import { 
   Building, 
   FileText, 
@@ -870,6 +871,7 @@ const Firmenkunden = () => {
         <RelatedPages currentPage="/firmenkunden" />
       </main>
 
+      <StickyCTA context="B2B Firmenkundenanfrage" />
       <Footer />
     </>
   );

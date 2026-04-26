@@ -123,23 +123,48 @@ const SEOHead = ({
       twitterDescription.setAttribute('content', description);
     }
     
-    // Update OG Image
-    const ogImage = document.querySelector('meta[property="og:image"]');
-    if (ogImage) {
-      ogImage.setAttribute('content', image);
+    // Update OG Image – only overwrite when a page-specific image is provided;
+    // otherwise preserve the default og:image from index.html
+    const DEFAULT_OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png";
+    const resolvedImage = image || DEFAULT_OG_IMAGE;
+    let ogImage = document.querySelector('meta[property="og:image"]');
+    if (!ogImage) {
+      ogImage = document.createElement('meta');
+      ogImage.setAttribute('property', 'og:image');
+      document.head.appendChild(ogImage);
     }
-    
+    ogImage.setAttribute('content', resolvedImage);
+
+    // og:image dimensions (helps Facebook/LinkedIn crawler)
+    let ogImageWidth = document.querySelector('meta[property="og:image:width"]');
+    if (!ogImageWidth) {
+      ogImageWidth = document.createElement('meta');
+      ogImageWidth.setAttribute('property', 'og:image:width');
+      ogImageWidth.setAttribute('content', '1200');
+      document.head.appendChild(ogImageWidth);
+    }
+    let ogImageHeight = document.querySelector('meta[property="og:image:height"]');
+    if (!ogImageHeight) {
+      ogImageHeight = document.createElement('meta');
+      ogImageHeight.setAttribute('property', 'og:image:height');
+      ogImageHeight.setAttribute('content', '630');
+      document.head.appendChild(ogImageHeight);
+    }
+
     // Update OG Type
     const ogType = document.querySelector('meta[property="og:type"]');
     if (ogType) {
       ogType.setAttribute('content', type);
     }
-    
-    // Update Twitter Image
-    const twitterImage = document.querySelector('meta[name="twitter:image"]');
-    if (twitterImage) {
-      twitterImage.setAttribute('content', image);
+
+    // Update Twitter Image – same fallback logic
+    let twitterImage = document.querySelector('meta[name="twitter:image"]');
+    if (!twitterImage) {
+      twitterImage = document.createElement('meta');
+      twitterImage.setAttribute('name', 'twitter:image');
+      document.head.appendChild(twitterImage);
     }
+    twitterImage.setAttribute('content', resolvedImage);
     
     // Add preload resources for performance
     preloadResources.forEach((resource) => {

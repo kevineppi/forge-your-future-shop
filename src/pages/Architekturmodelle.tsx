@@ -17,6 +17,7 @@ import ProductOfferSchema from "@/components/ProductOfferSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import QuickContactBar from "@/components/QuickContactBar";
 import TrustBarSocialProof from "@/components/TrustBarSocialProof";
+import StickyCTA from "@/components/landing/StickyCTA";
 import { 
   Building2, 
   Layers, 
@@ -700,6 +701,7 @@ const Architekturmodelle = () => {
         <RelatedPages currentPage="/architekturmodelle" />
       </main>
 
+      <StickyCTA context="Architekturmodell" />
       <Footer />
     </>
   );

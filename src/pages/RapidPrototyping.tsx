@@ -12,6 +12,7 @@ import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import CTASection from "@/components/landing/CTASection";
 import AIChatWidget from "@/components/AIChatWidget";
+import StickyCTA from "@/components/landing/StickyCTA";
 import ProductOfferSchema from "@/components/ProductOfferSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import {
@@ -469,6 +470,7 @@ const RapidPrototyping = () => {
 
       </main>
 
+      <StickyCTA context="Designprototyp" />
       <AIChatWidget />
       <Footer />
     </>

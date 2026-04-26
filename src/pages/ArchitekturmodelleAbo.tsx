@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import {
   Star, Zap, Unlock, MapPin, X, Check, Clock, Wallet, Shield,
   Trophy, Building2, Briefcase, GraduationCap, Globe, TrendingUp,
-  Phone, Mail, Send, ChevronDown, ArrowRight, Sparkles
+  Phone, Mail, Send, ChevronDown, ArrowRight, Sparkles, MessageCircle
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import StickyCTA from "@/components/landing/StickyCTA";
+import QuickContactBar from "@/components/QuickContactBar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -29,12 +31,59 @@ const SCHEMA = {
   "@type": "Product",
   name: "Architekturmodell Flatrate – ekdruck e.U.",
   description:
-    "Monatliches Abo für Architekturbüros: 3D-gedruckte Architekturmodelle im Fixpreis, 48h-Lieferung, keine Mindestlaufzeit.",
+    "Monatliches Abo für Architekturbüros: 3D-gedruckte Architekturmodelle im Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos.",
   brand: { "@type": "Brand", name: "ekdruck e.U." },
+  manufacturer: { "@type": "Organization", name: "ekdruck e.U.", url: "https://www.ek-druck.at" },
+  image: "https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "31",
+    bestRating: "5",
+    worstRating: "1",
+  },
   offers: [
-    { "@type": "Offer", name: "Starter", price: "199", priceCurrency: "EUR", availability: "https://schema.org/InStock" },
-    { "@type": "Offer", name: "Professional", price: "349", priceCurrency: "EUR", availability: "https://schema.org/InStock" },
-    { "@type": "Offer", name: "Studio", price: "549", priceCurrency: "EUR", availability: "https://schema.org/InStock" },
+    {
+      "@type": "Offer",
+      name: "Starter Flatrate",
+      price: "199",
+      priceCurrency: "EUR",
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "199", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
+      availability: "https://schema.org/InStock",
+      url: "https://www.ek-druck.at/architekturmodelle-abo",
+      seller: { "@type": "Organization", name: "ekdruck e.U." },
+    },
+    {
+      "@type": "Offer",
+      name: "Professional Flatrate",
+      price: "349",
+      priceCurrency: "EUR",
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "349", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
+      availability: "https://schema.org/InStock",
+      url: "https://www.ek-druck.at/architekturmodelle-abo",
+      seller: { "@type": "Organization", name: "ekdruck e.U." },
+    },
+    {
+      "@type": "Offer",
+      name: "Studio Flatrate",
+      price: "549",
+      priceCurrency: "EUR",
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "549", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
+      availability: "https://schema.org/InStock",
+      url: "https://www.ek-druck.at/architekturmodelle-abo",
+      seller: { "@type": "Organization", name: "ekdruck e.U." },
+    },
+  ],
+};
+
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "Was kostet die Architekturmodell-Flatrate?", acceptedAnswer: { "@type": "Answer", text: "Die Flatrate startet ab €199/Monat (Starter: bis 3 Modelle), Professional bei €349/Monat (bis 7 Modelle), Studio bei €549/Monat (bis 15 Modelle). Alle Pakete sind monatlich kündbar, ohne Mindestlaufzeit." } },
+    { "@type": "Question", name: "Was bedeutet 'Erstes Modell kostenlos'?", acceptedAnswer: { "@type": "Answer", text: "Neue Flatrate-Kunden erhalten ihr erstes Architekturmodell kostenlos gedruckt – als Qualitätstest ohne Risiko. Das Testmodell wird nach Auftragsbestätigung der Flatrate produziert und in 48 Stunden geliefert." } },
+    { "@type": "Question", name: "Welche CAD-Programme werden unterstützt?", acceptedAnswer: { "@type": "Answer", text: "Wir akzeptieren alle gängigen Formate: STL, OBJ, STEP, 3DM (Rhino), DWG/DXF sowie native Formate aus ArchiCAD, Revit, SketchUp und anderen Architekturprogrammen." } },
+    { "@type": "Question", name: "Wie schnell wird geliefert?", acceptedAnswer: { "@type": "Answer", text: "Flatrate-Kunden genießen Produktionspriorität – Lieferung garantiert in 48 Stunden österreichweit. Auch nach Deutschland in 48–72 Stunden." } },
   ],
 };
 
@@ -173,13 +222,25 @@ const ArchitekturmodelleAbo = () => {
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>Architekturmodelle 3D-Druck Österreich – Flatrate für Architekturbüros | ekdruck</title>
-        <meta name="description" content="Architekturmodelle aus dem 3D-Drucker – schnell, präzise, günstig. Unser Büro-Flatrate-Abo: Fixpreis pro Monat, unbegrenzte Anfragen, 48h-Lieferung. Für Architekturbüros in Wien, Linz, Graz & ganz Österreich." />
+        <meta name="description" content="Architekturmodelle aus dem 3D-Drucker – schnell, präzise, günstig. Büro-Flatrate-Abo: Fixpreis ab €199/Monat, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen." />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://www.ek-druck.at/architekturmodelle-abo" />
-        <meta property="og:title" content="Architekturmodelle 3D-Druck Österreich – Flatrate für Architekturbüros" />
-        <meta property="og:description" content="Büro-Flatrate für Architekturmodelle: Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos." />
+        <meta property="og:title" content="Architekturmodell-Flatrate für Architekturbüros – ab €199/Monat | ekdruck" />
+        <meta property="og:description" content="Büro-Flatrate für Architekturmodelle: Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen. Für Büros in Wien, Linz, Graz & ganz Österreich." />
         <meta property="og:url" content="https://www.ek-druck.at/architekturmodelle-abo" />
         <meta property="og:type" content="product" />
+        <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="ekdruck Architekturmodell-Flatrate – 3D-Druck für Architekturbüros" />
+        <meta property="og:locale" content="de_AT" />
+        <meta property="og:site_name" content="ekdruck e.U." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Architekturmodell-Flatrate – ab €199/Monat. Erstes Modell kostenlos." />
+        <meta name="twitter:description" content="Büro-Flatrate für Architekturmodelle: Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen." />
+        <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png" />
         <script type="application/ld+json">{JSON.stringify(SCHEMA)}</script>
+        <script type="application/ld+json">{JSON.stringify(FAQ_SCHEMA)}</script>
       </Helmet>
 
       <Navigation />
@@ -195,27 +256,46 @@ const ArchitekturmodelleAbo = () => {
         />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-semibold mb-8">
+            {/* Urgency-Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-semibold mb-6">
               <Sparkles className="h-3.5 w-3.5" />
-              NEU – Exklusiv für Architekturbüros
+              🎁 Erstes Modell kostenlos – für neue Flatrate-Kunden
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight">
               Architekturmodelle auf Abruf –{" "}
-              <span className="text-primary">Ihr persönlicher 3D-Druck Service im Fixpreis</span>
+              <span className="text-primary">Fixpreis, 48h-Lieferung, keine Mindestlaufzeit</span>
             </h1>
-            <p className="text-lg md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-              Schluss mit Einzelanfragen, langen Wartezeiten und unkalkulierbaren Kosten. Mit der ekdruck Büro-Flatrate drucken Sie wann Sie wollen – zum monatlichen Fixpreis.
+            <p className="text-lg md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+              Keine Einzelanfragen, keine Wartezeiten, keine Überraschungskosten. Die ekdruck Büro-Flatrate: Ihr persönlicher 3D-Druck Service für Architekturbüros in ganz Österreich.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button asChild size="lg" className="text-base px-8 py-6 hover:scale-105 active:scale-95 transition-transform">
-                <a href="#kontakt">Jetzt Flatrate anfragen <ArrowRight className="ml-2 h-4 w-4" /></a>
+
+            {/* Primary CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <Button asChild size="lg" className="text-base px-8 py-6 hover:scale-105 active:scale-95 transition-transform shadow-xl">
+                <a href="#kontakt">
+                  Jetzt kostenlos testen <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="text-base px-8 py-6 hover:scale-105 active:scale-95 transition-transform">
                 <a href="#preise">Preise ansehen</a>
               </Button>
             </div>
+
+            {/* Direct WhatsApp CTA – niedrigste Hürde für 24h Conversion */}
+            <div className="flex justify-center mb-10">
+              <a
+                href={`https://wa.me/436765517197?text=${encodeURIComponent("Hallo ekdruck, ich interessiere mich für die Architekturmodell-Flatrate und möchte gerne mein erstes Modell kostenlos testen.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-[#25D366] transition-colors"
+              >
+                <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                Oder direkt per WhatsApp: Erstes Modell kostenlos anfragen →
+              </a>
+            </div>
+
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2"><Star className="h-4 w-4 text-accent fill-accent" /> 5.0 Google Bewertung (31 Rezensionen)</div>
+              <div className="flex items-center gap-2"><Star className="h-4 w-4 text-accent fill-accent" /> 5.0 Google (31 Rezensionen)</div>
               <div className="flex items-center gap-2"><Zap className="h-4 w-4 text-primary" /> Lieferung in 48 Stunden</div>
               <div className="flex items-center gap-2"><Unlock className="h-4 w-4 text-primary" /> Keine Mindestlaufzeit</div>
               <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Made in Austria</div>
@@ -223,6 +303,13 @@ const ArchitekturmodelleAbo = () => {
           </div>
         </div>
       </section>
+
+      {/* MULTI-CHANNEL KONTAKT – direkt nach Hero, maximale Conversion */}
+      <QuickContactBar
+        context="Architekturmodell-Flatrate"
+        title="Bereit für planbare Architekturmodelle? Wählen Sie Ihren Weg."
+        subtitle="Erstes Modell kostenlos · 48h-Lieferung · Keine Mindestlaufzeit – direkt zum Inhaber, kein Callcenter."
+      />
 
       {/* SECTION 1 – PAIN POINTS */}
       <section className="py-20 md:py-28 bg-muted/40">
@@ -593,6 +680,7 @@ const ArchitekturmodelleAbo = () => {
         </div>
       </section>
 
+      <StickyCTA context="Architekturmodell-Flatrate – Erstes Modell kostenlos" />
       <Footer />
     </div>
   );

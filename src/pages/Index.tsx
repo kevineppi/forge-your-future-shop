@@ -183,6 +183,7 @@ const Index = () => {
                   { to: "/fdm-3d-druck", label: "FDM Technologie" },
                   { to: "/3d-druck-materialien", label: "Materialien" },
                   { to: "/kostenrechner", label: "Kostenrechner" },
+                  { to: "/architekturmodelle-abo", label: "Architektur-Flatrate" },
                 ].map(({ to, label }) =>
                   <Link key={to} to={to}
                     className="group flex items-center gap-2 border-2 border-border hover:border-foreground rounded-full px-5 py-2.5 transition-all duration-300 hover:-translate-y-0.5 text-sm font-medium">
@@ -192,6 +193,57 @@ const Index = () => {
                 )}
               </div>
             </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          ARCHITEKTUR-FLATRATE CALLOUT — Höchster LTV, eigene Sektion
+         ══════════════════════════════════════════════════════ */}
+      <section className="bg-primary/[0.04] border-y border-border py-12" aria-label="Architekturmodell Flatrate">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <Link to="/architekturmodelle-abo" className="group block">
+              <div className="rounded-3xl border-2 border-primary/20 hover:border-primary/60 bg-background p-8 md:p-12 transition-all duration-500 group-hover:-translate-y-0.5 overflow-hidden relative">
+                {/* Background accent */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="relative grid md:grid-cols-3 gap-8 items-center">
+                  <div className="md:col-span-2">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full">
+                        <Zap className="w-3 h-3" /> NEU – Für Architekturbüros
+                      </span>
+                      <span className="mono text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em]">ab €199/Monat</span>
+                    </div>
+                    <h2 className="text-2xl md:text-4xl font-bold tracking-[-0.03em] mb-3 group-hover:text-primary transition-colors">
+                      Architekturmodelle im Fixpreis-Abo –<br />
+                      <span className="text-primary">Erstes Modell kostenlos testen</span>
+                    </h2>
+                    <p className="text-muted-foreground text-sm leading-relaxed max-w-xl">
+                      Schluss mit Einzelanfragen und unkalkulierbaren Kosten. Die ekdruck Büro-Flatrate: bis zu 15 Modelle/Monat, 48h-Lieferung, persönlicher Ansprechpartner – monatlich kündbar.
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    {[
+                      { label: "Starter", price: "€199/Monat", detail: "bis 3 Modelle" },
+                      { label: "Professional", price: "€349/Monat", detail: "bis 7 Modelle · Beliebteste Wahl", highlight: true },
+                      { label: "Studio", price: "€549/Monat", detail: "bis 15 Modelle" },
+                    ].map(({ label, price, detail, highlight }) => (
+                      <div key={label} className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm ${highlight ? "bg-primary text-primary-foreground" : "bg-muted"}`}>
+                        <span className="font-bold">{label}</span>
+                        <div className="text-right">
+                          <span className="font-bold">{price}</span>
+                          <span className={`block text-xs ${highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{detail}</span>
+                        </div>
+                      </div>
+                    ))}
+                    <span className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all mt-2">
+                      Flatrate entdecken <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

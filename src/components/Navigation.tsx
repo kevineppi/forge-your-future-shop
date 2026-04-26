@@ -107,6 +107,20 @@ const Navigation = () => {
                       </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
+                      <a href="/architekturmodelle-abo" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer border border-primary/20 bg-primary/5">
+                        <div className="flex-shrink-0 w-9 h-9 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-200">
+                          <Sparkles className="h-4 w-4 text-primary" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-sm text-primary flex items-center gap-1.5">
+                            Architektur-Flatrate
+                            <span className="text-[9px] font-bold bg-primary text-primary-foreground px-1.5 py-0.5 rounded-full">NEU</span>
+                          </div>
+                          <div className="text-xs text-muted-foreground">Ab €199/Monat · Erstes Modell gratis</div>
+                        </div>
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="p-0 focus:bg-transparent">
                       <a href="/messemodelle" className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all duration-200 ease-out group cursor-pointer">
                         <div className="flex-shrink-0 w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-200">
                           <Presentation className="h-4 w-4 text-primary" />

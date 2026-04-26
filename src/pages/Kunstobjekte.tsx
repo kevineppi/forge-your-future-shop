@@ -11,6 +11,7 @@ import RelatedPages from "@/components/landing/RelatedPages";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import CTASection from "@/components/landing/CTASection";
 import AnimatedSection from "@/components/AnimatedSection";
+import StickyCTA from "@/components/landing/StickyCTA";
 import {
   Palette, Sparkles, Shapes, Brush, CheckCircle, ArrowRight,
   Star, Heart, Gem, Eye, Layers, Lightbulb, Infinity, Clock,
@@ -368,6 +369,7 @@ const Kunstobjekte = () => {
 
       </main>
 
+      <StickyCTA context="Kunstobjekt" />
       <Footer />
     </>
   );

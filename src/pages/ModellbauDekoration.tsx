@@ -9,6 +9,7 @@ import AIChatWidget from "@/components/AIChatWidget";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Home, Palette, Gift, CheckCircle, ArrowRight, Sparkles, Box } from "lucide-react";
+import StickyCTA from "@/components/landing/StickyCTA";
 
 const ModellbauDekoration = () => {
   return (
@@ -332,6 +333,7 @@ const ModellbauDekoration = () => {
         <Contact />
       </main>
       
+      <StickyCTA context="Modellbau & Dekoration" />
       <AIChatWidget />
       <Footer />
     </>

@@ -13,6 +13,7 @@ import AllRegionsLinks from "@/components/landing/AllRegionsLinks";
 import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import CTASection from "@/components/landing/CTASection";
 import Breadcrumbs from "@/components/landing/Breadcrumbs";
+import StickyCTA from "@/components/landing/StickyCTA";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -456,6 +457,7 @@ const FdmDruck = () => {
 
       </main>
 
+      <StickyCTA context="FDM 3D-Druck" />
       <AIChatWidget />
       <Footer />
     </>
