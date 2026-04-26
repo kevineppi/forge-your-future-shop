@@ -80,7 +80,7 @@ const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "Was kostet die Architekturmodell-Flatrate?", acceptedAnswer: { "@type": "Answer", text: "Die Flatrate startet ab €490/Monat (Starter: bis 3 Modelle), Professional bei €890/Monat (bis 7 Modelle), Studio bei €1690/Monat (bis 15 Modelle). Alle Pakete sind monatlich kündbar, ohne Mindestlaufzeit." } },
+    { "@type": "Question", name: "Was kostet die Architekturmodell-Flatrate?", acceptedAnswer: { "@type": "Answer", text: "Die Flatrate startet ab €490/Monat (Starter: 2 Modelle inklusive), Professional bei €890/Monat (4 Modelle inklusive), Studio bei €1.690/Monat (8 Modelle inklusive). Alle Pakete sind monatlich kündbar, ohne Mindestlaufzeit." } },
     { "@type": "Question", name: "Was bedeutet 'Erstes Modell kostenlos'?", acceptedAnswer: { "@type": "Answer", text: "Neue Flatrate-Kunden erhalten ihr erstes Architekturmodell kostenlos gedruckt – als Qualitätstest ohne Risiko. Das Testmodell wird nach Auftragsbestätigung der Flatrate produziert und in 48 Stunden geliefert." } },
     { "@type": "Question", name: "Welche CAD-Programme werden unterstützt?", acceptedAnswer: { "@type": "Answer", text: "Wir akzeptieren alle gängigen Formate: STL, OBJ, STEP, 3DM (Rhino), DWG/DXF sowie native Formate aus ArchiCAD, Revit, SketchUp und anderen Architekturprogrammen." } },
     { "@type": "Question", name: "Wie schnell wird geliefert?", acceptedAnswer: { "@type": "Answer", text: "Flatrate-Kunden genießen Produktionspriorität – Lieferung garantiert in 48 Stunden österreichweit. Auch nach Deutschland in 48–72 Stunden." } },
@@ -602,7 +602,7 @@ const ArchitekturmodelleAbo = () => {
                     <SelectContent>
                       <SelectItem value="Starter">Starter (€490)</SelectItem>
                       <SelectItem value="Professional">Professional (€890)</SelectItem>
-                      <SelectItem value="Studio">Studio (€1690)</SelectItem>
+                      <SelectItem value="Studio">Studio (€1.690)</SelectItem>
                       <SelectItem value="Unsicher">Ich bin unsicher</SelectItem>
                     </SelectContent>
                   </Select>
