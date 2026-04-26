@@ -8,6 +8,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { ArrowRight, CheckCircle, Clock, Euro, Package, Zap, ChevronRight } from "lucide-react";
 import HowToSchema from "@/components/HowToSchema";
+import StickyCTA from "@/components/landing/StickyCTA";
 
 const MessemodellGuide = () => {
   const faqs = [
@@ -283,6 +284,7 @@ const MessemodellGuide = () => {
           </div>
         </article>
 
+        <StickyCTA context="Messemodell-Guide" />
         <Footer />
       </div>
     </>

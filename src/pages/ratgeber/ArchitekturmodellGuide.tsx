@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/landing/CTASection";
+import StickyCTA from "@/components/landing/StickyCTA";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -582,6 +583,20 @@ const ArchitekturmodellGuide = () => {
                   ))}
                 </div>
               </AnimatedSection>
+
+              {/* ── FLATRATE CALLOUT ── */}
+              <div className="mt-8 p-6 rounded-2xl border-2 border-primary/30 bg-primary/5">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <div className="flex-1">
+                    <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">Tipp für regelmäßige Auftraggeber</div>
+                    <h3 className="text-xl font-bold mb-2">Architekturmodell-Flatrate – Fixpreis statt Einzelkalkulation</h3>
+                    <p className="text-sm text-muted-foreground">Büros, die mehr als 1–2 Modelle pro Monat beauftragen, sparen mit der Flatrate bis zu 40% gegenüber Einzelpreisen. Kein Vertrag, monatlich kündbar. <strong>Erstes Modell kostenlos testen.</strong></p>
+                  </div>
+                  <a href="/architekturmodelle-abo" className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-3 rounded-xl hover:bg-primary/90 transition-colors text-sm whitespace-nowrap">
+                    Ab €199/Monat →
+                  </a>
+                </div>
+              </div>
             </section>
 
             {/* ── 7. GELÄNDEMODELLE ── */}
@@ -685,12 +700,13 @@ const ArchitekturmodellGuide = () => {
           subline="Schicken Sie uns Ihre CAD-Datei (STL, OBJ, 3MF) oder beschreiben Sie Ihr Projekt kurz. Wir antworten persönlich mit einem verbindlichen Angebot – kostenlos und unverbindlich."
           ctaLabel="Kostenlos anfragen"
           ctaHref="/kontakt"
-          secondaryLabel="Zur Architekturmodell-Seite"
-          secondaryHref="/architekturmodelle"
+          secondaryLabel="Architektur-Flatrate ab €199/Monat"
+          secondaryHref="/architekturmodelle-abo"
           badge="Für Architekten & Planer"
-          urgencyText="⚡ Express 24h für Wettbewerbstermine · Persönliche Abholung in Gunskirchen möglich"
+          urgencyText="⚡ Flatrate: Erstes Modell kostenlos · Kein Vertrag, monatlich kündbar"
         />
 
+        <StickyCTA context="Architekturmodell-Guide" />
         <Footer />
       </div>
     </>

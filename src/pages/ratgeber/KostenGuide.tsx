@@ -10,6 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import HowToSchema from "@/components/HowToSchema";
 import ContextualLinks from "@/components/ContextualLinks";
 import ConversionBanner from "@/components/ConversionBanner";
+import StickyCTA from "@/components/landing/StickyCTA";
 const KostenGuide = () => {
   const costFactors = [{
     icon: Package,
@@ -346,6 +347,7 @@ const KostenGuide = () => {
           </div>
         </article>
 
+        <StickyCTA context="Kosten-Guide" />
         <Footer />
       </div>
 
