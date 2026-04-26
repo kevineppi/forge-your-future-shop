@@ -47,6 +47,7 @@ const MaterialGuide          = lazy(() => import("./pages/ratgeber/MaterialGuide
 const PrototypingGuide       = lazy(() => import("./pages/ratgeber/PrototypingGuide"));
 const MessemodellGuide       = lazy(() => import("./pages/ratgeber/MessemodellGuide"));
 const ArchitekturmodellGuide = lazy(() => import("./pages/ratgeber/ArchitekturmodellGuide"));
+const FlatrateGuide          = lazy(() => import("./pages/ratgeber/FlatrateGuide"));
 const Prototypen             = lazy(() => import("./pages/Prototypen"));
 const RapidPrototyping       = lazy(() => import("./pages/RapidPrototyping"));
 const Glossar                = lazy(() => import("./pages/Glossar"));
@@ -103,6 +104,7 @@ const App = () => (
               <Route path="/ratgeber/prototyping-guide" element={<PrototypingGuide />} />
               <Route path="/ratgeber/messemodell-guide" element={<MessemodellGuide />} />
               <Route path="/ratgeber/architekturmodell-guide" element={<ArchitekturmodellGuide />} />
+              <Route path="/ratgeber/architekturmodell-flatrate" element={<FlatrateGuide />} />
               <Route path="/glossar" element={<Glossar />} />
               <Route path="/referenzen" element={<Referenzen />} />
               <Route path="/architekturmodelle" element={<Architekturmodelle />} />

@@ -14,6 +14,7 @@ import KeywordRichContent from "@/components/landing/KeywordRichContent";
 import CTASection from "@/components/landing/CTASection";
 import AnimatedSection from "@/components/AnimatedSection";
 import ProductOfferSchema from "@/components/ProductOfferSchema";
+import FAQSchema from "@/components/FAQSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import QuickContactBar from "@/components/QuickContactBar";
 import TrustBarSocialProof from "@/components/TrustBarSocialProof";
@@ -336,6 +337,7 @@ const Architekturmodelle = () => {
         category="Architekturmodelle 3D-Druck"
       />
       <SpeakableSchema url="https://www.ek-druck.at/architekturmodelle" />
+      <FAQSchema faqs={faqs} />
 
       <Navigation />
       <Breadcrumbs items={breadcrumbs} />

@@ -223,6 +223,7 @@ const ArchitekturmodelleAbo = () => {
       <Helmet>
         <title>Architekturmodelle 3D-Druck Österreich – Flatrate für Architekturbüros | ekdruck</title>
         <meta name="description" content="Architekturmodelle aus dem 3D-Drucker – schnell, präzise, günstig. Büro-Flatrate-Abo: Fixpreis ab €199/Monat, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen." />
+        <meta name="keywords" content="architekturmodell flatrate, architekturmodell abo, 3d druck architekturbüro, architekturmodelle drucken lassen, 3d druck abo architektur, architekturmodell österreich, 3d druck flatrate büro" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://www.ek-druck.at/architekturmodelle-abo" />
         <meta property="og:title" content="Architekturmodell-Flatrate für Architekturbüros – ab €199/Monat | ekdruck" />

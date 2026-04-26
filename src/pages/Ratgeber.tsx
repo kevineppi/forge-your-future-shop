@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, TrendingUp, Clock, Award, Palette, Wrench } from "lucide-react";
+import { BookOpen, TrendingUp, Clock, Award, Palette, Wrench, Wallet } from "lucide-react";
 import StickyCTA from "@/components/landing/StickyCTA";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,16 @@ import AIChatWidget from "@/components/AIChatWidget";
 
 const Ratgeber = () => {
   const articles = [
+    {
+      title: "Architekturmodell Flatrate vs. Einzelauftrag: Wann lohnt sich ein Abo?",
+      description: "Break-even-Tabelle, Praxisbeispiele und ehrlicher Kostenvergleich – ab wann sich die Architektur-Flatrate für Ihr Büro rechnet. Mit Preistabelle 2026.",
+      link: "/ratgeber/architekturmodell-flatrate",
+      icon: Wallet,
+      category: "Architektur-Flatrate",
+      readTime: "8 Min. Lesezeit",
+      date: "April 2026",
+      highlight: true
+    },
     {
       title: "Messemodelle im 3D-Druck: Kosten, Planung & Tipps 2026",
       description: "Schritt-für-Schritt Guide für Messeaussteller: Was kostet ein Messemodell? Wie plane ich rechtzeitig? Materialwahl und echte Preisbeispiele aus der Praxis.",
@@ -74,15 +84,10 @@ const Ratgeber = () => {
       comingSoon: true
     },
     {
-      title: "Nachhaltigkeit im 3D-Druck: Warum österreichisches Filament wichtig ist",
+      title: "Nachhaltigkeit im 3D-Druck: Österreichisches vs. importiertes Filament",
       category: "Nachhaltigkeit",
       comingSoon: true
     },
-    {
-      title: "Individuelle Geschenke aus dem 3D-Drucker",
-      category: "Geschenke",
-      comingSoon: true
-    }
   ];
 
   return (
@@ -161,7 +166,7 @@ const Ratgeber = () => {
             
             <div className="grid md:grid-cols-1 gap-6">
               {articles.map((article, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
+                <Card key={index} className={`hover:shadow-lg transition-shadow ${(article as any).highlight ? "border-primary/40 bg-primary/5 ring-1 ring-primary/20" : ""}`}>
                   <CardHeader>
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center gap-3">
@@ -169,7 +174,10 @@ const Ratgeber = () => {
                           <article.icon className="w-6 h-6 text-primary" />
                         </div>
                         <div>
-                          <div className="text-sm text-primary font-medium">{article.category}</div>
+                          <div className="flex items-center gap-2">
+                            <div className="text-sm text-primary font-medium">{article.category}</div>
+                            {(article as any).highlight && <span className="text-[10px] font-bold bg-primary text-primary-foreground px-2 py-0.5 rounded-full">NEU</span>}
+                          </div>
                           <div className="text-xs text-muted-foreground">{article.date} • {article.readTime}</div>
                         </div>
                       </div>
@@ -180,6 +188,7 @@ const Ratgeber = () => {
                   <CardContent>
                     <Button asChild className="w-full md:w-auto">
                       <Link to={article.link}>
+                        {article.category === 'Architektur-Flatrate' && 'Flatrate-Guide lesen →'}
                         {article.category === 'Messemodelle' && 'Messemodell-Guide lesen'}
                         {article.category === 'Architekturmodelle' && 'Architekturmodell-Guide lesen'}
                         {article.category === 'Prototypen' && 'Prototyping-Guide lesen'}
