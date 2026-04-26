@@ -674,7 +674,7 @@ const ArchitekturmodelleAbo = () => {
                   onClick={handleSubmit}
                   disabled={submitting}
                   size="lg"
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-[1.01] active:scale-[0.99] transition-transform font-semibold"
+                  className="w-full hover:scale-[1.01] active:scale-[0.99] transition-transform font-semibold shadow-lg"
                 >
                   {submitting ? "Wird gesendet..." : (<>Jetzt kostenlos anfragen <Send className="ml-2 h-4 w-4" /></>)}
                 </Button>
