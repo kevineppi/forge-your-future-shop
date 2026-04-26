@@ -46,9 +46,9 @@ const SCHEMA = {
     {
       "@type": "Offer",
       name: "Starter Flatrate",
-      price: "199",
+      price: "490",
       priceCurrency: "EUR",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "199", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "490", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
       availability: "https://schema.org/InStock",
       url: "https://www.ek-druck.at/architekturmodelle-abo",
       seller: { "@type": "Organization", name: "ekdruck e.U." },
@@ -56,9 +56,9 @@ const SCHEMA = {
     {
       "@type": "Offer",
       name: "Professional Flatrate",
-      price: "349",
+      price: "890",
       priceCurrency: "EUR",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "349", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "890", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
       availability: "https://schema.org/InStock",
       url: "https://www.ek-druck.at/architekturmodelle-abo",
       seller: { "@type": "Organization", name: "ekdruck e.U." },
@@ -66,9 +66,9 @@ const SCHEMA = {
     {
       "@type": "Offer",
       name: "Studio Flatrate",
-      price: "549",
+      price: "1690",
       priceCurrency: "EUR",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "549", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "1690", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
       availability: "https://schema.org/InStock",
       url: "https://www.ek-druck.at/architekturmodelle-abo",
       seller: { "@type": "Organization", name: "ekdruck e.U." },
@@ -80,7 +80,7 @@ const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "Was kostet die Architekturmodell-Flatrate?", acceptedAnswer: { "@type": "Answer", text: "Die Flatrate startet ab €199/Monat (Starter: bis 3 Modelle), Professional bei €349/Monat (bis 7 Modelle), Studio bei €549/Monat (bis 15 Modelle). Alle Pakete sind monatlich kündbar, ohne Mindestlaufzeit." } },
+    { "@type": "Question", name: "Was kostet die Architekturmodell-Flatrate?", acceptedAnswer: { "@type": "Answer", text: "Die Flatrate startet ab €490/Monat (Starter: bis 3 Modelle), Professional bei €890/Monat (bis 7 Modelle), Studio bei €1690/Monat (bis 15 Modelle). Alle Pakete sind monatlich kündbar, ohne Mindestlaufzeit." } },
     { "@type": "Question", name: "Was bedeutet 'Erstes Modell kostenlos'?", acceptedAnswer: { "@type": "Answer", text: "Neue Flatrate-Kunden erhalten ihr erstes Architekturmodell kostenlos gedruckt – als Qualitätstest ohne Risiko. Das Testmodell wird nach Auftragsbestätigung der Flatrate produziert und in 48 Stunden geliefert." } },
     { "@type": "Question", name: "Welche CAD-Programme werden unterstützt?", acceptedAnswer: { "@type": "Answer", text: "Wir akzeptieren alle gängigen Formate: STL, OBJ, STEP, 3DM (Rhino), DWG/DXF sowie native Formate aus ArchiCAD, Revit, SketchUp und anderen Architekturprogrammen." } },
     { "@type": "Question", name: "Wie schnell wird geliefert?", acceptedAnswer: { "@type": "Answer", text: "Flatrate-Kunden genießen Produktionspriorität – Lieferung garantiert in 48 Stunden österreichweit. Auch nach Deutschland in 48–72 Stunden." } },
@@ -103,11 +103,11 @@ const STEPS = [
 const TIERS = [
   {
     name: "Starter",
-    price: "199",
+    price: "490",
     subtitle: "Für kleine Büros & Gelegenheitsnutzer",
     highlighted: false,
     features: [
-      { text: "Bis zu 3 Modelle pro Monat", included: true },
+      { text: "Bis zu 2 Modelle pro Monat inklusive", included: true },
       { text: "Maßstäbe 1:100 bis 1:500", included: true },
       { text: "Maximale Druckfläche: 20×20×15 cm pro Modell", included: true },
       { text: "48h Express-Lieferung inklusive", included: true },
@@ -119,12 +119,12 @@ const TIERS = [
   },
   {
     name: "Professional",
-    price: "349",
+    price: "890",
     subtitle: "Für aktive Büros mit regelmäßigem Bedarf",
     highlighted: true,
     badge: "Beliebteste Wahl",
     features: [
-      { text: "Bis zu 7 Modelle pro Monat", included: true },
+      { text: "Bis zu 4 Modelle pro Monat inklusive", included: true },
       { text: "Maßstäbe 1:50 bis 1:500", included: true },
       { text: "Maximale Druckfläche: 30×30×25 cm pro Modell", included: true },
       { text: "48h Express-Lieferung inklusive", included: true },
@@ -136,11 +136,11 @@ const TIERS = [
   },
   {
     name: "Studio",
-    price: "549",
+    price: "1690",
     subtitle: "Für große Büros & Wettbewerbsstudios",
     highlighted: false,
     features: [
-      { text: "Bis zu 15 Modelle pro Monat", included: true },
+      { text: "Bis zu 8 Modelle pro Monat inklusive", included: true },
       { text: "Alle Maßstäbe inkl. 1:50 und Detailmodelle", included: true },
       { text: "Maximale Druckfläche: 40×40×35 cm pro Modell", included: true },
       { text: "48h Express-Lieferung inklusive", included: true },
@@ -153,7 +153,7 @@ const TIERS = [
 ];
 
 const COMPARE_ROWS = [
-  { label: "Kosten pro Modell", a: "€300–€1.200", b: "€80–€350", c: "ab €28/Modell" },
+  { label: "Kosten pro Modell", a: "€300–€1.200", b: "€150–€450", c: "ab €210/Modell" },
   { label: "Lieferzeit", a: "2–4 Wochen", b: "3–7 Tage", c: "48 Stunden" },
   { label: "Planungssicherheit", a: "❌", b: "❌", c: "✅ Fixpreis" },
   { label: "CAD-Kompatibilität", a: "Eingeschränkt", b: "Variiert", c: "✅ Alle Formate" },
@@ -222,11 +222,11 @@ const ArchitekturmodelleAbo = () => {
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>Architekturmodelle 3D-Druck Österreich – Flatrate für Architekturbüros | ekdruck</title>
-        <meta name="description" content="Architekturmodelle aus dem 3D-Drucker – schnell, präzise, günstig. Büro-Flatrate-Abo: Fixpreis ab €199/Monat, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen." />
+        <meta name="description" content="Architekturmodelle aus dem 3D-Drucker – schnell, präzise, günstig. Büro-Flatrate-Abo: Fixpreis ab €490/Monat, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen." />
         <meta name="keywords" content="architekturmodell flatrate, architekturmodell abo, 3d druck architekturbüro, architekturmodelle drucken lassen, 3d druck abo architektur, architekturmodell österreich, 3d druck flatrate büro" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://www.ek-druck.at/architekturmodelle-abo" />
-        <meta property="og:title" content="Architekturmodell-Flatrate für Architekturbüros – ab €199/Monat | ekdruck" />
+        <meta property="og:title" content="Architekturmodell-Flatrate für Architekturbüros – ab €490/Monat | ekdruck" />
         <meta property="og:description" content="Büro-Flatrate für Architekturmodelle: Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen. Für Büros in Wien, Linz, Graz & ganz Österreich." />
         <meta property="og:url" content="https://www.ek-druck.at/architekturmodelle-abo" />
         <meta property="og:type" content="product" />
@@ -237,7 +237,7 @@ const ArchitekturmodelleAbo = () => {
         <meta property="og:locale" content="de_AT" />
         <meta property="og:site_name" content="ekdruck e.U." />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Architekturmodell-Flatrate – ab €199/Monat. Erstes Modell kostenlos." />
+        <meta name="twitter:title" content="Architekturmodell-Flatrate – ab €490/Monat. Erstes Modell kostenlos." />
         <meta name="twitter:description" content="Büro-Flatrate für Architekturmodelle: Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen." />
         <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png" />
         <script type="application/ld+json">{JSON.stringify(SCHEMA)}</script>
@@ -600,9 +600,9 @@ const ArchitekturmodelleAbo = () => {
                   <Select value={form.tier} onValueChange={(v) => setForm({ ...form, tier: v })}>
                     <SelectTrigger><SelectValue placeholder="Bitte wählen" /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Starter">Starter (€199)</SelectItem>
-                      <SelectItem value="Professional">Professional (€349)</SelectItem>
-                      <SelectItem value="Studio">Studio (€549)</SelectItem>
+                      <SelectItem value="Starter">Starter (€490)</SelectItem>
+                      <SelectItem value="Professional">Professional (€890)</SelectItem>
+                      <SelectItem value="Studio">Studio (€1690)</SelectItem>
                       <SelectItem value="Unsicher">Ich bin unsicher</SelectItem>
                     </SelectContent>
                   </Select>
