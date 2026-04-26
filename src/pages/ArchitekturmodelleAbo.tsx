@@ -383,7 +383,7 @@ const ArchitekturmodelleAbo = () => {
                 <h3 className="text-2xl font-bold text-foreground mb-1">{tier.name}</h3>
                 <p className="text-sm text-muted-foreground mb-6 italic">{tier.subtitle}</p>
                 <div className="flex items-baseline gap-1 mb-6">
-                  <span className="text-5xl font-bold text-foreground">€{tier.price}</span>
+                  <span className="text-5xl font-bold text-foreground">€{Number(tier.price).toLocaleString("de-AT")}</span>
                   <span className="text-muted-foreground">/Monat</span>
                 </div>
                 <ul className="space-y-3 mb-8">
