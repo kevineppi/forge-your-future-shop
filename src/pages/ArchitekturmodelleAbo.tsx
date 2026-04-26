@@ -299,7 +299,7 @@ const ArchitekturmodelleAbo = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2"><Star className="h-4 w-4 text-accent fill-accent" /> 5.0 Google (31 Rezensionen)</div>
+              <div className="flex items-center gap-2"><Star className="h-4 w-4 text-primary fill-primary" /> 5.0 Google (31 Rezensionen)</div>
               <div className="flex items-center gap-2"><Zap className="h-4 w-4 text-primary" /> Lieferung in 48 Stunden</div>
               <div className="flex items-center gap-2"><Unlock className="h-4 w-4 text-primary" /> Keine Mindestlaufzeit</div>
               <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Made in Austria</div>
@@ -488,7 +488,7 @@ const ArchitekturmodelleAbo = () => {
               <div key={i} className="bg-secondary-foreground/5 backdrop-blur border border-secondary-foreground/10 rounded-2xl p-7">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, k) => (
-                    <Star key={k} className="h-4 w-4 fill-accent text-accent" />
+                    <Star key={k} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
                 <blockquote className="italic text-secondary-foreground/90 leading-relaxed mb-5">
