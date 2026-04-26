@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { BookOpen, TrendingUp, Clock, Award, Palette, Wrench } from "lucide-react";
+import StickyCTA from "@/components/landing/StickyCTA";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
@@ -226,6 +227,7 @@ const Ratgeber = () => {
           </div>
         </section>
 
+        <StickyCTA context="Ratgeber" />
         <AIChatWidget />
         <Footer />
       </div>

@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Leaf, Shield, Thermometer, Recycle, CheckCircle, Star, ArrowRight } from "lucide-react";
+import StickyCTA from "@/components/landing/StickyCTA";
 
 const Materialien = () => {
   return (
@@ -559,6 +560,7 @@ const Materialien = () => {
         <Contact />
       </main>
 
+      <StickyCTA context="3D-Druck Materialien" />
       <AIChatWidget />
       <Footer />
     </>
