@@ -90,7 +90,9 @@ const handler = async (req: Request): Promise<Response> => {
     const emailResponse = await resend.emails.send({
       from: "EK-Druck Kontaktformular <noreply@ek-druck.at>",
       to: ["office@ek-druck.at"], // Updated to your preferred notification email
-      subject: `Neue Kontaktanfrage von ${record.name}`,
+      subject: record.project_type?.startsWith('Architektur-Abo')
+        ? `🏆 FLATRATE-ANFRAGE von ${safeName} – ${safeProjectType}`
+        : `Neue Kontaktanfrage von ${safeName}`,
       html: emailContent,
     });
 
