@@ -66,9 +66,9 @@ const SCHEMA = {
     {
       "@type": "Offer",
       name: "Studio Flatrate",
-      price: "1690",
+      price: "2500",
       priceCurrency: "EUR",
-      priceSpecification: { "@type": "UnitPriceSpecification", price: "1690", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
+      priceSpecification: { "@type": "UnitPriceSpecification", price: "2500", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" } },
       availability: "https://schema.org/InStock",
       url: "https://www.ek-druck.at/architekturmodelle-abo",
       seller: { "@type": "Organization", name: "ekdruck e.U." },
@@ -80,7 +80,7 @@ const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "Was kostet die Architekturmodell-Flatrate?", acceptedAnswer: { "@type": "Answer", text: "Die Flatrate startet ab €490/Monat (Starter: 2 Modelle inklusive), Professional bei €890/Monat (4 Modelle inklusive), Studio bei €1.690/Monat (8 Modelle inklusive). Alle Pakete sind monatlich kündbar, ohne Mindestlaufzeit." } },
+    { "@type": "Question", name: "Was kostet die Architekturmodell-Flatrate?", acceptedAnswer: { "@type": "Answer", text: "Die Flatrate startet ab €490/Monat (Starter: 2 Modelle inklusive), Professional bei €890/Monat (4 Modelle inklusive), Studio bei €2.500/Monat (8 Modelle inklusive). Alle Pakete sind monatlich kündbar, ohne Mindestlaufzeit." } },
     { "@type": "Question", name: "Was bedeutet 'Erstes Modell kostenlos'?", acceptedAnswer: { "@type": "Answer", text: "Neue Flatrate-Kunden erhalten ihr erstes Architekturmodell kostenlos gedruckt – als Qualitätstest ohne Risiko. Das Testmodell wird nach Auftragsbestätigung der Flatrate produziert und in 48 Stunden geliefert." } },
     { "@type": "Question", name: "Welche CAD-Programme werden unterstützt?", acceptedAnswer: { "@type": "Answer", text: "Wir akzeptieren alle gängigen Formate: STL, OBJ, STEP, 3DM (Rhino), DWG/DXF sowie native Formate aus ArchiCAD, Revit, SketchUp und anderen Architekturprogrammen." } },
     { "@type": "Question", name: "Wie schnell wird geliefert?", acceptedAnswer: { "@type": "Answer", text: "Flatrate-Kunden genießen Produktionspriorität – Lieferung garantiert in 48 Stunden österreichweit. Auch nach Deutschland in 48–72 Stunden." } },
@@ -109,7 +109,7 @@ const TIERS = [
     features: [
       { text: "Bis zu 2 Modelle pro Monat inklusive", included: true },
       { text: "Maßstäbe 1:100 bis 1:500", included: true },
-      { text: "Maximale Druckfläche: 20×20×15 cm pro Modell", included: true },
+      { text: "Maximale Druckfläche: 35×35×35 cm pro Modell", included: true },
       { text: "48h Express-Lieferung inklusive", included: true },
       { text: "Persönlicher Ansprechpartner", included: true },
       { text: "Keine Mindestlaufzeit – monatlich kündbar", included: true },
@@ -126,7 +126,7 @@ const TIERS = [
     features: [
       { text: "Bis zu 4 Modelle pro Monat inklusive", included: true },
       { text: "Maßstäbe 1:50 bis 1:500", included: true },
-      { text: "Maximale Druckfläche: 30×30×25 cm pro Modell", included: true },
+      { text: "Maximale Druckfläche: 35×35×35 cm pro Modell", included: true },
       { text: "48h Express-Lieferung inklusive", included: true },
       { text: "Persönlicher Ansprechpartner", included: true },
       { text: "Keine Mindestlaufzeit – monatlich kündbar", included: true },
@@ -136,13 +136,13 @@ const TIERS = [
   },
   {
     name: "Studio",
-    price: "1690",
+    price: "2500",
     subtitle: "Für große Büros & Wettbewerbsstudios",
     highlighted: false,
     features: [
       { text: "Bis zu 8 Modelle pro Monat inklusive", included: true },
       { text: "Alle Maßstäbe inkl. 1:50 und Detailmodelle", included: true },
-      { text: "Maximale Druckfläche: 40×40×35 cm pro Modell", included: true },
+      { text: "Maximale Druckfläche: 35×35×35 cm pro Modell", included: true },
       { text: "48h Express-Lieferung inklusive", included: true },
       { text: "Persönlicher Ansprechpartner", included: true },
       { text: "Keine Mindestlaufzeit – monatlich kündbar", included: true },
@@ -180,7 +180,7 @@ const FAQS = [
   { q: "Welche Dateiformate werden akzeptiert?", a: "Wir akzeptieren STL, OBJ, STEP, 3DM (Rhino), DWG/DXF sowie native Formate aus ArchiCAD, Revit und SketchUp. Falls Sie kein druckfertiges Modell haben, helfen wir bei der Aufbereitung – inklusive im Professional- und Studio-Paket." },
   { q: "Gibt es eine Mindestlaufzeit?", a: "Nein. Die Flatrate ist monatlich kündbar, ohne Fristen oder Aufwandsentschädigung. Wir sind überzeugt, dass Sie bleiben werden – weil die Qualität stimmt." },
   { q: "Was passiert, wenn ich mein Modell-Kontingent nicht ausschöpfe?", a: "Nicht genutzte Modelle verfallen am Monatsende. Es gibt jedoch keine Nachberechnung bei Überschreitung – zusätzliche Modelle werden zum günstigen Flatrate-Zusatzpreis abgerechnet." },
-  { q: "Wie groß können die Modelle sein?", a: "Je nach Paket bis zu 40×40×35 cm als Einzeldruck. Größere Modelle fertigen wir als modulares System – ohne Aufpreis im Studio-Paket." },
+  { q: "Wie groß können die Modelle sein?", a: "Je nach Paket bis zu 35×35×35 cm als Einzeldruck. Größere Modelle fertigen wir als modulares System – ohne Aufpreis im Studio-Paket." },
   { q: "Liefern Sie auch nach Deutschland?", a: "Ja. Wir liefern in ganz Österreich und Deutschland. Die Lieferzeit beträgt 48–72 Stunden nach Deutschland." },
   { q: "Kann ich das Abo upgraden oder downgraden?", a: "Ja, jederzeit zum nächsten Monatsersten – unkompliziert per E-Mail." },
   { q: "Was bedeutet \"Produktionspriorität\"?", a: "Flatrate-Kunden werden vor allen Einzelaufträgen produziert. Das garantiert die 48h-Lieferzeit auch in Hochsaison (z.B. vor großen Messen oder Wettbewerbsdeadlines)." },
@@ -602,7 +602,7 @@ const ArchitekturmodelleAbo = () => {
                     <SelectContent>
                       <SelectItem value="Starter">Starter (€490)</SelectItem>
                       <SelectItem value="Professional">Professional (€890)</SelectItem>
-                      <SelectItem value="Studio">Studio (€1.690)</SelectItem>
+                      <SelectItem value="Studio">Studio (€2.500)</SelectItem>
                       <SelectItem value="Unsicher">Ich bin unsicher</SelectItem>
                     </SelectContent>
                   </Select>
