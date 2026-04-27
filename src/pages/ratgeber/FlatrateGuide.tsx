@@ -25,7 +25,7 @@ const FlatrateGuide = () => {
     },
     {
       question: "Was passiert, wenn ich mehr Modelle bestelle als im Paket enthalten?",
-      answer: "Nicht genutzte Modelle verfallen am Monatsende nicht – sie können aber auch nicht angespart werden. Wenn Sie in einem Monat mehr Modelle benötigen als im Paket, werden die Mehrmengen zum günstigeren Flatrate-Preis abgerechnet (nicht zum regulären Einzelpreis)."
+      answer: "Nicht genutzte Modelle verfallen am Monatsende. Wenn Sie in einem Monat mehr Modelle benötigen als im Paket enthalten sind, werden die Mehrmengen zum günstigeren Flatrate-Preis abgerechnet – nicht zum regulären Einzelpreis."
     },
     {
       question: "Ist das erste Modell wirklich kostenlos?",

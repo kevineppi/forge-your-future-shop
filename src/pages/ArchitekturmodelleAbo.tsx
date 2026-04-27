@@ -194,6 +194,7 @@ const ArchitekturmodelleAbo = () => {
     name: "", email: "", company: "", tier: "", volume: "", message: "",
   });
   const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async () => {
     if (!form.name.trim() || !form.email.trim()) {
@@ -211,8 +212,14 @@ const ArchitekturmodelleAbo = () => {
       });
       if (error) throw error;
       trackContactClick("form", { source: "architektur_abo", context: form.tier });
-      toast.success("Anfrage gesendet – wir melden uns innerhalb von 6 Stunden.");
-      setForm({ name: "", email: "", company: "", tier: "", volume: "", message: "" });
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({
+        event: "form_submit_success",
+        form_name: "architektur_abo_form",
+        tier: form.tier || "unbestimmt",
+        conversion: true,
+      });
+      setSubmitted(true);
     } catch (e) {
       console.error(e);
       toast.error("Senden fehlgeschlagen. Bitte rufen Sie uns direkt an.");
@@ -404,15 +411,17 @@ const ArchitekturmodelleAbo = () => {
                   ))}
                 </ul>
                 <Button
-                  asChild
                   className={`w-full hover:scale-[1.02] active:scale-[0.98] transition-transform ${
                     tier.highlighted ? "" : "bg-secondary hover:bg-secondary/90 text-secondary-foreground"
                   }`}
                   size="lg"
+                  onClick={() => {
+                    setForm(prev => ({ ...prev, tier: tier.name }));
+                    trackContactClick("form", { source: "pricing_card", context: tier.name });
+                    document.getElementById("kontakt")?.scrollIntoView({ behavior: "smooth" });
+                  }}
                 >
-                  <a href="#kontakt" onClick={() => trackContactClick("form", { source: "pricing_card", context: tier.name })}>
-                    {tier.name} wählen
-                  </a>
+                  {tier.name} wählen
                 </Button>
               </Card>
             ))}
@@ -453,6 +462,32 @@ const ArchitekturmodelleAbo = () => {
             <p className="text-xs text-muted-foreground mt-4 text-center">
               *Marktvergleich Österreich 2024. Preise variieren je nach Komplexität und Anbieter.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* MID-PAGE CONVERSION NUDGE */}
+      <section className="py-12 bg-primary">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-primary-foreground/90 text-lg font-semibold mb-5">
+            Bereits überzeugt? Das erste Modell ist kostenlos – kein Vertrag.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold shadow-lg"
+              onClick={() => document.getElementById("kontakt")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Jetzt kostenlos anfragen <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <a
+              href={`https://wa.me/436765517197?text=${encodeURIComponent("Hallo ekdruck, ich interessiere mich für die Architekturmodell-Flatrate und möchte mein erstes Modell kostenlos testen.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 px-6 py-3 rounded-md text-primary-foreground hover:bg-primary-foreground/10 transition-colors font-medium text-sm"
+            >
+              <MessageCircle className="h-4 w-4" /> Direkt per WhatsApp
+            </a>
           </div>
         </div>
       </section>
@@ -606,83 +641,108 @@ const ArchitekturmodelleAbo = () => {
             </Card>
 
             {/* Right – Form */}
-            <Card className="lg:col-span-3 p-7 md:p-9 bg-card border border-border shadow-xl">
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="abo-name">Vor- und Nachname</Label>
-                  <Input
-                    id="abo-name"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    maxLength={100}
-                  />
+            <Card className="p-7 md:p-8 bg-background text-foreground border-0 shadow-2xl">
+              {submitted ? (
+                <div className="text-center py-6">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <Check className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">Anfrage gesendet!</h3>
+                  <p className="text-muted-foreground mb-2 leading-relaxed">
+                    Wir melden uns <strong>innerhalb von 6 Stunden</strong> mit einem persönlichen Angebot und drucken Ihr erstes Modell kostenlos.
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-8">
+                    Zur Überbrückung:{" "}
+                    <Link to="/ratgeber/architekturmodell-flatrate" className="text-primary hover:underline font-medium">
+                      Break-even-Guide lesen →
+                    </Link>
+                  </p>
+                  <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                    <Phone className="h-4 w-4" />
+                    <span>Dringlich? Rufen Sie an:</span>
+                    <a href={`tel:${CONTACT.phone}`} className="text-foreground font-semibold hover:text-primary transition-colors">
+                      {CONTACT.phoneDisplay}
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <Label htmlFor="abo-email">E-Mail-Adresse</Label>
-                  <Input
-                    id="abo-email"
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    maxLength={255}
-                  />
+              ) : (
+                <div className="space-y-4">
+                  <div>
+                    <Label htmlFor="abo-name">Vor- und Nachname</Label>
+                    <Input
+                      id="abo-name"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      maxLength={100}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="abo-email">E-Mail-Adresse</Label>
+                    <Input
+                      id="abo-email"
+                      type="email"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      maxLength={255}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="abo-company">Büro/Unternehmen</Label>
+                    <Input
+                      id="abo-company"
+                      value={form.company}
+                      onChange={(e) => setForm({ ...form, company: e.target.value })}
+                      maxLength={150}
+                    />
+                  </div>
+                  <div>
+                    <Label>Gewünschtes Paket</Label>
+                    <Select value={form.tier} onValueChange={(v) => setForm({ ...form, tier: v })}>
+                      <SelectTrigger><SelectValue placeholder="Bitte wählen" /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Starter">Starter (€199)</SelectItem>
+                        <SelectItem value="Professional">Professional (€349)</SelectItem>
+                        <SelectItem value="Studio">Studio (€549)</SelectItem>
+                        <SelectItem value="Unsicher">Ich bin unsicher</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label>Wie viele Modelle pro Monat ca.?</Label>
+                    <Select value={form.volume} onValueChange={(v) => setForm({ ...form, volume: v })}>
+                      <SelectTrigger><SelectValue placeholder="Bitte wählen" /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1-3">1–3</SelectItem>
+                        <SelectItem value="4-7">4–7</SelectItem>
+                        <SelectItem value="8-15">8–15</SelectItem>
+                        <SelectItem value="15+">Mehr als 15</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="abo-msg">Nachricht / Projektbeschreibung</Label>
+                    <Textarea
+                      id="abo-msg"
+                      rows={4}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      maxLength={1500}
+                    />
+                  </div>
+                  <Button
+                    onClick={handleSubmit}
+                    disabled={submitting}
+                    size="lg"
+                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-[1.01] active:scale-[0.99] transition-transform font-semibold"
+                  >
+                    {submitting ? "Wird gesendet..." : (<>Jetzt kostenlos anfragen <Send className="ml-2 h-4 w-4" /></>)}
+                  </Button>
+                  <p className="text-xs text-muted-foreground flex items-center gap-2 justify-center pt-1">
+                    <Shield className="h-3 w-3" />
+                    Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
+                  </p>
                 </div>
-                <div>
-                  <Label htmlFor="abo-company">Büro/Unternehmen</Label>
-                  <Input
-                    id="abo-company"
-                    value={form.company}
-                    onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    maxLength={150}
-                  />
-                </div>
-                <div>
-                  <Label>Gewünschtes Paket</Label>
-                  <Select value={form.tier} onValueChange={(v) => setForm({ ...form, tier: v })}>
-                    <SelectTrigger><SelectValue placeholder="Bitte wählen" /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Starter">Starter (€490)</SelectItem>
-                      <SelectItem value="Professional">Professional (€890)</SelectItem>
-                      <SelectItem value="Studio">Studio (€2.500)</SelectItem>
-                      <SelectItem value="Unsicher">Ich bin unsicher</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label>Wie viele Modelle pro Monat ca.?</Label>
-                  <Select value={form.volume} onValueChange={(v) => setForm({ ...form, volume: v })}>
-                    <SelectTrigger><SelectValue placeholder="Bitte wählen" /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1-3">1–3</SelectItem>
-                      <SelectItem value="4-7">4–7</SelectItem>
-                      <SelectItem value="8-15">8–15</SelectItem>
-                      <SelectItem value="15+">Mehr als 15</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label htmlFor="abo-msg">Nachricht / Projektbeschreibung</Label>
-                  <Textarea
-                    id="abo-msg"
-                    rows={4}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    maxLength={1500}
-                  />
-                </div>
-                <Button
-                  onClick={handleSubmit}
-                  disabled={submitting}
-                  size="lg"
-                  className="w-full hover:scale-[1.01] active:scale-[0.99] transition-transform font-semibold shadow-lg"
-                >
-                  {submitting ? "Wird gesendet..." : (<>Jetzt kostenlos anfragen <Send className="ml-2 h-4 w-4" /></>)}
-                </Button>
-                <p className="text-xs text-muted-foreground flex items-center gap-2 justify-center pt-1">
-                  <Shield className="h-3 w-3" />
-                  Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
-                </p>
-              </div>
+              )}
             </Card>
           </div>
         </div>

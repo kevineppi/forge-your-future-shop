@@ -111,19 +111,27 @@ const Hero = () => {
                 Express in 24h · AT-weite Lieferung · persönliche Antwort in 6 Stunden.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <Button variant="cta" size="lg" className="group text-base px-10 py-7 rounded-full" asChild>
-                <Link to="/kontakt">
-                  Angebot anfordern
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+            <div className="flex flex-col gap-4 shrink-0">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button variant="cta" size="lg" className="group text-base px-10 py-7 rounded-full" asChild>
+                  <Link to="/kontakt">
+                    Angebot anfordern
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+                  </Link>
+                </Button>
+                <Button size="lg" className="group text-base px-8 py-7 rounded-full bg-foreground text-background hover:bg-foreground/90 font-semibold" asChild>
+                  <Link to="/kostenrechner">
+                    <Calculator className="mr-2 w-4 h-4" />
+                    Preis berechnen
+                  </Link>
+                </Button>
+              </div>
+              <p className="text-xs text-muted-foreground text-center sm:text-left">
+                Für Architekturbüros:{" "}
+                <Link to="/architekturmodelle-abo" className="text-primary hover:underline font-semibold">
+                  Flatrate ab €199/Mon. · Erstes Modell kostenlos →
                 </Link>
-              </Button>
-              <Button size="lg" className="group text-base px-8 py-7 rounded-full bg-foreground text-background hover:bg-foreground/90 font-semibold" asChild>
-                <Link to="/kostenrechner">
-                  <Calculator className="mr-2 w-4 h-4" />
-                  Preis berechnen
-                </Link>
-              </Button>
+              </p>
             </div>
           </div>
 

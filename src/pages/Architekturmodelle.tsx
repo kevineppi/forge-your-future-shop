@@ -386,7 +386,7 @@ const Architekturmodelle = () => {
                     </Link>
                   </Button>
                   <Button asChild size="lg" variant="outline">
-                    <Link to="/referenzen">Beispiele ansehen</Link>
+                    <Link to="/architekturmodelle-abo">Flatrate ab €199/Mon.</Link>
                   </Button>
                 </div>
                 <div className="flex items-center gap-6 mt-8 pt-6 border-t border-border">
