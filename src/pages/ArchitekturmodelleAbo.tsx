@@ -34,7 +34,7 @@ const SCHEMA = {
     "Monatliches Abo für Architekturbüros: 3D-gedruckte Architekturmodelle im Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos.",
   brand: { "@type": "Brand", name: "ekdruck e.U." },
   manufacturer: { "@type": "Organization", name: "ekdruck e.U.", url: "https://www.ek-druck.at" },
-  image: "https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png",
+  image: "https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5.0",
@@ -233,7 +233,7 @@ const ArchitekturmodelleAbo = () => {
         <meta property="og:description" content="Büro-Flatrate für Architekturmodelle: Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen. Für Büros in Wien, Linz, Graz & ganz Österreich." />
         <meta property="og:url" content="https://www.ek-druck.at/architekturmodelle-abo" />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png" />
+        <meta property="og:image" content="https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="ekdruck Architekturmodell-Flatrate – 3D-Druck für Architekturbüros" />
@@ -242,7 +242,7 @@ const ArchitekturmodelleAbo = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Architekturmodell-Flatrate – ab €490/Monat. Erstes Modell kostenlos." />
         <meta name="twitter:description" content="Büro-Flatrate für Architekturmodelle: Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen." />
-        <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png" />
+        <meta name="twitter:image" content="https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png" />
         <script type="application/ld+json">{JSON.stringify(SCHEMA)}</script>
         <script type="application/ld+json">{JSON.stringify(FAQ_SCHEMA)}</script>
       </Helmet>

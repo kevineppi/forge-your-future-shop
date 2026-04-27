@@ -45,7 +45,7 @@ const Index = () => {
     <OrganizationSchema />
     <StructuredData type="organization" />
     <StructuredData type="service" />
-    <AggregateRatingSchema ratingValue={5.0} ratingCount={31} bestRating={5} worstRating={5} />
+    <AggregateRatingSchema ratingValue={5.0} ratingCount={31} bestRating={5} worstRating={1} />
     <FAQSchema faqs={[
       { question: "Was kostet 3D-Druck bei ekdruck?", answer: "Ab €20 pro Modell. Der Preis hängt von Material, Volumen und Qualitätsstufe ab. Festpreisangebot in unter 6 Stunden." },
       { question: "Wie schnell erhalte ich mein 3D-Modell?", answer: "Standard: 3–5 Werktage. Express: 24–48 Stunden. Versandkostenfrei ab €100." },
@@ -710,7 +710,7 @@ const Index = () => {
               ]},
               { title: "Deutschland", links: [
                 { n: "München", u: "/messemodelle/muenchen" }, { n: "Stuttgart", u: "/messemodelle/stuttgart" },
-                { n: "Nürnberg", u: "/messemodelle/nuernberg" }, { n: "Passau", u: "/messemodelle/passau" },
+                { n: "Nürnberg", u: "/messemodelle/nuernberg" }, { n: "Frankfurt", u: "/messemodelle/frankfurt" },
               ]},
             ].map(({ title, links }) => (
               <div key={title}>

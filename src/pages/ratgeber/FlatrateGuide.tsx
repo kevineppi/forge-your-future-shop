@@ -115,6 +115,9 @@ const FlatrateGuide = () => {
         description="Ehrlicher Kostenvergleich: Ab wann rechnet sich die Architekturmodell-Flatrate für Architekturbüros? Preistabelle, Break-even-Analyse und Praxisbeispiele ✓"
         keywords="architekturmodell flatrate, 3d druck abo architektur, architekturmodell abo, 3d druck büro flatrate, architekturmodelle monatlich, 3d druck subscription architektur"
         path="/ratgeber/architekturmodell-flatrate"
+        schemaType="article"
+        datePublished="2026-04-01"
+        dateModified="2026-04-26"
       />
       <BreadcrumbSchema items={[
         { name: "Home", url: "/" },

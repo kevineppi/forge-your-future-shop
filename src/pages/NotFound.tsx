@@ -22,9 +22,7 @@ const NotFound = () => {
     metaRobots.setAttribute('content', 'noindex, nofollow');
 
     return () => {
-      if (metaRobots) {
-        metaRobots.setAttribute('content', 'index, follow');
-      }
+      // Let the next page's SEOHead set the correct robots directive
     };
   }, [location.pathname]);
 

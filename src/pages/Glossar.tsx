@@ -456,6 +456,8 @@ const Glossar = () => {
         keywords="3d-druck glossar, 3d-druck fachbegriffe, fdm begriffe, architekturmodell maßstab, messemodell 3d-druck, additive fertigung lexikon, infill, layer height, warping, stringing, slicing"
         path="/glossar"
         schemaType="article"
+        datePublished="2025-11-20"
+        dateModified="2026-04-01"
       />
       <BreadcrumbSchema
         items={[
@@ -587,11 +589,11 @@ const Glossar = () => {
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                 {[
-                  { label: "FDM 3D-Druck", href: "/fdm-druck", desc: "Unser Hauptverfahren" },
-                  { label: "Prototypen", href: "/prototypen", desc: "Rapid Prototyping" },
+                  { label: "FDM 3D-Druck", href: "/fdm-3d-druck", desc: "Unser Hauptverfahren" },
+                  { label: "Rapid Prototyping", href: "/rapid-prototyping", desc: "Prototypen in 24h" },
                   { label: "Architekturmodelle", href: "/architekturmodelle", desc: "Maßstabsgetreu" },
                   { label: "Messemodelle", href: "/messemodelle", desc: "Express in 24–48h" },
-                  { label: "Materialien", href: "/materialien", desc: "PLA, PETG & mehr" },
+                  { label: "Materialien", href: "/3d-druck-materialien", desc: "PLA, PETG & mehr" },
                   { label: "Einzelanfertigungen", href: "/einzelanfertigungen", desc: "Individuelle Unikate" },
                 ].map((s) => (
                   <Link

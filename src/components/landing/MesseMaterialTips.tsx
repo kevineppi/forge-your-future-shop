@@ -151,7 +151,7 @@ const MesseMaterialTips = ({ materials, regionName, industryFocus }: MesseMateri
                         </Link>
                       </Button>
                       <Button asChild size="lg" variant="outline">
-                        <Link to="/materialien">
+                        <Link to="/3d-druck-materialien">
                           Alle Materialien
                         </Link>
                       </Button>

@@ -2,46 +2,73 @@
 <html lang="de-AT">
   <head>
     <meta charset="UTF-8" />
-    <style>#seo-fallback{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ═══ PRIMARY META ═══ -->
     <title>3D-Druck Österreich | Messemodelle & Architektur | ekdruck</title>
     <meta name="description" content="3D-Druck Service Österreich ★ 5.0/5 Google (31 Bewertungen). Messemodelle, Architekturmodelle & Prototypen ab €20. Express 24h.">
     <meta name="keywords" content="3d druck, 3d drucker, 3d druck österreich, 3d-druck service, messemodelle, architekturmodelle, 3d druck prototypen, 3d druck oberösterreich, fdm 3d-druck">
     <meta name="author" content="ekdruck e.U." />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="language" content="de-AT" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- ═══ GEO (Local SEO) ═══ -->
     <meta name="geo.region" content="AT-4" />
-    <meta name="geo.placename" content="Linz, Oberösterreich" />
-    <meta name="geo.position" content="48.1351;13.9774" />
-    <meta name="ICBM" content="48.1351, 13.9774" />
-    <!-- Canonical is set dynamically per-page by React (SEOHead / react-helmet) -->
+    <meta name="geo.placename" content="Gunskirchen, Oberösterreich" />
+    <meta name="geo.position" content="48.1295;13.9372" />
+    <meta name="ICBM" content="48.1295, 13.9372" />
+
+    <!-- ═══ CANONICAL (Homepage) ═══ -->
+    <link rel="canonical" href="https://www.ek-druck.at/" />
+
+    <!-- ═══ OPEN GRAPH ═══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.ek-druck.at/" />
+    <meta property="og:title" content="3D-Druck Österreich | Messemodelle & Architektur | ekdruck">
+    <meta property="og:description" content="3D-Druck Service Österreich ★ 5.0/5 Google (31 Bewertungen). Messemodelle, Architekturmodelle & Prototypen ab €20. Express 24h.">
+    <meta property="og:locale" content="de_AT" />
+    <meta property="og:site_name" content="ekdruck e.U." />
+    <meta property="og:image" content="https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ekdruck e.U. - 3D-Druck Services Österreich" />
+
+    <!-- ═══ TWITTER CARD ═══ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ekdruck" />
+    <meta name="twitter:title" content="3D-Druck Österreich | Messemodelle & Architektur | ekdruck">
+    <meta name="twitter:description" content="3D-Druck Service Österreich ★ 5.0/5 Google (31 Bewertungen). Messemodelle, Architekturmodelle & Prototypen ab €20. Express 24h.">
+    <meta name="twitter:image" content="https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png">
+
+    <!-- ═══ HREFLANG: DACH targeting ═══ -->
+    <link rel="alternate" hreflang="de-AT" href="https://www.ek-druck.at/" />
+    <link rel="alternate" hreflang="de-DE" href="https://www.ek-druck.at/" />
+    <link rel="alternate" hreflang="de" href="https://www.ek-druck.at/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.ek-druck.at/" />
+
+    <!-- ═══ ICONS ═══ -->
     <link rel="icon" href="/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png" type="image/png">
     <link rel="apple-touch-icon" href="/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png">
 
     <!-- ═══ PERFORMANCE: preconnect & dns-prefetch ═══ -->
-    <!-- Google APIs (GTM, GA4, Ads, Fonts) -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
     <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Supabase (API calls start early) -->
     <link rel="preconnect" href="https://tnsxoaqatahxobffamqb.supabase.co" crossorigin />
     <link rel="dns-prefetch" href="https://tnsxoaqatahxobffamqb.supabase.co" />
-    <!-- Storage / CDN -->
     <link rel="dns-prefetch" href="https://storage.googleapis.com" />
     <link rel="dns-prefetch" href="https://maps.googleapis.com" />
     <link rel="dns-prefetch" href="https://maps.gstatic.com" />
 
-    <!-- ═══ PERFORMANCE: LCP hero image preload ═══ -->
-    <!-- Logo ist das erste sichtbare Bild im Viewport (Navigation) -->
+    <!-- ═══ PERFORMANCE: LCP preload ═══ -->
     <link rel="preload" href="/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png" as="image" fetchpriority="high" />
-
-    <!-- ═══ PERFORMANCE: Critical CSS hint ═══ -->
     <meta http-equiv="x-dns-prefetch-control" content="on" />
 
-    <!-- Google Tag Manager – deferred so it never blocks first paint -->
+    <!-- ═══ GOOGLE TAG MANAGER (deferred – kein FCP-Block) ═══ -->
     <script>
       window.addEventListener('load', function() {
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -51,9 +78,8 @@
         })(window,document,'script','dataLayer','GTM-WZTKVB9H');
       });
     </script>
-    <!-- End Google Tag Manager -->
 
-    <!-- Google tag (gtag.js) – GA4 + Google Ads, loaded after GTM via load event -->
+    <!-- ═══ GA4 + Google Ads dataLayer init ═══ -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -61,29 +87,8 @@
       gtag('config', 'G-WB4BFL3RTL');
       gtag('config', 'AW-16570583366');
     </script>
-    
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.ek-druck.at/" />
-    <meta property="og:locale" content="de_AT" />
-    <meta property="og:site_name" content="ekdruck e.U." />
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png">
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="ekdruck e.U. - 3D-Druck Services Oberösterreich" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    
-    
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png">
-    
-    <!-- ═══ HREFLANG: DACH targeting ═══ -->
-    <link rel="alternate" hreflang="de-AT" href="https://www.ek-druck.at/" />
-    <link rel="alternate" hreflang="de-DE" href="https://www.ek-druck.at/" />
-    <link rel="alternate" hreflang="de" href="https://www.ek-druck.at/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.ek-druck.at/" />
-
-    <!-- ═══ WebSite Schema with SearchAction (Google Sitelinks Search Box) ═══ -->
+    <!-- ═══ SCHEMA: WebSite + SearchAction ═══ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -114,7 +119,7 @@
     }
     </script>
 
-    <!-- Structured Data for Local Business -->
+    <!-- ═══ SCHEMA: LocalBusiness ═══ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -135,78 +140,79 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "48.1351",
-        "longitude": "13.9774"
+        "latitude": "48.1295",
+        "longitude": "13.9372"
       },
-      "openingHours": [
-        "Mo-Fr 08:00-17:00",
-        "Sa by appointment"
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
       ],
       "priceRange": "€€",
       "currenciesAccepted": "EUR",
       "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
-      "serviceArea": [
-        {
-          "@type": "State",
-          "name": "Oberösterreich"
-        },
-        {
-          "@type": "Country", 
-          "name": "Austria"
-        }
-      ],
+      "serviceArea": {
+        "@type": "Country",
+        "name": "Austria"
+      },
       "areaServed": ["Austria", "Österreich", "Wien", "Graz", "Linz", "Salzburg", "Innsbruck", "Klagenfurt", "Villach", "Wels"],
       "knowsAbout": ["3D-Druck Modellbau", "FDM 3D-Druck", "Architekturmodelle", "Dekorationsobjekte", "Anschauungsmodelle", "Kunstgegenstände", "Messemodelle", "3D-Druck Österreich"],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "3D-Druck Services Oberösterreich",
+        "name": "3D-Druck Services Österreich",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Einzelanfertigungen 3D-Druck",
-              "description": "Millimetergenaue Spezialanfertigungen vom technischen Entwurf bis zum fertigen Produkt aus Oberösterreich"
-            }
-          },
-          {
-            "@type": "Offer", 
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Modellbau 3D-Druck",
-              "description": "Hochwertige Architekturmodelle, Miniaturmodelle und Präsentationsmodelle mit österreichischem Filament"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service", 
-              "name": "Nachhaltige Inneneinrichtung 3D-Druck",
-              "description": "Kompromisslos nachhaltige Einrichtungsgegenstände aus dem 3D-Drucker in allen Farben und Varianten"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Kostenlose 3D-Druck Beratung",
-              "description": "Individuelle und kostenlose Beratung für Ihr 3D-Druck Projekt aus Oberösterreich"
-            }
-          },
-          {
-            "@type": "Offer",
+              "name": "Architekturmodell-Flatrate",
+              "description": "Monatliche Flatrate für Architekturbüros – bis 15 Modelle/Monat zum Fixpreis ab €199/Monat. Erstes Modell kostenlos.",
+              "url": "https://www.ek-druck.at/architekturmodelle-abo"
+            },
             "priceSpecification": {
               "@type": "UnitPriceSpecification",
               "price": "199",
               "priceCurrency": "EUR",
-              "unitCode": "MON",
-              "name": "Starter Flatrate"
-            },
+              "unitCode": "MON"
+            }
+          },
+          {
+            "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Architekturmodell-Flatrate",
-              "description": "Monatliche Flatrate für Architekturbüros – unbegrenzte Architekturmodelle zum Fixpreis ab €199/Monat. Erstes Modell kostenlos.",
-              "url": "https://www.ek-druck.at/architekturmodelle-abo"
+              "name": "Messemodelle & Exponate",
+              "description": "Express 3D-Druck Messemodelle für Wien, München, Hannover – Lieferung in 24–48h.",
+              "url": "https://www.ek-druck.at/messemodelle"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Architekturmodelle 3D-Druck",
+              "description": "Maßstabsgetreue Architekturmodelle 1:50–1:500 für Wettbewerbe, Baueinreichungen und Kundenpräsentationen.",
+              "url": "https://www.ek-druck.at/architekturmodelle"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Rapid Prototyping",
+              "description": "Schnelle Prototypenerstellung ab €20, keine Mindestmenge, Express 24h.",
+              "url": "https://www.ek-druck.at/rapid-prototyping"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Einzelanfertigungen 3D-Druck",
+              "description": "Millimetergenaue Spezialanfertigungen nach Skizze oder CAD-Datei.",
+              "url": "https://www.ek-druck.at/einzelanfertigungen"
             }
           }
         ]
@@ -216,7 +222,6 @@
         "@type": "Person",
         "name": "Kevin Eppensteiner"
       },
-      "award": ["Nachhaltige Fertigung", "Regionale Produktion"],
       "memberOf": {
         "@type": "Organization",
         "name": "Wirtschaftskammer Oberösterreich"
@@ -226,16 +231,13 @@
         "https://www.linkedin.com/in/3d-druck/",
         "https://www.google.com/maps/place/ekdruck+e.U."
       ],
-      "image": [
-        "https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
-        "https://storage.googleapis.com/gpt-engineer-file-uploads/yUlE048VWYQxM9RyOhYYkGTcNs73/social-images/social-1758010795997-ek-druck-01-logo-website (1).png"
-      ],
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
         "width": 512,
         "height": 512
       },
+      "image": "https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
@@ -246,12 +248,13 @@
     }
     </script>
 
-    <!-- Review Schema -->
+    <!-- ═══ SCHEMA: Reviews ═══ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "ekdruck e.U.",
+      "url": "https://www.ek-druck.at",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
@@ -262,36 +265,23 @@
       "review": [
         {
           "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Michael K."
-          },
+          "author": { "@type": "Person", "name": "Michael K." },
           "datePublished": "2024-01-15",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
           "reviewBody": "Hervorragender 3D-Druck Service! Schnelle Lieferung und top Qualität aus Österreich."
         },
         {
           "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Sarah M."
-          },
+          "author": { "@type": "Person", "name": "Sarah M." },
           "datePublished": "2024-02-20",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
           "reviewBody": "Perfekte Prototypen in Rekordzeit. Der Express-Service ist wirklich express!"
         }
       ]
     }
     </script>
 
+    <!-- ═══ SCHEMA: FAQPage ═══ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -310,7 +300,7 @@
           "name": "Was ist der Unterschied zwischen PLA und PETG?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "PLA ist günstiger, detailreicher und ideal für Architekturmodelle und Dekorationsobjekte. PETG ist schlagzäher, hitzebeständiger und UV-stabil – perfekt für Messemodelle und Outdoor-Präsentationen. PLA ist biologisch abbaubar, PETG bietet transparente Optionen. Beide Materialien verwenden wir in österreichischer Qualität."
+            "text": "PLA ist günstiger, detailreicher und ideal für Architekturmodelle und Dekorationsobjekte. PETG ist schlagzäher, hitzebeständiger und UV-stabil – perfekt für Messemodelle und Outdoor-Präsentationen."
           }
         },
         {
@@ -332,75 +322,12 @@
       ]
     }
     </script>
-    <meta property="og:title" content="3D-Druck Österreich | Messemodelle & Architektur | ekdruck">
-  <meta name="twitter:title" content="3D-Druck Österreich | Messemodelle & Architektur | ekdruck">
-  <meta property="og:description" content="3D-Druck Service Österreich ★ 5.0/5 Google (31 Bewertungen). Messemodelle, Architekturmodelle & Prototypen ab €20. Express 24h.">
-  <meta name="twitter:description" content="3D-Druck Service Österreich ★ 5.0/5 Google (31 Bewertungen). Messemodelle, Architekturmodelle & Prototypen ab €20. Express 24h.">
-</head>
+  </head>
 
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZTKVB9H"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <!-- SEO Fallback Content – visually hidden via sr-only CSS, readable by all crawlers -->
-    <div id="seo-fallback">
-      <h1>3D-Druck Österreich – Messemodelle & Architekturmodelle ab €20</h1>
-      <p>ekdruck e.U. ist Ihr professioneller 3D-Druck Service aus Oberösterreich mit 31 Google-Bewertungen und einer Durchschnittsnote von 5.0 Sternen. Wir bieten Express-Fertigung in 24 Stunden, ein verbindliches Festpreisangebot innerhalb von 6 Stunden und verwenden ausschließlich nachhaltig produziertes Filament aus Österreich.</p>
-      <nav aria-label="Hauptnavigation">
-        <a href="/messemodelle">Messemodelle für Messen und Events</a>
-        <a href="/architekturmodelle">Architekturmodelle für Wettbewerbe</a>
-        <a href="/einzelanfertigungen">Individuelle Einzelanfertigungen</a>
-        <a href="/rapid-prototyping">Rapid Prototyping Service</a>
-        <a href="/fdm-3d-druck">FDM 3D-Druckverfahren</a>
-        <a href="/3d-druck-materialien">Materialvergleich PLA PETG ABS</a>
-        <a href="/firmenkunden">B2B Firmenkunden Service</a>
-        <a href="/referenzen">Unsere Referenzprojekte</a>
-        <a href="/kontakt">Kostenlose Beratung anfragen</a>
-      </nav>
-      <h2>Professioneller 3D-Druck Dienstleister aus Oberösterreich</h2>
-      <p>ekdruck e.U. ist Ihr spezialisierter <strong>3D-Druck Dienstleister in Österreich</strong> mit Sitz in Gunskirchen bei Linz. Wir fertigen professionelle <a href="/messemodelle">Messemodelle für internationale Fachmessen</a>, <a href="/architekturmodelle">maßstabsgetreue Architekturmodelle für Architekturwettbewerbe</a> und <a href="/einzelanfertigungen">individuelle Einzelanfertigungen nach Ihren Vorgaben</a> mit modernster FDM-Technologie und hochwertigem österreichischem Filament. Unsere Lieferung erfolgt zuverlässig in ganz Österreich und Deutschland innerhalb weniger Werktage.</p>
-      <ul>
-        <li><strong>Express-Fertigung in 24 Stunden</strong> – Ihr fertiges 3D-Druck Modell wird innerhalb von 24 bis 48 Stunden österreichweit zugestellt, ideal für dringende Projekttermine und kurzfristige Messeeinsätze</li>
-        <li><strong>Transparente Preise ab €20 pro Modell</strong> – Sie erhalten ein verbindliches Festpreisangebot in unter 6 Stunden, ohne versteckte Kosten oder Nachberechnung</li>
-        <li><strong>Nachhaltige Produktion Made in Austria</strong> – Alle verwendeten Filamente stammen aus österreichischer Produktion und werden unter Einsatz von Ökostrom aus recycelten Industrieabfällen hergestellt</li>
-        <li><strong>5.0 Sterne Google Bewertung</strong> – Unsere Kunden bewerten uns mit durchschnittlich 5.0 von 5 Sternen, basierend auf 31 verifizierten Google-Rezensionen</li>
-      </ul>
-      <h2>3D-gedruckte Messemodelle – Express-Fertigung für internationale Messen und Events</h2>
-      <p>Wir fertigen hochwertige <a href="/messemodelle">3D-gedruckte Messemodelle und Exponate</a> für internationale Fachmessen in Wien, München, Hannover, Nürnberg und allen weiteren europäischen Messestandorten. Unsere Produktmodelle, Anschauungsobjekte und Messedisplays werden bis zu einer Größe von über 2 Metern aus einem einzelnen Stück oder als modulares System gefertigt, sodass sie sich flexibel an verschiedene Standgrößen anpassen lassen.</p>
-      <h2>Architekturmodelle aus dem 3D-Drucker – präzise Maßstäbe von 1:50 bis 1:500</h2>
-      <p>Unsere maßstabsgetreuen <a href="/architekturmodelle">3D-gedruckten Architekturmodelle</a> eignen sich perfekt für Architekturwettbewerbe, Baueinreichungen bei Behörden und überzeugende Kundenpräsentationen. Die Modelle sind vollständig kompatibel mit allen gängigen CAD-Programmen wie ArchiCAD, Revit, Rhino und SolidWorks und können bis zu 80 Prozent günstiger als im traditionellen Modellbau hergestellt werden.</p>
-      <h2>Rapid Prototyping – funktionale 3D-Druck Prototypen ab €20</h2>
-      <p>Mit unserem <a href="/rapid-prototyping">Rapid Prototyping Service</a> erhalten Produktentwickler, innovative Startups und Kreativagenturen schnelle und kostengünstige Prototypen für Designvalidierung, Investorenpräsentationen und funktionale Tests. Es gibt keine Mindestbestellmenge und unser Express-Service liefert innerhalb von 24 Stunden österreichweit.</p>
-      <h2>FDM 3D-Druckverfahren – Materialvergleich zwischen PLA, PETG und ABS</h2>
-      <p>Wir verwenden das bewährte <a href="/fdm-3d-druck">FDM 3D-Druckverfahren</a> (Fused Deposition Modeling), das wirtschaftlichste additive Fertigungsverfahren für professionellen Modellbau, Architekturvisualisierung und Messebau. In unserem ausführlichen <a href="/3d-druck-materialien">Materialvergleich</a> finden Sie alle Details zu den verfügbaren Werkstoffen PLA, PETG, ABS, ASA und TPU – sämtlich aus kontrollierter österreichischer Produktion.</p>
-      <h2>3D-Druck Service-Gebiete in Österreich und Deutschland</h2>
-      <p>Von unserem Standort in Gunskirchen (20 Minuten von Linz) beliefern wir zuverlässig ganz Österreich und Deutschland:
-        <a href="/3d-druck-wien">3D-Druck Wien</a> ·
-        <a href="/3d-druck-linz">3D-Druck Linz</a> ·
-        <a href="/3d-druck-graz">3D-Druck Graz</a> ·
-        <a href="/3d-druck-salzburg">3D-Druck Salzburg</a> ·
-        <a href="/3d-druck-innsbruck">3D-Druck Innsbruck</a> ·
-        <a href="/3d-druck-klagenfurt">3D-Druck Klagenfurt</a> ·
-        <a href="/3d-druck-wels">3D-Druck Wels</a> ·
-        <a href="/3d-druck-st-poelten">3D-Druck St. Pölten</a> ·
-        <a href="/3d-druck-villach">3D-Druck Villach</a> ·
-        <a href="/3d-druck-dornbirn">3D-Druck Dornbirn</a>
-      </p>
-      <h2>Ratgeber und Wissenswertes rund um 3D-Druck</h2>
-      <ul>
-        <li><a href="/ratgeber/kosten-guide">Was kostet 3D-Druck? Der komplette Kosten-Guide</a></li>
-        <li><a href="/ratgeber/material-guide">Material-Ratgeber: PLA vs PETG vs ABS im Vergleich</a></li>
-        <li><a href="/ratgeber/architekturmodell-guide">Architekturmodelle aus dem 3D-Drucker – der Guide</a></li>
-        <li><a href="/ratgeber/messemodell-guide">Messemodelle 3D-Druck – Planung und Umsetzung</a></li>
-        <li><a href="/ratgeber/prototyping-guide">Prototyping mit 3D-Druck – von der Idee zum Produkt</a></li>
-        <li><a href="/ratgeber/verfahrens-vergleich">3D-Druckverfahren im Vergleich: FDM, SLA und SLS</a></li>
-      </ul>
-      <p><strong>ekdruck e.U.</strong> · Negrellistraße 15, 4623 Gunskirchen, Oberösterreich · Telefon: <a href="tel:+436765517197">+43 676 5517197</a> · E-Mail: <a href="mailto:office@ek-druck.at">office@ek-druck.at</a></p>
-      <p><a href="/impressum">Impressum und Datenschutz</a> · <a href="/ueber-uns">Über ekdruck e.U.</a> · <a href="/kontakt">Kontaktformular und Anfrage</a></p>
-      <p>Folgen Sie uns: <a href="https://www.instagram.com/ekdruck/" rel="noopener" target="_blank">Instagram</a> · <a href="https://www.linkedin.com/in/3d-druck/" rel="noopener" target="_blank">LinkedIn</a> · <a href="https://www.google.com/maps/place/ekdruck+e.U." rel="noopener" target="_blank">Google Business Profil</a></p>
-    </div>
 
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

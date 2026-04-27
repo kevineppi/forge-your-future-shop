@@ -42,6 +42,9 @@ const MessemodellGuide = () => {
         keywords="messemodell kosten, messemodell planen, messemodell 3d-druck, messemodell bestellen, 3d-druck messe guide"
         path="/ratgeber/messemodell-guide"
         type="article"
+        schemaType="article"
+        datePublished="2025-10-10"
+        dateModified="2026-04-26"
       />
 
       <BreadcrumbSchema items={[

@@ -48,12 +48,13 @@
   <url><loc>https://www.ek-druck.at/ratgeber/kosten-guide</loc><lastmod>2026-04-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ek-druck.at/ratgeber/material-guide</loc><lastmod>2026-04-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ek-druck.at/ratgeber/verfahrens-vergleich</loc><lastmod>2026-04-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ek-druck.at/ratgeber/prototyping-guide</loc><lastmod>2026-04-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- /ratgeber/prototyping-guide redirects to /rapid-prototyping – intentionally excluded -->
   <url><loc>https://www.ek-druck.at/glossar</loc><lastmod>2026-04-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- ═══════════════════════════════════════════════════════════
        3D-DRUCK STADTSEITEN ÖSTERREICH  (priority 0.7)
-       NOTE: /3d-druck-oberoesterreich intentionally excluded (redirect → noindex)
+       NOTE: /3d-druck-oberoesterreich excluded – noindex set to avoid keyword
+       cannibalization with homepage (company HQ is in OÖ).
   ═══════════════════════════════════════════════════════════ -->
   <url><loc>https://www.ek-druck.at/3d-druck-wien</loc><lastmod>2026-04-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ek-druck.at/3d-druck-linz</loc><lastmod>2026-04-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>

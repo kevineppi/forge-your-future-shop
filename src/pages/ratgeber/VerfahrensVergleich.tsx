@@ -52,7 +52,7 @@ const VerfahrensVergleich = () => {
   const slsAdvantages = ["Keine Stützstrukturen erforderlich", "Hohe mechanische Festigkeit", "Exzellente Oberflächenqualität", "Geeignet für Anschauungsmodelle und hochwertige Einzelstücke"];
   const slsDisadvantages = ["Sehr hohe Anschaffungskosten", "Höherer Energieverbrauch", "Begrenzte Materialauswahl", "Pulverentsorgung und -handhabung komplex"];
   return <>
-      <SEOHead title="FDM vs SLA vs SLS: 3D-Druck Verfahren im Vergleich [2026]" description="Welches 3D-Druckverfahren passt? FDM (günstig ab €15), SLA (glatt, präzise), SLS (komplex, stark) ✓ Vergleichstabelle ✓ Empfehlung nach Projekttyp → Jetzt vergleichen" keywords="fdm vs sla, 3d druckverfahren vergleich, fdm vs sls, sla vs sls, 3d-druck verfahren übersicht, additive fertigung vergleich" path="/ratgeber/verfahrens-vergleich" schemaType="article" />
+      <SEOHead title="FDM vs SLA vs SLS: 3D-Druck Verfahren im Vergleich [2026]" description="Welches 3D-Druckverfahren passt? FDM (günstig ab €15), SLA (glatt, präzise), SLS (komplex, stark) ✓ Vergleichstabelle ✓ Empfehlung nach Projekttyp → Jetzt vergleichen" keywords="fdm vs sla, 3d druckverfahren vergleich, fdm vs sls, sla vs sls, 3d-druck verfahren übersicht, additive fertigung vergleich" path="/ratgeber/verfahrens-vergleich" schemaType="article" datePublished="2025-10-20" dateModified="2026-04-01" />
       <HowToSchema
         name="Das richtige 3D-Druckverfahren wählen"
         description="So finden Sie das optimale 3D-Druckverfahren für Ihr Projekt."

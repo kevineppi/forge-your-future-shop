@@ -42,7 +42,7 @@ const Ratgeber = () => {
     {
       title: "Rapid Prototyping mit 3D-Druck: Der ultimative Guide 2026",
       description: "Funktionsprototypen in 24h, Materialwahl für Ingenieure, CAD-Formate und Toleranzen – alles was Produktentwickler wissen müssen.",
-      link: "/ratgeber/prototyping-guide",
+      link: "/rapid-prototyping",
       icon: Wrench,
       category: "Prototypen",
       readTime: "10 Min. Lesezeit",
@@ -98,6 +98,8 @@ const Ratgeber = () => {
         keywords="3d-druck ratgeber, 3d-druck kosten, fdm verfahren, 3d-druck tipps österreich, 3d-druck guide, modellbau guide, rapid prototyping guide"
         path="/ratgeber"
         schemaType="article"
+        datePublished="2025-10-01"
+        dateModified="2026-04-26"
       />
       <BreadcrumbSchema
         items={[

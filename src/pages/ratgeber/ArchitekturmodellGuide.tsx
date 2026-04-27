@@ -128,6 +128,8 @@ const ArchitekturmodellGuide = () => {
         path="/ratgeber/architekturmodell-guide"
         type="article"
         schemaType="article"
+        datePublished="2025-11-15"
+        dateModified="2026-04-26"
       />
 
       <BreadcrumbSchema items={[

@@ -2,10 +2,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
 import ScrollToTop from "./components/ScrollToTop";
 import { lazy, Suspense } from "react";
+
+const MessemodeleRegionRedirect = () => {
+  const { region } = useParams<{ region: string }>();
+  return <Navigate to={`/messemodelle/${region}`} replace />;
+};
 
 import CustomCursor from "./components/CustomCursor";
 import ScrollProgress from "./components/ScrollProgress";
@@ -113,7 +118,7 @@ const App = () => (
               <Route path="/messemodelle" element={<Messemodelle />} />
               <Route path="/messemodelle/:region" element={<MessemodellRegion />} />
               <Route path="/messemodele" element={<Navigate to="/messemodelle" replace />} />
-              <Route path="/messemodele/:region" element={<Navigate to="/messemodelle/:region" replace />} />
+              <Route path="/messemodele/:region" element={<MessemodeleRegionRedirect />} />
               <Route path="/kunstobjekte" element={<Kunstobjekte />} />
               <Route path="/firmenkunden" element={<Firmenkunden />} />
               <Route path="/kontakt" element={<Kontakt />} />
