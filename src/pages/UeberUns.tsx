@@ -36,7 +36,6 @@ const UeberUns = () => {
         description="Wer steckt hinter ekdruck? Echte Menschen aus Gunskirchen, OÖ ✓ WKO-gewerbeberechtigt ✓ 10+ FDM-Drucker ✓ Österreichisches Filament ✓ Persönliche Beratung → Lernen Sie uns kennen"
         keywords="ekdruck über uns, 3d-druck gunskirchen, ekdruck e.u., 3d-druck firma österreich, 3d-druck oberösterreich"
         path="/ueber-uns"
-        schemaType="service"
       />
       <BreadcrumbSchema items={[
         { name: "Home", url: "/" },

@@ -225,9 +225,9 @@ const getSchemaData = (
         "@type": "Article",
         "headline": title,
         "author": {
-          "@type": "Organization",
-          "name": "ekdruck e.U.",
-          "url": "https://www.ek-druck.at"
+          "@type": "Person",
+          "name": "Kevin Eppensteiner",
+          "url": "https://www.ek-druck.at/ueber-uns"
         },
         "publisher": {
           "@type": "Organization",

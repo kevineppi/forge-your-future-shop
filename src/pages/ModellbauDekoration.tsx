@@ -38,7 +38,6 @@ const ModellbauDekoration = () => {
         }}
       />
       <StructuredData type="organization" />
-      <StructuredData type="service" />
       <BreadcrumbSchema items={[
         {name: "Home", url: "/"},
         {name: "Modellbau & Dekoration", url: "/modellbau-dekoration"}

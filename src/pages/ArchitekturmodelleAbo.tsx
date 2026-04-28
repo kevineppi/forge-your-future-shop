@@ -231,13 +231,13 @@ const ArchitekturmodelleAbo = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Architekturmodelle 3D-Druck Österreich – Flatrate für Architekturbüros | ekdruck</title>
-        <meta name="description" content="Architekturmodelle aus dem 3D-Drucker – schnell, präzise, günstig. Büro-Flatrate-Abo: Fixpreis ab €490/Monat, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen." />
+        <title>Architekturmodell-Flatrate ★5,0 – ab €199/Mon. · 1. Modell gratis</title>
+        <meta name="description" content="Architekturmodell-Flatrate für Architekturbüros ✓ Fixpreis ab €199/Mon. ✓ 48h-Lieferung ✓ keine Mindestlaufzeit ✓ erstes Modell kostenlos. ★ 5,0 · 31 Bewertungen · österreichweit." />
         <meta name="keywords" content="architekturmodell flatrate, architekturmodell abo, 3d druck architekturbüro, architekturmodelle drucken lassen, 3d druck abo architektur, architekturmodell österreich, 3d druck flatrate büro" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://www.ek-druck.at/architekturmodelle-abo" />
-        <meta property="og:title" content="Architekturmodell-Flatrate für Architekturbüros – ab €490/Monat | ekdruck" />
-        <meta property="og:description" content="Büro-Flatrate für Architekturmodelle: Fixpreis, 48h-Lieferung, keine Mindestlaufzeit. Erstes Modell kostenlos testen. Für Büros in Wien, Linz, Graz & ganz Österreich." />
+        <meta property="og:title" content="Architekturmodell-Flatrate ★5,0 – ab €199/Mon. · 1. Modell gratis | ekdruck" />
+        <meta property="og:description" content="Flatrate für Architekturmodelle: ✓ Fixpreis ✓ 48h-Lieferung ✓ keine Mindestlaufzeit ✓ erstes Modell kostenlos testen. Für Büros in Wien, Linz, Graz & ganz Österreich." />
         <meta property="og:url" content="https://www.ek-druck.at/architekturmodelle-abo" />
         <meta property="og:type" content="product" />
         <meta property="og:image" content="https://www.ek-druck.at/lovable-uploads/a2a7821e-537c-4599-9e3e-c212d6a9bb02.png" />

@@ -4,21 +4,24 @@ const OrganizationSchema = () => {
   useEffect(() => {
     const schema = {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "EK-Druck - 3D-Druck Österreich",
+      "@type": ["Organization", "LocalBusiness"],
+      "name": "ekdruck e.U.",
       "alternateName": "EK-Druck",
       "url": "https://www.ek-druck.at",
       "logo": "https://www.ek-druck.at/lovable-uploads/40dc02c2-6cc2-46bb-aff9-6f06079f1f77.png",
-      "description": "Professioneller 3D-Druck Service in Österreich. FDM-Druck für Modellbau, Dekoration und Geschenke mit schneller Lieferung.",
+      "description": "Spezialist für Architektur- und Messemodelle aus dem 3D-Druck. B2B-Service für Architekturbüros in ganz Österreich – Angebot in 6 Stunden, Express in 24 h.",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "AT",
-        "addressRegion": "Oberösterreich"
+        "streetAddress": "Negrellistraße 15",
+        "addressLocality": "Gunskirchen",
+        "addressRegion": "Oberösterreich",
+        "postalCode": "4623",
+        "addressCountry": "AT"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 48.2082,
-        "longitude": 14.2860
+        "latitude": 48.1295,
+        "longitude": 13.9372
       },
       "areaServed": [
         {
@@ -62,22 +65,35 @@ const OrganizationSchema = () => {
           "name": "Burgenland"
         }
       ],
+      "telephone": "+43 676 5517197",
+      "email": "office@ek-druck.at",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer service",
-        "availableLanguage": ["German", "English"],
-        "email": "office@ek-druck.at"
+        "telephone": "+43 676 5517197",
+        "email": "office@ek-druck.at",
+        "availableLanguage": ["German", "English"]
       },
       "sameAs": [
-        "https://www.ek-druck.at"
+        "https://www.ek-druck.at",
+        "https://www.instagram.com/ekdruck/",
+        "https://www.linkedin.com/in/3d-druck/"
       ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "reviewCount": "31",
+        "ratingCount": "31"
+      },
       "foundingDate": "2020",
       "knowsAbout": [
         "3D-Druck",
         "FDM-Druck",
-        "Modellbau",
         "Architekturmodelle",
-        "Dekoration",
+        "Messemodelle",
+        "Rapid Prototyping",
         "PLA",
         "PETG",
         "ABS",
@@ -85,30 +101,30 @@ const OrganizationSchema = () => {
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "3D-Druck Dienstleistungen",
+        "name": "3D-Druck Dienstleistungen für Architekturbüros",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "FDM 3D-Druck",
-              "description": "Fused Deposition Modeling für Modellbau und Dekoration"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
               "name": "Architekturmodelle",
-              "description": "Präzise 3D-gedruckte Architekturmodelle und Designstudien"
+              "description": "Präzise 3D-gedruckte Architekturmodelle für Architekturbüros und Planer"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Dekoration & Geschenke",
-              "description": "Individuelle Dekoartikel und personalisierte Geschenke"
+              "name": "Architekturmodell-Flatrate",
+              "description": "Monatliche Flatrate für Architekturbüros ab €199/Monat – erstes Modell kostenlos"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Messemodelle",
+              "description": "Hochwertige Messemodelle und Ausstellungsexponate aus dem 3D-Druck"
             }
           },
           {

@@ -196,8 +196,8 @@ const Messemodelle = () => {
   return (
     <>
       <SEOHead
-        title="Messemodell anfertigen lassen – 3D-gedruckte Eyecatcher bis 2 m"
-        description="Messemodelle und Standmodelle für Messen in Wien, München und Hannover anfertigen lassen. Express in 24 h, transportsicher, lackierbar. Angebot in 6 Stunden."
+        title="Messemodell anfertigen lassen ★5,0 – 24h Express | ekdruck"
+        description="Messemodelle aus dem 3D-Drucker ✓ bis 2 m+ ✓ Express 24 h ✓ transportsicher ✓ lackierbar. ★ 5,0 (31 Bewertungen) · Angebot in 6 h · für Wien, München & Hannover."
         keywords="messemodell anfertigen, messemodell drucken lassen, messemodell anfertigen lassen, messemodell bestellen, messeexponat anfertigen, eyecatcher messestand bestellen, 3d druck messemodell express"
         path="/messemodelle"
       />

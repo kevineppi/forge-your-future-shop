@@ -37,8 +37,8 @@ import MagneticCard from "@/components/MagneticCard";
 const Index = () => {
   return <>
     <SEOHead
-      title="3D-Druck Service Österreich – Angebot in 6 h, Lieferung in 5–7 Tagen"
-      description="3D-Druck Service in Österreich: Modelle, Prototypen und Architekturmodelle drucken lassen. Angebot in 6 Stunden, Express in 24 h. Anbieter aus Gunskirchen, OÖ."
+      title="3D-Druck Österreich ★5,0 – Architekturmodelle & Messemodelle | ekdruck"
+      description="Österreichs Spezialist für Architekturmodelle & Messemodelle. ★ 5,0 Google (31 Bewertungen) · Angebot in 6 h · Express 24 h · ab €20 · Flatrate für Architekturbüros ab €199/Mon."
       keywords="3d druck, 3d druck österreich, 3d druck service, 3d druck firma, 3d druck anbieter, 3d druck dienstleister, 3d druck oberösterreich, 3d druck prototypen"
       path="/"
     />
