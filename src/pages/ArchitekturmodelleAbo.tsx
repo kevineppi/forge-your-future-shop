@@ -641,7 +641,7 @@ const ArchitekturmodelleAbo = () => {
             </Card>
 
             {/* Right – Form */}
-            <Card className="p-7 md:p-8 bg-background text-foreground border-0 shadow-2xl">
+            <Card className="lg:col-span-3 p-7 md:p-8 bg-card text-foreground border border-border shadow-sm">
               {submitted ? (
                 <div className="text-center py-6">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
@@ -733,7 +733,7 @@ const ArchitekturmodelleAbo = () => {
                     onClick={handleSubmit}
                     disabled={submitting}
                     size="lg"
-                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-[1.01] active:scale-[0.99] transition-transform font-semibold"
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.01] active:scale-[0.99] hover:shadow-lg transition-all font-semibold"
                   >
                     {submitting ? "Wird gesendet..." : (<>Jetzt kostenlos anfragen <Send className="ml-2 h-4 w-4" /></>)}
                   </Button>
