@@ -400,7 +400,7 @@ const FdmDruck = () => {
               </div>
               <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {[
-                  { icon: Home, title: "Architekturmodelle", desc: "Maßstabsgetreue Architektur- und Stadtmodelle für Wettbewerbe, Investorenpräsentationen und Genehmigungsverfahren. Maßstäbe 1:50 bis 1:500. CAD-Export aus ArchiCAD, Revit und Rhino direkt verarbeitbar.", link: "/architekturmodelle", badge: "1:50 – 1:500" },
+                  { icon: Home, title: "Architekturmodelle", desc: "Maßstabsgetreue Architektur- und Stadtmodelle für Wettbewerbe, Investorenpräsentationen und Genehmigungsverfahren. Maßstäbe 1:50 bis 1:500. Für Büros: Flatrate ab €199/Mon.", link: "/architekturmodelle-abo", badge: "Flatrate ab €199" },
                   { icon: Layers, title: "Messemodelle", desc: "XXL-Blickfänger für Messestände, Produktnachbildungen und Standdekorationen. Express in 24h für kurzfristige Messetermine. Objekte bis 2m+ durch modulare Fertigung.", link: "/messemodelle", badge: "Express 24h" },
                   { icon: Palette, title: "Kunstobjekte", desc: "Skulpturen, Installationen und Designobjekte mit Holz-Optik, Marmor-Look oder Metallic-Finish. Vom Konzeptmodell bis zur Galerie-Skulptur – grenzenlose Formfreiheit.", link: "/kunstobjekte", badge: "Grenzenlos" }
                 ].map((area, i) => (

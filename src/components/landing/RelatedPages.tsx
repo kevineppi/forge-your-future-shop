@@ -1,15 +1,23 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Building2, Presentation, Palette, Users, Wrench, Sparkles } from "lucide-react";
+import { ArrowRight, Building2, Presentation, Palette, Users, Wrench, Sparkles, CalendarCheck } from "lucide-react";
 
 interface RelatedPage {
   title: string;
   description: string;
   url: string;
   icon: React.ComponentType<{ className?: string }>;
+  highlight?: boolean;
 }
 
 const allPages: RelatedPage[] = [
+  {
+    title: "Flatrate für Architekturbüros",
+    description: "Fixpreis ab €199/Mon. · 48h-Lieferung · erstes Modell kostenlos",
+    url: "/architekturmodelle-abo",
+    icon: CalendarCheck,
+    highlight: true
+  },
   {
     title: "Architekturmodelle",
     description: "Maßstabsgetreue Modelle für Wettbewerbe und Präsentationen",
@@ -23,8 +31,8 @@ const allPages: RelatedPage[] = [
     icon: Presentation
   },
   {
-    title: "Rapid Prototyping",
-    description: "Funktionsprototypen in 24–48h für Produktentwickler",
+    title: "Designprototypen",
+    description: "Anschauungsmodelle für Präsentationen & Investoren in 24h",
     url: "/rapid-prototyping",
     icon: Wrench
   },
@@ -63,9 +71,9 @@ const RelatedPages = ({ currentPage, title = "Weitere Zielgruppen" }: RelatedPag
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {relatedPages.map((page, index) => (
             <Link key={index} to={page.url} className="group">
-              <Card className="h-full hover:shadow-lg hover:border-primary/50 transition-all">
+              <Card className={`h-full hover:shadow-lg transition-all ${page.highlight ? 'border-primary/50 bg-primary/5 hover:border-primary' : 'hover:border-primary/50'}`}>
                 <CardContent className="p-6">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors ${page.highlight ? 'bg-primary/20' : 'bg-primary/10'}`}>
                     <page.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-bold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">

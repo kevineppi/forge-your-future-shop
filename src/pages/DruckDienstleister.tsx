@@ -126,8 +126,8 @@ const DruckDienstleister = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Dienstleister Österreich – B2B-Service aus OÖ"
-        description="3D-Druck Dienstleister für Architekten, Messebauer und Industrie in ganz Österreich. Angebot in 6 h, Lieferung in 5–7 Tagen, Rechnung mit UID. Werkstatt in Gunskirchen, OÖ."
+        title="3D-Druck Dienstleister Österreich ★5,0 – B2B · Angebot 6h"
+        description="3D-Druck Dienstleister für Architekten, Messebauer & Industrie ✓ Angebot in 6h ✓ Express 24h ✓ UID-Rechnung. ★ 5,0 (31 Bewertungen) – ekdruck Gunskirchen, OÖ."
         keywords="3d druck dienstleister österreich, 3d druck dienstleister, 3d druck service österreich, 3d druck b2b, 3d druck firmenkunden, 3d druck auftragsfertigung anschauungsmodelle"
         path="/3d-druck-dienstleister-oesterreich"
         schemaType="service"

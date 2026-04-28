@@ -125,8 +125,8 @@ const RapidPrototypingOesterreich = () => {
   return (
     <>
       <SEOHead
-        title="Rapid Prototyping Österreich – Designprototypen in 24 h"
-        description="Rapid Prototyping in Österreich: Designprototypen, Anschauungsmodelle und Präsentationsmuster. Express-Lieferung in 24 Stunden, ab 20 €. Werkstatt in Gunskirchen, OÖ."
+        title="Rapid Prototyping Österreich ★5,0 – 24h Express · ab €20"
+        description="Rapid Prototyping in Österreich ✓ Designprototypen & Anschauungsmodelle ✓ Express 24h ✓ ab €20 ✓ Angebot in 6h. ★ 5,0 (31 Bewertungen) – ekdruck OÖ."
         keywords="rapid prototyping österreich, rapid prototyping wien, rapid prototyping linz, designprototypen österreich, prototypen drucken lassen, anschauungsprototyp"
         path="/rapid-prototyping-oesterreich"
         schemaType="service"

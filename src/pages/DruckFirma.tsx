@@ -134,8 +134,8 @@ const DruckFirma = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Firma Österreich – Anbieter aus Gunskirchen, OÖ"
-        description="Eingetragene 3D-Druck Firma aus Österreich: Modelle, Prototypen, Architekturmodelle. Angebot in 6 h, Lieferung in 5–7 Tagen. Persönlicher Ansprechpartner, ordentliche Rechnung mit UID."
+        title="3D-Druck Firma Österreich ★5,0 – Angebot in 6h | ekdruck"
+        description="3D-Druck Firma aus OÖ ✓ Architekturmodelle & Prototypen ✓ Angebot in 6h ✓ Express 24h ✓ UID-Rechnung. ★ 5,0 (31 Bewertungen) · Persönlicher Ansprechpartner."
         keywords="3d druck firma, 3d druck firma österreich, 3d druck unternehmen, 3d druck firma oberösterreich, 3d druck firma wien, 3d druck unternehmen österreich"
         path="/3d-druck-firma"
         schemaType="service"

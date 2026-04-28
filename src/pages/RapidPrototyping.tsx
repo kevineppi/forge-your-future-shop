@@ -191,8 +191,8 @@ const RapidPrototyping = () => {
   return (
     <>
       <SEOHead
-        title="3D-Druck Prototypen drucken lassen – Rapid Prototyping Österreich"
-        description="3D-Druck Prototypen für Präsentationen, Pitches und Investoren – Designmodelle in 24 Stunden anfertigen lassen. Keine Mindestmenge, Angebot in 6 h."
+        title="Designprototypen drucken lassen ★5,0 – 24h · ab €20"
+        description="3D-Druck Designprototypen für Präsentationen & Pitches ✓ Express 24h ✓ ab €20 ✓ keine Mindestmenge ✓ Angebot in 6h. ★ 5,0 (31 Bewertungen) | ekdruck"
         keywords="3d druck prototypen, rapid prototyping österreich, 3d-druck prototypen, prototyp drucken lassen, designprototyp, anschauungsmodell 3d-druck"
         path="/rapid-prototyping"
       />
@@ -343,7 +343,7 @@ const RapidPrototyping = () => {
                     <AlertTriangle className="w-5 h-5 text-destructive" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold">Was wir nicht fertigen können</h2>
+                    <h3 className="text-xl font-bold">Was wir nicht fertigen können</h3>
                     <p className="text-sm text-muted-foreground">Gemäß unserer Gewerbeberechtigung</p>
                   </div>
                 </div>

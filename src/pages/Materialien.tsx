@@ -501,22 +501,22 @@ const Materialien = () => {
                 <div className="grid md:grid-cols-4 gap-6 text-center">
                   <div>
                     <div className="bg-gradient-primary w-16 h-16 rounded-full mx-auto mb-4"></div>
-                    <h4 className="font-semibold mb-2">Standard-Farben</h4>
+                    <h3 className="font-semibold mb-2">Standard-Farben</h3>
                     <p className="text-sm text-muted-foreground">20+ Grundfarben immer verfügbar</p>
                   </div>
                   <div>
                     <div className="bg-gradient-to-br from-yellow-400 to-red-500 w-16 h-16 rounded-full mx-auto mb-4"></div>
-                    <h4 className="font-semibold mb-2">Metallic-Farben</h4>
+                    <h3 className="font-semibold mb-2">Metallic-Farben</h3>
                     <p className="text-sm text-muted-foreground">Gold, Silber, Kupfer, Bronze</p>
                   </div>
                   <div>
                     <div className="bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 w-16 h-16 rounded-full mx-auto mb-4 opacity-70"></div>
-                    <h4 className="font-semibold mb-2">Transparent</h4>
+                    <h3 className="font-semibold mb-2">Transparent</h3>
                     <p className="text-sm text-muted-foreground">Klar, getönt, transluzent</p>
                   </div>
                   <div>
                     <div className="bg-gradient-to-br from-green-400 to-blue-500 w-16 h-16 rounded-full mx-auto mb-4 animate-pulse"></div>
-                    <h4 className="font-semibold mb-2">Spezial-Effekte</h4>
+                    <h3 className="font-semibold mb-2">Spezial-Effekte</h3>
                     <p className="text-sm text-muted-foreground">Glow-in-Dark, Color-Change</p>
                   </div>
                 </div>
